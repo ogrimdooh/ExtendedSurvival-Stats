@@ -100,6 +100,28 @@ namespace ExtendedSurvival
             }
         }
 
+        private bool HasIce(Guid observerId)
+        {
+            return HasItem(observerId, ItensConstants.ICE_ID);
+        }
+
+        private bool HasItem(Guid observerId, UniqueEntityId id)
+        {
+            if (ExtendedSurvivalCoreAPI.Registered)
+                return ExtendedSurvivalCoreAPI.HasItemInObserver(observerId, id.DefinitionId);
+            return false;
+        }
+
+        private bool HasAnyFertilizer(Guid observerId)
+        {
+            foreach (var item in FarmConstants.FERTILIZERS)
+            {
+                if (HasItem(observerId, item))
+                    return true;
+            }
+            return false;
+        }
+
         public override void LoadData()
         {
             TextAPI = new HudAPIv2();
@@ -107,6 +129,31 @@ namespace ExtendedSurvival
 
             if (IsServer)
             {
+                if (ExtendedSurvivalCoreAPI.Registered)
+                {
+                    ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
+                        LivestockConstants.CREATURE_HEALTH, 
+                        LivestockConstants.FEED_TIME_CICLE, 
+                        LivestockConstants.BASE_HUNGRY_FACTOR, 
+                        (Guid observerId) => 
+                        {
+                            return true;
+                        }
+                    );
+                    ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
+                        LivestockConstants.TREE_HEALTH,
+                        FarmConstants.BASE_TIME_TO_PRODUCE,
+                        FarmConstants.BASE_TREE_DECAY_FACTOR,
+                        (Guid observerId) =>
+                        {
+                            return !HasIce(observerId) || !HasAnyFertilizer(observerId);
+                        }
+                    );
+                    foreach (var itemKey in ItensConstants.ITEM_EXTRA_INFO_DEF.Keys)
+                    {
+                        ExtendedSurvivalCoreAPI.AddItemExtraInfo(ItensConstants.ITEM_EXTRA_INFO_DEF[itemKey]);
+                    }
+                }
 
                 ExtendedSurvivalSettings.Load();
                 ExtendedSurvivalStorage.Load();
