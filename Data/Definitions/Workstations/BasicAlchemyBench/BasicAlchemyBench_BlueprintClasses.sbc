@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <BlueprintClasses>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicAlchemyBench_Medical_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Medical</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Medical.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Medical.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\MedicalFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicAlchemyBench_Concentrate_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Concentrate</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Funnel.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Funnel.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\FunnelFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+  </BlueprintClasses>
+  
+  <BlueprintClassEntries>
+    
+    <Entry Class="BasicAlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="BoneFertilizer_Construction" />
+    <Entry Class="BasicAlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="SpoiledMaterialFertilizer_Construction" />
+    <Entry Class="BasicAlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="PoopFertilizer_Construction" />
+
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="TomatoToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AppleToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienEggToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="EggToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ShrimpMeatToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="FishMeatToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienMeatToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MeatToConcentrated_Construction" />
+
+    <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="AloeVeraExtract_Construction" />
+    <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="MintExtract_Construction" />
+    <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Chamomile_Construction" />
+    <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Lidocaine_Construction" />
+
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Medicine_Construction" />
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleMedicine_Construction" />
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Bandages_Construction" />
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="PowerBandages_Construction" />
+
+  </BlueprintClassEntries>
+</Definitions>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <BlueprintClasses>
+    
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>SurvivalKit_Survival_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Cooking</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Cooking.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Cooking.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\CookingFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>    
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>SurvivalKit_Medical_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Medical</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Medical.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Medical.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\MedicalFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    
+  </BlueprintClasses>
+  <BlueprintClassEntries>
+    
+    <Entry Class="SurvivalKit_Alchemy_Blueprints" BlueprintSubtypeId="SmallAloeVeraExtract_Construction" />
+
+    <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="RoastedMeat_Construction" />
+    <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="RoastedAlienMeat_Construction" />
+    <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="CerealBar_Construction" />
+
+    <Entry Class="SurvivalKit_Medical_Blueprints" BlueprintSubtypeId="Bandages_Construction" />
+    
+  </BlueprintClassEntries>
+</Definitions>

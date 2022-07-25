@@ -1,0 +1,1102 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Meat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>NobleMeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="NobleMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0075" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienMeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>NobleMeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienNobleMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0075" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FishMeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="FishMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>NobleFishMeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0075" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ShrimpMeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ShrimpMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.00125" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>EggToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Egg" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.00125" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienEggToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienEgg" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.00125" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BaconToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Bacon" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0075" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ChickenMeatToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ChickenMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.025" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.01" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MilkToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Protein</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Milk" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.00125" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedFat" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AppleToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Vitamin</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_vitamin.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Apple" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedVitamin" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>TomatoToConcentrated_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Vitamin</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_vitamin.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Tomato" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.005" TypeId="Ore" SubtypeId="ConcentratedVitamin" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FatPorridge_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Fat Porridge</DisplayName>
+      <Icon>Textures\GUI\Icons\fat_porridge.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Small" />
+        <Item Amount="0.4" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="FatPorridge" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Small" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>VitaminPills_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Vitamin Pills</DisplayName>
+      <Icon>Textures\GUI\Icons\vitamin_pills.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="0.4" TypeId="Ore" SubtypeId="ConcentratedVitamin" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Polietilenoglicol" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="VitaminPills" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Small" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ProteinBar_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Protein Bar</DisplayName>
+      <Icon>Textures\GUI\Icons\protein_bar.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="0.4" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.5" TypeId="Ore" SubtypeId="Cereal" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ProteinBar" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+      
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CoffeeToSack_Deconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Coffee Sack</DisplayName>
+      <Icon>Textures\GUI\Icons\coffee_sack.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Coffee" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.05" TypeId="Ingot" SubtypeId="Coffee" />
+      </Results>
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>WheatToSack_Deconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Wheat Sack</DisplayName>
+      <Icon>Textures\GUI\Icons\wheat_sack.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Wheat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.15" TypeId="Ingot" SubtypeId="Wheat" />
+      </Results>
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BoneToMeal_Deconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Bone Meal</DisplayName>
+      <Icon>Textures\GUI\Icons\bone_meal.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Bones" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.65" TypeId="Ingot" SubtypeId="Bones" />
+      </Results>
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Dough_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Dough</DisplayName>
+      <Icon>Textures\GUI\Icons\dough.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Milk" />
+        <Item Amount="2" TypeId="Ingot" SubtypeId="Wheat" />
+        <Item Amount="4" TypeId="ConsumableItem" SubtypeId="Egg" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="3" TypeId="ConsumableItem" SubtypeId="Dough" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienDough_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Dough</DisplayName>
+      <Icon>Textures\GUI\Icons\dough.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Milk" />
+        <Item Amount="2" TypeId="Ingot" SubtypeId="Wheat" />
+        <Item Amount="4" TypeId="ConsumableItem" SubtypeId="AlienEgg" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="3" TypeId="ConsumableItem" SubtypeId="Dough" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CakeDough_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Cake Dough</DisplayName>
+      <Icon>Textures\GUI\Icons\cake_dough.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Milk" />
+        <Item Amount="0.75" TypeId="Ingot" SubtypeId="Wheat" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="Egg" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="CakeDough" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienCakeDough_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Cake Dough</DisplayName>
+      <Icon>Textures\GUI\Icons\cake_dough.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Milk" />
+        <Item Amount="0.75" TypeId="Ingot" SubtypeId="Wheat" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="AlienEgg" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="CakeDough" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ApplePie_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Apple Pie</DisplayName>
+      <Icon>Textures\GUI\Icons\apple_pie.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="CakeDough" />
+        <Item Amount="10" TypeId="ConsumableItem" SubtypeId="Apple" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ApplePie" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ChickenPie_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Chicken Pie</DisplayName>
+      <Icon>Textures\GUI\Icons\chicken_pie.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="CakeDough" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ChickenMeat" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Bacon" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="ChickenPie" />
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawCarrotBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Carrot Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetable_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Carrot" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawBeetrootBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Beetroot Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetable_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Beetroot" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawBroccoliBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Broccoli Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetable_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Broccoli" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="4" TypeId="ConsumableItem" SubtypeId="Meat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawMeatBowl" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawAlienMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Alien Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="4" TypeId="ConsumableItem" SubtypeId="AlienMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawMeatBowl" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawNobleMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Noble Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\noble_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="NobleMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawNobleMeatBowl" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawAlienNobleMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Alien Noble Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\noble_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="AlienNobleMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawNobleMeatBowl" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawSausage_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Sausage</DisplayName>
+      <Icon>Textures\GUI\Icons\sausages.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawMeatBowl" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawSausage" />
+      </Results>
+      <BaseProductionTimeInSeconds>5</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastChampignonMushrooms_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Mushrooms (Champignon)</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_mushroom.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="10" TypeId="ConsumableItem" SubtypeId="Champignons" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastMushrooms" />
+      <BaseProductionTimeInSeconds>2.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastShiitakeMushrooms_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Mushrooms (Shiitake)</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_mushroom.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="10" TypeId="ConsumableItem" SubtypeId="Shiitake" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastMushrooms" />
+      <BaseProductionTimeInSeconds>2.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FriedEgg_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Fried Egg</DisplayName>
+      <Icon>Textures\GUI\Icons\fried_egg.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Egg" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="FriedEgg" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FriedAlienEgg_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Fried Egg</DisplayName>
+      <Icon>Textures\GUI\Icons\fried_egg.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienEgg" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="FriedEgg" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedSausage_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Sausage</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_sausage.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawSausage" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedSausage" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedBacon_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Bacon</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_bacon.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Bacon" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedBacon" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedChicken_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Chicken</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_chicken.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ChickenMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedChicken" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedMeat_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Meat</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\roast_meat.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Meat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedMeat" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedAlienMeat_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Alien Meat</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\roast_meat.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedMeat" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CerealBar_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Cereal Bar</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\cereal_bar.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.75" TypeId="Ore" SubtypeId="Cereal" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="CerealBar" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>WaterBread_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Water Bread</DisplayName>
+      <Icon>Textures\GUI\Icons\water_bread.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Wheat" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="WaterBread" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Bread_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Bread</DisplayName>
+      <Icon>Textures\GUI\Icons\bread.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Dough" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Bread" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Pasta_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Pasta</DisplayName>
+      <Icon>Textures\GUI\Icons\pasta.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Dough" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="Pasta" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>VegetablePasta_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Vegetable Pasta</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetable_pasta.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Pasta" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Tomato" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="VegetablePasta" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MeatPasta_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Meat Pasta</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_pasta.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Pasta" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawMeatBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Tomato" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MeatPasta" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Cheese_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Cheese</DisplayName>
+      <Icon>Textures\GUI\Icons\cheese.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Milk" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Cheese" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Salad_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Salad</DisplayName>
+      <Icon>Textures\GUI\Icons\salad.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="Tomato" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="SaladBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>VegetableSoupBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Vegetable Soup</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetable_soup.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="VegetableSoupBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>StewBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Stew</DisplayName>
+      <Icon>Textures\GUI\Icons\stew.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawMeatBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="StewBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MeatVegetablesBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Meat With Vegetables</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_vegetables.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="NobleMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MeatVegetablesBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienMeatVegetablesBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Meat With Vegetables</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_vegetables.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienNobleMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MeatVegetablesBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MeatloafBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Meatloaf</DisplayName>
+      <Icon>Textures\GUI\Icons\meatloaf.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawMeatBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawNobleMeatBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MeatloafBowl" />
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MeatSoupBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Meat Soup</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_soup.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawNobleMeatBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MeatSoupBowl" />
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MushroomPate_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mushroom Pate</DisplayName>
+      <Icon>Textures\GUI\Icons\mushroom_pate.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Shiitake" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Champignons" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Small" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MushroomPateBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Small" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MeatMushroom_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Meat With Mushrooms</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_mushrooms.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Shiitake" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Champignons" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="NobleMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MeatMushroom" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienMeatMushroom_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Alien Meat With Mushrooms</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_mushrooms.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Shiitake" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Champignons" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienNobleMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MeatMushroom" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Sandwich_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Sandwich</DisplayName>
+      <Icon>Textures\GUI\Icons\sandwich.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="Tomato" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Bread" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Cheese" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedSausage" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="Sandwich" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

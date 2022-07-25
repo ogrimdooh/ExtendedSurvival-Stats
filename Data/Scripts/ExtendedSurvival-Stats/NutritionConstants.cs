@@ -1079,7 +1079,7 @@ namespace ExtendedSurvival
                     if (!FOOD_INGREDIENTS.ContainsKey(food))
                     {
                         var preparation = FOOD_PREPARATIONS[food];
-                        var recipeDef = ExtendedSurvivalSession.TryGetBlueprintDefinition(preparation.RecipeName);
+                        var recipeDef = DefinitionUtils.TryGetBlueprintDefinition(preparation.RecipeName);
                         if (recipeDef != null)
                         {
                             if (recipeDef.Results.Any(x => x.Id == food.DefinitionId))
@@ -1136,7 +1136,7 @@ namespace ExtendedSurvival
                     var foodDef = FOOD_INGREDIENTS[food];
                     if (foodDef.Consumable)
                     {
-                        var consumableDef = ExtendedSurvivalSession.TryGetDefinition<MyConsumableItemDefinition>(food.subtypeId.String);
+                        var consumableDef = DefinitionUtils.TryGetDefinition<MyConsumableItemDefinition>(food.subtypeId.String);
                         if (consumableDef != null)
                         {
                             if (consumableDef.Stats == null)

@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MagnesiumFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mineral Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Magnesium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="MineralFertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>PotassiumFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mineral Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Potassium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="MineralFertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Fertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mineral Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Sulfor" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="MineralFertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BoneFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Organic Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
+        <Item Amount="7.5" TypeId="Ingot" SubtypeId="Bones" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Fertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>PoopFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Organic Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
+        <Item Amount="7.5" TypeId="Ore" SubtypeId="Poop" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Fertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>SpoiledMaterialFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Organic Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
+        <Item Amount="7.5" TypeId="Ore" SubtypeId="Organic" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Fertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>SuperFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Super Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_super.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.5" TypeId="Ore" SubtypeId="Fertilizer" />
+        <Item Amount="0.5" TypeId="Ore" SubtypeId="MineralFertilizer" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="SuperFertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AppleTree_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Wood Logs</DisplayName>
+      <Icon>Textures\GUI\Icons\wood.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="GasContainerObject" SubtypeId="AppleTree" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="80" TypeId="Ore" SubtypeId="Wood" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>TreeDead_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Wood Logs</DisplayName>
+      <Icon>Textures\GUI\Icons\wood.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="TreeDead" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="60" TypeId="Ore" SubtypeId="Wood" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

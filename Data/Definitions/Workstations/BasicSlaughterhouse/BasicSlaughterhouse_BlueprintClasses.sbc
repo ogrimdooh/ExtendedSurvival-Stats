@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlueprintClasses>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicSlaughterhouse_Killing_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Slaughter</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Cleaver.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Cleaver.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\CleaverFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicSlaughterhouse_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Meat Cut</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Meat.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Meat.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\MeatFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+  </BlueprintClasses>
+  <BlueprintClassEntries>
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="SheepMale_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="SheepFemale_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="SheepBaby_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="WolfMale_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="WolfFemale_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="WolfBaby_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="ChickenMale_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="ChickenFemale_Killing" />
+    <Entry Class="BasicSlaughterhouse_Killing_Blueprints" BlueprintSubtypeId="ChickenBaby_Killing" />
+
+    <Entry Class="BasicSlaughterhouse_Blueprints" BlueprintSubtypeId="SheepDead_Desconstruction" />
+    <Entry Class="BasicSlaughterhouse_Blueprints" BlueprintSubtypeId="SheepBabyDead_Desconstruction" />
+    <Entry Class="BasicSlaughterhouse_Blueprints" BlueprintSubtypeId="WolfDead_Desconstruction" />
+    <Entry Class="BasicSlaughterhouse_Blueprints" BlueprintSubtypeId="WolfBabyDead_Desconstruction" />
+    <Entry Class="BasicSlaughterhouse_Blueprints" BlueprintSubtypeId="ChickenDead_Desconstruction" />
+    <Entry Class="BasicSlaughterhouse_Blueprints" BlueprintSubtypeId="ChickenBabyDead_Desconstruction" />
+  </BlueprintClassEntries>
+</Definitions>

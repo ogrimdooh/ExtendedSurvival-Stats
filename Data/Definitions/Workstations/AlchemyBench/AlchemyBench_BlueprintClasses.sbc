@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <BlueprintClasses>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>AlchemyBench_Medical_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Medical</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Medical.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Medical.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\MedicalFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>AlchemyBench_Concentrate_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Concentrate</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Funnel.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Funnel.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\FunnelFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+  </BlueprintClasses>
+  
+  <BlueprintClassEntries>
+    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="SuperFertilizer_Construction" />
+    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="Fertilizer_Construction" />
+    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="PotassiumFertilizer_Construction" />
+    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="MagnesiumFertilizer_Construction" />
+    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="BoneFertilizer_Construction" />
+    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="SpoiledMaterialFertilizer_Construction" />
+    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="PoopFertilizer_Construction" />
+
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="TomatoToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AppleToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ChickenMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MilkToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="BaconToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienEggToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="EggToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ShrimpMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleFishMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="FishMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MeatToConcentrated_Construction" />
+
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Amatoxina_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="ArnicaExtract_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="MintExtract_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Chamomile_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="AloeVeraExtract_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="SmallAloeVeraExtract_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Lidocaine_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Propofol_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="VegetalOil_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="MineralOil_Construction" />
+
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="HealthInjection_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="HealthPowerInjection_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Medicine_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleMedicine_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Bandages_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="PowerBandages_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="HealthBuster_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Medkit_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="VitaminPills_Construction" />
+  </BlueprintClassEntries>
+</Definitions>

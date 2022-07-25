@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CategoryClasses>
+    
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>ES Workstations</DisplayName>
+      <Name>ExtendedSurvivalWorkstations</Name>
+      <ItemIds>
+        <string>Assembler/BasicAlchemyBench</string>
+        <string>Assembler/AlchemyBench</string>
+        <string>Assembler/AlchemyBenchIndustrial</string>
+        <string>Assembler/BasicFoodProcessor</string>
+        <string>Assembler/FoodProcessor</string>
+        <string>Assembler/FoodProcessorIndustrial</string>
+        <string>Assembler/BasicArmory</string>
+        <string>Assembler/Armory</string>
+        <string>Assembler/ArmoryIndustrial</string>
+        <string>Assembler/BasicGrinder</string>
+        <string>Assembler/Grinder</string>
+        <string>Assembler/GrinderIndustrial</string>
+        <string>OxygenGenerator/WaterSolidificator</string>
+        <string>OxygenFarm/LargeBlockFarm</string>
+        <string>OxygenFarm/LargeBlockTreeFarm</string>        
+        <string>OxygenGenerator/SmallBlockRefrigerator</string>
+        <string>OxygenGenerator/LargeBlockRefrigerator</string>
+        <string>OxygenGenerator/LargeBlockComposter</string>
+        <string>OxygenGenerator/FishTrap</string>
+        <string>Assembler/DroidFactory</string>
+        <string>Assembler/BasicSlaughterhouse</string>
+        <string>Assembler/Slaughterhouse</string>
+        <string>Assembler/SlaughterhouseIndustrial</string>
+      </ItemIds>
+    </Category>
+    
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>ES Power Sources</DisplayName>
+      <Name>ExtendedSurvivalPowerSources</Name>
+      <ItemIds>
+        <string>Assembler/BasicBatteryCharger</string>
+        <string>Assembler/BatteryCharger</string>
+        <string>Assembler/BatteryChargerIndustrial</string>
+        <string>CargoContainer/ThermalOutput</string>
+        <string>CargoContainer/ThermalSource</string>
+        <string>HydrogenEngine/ThermalEngine</string>
+        <string>Reactor/LargeSteamEngine</string>
+        <string>Reactor/LargeVegetalOilEngine</string>
+        <string>Reactor/SmallVegetalOilEngine</string>
+        <string>Reactor/LargeMineralOilEngine</string>
+        <string>Reactor/SmallMineralOilEngine</string>
+      </ItemIds>
+    </Category>
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>ES Tools Computers</DisplayName>
+      <Name>ExtendedSurvivalToolsComputers</Name>
+      <ItemIds>
+        <string>TerminalBlock/DisassemblyComputer</string>
+        <string>TerminalBlock/SmallDisassemblyComputer</string>
+        <string>TerminalBlock/AdvancedDisassemblyComputer</string>
+        <string>TerminalBlock/SmallAdvancedDisassemblyComputer</string>
+      </ItemIds>
+    </Category>
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>ES Upgrade Modules</DisplayName>
+      <Name>ExtendedSurvivalUpgradeModules</Name>
+      <ItemIds>
+        <string>UpgradeModule/LargeProductivityModule</string>
+        <string>UpgradeModule/LargeEffectivenessModule</string>
+        <string>UpgradeModule/LargeEnergyModule</string>
+        <string>UpgradeModule/LargeEnhancedProductivityModule</string>
+        <string>UpgradeModule/LargeEnhancedEffectivenessModule</string>
+        <string>UpgradeModule/LargeEnhancedEnergyModule</string>
+        <string>UpgradeModule/LargeEliteProductivityModule</string>
+        <string>UpgradeModule/LargeEliteEffectivenessModule</string>
+        <string>UpgradeModule/LargeEliteEnergyModule</string>
+        <string>UpgradeModule/TurbinePowerOutputModule</string>
+        <string>UpgradeModule/EnhancedTurbinePowerOutputModule</string>
+        <string>UpgradeModule/EliteTurbinePowerOutputModule</string>
+      </ItemIds>
+    </Category>
+
+  </CategoryClasses>
+</Definitions>

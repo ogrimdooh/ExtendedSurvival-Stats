@@ -17,6 +17,8 @@ namespace ExtendedSurvival
 
         }
 
+        public const string ANIMAL_CATEGORY = "ANIMALS";
+
         public const string PIG_ID = "Pig_Bot";
         public const string CHICKEN_ID = "Chicken_Bot";
 

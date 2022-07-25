@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FishBonesToMeal_Deconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Bone Meal</DisplayName>
+      <Icon>Textures\GUI\Icons\bone_meal.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ore" SubtypeId="FishBones" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.65" TypeId="Ingot" SubtypeId="Bones" />
+      </Results>
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawFishMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Fish Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="4" TypeId="ConsumableItem" SubtypeId="FishMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawFishMeatBowl" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawFishMeatBowl_Construction2</SubtypeId>
+      </Id>
+      <DisplayName>Raw Fish Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawFishMeatBowl" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ShrimpMeat_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Shrimp Meat</DisplayName>
+      <Icon>Textures\GUI\Icons\shrimp_meat.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Shrimp" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="ShrimpMeat" />
+      <BaseProductionTimeInSeconds>0.64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FishMeat_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Fish Meat</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_meat.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Fish" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="3" TypeId="ConsumableItem" SubtypeId="FishMeat" />
+        <Item Amount="0.3" TypeId="Ore" SubtypeId="FishBones" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienFishMeat_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Alien Fish Meat</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_meat.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="AlienFish" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="3" TypeId="ConsumableItem" SubtypeId="FishMeat" />
+        <Item Amount="0.3" TypeId="Ore" SubtypeId="FishBones" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>NobleFishMeat_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Noble Fish Meat</DisplayName>
+      <Icon>Textures\GUI\Icons\big_fish_meat.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="NobleFish" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="3" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+        <Item Amount="0.6" TypeId="Ore" SubtypeId="FishBones" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AlienNobleFishMeat_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Alien Noble Fish Meat</DisplayName>
+      <Icon>Textures\GUI\Icons\big_fish_meat.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="AlienNobleFish" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="3" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+        <Item Amount="0.6" TypeId="Ore" SubtypeId="FishBones" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedShrimp_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Shrimp</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_shrimp.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ShrimpMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedShrimp" />
+      <BaseProductionTimeInSeconds>0.32</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedFish_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Fish</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_fish.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="FishMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedFish" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedNobleFish_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Noble Fish</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_big_fish.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedNobleFish" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FishMushroom_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Fish With Mushrooms</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_with_mushroom.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Shiitake" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Champignons" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="FishMushroom" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FishSoupBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Fish Soup</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_soup.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawFishMeatBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="FishSoupBowl" />
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ShrimpSoupBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Shrimp Soup</DisplayName>
+      <Icon>Textures\GUI\Icons\shrimp_soup.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="8" TypeId="ConsumableItem" SubtypeId="ShrimpMeat" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ShrimpSoupBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

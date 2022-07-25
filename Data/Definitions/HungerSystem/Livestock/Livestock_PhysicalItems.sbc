@@ -1,0 +1,1182 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>VegetablesRation</SubtypeId>
+      </Id>
+      <DisplayName>Vegetables Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetables_ration.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>6</Mass>
+      <Volume>3</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>150</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>MeatRation</SubtypeId>
+      </Id>
+      <DisplayName>Meat Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\meat_ration.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>6</Mass>
+      <Volume>3</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>150</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>GrainsRation</SubtypeId>
+      </Id>
+      <DisplayName>Grains Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\grains_ration.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>6</Mass>
+      <Volume>3</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>150</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>Poop</SubtypeId>
+      </Id>
+      <DisplayName>Poop</DisplayName>
+      <Icon>Textures\GUI\Icons\poop.dds</Icon>
+      <Size>
+        <X>0.07</X>
+        <Y>0.07</Y>
+        <Z>0.07</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>0.4</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <IconSymbol>Poop</IconSymbol>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>CowDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Cow</DisplayName>
+      <Icon>Textures\GUI\Icons\cow_dead.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>CowBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\cow_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>CowMale</SubtypeId>
+      </Id>
+      <DisplayName>Ox</DisplayName>
+      <Icon>Textures\GUI\Icons\cow_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>CowFemale</SubtypeId>
+      </Id>
+      <DisplayName>Cow</DisplayName>
+      <Icon>Textures\GUI\Icons\cow_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>CowBaby</SubtypeId>
+      </Id>
+      <DisplayName>Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\cow_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>DeerDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Deer</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\deer_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>DeerBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Deer Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\deer_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>DeerMale</SubtypeId>
+      </Id>
+      <DisplayName>Male Deer</DisplayName>
+      <Icon>Textures\GUI\Icons\deer_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>DeerFemale</SubtypeId>
+      </Id>
+      <DisplayName>Female Deer</DisplayName>
+      <Icon>Textures\GUI\Icons\deer_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>DeerBaby</SubtypeId>
+      </Id>
+      <DisplayName>Deer Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\deer_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>HorseDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Horse</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\horse_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>HorseBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Horse Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\horse_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>HorseMale</SubtypeId>
+      </Id>
+      <DisplayName>Male Horse</DisplayName>
+      <Icon>Textures\GUI\Icons\horse_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>HorseFemale</SubtypeId>
+      </Id>
+      <DisplayName>Female Horse</DisplayName>
+      <Icon>Textures\GUI\Icons\horse_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>HorseBaby</SubtypeId>
+      </Id>
+      <DisplayName>Horse Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\horse_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>SheepDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Sheep</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\sheep_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>SheepBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Sheep Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\sheep_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>125</Mass>
+      <Volume>125</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>SheepMale</SubtypeId>
+      </Id>
+      <DisplayName>Male Sheep</DisplayName>
+      <Icon>Textures\GUI\Icons\sheep_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>SheepFemale</SubtypeId>
+      </Id>
+      <DisplayName>Female Sheep</DisplayName>
+      <Icon>Textures\GUI\Icons\sheep_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>SheepBaby</SubtypeId>
+      </Id>
+      <DisplayName>Sheep Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\sheep_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>125</Mass>
+      <Volume>125</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>SpiderDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Spider</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\spider_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>SpiderBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Spider Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\spider_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>SpiderMale</SubtypeId>
+      </Id>
+      <DisplayName>Male Spider</DisplayName>
+      <Icon>Textures\GUI\Icons\spider_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>SpiderFemale</SubtypeId>
+      </Id>
+      <DisplayName>Female Spider</DisplayName>
+      <Icon>Textures\GUI\Icons\spider_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>SpiderBaby</SubtypeId>
+      </Id>
+      <DisplayName>Spider Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\spider_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>WolfDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Wolf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\wolf_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>WolfBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Wolf Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\wolf_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>125</Mass>
+      <Volume>125</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>WolfMale</SubtypeId>
+      </Id>
+      <DisplayName>Male Wolf</DisplayName>
+      <Icon>Textures\GUI\Icons\wolf_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>WolfFemale</SubtypeId>
+      </Id>
+      <DisplayName>Female Wolf</DisplayName>
+      <Icon>Textures\GUI\Icons\wolf_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>WolfBaby</SubtypeId>
+      </Id>
+      <DisplayName>Wolf Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\wolf_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>125</Mass>
+      <Volume>125</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>PigDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Pig</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\pig_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>PigBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Pig Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\pig_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>125</Mass>
+      <Volume>125</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>PigMale</SubtypeId>
+      </Id>
+      <DisplayName>Male Pig</DisplayName>
+      <Icon>Textures\GUI\Icons\pig_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>PigFemale</SubtypeId>
+      </Id>
+      <DisplayName>Female Pig</DisplayName>
+      <Icon>Textures\GUI\Icons\pig_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>250</Mass>
+      <Volume>250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>PigBaby</SubtypeId>
+      </Id>
+      <DisplayName>Pig Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\pig_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>125</Mass>
+      <Volume>125</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>ChickenDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Chicken</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\chicken_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>10</Mass>
+      <Volume>10</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>ChickenBabyDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Chicken Calf</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\chicken_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>ChickenMale</SubtypeId>
+      </Id>
+      <DisplayName>Male Chicken</DisplayName>
+      <Icon>Textures\GUI\Icons\chicken_male.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>10</Mass>
+      <Volume>10</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>ChickenFemale</SubtypeId>
+      </Id>
+      <DisplayName>Female Chicken</DisplayName>
+      <Icon>Textures\GUI\Icons\chicken_female.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>10</Mass>
+      <Volume>10</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>ChickenBaby</SubtypeId>
+      </Id>
+      <DisplayName>Chicken Calf</DisplayName>
+      <Icon>Textures\GUI\Icons\chicken_baby.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>CreatureHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+  </PhysicalItems>
+</Definitions>

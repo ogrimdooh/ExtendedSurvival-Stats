@@ -89,14 +89,13 @@ namespace ExtendedSurvival
             }
         }
 
-        private GridEntity _grid;
-        protected GridEntity Grid
+        protected IMyCubeGrid Grid
         {
             get
             {
-                if (_grid == null || _grid.Entity.EntityId != CurrentEntity.CubeGrid.EntityId)
-                    _grid = ExtendedSurvivalEntityManager.Instance.GetGridByUuid(CurrentEntity.CubeGrid.EntityId);
-                return _grid;
+                if (CurrentEntity != null)
+                    return CurrentEntity.CubeGrid;
+                return null;
             }
         }
 
@@ -106,7 +105,7 @@ namespace ExtendedSurvival
             get
             {
                 if (_blockDefinition == null)
-                    _blockDefinition = ExtendedSurvivalSession.TryGetDefinition<MyCubeBlockDefinition>(CurrentEntity.BlockDefinition);
+                    _blockDefinition = DefinitionUtils.TryGetDefinition<MyCubeBlockDefinition>(CurrentEntity.BlockDefinition);
                 return _blockDefinition;
             }
         }
@@ -201,7 +200,7 @@ namespace ExtendedSurvival
             cmd.data = Encoding.Unicode.GetBytes(extraDataToSend);
             string messageToSend = MyAPIGateway.Utilities.SerializeToXML<Command>(cmd);
             MyAPIGateway.Multiplayer.SendMessageToOthers(
-                ExtendedSurvivalSession.NETWORK_ID_ENTITYCALLS,
+                ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS,
                 Encoding.Unicode.GetBytes(messageToSend)
             );
         }

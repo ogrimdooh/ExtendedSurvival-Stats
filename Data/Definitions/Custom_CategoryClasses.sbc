@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CategoryClasses>
+    
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>DisplayName_Category_Consumables</DisplayName>
+      <Name>Consumables</Name>
+      <SearchBlocks>false</SearchBlocks>
+      <IsToolCategory>true</IsToolCategory>
+      <ItemIds>
+        <string>ConsumableItem/CosmicCoffee</string>
+        <string>ConsumableItem/ClangCola</string>
+        <string>ConsumableItem/AppleJuice</string>
+        <string>ConsumableItem/Milk</string>
+        <string>ConsumableItem/Water_Flask_Small</string>
+        <string>ConsumableItem/Water_Flask_Medium</string>
+        <string>ConsumableItem/Water_Flask_Big</string>
+
+        <string>ConsumableItem/Bandages</string>
+        <string>ConsumableItem/SimpleMedicine</string>
+        <string>ConsumableItem/Medicine</string>
+        <string>ConsumableItem/PowerBandages</string>
+        <string>ConsumableItem/HealthBuster</string>
+        <string>ConsumableItem/HealthInjection</string>
+        <string>ConsumableItem/HealthPowerInjection</string>
+        <string>ConsumableItem/Medkit</string>
+        
+        <string>ConsumableItem/Powerkit</string>
+        
+        <string>ConsumableItem/Broccoli</string>
+        <string>ConsumableItem/Beetroot</string>
+        <string>ConsumableItem/Carrot</string>
+        <string>ConsumableItem/Champignons</string>
+        <string>ConsumableItem/Shiitake</string>
+        <string>ConsumableItem/AmanitaMuscaria</string>
+        <string>ConsumableItem/Apple</string>
+        <string>ConsumableItem/Tomato</string>
+        <string>ConsumableItem/CerealBar</string>
+        <string>ConsumableItem/RawVegetableBowl</string>
+        <string>ConsumableItem/RoastMushrooms</string>
+        <string>ConsumableItem/Bread</string>
+        <string>ConsumableItem/Meat</string>
+        <string>ConsumableItem/NobleMeat</string>
+        <string>ConsumableItem/AlienMeat</string>
+        <string>ConsumableItem/AlienNobleMeat</string>
+        <string>ConsumableItem/AlienEgg</string>
+        <string>ConsumableItem/Egg</string>
+        <string>ConsumableItem/RawSausage</string>
+        <string>ConsumableItem/RawMeatBowl</string>
+        <string>ConsumableItem/RawNobleMeatBowl</string>
+        <string>ConsumableItem/RoastedMeat</string>
+        <string>ConsumableItem/RoastedSausage</string>
+        <string>ConsumableItem/FriedEgg</string>
+        <string>ConsumableItem/SaladBowl</string>
+        <string>ConsumableItem/VegetableSoupBowl</string>
+        <string>ConsumableItem/StewBowl</string>
+        <string>ConsumableItem/MeatVegetablesBowl</string>
+        <string>ConsumableItem/MeatloafBowl</string>
+        <string>ConsumableItem/MeatSoupBowl</string>
+        <string>ConsumableItem/MushroomPateBowl</string>
+        <string>ConsumableItem/MeatMushroom</string>
+        <string>ConsumableItem/Sandwich</string>
+        <string>ConsumableItem/ShrimpMeat</string>
+        <string>ConsumableItem/FishMeat</string>
+        <string>ConsumableItem/NobleFishMeat</string>
+        <string>ConsumableItem/RawFishMeatBowl</string>
+        <string>ConsumableItem/RoastedShrimp</string>
+        <string>ConsumableItem/RoastedFish</string>
+        <string>ConsumableItem/RoastedNobleFish</string>
+        <string>ConsumableItem/FishMushroom</string>
+        <string>ConsumableItem/FishSoupBowl</string>
+        <string>ConsumableItem/ShrimpSoupBowl</string>
+      </ItemIds>
+    </Category>
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Character Weapons</DisplayName>
+      <Name>CharacterWeapons</Name>
+      <SearchBlocks>false</SearchBlocks>
+      <IsToolCategory>true</IsToolCategory>
+      <ItemIds>
+        <string>SemiAutoPistolItem</string>
+        <string>FullAutoPistolItem</string>
+        <string>ElitePistolItem</string>
+        <string>AutomaticRifleItem</string>
+        <string>RapidFireAutomaticRifleItem</string>
+        <string>PreciseAutomaticRifleItem</string>
+        <string>UltimateAutomaticRifleItem</string>
+        <string>BasicHandHeldLauncherItem</string>
+        <string>AdvancedHandHeldLauncherItem</string>
+        <string>LidocainPistolItem</string>
+        <string>PropofolPistolItem</string>
+      </ItemIds>
+    </Category>
+    
+  </CategoryClasses>
+</Definitions>

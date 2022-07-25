@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlockVariantGroups>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="SlaughterhouseGroup" />
+      <DisplayName>Slaughterhouse Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\Blastfurnace.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BasicSlaughterhouse" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="Slaughterhouse" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="SlaughterhouseIndustrial" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="FoodProcessorGroup" />
+      <DisplayName>Food Processor Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BasicFoodProcessor" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="FoodProcessor" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="FoodProcessorIndustrial" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="AlchemyBenchGroup" />
+      <DisplayName>Alchemy Bench Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BasicAlchemyBench" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="AlchemyBench" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="AlchemyBenchIndustrial" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ArmoryGroup" />
+      <DisplayName>Armory Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BasicArmory" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="Armory" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="ArmoryIndustrial" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="GrinderGroup" />
+      <DisplayName>Grinder Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BasicGrinder" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="Grinder" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="GrinderIndustrial" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="BatteryChargerGroup" />
+      <DisplayName>Battery Charger Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BasicBatteryCharger" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BatteryCharger" />
+        <Block Type="MyObjectBuilder_Assembler" Subtype="BatteryChargerIndustrial" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="CageGroup" />
+      <DisplayName>Cage Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\container_large.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_CargoContainer" Subtype="LargeBlockSmallCage" />
+        <Block Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockSmallCage" />
+        <Block Type="MyObjectBuilder_CargoContainer" Subtype="LargeBlockLargeCage" />        
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="DisassemblyComputersGroup" />
+      <DisplayName>Disassembly Computers</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\ProgrammingBlock.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_TerminalBlock" Subtype="DisassemblyComputer" />
+        <Block Type="MyObjectBuilder_TerminalBlock" Subtype="SmallDisassemblyComputer" />
+        <Block Type="MyObjectBuilder_TerminalBlock" Subtype="AdvancedDisassemblyComputer" />
+        <Block Type="MyObjectBuilder_TerminalBlock" Subtype="SmallAdvancedDisassemblyComputer" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="EnginesBlocksGroup" />
+      <DisplayName>Engines Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\HydrogenEngineLarge.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_Reactor" Subtype="LargeSteamEngine" />
+        <Block Type="MyObjectBuilder_HydrogenEngine" Subtype="LargeHydrogenEngine" />
+        <Block Type="MyObjectBuilder_HydrogenEngine" Subtype="SmallHydrogenEngine" />
+        <Block Type="MyObjectBuilder_Reactor" Subtype="LargeVegetalOilEngine" />
+        <Block Type="MyObjectBuilder_Reactor" Subtype="SmallVegetalOilEngine" />
+        <Block Type="MyObjectBuilder_Reactor" Subtype="LargeMineralOilEngine" />
+        <Block Type="MyObjectBuilder_Reactor" Subtype="SmallMineralOilEngine" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ThermalBlocksGroup" />
+      <DisplayName>Thermal Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\collector.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_CargoContainer" Subtype="ThermalSource" />
+        <Block Type="MyObjectBuilder_CargoContainer" Subtype="ThermalOutput" />
+        <Block Type="MyObjectBuilder_HydrogenEngine" Subtype="ThermalEngine" />
+      </Blocks>
+    </BlockVariantGroup>
+
+    <BlockVariantGroup>
+      <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="FarmBlocksGroup" />
+      <DisplayName>Farm Blocks</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\SolarHydroponics.dds</Icon>
+      <Description></Description>
+      <Blocks>
+        <Block Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockFarm" />
+        <Block Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockTreeFarm" />
+      </Blocks>
+    </BlockVariantGroup>
+
+  </BlockVariantGroups>
+</Definitions>

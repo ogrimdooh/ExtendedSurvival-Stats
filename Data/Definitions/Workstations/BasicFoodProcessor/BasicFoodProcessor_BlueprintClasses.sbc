@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlueprintClasses>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicFoodProcessor_Refine_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Refine Basic Ingredients</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Cleaver.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Cleaver.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\CleaverFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicFoodProcessor_MeatRecipes_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Meat Cooking</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Meat.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Meat.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\MeatFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicFoodProcessor_VegetableRecipes_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Vegetable Cooking</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Vegetable.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Vegetable.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\VegetableFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicFoodProcessor_Recipes_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Cooking</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Cooking.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Cooking.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\CookingFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicFoodProcessor_DrinkRecipes_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Basic Drinks</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Mug.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Mug.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\MugFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+  </BlueprintClasses>
+  <BlueprintClassEntries>
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawCarrotBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawBeetrootBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawBroccoliBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawMeatBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawAlienMeatBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="FishMeat_Desconstruction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienFishMeat_Desconstruction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="NobleFishMeat_Desconstruction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienNobleFishMeat_Desconstruction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawFishMeatBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="MeatRation_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="FishMeatRation_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="VegetablesRation_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="Dough_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienDough_Construction" />
+    <Entry Class="BasicFoodProcessor_Refine_Blueprints" BlueprintSubtypeId="GrainsRation_Construction" />
+
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedMeat_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedAlienMeat_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="StewBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="FriedEgg_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="FriedAlienEgg_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedFish_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedNobleFish_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedShrimp_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedBacon_Construction" />
+    <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedChicken_Construction" />
+
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="CerealBar_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="VegetableSoupBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Salad_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="MushroomPate_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Bread_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="WaterBread_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="RoastShiitakeMushrooms_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="RoastChampignonMushrooms_Construction" />
+
+    <Entry Class="BasicFoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienMeatVegetablesBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="MeatVegetablesBowl_Construction" />
+    <Entry Class="BasicFoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienMeatMushroom_Construction" />
+    <Entry Class="BasicFoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="MeatMushroom_Construction" />
+    <Entry Class="BasicFoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="FishMushroom_Construction" />
+
+  </BlueprintClassEntries>
+</Definitions>

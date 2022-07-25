@@ -3,6 +3,7 @@ using VRage.Game.Components;
 using VRage.Game;
 using VRage.Utils;
 using Sandbox.ModAPI;
+using VRage.Game.ModAPI;
 
 namespace ExtendedSurvival
 {
@@ -37,6 +38,8 @@ namespace ExtendedSurvival
         protected static int RunCount { get; private set; } = 0;
 
         public bool IsClosing { get; private set; } = false;
+
+        private IMyHudNotification hudMsg;
 
         protected abstract void DoInit(MyObjectBuilder_SessionComponent sessionComponent);
 
@@ -91,6 +94,18 @@ namespace ExtendedSurvival
             {
                 ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
             }
+        }
+
+        public void ShowMessage(string text, string font = MyFontEnum.Red, int timeToLive = 2000)
+        {
+            if (hudMsg == null)
+                hudMsg = MyAPIGateway.Utilities.CreateNotification(string.Empty);
+
+            hudMsg.Hide();
+            hudMsg.Font = font;
+            hudMsg.AliveTime = timeToLive;
+            hudMsg.Text = text;
+            hudMsg.Show();
         }
 
     }
