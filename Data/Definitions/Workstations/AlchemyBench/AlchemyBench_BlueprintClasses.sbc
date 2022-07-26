@@ -30,8 +30,6 @@
   
   <BlueprintClassEntries>
     <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="SuperFertilizer_Construction" />
-    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="Fertilizer_Construction" />
-    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="PotassiumFertilizer_Construction" />
     <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="MagnesiumFertilizer_Construction" />
     <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="BoneFertilizer_Construction" />
     <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="SpoiledMaterialFertilizer_Construction" />

@@ -86,18 +86,14 @@
       <Model>Models\Cubes\Small\OxygenGenerator.mwm</Model>
       <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
       <Components>
-        <Component Subtype="IronPlate" Count="6" />
-        <Component Subtype="IronScrew" Count="30" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="Construction" Count="8" />
         <Component Subtype="LargeTube" Count="2" />
-        <Component Subtype="SmallTube" Count="12" />
         <Component Subtype="Motor" Count="1" />
-        <Component Subtype="Computer" Count="5" />
-        <Component Subtype="CopperWire" Count="15" />
-        <Component Subtype="PowerConnector" Count="1" />
-        <Component Subtype="IronScrew" Count="10" />
-        <Component Subtype="IronPlate" Count="2" />
+        <Component Subtype="Computer" Count="3" />
+        <Component Subtype="SteelPlate" Count="2" />
       </Components>
-      <CriticalComponent Subtype="PowerConnector" Index="0" />
+      <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="3" EndY="3" />
         <MountPoint Side="Right" StartX="1" StartY="0" EndX="2" EndY="3" />

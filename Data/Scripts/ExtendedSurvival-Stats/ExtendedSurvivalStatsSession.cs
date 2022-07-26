@@ -896,7 +896,6 @@ namespace ExtendedSurvival
             return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
             {
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), ItensConstants.BANDAGES_ID, 0.1f),
-                DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), ItensConstants.APPLE_SEEDS_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), ItensConstants.CARROT_SEEDS_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), ItensConstants.MINT_SEEDS_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), ItensConstants.ARNICA_SEEDS_ID, 0.1f),

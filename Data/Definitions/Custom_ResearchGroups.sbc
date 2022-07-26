@@ -1,7 +1,23 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ResearchGroups>
-    
+
+    <ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12011" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockRefrigerator" />
+        <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallBlockRefrigerator" />
+      </Members>
+    </ResearchGroup>
+
+    <ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12007" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_CargoContainer" Subtype="LargeBlockSmallCage" />
+        <BlockId Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockSmallCage" />
+      </Members>
+    </ResearchGroup>
+
     <ResearchGroup xsi:type="ResearchGroup">
       <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12004" />
       <Members>

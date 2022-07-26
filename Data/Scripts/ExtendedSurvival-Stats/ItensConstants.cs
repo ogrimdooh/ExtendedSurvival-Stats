@@ -12,6 +12,7 @@ namespace ExtendedSurvival
     public static class ItensConstants
     {
 
+        public const string ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS = "AlchemyBench_MortarAndPaste_Blueprints";
         public const string ALCHEMYBENCH_CONCENTRATE_BLUEPRINTS = "AlchemyBench_Concentrate_Blueprints";
         public const string ALCHEMYBENCH_MEDICAL_BLUEPRINTS = "AlchemyBench_Medical_Blueprints";
 
@@ -323,9 +324,6 @@ namespace ExtendedSurvival
 
         public const string SUPERFERTILIZER_SUBTYPEID = "SuperFertilizer";
         public static readonly UniqueEntityId SUPERFERTILIZER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SUPERFERTILIZER_SUBTYPEID);
-
-        public const string APPLE_SEEDS_SUBTYPEID = "AppleSeeds";
-        public static readonly UniqueEntityId APPLE_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), APPLE_SEEDS_SUBTYPEID);
 
         public const string ARNICA_SEEDS_SUBTYPEID = "ArnicaSeeds";
         public static readonly UniqueEntityId ARNICA_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ARNICA_SEEDS_SUBTYPEID);

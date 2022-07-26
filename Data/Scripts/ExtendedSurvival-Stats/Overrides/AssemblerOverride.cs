@@ -22,6 +22,9 @@ namespace ExtendedSurvival
         public const string AlchemyBench = "AlchemyBench";
         public const string AlchemyBenchIndustrial = "AlchemyBenchIndustrial";
 
+        public const string Fertilizer_Construction = "Fertilizer_Construction";
+        public const string PotassiumFertilizer_Construction = "PotassiumFertilizer_Construction";
+
         protected override ulong[] GetModId()
         {
             return new ulong[] { };
@@ -78,6 +81,19 @@ namespace ExtendedSurvival
                 survivalKitDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_SURVIVAL_BLUEPRINTS));
                 survivalKitDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_MEDICAL_BLUEPRINTS));
                 survivalKitDefinition.LoadPostProcess();
+            }
+        }
+
+        protected override void OnAfterSetDefinitions()
+        {
+            base.OnAfterSetDefinitions();
+            if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Sulfor") != null)
+            {
+                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS, Fertilizer_Construction);
+            }
+            if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Potassium") != null)
+            {
+                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS, PotassiumFertilizer_Construction);
             }
         }
 

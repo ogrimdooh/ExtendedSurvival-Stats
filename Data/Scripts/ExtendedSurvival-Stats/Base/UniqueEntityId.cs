@@ -14,6 +14,20 @@ namespace ExtendedSurvival
 
         public static readonly UniqueEntityId Empty = new UniqueEntityId();
 
+        private static MyStringHash GetStringHash(string subtypeId)
+        {
+            try
+            {
+                return MyStringHash.Get(subtypeId);
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalLogging.Instance.LogWarning(typeof(UniqueEntityId), $"Try to get subtypeId : {subtypeId}");
+                ExtendedSurvivalLogging.Instance.LogError(typeof(UniqueEntityId), ex);
+                return MyStringHash.GetOrCompute(subtypeId);
+            }
+        }
+
         public static UniqueEntityId Parse(string id)
         {
             UniqueEntityId output;
@@ -64,7 +78,7 @@ namespace ExtendedSurvival
         }
 
         public UniqueEntityId(MyObjectBuilderType typeId, string subtypeId)
-            : base(typeId, MyStringHash.Get(subtypeId))
+            : base(typeId, GetStringHash(subtypeId))
         {
         }
 
