@@ -12,6 +12,10 @@ namespace ExtendedSurvival
     public static class ItensConstants
     {
 
+        public const string ASSEMBLER_BOTTLES_BLUEPRINTS = "Assembler_Bottles_Blueprints";
+
+        public const string BASICASSEMBLER_BOTTLES_BLUEPRINTS = "BasicAssembler_Bottles_Blueprints";
+
         public const string ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS = "AlchemyBench_MortarAndPaste_Blueprints";
         public const string ALCHEMYBENCH_CONCENTRATE_BLUEPRINTS = "AlchemyBench_Concentrate_Blueprints";
         public const string ALCHEMYBENCH_MEDICAL_BLUEPRINTS = "AlchemyBench_Medical_Blueprints";

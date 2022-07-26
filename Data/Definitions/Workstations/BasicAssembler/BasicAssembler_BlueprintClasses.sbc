@@ -4,7 +4,12 @@
   <BlueprintClassEntries>
     
     <Entry Class="BasicAssembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfWood_Construction" />
-    <Entry Class="BasicAssembler_Bottles_Blueprints" BlueprintSubtypeId="AluminumCanister_Construction" />
+
+    <Entry Class="Tools" BlueprintSubtypeId="LidocainPistolVanila" />
+
+    <Entry Class="Consumables" BlueprintSubtypeId="LidocainDart_Construction" />
+    <Entry Class="Consumables" BlueprintSubtypeId="EmptyPistolMagazine_Construction" />
+    <Entry Class="Consumables" BlueprintSubtypeId="LidocainPistolMagazine" />
 
   </BlueprintClassEntries>
   

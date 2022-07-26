@@ -53,6 +53,22 @@
       <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
     </Blueprint>
 
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AluminumCan_Vanila_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Aluminum Can</DisplayName>
+      <Icon>Textures\GUI\Icons\aluminum_can.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="AluminumCan" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
     <!-- End Other Recipients -->
 
     <!-- End Juices Flasks -->

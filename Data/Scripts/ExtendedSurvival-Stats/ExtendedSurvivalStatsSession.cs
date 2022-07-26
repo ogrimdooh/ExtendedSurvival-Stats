@@ -773,43 +773,45 @@ namespace ExtendedSurvival
         public override void LoadData()
         {
             TextAPI = new HudAPIv2();
-            ESCoreAPI = new ExtendedSurvivalCoreAPI();
+            ESCoreAPI = new ExtendedSurvivalCoreAPI(()=> {
+                if (IsServer)
+                {
+                    if (ExtendedSurvivalCoreAPI.Registered)
+                    {
+                        ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
+                            LivestockConstants.CREATURE_HEALTH,
+                            LivestockConstants.FEED_TIME_CICLE,
+                            LivestockConstants.BASE_HUNGRY_FACTOR,
+                            (Guid observerId) =>
+                            {
+                                return true;
+                            }
+                        );
+                        ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
+                            LivestockConstants.TREE_HEALTH,
+                            FarmConstants.BASE_TIME_TO_PRODUCE,
+                            FarmConstants.BASE_TREE_DECAY_FACTOR,
+                            (Guid observerId) =>
+                            {
+                                return !HasIce(observerId) || !HasAnyFertilizer(observerId);
+                            }
+                        );
+                        foreach (var itemKey in ItensConstants.ITEM_EXTRA_INFO_DEF.Keys)
+                        {
+                            ExtendedSurvivalCoreAPI.AddItemExtraInfo(ItensConstants.ITEM_EXTRA_INFO_DEF[itemKey]);
+                        }
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.CEREAL_ID.DefinitionId, 30, 50));
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.APPLE_ID.DefinitionId, 5, 25) { AlowDesert = false });
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.APPLETREESEEDLING_ID.DefinitionId, 1, 50) { AlowDesert = false, IsGas = true });
+                    }
+                }
+            });
 
             if (IsServer)
             {
-                if (ExtendedSurvivalCoreAPI.Registered)
-                {
-                    ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
-                        LivestockConstants.CREATURE_HEALTH, 
-                        LivestockConstants.FEED_TIME_CICLE, 
-                        LivestockConstants.BASE_HUNGRY_FACTOR, 
-                        (Guid observerId) => 
-                        {
-                            return true;
-                        }
-                    );
-                    ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
-                        LivestockConstants.TREE_HEALTH,
-                        FarmConstants.BASE_TIME_TO_PRODUCE,
-                        FarmConstants.BASE_TREE_DECAY_FACTOR,
-                        (Guid observerId) =>
-                        {
-                            return !HasIce(observerId) || !HasAnyFertilizer(observerId);
-                        }
-                    );
-                    foreach (var itemKey in ItensConstants.ITEM_EXTRA_INFO_DEF.Keys)
-                    {
-                        ExtendedSurvivalCoreAPI.AddItemExtraInfo(ItensConstants.ITEM_EXTRA_INFO_DEF[itemKey]);
-                    }
-                    ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.CEREAL_ID.DefinitionId, 30, 50));
-                    ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.APPLE_ID.DefinitionId, 5, 25) { AlowDesert = false });
-                    ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.APPLETREESEEDLING_ID.DefinitionId, 1, 50) { AlowDesert = false, IsGas = true });
-                }
-
                 ExtendedSurvivalSettings.Load();
                 ExtendedSurvivalStorage.Load();
                 CheckDefinitions();
-
             }
 
             base.LoadData();

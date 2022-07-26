@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <BlueprintClassEntries>
+    
+    <Entry Class="BasicArmory_Weapons_Blueprints" BlueprintSubtypeId="LidocainPistol" />
+
+    <Entry Class="BasicArmory_Bullets_Blueprints" BlueprintSubtypeId="LidocainDart_Construction" />
+
+    <Entry Class="BasicArmory_Magazine_Blueprints" BlueprintSubtypeId="LidocainPistolMagazine" />
+
+  </BlueprintClassEntries>
+  
+</Definitions>

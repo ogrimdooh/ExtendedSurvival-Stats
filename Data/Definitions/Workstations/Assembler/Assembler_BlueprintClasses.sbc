@@ -5,8 +5,16 @@
     
     <Entry Class="Assembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfWood_Construction" />
     <Entry Class="Assembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfGlass_Construction" />
-    <Entry Class="Assembler_Bottles_Blueprints" BlueprintSubtypeId="AluminumCan_Construction" />
-    
+
+    <Entry Class="EliteTools" BlueprintSubtypeId="LidocainPistolVanila" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="PropofolPistolVanila" />
+
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="LidocainDart_Construction" />
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="PropofolDart_Construction" />
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="EmptyPistolMagazine_Construction" />
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="LidocainPistolMagazine" />
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="PropofolPistolMagazine" />
+
   </BlueprintClassEntries>
   
 </Definitions>

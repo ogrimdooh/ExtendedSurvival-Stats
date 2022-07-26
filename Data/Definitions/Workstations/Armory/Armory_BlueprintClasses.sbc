@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <BlueprintClassEntries>
+    
+    <Entry Class="Armory_Weapons_Blueprints" BlueprintSubtypeId="LidocainPistol" />
+    <Entry Class="Armory_Weapons_Blueprints" BlueprintSubtypeId="PropofolPistol" />
+    
+    <Entry Class="Armory_Bullets_Blueprints" BlueprintSubtypeId="LidocainDart_Construction" />
+    <Entry Class="Armory_Bullets_Blueprints" BlueprintSubtypeId="PropofolDart_Construction" />
+    
+    <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="LidocainPistolMagazine" />
+    <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="PropofolPistolMagazine" />
+    
+  </BlueprintClassEntries>
+  
+</Definitions>

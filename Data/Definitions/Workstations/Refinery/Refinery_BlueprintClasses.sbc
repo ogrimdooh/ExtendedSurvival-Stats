@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <BlueprintClassEntries>
+
+    <Entry Class="Refinery_CommonMetals" BlueprintSubtypeId="CoffeeToSack_Deconstruction" />
+    <Entry Class="Refinery_CommonMetals" BlueprintSubtypeId="WheatToSack_Deconstruction" />
+    <Entry Class="Refinery_CommonMetals" BlueprintSubtypeId="BoneToMeal_Deconstruction" />
+    <Entry Class="Refinery_CommonMetals" BlueprintSubtypeId="FishBonesToMeal_Deconstruction" />
+
+    <Entry Class="Ingots" BlueprintSubtypeId="CoffeeToSack_Deconstruction" />
+    <Entry Class="Ingots" BlueprintSubtypeId="WheatToSack_Deconstruction" />
+    <Entry Class="Ingots" BlueprintSubtypeId="BoneToMeal_Deconstruction" />
+    <Entry Class="Ingots" BlueprintSubtypeId="FishBonesToMeal_Deconstruction" />
+
+  </BlueprintClassEntries>
+  
+</Definitions>

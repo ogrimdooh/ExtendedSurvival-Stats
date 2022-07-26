@@ -25,6 +25,9 @@ namespace ExtendedSurvival
         public const string Fertilizer_Construction = "Fertilizer_Construction";
         public const string PotassiumFertilizer_Construction = "PotassiumFertilizer_Construction";
 
+        public const string AluminumCan_Vanila_Construction = "AluminumCan_Vanila_Construction";
+        public const string AluminumCan_Construction = "AluminumCan_Vanila_Construction";
+
         protected override ulong[] GetModId()
         {
             return new ulong[] { };
@@ -94,6 +97,16 @@ namespace ExtendedSurvival
             if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Potassium") != null)
             {
                 AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS, PotassiumFertilizer_Construction);
+            }
+            if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Aluminum") != null)
+            {
+                AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction);
+                AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction);
+            }
+            else
+            {
+                AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction);
+                AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction);
             }
         }
 
