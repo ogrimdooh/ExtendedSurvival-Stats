@@ -5,6 +5,7 @@ using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using VRage;
 using VRage.Game;
 using VRage.Game.Components;
@@ -56,7 +57,7 @@ namespace ExtendedSurvival
             get
             {
                 if (inventoryObservers.Any() && ExtendedSurvivalCoreAPI.Registered)
-                    return ExtendedSurvivalCoreAPI.HasItemInObserver(inventoryObservers.FirstOrDefault().Value, ItensConstants.MEATRATION_ID.DefinitionId);
+                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), ItensConstants.MEATRATION_ID.DefinitionId);
                 return false;
             }
         }
@@ -66,7 +67,7 @@ namespace ExtendedSurvival
             get
             {
                 if (inventoryObservers.Any())
-                    return ExtendedSurvivalCoreAPI.HasItemInObserver(inventoryObservers.FirstOrDefault().Value, ItensConstants.VEGETABLERATION_ID.DefinitionId);
+                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), ItensConstants.VEGETABLERATION_ID.DefinitionId);
                 return false;
             }
         }
@@ -76,7 +77,7 @@ namespace ExtendedSurvival
             get
             {
                 if (inventoryObservers.Any())
-                    return ExtendedSurvivalCoreAPI.HasItemInObserver(inventoryObservers.FirstOrDefault().Value, ItensConstants.GRAINSRATION_ID.DefinitionId);
+                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), ItensConstants.GRAINSRATION_ID.DefinitionId);
                 return false;
             }
         }

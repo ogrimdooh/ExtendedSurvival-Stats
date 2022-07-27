@@ -65,11 +65,11 @@ namespace ExtendedSurvival
                         Vector3D fww = obj.WorldMatrix.Forward;
                         Vector3D rtt = obj.WorldMatrix.Right;
                         Vector3D pos = (obj as IMyEntity).GetPosition();
-                        var platAtRange = ExtendedSurvivalCoreAPI.GetPlanetAtRange(pos);
-                        if (platAtRange != null && platAtRange.Entity.HasAtmosphere)
+                        var platAtRange = MyGamePruningStructure.GetClosestPlanet(pos);
+                        if (platAtRange != null && platAtRange.HasAtmosphere)
                         {
                             var pos2 = new Vector3((float)pos.X, (float)pos.Y, (float)pos.Z);
-                            var surfaceRange = platAtRange.Entity.GetClosestSurfacePointGlobal(pos);
+                            var surfaceRange = platAtRange.GetClosestSurfacePointGlobal(pos);
                             if (Vector3.Distance(pos, surfaceRange) < MAX_DISTANCE_TO_GENERATE_LOOT)
                             {
                                 var lootAmmount = new Dictionary<int, double>();

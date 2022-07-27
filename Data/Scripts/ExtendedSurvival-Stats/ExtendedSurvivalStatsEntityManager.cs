@@ -51,9 +51,11 @@ namespace ExtendedSurvival
             try
             {
                 Instance = this;
-                if (MyAPIGateway.Session.IsServer)
+                if (IsServer)
+                {
                     RegisterWatcher();
-                if (!IsServer)
+                }
+                else
                 {
                     ExtendedSurvivalLogging.Instance.LogInfo(GetType(), $"RegisterSecureMessageHandler EntityCallsMsgHandler");
                     MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS, EntityCallsMsgHandler);

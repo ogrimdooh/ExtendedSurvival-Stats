@@ -27,28 +27,43 @@ namespace ExtendedSurvival
             return Guid.Empty;
         }
 
-        protected override void OnInit(MyObjectBuilder_EntityBase objectBuilder)
+        public bool HasObserver()
+        {
+            return inventoryObservers.Any();
+        }
+
+        protected void TryCreateObserver()
         {
             if (MyAPIGateway.Session.IsServer)
             {
-                if (GetInventoryCount() > 0)
+                if (!HasObserver())
                 {
-                    for (int i = 0; i < GetInventoryCount(); i++)
+                    if (GetInventoryCount() > 0)
                     {
-                        var inventory = GetMyInventory(i);
-                        if (inventory != null)
+                        for (int i = 0; i < GetInventoryCount(); i++)
                         {
-                            inventoryObservers.Add(i, CreateNewObserver(i));
+                            var inventory = GetMyInventory(i);
+                            if (inventory != null)
+                            {
+                                var id = CreateNewObserver(i);
+                                if (id != Guid.Empty)
+                                    inventoryObservers.Add(i, id);
+                            }
                         }
                     }
                 }
             }
         }
 
+        protected override void OnInit(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            TryCreateObserver();
+        }
+
         protected override void OnUpdateAfterSimulation100()
         {
             base.OnUpdateAfterSimulation100();
-
+            TryCreateObserver();
         }
 
     }
