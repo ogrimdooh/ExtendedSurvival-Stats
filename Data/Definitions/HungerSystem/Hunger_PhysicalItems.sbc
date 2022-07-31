@@ -726,25 +726,6 @@
       <CanPlayerOrder>true</CanPlayerOrder>
     </PhysicalItem>
 
-    <PhysicalItem>
-      <Id>
-        <TypeId>Ore</TypeId>
-        <SubtypeId>Organic</SubtypeId>
-      </Id>
-      <DisplayName>Spoiled Material</DisplayName>
-      <Icon>Textures\GUI\Icons\spoiled_meat.dds</Icon>
-      <Size>
-        <X>0.07</X>
-        <Y>0.07</Y>
-        <Z>0.07</Z>
-      </Size>
-      <Mass>1</Mass>
-      <Volume>0.4</Volume>
-      <Model>Models\Components\Sphere.mwm</Model>
-      <PhysicalMaterial>Stone</PhysicalMaterial>
-      <IconSymbol>Organic</IconSymbol>
-    </PhysicalItem>
-    
     <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
       <Id>
         <TypeId>ConsumableItem</TypeId>
