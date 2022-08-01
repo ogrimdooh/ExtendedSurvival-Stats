@@ -110,6 +110,41 @@ namespace ExtendedSurvival
             return null;
         }
 
+        public static void ChangeContainerTypeDefinition(string lootname, Vector2I count, UniqueEntityId[] lootsToRemove, params MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] loots)
+        {
+            try
+            {
+                var lootDefinition = MyDefinitionManager.Static.GetContainerTypeDefinition(lootname);
+                if (lootDefinition != null)
+                {
+                    var builder = MyDefinitionManagerBase.GetObjectFactory().CreateObjectBuilder<MyObjectBuilder_ContainerTypeDefinition>(lootDefinition);
+                    var baseBuilder = lootDefinition.GetObjectBuilder();
+                    builder.Id = baseBuilder.Id;
+                    builder.Description = baseBuilder.Description;
+                    builder.DisplayName = baseBuilder.DisplayName;
+                    builder.Icons = baseBuilder.Icons;
+                    builder.Public = baseBuilder.Public;
+                    builder.Enabled = baseBuilder.Enabled;
+                    builder.AvailableInSurvival = baseBuilder.AvailableInSurvival;
+                    builder.CountMin = count.X;
+                    builder.CountMax = count.Y;
+                    var lista = lootDefinition.Items.Where(x => !lootsToRemove.Any(y => y.DefinitionId == x.DefinitionId))
+                        .Select(x => GetLootItem(new Vector2((float)x.AmountMin, (float)x.AmountMax), new UniqueEntityId(x.DefinitionId), x.Frequency))
+                        .ToList();
+                    lista.AddRange(loots);
+                    builder.Items = lista.ToArray();
+                    lootDefinition.Init(builder, lootDefinition.Context);
+                    lootDefinition.DeselectAll();
+                }
+                else
+                    ExtendedSurvivalLogging.Instance.LogWarning(typeof(DefinitionUtils), $"RemoveItensFromContainer: {lootname} Not Found");
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalLogging.Instance.LogError(typeof(DefinitionUtils), ex);
+            }
+        }
+
         public static void ReplaceContainerTypeDefinition(string lootname, Vector2I count, bool replace, params MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] loots)
         {
             try
