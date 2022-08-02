@@ -10,7 +10,7 @@
       <DisplayName>Mineral Fertilizer</DisplayName>
       <Icon>Textures\GUI\Icons\fertilizer_mineral.dds</Icon>
       <Prerequisites>
-        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
         <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
         <Item Amount="2.5" TypeId="Ingot" SubtypeId="Magnesium" />
       </Prerequisites>
@@ -28,7 +28,7 @@
       <DisplayName>Mineral Fertilizer</DisplayName>
       <Icon>Textures\GUI\Icons\fertilizer_mineral.dds</Icon>
       <Prerequisites>
-        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
         <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
         <Item Amount="2.5" TypeId="Ingot" SubtypeId="Potassium" />
       </Prerequisites>
@@ -46,7 +46,7 @@
       <DisplayName>Mineral Fertilizer</DisplayName>
       <Icon>Textures\GUI\Icons\fertilizer_mineral.dds</Icon>
       <Prerequisites>
-        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
         <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
         <Item Amount="5" TypeId="Ingot" SubtypeId="Sulfor" />
       </Prerequisites>
@@ -64,7 +64,7 @@
       <DisplayName>Organic Fertilizer</DisplayName>
       <Icon>Textures\GUI\Icons\fertilizer.dds</Icon>
       <Prerequisites>
-        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
         <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
         <Item Amount="7.5" TypeId="Ingot" SubtypeId="Bones" />
       </Prerequisites>
@@ -82,7 +82,7 @@
       <DisplayName>Organic Fertilizer</DisplayName>
       <Icon>Textures\GUI\Icons\fertilizer.dds</Icon>
       <Prerequisites>
-        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
         <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
         <Item Amount="7.5" TypeId="Ore" SubtypeId="Poop" />
       </Prerequisites>
@@ -100,7 +100,7 @@
       <DisplayName>Organic Fertilizer</DisplayName>
       <Icon>Textures\GUI\Icons\fertilizer.dds</Icon>
       <Prerequisites>
-        <Item Amount="15" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
         <Item Amount="5" TypeId="Ore" SubtypeId="Sawdust" />
         <Item Amount="7.5" TypeId="Ore" SubtypeId="Organic" />
       </Prerequisites>

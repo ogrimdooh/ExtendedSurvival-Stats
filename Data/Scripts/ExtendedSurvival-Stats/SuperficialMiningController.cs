@@ -59,7 +59,7 @@ namespace ExtendedSurvival
                 if (typeId.Contains("Ore"))
                 {
                     var subTypeId = floatingObj.Item.Content.SubtypeId.ToString();
-                    if (subTypeId.CompareTo("Stone") == 0 && ExtendedSurvivalCoreAPI.Registered)
+                    if (subTypeId.CompareTo("Soil") == 0 && ExtendedSurvivalCoreAPI.Registered)
                     {
                         Vector3D upp = obj.WorldMatrix.Up;
                         Vector3D fww = obj.WorldMatrix.Forward;
