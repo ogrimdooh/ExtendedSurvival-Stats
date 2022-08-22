@@ -4,7 +4,7 @@ using VRage.Game;
 using VRage.Game.ModAPI;
 using MyItemType = VRage.Game.ModAPI.Ingame.MyItemType;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class InventoryUtils

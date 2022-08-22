@@ -3,9 +3,9 @@ using System;
 using System.IO;
 using VRage.Utils;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
-    public sealed class ExtendedSurvivalLogging
+    public sealed class ExtendedSurvivalStatsLogging
     {
 
         public enum LogLevel
@@ -19,8 +19,8 @@ namespace ExtendedSurvival
 
         private const string FILE_NAME = "ExtendedSurvival.Stats.Logging.{0}.txt";
 
-        private static ExtendedSurvivalLogging _instance;
-        public static ExtendedSurvivalLogging Instance
+        private static ExtendedSurvivalStatsLogging _instance;
+        public static ExtendedSurvivalStatsLogging Instance
         {
             get
             {
@@ -40,9 +40,9 @@ namespace ExtendedSurvival
 
         private TextWriter _writer;
 
-        public static ExtendedSurvivalLogging Load()
+        public static ExtendedSurvivalStatsLogging Load()
         {
-            _instance = new ExtendedSurvivalLogging();
+            _instance = new ExtendedSurvivalStatsLogging();
             _instance.Load(string.Format(FILE_NAME, GetTimeString().Replace(' ', '_').Replace(':', '-')));
             return _instance;
         }
@@ -54,11 +54,11 @@ namespace ExtendedSurvival
             {
                 if (world)
                 {
-                    _writer = MyAPIGateway.Utilities.WriteFileInWorldStorage(fileName, typeof(ExtendedSurvivalLogging));
+                    _writer = MyAPIGateway.Utilities.WriteFileInWorldStorage(fileName, typeof(ExtendedSurvivalStatsLogging));
                 }
                 else
                 {
-                    _writer = MyAPIGateway.Utilities.WriteFileInLocalStorage(fileName, typeof(ExtendedSurvivalLogging));
+                    _writer = MyAPIGateway.Utilities.WriteFileInLocalStorage(fileName, typeof(ExtendedSurvivalStatsLogging));
                 }
             }
             catch (Exception ex)

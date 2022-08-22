@@ -12,7 +12,7 @@ using VRage.Game.Entity;
 using VRage.Game.ModAPI;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate)]
     public class ExtendedSurvivalStatsEntityManager : BaseSessionComponent
@@ -57,13 +57,13 @@ namespace ExtendedSurvival
                 }
                 else
                 {
-                    ExtendedSurvivalLogging.Instance.LogInfo(GetType(), $"RegisterSecureMessageHandler EntityCallsMsgHandler");
+                    ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), $"RegisterSecureMessageHandler EntityCallsMsgHandler");
                     MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS, EntityCallsMsgHandler);
                 }
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
             base.BeforeStart();
         }
@@ -103,7 +103,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 
@@ -219,7 +219,7 @@ namespace ExtendedSurvival
                 if (character.IsValidPlayer())
                 {
                     UpdatePlayerList();
-                    ExtendedSurvivalLogging.Instance.LogInfo(typeof(ExtendedSurvivalStatsEntityManager), $"MyEntities_OnEntityAddWatcher IMyCharacter PlayerId:{playerId} EntityId:{character.EntityId} DisplayName:{character.DisplayName}");
+                    ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(ExtendedSurvivalStatsEntityManager), $"MyEntities_OnEntityAddWatcher IMyCharacter PlayerId:{playerId} EntityId:{character.EntityId} DisplayName:{character.DisplayName}");
                     if (PlayerCharacters.Any(x => x.Value.PlayerId == playerId))
                     {
                         var playerChar = PlayerCharacters.FirstOrDefault(x => x.Value.PlayerId == playerId).Value;
@@ -234,7 +234,7 @@ namespace ExtendedSurvival
                 {
                     if (!BotCharacters.ContainsKey(character.EntityId))
                     {
-                        ExtendedSurvivalLogging.Instance.LogInfo(typeof(ExtendedSurvivalStatsEntityManager), $"MyEntities_OnEntityAddWatcher IMyCharacter BotId:{playerId} EntityId:{character.EntityId} DisplayName:{character.Name}");
+                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(ExtendedSurvivalStatsEntityManager), $"MyEntities_OnEntityAddWatcher IMyCharacter BotId:{playerId} EntityId:{character.EntityId} DisplayName:{character.Name}");
                         BotCharacters[character.EntityId] = new BotCharacterEntity(character);
                     }
                 }

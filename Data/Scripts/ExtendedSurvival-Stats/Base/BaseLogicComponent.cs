@@ -10,7 +10,7 @@ using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public interface IMySyncDataComponent
@@ -120,7 +120,7 @@ namespace ExtendedSurvival
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
             base.Init(objectBuilder);
-            ExtendedSurvivalLogging.Instance.LogInfo(GetType(), "Init");
+            ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), "Init");
             _Entity = (T)Entity;
             DoInit(objectBuilder);
         }
@@ -134,7 +134,7 @@ namespace ExtendedSurvival
             }
             catch (System.Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 

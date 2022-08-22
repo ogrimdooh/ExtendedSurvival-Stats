@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     public static class UInt128Extension
     {

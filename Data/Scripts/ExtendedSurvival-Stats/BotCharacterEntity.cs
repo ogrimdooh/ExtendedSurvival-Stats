@@ -16,7 +16,7 @@ using VRage.ObjectBuilders;
 using VRage.Utils;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public class BotCharacterEntity : BaseCharacterEntity
@@ -180,8 +180,8 @@ namespace ExtendedSurvival
                 }
                 catch (Exception ex)
                 {
-                    ExtendedSurvivalLogging.Instance.LogWarning(GetType(), $"PassOut [Error]");
-                    ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                    ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"PassOut [Error]");
+                    ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
                 }
             }
         }

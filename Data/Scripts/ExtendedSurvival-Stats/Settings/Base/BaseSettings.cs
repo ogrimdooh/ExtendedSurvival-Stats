@@ -3,7 +3,7 @@ using System;
 using VRage.Utils;
 using System.Xml.Serialization;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public abstract class BaseSettings

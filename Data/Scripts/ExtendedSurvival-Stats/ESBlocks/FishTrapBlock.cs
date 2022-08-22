@@ -12,7 +12,7 @@ using VRage.ModAPI;
 using VRage.ObjectBuilders;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false, "FishTrap")]

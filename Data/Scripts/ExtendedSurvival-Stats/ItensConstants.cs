@@ -6,7 +6,7 @@ using VRage.Game.ObjectBuilders.Definitions;
 using VRage.ObjectBuilders;
 using System;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class ItensConstants

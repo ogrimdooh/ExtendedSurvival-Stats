@@ -1,4 +1,4 @@
-﻿namespace ExtendedSurvival
+﻿namespace ExtendedSurvival.Stats
 {
     public class BotCharacterEntityBase
     {

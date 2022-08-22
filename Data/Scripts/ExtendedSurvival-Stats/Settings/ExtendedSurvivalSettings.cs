@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 using VRage.Utils;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
@@ -157,7 +157,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(typeof(ExtendedSurvivalSettings), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(ExtendedSurvivalSettings), ex);
             }
         }
 

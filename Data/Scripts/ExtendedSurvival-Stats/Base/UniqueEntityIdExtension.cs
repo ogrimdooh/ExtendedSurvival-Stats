@@ -2,7 +2,7 @@
 using System;
 using VRage.Game;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     public static class UniqueEntityIdExtension
     {
@@ -16,7 +16,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(typeof(UniqueEntityIdExtension), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(UniqueEntityIdExtension), ex);
             }
             return null;
         }

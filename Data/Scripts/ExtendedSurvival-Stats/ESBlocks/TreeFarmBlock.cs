@@ -14,7 +14,7 @@ using VRage.Utils;
 using System.Linq;
 using Sandbox.Common.ObjectBuilders.Definitions;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenFarm), false, "LargeBlockTreeFarm")]
     public class TreeFarmBlock : BaseInventoryLogicComponent<IMyOxygenFarm>

@@ -1,6 +1,6 @@
 ﻿using VRage.Game;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class WeatherConstants

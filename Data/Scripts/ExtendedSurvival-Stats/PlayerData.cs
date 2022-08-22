@@ -1,7 +1,7 @@
 ﻿using System;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public class PlayerData

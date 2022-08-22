@@ -1,7 +1,7 @@
 ﻿using Sandbox.Common.ObjectBuilders;
 using VRage.Game.Components;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Assembler), false, "BasicSlaughterhouse", "Slaughterhouse", "SlaughterhouseIndustrial")]

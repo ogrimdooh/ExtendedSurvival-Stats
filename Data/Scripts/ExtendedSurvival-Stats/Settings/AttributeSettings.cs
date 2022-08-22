@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public abstract class AttributeSettings

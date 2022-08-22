@@ -1,7 +1,7 @@
 ﻿using ProtoBuf;
 using System.Xml.Serialization;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
     public class ThirstAttributeSettings : AttributeSettings

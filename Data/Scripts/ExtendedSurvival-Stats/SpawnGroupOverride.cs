@@ -1,7 +1,7 @@
 ﻿using Sandbox.Definitions;
 using System;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     public class SpawnGroupOverride
     {

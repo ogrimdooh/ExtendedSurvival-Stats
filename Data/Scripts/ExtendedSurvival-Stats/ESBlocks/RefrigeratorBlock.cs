@@ -10,7 +10,7 @@ using VRage.Game.Components;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false, "SmallBlockRefrigerator", "LargeBlockRefrigerator")]

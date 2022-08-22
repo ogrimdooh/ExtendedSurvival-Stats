@@ -5,7 +5,7 @@ using VRage.Utils;
 using Sandbox.ModAPI;
 using VRage.Game.ModAPI;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public abstract class BaseSessionComponent : MySessionComponentBase
@@ -67,7 +67,7 @@ namespace ExtendedSurvival
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             base.Init(sessionComponent);
-            ExtendedSurvivalLogging.Instance.LogInfo(GetType(), "Init");
+            ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), "Init");
             DoInit(sessionComponent);
         }
 
@@ -92,7 +92,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     [ProtoContract]
     public abstract class UId<T, K>

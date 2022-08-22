@@ -2,7 +2,7 @@
 using VRage.Game;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class FarmConstants

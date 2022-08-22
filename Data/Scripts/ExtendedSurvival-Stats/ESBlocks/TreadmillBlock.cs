@@ -3,7 +3,7 @@ using Sandbox.Game;
 using Sandbox.ModAPI;
 using VRage.Game.Components;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Cockpit), false, "Eikester_Treadmill_SB", "Eikester_Treadmill")]
     public class TreadmillBlock : SimpleInventoryLogicComponent<IMyCockpit>

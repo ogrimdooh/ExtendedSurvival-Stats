@@ -1,7 +1,7 @@
 ﻿using ProtoBuf;
 using System;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
     [ProtoContract]
     public class UniqueNameId : UId<string, string>, IEquatable<UniqueNameId>

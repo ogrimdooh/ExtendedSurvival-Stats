@@ -4,7 +4,7 @@ using System.Linq;
 using VRage.Utils;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class StatsConstants

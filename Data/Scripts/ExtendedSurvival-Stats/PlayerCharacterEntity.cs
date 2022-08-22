@@ -15,7 +15,7 @@ using Sandbox.Definitions;
 using Sandbox.Common.ObjectBuilders.Definitions;
 using Sandbox.Game.GameSystems;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public delegate void OnAtributeEvent(AtributeInformation atribute);
@@ -1020,7 +1020,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 
@@ -2259,13 +2259,13 @@ namespace ExtendedSurvival
                 }
                 else
                 {
-                    ExtendedSurvivalLogging.Instance.LogWarning(GetType(), "GetData Not Valid Player");
+                    ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), "GetData Not Valid Player");
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
                 return null;
             }
         }

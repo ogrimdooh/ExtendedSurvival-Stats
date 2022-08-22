@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using VRage.Game;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class NutritionConstants
@@ -1112,10 +1112,10 @@ namespace ExtendedSurvival
                                 }
                             }
                             else
-                                ExtendedSurvivalLogging.Instance.LogInfo(typeof(NutritionConstants), $"CalculateRecipesNutrition recipe has not valid result. Recipe=[{preparation.RecipeName}] Result=[{food}]");
+                                ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(NutritionConstants), $"CalculateRecipesNutrition recipe has not valid result. Recipe=[{preparation.RecipeName}] Result=[{food}]");
                         }
                         else
-                            ExtendedSurvivalLogging.Instance.LogInfo(typeof(NutritionConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{preparation.RecipeName}]");
+                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(NutritionConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{preparation.RecipeName}]");
                     }
                 }
                 if (needToCallAgain)
@@ -1123,7 +1123,7 @@ namespace ExtendedSurvival
             }
             catch (System.Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(typeof(NutritionConstants), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(NutritionConstants), ex);
             }
         }
 
@@ -1145,13 +1145,13 @@ namespace ExtendedSurvival
                             FOOD_INGREDIENTS[food].LoadValue(consumableDef.Stats);
                         }
                         else
-                            ExtendedSurvivalLogging.Instance.LogInfo(typeof(NutritionConstants), $"TryOverrideRecipes item not found. Food=[{food}]");
+                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(NutritionConstants), $"TryOverrideRecipes item not found. Food=[{food}]");
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(typeof(NutritionConstants), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(NutritionConstants), ex);
             }
         }
 

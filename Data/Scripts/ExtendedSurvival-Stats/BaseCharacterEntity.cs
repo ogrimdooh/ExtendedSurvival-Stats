@@ -14,7 +14,7 @@ using Sandbox.Game;
 using Sandbox.ModAPI.Weapons;
 using Sandbox.Game.Entities.Character.Components;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public abstract class BaseCharacterEntity : EntityBase<IMyCharacter>
@@ -351,8 +351,8 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogWarning(GetType(), $"ConfigureCharacter [Error]");
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"ConfigureCharacter [Error]");
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 

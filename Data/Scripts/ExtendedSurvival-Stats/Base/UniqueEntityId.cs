@@ -5,7 +5,7 @@ using VRage.Game;
 using VRage.ObjectBuilders;
 using VRage.Utils;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     [ProtoContract]
@@ -22,8 +22,8 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogWarning(typeof(UniqueEntityId), $"Try to get subtypeId : {subtypeId}");
-                ExtendedSurvivalLogging.Instance.LogError(typeof(UniqueEntityId), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(UniqueEntityId), $"Try to get subtypeId : {subtypeId}");
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(UniqueEntityId), ex);
                 return MyStringHash.GetOrCompute(subtypeId);
             }
         }

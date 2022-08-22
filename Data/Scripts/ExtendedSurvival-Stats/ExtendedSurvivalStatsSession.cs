@@ -14,7 +14,7 @@ using VRage.Utils;
 using VRageMath;
 using static VRageRender.MyBillboard;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
@@ -411,14 +411,14 @@ namespace ExtendedSurvival
                     }
                     else
                     {
-                        ExtendedSurvivalLogging.Instance.LogWarning(GetType(), $"ClientUpdateMsgHandler MyAPIGateway.Session.Player || Character is NULL");
+                        ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"ClientUpdateMsgHandler MyAPIGateway.Session.Player || Character is NULL");
                     }
                 }
 
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
 
         }
@@ -651,7 +651,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 
@@ -710,7 +710,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 
@@ -733,7 +733,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 
@@ -825,7 +825,7 @@ namespace ExtendedSurvival
         private bool definitionsChecked = false;
         private void CheckDefinitions()
         {
-            ExtendedSurvivalLogging.Instance.LogInfo(GetType(), $"CheckDefinitions Called");
+            ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), $"CheckDefinitions Called");
             if (!definitionsChecked)
             {
                 definitionsChecked = true;
@@ -960,7 +960,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(typeof(ExtendedSurvivalStatsSession), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(ExtendedSurvivalStatsSession), ex);
             }
         }
 
@@ -997,7 +997,7 @@ namespace ExtendedSurvival
                             }
                             catch (Exception ex)
                             {
-                                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
                                 if (ex.Message.Contains("There was an error generating the XML document"))
                                 {
                                     // To prevent server crash is better to kill this player
@@ -1016,7 +1016,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
 
         }
@@ -1055,7 +1055,7 @@ namespace ExtendedSurvival
             }
             catch (Exception ex)
             {
-                ExtendedSurvivalLogging.Instance.LogError(GetType(), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
         }
 

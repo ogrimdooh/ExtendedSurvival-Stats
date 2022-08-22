@@ -2,7 +2,7 @@
 using System.Linq;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class LivestockConstants

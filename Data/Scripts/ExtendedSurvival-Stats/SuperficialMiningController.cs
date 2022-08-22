@@ -8,7 +8,7 @@ using Sandbox.Game.Entities;
 using VRage.Game.Entity;
 using VRageMath;
 
-namespace ExtendedSurvival
+namespace ExtendedSurvival.Stats
 {
 
     public static class SuperficialMiningController
