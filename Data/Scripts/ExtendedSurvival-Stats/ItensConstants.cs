@@ -873,11 +873,11 @@ namespace ExtendedSurvival.Stats
             SPOILED_MATERIAL_ID
         };
 
-        public static readonly TimeSpan BASE_RAW_MEAT_SPOIL_TIME = new TimeSpan(0, 5, 00);
-        public static readonly TimeSpan BASE_RAW_VEGETABLE_SPOIL_TIME = new TimeSpan(0, 7, 30);
-        public static readonly TimeSpan BASE_MEAT_SPOIL_TIME = new TimeSpan(0, 10, 00);
-        public static readonly TimeSpan BASE_VEGETABLE_SPOIL_TIME = new TimeSpan(0, 15, 00);
-        public static readonly TimeSpan BASE_MEAL_SPOIL_TIME = new TimeSpan(0, 20, 00);
+        public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;
+        public static readonly long BASE_RAW_VEGETABLE_SPOIL_TIME = (long)(7.5f * 60 * 1000);
+        public static readonly long BASE_MEAT_SPOIL_TIME = 10 * 60 * 1000;
+        public static readonly long BASE_VEGETABLE_SPOIL_TIME = 15 * 60 * 1000;
+        public static readonly long BASE_MEAL_SPOIL_TIME = 20 * 60 * 1000;
 
         public static readonly Dictionary<UniqueEntityId, ExtendedSurvivalCoreAPI.ItemExtraInfo> ITEM_EXTRA_INFO_DEF = new Dictionary<UniqueEntityId, ExtendedSurvivalCoreAPI.ItemExtraInfo>()
         {
