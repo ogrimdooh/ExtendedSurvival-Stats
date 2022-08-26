@@ -116,7 +116,7 @@ namespace ExtendedSurvival.Stats
                     MyAPIGateway.Utilities.ShowNotification("HUDAPI MOD MISSING", 5000, "Red");
                 }
 
-                if (mPlayerData != null && TextAPI.Heartbeat)
+                if (mPlayerData != null && TextAPI.Heartbeat && false)
                 {
 
                     if (!isHUDInit)
@@ -894,6 +894,9 @@ namespace ExtendedSurvival.Stats
 
                 // BLOCKS
                 AssemblerOverride.TryOverride();
+
+                //HUD
+                HUDOverride.TryOverride();
 
             }
         }

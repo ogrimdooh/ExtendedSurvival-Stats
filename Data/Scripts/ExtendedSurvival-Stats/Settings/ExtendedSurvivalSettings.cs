@@ -29,12 +29,6 @@ namespace ExtendedSurvival.Stats
         }
 
         [XmlElement]
-        public bool ThirstEnabled { get; set; } = true;
-
-        [XmlElement]
-        public bool HungerEnabled { get; set; } = true;
-
-        [XmlElement]
         public bool StaminaEnabled { get; set; } = true;
 
         [XmlElement]
@@ -114,7 +108,7 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                return HungerEnabled && ThirstEnabled && MetabolismEnabled;
+                return MetabolismEnabled;
             }
         }
 
@@ -176,22 +170,6 @@ namespace ExtendedSurvival.Stats
         {
             switch (name)
             {
-                case "thirstenabled":
-                    bool thirstenabled;
-                    if (bool.TryParse(value, out thirstenabled))
-                    {
-                        ThirstEnabled = thirstenabled;
-                        return true;
-                    }
-                    break;
-                case "hungerenabled":
-                    bool hungerenabled;
-                    if (bool.TryParse(value, out hungerenabled))
-                    {
-                        HungerEnabled = hungerenabled;
-                        return true;
-                    }
-                    break;
                 case "staminaenabled":
                     bool staminaenabled;
                     if (bool.TryParse(value, out staminaenabled))

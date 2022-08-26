@@ -768,47 +768,41 @@ namespace ExtendedSurvival.Stats
 
         private void CheckHungerValues()
         {
-            if (ExtendedSurvivalSettings.Instance.HungerEnabled)
+            var percentValue = Hunger.Value / Hunger.MaxValue;
+            if (percentValue <= 0.05f)
             {
-                var percentValue = Hunger.Value / Hunger.MaxValue;
-                if (percentValue <= 0.05f)
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Hungry;
-                    CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Famished;
-                }
-                else if (percentValue <= 0.2f)
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Famished;
-                    CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Hungry;
-                }
-                else
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Famished;
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Hungry;
-                }
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Hungry;
+                CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Famished;
+            }
+            else if (percentValue <= 0.2f)
+            {
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Famished;
+                CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Hungry;
+            }
+            else
+            {
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Famished;
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Hungry;
             }
         }
 
         private void CheckThirstValues()
         {
-            if (ExtendedSurvivalSettings.Instance.ThirstEnabled)
+            var percentValue = Thirst.Value / Thirst.MaxValue;
+            if (percentValue <= 0.05f)
             {
-                var percentValue = Thirst.Value / Thirst.MaxValue;
-                if (percentValue <= 0.05f)
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Thirsty;
-                    CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Dehydrating;
-                }
-                else if (percentValue <= 0.2f)
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Dehydrating;
-                    CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Thirsty;
-                }
-                else
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Dehydrating;
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Thirsty;
-                }
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Thirsty;
+                CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Dehydrating;
+            }
+            else if (percentValue <= 0.2f)
+            {
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Dehydrating;
+                CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Thirsty;
+            }
+            else
+            {
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Dehydrating;
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Thirsty;
             }
         }
 
@@ -994,27 +988,24 @@ namespace ExtendedSurvival.Stats
         {
             try
             {
-                if (ExtendedSurvivalSettings.Instance.ThirstEnabled || ExtendedSurvivalSettings.Instance.HungerEnabled)
+                if (!MyAPIGateway.Session.CreativeMode && !MyAPIGateway.Session.IsUserInvulnerable(Player?.SteamUserId ?? 0) && Health.Value > 0)
                 {
-                    if (!MyAPIGateway.Session.CreativeMode && !MyAPIGateway.Session.IsUserInvulnerable(Player?.SteamUserId ?? 0) && Health.Value > 0)
+                    if (ExtendedSurvivalSettings.Instance.UseMetabolism)
                     {
-                        if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+                        if (BodyEnergy.Value == 0 || BodyWater.Value == 0)
                         {
-                            if (BodyEnergy.Value == 0 || BodyWater.Value == 0)
-                            {
-                                Entity.Kill();
-                            }
+                            Entity.Kill();
                         }
-                        else
-                        {
-                            float damageMultiplier = 0;
-                            if (Hunger.Value == 0)
-                                damageMultiplier += HungerConstants.BASE_HUNGER_DAMAGE_FACTOR;
-                            if (Thirst.Value == 0)
-                                damageMultiplier += HungerConstants.BASE_THIRST_DAMAGE_FACTOR;
-                            if (damageMultiplier > 0)
-                                Entity.DoDamage(HungerConstants.BASE_DAMAGE_FACTOR * damageMultiplier, MyDamageType.Environment, true);
-                        }
+                    }
+                    else
+                    {
+                        float damageMultiplier = 0;
+                        if (Hunger.Value == 0)
+                            damageMultiplier += HungerConstants.BASE_HUNGER_DAMAGE_FACTOR;
+                        if (Thirst.Value == 0)
+                            damageMultiplier += HungerConstants.BASE_THIRST_DAMAGE_FACTOR;
+                        if (damageMultiplier > 0)
+                            Entity.DoDamage(HungerConstants.BASE_DAMAGE_FACTOR * damageMultiplier, MyDamageType.Environment, true);
                     }
                 }
             }
@@ -1026,43 +1017,37 @@ namespace ExtendedSurvival.Stats
 
         private void ProcessHunger()
         {
-            if (ExtendedSurvivalSettings.Instance.HungerEnabled)
-            {
-                if (Hunger.Value > 0)
-                    Hunger.Decrease(GetValueWithPerformance(GetHungerToDecrease(), true), PlayerId);
-            }
+            if (Hunger.Value > 0)
+                Hunger.Decrease(GetValueWithPerformance(GetHungerToDecrease(), true), PlayerId);
         }
 
         private void ProcessThirst()
         {
-            if (ExtendedSurvivalSettings.Instance.ThirstEnabled)
+            var thirstNegative = true;
+            var thirstValue = GetThirstToDecrease();
+
+            if (Entity.Parent == null && currentEnvironmentType == WeatherConstants.EnvironmentDetector.Atmosphere)
             {
-                var thirstNegative = true;
-                var thirstValue = GetThirstToDecrease();
-
-                if (Entity.Parent == null && currentEnvironmentType == WeatherConstants.EnvironmentDetector.Atmosphere)
+                if (weatherEffect != WeatherConstants.WeatherEffects.None && !Entity.EnabledHelmet)
                 {
-                    if (weatherEffect != WeatherConstants.WeatherEffects.None && !Entity.EnabledHelmet)
-                    {
-                        thirstNegative = false;
-                        thirstValue = GetThirstToIncrise(weatherEffect, weatherLevel, weatherIntensity);
-                    }
+                    thirstNegative = false;
+                    thirstValue = GetThirstToIncrise(weatherEffect, weatherLevel, weatherIntensity);
                 }
+            }
 
-                if (Thirst.Value > 0 && thirstNegative)
-                    Thirst.Decrease(GetValueWithPerformance(thirstValue, true), PlayerId);
+            if (Thirst.Value > 0 && thirstNegative)
+                Thirst.Decrease(GetValueWithPerformance(thirstValue, true), PlayerId);
 
-                if (!thirstNegative)
+            if (!thirstNegative)
+            {
+                thirstValue = GetValueWithPerformance(thirstValue);
+                if (Thirst.Value < Thirst.MaxValue)
                 {
-                    thirstValue = GetValueWithPerformance(thirstValue);
-                    if (Thirst.Value < Thirst.MaxValue)
-                    {
-                        Thirst.Increase(thirstValue, PlayerId);
-                    }
-                    if (ExtendedSurvivalSettings.Instance.UseMetabolism)
-                    {
-                        IntakeBodyWater.Increase(thirstValue, PlayerId);
-                    }
+                    Thirst.Increase(thirstValue, PlayerId);
+                }
+                if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+                {
+                    IntakeBodyWater.Increase(thirstValue, PlayerId);
                 }
             }
         }
@@ -2242,9 +2227,7 @@ namespace ExtendedSurvival.Stats
                         CurrentSurvivalEffects = CurrentSurvivalEffects,
                         CurrentTemperatureEffects = CurrentTemperatureEffects,
                         CurrentEnvironmentType = currentEnvironmentType,
-                        HungerEnabled = ExtendedSurvivalSettings.Instance.HungerEnabled,
                         StaminaEnabled = ExtendedSurvivalSettings.Instance.StaminaEnabled,
-                        ThirstEnabled = ExtendedSurvivalSettings.Instance.ThirstEnabled,
                         BodyTemperatureEnabled = ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled,
                         UseMetabolism = ExtendedSurvivalSettings.Instance.UseMetabolism,
                         UseNutrition = ExtendedSurvivalSettings.Instance.UseNutrition,
