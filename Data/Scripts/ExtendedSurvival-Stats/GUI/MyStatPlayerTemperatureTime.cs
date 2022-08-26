@@ -15,7 +15,7 @@
 
         protected override float GetCurrentValue()
         {
-            return (Stat.Value + Stat.MaxValue) / (Stat.MaxValue * 2);
+            return IsActive() ? (Stat.Value + Stat.MaxValue) / (Stat.MaxValue * 2) : -1;
         }
 
         public override string ToString()
@@ -40,7 +40,7 @@
 
         protected override bool IsActive()
         {
-            return ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled && IsWithHelmet();
+            return ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled && IsWithHelmet() && GetBodyTrackerLevel() >= 1;
         }
 
     }

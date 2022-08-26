@@ -8,11 +8,6 @@ namespace ExtendedSurvival.Stats
     public abstract class MyStatSimpleProgressBase : MyStatBase
     {
 
-        protected bool IsWithHelmet()
-        {
-            return MyAPIGateway.Session.Player?.Character?.EnabledHelmet ?? false;
-        }
-
         protected abstract string GetStatName();
 
         protected virtual bool IsActive()

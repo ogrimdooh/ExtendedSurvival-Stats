@@ -6,8 +6,17 @@
     <Entry Class="Assembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfWood_Construction" />
     <Entry Class="Assembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfGlass_Construction" />
 
+    <Entry Class="Assembler_Tools_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
+    <Entry Class="Assembler_Tools_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_Construction" />
+    <Entry Class="Assembler_Tools_Blueprints" BlueprintSubtypeId="ProficientBodyTracker_Construction" />
+
     <Entry Class="EliteTools" BlueprintSubtypeId="LidocainPistolVanila" />
     <Entry Class="EliteTools" BlueprintSubtypeId="PropofolPistolVanila" />
+
+    <Entry Class="EliteTools" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="ProficientBodyTracker_VanilaConstruction" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="EliteBodyTracker_VanilaConstruction" />
 
     <Entry Class="EliteConsumables" BlueprintSubtypeId="LidocainDart_Construction" />
     <Entry Class="EliteConsumables" BlueprintSubtypeId="PropofolDart_Construction" />

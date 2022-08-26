@@ -15,7 +15,7 @@
 
         protected override bool IsActive()
         {
-            return ExtendedSurvivalSettings.Instance.UseMetabolism && IsWithHelmet();
+            return ExtendedSurvivalSettings.Instance.UseMetabolism && IsWithHelmet() && GetBodyTrackerLevel() >= 2;
         }
 
     }

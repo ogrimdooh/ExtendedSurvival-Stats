@@ -7,6 +7,11 @@
     <Entry Class="AdvancedAssembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfGlass_Construction" />
     <Entry Class="AdvancedAssembler_Bottles_Blueprints" BlueprintSubtypeId="AluminumCan_Construction" />
 
+    <Entry Class="AdvancedAssembler_Tools_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
+    <Entry Class="AdvancedAssembler_Tools_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_Construction" />
+    <Entry Class="AdvancedAssembler_Tools_Blueprints" BlueprintSubtypeId="ProficientBodyTracker_Construction" />
+    <Entry Class="AdvancedAssembler_Tools_Blueprints" BlueprintSubtypeId="EliteBodyTracker_Construction" />
+
   </BlueprintClassEntries>
   
 </Definitions>

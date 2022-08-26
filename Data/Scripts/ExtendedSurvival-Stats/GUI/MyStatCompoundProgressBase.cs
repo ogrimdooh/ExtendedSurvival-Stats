@@ -10,11 +10,6 @@ namespace ExtendedSurvival.Stats
     public abstract class MyStatCompoundProgressBase : MyStatBase
     {
 
-        protected bool IsWithHelmet()
-        {
-            return MyAPIGateway.Session.Player?.Character?.EnabledHelmet ?? false;
-        }
-
         protected abstract int GetTargetIndex();
         protected abstract string[] GetStatsNames();
         protected abstract bool IsActive(int index);

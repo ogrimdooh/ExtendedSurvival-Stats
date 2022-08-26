@@ -38,6 +38,10 @@
     <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="CerealBar_Construction" />
 
     <Entry Class="SurvivalKit_Medical_Blueprints" BlueprintSubtypeId="Bandages_Construction" />
+
+    <Entry Class="BasicTools" BlueprintSubtypeId="BodyTracker_Construction" />
+
+    <Entry Class="SurvivalKit_Tools_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
     
   </BlueprintClassEntries>
 </Definitions>

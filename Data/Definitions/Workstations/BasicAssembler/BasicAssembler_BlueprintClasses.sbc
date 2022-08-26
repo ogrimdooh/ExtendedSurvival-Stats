@@ -5,7 +5,13 @@
     
     <Entry Class="BasicAssembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfWood_Construction" />
 
+    <Entry Class="BasicAssembler_Tools_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
+    <Entry Class="BasicAssembler_Tools_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_Construction" />
+
     <Entry Class="Tools" BlueprintSubtypeId="LidocainPistolVanila" />
+
+    <Entry Class="Tools" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
+    <Entry Class="Tools" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
 
     <Entry Class="Consumables" BlueprintSubtypeId="LidocainDart_Construction" />
     <Entry Class="Consumables" BlueprintSubtypeId="EmptyPistolMagazine_Construction" />
