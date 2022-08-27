@@ -49,8 +49,8 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        [ProtoMember(1), XmlArray("Entities"), XmlArrayItem("Entity", typeof(EntityStorage))]
-        public List<EntityStorage> Entities;
+        [XmlArray("Entities"), XmlArrayItem("Entity", typeof(EntityStorage))]
+        public List<EntityStorage> Entities { get; set; } = new List<EntityStorage>();
 
         public EntityStorage GetEntity(long id)
         {

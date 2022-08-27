@@ -641,7 +641,7 @@ namespace ExtendedSurvival.Stats
             Thirst.OnStatChanged -= Thirst_OnStatChanged;
             Stamina.OnStatChanged -= Stamina_OnStatChanged;
             enterUnderWater = false;
-            storeData = GetData();
+            storeData = GetStoreData();
         }
 
         protected override void OnHealthChanged(float newValue, float oldValue, object statChangeData)
@@ -2185,7 +2185,7 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public PlayerData GetData()
+        public PlayerData GetStoreData()
         {
             try
             {
@@ -2196,12 +2196,6 @@ namespace ExtendedSurvival.Stats
                     var planet = PlanetAtRange;
                     return new PlayerData()
                     {
-                        EntityId = Entity.EntityId,
-                        PlayerId = PlayerId,
-                        SteamPlayerId = Player?.SteamUserId ?? 0,
-                        HasDied = Entity.IsDead,
-                        LastTimeDied = lastTimeDead,
-                        Temperature = currentTemperature,
                         Health = Health.GetValues(),
                         Stamina = Stamina.GetValues(GetMaxStamina() - Stamina.MaxValue),
                         Hunger = Hunger.GetValues(),
@@ -2226,14 +2220,43 @@ namespace ExtendedSurvival.Stats
                         CurrentOtherEffects = CurrentOtherEffects,
                         CurrentSurvivalEffects = CurrentSurvivalEffects,
                         CurrentTemperatureEffects = CurrentTemperatureEffects,
-                        CurrentEnvironmentType = currentEnvironmentType,
+                        CurrentEnvironmentType = currentEnvironmentType
+                    };
+                }
+                else
+                {
+                    ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), "GetData Not Valid Player");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+                return null;
+            }
+        }
+
+        public PlayerSendData GetData()
+        {
+            try
+            {
+                if (!IsValid)
+                    ConfigureCharacter(Entity);
+                if (IsValid)
+                {
+                    var planet = PlanetAtRange;
+                    return new PlayerSendData()
+                    {
+                        EntityId = Entity.EntityId,
+                        PlayerId = PlayerId,
+                        SteamPlayerId = Player?.SteamUserId ?? 0,
+                        HasDied = Entity.IsDead,
+                        LastTimeDied = lastTimeDead,
+                        Temperature = currentTemperature,
                         StaminaEnabled = ExtendedSurvivalSettings.Instance.StaminaEnabled,
                         BodyTemperatureEnabled = ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled,
                         UseMetabolism = ExtendedSurvivalSettings.Instance.UseMetabolism,
                         UseNutrition = ExtendedSurvivalSettings.Instance.UseNutrition,
-                        Depth = Depth,
-                        PlanetAtRange = planet?.SettingId,
-                        PlanetHasWater = planet?.HasWater,
                         NeedToUpdateLocal = MyAPIGateway.Utilities.IsDedicated || !MyAPIGateway.Session.IsServer,
                         O2Level = OxygenComponent.SuitOxygenLevel,
                         CurrentCargoMass = CurrentCargoMass,

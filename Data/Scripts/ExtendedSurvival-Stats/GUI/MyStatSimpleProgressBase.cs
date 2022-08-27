@@ -52,7 +52,7 @@ namespace ExtendedSurvival.Stats
                 CurrentValue = GetCurrentValue();
         }
 
-        public override string ToString() => string.Format("{0:0}", (float)(CurrentValue * Stat.MaxValue));
+        public override string ToString() => string.Format("{0:0}", (float)(CurrentValue * Stat?.MaxValue ?? 0));
 
     }
 

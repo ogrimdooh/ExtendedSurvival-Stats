@@ -1,21 +1,10 @@
-﻿using System;
-using VRageMath;
+﻿using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
 
     public class PlayerData
     {
-
-        public long EntityId { get; set; }
-        public long PlayerId { get; set; }
-        public ulong SteamPlayerId { get; set; }
-        public bool HasDied { get; set; }
-        public float Depth { get; set; }
-        public string PlanetAtRange { get; set; }
-        public bool? PlanetHasWater { get; set; }
-        public DateTime LastTimeDied { get; set; }
-        public Vector2 Temperature { get; set; }
 
         public Vector4 Hunger { get; set; }
         public Vector4 Thirst { get; set; }
@@ -42,19 +31,6 @@ namespace ExtendedSurvival.Stats
         public StatsConstants.TemperatureEffects CurrentTemperatureEffects { get; set; }
         public StatsConstants.OtherEffects CurrentOtherEffects { get; set; }
         public WeatherConstants.EnvironmentDetector CurrentEnvironmentType { get; set; }
-
-        public bool ThirstEnabled { get; set; }
-        public bool HungerEnabled { get; set; }
-        public bool StaminaEnabled { get; set; }
-        public bool BodyTemperatureEnabled { get; set; }
-        public bool UseMetabolism { get; set; }
-        public bool UseNutrition { get; set; }
-
-        public bool NeedToUpdateLocal { get; set; }
-        public float O2Level { get; set; }
-
-        public float CurrentCargoMass { get; set; }
-        public float CurrentCargoVolume { get; set; }
 
     }
 
