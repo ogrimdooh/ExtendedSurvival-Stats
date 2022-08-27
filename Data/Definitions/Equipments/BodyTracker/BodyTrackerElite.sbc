@@ -23,6 +23,7 @@
       <MinimumOfferAmount>5</MinimumOfferAmount>
       <MaximumOfferAmount>50</MaximumOfferAmount>
       <CanPlayerOrder>true</CanPlayerOrder>
+      <MaxStackAmount>1</MaxStackAmount>
     </PhysicalItem>
 
   </PhysicalItems>

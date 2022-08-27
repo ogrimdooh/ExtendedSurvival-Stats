@@ -197,6 +197,269 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public static int GetDiseaseEffectFeelingLevel(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Poison:
+                    return 1;
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
+                case DiseaseEffects.Infected:
+                case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Starvation:
+                case DiseaseEffects.Dehydration:
+                case DiseaseEffects.Obesity:
+                case DiseaseEffects.Rickets:
+                case DiseaseEffects.Hypolipidemia:
+                    return 2;
+                case DiseaseEffects.SevereDehydration:
+                case DiseaseEffects.SevereStarvation:
+                case DiseaseEffects.SevereObesity:
+                case DiseaseEffects.SevereRickets:
+                    return 3;
+            }
+            return 0;
+        }
+
+        public static int GetDiseaseEffectTrackLevel(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Poison:
+                    return 0;
+                case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Infected:
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
+                    return 1;
+                case DiseaseEffects.Starvation:
+                case DiseaseEffects.SevereStarvation:
+                case DiseaseEffects.Dehydration:
+                case DiseaseEffects.SevereDehydration:
+                    return 2;
+                case DiseaseEffects.Obesity:
+                case DiseaseEffects.SevereObesity:
+                case DiseaseEffects.Rickets:
+                case DiseaseEffects.SevereRickets:
+                case DiseaseEffects.Hypolipidemia:
+                    return 3;
+            }
+            return 0;
+        }
+
+        public static string GetDiseaseEffectDescription(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Pneumonia:
+                    return "Pneumonia";
+                case DiseaseEffects.Dysentery:
+                    return "Dysentery";
+                case DiseaseEffects.Poison:
+                    return "Poison";
+                case DiseaseEffects.Infected:
+                    return "Infected";
+                case DiseaseEffects.Hypothermia:
+                    return "Hypothermia";
+                case DiseaseEffects.Hyperthermia:
+                    return "Hyperthermia";
+                case DiseaseEffects.Starvation:
+                    return "Starvation";
+                case DiseaseEffects.SevereStarvation:
+                    return "Severe Starvation";
+                case DiseaseEffects.Dehydration:
+                    return "Dehydration";
+                case DiseaseEffects.SevereDehydration:
+                    return "Severe Dehydration";
+                case DiseaseEffects.Obesity:
+                    return "Obesity";
+                case DiseaseEffects.SevereObesity:
+                    return "Severe Obesity";
+                case DiseaseEffects.Rickets:
+                    return "Rickets";
+                case DiseaseEffects.SevereRickets:
+                    return "Severe Rickets";
+                case DiseaseEffects.Hypolipidemia:
+                    return "Hypolipidemia";
+            }
+            return "";
+        }
+
+        public static string GetOtherEffectDescription(OtherEffects effect)
+        {
+            return "";
+        }
+
+        public static int GetOtherEffectTrackLevel(OtherEffects effect)
+        {
+            return 0;
+        }
+
+        public static int GetOtherEffectFeelingLevel(OtherEffects effect)
+        {
+            return 0;
+        }
+
+        public static string GetTemperatureEffectDescription(TemperatureEffects effect)
+        {
+            switch (effect)
+            {
+                case TemperatureEffects.Overheating:
+                    return "Overheating";
+                case TemperatureEffects.OnFire:
+                    return "On Fire";
+                case TemperatureEffects.Cold:
+                    return "Cold";
+                case TemperatureEffects.Frosty:
+                    return "Frosty";
+                case TemperatureEffects.Wet:
+                    return "Wet";
+            }
+            return "";
+        }
+
+        public static int GetTemperatureEffectTrackLevel(TemperatureEffects effect)
+        {
+            switch (effect)
+            {
+                case TemperatureEffects.Overheating:
+                case TemperatureEffects.OnFire:
+                case TemperatureEffects.Cold:
+                case TemperatureEffects.Frosty:
+                    return 1;
+                case TemperatureEffects.Wet:
+                    return 0;
+            }
+            return 0;
+        }
+
+        public static int GetTemperatureEffectFeelingLevel(TemperatureEffects effect)
+        {
+            switch (effect)
+            {
+                case TemperatureEffects.Overheating:
+                case TemperatureEffects.Cold:
+                case TemperatureEffects.Wet:
+                    return 1;
+                case TemperatureEffects.OnFire:
+                case TemperatureEffects.Frosty:
+                    return 2;
+            }
+            return 0;
+        }
+
+        public static string GetDamageEffectDescription(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                    return "Contusion";
+                case DamageEffects.Wounded:
+                    return "Wounded";
+                case DamageEffects.DeepWounded:
+                    return "Deep Wounded";
+                case DamageEffects.BrokenBones:
+                    return "Broken Bones";
+            }
+            return "";
+        }
+
+        public static int GetDamageEffectTrackLevel(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                case DamageEffects.Wounded:
+                case DamageEffects.DeepWounded:
+                case DamageEffects.BrokenBones:
+                    return 2;
+            }
+            return 0;
+        }
+
+        public static int GetDamageEffectFeelingLevel(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                    return 1;
+                case DamageEffects.Wounded:
+                    return 2;
+                case DamageEffects.DeepWounded:
+                    return 3;
+                case DamageEffects.BrokenBones:
+                    return 4;
+            }
+            return 0;
+        }
+
+        public static string GetSurvivalEffectDescription(SurvivalEffects effect)
+        {
+            switch (effect)
+            {
+                case SurvivalEffects.Hungry:
+                    return "Hungry";
+                case SurvivalEffects.Famished:
+                    return "Famished";
+                case SurvivalEffects.Thirsty:
+                    return "Thirsty";
+                case SurvivalEffects.Dehydrating:
+                    return "Dehydrating";
+                case SurvivalEffects.Disoriented:
+                    return "Disoriented";
+                case SurvivalEffects.Suffocation:
+                    return "Suffocation";
+            }
+            return "";
+        }
+
+        public static int GetSurvivalEffectTrackLevel(SurvivalEffects effect)
+        {
+            switch (effect)
+            {
+                case SurvivalEffects.Hungry:
+                case SurvivalEffects.Famished:
+                case SurvivalEffects.Thirsty:
+                case SurvivalEffects.Dehydrating:
+                case SurvivalEffects.Disoriented:
+                case SurvivalEffects.Suffocation:
+                    return 0;
+            }
+            return 0;
+        }
+
+        public static int GetSurvivalEffectFeelingLevel(SurvivalEffects effect)
+        {
+            switch (effect)
+            {
+                case SurvivalEffects.Hungry:
+                case SurvivalEffects.Thirsty:
+                case SurvivalEffects.Disoriented:
+                    return 1;
+                case SurvivalEffects.Famished:
+                case SurvivalEffects.Dehydrating:
+                case SurvivalEffects.Suffocation:
+                    return 2;
+            }
+            return 0;
+        }
+
+        public static string GetFeelingByTotalEffects(int ammount)
+        {
+            if (ammount == 0)
+                return "I am feeling good and healthy.";
+            if (ammount <= 3)
+                return "I'm not feeling very well.";
+            if (ammount <= 6)
+                return "There's something wrong with me.";
+            if (ammount <= 9)
+                return "I need to do something before it's too late.";
+            return "I need to find help, I think I'm dying.";
+        }
+
         public static readonly Dictionary<SurvivalEffects, MyStringId> SurvivalEffectsIcons = new Dictionary<SurvivalEffects, MyStringId>()
         {
             { SurvivalEffects.Hungry, MyStringId.GetOrCompute("Hungry_White") },

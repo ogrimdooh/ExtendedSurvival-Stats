@@ -2475,8 +2475,68 @@
       </StatControl>
 
 
-
-
+      <!-- player_effects -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_effects</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.085</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_effects</StatId>
+            <OffsetPx>
+              <X>0</X>
+              <Y>0</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>16</X>
+              <Y>16</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_effects</StatId>
+              <Value>1.0</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0.75</Y>
+                <Z>0.75</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.7</Scale>
+            <TextAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</TextAlign>
+          </StatStyle>
+        </StatStyles>
+      </StatControl>
+      
     </StatControls>
   </Definition>
 </Definitions>
