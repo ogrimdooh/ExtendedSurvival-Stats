@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>RoastedBacon</SubtypeId>
+      </Id>
+      <DisplayName>Roast Bacon</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_bacon.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>0.8</Mass>
+      <Volume>0.4</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value="0.015" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>500</MinimalPricePerUnit>
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RoastedBacon_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Roast Bacon</DisplayName>
+      <Icon>Textures\GUI\Icons\roast_bacon.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Bacon" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedBacon" />
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

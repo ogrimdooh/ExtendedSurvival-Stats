@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>FishMushroom</SubtypeId>
+      </Id>
+      <DisplayName>Fish With Mushrooms</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_with_mushroom.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>0.8</Mass>
+      <Volume>0.2</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value="0.03" Time="5"/>
+        <Stat Name="Hunger" Value="0.085" Time="5"/>
+        <Stat Name="Thirst" Value="0.01" Time="5"/>
+        <Stat Name="IntakeBodyFood" Value="0.0425" Time="5"/>
+        <Stat Name="IntakeBodyWater" Value="0.005" Time="5"/>
+        <Stat Name="IntakeCarbohydrates" Value="0.025" Time="5"/>
+        <Stat Name="IntakeProtein" Value="0.0115" Time="5"/>
+        <Stat Name="IntakeLipids" Value="0.004" Time="5"/>
+        <Stat Name="IntakeVitamins" Value="0.005" Time="5"/>
+        <Stat Name="IntakeMinerals" Value="0.004" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>500</MinimalPricePerUnit>
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FishMushroom_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Fish With Mushrooms</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_with_mushroom.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Shiitake" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Champignons" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="FishMushroom" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>Lidocaine</SubtypeId>
+      </Id>
+      <DisplayName>Lidocaine</DisplayName>
+      <Icon>Textures\GUI\Icons\lidocaine.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>3</Mass>
+      <Volume>1</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>150</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Lidocaine_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Lidocaine</DisplayName>
+      <Icon>Textures\GUI\Icons\lidocaine.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+        <Item Amount="25" TypeId="Ore" SubtypeId="Erythroxylum" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Lidocaine" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

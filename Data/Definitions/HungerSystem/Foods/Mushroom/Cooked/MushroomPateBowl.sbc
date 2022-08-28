@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>MushroomPateBowl</SubtypeId>
+      </Id>
+      <DisplayName>Mushroom Pate</DisplayName>
+      <Icon>Textures\GUI\Icons\mushroom_pate.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>0.75</Mass>
+      <Volume>0.25</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value="0.02" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>500</MinimalPricePerUnit>
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MushroomPate_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mushroom Pate</DisplayName>
+      <Icon>Textures\GUI\Icons\mushroom_pate.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Shiitake" />
+        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Champignons" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Small" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="MushroomPateBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Small" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

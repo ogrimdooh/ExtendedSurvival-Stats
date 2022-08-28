@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>ChickenDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Chicken</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\chicken_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>10</Mass>
+      <Volume>10</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ChickenDead_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Dead Chicken</DisplayName>
+      <Icon>Textures\GUI\Icons\Chicken_dead.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="ChickenDead" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="4" TypeId="Ore" SubtypeId="Organic" />
+        <Item Amount="2" TypeId="Ore" SubtypeId="Bones" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ChickenMeat" />
+      </Results>
+      <BaseProductionTimeInSeconds>64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

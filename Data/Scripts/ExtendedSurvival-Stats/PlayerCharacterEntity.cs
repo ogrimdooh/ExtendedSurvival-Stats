@@ -433,10 +433,10 @@ namespace ExtendedSurvival.Stats
 
         protected override bool GetIsValid()
         {
-            return Thirst != null &&
+            return base.GetIsValid() &&
+                Thirst != null &&
                 Hunger != null &&
                 Stamina != null &&
-                Health != null &&
                 SurvivalEffects != null &&
                 DamageEffects != null &&
                 TemperatureEffects != null &&
@@ -926,41 +926,44 @@ namespace ExtendedSurvival.Stats
 
         public void CheckStatusValues()
         {
-            if (Hunger.Value < 0)
-                Hunger.Value = 0;
-            if (Thirst.Value < 0)
-                Thirst.Value = 0;
-            if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+            if (IsValid)
             {
-                if (IntakeBodyWater.Value < 0)
-                    IntakeBodyWater.Value = 0;
-                if (IntakeBodyFood.Value < 0)
-                    IntakeBodyFood.Value = 0;
-                if (BodyEnergy.Value < 0)
-                    BodyEnergy.Value = 0;
-                if (BodyWater.Value < 0)
-                    BodyWater.Value = 0;
-                if (ExtendedSurvivalSettings.Instance.UseNutrition)
+                if (Hunger.Value < 0)
+                    Hunger.Value = 0;
+                if (Thirst.Value < 0)
+                    Thirst.Value = 0;
+                if (ExtendedSurvivalSettings.Instance.UseMetabolism)
                 {
-                    if (IntakeProtein.Value < 0)
-                        IntakeProtein.Value = 0;
-                    if (IntakeCarbohydrates.Value < 0)
-                        IntakeCarbohydrates.Value = 0;
-                    if (IntakeLipids.Value < 0)
-                        IntakeLipids.Value = 0;
-                    if (IntakeMinerals.Value < 0)
-                        IntakeMinerals.Value = 0;
-                    if (IntakeVitamins.Value < 0)
-                        IntakeVitamins.Value = 0;
-                    if (BodyMuscles.Value < 0)
-                        BodyMuscles.Value = 0;
-                    if (BodyFat.Value < 0)
-                        BodyFat.Value = 0;
-                    if (BodyPerformance.Value < 0)
-                        BodyPerformance.Value = 0;
+                    if (IntakeBodyWater.Value < 0)
+                        IntakeBodyWater.Value = 0;
+                    if (IntakeBodyFood.Value < 0)
+                        IntakeBodyFood.Value = 0;
+                    if (BodyEnergy.Value < 0)
+                        BodyEnergy.Value = 0;
+                    if (BodyWater.Value < 0)
+                        BodyWater.Value = 0;
+                    if (ExtendedSurvivalSettings.Instance.UseNutrition)
+                    {
+                        if (IntakeProtein.Value < 0)
+                            IntakeProtein.Value = 0;
+                        if (IntakeCarbohydrates.Value < 0)
+                            IntakeCarbohydrates.Value = 0;
+                        if (IntakeLipids.Value < 0)
+                            IntakeLipids.Value = 0;
+                        if (IntakeMinerals.Value < 0)
+                            IntakeMinerals.Value = 0;
+                        if (IntakeVitamins.Value < 0)
+                            IntakeVitamins.Value = 0;
+                        if (BodyMuscles.Value < 0)
+                            BodyMuscles.Value = 0;
+                        if (BodyFat.Value < 0)
+                            BodyFat.Value = 0;
+                        if (BodyPerformance.Value < 0)
+                            BodyPerformance.Value = 0;
+                    }
                 }
+                CheckOxygenValue();
             }
-            CheckOxygenValue();
         }
 
         private float GetValueWithPerformance(float value, bool inv = false)
@@ -986,9 +989,9 @@ namespace ExtendedSurvival.Stats
 
         public void CheckValuesToDoDamage()
         {
-            try
+            if (IsValid || CanTakeDamage)
             {
-                if (!MyAPIGateway.Session.CreativeMode && !MyAPIGateway.Session.IsUserInvulnerable(Player?.SteamUserId ?? 0) && Health.Value > 0)
+                try
                 {
                     if (ExtendedSurvivalSettings.Instance.UseMetabolism)
                     {
@@ -1008,10 +1011,10 @@ namespace ExtendedSurvival.Stats
                             Entity.DoDamage(HungerConstants.BASE_DAMAGE_FACTOR * damageMultiplier, MyDamageType.Environment, true);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+                catch (Exception ex)
+                {
+                    ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+                }
             }
         }
 
@@ -1056,7 +1059,7 @@ namespace ExtendedSurvival.Stats
 
         public void ProcessStatsCycle()
         {
-            if (!MyAPIGateway.Session.CreativeMode)
+            if (!MyAPIGateway.Session.CreativeMode && IsValid)
             {
                 ProcessEffectsTimers();
                 if (!IsOnCryoChamber())
@@ -1162,7 +1165,7 @@ namespace ExtendedSurvival.Stats
 
         public void ProcessActivityCycle()
         {
-            if (!MyAPIGateway.Session.CreativeMode)
+            if (!MyAPIGateway.Session.CreativeMode && IsValid)
             {
                 RefreshWeatherInfo();
                 ProcessStamina();

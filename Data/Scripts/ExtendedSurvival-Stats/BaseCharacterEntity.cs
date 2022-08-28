@@ -72,7 +72,7 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                return Entity == null || Entity.IsDead;
+                return Entity == null || Entity.IsDead || Health == null || Health.Value == 0;
             }
         }
 
@@ -94,7 +94,7 @@ namespace ExtendedSurvival.Stats
 
         protected virtual bool GetIsValid()
         {
-            return Health != null;
+            return Entity != null && Health != null;
         }
 
         public bool IsValid
@@ -109,7 +109,7 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                return !MyAPIGateway.Session.CreativeMode && !MyAPIGateway.Session.IsUserInvulnerable(Player?.SteamUserId ?? 0) && Health.Value > 0;
+                return !MyAPIGateway.Session.CreativeMode && !MyAPIGateway.Session.IsUserInvulnerable(Player?.SteamUserId ?? 0) && IsValid && !Entity.IsDead && Health.Value > 0;
             }
         }
 
@@ -444,7 +444,7 @@ namespace ExtendedSurvival.Stats
         protected WeatherConstants.EnvironmentDetector GetEnvironmentType()
         {
             WeatherConstants.EnvironmentDetector currentValue;
-            Entity.Components.Get<MyCharacterOxygenComponent>().UpdateBeforeSimulation100();
+            Entity?.Components?.Get<MyCharacterOxygenComponent>()?.UpdateBeforeSimulation100();
             Vector3D pos = Entity.GetPosition();
             var externalO2 = Math.Round(Entity.EnvironmentOxygenLevel * 100, 0);
             var platAtRange = PlanetAtRange;

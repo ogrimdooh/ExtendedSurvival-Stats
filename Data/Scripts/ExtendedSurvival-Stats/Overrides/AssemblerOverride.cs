@@ -61,6 +61,7 @@ namespace ExtendedSurvival.Stats
         {
             if (assemblerDefinition != null)
             {
+                assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICALCHEMYBENCH_FERTILIZER_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICALCHEMYBENCH_CONCENTRATE_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICALCHEMYBENCH_MEDICAL_BLUEPRINTS));
                 assemblerDefinition.LoadPostProcess();
@@ -71,6 +72,7 @@ namespace ExtendedSurvival.Stats
         {
             if (assemblerDefinition != null)
             {
+                assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ALCHEMYBENCH_FERTILIZER_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ALCHEMYBENCH_CONCENTRATE_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ALCHEMYBENCH_MEDICAL_BLUEPRINTS));
                 assemblerDefinition.LoadPostProcess();
@@ -92,11 +94,11 @@ namespace ExtendedSurvival.Stats
             base.OnAfterSetDefinitions();
             if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Sulfor") != null)
             {
-                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS, Fertilizer_Construction);
+                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_FERTILIZER_BLUEPRINTS, Fertilizer_Construction);
             }
             if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Potassium") != null)
             {
-                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS, PotassiumFertilizer_Construction);
+                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_FERTILIZER_BLUEPRINTS, PotassiumFertilizer_Construction);
             }
             if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Aluminum") != null)
             {
@@ -129,7 +131,8 @@ namespace ExtendedSurvival.Stats
             }
             else
             {
-                SetUpSurvivalKit(blockDefinition as MySurvivalKitDefinition);
+                if (!ExtendedSurvivalStatsSession.IsUsingTechnology())
+                    SetUpSurvivalKit(blockDefinition as MySurvivalKitDefinition);
             }
         }
 

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ClangCola</SubtypeId>
+      </Id>
+      <DisplayName>Soda</DisplayName>
+      <Icon>Textures\GUI\Icons\clang_cola.dds</Icon>
+      <Prerequisites>
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="AluminumCan" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AppleJuice" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="ClangCola" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

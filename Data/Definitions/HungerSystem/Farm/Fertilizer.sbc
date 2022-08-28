@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>Fertilizer</SubtypeId>
+      </Id>
+      <DisplayName>Organic Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>20</Mass>
+      <Volume>12</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>150</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BoneFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Organic Fertilizer From Bone Meal</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_from_bonemeal.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
+        <Item Amount="7.5" TypeId="Ingot" SubtypeId="Bones" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Fertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>PoopFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Organic Fertilizer From Poop</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_from_poop.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
+        <Item Amount="7.5" TypeId="Ore" SubtypeId="Poop" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Fertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>SpoiledMaterialFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Organic Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_from_organic.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
+        <Item Amount="7.5" TypeId="Ore" SubtypeId="Organic" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Fertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

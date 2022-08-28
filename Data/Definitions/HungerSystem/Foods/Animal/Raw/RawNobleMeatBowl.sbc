@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>RawNobleMeatBowl</SubtypeId>
+      </Id>
+      <DisplayName>Raw Noble Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\noble_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>0.65</Mass>
+      <Volume>0.25</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value="-0.04" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>500</MinimalPricePerUnit>
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawNobleMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Noble Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\noble_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="NobleMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawNobleMeatBowl" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawAlienNobleMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Alien Noble Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\noble_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="AlienNobleMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawNobleMeatBowl" />
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

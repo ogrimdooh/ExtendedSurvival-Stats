@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>ShrimpSoupBowl</SubtypeId>
+      </Id>
+      <DisplayName>Shrimp Soup</DisplayName>
+      <Icon>Textures\GUI\Icons\shrimp_soup.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>1.5</Mass>
+      <Volume>0.25</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value="0.03" Time="5"/>
+        <Stat Name="Hunger" Value="0.1" Time="5"/>
+        <Stat Name="Thirst" Value="0.02" Time="5"/>
+        <Stat Name="IntakeBodyFood" Value="0.05" Time="5"/>
+        <Stat Name="IntakeBodyWater" Value="0.01" Time="5"/>
+        <Stat Name="TemperatureTime" Value="0.25" Time="5"/>
+        <Stat Name="IntakeCarbohydrates" Value="0.05" Time="5"/>
+        <Stat Name="IntakeProtein" Value="0.02" Time="5"/>
+        <Stat Name="IntakeLipids" Value="0.0075" Time="5"/>
+        <Stat Name="IntakeVitamins" Value="0.01" Time="5"/>
+        <Stat Name="IntakeMinerals" Value="0.006" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>500</MinimalPricePerUnit>
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ShrimpSoupBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Shrimp Soup</DisplayName>
+      <Icon>Textures\GUI\Icons\shrimp_soup.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="8" TypeId="ConsumableItem" SubtypeId="ShrimpMeat" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ShrimpSoupBowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+      </Results>
+      <BaseProductionTimeInSeconds>20.48</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

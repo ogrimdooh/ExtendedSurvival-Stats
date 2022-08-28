@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>RawFishMeatBowl</SubtypeId>
+      </Id>
+      <DisplayName>Raw Fish Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.05</X>
+        <Y>0.05</Y>
+        <Z>0.05</Z>
+      </Size>
+      <Mass>0.65</Mass>
+      <Volume>0.25</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value="-0.04" Time="5"/>
+        <Stat Name="Hunger" Value="0.045" Time="5"/>
+        <Stat Name="Thirst" Value="-0.035" Time="5"/>
+        <Stat Name="IntakeBodyFood" Value="0.025" Time="5"/>
+        <Stat Name="IntakeProtein" Value="0.016" Time="5"/>
+        <Stat Name="IntakeLipids" Value="0.006" Time="5"/>
+        <Stat Name="IntakeMinerals" Value="0.004" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>500</MinimalPricePerUnit>
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawFishMeatBowl_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Raw Fish Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="4" TypeId="ConsumableItem" SubtypeId="FishMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawFishMeatBowl" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RawFishMeatBowl_Construction2</SubtypeId>
+      </Id>
+      <DisplayName>Raw Fish Meat Bowl</DisplayName>
+      <Icon>Textures\GUI\Icons\fish_meat_bowl.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="NobleFishMeat" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawFishMeatBowl" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

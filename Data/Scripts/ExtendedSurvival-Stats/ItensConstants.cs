@@ -19,9 +19,11 @@ namespace ExtendedSurvival.Stats
         public const string ALCHEMYBENCH_MORTARANDPASTE_BLUEPRINTS = "AlchemyBench_MortarAndPaste_Blueprints";
         public const string ALCHEMYBENCH_CONCENTRATE_BLUEPRINTS = "AlchemyBench_Concentrate_Blueprints";
         public const string ALCHEMYBENCH_MEDICAL_BLUEPRINTS = "AlchemyBench_Medical_Blueprints";
+        public const string ALCHEMYBENCH_FERTILIZER_BLUEPRINTS = "AlchemyBench_Fertilizer_Blueprints";
 
         public const string BASICALCHEMYBENCH_CONCENTRATE_BLUEPRINTS = "BasicAlchemyBench_Concentrate_Blueprints";
         public const string BASICALCHEMYBENCH_MEDICAL_BLUEPRINTS = "BasicAlchemyBench_Medical_Blueprints";
+        public const string BASICALCHEMYBENCH_FERTILIZER_BLUEPRINTS = "BasicAlchemyBench_Fertilizer_Blueprints";
 
         public const string SURVIVALKIT_SURVIVAL_BLUEPRINTS = "SurvivalKit_Survival_Blueprints";
         public const string SURVIVALKIT_MEDICAL_BLUEPRINTS = "SurvivalKit_Medical_Blueprints";
@@ -334,6 +336,12 @@ namespace ExtendedSurvival.Stats
 
         public const string COFFEE_SUBTYPEID = "Coffee";
         public static readonly UniqueEntityId COFFEE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COFFEE_SUBTYPEID);
+
+        public const string WHEATSACK_SUBTYPEID = "Wheat";
+        public static readonly UniqueEntityId WHEATSACK_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), WHEATSACK_SUBTYPEID);
+
+        public const string COFFEESACK_SUBTYPEID = "Coffee";
+        public static readonly UniqueEntityId COFFEESACK_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), COFFEESACK_SUBTYPEID);
 
         public const string FERTILIZER_SUBTYPEID = "Fertilizer";
         public static readonly UniqueEntityId FERTILIZER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), FERTILIZER_SUBTYPEID);

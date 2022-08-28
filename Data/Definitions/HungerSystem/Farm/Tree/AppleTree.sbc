@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>AppleTree</SubtypeId>
+      </Id>
+      <DisplayName>Apple Tree</DisplayName>
+      <Icon>Textures\GUI\Icons\apple_tree.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>1250</Mass>
+      <Volume>1250</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>TreeHealth</SubtypeId>
+      </StoredGasId>
+      <Capacity>1000</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>AppleTree_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Wood Logs From Apple Tree</DisplayName>
+      <Icon>Textures\GUI\Icons\wood_from_apple_tree.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="GasContainerObject" SubtypeId="AppleTree" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="80" TypeId="Ore" SubtypeId="Wood" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

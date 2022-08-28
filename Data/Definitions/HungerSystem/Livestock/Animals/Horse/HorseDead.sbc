@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>HorseDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Horse</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\horse_dead.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>HorseDead_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Dead Horse</DisplayName>
+      <Icon>Textures\GUI\Icons\horse_dead.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="HorseDead" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="80" TypeId="Ore" SubtypeId="Organic" />
+        <Item Amount="40" TypeId="Ore" SubtypeId="Bones" />
+        <Item Amount="40" TypeId="ConsumableItem" SubtypeId="Meat" />
+        <Item Amount="20" TypeId="ConsumableItem" SubtypeId="NobleMeat" />
+      </Results>
+      <BaseProductionTimeInSeconds>128</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

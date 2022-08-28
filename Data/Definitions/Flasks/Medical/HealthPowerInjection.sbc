@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>HealthPowerInjection</SubtypeId>
+      </Id>
+      <DisplayName>Health Power Injection</DisplayName>
+      <Icon>Textures\GUI\Icons\antibiotic.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.5</X>
+        <Y>0.5</Y>
+        <Z>0.5</Z>
+      </Size>
+      <Mass>2.5</Mass>
+      <Volume>3</Volume>
+      <Model>Models\Items\Medkit_Item.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value ="0.045" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>750</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>HealthPowerInjection_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Health Power Injection</DisplayName>
+      <Icon>Textures\GUI\Icons\antibiotic.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.05" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="0.15" TypeId="Ingot" SubtypeId="Silicon" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="AloeVeraExtract" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="SilverSulfadiazine" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Polietilenoglicol" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Small" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="HealthPowerInjection" />
+      </Results>
+      <BaseProductionTimeInSeconds>10.24</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

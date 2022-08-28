@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>Coffee</SubtypeId>
+      </Id>
+      <DisplayName>Coffee</DisplayName>
+      <Icon>Textures\GUI\Icons\coffee.dds</Icon>
+      <Size>
+        <X>0.07</X>
+        <Y>0.07</Y>
+        <Z>0.07</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>0.05</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>None</PhysicalMaterial>
+      <IconSymbol>Coffee</IconSymbol>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CoffeeToSack_Deconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Coffee Sack</DisplayName>
+      <Icon>Textures\GUI\Icons\coffee_sack.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Coffee" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.05" TypeId="Ingot" SubtypeId="Coffee" />
+      </Results>
+      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>MineralFertilizer</SubtypeId>
+      </Id>
+      <DisplayName>Mineral Fertilizer</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>20</Mass>
+      <Volume>12</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>150</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MagnesiumFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mineral Fertilizer From Magnesium</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral_from_magnesium.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Magnesium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="MineralFertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>PotassiumFertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mineral Fertilizer From Potassium</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral_from_potassium.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Potassium" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="MineralFertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Fertilizer_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mineral Fertilizer From Sulfur</DisplayName>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral_from_sulfor.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Sulfor" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="MineralFertilizer" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

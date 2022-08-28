@@ -17,6 +17,18 @@
     <Class>
       <Id>
         <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>AlchemyBench_Fertilizer_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Fertilizer</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Fertilizer.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Fertilizer.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\FertilizerFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
         <SubtypeId>AlchemyBench_Concentrate_Blueprints</SubtypeId>
       </Id>
       <DisplayName>Concentrate</DisplayName>
@@ -29,11 +41,11 @@
   </BlueprintClasses>
   
   <BlueprintClassEntries>
-    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="SuperFertilizer_Construction" />
-    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="MagnesiumFertilizer_Construction" />
-    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="BoneFertilizer_Construction" />
-    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="SpoiledMaterialFertilizer_Construction" />
-    <Entry Class="AlchemyBench_MortarAndPaste_Blueprints" BlueprintSubtypeId="PoopFertilizer_Construction" />
+    <Entry Class="AlchemyBench_Fertilizer_Blueprints" BlueprintSubtypeId="SuperFertilizer_Construction" />
+    <Entry Class="AlchemyBench_Fertilizer_Blueprints" BlueprintSubtypeId="MagnesiumFertilizer_Construction" />
+    <Entry Class="AlchemyBench_Fertilizer_Blueprints" BlueprintSubtypeId="BoneFertilizer_Construction" />
+    <Entry Class="AlchemyBench_Fertilizer_Blueprints" BlueprintSubtypeId="SpoiledMaterialFertilizer_Construction" />
+    <Entry Class="AlchemyBench_Fertilizer_Blueprints" BlueprintSubtypeId="PoopFertilizer_Construction" />
 
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="TomatoToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AppleToConcentrated_Construction" />

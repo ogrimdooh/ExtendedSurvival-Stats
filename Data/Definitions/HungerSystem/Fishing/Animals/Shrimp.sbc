@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>Shrimp</SubtypeId>
+      </Id>
+      <DisplayName>Shrimp</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\shrimp.dds</Icon>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>0.1</Mass>
+      <Volume>0.05</Volume>
+      <Model>Models\Ingots\stone_ingot.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ShrimpMeat_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Shrimp Meat</DisplayName>
+      <Icon>Textures\GUI\Icons\shrimp_meat.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Shrimp" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="ShrimpMeat" />
+      <BaseProductionTimeInSeconds>0.64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

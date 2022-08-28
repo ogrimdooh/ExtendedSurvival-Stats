@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Medkit_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Medkit</DisplayName>
+      <Icon>Textures\GUI\Icons\med_kit.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.05" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Silicon" />
+        <Item Amount="3" TypeId="PhysicalObject" SubtypeId="AloeVeraExtract" />
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="SilverSulfadiazine" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="3" TypeId="PhysicalObject" SubtypeId="Flask_Medium" />
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="Flask_Big" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Medkit" />
+      </Results>
+      <BaseProductionTimeInSeconds>15.36</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

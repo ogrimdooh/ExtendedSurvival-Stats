@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>CowDead</SubtypeId>
+      </Id>
+      <DisplayName>Dead Cow</DisplayName>
+      <Icon>Textures\GUI\Icons\cow_dead.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>500</Mass>
+      <Volume>500</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CowDead_Desconstruction</SubtypeId>
+      </Id>
+      <DisplayName>Dead Cow</DisplayName>
+      <Icon>Textures\GUI\Icons\cow_dead.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="CowDead" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="120" TypeId="Ore" SubtypeId="Organic" />
+        <Item Amount="60" TypeId="Ore" SubtypeId="Bones" />
+        <Item Amount="60" TypeId="ConsumableItem" SubtypeId="Meat" />
+        <Item Amount="30" TypeId="ConsumableItem" SubtypeId="NobleMeat" />
+      </Results>
+      <BaseProductionTimeInSeconds>128</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

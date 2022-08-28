@@ -16,7 +16,7 @@ namespace ExtendedSurvival.Stats
 
         protected virtual string GetDescription(int index)
         {
-            return string.Format("{0:0}", (float)(CurrentValue * Stat.MaxValue));
+            return string.Format("{0:0}", (float)(CurrentValue * Stat?.MaxValue ?? 0));
         }
 
         protected int CurrentIndex { get; set; }

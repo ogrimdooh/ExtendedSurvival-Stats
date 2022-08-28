@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem>
+      <Id>
+        <TypeId>Ore</TypeId>
+        <SubtypeId>VegetablesRation</SubtypeId>
+      </Id>
+      <DisplayName>Vegetables Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetables_ration.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>6</Mass>
+      <Volume>3</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>150</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>VegetablesRation_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Vegetables Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetables_ration.dds</Icon>
+      <Prerequisites>
+        <Item Amount="6" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="24" TypeId="Ore" SubtypeId="Ice" />
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="VegetablesRation" />
+        <Item Amount="6" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

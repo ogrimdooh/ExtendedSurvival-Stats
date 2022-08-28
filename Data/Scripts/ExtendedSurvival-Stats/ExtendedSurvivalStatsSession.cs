@@ -23,6 +23,18 @@ namespace ExtendedSurvival.Stats
 
         public static ExtendedSurvivalStatsSession Static { get; private set; }
 
+        public const string ES_TECHNOLOGY_LOCALNAME = "SEExtendedSurvival-Technology";
+
+        public const ulong ES_TECHNOLOGY_MODID = 2842844421;
+
+        private static bool? isUsingTechnology = null;
+        public static bool IsUsingTechnology()
+        {
+            if (!isUsingTechnology.HasValue)
+                isUsingTechnology = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == ES_TECHNOLOGY_MODID || x.Name == ES_TECHNOLOGY_LOCALNAME);
+            return isUsingTechnology.Value;
+        }
+
         public HudAPIv2 TextAPI;
         public ExtendedSurvivalCoreAPI ESCoreAPI;
 
