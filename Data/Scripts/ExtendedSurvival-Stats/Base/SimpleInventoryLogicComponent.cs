@@ -6,11 +6,22 @@ namespace ExtendedSurvival.Stats
 {
     public abstract class SimpleInventoryLogicComponent<T> : BaseInventoryLogicComponent<T> where T : IMyCubeBlock
     {
+        
+        private Guid DoCreateNewObserver(int index)
+        {
+            return ExtendedSurvivalCoreAPI.AddInventoryObserver(CurrentEntity, index);
+        }
 
         protected override Guid CreateNewObserver(int index)
         {
             if (ExtendedSurvivalCoreAPI.Registered)
-                return ExtendedSurvivalCoreAPI.AddInventoryObserver(CurrentEntity, index);
+                return DoCreateNewObserver(index);
+            else
+                ExtendedSurvivalStatsSession.AddToInvokeAfterCoreApiLoaded(() => {
+                    var id = DoCreateNewObserver(index);
+                    if (id != Guid.Empty)
+                        inventoryObservers.Add(index, id);
+                });
             return Guid.Empty;
         }
 

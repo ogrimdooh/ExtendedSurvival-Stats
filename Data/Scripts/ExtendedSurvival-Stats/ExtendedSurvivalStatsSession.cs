@@ -323,6 +323,13 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        private static List<Action> InvokeAfterCoreApiLoaded = new List<Action>();
+        public static void AddToInvokeAfterCoreApiLoaded(Action action)
+        {
+            if (!ExtendedSurvivalCoreAPI.Registered)
+                InvokeAfterCoreApiLoaded.Add(action);
+        }
+
         public override void LoadData()
         {
             TextAPI = new HudAPIv2();
@@ -368,6 +375,12 @@ namespace ExtendedSurvival.Stats
                         ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.CEREAL_ID.DefinitionId, 30, 50));
                         ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.APPLE_ID.DefinitionId, 5, 25) { AlowDesert = false });
                         ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.APPLETREESEEDLING_ID.DefinitionId, 1, 50) { AlowDesert = false, IsGas = true });
+                    
+                        if (InvokeAfterCoreApiLoaded.Any())
+                            foreach (var action in InvokeAfterCoreApiLoaded)
+                            {
+                                action.Invoke();
+                            }
                     }
                 }
             });

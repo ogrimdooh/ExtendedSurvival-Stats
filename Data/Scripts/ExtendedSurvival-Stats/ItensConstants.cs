@@ -46,6 +46,15 @@ namespace ExtendedSurvival.Stats
         public const string PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID = "LidocainPistolMagazine";
         public static readonly UniqueEntityId PISTOL_LIDOCAIN_MAGZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_AmmoMagazine), PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID);
 
+        public const string LEAF_SUBTYPEID = "Leaf";
+        public static readonly UniqueEntityId LEAF_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), LEAF_SUBTYPEID);
+
+        public const string TWIG_SUBTYPEID = "Twig";
+        public static readonly UniqueEntityId TWIG_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), TWIG_SUBTYPEID);
+
+        public const string BRANCH_SUBTYPEID = "Branch";
+        public static readonly UniqueEntityId BRANCH_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), BRANCH_SUBTYPEID);
+
         public const string SOILPOWDER_SUBTYPEID = "Soil";
         public static readonly UniqueEntityId SOILPOWDER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SOILPOWDER_SUBTYPEID);
 

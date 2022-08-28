@@ -123,11 +123,35 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
+                            Product = ItensConstants.LEAF_ID,
+                            BaseFactor = new Vector2(4, 8),
+                            AllowDecimal = true,
+                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
+                            ChanceToGenerate = 37.5f
+                        },
+                        new FarmResultDefinition()
+                        {
+                            Product = ItensConstants.TWIG_ID,
+                            BaseFactor = new Vector2(3, 6),
+                            AllowDecimal = true,
+                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
+                            ChanceToGenerate = 25.0f
+                        },
+                        new FarmResultDefinition()
+                        {
+                            Product = ItensConstants.BRANCH_ID,
+                            BaseFactor = new Vector2(2, 4),
+                            AllowDecimal = true,
+                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
+                            ChanceToGenerate = 12.5f
+                        },
+                        new FarmResultDefinition()
+                        {
                             Product =ItensConstants.APPLE_ID,
                             BaseFactor = new Vector2(1, 2),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
-                            ChanceToGenerate = 12.5f
+                            ChanceToGenerate = 6.25f
                         },
                         new FarmResultDefinition()
                         {

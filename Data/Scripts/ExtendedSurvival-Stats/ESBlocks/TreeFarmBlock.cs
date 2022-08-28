@@ -53,24 +53,37 @@ namespace ExtendedSurvival.Stats
         private MyFixedPoint _totalFertilizer = 0;
         private MyFixedPoint _totalIce = 0;
 
+        private Guid DoCreateNewObserver(int index)
+        {
+            var id = ExtendedSurvivalCoreAPI.AddInventoryObserver(CurrentEntity, index);
+            ExtendedSurvivalCoreAPI.RegisterInventoryObserverUpdateCallback(
+                id,
+                (Guid observerId, MyInventory inventory, IMyEntity owner, TimeSpan spendTime) =>
+                {
+                    var spoilMultiplier = HasTree() ? FarmConstants.BASE_SPOILMULTIPLIER_WITH_TREE : 1;
+                    ExtendedSurvivalCoreAPI.SetInventoryObserverSpoilStatus(observerId, true, false, spoilMultiplier);
+                    if (!MyAPIGateway.Session.CreativeMode && CurrentEntity.Enabled && CurrentEntity.IsFunctional)
+                    {
+                        TryGenerateFood((float)spendTime.TotalMilliseconds);
+                    }
+                }
+            );
+            return id;
+        }
+
         protected override Guid CreateNewObserver(int index)
         {
             if (ExtendedSurvivalCoreAPI.Registered)
             {
-                var id = ExtendedSurvivalCoreAPI.AddInventoryObserver(CurrentEntity, index);
-                ExtendedSurvivalCoreAPI.RegisterInventoryObserverUpdateCallback(
-                    id,
-                    (Guid observerId, MyInventory inventory, IMyEntity owner, TimeSpan spendTime) =>
-                    {
-                        var spoilMultiplier = HasTree() ? FarmConstants.BASE_SPOILMULTIPLIER_WITH_TREE : 1;
-                        ExtendedSurvivalCoreAPI.SetInventoryObserverSpoilStatus(observerId, true, false, spoilMultiplier);
-                        if (!MyAPIGateway.Session.CreativeMode && CurrentEntity.Enabled && CurrentEntity.IsFunctional)
-                        {
-                            TryGenerateFood((float)spendTime.TotalMilliseconds);
-                        }
-                    }
-                );
-                return id;
+                return DoCreateNewObserver(index);
+            }
+            else
+            {
+                ExtendedSurvivalStatsSession.AddToInvokeAfterCoreApiLoaded(() => {
+                    var id = DoCreateNewObserver(index);
+                    if (id != Guid.Empty)
+                        inventoryObservers.Add(index, id);
+                });
             }
             return Guid.Empty;
         }
