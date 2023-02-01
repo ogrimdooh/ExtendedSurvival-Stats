@@ -21,15 +21,6 @@
       <PhysicalMaterial>None</PhysicalMaterial>
       <Stats>
         <Stat Name="Health" Value="0.03" Time="5"/>
-        <Stat Name="Hunger" Value="0.085" Time="5"/>
-        <Stat Name="Thirst" Value="0.01" Time="5"/>
-        <Stat Name="IntakeBodyFood" Value="0.0425" Time="5"/>
-        <Stat Name="IntakeBodyWater" Value="0.005" Time="5"/>
-        <Stat Name="IntakeCarbohydrates" Value="0.025" Time="5"/>
-        <Stat Name="IntakeProtein" Value="0.0115" Time="5"/>
-        <Stat Name="IntakeLipids" Value="0.004" Time="5"/>
-        <Stat Name="IntakeVitamins" Value="0.005" Time="5"/>
-        <Stat Name="IntakeMinerals" Value="0.004" Time="5"/>
       </Stats>
       <MinimalPricePerUnit>500</MinimalPricePerUnit>
       <MinimumOfferAmount>100</MinimumOfferAmount>

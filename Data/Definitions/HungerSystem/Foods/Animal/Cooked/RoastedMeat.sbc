@@ -46,20 +46,5 @@
       <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
     </Blueprint>
 
-    <Blueprint>
-      <Id>
-        <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>RoastedAlienMeat_Construction</SubtypeId>
-      </Id>
-      <DisplayName>Roast Alien Meat</DisplayName>
-      <Description></Description>
-      <Icon>Textures\GUI\Icons\roast_meat.dds</Icon>
-      <Prerequisites>
-        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienMeat" />
-      </Prerequisites>
-      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastedMeat" />
-      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
-    </Blueprint>
-
   </Blueprints>
 </Definitions>

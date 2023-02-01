@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using VRage.Utils;
@@ -93,6 +94,15 @@ namespace ExtendedSurvival.Stats
             { DamageEffects.BrokenBones, 1.50f }
         };
 
+        public static readonly Dictionary<string, float> STATS_MIN_VALUE = new Dictionary<string, float>()
+        {
+            { ValidStats.Hunger.ToString(), HungerConstants.MIN_HUNGER_AT_START },
+            { ValidStats.Thirst.ToString(), HungerConstants.MIN_THIRST_AT_START },
+            { ValidStats.Stamina.ToString(), HungerConstants.MIN_STAMINA_AT_START },
+            { ValidStats.BodyEnergy.ToString(), HungerConstants.MIN_BODYENERGY_AT_START },
+            { ValidStats.BodyWater.ToString(), HungerConstants.MIN_BODYWATER_AT_START }
+        };
+
         public const DamageEffects ON_DEATH_NO_CHANGE_IF = DamageEffects.BrokenBones;
         public const DamageEffects ON_DEATH_APPLY_DAMAGE = DamageEffects.DeepWounded;
         public const DamageEffects ON_DEATH_REMOVE_DAMAGE = DamageEffects.Contusion | DamageEffects.Wounded;
@@ -123,6 +133,48 @@ namespace ExtendedSurvival.Stats
         public const float CHANCE_TO_GET_PNEUMONIA = 1.5f; /* 1.5% */
         public const float PNEUMONIA_CHANCE_INCRISE = 0.5f; /* 0.5% */
         /* WITH ALL ODDS CAN GET 2.5% */
+
+        public enum CreatureValidStats
+        {
+
+            Torpor
+
+        }
+
+        public enum ValidStats
+        {
+
+            Hunger,
+            Thirst,
+            Stamina,
+            Fatigue,
+            SurvivalEffects,
+            DamageEffects,
+            TemperatureEffects,
+            DiseaseEffects,
+            OtherEffects,
+            WoundedTime,
+            TemperatureTime,
+            WetTime,
+            BodyEnergy,
+            BodyWater,
+            BodyPerformance,
+            BodyImmune,
+            Stomach,
+            Intestine,
+            Bladder,
+            IntakeBodyWater,
+            IntakeCarbohydrates,
+            IntakeProtein,
+            IntakeLipids,
+            IntakeVitamins,
+            IntakeMinerals,
+            BodyWeight,
+            BodyMuscles,
+            BodyFat,
+            FoodDetector
+
+        }
 
         [Flags]
         public enum SurvivalEffects

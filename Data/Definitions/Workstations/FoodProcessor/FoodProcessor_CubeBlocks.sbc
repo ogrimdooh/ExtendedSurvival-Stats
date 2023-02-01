@@ -58,6 +58,7 @@
         <Class>FoodProcessor_VegetableRecipes_Blueprints</Class>
         <Class>FoodProcessor_Recipes_Blueprints</Class>
         <Class>FoodProcessor_DrinkRecipes_Blueprints</Class>
+        <Class>FoodProcessor_Rations_Blueprints</Class>
       </BlueprintClasses>
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
@@ -135,6 +136,7 @@
         <Class>FoodProcessor_VegetableRecipes_Blueprints</Class>
         <Class>FoodProcessor_Recipes_Blueprints</Class>
         <Class>FoodProcessor_DrinkRecipes_Blueprints</Class>
+        <Class>FoodProcessor_Rations_Blueprints</Class>
       </BlueprintClasses>
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>

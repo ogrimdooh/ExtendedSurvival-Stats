@@ -6,6 +6,7 @@
       <SubtypeId>ExtendedSurvival</SubtypeId>
     </Id>
     <StatControls>
+      
       <!-- player_hunger -->
       <StatControl>
         <VisibleCondition xsi:type="Condition">
@@ -429,6 +430,431 @@
         </StatStyles>
       </StatControl>
 
+      
+      <!-- player_stomach -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_stomach</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_stomach</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_stomach</StatId>
+              <Value>0.1</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_stomach</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_stomach</StatId>
+              <Value>0.1</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Stomach</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+
+        </StatStyles>
+      </StatControl>
+
+      <!-- player_intestine -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_intestine</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.035</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_intestine</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_intestine</StatId>
+              <Value>0.75</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_intestine</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_intestine</StatId>
+              <Value>0.75</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Intestine</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+
+        </StatStyles>
+      </StatControl>
+
+      <!-- player_bladder -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_bladder</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.070</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_bladder</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bladder</StatId>
+              <Value>0.75</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bladder</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bladder</StatId>
+              <Value>0.75</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Bladder</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+
+        </StatStyles>
+      </StatControl>
+
+      
       <!-- player_bodyenergy -->
       <StatControl>
         <VisibleCondition xsi:type="Condition">
@@ -711,286 +1137,6 @@
         </StatStyles>
       </StatControl>
 
-      <!-- player_bodymuscles -->
-      <StatControl>
-        <VisibleCondition xsi:type="Condition">
-          <Operator>And</Operator>
-          <Terms>
-            <Term xsi:type="StatCondition">
-              <StatId>player_bodymuscles</StatId>
-              <Value>-1</Value>
-              <Operator>NotEqual</Operator>
-            </Term>
-            <Term xsi:type="StatCondition">
-              <StatId>controlled_is_turret</StatId>
-              <Operator>Below</Operator>
-              <Value>1</Value>
-            </Term>
-            <Term xsi:type="StatCondition">
-              <StatId>hud_mode</StatId>
-              <Operator>Above</Operator>
-              <Value>0</Value>
-            </Term>
-          </Terms>
-        </VisibleCondition>
-        <ApplyHudScale>false</ApplyHudScale>
-        <Position>
-          <X>0.175</X>
-          <Y>0</Y>
-        </Position>
-        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
-        <StatStyles>
-          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
-            <OffsetPx>
-              <X>10</X>
-              <Y>25</Y>
-            </OffsetPx>
-            <SizePx>
-              <X>75</X>
-              <Y>75</Y>
-            </SizePx>
-            <Category>Background</Category>
-            <Texture>GravityIndicator_fill</Texture>
-          </StatStyle>
-          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
-            <StatId>player_bodymuscles</StatId>
-            <StatCriticalValue>0</StatCriticalValue>
-            <OffsetPx>
-              <X>35</X>
-              <Y>50</Y>
-            </OffsetPx>
-            <SizePx>
-              <X>25</X>
-              <Y>25</Y>
-            </SizePx>
-            <NumberOfSegments>70</NumberOfSegments>
-            <SegmentTexture>InventorySegment</SegmentTexture>
-            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
-            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
-            <SegmentSizePx>
-              <X>6.25</X>
-              <Y>6.25</Y>
-            </SegmentSizePx>
-            <SegmentOrigin>
-              <X>12.5</X>
-              <Y>12.5</Y>
-            </SegmentOrigin>
-            <SpacingAngle>4.142857142857143</SpacingAngle>
-            <AngleOffset>-45</AngleOffset>
-            <Animate>false</Animate>
-            <EmptySegmentColorMask>
-              <X>0.81</X>
-              <Y>0.89</Y>
-              <Z>0.9</Z>
-              <W>0.1</W>
-            </EmptySegmentColorMask>
-            <FullSegmentColorMask>
-              <X>0.81</X>
-              <Y>0.89</Y>
-              <Z>0.9</Z>
-              <W>1.0</W>
-            </FullSegmentColorMask>
-            <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_bodymuscles</StatId>
-              <Value>0.25</Value>
-              <Operator>Below</Operator>
-            </BlinkCondition>
-            <Blink>
-              <ColorMask>
-                <X>1</X>
-                <Y>0</Y>
-                <Z>0</Z>
-                <W>1</W>
-              </ColorMask>
-              <MinAlpha>0.6</MinAlpha>
-              <MaxAlpha>1</MaxAlpha>
-            </Blink>
-            <Inverted>false</Inverted>
-          </StatStyle>
-          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
-            <StatId>player_bodymuscles</StatId>
-            <OffsetPx>
-              <X>42.5</X>
-              <Y>55</Y>
-            </OffsetPx>
-            <SizePx>
-              <X>10</X>
-              <Y>10</Y>
-            </SizePx>
-            <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_bodymuscles</StatId>
-              <Value>0.25</Value>
-              <Operator>Below</Operator>
-            </BlinkCondition>
-            <Blink>
-              <ColorMask>
-                <X>1</X>
-                <Y>0</Y>
-                <Z>0</Z>
-                <W>1</W>
-              </ColorMask>
-            </Blink>
-            <Inverted>false</Inverted>
-            <Percentage>true</Percentage>
-            <Precision>0</Precision>
-            <Text>{STAT}</Text>
-            <Font>White</Font>
-            <Scale>0.4375</Scale>
-            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
-          </StatStyle>
-          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
-            <OffsetPx>
-              <X>47.5</X>
-              <Y>15</Y>
-            </OffsetPx>
-            <Text>Muscle</Text>
-            <Font>Blue</Font>
-            <Scale>0.5</Scale>
-            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
-          </StatStyle>
-        </StatStyles>
-      </StatControl>
-
-      <!-- player_bodyfat -->
-      <StatControl>
-        <VisibleCondition xsi:type="Condition">
-          <Operator>And</Operator>
-          <Terms>
-            <Term xsi:type="StatCondition">
-              <StatId>player_bodyfat</StatId>
-              <Value>-1</Value>
-              <Operator>NotEqual</Operator>
-            </Term>
-            <Term xsi:type="StatCondition">
-              <StatId>controlled_is_turret</StatId>
-              <Operator>Below</Operator>
-              <Value>1</Value>
-            </Term>
-            <Term xsi:type="StatCondition">
-              <StatId>hud_mode</StatId>
-              <Operator>Above</Operator>
-              <Value>0</Value>
-            </Term>
-          </Terms>
-        </VisibleCondition>
-        <ApplyHudScale>false</ApplyHudScale>
-        <Position>
-          <X>0.210</X>
-          <Y>0</Y>
-        </Position>
-        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
-        <StatStyles>
-          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
-            <OffsetPx>
-              <X>10</X>
-              <Y>25</Y>
-            </OffsetPx>
-            <SizePx>
-              <X>75</X>
-              <Y>75</Y>
-            </SizePx>
-            <Category>Background</Category>
-            <Texture>GravityIndicator_fill</Texture>
-          </StatStyle>
-          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
-            <StatId>player_bodyfat</StatId>
-            <StatCriticalValue>0</StatCriticalValue>
-            <OffsetPx>
-              <X>35</X>
-              <Y>50</Y>
-            </OffsetPx>
-            <SizePx>
-              <X>25</X>
-              <Y>25</Y>
-            </SizePx>
-            <NumberOfSegments>70</NumberOfSegments>
-            <SegmentTexture>InventorySegment</SegmentTexture>
-            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
-            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
-            <SegmentSizePx>
-              <X>6.25</X>
-              <Y>6.25</Y>
-            </SegmentSizePx>
-            <SegmentOrigin>
-              <X>12.5</X>
-              <Y>12.5</Y>
-            </SegmentOrigin>
-            <SpacingAngle>4.142857142857143</SpacingAngle>
-            <AngleOffset>-45</AngleOffset>
-            <Animate>false</Animate>
-            <EmptySegmentColorMask>
-              <X>0.81</X>
-              <Y>0.89</Y>
-              <Z>0.9</Z>
-              <W>0.1</W>
-            </EmptySegmentColorMask>
-            <FullSegmentColorMask>
-              <X>0.81</X>
-              <Y>0.89</Y>
-              <Z>0.9</Z>
-              <W>1.0</W>
-            </FullSegmentColorMask>
-            <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_bodyfat</StatId>
-              <Value>0.25</Value>
-              <Operator>Below</Operator>
-            </BlinkCondition>
-            <Blink>
-              <ColorMask>
-                <X>1</X>
-                <Y>0</Y>
-                <Z>0</Z>
-                <W>1</W>
-              </ColorMask>
-              <MinAlpha>0.6</MinAlpha>
-              <MaxAlpha>1</MaxAlpha>
-            </Blink>
-            <Inverted>false</Inverted>
-          </StatStyle>
-          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
-            <StatId>player_bodyfat</StatId>
-            <OffsetPx>
-              <X>42.5</X>
-              <Y>55</Y>
-            </OffsetPx>
-            <SizePx>
-              <X>10</X>
-              <Y>10</Y>
-            </SizePx>
-            <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_bodyfat</StatId>
-              <Value>0.25</Value>
-              <Operator>Below</Operator>
-            </BlinkCondition>
-            <Blink>
-              <ColorMask>
-                <X>1</X>
-                <Y>0</Y>
-                <Z>0</Z>
-                <W>1</W>
-              </ColorMask>
-            </Blink>
-            <Inverted>false</Inverted>
-            <Percentage>true</Percentage>
-            <Precision>0</Precision>
-            <Text>{STAT}</Text>
-            <Font>White</Font>
-            <Scale>0.4375</Scale>
-            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
-          </StatStyle>
-          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
-            <OffsetPx>
-              <X>47.5</X>
-              <Y>15</Y>
-            </OffsetPx>
-            <Text>Fat</Text>
-            <Font>Blue</Font>
-            <Scale>0.5</Scale>
-            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
-          </StatStyle>
-        </StatStyles>
-      </StatControl>
-
       <!-- player_bodyperformance -->
       <StatControl>
         <VisibleCondition xsi:type="Condition">
@@ -1015,7 +1161,7 @@
         </VisibleCondition>
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
-          <X>0.245</X>
+          <X>0.175</X>
           <Y>0</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
@@ -1131,7 +1277,710 @@
         </StatStyles>
       </StatControl>
 
+      <!-- player_bodyimmune -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_bodyimmune</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.210</X>
+          <Y>0</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_bodyimmune</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodyimmune</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyimmune</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodyimmune</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Immunity</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+        </StatStyles>
+      </StatControl>
 
+
+      <!-- player_bodyweight -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_bodyweight</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.105</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_bodyweight</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodyweight</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyweight</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodyweight</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Weight</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+
+        </StatStyles>
+      </StatControl>
+
+      <!-- player_fatigue -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_fatigue</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.140</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_fatigue</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_fatigue</StatId>
+              <Value>0.75</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_fatigue</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_fatigue</StatId>
+              <Value>0.75</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Fatigue</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+
+        </StatStyles>
+      </StatControl>
+
+      <!-- player_bodymuscles -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_bodymuscles</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.175</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_bodymuscles</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodymuscles</StatId>
+              <Value>0.05</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodymuscles</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodymuscles</StatId>
+              <Value>0.05</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Muscle</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+        </StatStyles>
+      </StatControl>
+
+      <!-- player_bodyfat -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>player_bodyfat</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0.210</X>
+          <Y>0.085</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ImageStatVisualStyle">
+            <OffsetPx>
+              <X>10</X>
+              <Y>25</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>75</X>
+              <Y>75</Y>
+            </SizePx>
+            <Category>Background</Category>
+            <Texture>GravityIndicator_fill</Texture>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_CircularProgressBarStatVisualStyle">
+            <StatId>player_bodyfat</StatId>
+            <StatCriticalValue>0</StatCriticalValue>
+            <OffsetPx>
+              <X>35</X>
+              <Y>50</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>25</X>
+              <Y>25</Y>
+            </SizePx>
+            <NumberOfSegments>70</NumberOfSegments>
+            <SegmentTexture>InventorySegment</SegmentTexture>
+            <FirstSegmentTexture>FirstInventorySegment</FirstSegmentTexture>
+            <LastSegmentTexture>LastInventorySegment</LastSegmentTexture>
+            <SegmentSizePx>
+              <X>6.25</X>
+              <Y>6.25</Y>
+            </SegmentSizePx>
+            <SegmentOrigin>
+              <X>12.5</X>
+              <Y>12.5</Y>
+            </SegmentOrigin>
+            <SpacingAngle>4.142857142857143</SpacingAngle>
+            <AngleOffset>-45</AngleOffset>
+            <Animate>false</Animate>
+            <EmptySegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>0.1</W>
+            </EmptySegmentColorMask>
+            <FullSegmentColorMask>
+              <X>0.81</X>
+              <Y>0.89</Y>
+              <Z>0.9</Z>
+              <W>1.0</W>
+            </FullSegmentColorMask>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodyfat</StatId>
+              <Value>0.5</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <Inverted>false</Inverted>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyfat</StatId>
+            <OffsetPx>
+              <X>42.5</X>
+              <Y>55</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>10</X>
+              <Y>10</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>player_bodyfat</StatId>
+              <Value>0.5</Value>
+              <Operator>Above</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Inverted>false</Inverted>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.4375</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <OffsetPx>
+              <X>47.5</X>
+              <Y>15</Y>
+            </OffsetPx>
+            <Text>Fat</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
+          </StatStyle>
+        </StatStyles>
+      </StatControl>
+      
+      
       <!-- player_temperature_time -->
       <StatControl>
         <VisibleCondition xsi:type="Condition">
@@ -1157,7 +2006,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.110</Y>
+          <Y>0.195</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -1320,7 +2169,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.150</Y>
+          <Y>0.235</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -1451,7 +2300,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.190</Y>
+          <Y>0.275</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -1582,7 +2431,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.230</Y>
+          <Y>0.315</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -1713,7 +2562,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.270</Y>
+          <Y>0.355</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -1844,7 +2693,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.310</Y>
+          <Y>0.395</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -1975,7 +2824,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.350</Y>
+          <Y>0.435</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -2106,7 +2955,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.390</Y>
+          <Y>0.475</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -2237,7 +3086,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.430</Y>
+          <Y>0.515</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -2368,7 +3217,7 @@
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
           <X>0</X>
-          <Y>0.470</Y>
+          <Y>0.555</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
@@ -2499,8 +3348,8 @@
         </VisibleCondition>
         <ApplyHudScale>false</ApplyHudScale>
         <Position>
-          <X>0.085</X>
-          <Y>0.085</Y>
+          <X>0.09</X>
+          <Y>0.175</Y>
         </Position>
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>

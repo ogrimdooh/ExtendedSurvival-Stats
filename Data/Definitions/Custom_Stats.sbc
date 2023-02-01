@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <StatDefinitions>
+    <!-- BASIC STATS -->
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>Stamina</SubtypeId>
+        <SubtypeId>Hunger</SubtypeId>
       </Id>
-      <Name>Stamina</Name>
+      <Name>Hunger</Name>
       <MinValue>0</MinValue>
-      <DefaultValue>100</DefaultValue>
+      <DefaultValue>50</DefaultValue>
       <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
@@ -26,14 +27,26 @@
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>Hunger</SubtypeId>
+        <SubtypeId>Stamina</SubtypeId>
       </Id>
-      <Name>Hunger</Name>
+      <Name>Stamina</Name>
       <MinValue>0</MinValue>
-      <DefaultValue>50</DefaultValue>
+      <DefaultValue>100</DefaultValue>
       <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>Fatigue</SubtypeId>
+      </Id>
+      <Name>Fatigue</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>1000000</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <!-- EFFECTS -->
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
@@ -89,6 +102,7 @@
       <MaxValue>32767</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
+    <!-- TIMERS -->
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
@@ -122,28 +136,7 @@
       <MaxValue>200</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>IntakeBodyFood</SubtypeId>
-      </Id>
-      <Name>IntakeBodyFood</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>0</DefaultValue>
-      <MaxValue>250</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>IntakeBodyWater</SubtypeId>
-      </Id>
-      <Name>IntakeBodyWater</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>0</DefaultValue>
-      <MaxValue>150</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
+    <!-- METABOLISM -->
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
@@ -151,8 +144,8 @@
       </Id>
       <Name>BodyEnergy</Name>
       <MinValue>0</MinValue>
-      <DefaultValue>7500</DefaultValue>
-      <MaxValue>12500</MaxValue>
+      <DefaultValue>80</DefaultValue>
+      <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -162,11 +155,90 @@
       </Id>
       <Name>BodyWater</Name>
       <MinValue>0</MinValue>
-      <DefaultValue>3600</DefaultValue>
-      <MaxValue>6000</MaxValue>
+      <DefaultValue>80</DefaultValue>
+      <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
-
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyPerformance</SubtypeId>
+      </Id>
+      <Name>BodyPerformance</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>50</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyImmune</SubtypeId>
+      </Id>
+      <Name>BodyImmune</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>50</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <!-- FAKE STATS TO DETECT CONSUMABLES -->
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>FoodDetector</SubtypeId>
+      </Id>
+      <Name>FoodDetector</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <!-- DIGESTION -->
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>Stomach</SubtypeId>
+      </Id>
+      <Name>Stomach</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>Intestine</SubtypeId>
+      </Id>
+      <Name>Intestine</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>Bladder</SubtypeId>
+      </Id>
+      <Name>Bladder</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <!-- NUTRITION -->
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>IntakeBodyWater</SubtypeId>
+      </Id>
+      <Name>IntakeBodyWater</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>1000</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
@@ -175,7 +247,7 @@
       <Name>IntakeCarbohydrates</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>100</MaxValue>
+      <MaxValue>1000</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -186,7 +258,7 @@
       <Name>IntakeProtein</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>100</MaxValue>
+      <MaxValue>1000</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -197,7 +269,7 @@
       <Name>IntakeLipids</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>100</MaxValue>
+      <MaxValue>1000</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -208,7 +280,7 @@
       <Name>IntakeVitamins</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>100</MaxValue>
+      <MaxValue>1000</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -219,10 +291,21 @@
       <Name>IntakeMinerals</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>100</MaxValue>
+      <MaxValue>1000</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>   
+    <!-- BMI -->
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyWeight</SubtypeId>
+      </Id>
+      <Name>BodyWeight</Name>
+      <MinValue>40</MinValue>
+      <DefaultValue>80</DefaultValue>
+      <MaxValue>300</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
-
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
@@ -230,8 +313,8 @@
       </Id>
       <Name>BodyMuscles</Name>
       <MinValue>0</MinValue>
-      <DefaultValue>500</DefaultValue>
-      <MaxValue>1000</MaxValue>
+      <DefaultValue>40</DefaultValue>
+      <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -241,21 +324,9 @@
       </Id>
       <Name>BodyFat</Name>
       <MinValue>0</MinValue>
-      <DefaultValue>500</DefaultValue>
-      <MaxValue>1000</MaxValue>
+      <DefaultValue>30</DefaultValue>
+      <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>BodyPerformance</SubtypeId>
-      </Id>
-      <Name>BodyPerformance</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>500</DefaultValue>
-      <MaxValue>1000</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
-    
   </StatDefinitions>
 </Definitions>

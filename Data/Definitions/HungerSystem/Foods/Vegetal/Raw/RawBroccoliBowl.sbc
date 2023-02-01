@@ -5,9 +5,9 @@
     <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
       <Id>
         <TypeId>ConsumableItem</TypeId>
-        <SubtypeId>RawVegetableBowl</SubtypeId>
+        <SubtypeId>RawBroccoliBowl</SubtypeId>
       </Id>
-      <DisplayName>Raw Vegetable Bowl</DisplayName>
+      <DisplayName>Raw Broccoli Bowl</DisplayName>
       <Icon>Textures\GUI\Icons\vegetable_bowl.dds</Icon>
       <Description></Description>
       <Size>
@@ -34,38 +34,6 @@
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>RawCarrotBowl_Construction</SubtypeId>
-      </Id>
-      <DisplayName>Raw Carrot Bowl</DisplayName>
-      <Icon>Textures\GUI\Icons\vegetable_bowl.dds</Icon>
-      <Description></Description>
-      <Prerequisites>
-        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
-        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Carrot" />
-      </Prerequisites>
-      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
-      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
-    </Blueprint>
-
-    <Blueprint>
-      <Id>
-        <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>RawBeetrootBowl_Construction</SubtypeId>
-      </Id>
-      <DisplayName>Raw Beetroot Bowl</DisplayName>
-      <Icon>Textures\GUI\Icons\vegetable_bowl.dds</Icon>
-      <Description></Description>
-      <Prerequisites>
-        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
-        <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Beetroot" />
-      </Prerequisites>
-      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
-      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
-    </Blueprint>
-
-    <Blueprint>
-      <Id>
-        <TypeId>BlueprintDefinition</TypeId>
         <SubtypeId>RawBroccoliBowl_Construction</SubtypeId>
       </Id>
       <DisplayName>Raw Broccoli Bowl</DisplayName>
@@ -75,7 +43,7 @@
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />
         <Item Amount="5" TypeId="ConsumableItem" SubtypeId="Broccoli" />
       </Prerequisites>
-      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
       <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
     </Blueprint>
 

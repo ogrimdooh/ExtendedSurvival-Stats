@@ -49,18 +49,28 @@
 
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="TomatoToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AppleToConcentrated_Construction" />
-    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ChickenMeatToConcentrated_Construction" />
-    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MilkToConcentrated_Construction" />
-    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="BaconToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienEggToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="EggToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ShrimpMeatToConcentrated_Construction" />
-    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleFishMeatToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="FishMeatToConcentrated_Construction" />
-    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleMeatToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienMeatToConcentrated_Construction" />
-    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleMeatToConcentrated_Construction" />
     <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ShrimpMeatToConcentratedFat_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="FishMeatToConcentratedFat_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienMeatToConcentratedFat_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MeatToConcentratedFat_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ChickenMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ChickenMeatToConcentratedFat_Construction" />    
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MilkToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MilkToConcentratedFat_Construction" />    
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="BaconToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="BaconToConcentratedFat_Construction" />    
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleFishMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleFishMeatToConcentratedFat_Construction" />
+    
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleMeatToConcentrated_Construction" />
+    <Entry Class="AlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="NobleAlienMeatToConcentrated_Construction" />
+
 
     <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Amatoxina_Construction" />
     <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="ArnicaExtract_Construction" />

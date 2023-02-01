@@ -22,6 +22,8 @@ namespace ExtendedSurvival.Stats
     public class BotCharacterEntity : BaseCharacterEntity
     {
 
+        public const string TORPOR_KEY = "Torpor";
+
         public const string STOREDPOWER_STORAGE_KEY = "63A5B803-6635-4747-B5DD-12D682519B10";
         public const string HEALTH_STORAGE_KEY = "D8F5BC79-ED1C-473A-A437-DC3C35DF9B11";
         public const int MAX_TARGET_DISTANCE = 125;
@@ -58,7 +60,12 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public MyEntityStat Torpor { get; private set; }
+        public MyEntityStat GetStat(StatsConstants.CreatureValidStats stat)
+        {
+            return GetStat(stat.ToString());
+        }
+
+        public MyEntityStat Torpor { get { return GetStat(StatsConstants.CreatureValidStats.Torpor); } }
 
         protected BotCharacterEntity internalTarget;
         protected bool targetJustGotNull = false;
@@ -80,7 +87,13 @@ namespace ExtendedSurvival.Stats
         {
             base.OnBeginConfigureCharacter();
             if (StatComponent != null)
-                Torpor = GetPlayerStat("Torpor");
+            {
+                foreach (StatsConstants.CreatureValidStats stat in Enum.GetValues(typeof(StatsConstants.CreatureValidStats)).Cast<StatsConstants.CreatureValidStats>())
+                {
+                    LoadPlayerStat(stat.ToString());
+                }
+                IgnoreCheckStats.Add(TORPOR_KEY);
+            }
             if (IsCreature)
             {
                 if (LivestockConstants.ANIMALS.Keys.Contains(Entity.Definition.Id.SubtypeName))

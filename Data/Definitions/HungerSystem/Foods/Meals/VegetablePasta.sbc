@@ -41,7 +41,7 @@
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Pasta" />
-        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Tomato" />
       </Prerequisites>
       <Results>

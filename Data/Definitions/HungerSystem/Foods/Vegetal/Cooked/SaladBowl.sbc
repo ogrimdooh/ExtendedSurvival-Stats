@@ -40,7 +40,7 @@
       <Icon>Textures\GUI\Icons\salad.dds</Icon>
       <Description></Description>
       <Prerequisites>
-        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
         <Item Amount="2" TypeId="ConsumableItem" SubtypeId="Tomato" />
       </Prerequisites>
       <Results>

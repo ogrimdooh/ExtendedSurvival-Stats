@@ -5,9 +5,9 @@
     <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
       <Id>
         <TypeId>ConsumableItem</TypeId>
-        <SubtypeId>RoastMushrooms</SubtypeId>
+        <SubtypeId>RoastChampignons</SubtypeId>
       </Id>
-      <DisplayName>Roast Mushrooms</DisplayName>
+      <DisplayName>Roast Champignons</DisplayName>
       <Icon>Textures\GUI\Icons\roast_mushroom.dds</Icon>
       <Description></Description>
       <Size>
@@ -36,28 +36,13 @@
         <TypeId>BlueprintDefinition</TypeId>
         <SubtypeId>RoastChampignonMushrooms_Construction</SubtypeId>
       </Id>
-      <DisplayName>Roast Mushrooms (Champignon)</DisplayName>
+      <DisplayName>Roast Champignons</DisplayName>
       <Icon>Textures\GUI\Icons\roast_mushroom.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="10" TypeId="ConsumableItem" SubtypeId="Champignons" />
       </Prerequisites>
-      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastMushrooms" />
-      <BaseProductionTimeInSeconds>2.48</BaseProductionTimeInSeconds>
-    </Blueprint>
-
-    <Blueprint>
-      <Id>
-        <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>RoastShiitakeMushrooms_Construction</SubtypeId>
-      </Id>
-      <DisplayName>Roast Mushrooms (Shiitake)</DisplayName>
-      <Icon>Textures\GUI\Icons\roast_mushroom.dds</Icon>
-      <Description></Description>
-      <Prerequisites>
-        <Item Amount="10" TypeId="ConsumableItem" SubtypeId="Shiitake" />
-      </Prerequisites>
-      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastMushrooms" />
+      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="RoastChampignons" />
       <BaseProductionTimeInSeconds>2.48</BaseProductionTimeInSeconds>
     </Blueprint>
 

@@ -54,6 +54,7 @@
         <Class>BasicFoodProcessor_MeatRecipes_Blueprints</Class>
         <Class>BasicFoodProcessor_VegetableRecipes_Blueprints</Class>
         <Class>BasicFoodProcessor_Recipes_Blueprints</Class>
+        <Class>BasicFoodProcessor_Rations_Blueprints</Class>
       </BlueprintClasses>
       <AssemblySpeed>0.7</AssemblySpeed>
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>

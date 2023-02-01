@@ -12,18 +12,16 @@
                 case 1:
                     return "Untreated Wound";
                 case 2:
-                    return "Intake Food";
-                case 3:
                     return "Intake Water";
-                case 4:
+                case 3:
                     return "Carbohydrates";
-                case 5:
+                case 4:
                     return "Protein";
-                case 6:
+                case 5:
                     return "Lipids";
-                case 7:
+                case 6:
                     return "Vitamins";
-                case 8:
+                case 7:
                     return "Minerals";
             }
             return "";

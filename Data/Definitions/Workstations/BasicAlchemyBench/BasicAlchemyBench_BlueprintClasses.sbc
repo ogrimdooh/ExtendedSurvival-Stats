@@ -54,6 +54,10 @@
     <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="FishMeatToConcentrated_Construction" />
     <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienMeatToConcentrated_Construction" />
     <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MeatToConcentrated_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="ShrimpMeatToConcentratedFat_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="FishMeatToConcentratedFat_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienMeatToConcentratedFat_Construction" />
+    <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MeatToConcentratedFat_Construction" />
 
     <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="AloeVeraExtract_Construction" />
     <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="MintExtract_Construction" />

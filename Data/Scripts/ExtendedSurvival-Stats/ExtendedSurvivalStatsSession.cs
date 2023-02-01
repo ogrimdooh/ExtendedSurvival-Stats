@@ -427,40 +427,27 @@ namespace ExtendedSurvival.Stats
                 var creatureCharacters = new string[] { "Space_Wolf", "Space_spider", "deer_bot", "deerbuck_bot", "Cow_Bot", "Sheep_Bot", "Horse_Bot" };
                 foreach (var character in creatureCharacters)
                 {
-                    DefinitionUtils.AddStatToCharacter("Creature_Torpor", character);
+                    foreach (StatsConstants.CreatureValidStats stat in Enum.GetValues(typeof(StatsConstants.CreatureValidStats)).Cast<StatsConstants.CreatureValidStats>())
+                    {
+                        DefinitionUtils.AddStatToCharacter(stat.ToString(), character);
+                    }
                 }
 
                 var playerCharacters = new string[] { "Default_Astronaut", "Default_Astronaut_Female" };
                 foreach (var character in playerCharacters)
                 {
-                    DefinitionUtils.AddStatToCharacter("IntakeCarbohydrates", character);
-                    DefinitionUtils.AddStatToCharacter("IntakeProtein", character);
-                    DefinitionUtils.AddStatToCharacter("IntakeLipids", character);
-                    DefinitionUtils.AddStatToCharacter("IntakeVitamins", character);
-                    DefinitionUtils.AddStatToCharacter("IntakeMinerals", character);
-                    DefinitionUtils.AddStatToCharacter("BodyMuscles", character);
-                    DefinitionUtils.AddStatToCharacter("BodyFat", character);
-                    DefinitionUtils.AddStatToCharacter("BodyPerformance", character);
-                    DefinitionUtils.AddStatToCharacter("IntakeBodyFood", character);
-                    DefinitionUtils.AddStatToCharacter("IntakeBodyWater", character);
-                    DefinitionUtils.AddStatToCharacter("BodyEnergy", character);
-                    DefinitionUtils.AddStatToCharacter("BodyWater", character);
-                    DefinitionUtils.AddStatToCharacter("WoundedTime", character);
-                    DefinitionUtils.AddStatToCharacter("TemperatureTime", character);
-                    DefinitionUtils.AddStatToCharacter("WetTime", character);
-                    DefinitionUtils.AddStatToCharacter("SurvivalEffects", character);
-                    DefinitionUtils.AddStatToCharacter("DamageEffects", character);
-                    DefinitionUtils.AddStatToCharacter("TemperatureEffects", character);
-                    DefinitionUtils.AddStatToCharacter("DiseaseEffects", character);
-                    DefinitionUtils.AddStatToCharacter("OtherEffects", character);
-                    DefinitionUtils.AddStatToCharacter("Stamina", character);
-                    DefinitionUtils.AddStatToCharacter("Thirst", character);
-                    DefinitionUtils.AddStatToCharacter("Hunger", character);
+                    foreach (StatsConstants.ValidStats stat in Enum.GetValues(typeof(StatsConstants.ValidStats)).Cast<StatsConstants.ValidStats>())
+                    {
+                        DefinitionUtils.AddStatToCharacter(stat.ToString(), character);
+                    }
                 }
 
                 // NUTRITION
+                FoodConstants.TryOverrideDefinitions();
+                /*
                 NutritionConstants.CalculateRecipesNutrition();
                 NutritionConstants.TryOverrideRecipes();
+                */
 
                 // SPAWNS
                 SpawnGroupOverride.SetDefinitions();

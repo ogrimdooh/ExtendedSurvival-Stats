@@ -40,7 +40,9 @@
         <string>ConsumableItem/Apple</string>
         <string>ConsumableItem/Tomato</string>
         <string>ConsumableItem/CerealBar</string>
-        <string>ConsumableItem/RawVegetableBowl</string>
+        <string>ConsumableItem/RawBroccoliBowl</string>
+        <string>ConsumableItem/RawBeetrootBowl</string>
+        <string>ConsumableItem/RawCarrotBowl</string>
         <string>ConsumableItem/RoastMushrooms</string>
         <string>ConsumableItem/Bread</string>
         <string>ConsumableItem/Meat</string>

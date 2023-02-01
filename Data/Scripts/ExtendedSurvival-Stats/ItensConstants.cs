@@ -28,6 +28,9 @@ namespace ExtendedSurvival.Stats
         public const string SURVIVALKIT_SURVIVAL_BLUEPRINTS = "SurvivalKit_Survival_Blueprints";
         public const string SURVIVALKIT_MEDICAL_BLUEPRINTS = "SurvivalKit_Medical_Blueprints";
 
+        public const string POLIETILENOGLICOL_SUBTYPEID = "Polietilenoglicol";
+        public static readonly UniqueEntityId POLIETILENOGLICOL_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), POLIETILENOGLICOL_SUBTYPEID);
+
         public const string BODYTRACKER_SUBTYPEID = "BodyTracker";
         public static readonly UniqueEntityId BODYTRACKER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), BODYTRACKER_SUBTYPEID);
 
@@ -94,6 +97,9 @@ namespace ExtendedSurvival.Stats
         public const string MEAT_SOUP_BOWL_SUBTYPEID = "MeatSoupBowl";
         public static readonly UniqueEntityId MEAT_SOUP_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEAT_SOUP_BOWL_SUBTYPEID);
 
+        public const string ALIEN_MEAT_SOUP_BOWL_SUBTYPEID = "AlienMeatSoupBowl";
+        public static readonly UniqueEntityId ALIEN_MEAT_SOUP_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_MEAT_SOUP_BOWL_SUBTYPEID);
+
         public const string MUSHROOMPATE_BOWL_SUBTYPEID = "MushroomPateBowl";
         public static readonly UniqueEntityId MUSHROOMPATE_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MUSHROOMPATE_BOWL_SUBTYPEID);
 
@@ -121,14 +127,29 @@ namespace ExtendedSurvival.Stats
         public const string RAW_SAUSAGE_SUBTYPEID = "RawSausage";
         public static readonly UniqueEntityId RAW_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_SAUSAGE_SUBTYPEID);
 
+        public const string RAW_ALIEN_SAUSAGE_SUBTYPEID = "RawAlienSausage";
+        public static readonly UniqueEntityId RAW_ALIEN_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_ALIEN_SAUSAGE_SUBTYPEID);
+
         public const string RAW_MEAT_BOWL_SUBTYPEID = "RawMeatBowl";
         public static readonly UniqueEntityId RAW_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_MEAT_BOWL_SUBTYPEID);
+
+        public const string RAW_ALIEN_MEAT_BOWL_SUBTYPEID = "RawAlienMeatBowl";
+        public static readonly UniqueEntityId RAW_ALIEN_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_ALIEN_MEAT_BOWL_SUBTYPEID);
 
         public const string RAW_NOBLE_MEAT_BOWL_SUBTYPEID = "RawNobleMeatBowl";
         public static readonly UniqueEntityId RAW_NOBLE_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_NOBLE_MEAT_BOWL_SUBTYPEID);
 
-        public const string RAW_VEGETABLE_BOWL_SUBTYPEID = "RawVegetableBowl";
-        public static readonly UniqueEntityId RAW_VEGETABLE_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_VEGETABLE_BOWL_SUBTYPEID);
+        public const string RAW_ALIEN_NOBLE_MEAT_BOWL_SUBTYPEID = "RawAlienNobleMeatBowl";
+        public static readonly UniqueEntityId RAW_ALIEN_NOBLE_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_ALIEN_NOBLE_MEAT_BOWL_SUBTYPEID);
+
+        public const string RAW_BROCCOLI_BOWL_SUBTYPEID = "RawBroccoliBowl";
+        public static readonly UniqueEntityId RAW_BROCCOLI_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_BROCCOLI_BOWL_SUBTYPEID);
+
+        public const string RAW_CARROT_BOWL_SUBTYPEID = "RawCarrotBowl";
+        public static readonly UniqueEntityId RAW_CARROT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_CARROT_BOWL_SUBTYPEID);
+
+        public const string RAW_BEETROOT_BOWL_SUBTYPEID = "RawBeetrootBowl";
+        public static readonly UniqueEntityId RAW_BEETROOT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_BEETROOT_BOWL_SUBTYPEID);
 
         public const string SHRIMP_SUBTYPEID = "Shrimp";
         public static readonly UniqueEntityId SHRIMP_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHRIMP_SUBTYPEID);
@@ -196,11 +217,20 @@ namespace ExtendedSurvival.Stats
         public const string PASTA_SUBTYPEID = "Pasta";
         public static readonly UniqueEntityId PASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), PASTA_SUBTYPEID);
 
+        public const string ALIEN_PASTA_SUBTYPEID = "AlienPasta";
+        public static readonly UniqueEntityId ALIEN_PASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_PASTA_SUBTYPEID);
+                
         public const string VEGETABLEPASTA_SUBTYPEID = "VegetablePasta";
         public static readonly UniqueEntityId VEGETABLEPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VEGETABLEPASTA_SUBTYPEID);
 
+        public const string VEGETABLEALIENPASTA_SUBTYPEID = "VegetableAlienPasta";
+        public static readonly UniqueEntityId VEGETABLEALIENPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VEGETABLEALIENPASTA_SUBTYPEID);
+
         public const string MEATPASTA_SUBTYPEID = "MeatPasta";
         public static readonly UniqueEntityId MEATPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEATPASTA_SUBTYPEID);
+
+        public const string ALIENMEATPASTA_SUBTYPEID = "AlienMeatPasta";
+        public static readonly UniqueEntityId ALIENMEATPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIENMEATPASTA_SUBTYPEID);
 
         public const string WATERBREAD_SUBTYPEID = "WaterBread";
         public static readonly UniqueEntityId WATERBREAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), WATERBREAD_SUBTYPEID);
@@ -214,8 +244,14 @@ namespace ExtendedSurvival.Stats
         public const string CAKEDOUGH_SUBTYPEID = "CakeDough";
         public static readonly UniqueEntityId CAKEDOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CAKEDOUGH_SUBTYPEID);
 
+        public const string ALIEN_CAKEDOUGH_SUBTYPEID = "AlienCakeDough";
+        public static readonly UniqueEntityId ALIEN_CAKEDOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_CAKEDOUGH_SUBTYPEID);
+
         public const string DOUGH_SUBTYPEID = "Dough";
         public static readonly UniqueEntityId DOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), DOUGH_SUBTYPEID);
+
+        public const string ALIEN_DOUGH_SUBTYPEID = "AlienDough";
+        public static readonly UniqueEntityId ALIEN_DOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_DOUGH_SUBTYPEID);
 
         public const string ROASTEDCHICKEN_SUBTYPEID = "RoastedChicken";
         public static readonly UniqueEntityId ROASTEDCHICKEN_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTEDCHICKEN_SUBTYPEID);
@@ -226,8 +262,14 @@ namespace ExtendedSurvival.Stats
         public const string APPLEPIE_SUBTYPEID = "ApplePie";
         public static readonly UniqueEntityId APPLEPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), APPLEPIE_SUBTYPEID);
 
+        public const string ALIEN_APPLEPIE_SUBTYPEID = "AlienApplePie";
+        public static readonly UniqueEntityId ALIEN_APPLEPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_APPLEPIE_SUBTYPEID);
+
         public const string CHICKENPIE_SUBTYPEID = "ChickenPie";
         public static readonly UniqueEntityId CHICKENPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CHICKENPIE_SUBTYPEID);
+
+        public const string ALIEN_CHICKENPIE_SUBTYPEID = "AlienChickenPie";
+        public static readonly UniqueEntityId ALIEN_CHICKENPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_CHICKENPIE_SUBTYPEID);
 
         public const string FISHMEAT_SUBTYPEID = "FishMeat";
         public static readonly UniqueEntityId FISHMEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FISHMEAT_SUBTYPEID);
@@ -237,6 +279,9 @@ namespace ExtendedSurvival.Stats
 
         public const string RAWFISHMEATBOWL_SUBTYPEID = "RawFishMeatBowl";
         public static readonly UniqueEntityId RAWFISHMEATBOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAWFISHMEATBOWL_SUBTYPEID);
+
+        public const string RAWNOBLEFISHMEATBOWL_SUBTYPEID = "RawNobleFishMeatBowl";
+        public static readonly UniqueEntityId RAWNOBLEFISHMEATBOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAWNOBLEFISHMEATBOWL_SUBTYPEID);
 
         public const string ROASTEDSHRIMP_SUBTYPEID = "RoastedShrimp";
         public static readonly UniqueEntityId ROASTEDSHRIMP_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTEDSHRIMP_SUBTYPEID);
@@ -271,20 +316,35 @@ namespace ExtendedSurvival.Stats
         public const string ROASTED_MEAT_SUBTYPEID = "RoastedMeat";
         public static readonly UniqueEntityId ROASTED_MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_MEAT_SUBTYPEID);
 
+        public const string ROASTED_ALIEN_MEAT_SUBTYPEID = "RoastedAlienMeat";
+        public static readonly UniqueEntityId ROASTED_ALIEN_MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_ALIEN_MEAT_SUBTYPEID);
+
         public const string CEREALBAR_SUBTYPEID = "CerealBar";
         public static readonly UniqueEntityId CEREALBAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CEREALBAR_SUBTYPEID);
 
         public const string ROASTED_SAUSAGE_SUBTYPEID = "RoastedSausage";
         public static readonly UniqueEntityId ROASTED_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_SAUSAGE_SUBTYPEID);
 
+        public const string ROASTED_ALIEN_SAUSAGE_SUBTYPEID = "RoastedAlienSausage";
+        public static readonly UniqueEntityId ROASTED_ALIEN_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_ALIEN_SAUSAGE_SUBTYPEID);
+
         public const string FRIED_EGG_SUBTYPEID = "FriedEgg";
         public static readonly UniqueEntityId FRIED_EGG_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FRIED_EGG_SUBTYPEID);
 
+        public const string FRIED_ALIEN_EGG_SUBTYPEID = "FriedAlienEgg";
+        public static readonly UniqueEntityId FRIED_ALIEN_EGG_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FRIED_ALIEN_EGG_SUBTYPEID);
+        
         public const string STEW_SUBTYPEID = "StewBowl";
         public static readonly UniqueEntityId STEW_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), STEW_SUBTYPEID);
 
+        public const string ALIEN_STEW_SUBTYPEID = "AlienStewBowl";
+        public static readonly UniqueEntityId ALIEN_STEW_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_STEW_SUBTYPEID);
+
         public const string MEATLOAF_SUBTYPEID = "MeatloafBowl";
         public static readonly UniqueEntityId MEATLOAF_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEATLOAF_SUBTYPEID);
+
+        public const string ALIENMEATLOAF_SUBTYPEID = "AlienMeatloafBowl";
+        public static readonly UniqueEntityId ALIENMEATLOAF_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIENMEATLOAF_SUBTYPEID);
 
         public const string SALAD_SUBTYPEID = "SaladBowl";
         public static readonly UniqueEntityId SALAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SALAD_SUBTYPEID);
@@ -292,17 +352,32 @@ namespace ExtendedSurvival.Stats
         public const string BREAD_SUBTYPEID = "Bread";
         public static readonly UniqueEntityId BREAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), BREAD_SUBTYPEID);
 
-        public const string ROAST_MUSHROOMS_SUBTYPEID = "RoastMushrooms";
-        public static readonly UniqueEntityId ROAST_MUSHROOMS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROAST_MUSHROOMS_SUBTYPEID);
+        public const string ALIEN_BREAD_SUBTYPEID = "AlienBread";
+        public static readonly UniqueEntityId ALIEN_BREAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_BREAD_SUBTYPEID);
+
+        public const string ROAST_CHAMPIGNON_SUBTYPEID = "RoastChampignons";
+        public static readonly UniqueEntityId ROAST_CHAMPIGNON_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROAST_CHAMPIGNON_SUBTYPEID);
+
+        public const string ROAST_SHIITAKE_SUBTYPEID = "RoastShiitake";
+        public static readonly UniqueEntityId ROAST_SHIITAKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROAST_SHIITAKE_SUBTYPEID);
 
         public const string MEAT_VEGETABLES_SUBTYPEID = "MeatVegetablesBowl";
         public static readonly UniqueEntityId MEAT_VEGETABLES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEAT_VEGETABLES_SUBTYPEID);
 
+        public const string ALIEN_MEAT_VEGETABLES_SUBTYPEID = "AlienMeatVegetablesBowl";
+        public static readonly UniqueEntityId ALIEN_MEAT_VEGETABLES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_MEAT_VEGETABLES_SUBTYPEID);
+
         public const string MEAT_MUSHROOMS_SUBTYPEID = "MeatMushroom";
         public static readonly UniqueEntityId MEAT_MUSHROOMS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEAT_MUSHROOMS_SUBTYPEID);
 
+        public const string ALIEN_MEAT_MUSHROOMS_SUBTYPEID = "AlienMeatMushroom";
+        public static readonly UniqueEntityId ALIEN_MEAT_MUSHROOMS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_MEAT_MUSHROOMS_SUBTYPEID);
+
         public const string SANDWICH_SUBTYPEID = "Sandwich";
         public static readonly UniqueEntityId SANDWICH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SANDWICH_SUBTYPEID);
+
+        public const string ALIEN_SANDWICH_SUBTYPEID = "AlienSandwich";
+        public static readonly UniqueEntityId ALIEN_SANDWICH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_SANDWICH_SUBTYPEID);
 
         public const string CHAMPIGNONS_SUBTYPEID = "Champignons";
         public static readonly UniqueEntityId CHAMPIGNONS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CHAMPIGNONS_SUBTYPEID);
@@ -649,7 +724,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                RAW_VEGETABLE_BOWL_ID,
+                RAW_BROCCOLI_BOWL_ID,
                 new KeyValuePair<StatsConstants.DiseaseEffects, float>[]
                 {
                     new KeyValuePair<StatsConstants.DiseaseEffects, float>(StatsConstants.DiseaseEffects.Dysentery, 5)
@@ -875,14 +950,14 @@ namespace ExtendedSurvival.Stats
             AMANITAMUSCARIA_ID,
             APPLE_ID,
             TOMATO_ID,
-            RAW_VEGETABLE_BOWL_ID,
+            RAW_BROCCOLI_BOWL_ID,
             CAKEDOUGH_ID,
             DOUGH_ID,
             /* VEGETABLE FOOD */
             SALAD_ID,
             BREAD_ID,
             CEREALBAR_ID,
-            ROAST_MUSHROOMS_ID,
+            ROAST_CHAMPIGNON_ID,
             MUSHROOMPATE_BOWL_ID,
             VEGETABLE_SOUP_BOWL_ID,
             VEGETABLEPASTA_ID,
@@ -1367,10 +1442,10 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                RAW_VEGETABLE_BOWL_ID,
+                RAW_BROCCOLI_BOWL_ID,
                 new ExtendedSurvivalCoreAPI.ItemExtraInfo()
                 {
-                    DefinitionId = RAW_VEGETABLE_BOWL_ID.DefinitionId,
+                    DefinitionId = RAW_BROCCOLI_BOWL_ID.DefinitionId,
                     StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
                     NeedUpdate = true,
                     NeedConservation = true,
@@ -1639,10 +1714,10 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                ROAST_MUSHROOMS_ID,
+                ROAST_CHAMPIGNON_ID,
                 new ExtendedSurvivalCoreAPI.ItemExtraInfo()
                 {
-                    DefinitionId = ROAST_MUSHROOMS_ID.DefinitionId,
+                    DefinitionId = ROAST_CHAMPIGNON_ID.DefinitionId,
                     StartConservationTime = BASE_VEGETABLE_SPOIL_TIME,
                     NeedUpdate = true,
                     NeedConservation = true,

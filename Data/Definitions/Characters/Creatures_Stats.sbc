@@ -4,7 +4,7 @@
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>Creature_Torpor</SubtypeId>
+        <SubtypeId>Torpor</SubtypeId>
       </Id>
       <Name>Torpor</Name>
       <MinValue>0</MinValue>

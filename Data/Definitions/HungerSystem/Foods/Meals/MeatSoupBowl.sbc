@@ -40,7 +40,7 @@
       <Icon>Textures\GUI\Icons\meat_soup.dds</Icon>
       <Description></Description>
       <Prerequisites>
-        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawNobleMeatBowl" />
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Medium" />
       </Prerequisites>

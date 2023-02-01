@@ -46,20 +46,5 @@
       <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
     </Blueprint>
 
-    <Blueprint>
-      <Id>
-        <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>FriedAlienEgg_Construction</SubtypeId>
-      </Id>
-      <DisplayName>Fried Egg</DisplayName>
-      <Icon>Textures\GUI\Icons\fried_egg.dds</Icon>
-      <Description></Description>
-      <Prerequisites>
-        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienEgg" />
-      </Prerequisites>
-      <Result Amount="1" TypeId="ConsumableItem" SubtypeId="FriedEgg" />
-      <BaseProductionTimeInSeconds>1.28</BaseProductionTimeInSeconds>
-    </Blueprint>
-
   </Blueprints>
 </Definitions>

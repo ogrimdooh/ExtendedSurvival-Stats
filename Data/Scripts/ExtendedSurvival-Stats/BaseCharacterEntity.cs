@@ -13,12 +13,15 @@ using Sandbox.ModAPI;
 using Sandbox.Game;
 using Sandbox.ModAPI.Weapons;
 using Sandbox.Game.Entities.Character.Components;
+using System.Collections.Concurrent;
 
 namespace ExtendedSurvival.Stats
 {
 
     public abstract class BaseCharacterEntity : EntityBase<IMyCharacter>
     {
+
+        public const string HEALTH_KEY = "Health";
 
         protected static readonly Random rnd = new Random();
 
@@ -28,7 +31,17 @@ namespace ExtendedSurvival.Stats
         }
 
         public MyCharacterStatComponent StatComponent { get; private set; }
-        public MyEntityStat Health { get; private set; }
+        protected ConcurrentDictionary<string, MyEntityStat> Stats { get; private set; } = new ConcurrentDictionary<string, MyEntityStat>();
+        protected List<string> IgnoreCheckStats { get; private set; } = new List<string>();
+
+        public MyEntityStat GetStat(string stat)
+        {
+            if (Stats.ContainsKey(stat))
+                return Stats[stat];
+            return null;
+        }
+
+        public MyEntityStat Health { get { return GetStat(HEALTH_KEY); } }
 
         private long _playerId = -1;
         public long PlayerId
@@ -94,7 +107,7 @@ namespace ExtendedSurvival.Stats
 
         protected virtual bool GetIsValid()
         {
-            return Entity != null && Health != null;
+            return Entity != null && Stats.Any() && !Stats.Any(x => !IgnoreCheckStats.Contains(x.Key) && x.Value == null);
         }
 
         public bool IsValid
@@ -280,16 +293,33 @@ namespace ExtendedSurvival.Stats
             return Entity.Physics.Speed;
         }
 
-        protected void RestoreStatValue(MyEntityStat stat, Vector4 storeValue, float minFactor)
+        protected void RestoreStatValue(string statKey, float storeValue, float minFactor)
         {
-            var storedFactor = storeValue.Z / stat.MaxValue;
-            if (storedFactor > minFactor)
+            var stat = Stats[statKey];
+            if (stat != null)
             {
-                stat.Value = storeValue.Z;
+                var storedFactor = storeValue / stat.MaxValue;
+                if (storedFactor > minFactor)
+                {
+                    stat.Value = storeValue;
+                }
+                else
+                {
+                    stat.Value = minFactor * stat.MaxValue;
+                }
             }
-            else
+        }
+
+        protected virtual void LoadPlayerStat(string statKey)
+        {
+            Stats[statKey] = GetPlayerStat(statKey);
+        }
+
+        protected virtual void ClearLoadedStats()
+        {
+            foreach (var key in Stats.Keys)
             {
-                stat.Value = minFactor * stat.MaxValue;
+                Stats[key] = null;
             }
         }
 
@@ -299,7 +329,7 @@ namespace ExtendedSurvival.Stats
             StatComponent = Entity.Components.Get<MyEntityStatComponent>() as MyCharacterStatComponent;
             ClearStatsCache();
             if (StatComponent != null)
-                Health = GetPlayerStat("Health");
+                LoadPlayerStat(HEALTH_KEY);
         }
 
         public virtual void OnReciveDamage(MyDamageInformation damage)
@@ -373,10 +403,10 @@ namespace ExtendedSurvival.Stats
         {
             Entity = null;
             StatComponent = null;
-            Health = null;
             Inventory = null;
             Inventory = null;
             InventoryObserver = Guid.Empty;
+            ClearLoadedStats();
         }
 
         protected void ResetConfiguration()

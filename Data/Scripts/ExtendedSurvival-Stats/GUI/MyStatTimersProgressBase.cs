@@ -7,7 +7,7 @@ namespace ExtendedSurvival.Stats
         
         protected override string[] GetStatsNames()
         {
-            return new string[] { "WetTime", "WoundedTime", "IntakeBodyFood", "IntakeBodyWater", "IntakeCarbohydrates", "IntakeProtein", "IntakeLipids", "IntakeVitamins", "IntakeMinerals" };
+            return new string[] { "WetTime", "WoundedTime", "IntakeBodyWater", "IntakeCarbohydrates", "IntakeProtein", "IntakeLipids", "IntakeVitamins", "IntakeMinerals" };
         }
 
         protected override bool IsActive(int index)
@@ -19,13 +19,12 @@ namespace ExtendedSurvival.Stats
                 case 1:
                     return ExtendedSurvivalSettings.Instance.DamageEffectsEnabled && IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 2;
                 case 2:
-                case 3:
                     return ExtendedSurvivalSettings.Instance.UseNutrition && IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
+                case 3:
                 case 4:
                 case 5:
                 case 6:
                 case 7:
-                case 8:
                     return ExtendedSurvivalSettings.Instance.UseNutrition && IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 4;
             }
             return false;

@@ -21,12 +21,6 @@
       <PhysicalMaterial>None</PhysicalMaterial>
       <Stats>
         <Stat Name="Health" Value="-0.04" Time="5"/>
-        <Stat Name="Hunger" Value="0.005" Time="5"/>
-        <Stat Name="Thirst" Value="-0.015" Time="5"/>
-        <Stat Name="IntakeBodyFood" Value="0.0025" Time="5"/>
-        <Stat Name="IntakeProtein" Value="0.001" Time="5"/>
-        <Stat Name="IntakeLipids" Value="0.0005" Time="5"/>
-        <Stat Name="IntakeMinerals" Value="0.00025" Time="5"/>
       </Stats>
       <MinimalPricePerUnit>75</MinimalPricePerUnit>
       <MinimumOfferAmount>1000</MinimumOfferAmount>
@@ -43,6 +37,24 @@
         <SubtypeId>ShrimpMeatToConcentrated_Construction</SubtypeId>
       </Id>
       <DisplayName>Concentrated Protein From Shrimp Meat</DisplayName>
+      <Icon>Textures\GUI\Icons\concentrated_protein_from_shirimp_meat.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="ShrimpMeat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.0025" TypeId="Ore" SubtypeId="ConcentratedProtein" />
+        <Item Amount="0.00125" TypeId="Ore" SubtypeId="ConcentratedFat" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ShrimpMeatToConcentratedFat_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Concentrated Fat From Shrimp Meat</DisplayName>
       <Icon>Textures\GUI\Icons\concentrated_protein_from_shirimp_meat.dds</Icon>
       <Description></Description>
       <Prerequisites>

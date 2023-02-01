@@ -36,7 +36,7 @@
       <DisplayName>Vegetables Ration</DisplayName>
       <Icon>Textures\GUI\Icons\vegetables_ration.dds</Icon>
       <Prerequisites>
-        <Item Amount="6" TypeId="ConsumableItem" SubtypeId="RawVegetableBowl" />
+        <Item Amount="6" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
         <Item Amount="24" TypeId="Ore" SubtypeId="Ice" />
         <Item Amount="0.25" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>

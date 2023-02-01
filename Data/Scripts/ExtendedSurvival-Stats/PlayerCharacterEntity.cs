@@ -14,303 +14,59 @@ using Sandbox.Game.Entities.Character.Components;
 using Sandbox.Definitions;
 using Sandbox.Common.ObjectBuilders.Definitions;
 using Sandbox.Game.GameSystems;
+using VRage.Collections;
 
 namespace ExtendedSurvival.Stats
 {
 
-    public delegate void OnAtributeEvent(AtributeInformation atribute);
-    public delegate void OnAtributeChangeEvent(AtributeInformation atribute, float oldValue, float finalValue);
-
-    public class AtributeInformation
-    {
-
-        public BaseCharacterEntity Owner { get; set; }
-
-        public bool freeze = false;
-        public float baseValue = 0;
-        public bool hasMinValue = false;
-        public float minValue = 0;
-        public bool hasMaxValue = false;
-        public float maxValue = 0;
-
-        public float currentValue;
-        public float bonusValue;
-
-        public OnAtributeEvent onMinValue;
-        public OnAtributeEvent onMaxValue;
-        public OnAtributeChangeEvent onValueChange;
-
-        public virtual float GetCurrentValue()
-        {
-            return Math.Min(currentValue, GetFinalValue());
-        }
-
-        public virtual float GetFinalValue()
-        {
-            var final = baseValue + bonusValue;
-            if (hasMinValue)
-                final = Math.Max(final, minValue);
-            if (hasMaxValue)
-                final = Math.Min(final, maxValue);
-            return final;
-        }
-
-        protected virtual void AfterChangeCurrentValue(bool hidden = false)
-        {
-            if (hasMinValue)
-            {
-                currentValue = Math.Max(minValue, currentValue);
-                if (currentValue == minValue && onMinValue != null)
-                {
-                    onMinValue(this);
-                }
-            }
-            if (hasMaxValue && currentValue == maxValue && onMaxValue != null)
-            {
-                onMaxValue(this);
-            }
-        }
-
-        protected virtual void DoSetCurrentValue(float value, bool hidden = false)
-        {
-            if (freeze)
-                return;
-            var oldValue = value;
-            currentValue = Math.Min(value, GetFinalValue());
-            if (onValueChange != null)
-                onValueChange(this, oldValue, currentValue);
-            AfterChangeCurrentValue(hidden);
-        }
-
-        public virtual void SetCurrentValue(float value)
-        {
-            DoSetCurrentValue(value);
-        }
-
-        public virtual void DoChangeCurrentValue(float value, bool hidden = false)
-        {
-            if (freeze)
-                return;
-            var oldValue = value;
-            currentValue = Math.Min(currentValue + value, GetFinalValue());
-            if (onValueChange != null)
-                onValueChange(this, oldValue, currentValue);
-            AfterChangeCurrentValue(hidden);
-        }
-
-        public virtual void ChangeCurrentValue(float value)
-        {
-            DoChangeCurrentValue(value);
-        }
-
-        public virtual void InitializeValues()
-        {
-            currentValue = GetFinalValue();
-        }
-
-        public bool IsFull
-        {
-            get
-            {
-                return hasMaxValue && GetCurrentValue().Equals(GetFinalValue());
-            }
-        }
-
-    }
-
-    public delegate void OnStatEvent(StatInformation stat);
-    public delegate void OnStatChangeEvent(StatInformation stat, float oldValue, float finalValue);
-
-    [System.Serializable]
-    public class StatInformation
-    {
-
-        public BaseCharacterEntity Owner { get; set; }
-
-        public bool freeze = false;
-        public float baseValue = 0;
-        public bool hasMinValue = false;
-        public float minValue = 0;
-        public bool hasMaxValue = false;
-        public float maxValue = 0;
-        public bool regenerate = false;
-        public float regenerateFactor = 0;
-        public float ragenerateInterval = 0;
-        public bool canBeInterrupted = true;
-        public float interruptInterval = 0;
-
-        public float currentValue;
-        public float bonusValue;
-
-        public OnStatEvent onMinValue;
-        public OnStatEvent onMaxValue;
-        public OnStatChangeEvent onValueChange;
-
-        private float lastInterrupt;
-        private float lastRegenerateEvent;
-
-        public virtual float GetCurrentValue()
-        {
-            return Math.Min(currentValue, GetFinalValue());
-        }
-
-        public virtual float GetFinalValue()
-        {
-            var final = baseValue + bonusValue;
-            if (hasMinValue)
-                final = Math.Max(final, minValue);
-            if (hasMaxValue)
-                final = Math.Min(final, maxValue);
-            return final;
-        }
-
-        protected virtual void AfterChangeCurrentValue(bool hidden = false)
-        {
-            if (hasMinValue)
-            {
-                currentValue = Math.Max(minValue, currentValue);
-                if (currentValue == minValue && onMinValue != null)
-                {
-                    onMinValue(this);
-                }
-            }
-            if (hasMaxValue && currentValue == maxValue && onMaxValue != null)
-            {
-                onMaxValue(this);
-            }
-            if (!hidden)
-                lastInterrupt = DateTime.Now.Ticks;
-        }
-
-        protected virtual void DoSetCurrentValue(float value, bool hidden = false)
-        {
-            if (freeze)
-                return;
-            var oldValue = value;
-            currentValue = Math.Min(value, GetFinalValue());
-            if (onValueChange != null)
-                onValueChange(this, oldValue, currentValue);
-            AfterChangeCurrentValue(hidden);
-        }
-
-        public virtual void SetCurrentValue(float value)
-        {
-            DoSetCurrentValue(value);
-        }
-
-        public virtual void DoChangeCurrentValue(float value, bool hidden = false)
-        {
-            if (freeze)
-                return;
-            var oldValue = value;
-            currentValue = Math.Min(currentValue + value, GetFinalValue());
-            if (onValueChange != null)
-                onValueChange(this, oldValue, currentValue);
-            AfterChangeCurrentValue(hidden);
-        }
-
-        public virtual void ChangeCurrentValue(float value)
-        {
-            DoChangeCurrentValue(value);
-        }
-
-        public virtual void InitializeValues()
-        {
-            currentValue = GetFinalValue();
-        }
-
-        public bool IsFull
-        {
-            get
-            {
-                return GetCurrentValue().Equals(GetFinalValue());
-            }
-        }
-
-        protected virtual void DoRegenerate()
-        {
-            if (regenerate && !IsFull)
-            {
-                if (canBeInterrupted && (DateTime.Now.Ticks - lastInterrupt) < interruptInterval)
-                    return;
-                if (DateTime.Now.Ticks - lastRegenerateEvent > ragenerateInterval)
-                {
-                    lastRegenerateEvent = DateTime.Now.Ticks;
-                    DoChangeCurrentValue(regenerateFactor, true);
-                }
-            }
-        }
-
-        public virtual void DoUpdate()
-        {
-            DoRegenerate();
-        }
-
-    }
-
-    public delegate void OnEffectEvent(EffectInformation effect);
-
-    public class EffectInformation
-    {
-
-        public BaseCharacterEntity Owner { get; set; }
-
-        public long createdTime = DateTime.Now.Ticks;
-        public bool autoRemove = false;
-        public long removeAt = 0;
-
-        public OnEffectEvent onNeedRemove;
-
-        protected long lifeTime;
-
-        public virtual void DoUpdate()
-        {
-            lifeTime = DateTime.Now.Ticks - createdTime;
-            if (autoRemove)
-            {
-                if (lifeTime > removeAt && onNeedRemove != null)
-                    onNeedRemove(this);
-            }
-        }
-
-    }
-
-
-
     public class PlayerCharacterEntity : BaseCharacterEntity
     {
+
+        public MyEntityStat GetStat(StatsConstants.ValidStats stat)
+        {
+            return GetStat(stat.ToString());
+        }
 
         private const float MAX_HEALTH_REGEN_AT_SURVIVAL_KIT = 0.5f;
 
         public MyCharacterOxygenComponent OxygenComponent { get; private set; }
 
-        public MyEntityStat Hunger { get; private set; }
-        public MyEntityStat Thirst { get; private set; }
-        public MyEntityStat Stamina { get; private set; }
+        public MyEntityStat FoodDetector { get { return GetStat(StatsConstants.ValidStats.FoodDetector); } }
+        
+        public MyEntityStat Hunger { get { return GetStat(StatsConstants.ValidStats.Hunger); } }
+        public MyEntityStat Thirst { get { return GetStat(StatsConstants.ValidStats.Thirst); } }
+        public MyEntityStat Stamina { get { return GetStat(StatsConstants.ValidStats.Stamina); } }
+        public MyEntityStat Fatigue { get { return GetStat(StatsConstants.ValidStats.Fatigue); } }
 
-        public MyEntityStat IntakeBodyFood { get; private set; }
-        public MyEntityStat IntakeBodyWater { get; private set; }
-        public MyEntityStat BodyEnergy { get; private set; }
-        public MyEntityStat BodyWater { get; private set; }
+        public MyEntityStat SurvivalEffects { get { return GetStat(StatsConstants.ValidStats.SurvivalEffects); } }
+        public MyEntityStat DamageEffects { get { return GetStat(StatsConstants.ValidStats.DamageEffects); } }
+        public MyEntityStat TemperatureEffects { get { return GetStat(StatsConstants.ValidStats.TemperatureEffects); } }
+        public MyEntityStat DiseaseEffects { get { return GetStat(StatsConstants.ValidStats.DiseaseEffects); } }
+        public MyEntityStat OtherEffects { get { return GetStat(StatsConstants.ValidStats.OtherEffects); } }
 
-        public MyEntityStat IntakeCarbohydrates { get; private set; }
-        public MyEntityStat IntakeProtein { get; private set; }
-        public MyEntityStat IntakeLipids { get; private set; }
-        public MyEntityStat IntakeVitamins { get; private set; }
-        public MyEntityStat IntakeMinerals { get; private set; }
-        public MyEntityStat BodyMuscles { get; private set; }
-        public MyEntityStat BodyFat { get; private set; }
-        public MyEntityStat BodyPerformance { get; private set; }
+        public MyEntityStat WoundedTime { get { return GetStat(StatsConstants.ValidStats.WoundedTime); } }
+        public MyEntityStat TemperatureTime { get { return GetStat(StatsConstants.ValidStats.TemperatureTime); } }
+        public MyEntityStat WetTime { get { return GetStat(StatsConstants.ValidStats.WetTime); } }
 
-        public MyEntityStat SurvivalEffects { get; private set; }
-        public MyEntityStat DamageEffects { get; private set; }
-        public MyEntityStat TemperatureEffects { get; private set; }
-        public MyEntityStat DiseaseEffects { get; private set; }
-        public MyEntityStat OtherEffects { get; private set; }
+        public MyEntityStat BodyEnergy { get { return GetStat(StatsConstants.ValidStats.BodyEnergy); } }
+        public MyEntityStat BodyWater { get { return GetStat(StatsConstants.ValidStats.BodyWater); } }
+        public MyEntityStat BodyPerformance { get { return GetStat(StatsConstants.ValidStats.BodyPerformance); } }
+        public MyEntityStat BodyImmune { get { return GetStat(StatsConstants.ValidStats.BodyImmune); } }
 
-        public MyEntityStat WoundedTime { get; private set; }
-        public MyEntityStat TemperatureTime { get; private set; }
-        public MyEntityStat WetTime { get; private set; }
+        public MyEntityStat Stomach { get { return GetStat(StatsConstants.ValidStats.Stomach); } }
+        public MyEntityStat Intestine { get { return GetStat(StatsConstants.ValidStats.Intestine); } }
+        public MyEntityStat Bladder { get { return GetStat(StatsConstants.ValidStats.Bladder); } }
+
+        public MyEntityStat IntakeBodyWater { get { return GetStat(StatsConstants.ValidStats.IntakeBodyWater); } }
+        public MyEntityStat IntakeCarbohydrates { get { return GetStat(StatsConstants.ValidStats.IntakeCarbohydrates); } }
+        public MyEntityStat IntakeProtein { get { return GetStat(StatsConstants.ValidStats.IntakeProtein); } }
+        public MyEntityStat IntakeLipids { get { return GetStat(StatsConstants.ValidStats.IntakeLipids); } }
+        public MyEntityStat IntakeVitamins { get { return GetStat(StatsConstants.ValidStats.IntakeVitamins); } }
+        public MyEntityStat IntakeMinerals { get { return GetStat(StatsConstants.ValidStats.IntakeMinerals); } }
+
+        public MyEntityStat BodyWeight { get { return GetStat(StatsConstants.ValidStats.BodyWeight); } }
+        public MyEntityStat BodyMuscles { get { return GetStat(StatsConstants.ValidStats.BodyMuscles); } }
+        public MyEntityStat BodyFat { get { return GetStat(StatsConstants.ValidStats.BodyFat); } }
 
         public float CurrentPerformance
         {
@@ -357,8 +113,12 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                var percent = BodyFat.Value / BodyFat.MaxValue;
-                return (percent - 0.5f) * 0.5f;
+                if (BodyFat != null)
+                {
+                    var percent = BodyFat.Value / BodyFat.MaxValue;
+                    return (percent - 0.5f) * 0.5f;
+                }
+                return 0;
             }
         }
 
@@ -366,8 +126,12 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                var percent = BodyMuscles.Value / BodyMuscles.MaxValue;
-                return (percent - 0.5f) * 0.5f;
+                if (BodyMuscles != null)
+                {
+                    var percent = BodyMuscles.Value / BodyMuscles.MaxValue;
+                    return (percent - 0.5f) * 0.5f;
+                }
+                return 0;
             }
         }
 
@@ -431,39 +195,11 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        protected override bool GetIsValid()
-        {
-            return base.GetIsValid() &&
-                Thirst != null &&
-                Hunger != null &&
-                Stamina != null &&
-                SurvivalEffects != null &&
-                DamageEffects != null &&
-                TemperatureEffects != null &&
-                DiseaseEffects != null &&
-                OtherEffects != null &&
-                WoundedTime != null &&
-                TemperatureTime != null &&
-                WetTime != null &&
-                IntakeBodyFood != null &&
-                IntakeBodyWater != null &&
-                BodyEnergy != null &&
-                BodyWater != null &&
-                IntakeCarbohydrates != null &&
-                IntakeProtein != null &&
-                IntakeLipids != null &&
-                IntakeVitamins != null &&
-                IntakeMinerals != null &&
-                BodyMuscles != null &&
-                BodyFat != null &&
-                BodyPerformance != null;
-        }
-
         public bool HasFoodThirstEffects
         {
             get
             {
-                return IsValid && (Hunger.HasAnyEffect() || Thirst.HasAnyEffect());
+                return IsValid && FoodDetector.HasAnyEffect();
             }
         }
 
@@ -482,10 +218,12 @@ namespace ExtendedSurvival.Stats
         private DateTime lastRegenEffect;
         private PlayerData storeData = null;
 
+        private PlayerBodyController controller;
+
         public PlayerCharacterEntity(IMyCharacter entity)
             : base(entity)
         {
-
+            controller = new PlayerBodyController();
         }
 
         private bool IsOnCryoChamber()
@@ -527,53 +265,16 @@ namespace ExtendedSurvival.Stats
             OxygenComponent = Entity.Components.Get<MyCharacterOxygenComponent>();
             if (StatComponent != null)
             {
-                Hunger = GetPlayerStat("Hunger");
-                Thirst = GetPlayerStat("Thirst");
-                Stamina = GetPlayerStat("Stamina");
-                SurvivalEffects = GetPlayerStat("SurvivalEffects");
-                DamageEffects = GetPlayerStat("DamageEffects");
-                TemperatureEffects = GetPlayerStat("TemperatureEffects");
-                DiseaseEffects = GetPlayerStat("DiseaseEffects");
-                OtherEffects = GetPlayerStat("OtherEffects");
-                WoundedTime = GetPlayerStat("WoundedTime");
-                TemperatureTime = GetPlayerStat("TemperatureTime");
-                WetTime = GetPlayerStat("WetTime");
-                IntakeBodyFood = GetPlayerStat("IntakeBodyFood");
-                IntakeBodyWater = GetPlayerStat("IntakeBodyWater");
-                BodyEnergy = GetPlayerStat("BodyEnergy");
-                BodyWater = GetPlayerStat("BodyWater");
-                IntakeCarbohydrates = GetPlayerStat("IntakeCarbohydrates");
-                IntakeProtein = GetPlayerStat("IntakeProtein");
-                IntakeLipids = GetPlayerStat("IntakeLipids");
-                IntakeVitamins = GetPlayerStat("IntakeVitamins");
-                IntakeMinerals = GetPlayerStat("IntakeMinerals");
-                BodyMuscles = GetPlayerStat("BodyMuscles");
-                BodyFat = GetPlayerStat("BodyFat");
-                BodyPerformance = GetPlayerStat("BodyPerformance");
+                foreach (StatsConstants.ValidStats stat in Enum.GetValues(typeof(StatsConstants.ValidStats)).Cast<StatsConstants.ValidStats>())
+                {
+                    LoadPlayerStat(stat.ToString());
+                }
                 if (hasDied && storeData != null && ExtendedSurvivalSettings.Instance.HardModeEnabled)
                 {
-                    RestoreStatValue(Hunger, storeData.Hunger, HungerConstants.MIN_HUNGER_AT_START);
-                    RestoreStatValue(Thirst, storeData.Thirst, HungerConstants.MIN_THIRST_AT_START);
-                    if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+                    foreach (var key in storeData.Stats.Keys)
                     {
-                        RestoreStatValue(BodyEnergy, storeData.BodyEnergy, HungerConstants.MIN_BODYENERGY_AT_START);
-                        RestoreStatValue(BodyWater, storeData.BodyWater, HungerConstants.MIN_BODYWATER_AT_START);
-                        IntakeBodyFood.Value = storeData.IntakeBodyFood.Z;
-                        IntakeBodyWater.Value = storeData.IntakeBodyWater.Z;
-                        if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                        {
-                            IntakeCarbohydrates.Value = storeData.IntakeCarbohydrates.Z;
-                            IntakeProtein.Value = storeData.IntakeProtein.Z;
-                            IntakeLipids.Value = storeData.IntakeLipids.Z;
-                            IntakeVitamins.Value = storeData.IntakeVitamins.Z;
-                            IntakeMinerals.Value = storeData.IntakeMinerals.Z;
-                            BodyMuscles.Value = storeData.BodyMuscles.Z;
-                            BodyFat.Value = storeData.BodyFat.Z;
-                            BodyPerformance.Value = storeData.BodyPerformance.Z;
-                        }
+                        RestoreStatValue(key, storeData.Stats[key], StatsConstants.STATS_MIN_VALUE.ContainsKey(key) ? StatsConstants.STATS_MIN_VALUE[key] : 0);
                     }
-                    RestoreStatValue(Stamina, storeData.Stamina, HungerConstants.MIN_STAMINA_AT_START);
-                    CurrentDamageEffects = storeData.CurrentDamageEffects;
                     if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.ON_DEATH_NO_CHANGE_IF))
                     {
                         CurrentDamageEffects &= ~StatsConstants.ON_DEATH_REMOVE_DAMAGE;
@@ -583,10 +284,6 @@ namespace ExtendedSurvival.Stats
                     {
                         Health.Value = Health.MaxValue * StatsConstants.DAMAGE_HEALTH_START_VALUE[(StatsConstants.DamageEffects)StatsConstants.GetMaxSetFlagValue(CurrentDamageEffects)];
                     }
-                    CurrentDiseaseEffects = storeData.CurrentDiseaseEffects;
-                    WetTime.Value = storeData.WetTime.Z;
-                    TemperatureTime.Value = storeData.TemperatureTime.Z;
-                    WoundedTime.Value = storeData.WoundedTime.Z;
                 }
                 CheckHungerValues();
                 CheckThirstValues();
@@ -621,17 +318,6 @@ namespace ExtendedSurvival.Stats
         {
             base.OnEndResetConfiguration();
             OxygenComponent = null;
-            Thirst = null;
-            Hunger = null;
-            Stamina = null;
-            SurvivalEffects = null;
-            DamageEffects = null;
-            TemperatureEffects = null;
-            DiseaseEffects = null;
-            OtherEffects = null;
-            WoundedTime = null;
-            TemperatureTime = null;
-            WetTime = null;
         }
 
         protected override void OnCharacterDied()
@@ -822,6 +508,10 @@ namespace ExtendedSurvival.Stats
                         {
                             Inventory.AddMaxItems(1f, ItensConstants.GetPhysicalObjectBuilder(NutritionConstants.FOOD_RECIPIENTS[removedUniqueId]));
                         }
+                        if (FoodConstants.FOOD_DEFINITIONS.ContainsKey(removedUniqueId))
+                        {
+                            controller.DoConsumeItem(FoodConstants.FOOD_DEFINITIONS[removedUniqueId]);
+                        }
                     }
                     if (HasHealthEffects && DateTime.Now > lastRegenEffect)
                     {
@@ -928,39 +618,10 @@ namespace ExtendedSurvival.Stats
         {
             if (IsValid)
             {
-                if (Hunger.Value < 0)
-                    Hunger.Value = 0;
-                if (Thirst.Value < 0)
-                    Thirst.Value = 0;
-                if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+                foreach (var key in Stats.Keys)
                 {
-                    if (IntakeBodyWater.Value < 0)
-                        IntakeBodyWater.Value = 0;
-                    if (IntakeBodyFood.Value < 0)
-                        IntakeBodyFood.Value = 0;
-                    if (BodyEnergy.Value < 0)
-                        BodyEnergy.Value = 0;
-                    if (BodyWater.Value < 0)
-                        BodyWater.Value = 0;
-                    if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                    {
-                        if (IntakeProtein.Value < 0)
-                            IntakeProtein.Value = 0;
-                        if (IntakeCarbohydrates.Value < 0)
-                            IntakeCarbohydrates.Value = 0;
-                        if (IntakeLipids.Value < 0)
-                            IntakeLipids.Value = 0;
-                        if (IntakeMinerals.Value < 0)
-                            IntakeMinerals.Value = 0;
-                        if (IntakeVitamins.Value < 0)
-                            IntakeVitamins.Value = 0;
-                        if (BodyMuscles.Value < 0)
-                            BodyMuscles.Value = 0;
-                        if (BodyFat.Value < 0)
-                            BodyFat.Value = 0;
-                        if (BodyPerformance.Value < 0)
-                            BodyPerformance.Value = 0;
-                    }
+                    if (Stats[key].Value < Stats[key].MinValue)
+                        Stats[key].Value = Stats[key].MinValue;
                 }
                 CheckOxygenValue();
             }
@@ -1057,6 +718,22 @@ namespace ExtendedSurvival.Stats
 
         private TimeSpan lastTimeProcess = TimeSpan.Zero;
 
+        public float GetSpendedStamina()
+        {
+            return _spendedStamina;
+        }
+
+        public void ClearSpendedStamina()
+        {
+            _spendedStamina = 0;
+        }
+
+        private float _spendedStamina = 0;
+        public void AddSpendedStamina(float value)
+        {
+            _spendedStamina += value;
+        }
+
         public void ProcessStatsCycle()
         {
             if (!MyAPIGateway.Session.CreativeMode && IsValid)
@@ -1064,8 +741,24 @@ namespace ExtendedSurvival.Stats
                 ProcessEffectsTimers();
                 if (!IsOnCryoChamber())
                 {
+                    controller.DoCicle(GetSpendedStamina());
+                    ClearSpendedStamina();
+                    Hunger.Value = Hunger.MaxValue * controller.CurrentHungerAmmount;
+                    Thirst.Value = Thirst.MaxValue * controller.CurrentThirstAmmount;
+                    Intestine.Value = Intestine.MaxValue * controller.CurrentIntestineAmmount;
+                    Stomach.Value = Stomach.MaxValue * controller.CurrentStomachAmmount;
+                    Bladder.Value = Bladder.MaxValue * controller.CurrentBladderAmmount;
+                    BodyWater.Value = BodyWater.MaxValue * controller.CurrentBodyWater;
+                    BodyEnergy.Value = BodyEnergy.MaxValue * controller.CurrentBodyEnergy;
+                    BodyWeight.Value = controller.CurrentWeight;
+                    BodyFat.Value = BodyFat.MaxValue * controller.CurrentFat;
+                    BodyMuscles.Value = BodyMuscles.MaxValue * controller.CurrentMuscle;
+                    BodyPerformance.Value = BodyPerformance.MaxValue * controller.CurrentPerformance;
+                    BodyImmune.Value = BodyImmune.MaxValue * controller.CurrentImunity;
+                    /*
                     ProcessHunger();
                     ProcessThirst();
+                    */
                     ProcessHealth();
                     ProcessCargoMax();
                 }
@@ -1171,17 +864,17 @@ namespace ExtendedSurvival.Stats
                 ProcessStamina();
                 if (!IsOnCryoChamber())
                 {
-                    ProcessIntakeBodyFood();
+                    /* 
                     ProcessIntakeBodyWater();
                     ProcessBodyEnergy();
                     ProcessBodyWater();
                     ProcessBodyPerformance();
                     ProcessBodyMuscle();
                     ProcessBodyFat();
+                    */
                 }
                 else
                 {
-                    lastBodyFoodGainValue = 0;
                     lastBodyWaterConsumeValue = 0;
                     incriseBodyPerformanceValue = 0;
                     consumeBodyPerformanceValue = 0;
@@ -1408,23 +1101,6 @@ namespace ExtendedSurvival.Stats
                     consumeValue = GetValueWithPerformance(consumeValue, true);
                     BodyWater.Decrease(consumeValue, PlayerId);
                     lastBodyWaterConsumeValue = (float)Math.Round(consumeValue * -1, 3);
-                }
-            }
-        }
-
-        private float lastBodyFoodGainValue = 0;
-        private void ProcessIntakeBodyFood()
-        {
-            if (ExtendedSurvivalSettings.Instance.UseMetabolism)
-            {
-                lastBodyFoodGainValue = 0;
-                if (IntakeBodyFood.Value > 0)
-                {
-                    var transferValue = StatsConstants.BASE_FOOD_METABOLISM;
-                    IntakeBodyFood.Decrease(transferValue, PlayerId);
-                    var consumeValue = GetValueWithPerformance(transferValue);
-                    BodyEnergy.Increase(consumeValue, PlayerId);
-                    lastBodyFoodGainValue = (float)Math.Round(consumeValue, 3);
                 }
             }
         }
@@ -2037,6 +1713,8 @@ namespace ExtendedSurvival.Stats
 
         private void ProcessStamina()
         {
+            var value = GetStaminaToDecrese();
+            AddSpendedStamina(value);
             if (ExtendedSurvivalSettings.Instance.StaminaEnabled)
             {
                 var maxStamina = GetMaxStamina();
@@ -2044,7 +1722,6 @@ namespace ExtendedSurvival.Stats
                 {
                     if (Stamina.Value > 0)
                     {
-                        var value = GetStaminaToDecrese();
                         Stamina.Decrease(GetValueWithPerformance(value, true), Player?.IdentityId);
                     }
                     else
@@ -2052,6 +1729,10 @@ namespace ExtendedSurvival.Stats
                         var staminaDamage = StatsConstants.BASE_STAMINA_DAMAGE_FACTOR * ExtendedSurvivalSettings.Instance.StaminaSettings.DamageMultiplier;
                         if (staminaDamage > 0 && CanTakeDamage)
                             Entity.DoDamage(staminaDamage, MyDamageType.Environment, true);
+                    }
+                    if (Fatigue.Value < Fatigue.MaxValue)
+                    {
+                        Fatigue.Increase(GetValueWithPerformance(value, true), Player?.IdentityId);
                     }
                 }
                 else
@@ -2196,35 +1877,12 @@ namespace ExtendedSurvival.Stats
                     ConfigureCharacter(Entity);
                 if (IsValid)
                 {
-                    var planet = PlanetAtRange;
-                    return new PlayerData()
+                    var data = new PlayerData();
+                    foreach (var key in Stats.Keys)
                     {
-                        Health = Health.GetValues(),
-                        Stamina = Stamina.GetValues(GetMaxStamina() - Stamina.MaxValue),
-                        Hunger = Hunger.GetValues(),
-                        Thirst = Thirst.GetValues(),
-                        WetTime = WetTime.GetValues(),
-                        TemperatureTime = TemperatureTime.GetValues(),
-                        WoundedTime = WoundedTime.GetValues(),
-                        IntakeBodyFood = IntakeBodyFood.GetValues(),
-                        IntakeBodyWater = IntakeBodyWater.GetValues(),
-                        BodyEnergy = BodyEnergy.GetValues(lastBodyEnergyConsumeValue + lastBodyFoodGainValue),
-                        BodyWater = BodyWater.GetValues(lastBodyWaterConsumeValue + lastBodyWaterGainValue),
-                        IntakeCarbohydrates = IntakeCarbohydrates.GetValues(),
-                        IntakeProtein = IntakeProtein.GetValues(),
-                        IntakeLipids = IntakeLipids.GetValues(),
-                        IntakeVitamins = IntakeVitamins.GetValues(),
-                        IntakeMinerals = IntakeMinerals.GetValues(),
-                        BodyMuscles = BodyMuscles.GetValues(consumeBodyMuscleValue + incriseBodyMuscleValue),
-                        BodyFat = BodyFat.GetValues(consumeBodyFatValue + incriseBodyFatValue),
-                        BodyPerformance = BodyPerformance.GetValues(consumeBodyPerformanceValue + incriseBodyPerformanceValue),
-                        CurrentDamageEffects = CurrentDamageEffects,
-                        CurrentDiseaseEffects = CurrentDiseaseEffects,
-                        CurrentOtherEffects = CurrentOtherEffects,
-                        CurrentSurvivalEffects = CurrentSurvivalEffects,
-                        CurrentTemperatureEffects = CurrentTemperatureEffects,
-                        CurrentEnvironmentType = currentEnvironmentType
-                    };
+                        data.Stats.Add(key, Stats[key]?.Value ?? 0);
+                    }
+                    return data;
                 }
                 else
                 {
@@ -2247,7 +1905,6 @@ namespace ExtendedSurvival.Stats
                     ConfigureCharacter(Entity);
                 if (IsValid)
                 {
-                    var planet = PlanetAtRange;
                     return new PlayerSendData()
                     {
                         EntityId = Entity.EntityId,

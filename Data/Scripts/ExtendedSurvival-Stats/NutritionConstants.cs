@@ -65,7 +65,6 @@ namespace ExtendedSurvival.Stats
             public float Hunger { get; set; }
             public float Thirst { get; set; }
             public float Stamina { get; set; }
-            public float IntakeBodyFood { get; set; }
             public float IntakeBodyWater { get; set; }
             public float IntakeCarbohydrates { get; set; }
             public float IntakeProtein { get; set; }
@@ -135,7 +134,6 @@ namespace ExtendedSurvival.Stats
                 Hunger = other.Hunger;
                 Thirst = other.Thirst;
                 Stamina = other.Stamina;
-                IntakeBodyFood = other.IntakeBodyFood;
                 IntakeBodyWater = other.IntakeBodyWater;
                 IntakeCarbohydrates = other.IntakeCarbohydrates;
                 IntakeProtein = other.IntakeProtein;
@@ -151,7 +149,6 @@ namespace ExtendedSurvival.Stats
                 Hunger += other.Hunger;
                 Thirst += other.Thirst;
                 Stamina += other.Stamina;
-                IntakeBodyFood += other.IntakeBodyFood;
                 IntakeBodyWater += other.IntakeBodyWater;
                 IntakeCarbohydrates += other.IntakeCarbohydrates;
                 IntakeProtein += other.IntakeProtein;
@@ -167,7 +164,6 @@ namespace ExtendedSurvival.Stats
                 Hunger -= other.Hunger;
                 Thirst -= other.Thirst;
                 Stamina -= other.Stamina;
-                IntakeBodyFood -= other.IntakeBodyFood;
                 IntakeBodyWater -= other.IntakeBodyWater;
                 IntakeCarbohydrates -= other.IntakeCarbohydrates;
                 IntakeProtein -= other.IntakeProtein;
@@ -183,7 +179,6 @@ namespace ExtendedSurvival.Stats
                 Hunger *= multiplier;
                 Thirst *= multiplier;
                 Stamina *= multiplier;
-                IntakeBodyFood *= multiplier;
                 IntakeBodyWater *= multiplier;
                 IntakeCarbohydrates *= multiplier;
                 IntakeProtein *= multiplier;
@@ -199,7 +194,6 @@ namespace ExtendedSurvival.Stats
                 Hunger /= multiplier;
                 Thirst /= multiplier;
                 Stamina /= multiplier;
-                IntakeBodyFood /= multiplier;
                 IntakeBodyWater /= multiplier;
                 IntakeCarbohydrates /= multiplier;
                 IntakeProtein /= multiplier;
@@ -219,8 +213,6 @@ namespace ExtendedSurvival.Stats
                     stats.Add(new MyConsumableItemDefinition.StatValue(nameof(Thirst), Thirst, BASE_TIME));
                 if (Stamina != 0)
                     stats.Add(new MyConsumableItemDefinition.StatValue(nameof(Stamina), Stamina, BASE_TIME));
-                if (IntakeBodyFood != 0)
-                    stats.Add(new MyConsumableItemDefinition.StatValue(nameof(IntakeBodyFood), IntakeBodyFood, BASE_TIME));
                 if (IntakeBodyWater != 0)
                     stats.Add(new MyConsumableItemDefinition.StatValue(nameof(IntakeBodyWater), IntakeBodyWater, BASE_TIME));
                 if (IntakeCarbohydrates != 0)
@@ -248,8 +240,6 @@ namespace ExtendedSurvival.Stats
                     sb.AppendFormat("{0}={1} ", nameof(Thirst), Thirst);
                 if (Stamina != 0)
                     sb.AppendFormat("{0}={1} ", nameof(Stamina), Stamina);
-                if (IntakeBodyFood != 0)
-                    sb.AppendFormat("{0}={1} ", nameof(IntakeBodyFood), IntakeBodyFood);
                 if (IntakeBodyWater != 0)
                     sb.AppendFormat("{0}={1} ", nameof(IntakeBodyWater), IntakeBodyWater);
                 if (IntakeCarbohydrates != 0)
@@ -305,7 +295,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0,
             Thirst = -0.05f,
             Stamina = 0,
-            IntakeBodyFood = 0.025f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0,
@@ -322,7 +311,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0,
             Thirst = -0.05f,
             Stamina = 0,
-            IntakeBodyFood = 0.025f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.2f,
@@ -339,7 +327,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0,
             Thirst = 0,
             Stamina = 0,
-            IntakeBodyFood = 0,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0,
@@ -356,7 +343,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0,
             Thirst = 0.02f,
             Stamina = 0.005f,
-            IntakeBodyFood = 0,
             IntakeBodyWater = 0.05f,
             IntakeCarbohydrates = 0.0125f,
             IntakeProtein = 0.00125f,
@@ -373,7 +359,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0,
             Thirst = 0.005f,
             Stamina = 0.00125f,
-            IntakeBodyFood = 0,
             IntakeBodyWater = 0.0025f,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0,
@@ -390,7 +375,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.025f,
             Thirst = -0.005f,
             Stamina = 0,
-            IntakeBodyFood = 0.0125f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0.0075f,
             IntakeProtein = 0.001f,
@@ -407,7 +391,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.025f,
             Thirst = -0.005f,
             Stamina = 0,
-            IntakeBodyFood = 0.0125f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0.01f,
             IntakeProtein = 0.001f,
@@ -424,7 +407,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0,
             Thirst = 0,
             Stamina = 0.075f,
-            IntakeBodyFood = 0,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0,
@@ -441,7 +423,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.01f,
             Thirst = 0.005f,
             Stamina = 0,
-            IntakeBodyFood = 0.005f,
             IntakeBodyWater = 0.0025f,
             IntakeCarbohydrates = 0.005f,
             IntakeProtein = 0.001f,
@@ -458,7 +439,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.005f,
             Thirst = 0.001f,
             Stamina = 0,
-            IntakeBodyFood = 0.0025f,
             IntakeBodyWater = 0.0005f,
             IntakeCarbohydrates = 0.0025f,
             IntakeProtein = 0.0005f,
@@ -475,7 +455,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.015f,
             Thirst = 0.005f,
             Stamina = 0.0025f,
-            IntakeBodyFood = 0.0075f,
             IntakeBodyWater = 0.0025f,
             IntakeCarbohydrates = 0.0025f,
             IntakeProtein = 0,
@@ -492,7 +471,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.0125f,
             Thirst = -0.0125f,
             Stamina = 0f,
-            IntakeBodyFood = 0.0125f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.005f,
@@ -509,7 +487,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.05f,
             Thirst = -0.05f,
             Stamina = 0f,
-            IntakeBodyFood = 0.05f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.025f,
@@ -526,7 +503,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.025f,
             Thirst = -0.025f,
             Stamina = 0f,
-            IntakeBodyFood = 0.0175f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.0075f,
@@ -543,7 +519,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.025f,
             Thirst = -0.025f,
             Stamina = 0f,
-            IntakeBodyFood = 0.0175f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.0075f,
@@ -560,7 +535,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.007f,
             Thirst = -0.007f,
             Stamina = 0f,
-            IntakeBodyFood = 0.0075f,
             IntakeBodyWater = 0.0025f,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.0025f,
@@ -577,7 +551,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.007f,
             Thirst = -0.007f,
             Stamina = 0f,
-            IntakeBodyFood = 0.0075f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.0025f,
@@ -594,7 +567,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.0125f,
             Thirst = -0.0125f,
             Stamina = 0f,
-            IntakeBodyFood = 0.0125f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.005f,
@@ -611,7 +583,6 @@ namespace ExtendedSurvival.Stats
             Hunger = 0.025f,
             Thirst = -0.025f,
             Stamina = 0f,
-            IntakeBodyFood = 0.0175f,
             IntakeBodyWater = 0,
             IntakeCarbohydrates = 0,
             IntakeProtein = 0.0075f,
@@ -670,7 +641,7 @@ namespace ExtendedSurvival.Stats
             { ItensConstants.SODA_ID, ItensConstants.ALUMINUMCAN_ID },
             { ItensConstants.COFFEE_CAN_ID, ItensConstants.ALUMINUMCAN_ID },
             { ItensConstants.CAKEDOUGH_ID, ItensConstants.BOWL_ID },
-            { ItensConstants.RAW_VEGETABLE_BOWL_ID, ItensConstants.BOWL_ID },
+            { ItensConstants.RAW_BROCCOLI_BOWL_ID, ItensConstants.BOWL_ID },
             { ItensConstants.RAW_MEAT_BOWL_ID, ItensConstants.BOWL_ID },
             { ItensConstants.RAW_NOBLE_MEAT_BOWL_ID, ItensConstants.BOWL_ID },
             { ItensConstants.SALAD_ID, ItensConstants.BOWL_ID },
@@ -771,7 +742,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             { 
-                ItensConstants.RAW_VEGETABLE_BOWL_ID,
+                ItensConstants.RAW_BROCCOLI_BOWL_ID,
                 new FoodPreparation()
                 {
                     RecipeName = "RawBroccoliBowl_Construction",
@@ -806,7 +777,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                ItensConstants.ROAST_MUSHROOMS_ID,
+                ItensConstants.ROAST_CHAMPIGNON_ID,
                 new FoodPreparation()
                 {
                     RecipeName = "RoastChampignonMushrooms_Construction",

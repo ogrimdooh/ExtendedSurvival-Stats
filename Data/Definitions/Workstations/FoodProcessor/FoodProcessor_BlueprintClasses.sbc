@@ -61,8 +61,26 @@
       <FocusIcon>Textures\GUI\Icons\buttons\MugFocus.dds</FocusIcon>
       <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
     </Class>
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>FoodProcessor_Rations_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Rations</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Fertilizer.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Fertilizer.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\FertilizerFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
   </BlueprintClasses>
   <BlueprintClassEntries>
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="MeatRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="NobleMeatRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="FishMeatRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="VegetablesRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="GrainsRation_Construction" />
+    
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawCarrotBowl_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawBeetrootBowl_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawBroccoliBowl_Construction" />
@@ -71,59 +89,66 @@
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawNobleMeatBowl_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawAlienNobleMeatBowl_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawSausage_Construction" />
+    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawAlienSausage_Construction" />    
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="FishMeat_Desconstruction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienFishMeat_Desconstruction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="NobleFishMeat_Desconstruction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienNobleFishMeat_Desconstruction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawFishMeatBowl_Construction" />
-    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawFishMeatBowl_Construction2" />
+    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawNobleFishMeatBowl_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="ShrimpMeat_Desconstruction" />
-    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="MeatRation_Construction" />
-    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="NobleMeatRation_Construction" />
-    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="FishMeatRation_Construction" />
-    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="VegetablesRation_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="Dough_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienDough_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="CakeDough_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienCakeDough_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="Pasta_Construction" />
-    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="GrainsRation_Construction" />
+    <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="AlienPasta_Construction" />
 
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedMeat_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedAlienMeat_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="StewBowl_Construction" />
+    <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="AlienStewBowl_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="FriedEgg_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="FriedAlienEgg_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedFish_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedNobleFish_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedShrimp_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="MeatloafBowl_Construction" />
+    <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="AlienMeatloafBowl_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedSausage_Construction" />
+    <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedAlienSausage_Construction" />    
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedBacon_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedChicken_Construction" />
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="MeatPasta_Construction" />
+    <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="AlienMeatPasta_Construction" />    
 
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="CerealBar_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="VegetableSoupBowl_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Salad_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="MushroomPate_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Bread_Construction" />
+    <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="AlienBread_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="WaterBread_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="RoastShiitakeMushrooms_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="RoastChampignonMushrooms_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="VegetablePasta_Construction" />
+    <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="VegetableAlienPasta_Construction" />    
 
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="MeatMushroom_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienMeatVegetablesBowl_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="MeatVegetablesBowl_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="MeatSoupBowl_Construction" />
+    <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienMeatSoupBowl_Construction" />    
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="Sandwich_Construction" />
+    <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienSandwich_Construction" />    
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienMeatMushroom_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="FishMushroom_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="FishSoupBowl_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="ShrimpSoupBowl_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="ApplePie_Construction" />
+    <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienApplePie_Construction" />    
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="ChickenPie_Construction" />
+    <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="AlienChickenPie_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="Cheese_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="FatPorridge_Construction" />
     <Entry Class="FoodProcessor_Recipes_Blueprints" BlueprintSubtypeId="ProteinBar_Construction" />
