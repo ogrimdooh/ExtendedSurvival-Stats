@@ -1,21 +1,16 @@
 ﻿namespace ExtendedSurvival.Stats
 {
-    public class MyStatPlayerBodyImmune : MyStatSimpleProgressBase
+    public class MyStatPlayerBladder : MyStatSimpleProgressBase
     {
 
         protected override string GetStatName()
         {
-            return "BodyImmune";
+            return "Bladder";
         }
 
         protected override string GetId()
         {
-            return "player_bodyimmune";
-        }
-
-        protected override bool IsActive()
-        {
-            return IsWithHelmet() && GetBodyTrackerLevel() >= 4;
+            return "player_bladder";
         }
 
         public override string ToString() => string.Format("{0:0}%", (float)(CurrentValue * 100.0));

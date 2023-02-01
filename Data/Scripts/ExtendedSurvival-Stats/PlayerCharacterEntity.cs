@@ -224,6 +224,57 @@ namespace ExtendedSurvival.Stats
             : base(entity)
         {
             controller = new PlayerBodyController();
+            controller.BodyEvent += Controller_BodyEvent;
+            controller.BodyGetDisease += Controller_BodyGetDisease;
+        }
+
+        private void Controller_BodyGetDisease(PlayerBodyController sender, StatsConstants.DiseaseEffects disease)
+        {
+            if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, disease))
+                CurrentDiseaseEffects |= disease;
+        }
+
+        private void Controller_BodyEvent(PlayerBodyController sender, PlayerBodyController.BodyEventType eventType)
+        {
+            switch (eventType)
+            {
+                case PlayerBodyController.BodyEventType.FullIntestine:
+                    DoShitYourself();
+                    break;
+                case PlayerBodyController.BodyEventType.FullBladder:
+                    DoTakeAPiss();
+                    break;
+                case PlayerBodyController.BodyEventType.FullStomach:
+                    DoVomit();
+                    break;
+            }
+        }
+
+        private void DoShitYourself()
+        {
+            if (!StatsConstants.IsFlagSet(CurrentOtherEffects, StatsConstants.OtherEffects.PoopOnClothes))
+            {
+                CurrentOtherEffects |= StatsConstants.OtherEffects.PoopOnClothes;
+            }
+            controller.DoEmptyIntestine();
+        }
+
+        private void DoTakeAPiss()
+        {
+            if (!StatsConstants.IsFlagSet(CurrentOtherEffects, StatsConstants.OtherEffects.PeeOnClothes))
+            {
+                CurrentOtherEffects |= StatsConstants.OtherEffects.PeeOnClothes;
+            }
+            controller.DoEmptyBladder();
+        }
+
+        private void DoVomit()
+        {
+            if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Queasy))
+            {
+                CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Queasy;
+            }
+            controller.DoEmptyStomach();
         }
 
         private bool IsOnCryoChamber()
@@ -360,95 +411,86 @@ namespace ExtendedSurvival.Stats
 
         private void CheckHealthValue()
         {
-            if (ExtendedSurvivalSettings.Instance.DamageEffectsEnabled)
+            var percentValue = Health.Value / Health.MaxValue;
+            if (percentValue == 1)
             {
-                var percentValue = Health.Value / Health.MaxValue;
-                if (percentValue == 1)
-                {
-                    CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
-                }
+                CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
             }
         }
 
         private void CheckHealthDamage(float damage)
         {
-            if (ExtendedSurvivalSettings.Instance.DamageEffectsEnabled)
+            var percentValue = Health.Value / Health.MaxValue;
+            var percentDamage = damage / Health.MaxValue;
+            if (percentDamage >= 0.6f)
             {
-                var percentValue = Health.Value / Health.MaxValue;
-                var percentDamage = damage / Health.MaxValue;
-                if (percentDamage >= 0.6f)
+                CurrentDamageEffects |= StatsConstants.DamageEffects.BrokenBones;
+                CurrentDamageEffects &= ~StatsConstants.DamageEffects.DeepWounded;
+                CurrentDamageEffects &= ~StatsConstants.DamageEffects.Wounded;
+                CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
+            }
+            else if (percentDamage >= 0.4f || percentValue <= 0.2f)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones))
                 {
-                    CurrentDamageEffects |= StatsConstants.DamageEffects.BrokenBones;
-                    CurrentDamageEffects &= ~StatsConstants.DamageEffects.DeepWounded;
+                    CurrentDamageEffects |= StatsConstants.DamageEffects.DeepWounded;
                     CurrentDamageEffects &= ~StatsConstants.DamageEffects.Wounded;
                     CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
                 }
-                else if (percentDamage >= 0.4f || percentValue <= 0.2f)
+            }
+            else if (percentDamage >= 0.2f || percentValue <= 0.4f)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
+                    !StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded))
                 {
-                    if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones))
-                    {
-                        CurrentDamageEffects |= StatsConstants.DamageEffects.DeepWounded;
-                        CurrentDamageEffects &= ~StatsConstants.DamageEffects.Wounded;
-                        CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
-                    }
+                    CurrentDamageEffects |= StatsConstants.DamageEffects.Wounded;
+                    CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
                 }
-                else if (percentDamage >= 0.2f || percentValue <= 0.4f)
+            }
+            else if (percentDamage >= 0.1f)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
+                    !StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded) &&
+                    !StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.Wounded))
                 {
-                    if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
-                        !StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded))
-                    {
-                        CurrentDamageEffects |= StatsConstants.DamageEffects.Wounded;
-                        CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
-                    }
-                }
-                else if (percentDamage >= 0.1f)
-                {
-                    if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
-                        !StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded) &&
-                        !StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.Wounded))
-                    {
-                        CurrentDamageEffects |= StatsConstants.DamageEffects.Contusion;
-                    }
+                    CurrentDamageEffects |= StatsConstants.DamageEffects.Contusion;
                 }
             }
         }
 
         private void CheckOxygenValue()
         {
-            if (ExtendedSurvivalSettings.Instance.StaminaEnabled)
+            float percentValue;
+            bool usingSuit = Entity.EnabledHelmet;
+            if (IsUnderwater)
             {
-                float percentValue;
-                bool usingSuit = Entity.EnabledHelmet;
-                if (IsUnderwater)
-                {
-                    percentValue = usingSuit ?
-                        enterUnderWaterO2Level :
-                        0f;
-                }
-                else
-                {
-                    percentValue = usingSuit ?
-                        Entity.GetSuitGasFillLevel(ItensConstants.OXYGEN_ID.DefinitionId) :
-                        Entity.OxygenLevel;
-                }
-                var checkValue = usingSuit ?
-                    new Vector2(0.05f, 0.2f) :
-                    new Vector2(0.1f, 0.8f);
-                if (percentValue <= checkValue.X)
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Disoriented;
-                    CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Suffocation;
-                }
-                else if (percentValue <= checkValue.Y)
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Suffocation;
-                    CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Disoriented;
-                }
-                else
-                {
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Suffocation;
-                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Disoriented;
-                }
+                percentValue = usingSuit ?
+                    enterUnderWaterO2Level :
+                    0f;
+            }
+            else
+            {
+                percentValue = usingSuit ?
+                    Entity.GetSuitGasFillLevel(ItensConstants.OXYGEN_ID.DefinitionId) :
+                    Entity.OxygenLevel;
+            }
+            var checkValue = usingSuit ?
+                new Vector2(0.05f, 0.2f) :
+                new Vector2(0.1f, 0.8f);
+            if (percentValue <= checkValue.X)
+            {
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Disoriented;
+                CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Suffocation;
+            }
+            else if (percentValue <= checkValue.Y)
+            {
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Suffocation;
+                CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Disoriented;
+            }
+            else
+            {
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Suffocation;
+                CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Disoriented;
             }
         }
 
@@ -500,7 +542,6 @@ namespace ExtendedSurvival.Stats
                 var removedUniqueId = new UniqueEntityId(removedId);
                 if (removedId.TypeId.ToString().Contains("Consumable"))
                 {
-                    bool needToCheckDisease = false;
                     if (HasFoodThirstEffects && DateTime.Now > lastFraskCreated)
                     {
                         lastFraskCreated = DateTime.Now.AddMilliseconds(FoodThirstEffectsTimeLeft);
@@ -540,70 +581,7 @@ namespace ExtendedSurvival.Stats
                             CurrentDiseaseEffects &= ~ItensConstants.REMOVE_DISEASE_EFFECTS[removedUniqueId];
                         }
                     }
-                    if (needToCheckDisease)
-                        CheckHasDiseaseToGive(removedUniqueId);
                     lastRemovedIten = null;
-                }
-            }
-        }
-
-        private bool CheckCanAdd(StatsConstants.DiseaseEffects effect)
-        {
-            switch (effect)
-            {
-                case StatsConstants.DiseaseEffects.Pneumonia:
-                    return ExtendedSurvivalSettings.Instance.PneumoniaEnabled;
-                case StatsConstants.DiseaseEffects.Dysentery:
-                    return ExtendedSurvivalSettings.Instance.DysenteryEnabled;
-                case StatsConstants.DiseaseEffects.Poison:
-                    return ExtendedSurvivalSettings.Instance.PoisonEnabled;
-                case StatsConstants.DiseaseEffects.Infected:
-                    return ExtendedSurvivalSettings.Instance.InfectedEnabled;
-                case StatsConstants.DiseaseEffects.Hypothermia:
-                    return ExtendedSurvivalSettings.Instance.HypothermiaEnabled;
-                case StatsConstants.DiseaseEffects.Hyperthermia:
-                    return ExtendedSurvivalSettings.Instance.HyperthermiaEnabled;
-                case StatsConstants.DiseaseEffects.Starvation:
-                    return ExtendedSurvivalSettings.Instance.StarvationEnabled;
-                case StatsConstants.DiseaseEffects.SevereStarvation:
-                    return ExtendedSurvivalSettings.Instance.SevereStarvationEnabled;
-                case StatsConstants.DiseaseEffects.Dehydration:
-                    return ExtendedSurvivalSettings.Instance.DehydrationEnabled;
-                case StatsConstants.DiseaseEffects.SevereDehydration:
-                    return ExtendedSurvivalSettings.Instance.SevereDehydrationEnabled;
-                case StatsConstants.DiseaseEffects.Obesity:
-                    return ExtendedSurvivalSettings.Instance.ObesityEnabled;
-                case StatsConstants.DiseaseEffects.SevereObesity:
-                    return ExtendedSurvivalSettings.Instance.SevereObesityEnabled;
-                case StatsConstants.DiseaseEffects.Rickets:
-                    return ExtendedSurvivalSettings.Instance.RicketsEnabled;
-                case StatsConstants.DiseaseEffects.SevereRickets:
-                    return ExtendedSurvivalSettings.Instance.SevereRicketsEnabled;
-                case StatsConstants.DiseaseEffects.Hypolipidemia:
-                    return ExtendedSurvivalSettings.Instance.HypolipidemiaEnabled;
-                default:
-                    return false;
-            }
-        }
-
-        private void CheckHasDiseaseToGive(UniqueEntityId id)
-        {
-            if (ItensConstants.GIVE_DISEASE_EFFECTS.Keys.Contains(id))
-            {
-                foreach (var item in ItensConstants.GIVE_DISEASE_EFFECTS[id])
-                {
-                    if (CheckCanAdd(item.Key))
-                    {
-                        var chance = item.Value;
-                        if (ExtendedSurvivalSettings.Instance.UseNutrition && chance < 100)
-                        {
-                            chance = GetValueWithPerformance(chance, true);
-                        }
-                        if (chance >= 100 || CheckChance(chance))
-                        {
-                            CurrentDiseaseEffects |= item.Key;
-                        }
-                    }
                 }
             }
         }
@@ -629,23 +607,17 @@ namespace ExtendedSurvival.Stats
 
         private float GetValueWithPerformance(float value, bool inv = false)
         {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                return value + (value * CurrentPerformance * (inv ? -1 : 1));
-            return value;
+            return value + (value * CurrentPerformance * (inv ? -1 : 1));
         }
 
         private float GetValueWithBodyFatMultiplier(float value, bool inv = false)
         {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                return value + (value * CurrentBodyFatMultiplier * (inv ? -1 : 1));
-            return value;
+            return value + (value * CurrentBodyFatMultiplier * (inv ? -1 : 1));
         }
 
         private float GetValueWithBodyMuscleMultiplier(float value, bool inv = false)
         {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                return value + (value * CurrentBodyMusclesMultiplier * (inv ? -1 : 1));
-            return value;
+            return value + (value * CurrentBodyMusclesMultiplier * (inv ? -1 : 1));
         }
 
         public void CheckValuesToDoDamage()
@@ -654,64 +626,14 @@ namespace ExtendedSurvival.Stats
             {
                 try
                 {
-                    if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+                    if (BodyWater.Value == 0)
                     {
-                        if (BodyEnergy.Value == 0 || BodyWater.Value == 0)
-                        {
-                            Entity.Kill();
-                        }
-                    }
-                    else
-                    {
-                        float damageMultiplier = 0;
-                        if (Hunger.Value == 0)
-                            damageMultiplier += HungerConstants.BASE_HUNGER_DAMAGE_FACTOR;
-                        if (Thirst.Value == 0)
-                            damageMultiplier += HungerConstants.BASE_THIRST_DAMAGE_FACTOR;
-                        if (damageMultiplier > 0)
-                            Entity.DoDamage(HungerConstants.BASE_DAMAGE_FACTOR * damageMultiplier, MyDamageType.Environment, true);
+                        Entity.Kill();
                     }
                 }
                 catch (Exception ex)
                 {
                     ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
-                }
-            }
-        }
-
-        private void ProcessHunger()
-        {
-            if (Hunger.Value > 0)
-                Hunger.Decrease(GetValueWithPerformance(GetHungerToDecrease(), true), PlayerId);
-        }
-
-        private void ProcessThirst()
-        {
-            var thirstNegative = true;
-            var thirstValue = GetThirstToDecrease();
-
-            if (Entity.Parent == null && currentEnvironmentType == WeatherConstants.EnvironmentDetector.Atmosphere)
-            {
-                if (weatherEffect != WeatherConstants.WeatherEffects.None && !Entity.EnabledHelmet)
-                {
-                    thirstNegative = false;
-                    thirstValue = GetThirstToIncrise(weatherEffect, weatherLevel, weatherIntensity);
-                }
-            }
-
-            if (Thirst.Value > 0 && thirstNegative)
-                Thirst.Decrease(GetValueWithPerformance(thirstValue, true), PlayerId);
-
-            if (!thirstNegative)
-            {
-                thirstValue = GetValueWithPerformance(thirstValue);
-                if (Thirst.Value < Thirst.MaxValue)
-                {
-                    Thirst.Increase(thirstValue, PlayerId);
-                }
-                if (ExtendedSurvivalSettings.Instance.UseMetabolism)
-                {
-                    IntakeBodyWater.Increase(thirstValue, PlayerId);
                 }
             }
         }
@@ -862,27 +784,6 @@ namespace ExtendedSurvival.Stats
             {
                 RefreshWeatherInfo();
                 ProcessStamina();
-                if (!IsOnCryoChamber())
-                {
-                    /* 
-                    ProcessIntakeBodyWater();
-                    ProcessBodyEnergy();
-                    ProcessBodyWater();
-                    ProcessBodyPerformance();
-                    ProcessBodyMuscle();
-                    ProcessBodyFat();
-                    */
-                }
-                else
-                {
-                    lastBodyWaterConsumeValue = 0;
-                    incriseBodyPerformanceValue = 0;
-                    consumeBodyPerformanceValue = 0;
-                    incriseBodyMuscleValue = 0;
-                    consumeBodyMuscleValue = 0;
-                    incriseBodyFatValue = 0;
-                    consumeBodyFatValue = 0;
-                }
             }
         }
 
@@ -906,484 +807,334 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        private float incriseBodyPerformanceValue = 0;
-        private float consumeBodyPerformanceValue = 0;
-        private void ProcessBodyPerformance()
-        {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
-            {
-                incriseBodyPerformanceValue = 0;
-                consumeBodyPerformanceValue = 0;
-                if (IntakeVitamins.Value > 0)
-                {
-                    var incriseValue = StatsConstants.BODY_PERFORMANCE_V_GAIN;
-                    var consumeValue = StatsConstants.BODY_PERFORMANCE_V_DRAIN;
-                    incriseValue = GetValueWithPerformance(incriseValue);
-                    BodyPerformance.Increase(incriseValue, PlayerId);
-                    IntakeVitamins.Decrease(consumeValue, PlayerId);
-                    incriseBodyPerformanceValue += incriseValue;
-                }
-                if (IntakeMinerals.Value > 0)
-                {
-                    var incriseValue = StatsConstants.BODY_PERFORMANCE_M_GAIN;
-                    var consumeValue = StatsConstants.BODY_PERFORMANCE_M_DRAIN;
-                    incriseValue = GetValueWithPerformance(incriseValue);
-                    BodyPerformance.Increase(incriseValue, PlayerId);
-                    IntakeMinerals.Decrease(consumeValue, PlayerId);
-                    incriseBodyPerformanceValue += incriseValue;
-                }
-                if (incriseBodyPerformanceValue > 0)
-                {
-                    incriseBodyPerformanceValue = (float)Math.Round(incriseBodyPerformanceValue, 3);
-                }
-                if (BodyPerformance.Value > 0)
-                {
-                    consumeBodyPerformanceValue = StatsConstants.BODY_PERFORMANCE_CYCLE_DRAIN;
-                    consumeBodyPerformanceValue += StatsConstants.BODY_PERFORMANCE_CYCLE_DRAIN_INC * GetTotalDiseaseMultiplier();
-                    consumeBodyPerformanceValue = Math.Min(consumeBodyPerformanceValue, StatsConstants.BODY_PERFORMANCE_CYCLE_MAXDRAIN);
-                    consumeBodyPerformanceValue = GetValueWithPerformance(consumeBodyPerformanceValue, true);
-                    BodyPerformance.Decrease(consumeBodyPerformanceValue, PlayerId);
-                    consumeBodyPerformanceValue = (float)Math.Round(consumeBodyPerformanceValue * -1, 3);
-                }
-            }
-        }
-
-        private float GetBaseMuscleGain()
-        {
-            if (IsOnTreadmill())
-                return StatsConstants.BODY_MUSCLE_MOVE_GAIN.Z;
-            if (IsCharacterSprinting())
-                return StatsConstants.BODY_MUSCLE_MOVE_GAIN.Y;
-            return StatsConstants.BODY_MUSCLE_MOVE_GAIN.X;
-        }
-
-        private float incriseBodyMuscleValue = 0;
-        private float consumeBodyMuscleValue = 0;
-        private void ProcessBodyMuscle()
-        {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
-            {
-                incriseBodyMuscleValue = 0;
-                consumeBodyMuscleValue = 0;
-                if (IsCharacterMoving() || IsCharacterUsingTool() || IsOnTreadmill())
-                {
-                    if (IntakeProtein.Value > 0)
-                    {
-                        incriseBodyMuscleValue = GetBaseMuscleGain();
-                        incriseBodyMuscleValue = GetValueWithPerformance(incriseBodyMuscleValue);
-                        var consumeValue = StatsConstants.BODY_MUSCLE_PROTEIN_DRAIN;
-                        BodyMuscles.Increase(incriseBodyMuscleValue, PlayerId);
-                        IntakeProtein.Decrease(consumeValue, PlayerId);
-                        incriseBodyMuscleValue = (float)Math.Round(incriseBodyMuscleValue, 3);
-                    }
-                }
-                else
-                {
-                    consumeBodyMuscleValue = StatsConstants.BODY_MUSCLE_NOMOVE_DRAIN;
-                    consumeBodyMuscleValue = GetValueWithPerformance(consumeBodyMuscleValue, true);
-                    BodyMuscles.Decrease(consumeBodyMuscleValue, PlayerId);
-                    consumeBodyMuscleValue = (float)Math.Round(consumeBodyMuscleValue * -1, 3);
-                }
-            }
-        }
-
-        private float incriseBodyFatValue = 0;
-        private float consumeBodyFatValue = 0;
-        private void ProcessBodyFat()
-        {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
-            {
-                incriseBodyFatValue = 0;
-                consumeBodyFatValue = 0;
-                if (IntakeLipids.Value > 0 || IntakeCarbohydrates.Value > 0)
-                {
-                    incriseBodyFatValue = IntakeLipids.Value > 0 ? StatsConstants.BODY_FAT_NOMOVE_LC_GAIN.X : StatsConstants.BODY_FAT_NOMOVE_LC_GAIN.Y;
-                    incriseBodyFatValue = GetValueWithPerformance(incriseBodyFatValue, true);
-                    BodyFat.Increase(incriseBodyFatValue, PlayerId);
-                    if (IntakeLipids.Value > 0)
-                    {
-                        IntakeLipids.Decrease(StatsConstants.BODY_FAT_LC_DRAIN.X, PlayerId);
-                    }
-                    else
-                    {
-                        IntakeCarbohydrates.Decrease(StatsConstants.BODY_FAT_LC_DRAIN.Y, PlayerId);
-                    }
-                    incriseBodyFatValue = (float)Math.Round(incriseBodyFatValue, 3);
-                }
-                if (IsCharacterMoving() || IsCharacterUsingTool() || IsOnTreadmill())
-                {
-                    consumeBodyFatValue = GetBaseFatDrain();
-                    consumeBodyFatValue = GetValueWithPerformance(consumeBodyFatValue);
-                    BodyFat.Decrease(consumeBodyFatValue, PlayerId);
-                    consumeBodyFatValue = (float)Math.Round(consumeBodyFatValue * -1, 3);
-                }
-            }
-        }
-
-        private float GetBaseFatDrain()
-        {
-            if (IsOnTreadmill())
-                return StatsConstants.BODY_FAT_MOVE_DRAIN.Z;
-            if (IsCharacterSprinting())
-                return StatsConstants.BODY_FAT_MOVE_DRAIN.Y;
-            return StatsConstants.BODY_FAT_MOVE_DRAIN.X;
-        }
-
-        private float lastBodyEnergyConsumeValue = 0;
-        private void ProcessBodyEnergy()
-        {
-            if (ExtendedSurvivalSettings.Instance.UseMetabolism)
-            {
-                lastBodyEnergyConsumeValue = 0;
-                if (BodyEnergy.Value > 0)
-                {
-                    var consumeValue = StatsConstants.BASE_USE_ENERGY_FACTOR * (1 - Hunger.CurrentRatio);
-                    if (IsCharacterMoving() || IsCharacterUsingTool() || IsOnTreadmill())
-                    {
-                        if (IsCharacterSprinting() || IsOnTreadmill())
-                            consumeValue *= StatsConstants.BASE_USE_ENERGY_MOVE_MULTIPLIER.Y;
-                        else
-                            consumeValue *= StatsConstants.BASE_USE_ENERGY_MOVE_MULTIPLIER.X;
-                    }
-                    if (ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled)
-                    {
-                        if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.Frosty))
-                            consumeValue *= StatsConstants.BASE_USE_ENERGY_TEMPERATURE_MULTIPLIER.X;
-                        else if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.Cold))
-                            consumeValue *= StatsConstants.BASE_USE_ENERGY_TEMPERATURE_MULTIPLIER.Y;
-                        else if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.Overheating))
-                            consumeValue *= StatsConstants.BASE_USE_ENERGY_TEMPERATURE_MULTIPLIER.Z;
-                        else if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.OnFire))
-                            consumeValue *= StatsConstants.BASE_USE_ENERGY_TEMPERATURE_MULTIPLIER.W;
-                    }
-                    if (CurrentSurvivalEffects.IsFlagSet(StatsConstants.SurvivalEffects.Hungry))
-                        consumeValue *= StatsConstants.BASE_USE_ENERGY_HUNGER_MULTIPLIER.X;
-                    else if (CurrentSurvivalEffects.IsFlagSet(StatsConstants.SurvivalEffects.Famished))
-                        consumeValue *= StatsConstants.BASE_USE_ENERGY_HUNGER_MULTIPLIER.Y;
-                    consumeValue = GetValueWithPerformance(consumeValue, true);
-                    BodyEnergy.Decrease(consumeValue, PlayerId);
-                    lastBodyEnergyConsumeValue = (float)Math.Round(consumeValue * -1, 3);
-                }
-            }
-        }
-
-        private float lastBodyWaterConsumeValue = 0;
-        private void ProcessBodyWater()
-        {
-            if (ExtendedSurvivalSettings.Instance.UseMetabolism)
-            {
-                lastBodyWaterConsumeValue = 0;
-                if (BodyWater.Value > 0)
-                {
-                    var consumeValue = StatsConstants.BASE_USE_WATER_FACTOR * (1 - Thirst.CurrentRatio);
-                    if (IsCharacterMoving() || IsCharacterUsingTool() || IsOnTreadmill())
-                    {
-                        if (IsCharacterSprinting() || IsOnTreadmill())
-                            consumeValue *= StatsConstants.BASE_USE_WATER_MOVE_MULTIPLIER.Y;
-                        else
-                            consumeValue *= StatsConstants.BASE_USE_WATER_MOVE_MULTIPLIER.X;
-                    }
-                    if (ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled)
-                    {
-                        if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.Frosty))
-                            consumeValue *= StatsConstants.BASE_USE_WATER_TEMPERATURE_MULTIPLIER.X;
-                        else if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.Cold))
-                            consumeValue *= StatsConstants.BASE_USE_WATER_TEMPERATURE_MULTIPLIER.Y;
-                        else if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.Overheating))
-                            consumeValue *= StatsConstants.BASE_USE_WATER_TEMPERATURE_MULTIPLIER.Z;
-                        else if (CurrentTemperatureEffects.IsFlagSet(StatsConstants.TemperatureEffects.OnFire))
-                            consumeValue *= StatsConstants.BASE_USE_WATER_TEMPERATURE_MULTIPLIER.W;
-                    }
-                    if (CurrentSurvivalEffects.IsFlagSet(StatsConstants.SurvivalEffects.Thirsty))
-                        consumeValue *= StatsConstants.BASE_USE_WATER_THIRST_MULTIPLIER.X;
-                    else if (CurrentSurvivalEffects.IsFlagSet(StatsConstants.SurvivalEffects.Dehydrating))
-                        consumeValue *= StatsConstants.BASE_USE_WATER_THIRST_MULTIPLIER.Y;
-                    consumeValue = GetValueWithPerformance(consumeValue, true);
-                    BodyWater.Decrease(consumeValue, PlayerId);
-                    lastBodyWaterConsumeValue = (float)Math.Round(consumeValue * -1, 3);
-                }
-            }
-        }
-
-        private float lastBodyWaterGainValue = 0;
-        private void ProcessIntakeBodyWater()
-        {
-            if (ExtendedSurvivalSettings.Instance.UseMetabolism)
-            {
-                lastBodyWaterGainValue = 0;
-                if (IntakeBodyWater.Value > 0)
-                {
-                    var transferValue = StatsConstants.BASE_WATER_METABOLISM;
-                    IntakeBodyWater.Decrease(transferValue, PlayerId);
-                    var consumeValue = GetValueWithPerformance(transferValue);
-                    BodyWater.Increase(consumeValue, PlayerId);
-                    lastBodyWaterGainValue = (float)Math.Round(consumeValue, 3);
-                }
-            }
-        }
-
         private void ProcessEffectsTimers()
         {
             var timePassed = lastTimeProcess != TimeSpan.Zero ? MyAPIGateway.Session.ElapsedPlayTime - lastTimeProcess : TimeSpan.Zero;
             lastTimeProcess = MyAPIGateway.Session.ElapsedPlayTime;
-            if (ExtendedSurvivalSettings.Instance.WetEnabled)
+            if (Entity.Parent == null && currentEnvironmentType == WeatherConstants.EnvironmentDetector.Atmosphere)
             {
-                if (Entity.Parent == null && currentEnvironmentType == WeatherConstants.EnvironmentDetector.Atmosphere)
+                switch (weatherEffect)
                 {
-                    switch (weatherEffect)
-                    {
-                        case WeatherConstants.WeatherEffects.Rain:
-                        case WeatherConstants.WeatherEffects.Thunderstorm:
-                            IncriseWetTimer(weatherEffect, weatherLevel, weatherIntensity);
-                            break;
-                        default:
-                            DecresaseWetTimer();
-                            break;
-                    }
+                    case WeatherConstants.WeatherEffects.Rain:
+                    case WeatherConstants.WeatherEffects.Thunderstorm:
+                        IncriseWetTimer(weatherEffect, weatherLevel, weatherIntensity);
+                        break;
+                    default:
+                        DecresaseWetTimer();
+                        break;
                 }
-                else if (Entity.Parent == null && currentEnvironmentType == WeatherConstants.EnvironmentDetector.Underwater)
-                    IncriseUnderwaterWetTimer();
-                else
-                    DecresaseWetTimer();
-                CheckWetEffect();
             }
+            else if (Entity.Parent == null && currentEnvironmentType == WeatherConstants.EnvironmentDetector.Underwater)
+                IncriseUnderwaterWetTimer();
+            else
+                DecresaseWetTimer();
+            CheckWetEffect();
             if (timePassed > TimeSpan.Zero)
             {
-                if (ExtendedSurvivalSettings.Instance.InfectedEnabled)
-                {
-                    IncDecWoundedTimer(timePassed);
-                    CheckWoundedEffect();
-                }
-                if (ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled)
-                {
-                    IncDevTemperatureTimer(timePassed);
-                    CheckTemperatureEffect();
-                }
+                IncDecWoundedTimer(timePassed);
+                CheckWoundedEffect();
+                IncDevTemperatureTimer(timePassed);
+                CheckTemperatureEffect();
             }
             CheckIfGetDiseases();
         }
 
         private void CheckIfGetDiseases()
         {
-            if (ExtendedSurvivalSettings.Instance.PneumoniaEnabled)
+            if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Pneumonia))
             {
-                if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Pneumonia))
+                if (StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Frosty))
                 {
-                    if (StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Frosty))
+                    var isWet = StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Wet);
+                    var chance = StatsConstants.CHANCE_TO_GET_PNEUMONIA;
+                    if (isWet)
+                        chance += StatsConstants.PNEUMONIA_CHANCE_INCRISE;
+                    chance = GetValueWithPerformance(chance, true);
+                    float temperatureMultiplier = 1f - (TemperatureTime.CurrentRatio * 2);
+                    if (temperatureMultiplier > 0 && CheckChance(chance * temperatureMultiplier))
                     {
-                        var isWet = StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Wet);
-                        var chance = StatsConstants.CHANCE_TO_GET_PNEUMONIA;
-                        if (isWet)
-                            chance += StatsConstants.PNEUMONIA_CHANCE_INCRISE;
-                        if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                        {
-                            chance = GetValueWithPerformance(chance, true);
-                        }
-                        float temperatureMultiplier = 1f - (TemperatureTime.CurrentRatio * 2);
-                        if (temperatureMultiplier > 0 && CheckChance(chance * temperatureMultiplier))
-                        {
-                            CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Pneumonia;
-                        }
+                        CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Pneumonia;
                     }
                 }
             }
-            if (ExtendedSurvivalSettings.Instance.HypothermiaEnabled)
+            if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypothermia))
             {
-                if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypothermia))
+                if (TemperatureTime.Value <= TemperatureTime.MinValue)
                 {
-                    if (TemperatureTime.Value <= TemperatureTime.MinValue)
-                    {
-                        CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Hypothermia;
-                    }
+                    CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Hypothermia;
                 }
             }
-            if (ExtendedSurvivalSettings.Instance.HyperthermiaEnabled)
+            if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hyperthermia))
             {
-                if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hyperthermia))
+                if (TemperatureTime.Value >= TemperatureTime.MaxValue)
                 {
-                    if (TemperatureTime.Value >= TemperatureTime.MaxValue)
-                    {
-                        CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Hyperthermia;
-                    }
+                    CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Hyperthermia;
                 }
             }
+            CheckStomach();
+            CheckIntestine();
+            CheckBladder();
             CheckStarvation();
             CheckDehydration();
-            CheckObesityAndHypolipidemia();
-            CheckRickets();
+            CheckFatigue();
+            CheckWeight();
         }
 
-        private void CheckRickets()
+        private void CheckStomach()
         {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
+            var percent = Stomach.Value / Stomach.MaxValue;
+            var needToCheckStarvation = true;
+            if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.StomachBursting))
             {
-                if (ExtendedSurvivalSettings.Instance.RicketsEnabled)
+                if (StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullStomach))
                 {
-                    var percent = BodyMuscles.Value / BodyMuscles.MaxValue;
-                    var needToCheckRickets = true;
-                    if (ExtendedSurvivalSettings.Instance.SevereRicketsEnabled)
+                    if (percent >= 0.9f)
                     {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereRickets))
-                        {
-                            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Rickets))
-                            {
-                                if (percent <= 0.05f)
-                                {
-                                    needToCheckRickets = false;
-                                    CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Rickets;
-                                    CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.SevereRickets;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            needToCheckRickets = false;
-                            if (percent > 0.05f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereRickets;
-                                needToCheckRickets = true;
-                            }
-                        }
+                        needToCheckStarvation = false;
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.FullStomach;
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.StomachBursting;
                     }
-                    if (needToCheckRickets)
+                }
+            }
+            else
+            {
+                needToCheckStarvation = false;
+                if (percent < 0.9f)
+                {
+                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.StomachBursting;
+                    needToCheckStarvation = true;
+                }
+            }
+            if (needToCheckStarvation)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullStomach))
+                {
+                    if (percent >= 0.75f)
                     {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Rickets))
-                        {
-                            if (percent <= 0.25f)
-                            {
-                                CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Rickets;
-                            }
-                        }
-                        else
-                        {
-                            if (percent > 0.25f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Rickets;
-                            }
-                        }
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.FullStomach;
+                    }
+                }
+                else
+                {
+                    if (percent < 0.75f)
+                    {
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.FullStomach;
                     }
                 }
             }
         }
 
-        private void CheckObesityAndHypolipidemia()
+        private void CheckIntestine()
         {
-            if (ExtendedSurvivalSettings.Instance.UseNutrition)
+            var percent = Intestine.Value / Intestine.MaxValue;
+            var needToCheckStarvation = true;
+            if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.GutBurst))
             {
-                var percent = BodyFat.Value / BodyFat.MaxValue;
-                if (ExtendedSurvivalSettings.Instance.ObesityEnabled)
+                if (StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullGut))
                 {
-                    var needToCheckObesity = true;
-                    if (ExtendedSurvivalSettings.Instance.SevereObesityEnabled)
+                    if (percent >= 0.9f)
                     {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereObesity))
-                        {
-                            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Obesity))
-                            {
-                                if (percent >= 0.95f)
-                                {
-                                    needToCheckObesity = false;
-                                    CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Obesity;
-                                    CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.SevereObesity;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            needToCheckObesity = false;
-                            if (percent < 0.95f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereObesity;
-                                needToCheckObesity = true;
-                            }
-                        }
-                    }
-                    if (needToCheckObesity)
-                    {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Obesity))
-                        {
-                            if (percent >= 0.75f)
-                            {
-                                CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Obesity;
-                            }
-                        }
-                        else
-                        {
-                            if (percent < 0.75f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Obesity;
-                            }
-                        }
+                        needToCheckStarvation = false;
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.FullGut;
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.GutBurst;
                     }
                 }
-                if (ExtendedSurvivalSettings.Instance.HypolipidemiaEnabled)
+            }
+            else
+            {
+                needToCheckStarvation = false;
+                if (percent < 0.9f)
                 {
-                    if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypolipidemia))
+                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.GutBurst;
+                    needToCheckStarvation = true;
+                }
+            }
+            if (needToCheckStarvation)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullGut))
+                {
+                    if (percent >= 0.75f)
                     {
-                        if (percent <= 0.1f)
-                        {
-                            CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Hypolipidemia;
-                        }
-                    }
-                    else
-                    {
-                        if (percent > 0.1f)
-                        {
-                            CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Hypolipidemia;
-                        }
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.FullGut;
                     }
                 }
+                else
+                {
+                    if (percent < 0.75f)
+                    {
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.FullGut;
+                    }
+                }
+            }
+        }
+
+        private void CheckBladder()
+        {
+            var percent = Bladder.Value / Bladder.MaxValue;
+            var needToCheckStarvation = true;
+            if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.BladderBurst))
+            {
+                if (StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullBladder))
+                {
+                    if (percent >= 0.9f)
+                    {
+                        needToCheckStarvation = false;
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.FullBladder;
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.BladderBurst;
+                    }
+                }
+            }
+            else
+            {
+                needToCheckStarvation = false;
+                if (percent < 0.9f)
+                {
+                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.BladderBurst;
+                    needToCheckStarvation = true;
+                }
+            }
+            if (needToCheckStarvation)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullBladder))
+                {
+                    if (percent >= 0.75f)
+                    {
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.FullBladder;
+                    }
+                }
+                else
+                {
+                    if (percent < 0.75f)
+                    {
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.FullBladder;
+                    }
+                }
+            }
+        }
+
+        private void CheckFatigue()
+        {
+            var percent = Fatigue.Value / Fatigue.MaxValue;
+            var needToCheckStarvation = true;
+            if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.ExtremelyTired))
+            {
+                if (StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Tired))
+                {
+                    if (percent >= 0.8f)
+                    {
+                        needToCheckStarvation = false;
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Tired;
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.ExtremelyTired;
+                    }
+                }
+            }
+            else
+            {
+                needToCheckStarvation = false;
+                if (percent < 0.8f)
+                {
+                    CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.ExtremelyTired;
+                    needToCheckStarvation = true;
+                }
+            }
+            if (needToCheckStarvation)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Tired))
+                {
+                    if (percent >= 0.6f)
+                    {
+                        CurrentSurvivalEffects |= StatsConstants.SurvivalEffects.Tired;
+                    }
+                }
+                else
+                {
+                    if (percent < 0.6f)
+                    {
+                        CurrentSurvivalEffects &= ~StatsConstants.SurvivalEffects.Tired;
+                    }
+                }
+            }
+        }
+
+        private void SetWeightStatus(StatsConstants.DiseaseEffects effect)
+        {
+            ClearWeightStatus();
+            CurrentDiseaseEffects |= effect;
+        }
+
+        private void ClearWeightStatus()
+        {
+            CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Obesity;
+            CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereObesity;
+            CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Rickets;
+            CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereRickets;
+        }
+
+        private void CheckWeight()
+        {
+            var height = 1.8f;
+            var bmi = BodyWeight.Value / (height * height);
+            if (bmi >= 40)
+            {
+                SetWeightStatus(StatsConstants.DiseaseEffects.SevereObesity);
+            }
+            else if (bmi >= 30)
+            {
+                SetWeightStatus(StatsConstants.DiseaseEffects.Obesity);
+            }
+            else if (bmi <= 17)
+            {
+                SetWeightStatus(StatsConstants.DiseaseEffects.Rickets);
+            }
+            else if (bmi <= 14)
+            {
+                SetWeightStatus(StatsConstants.DiseaseEffects.SevereRickets);
+            }
+            else
+            {
+                ClearWeightStatus();
             }
         }
 
         private void CheckDehydration()
         {
-            if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+            var percent = BodyWater.Value / BodyWater.MaxValue;
+            var needToCheckDehydration = true;
+            if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereDehydration))
             {
-                if (ExtendedSurvivalSettings.Instance.DehydrationEnabled)
+                if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
                 {
-                    var percent = BodyWater.Value / BodyWater.MaxValue;
-                    var needToCheckDehydration = true;
-                    if (ExtendedSurvivalSettings.Instance.SevereDehydrationEnabled)
+                    if (percent <= 0.05f)
                     {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereDehydration))
-                        {
-                            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
-                            {
-                                if (percent <= 0.05f)
-                                {
-                                    needToCheckDehydration = false;
-                                    CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Dehydration;
-                                    CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.SevereDehydration;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            needToCheckDehydration = false;
-                            if (percent > 0.05f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereDehydration;
-                                needToCheckDehydration = true;
-                            }
-                        }
+                        needToCheckDehydration = false;
+                        CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Dehydration;
+                        CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.SevereDehydration;
                     }
-                    if (needToCheckDehydration)
+                }
+            }
+            else
+            {
+                needToCheckDehydration = false;
+                if (percent > 0.05f)
+                {
+                    CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereDehydration;
+                    needToCheckDehydration = true;
+                }
+            }
+            if (needToCheckDehydration)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
+                {
+                    if (percent <= 0.25f)
                     {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
-                        {
-                            if (percent <= 0.25f)
-                            {
-                                CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Dehydration;
-                            }
-                        }
-                        else
-                        {
-                            if (percent > 0.25f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Dehydration;
-                            }
-                        }
+                        CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Dehydration;
+                    }
+                }
+                else
+                {
+                    if (percent > 0.25f)
+                    {
+                        CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Dehydration;
                     }
                 }
             }
@@ -1391,52 +1142,43 @@ namespace ExtendedSurvival.Stats
 
         private void CheckStarvation()
         {
-            if (ExtendedSurvivalSettings.Instance.UseMetabolism)
+            var percent = BodyEnergy.Value / BodyEnergy.MaxValue;
+            var needToCheckStarvation = true;
+            if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereStarvation))
             {
-                if (ExtendedSurvivalSettings.Instance.StarvationEnabled)
+                if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
                 {
-                    var percent = BodyEnergy.Value / BodyEnergy.MaxValue;
-                    var needToCheckStarvation = true;
-                    if (ExtendedSurvivalSettings.Instance.SevereStarvationEnabled)
+                    if (percent <= 0.05f)
                     {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereStarvation))
-                        {
-                            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
-                            {
-                                if (percent <= 0.05f)
-                                {
-                                    needToCheckStarvation = false;
-                                    CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Starvation;
-                                    CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.SevereStarvation;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            needToCheckStarvation = false;
-                            if (percent > 0.05f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereStarvation;
-                                needToCheckStarvation = true;
-                            }
-                        }
+                        needToCheckStarvation = false;
+                        CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Starvation;
+                        CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.SevereStarvation;
                     }
-                    if (needToCheckStarvation)
+                }
+            }
+            else
+            {
+                needToCheckStarvation = false;
+                if (percent > 0.05f)
+                {
+                    CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.SevereStarvation;
+                    needToCheckStarvation = true;
+                }
+            }
+            if (needToCheckStarvation)
+            {
+                if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
+                {
+                    if (percent <= 0.25f)
                     {
-                        if (!StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
-                        {
-                            if (percent <= 0.25f)
-                            {
-                                CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Starvation;
-                            }
-                        }
-                        else
-                        {
-                            if (percent > 0.25f)
-                            {
-                                CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Starvation;
-                            }
-                        }
+                        CurrentDiseaseEffects |= StatsConstants.DiseaseEffects.Starvation;
+                    }
+                }
+                else
+                {
+                    if (percent > 0.25f)
+                    {
+                        CurrentDiseaseEffects &= ~StatsConstants.DiseaseEffects.Starvation;
                     }
                 }
             }
@@ -1499,10 +1241,7 @@ namespace ExtendedSurvival.Stats
                 if (temperature > HungerConstants.THIRST_TEMPERATURE_RANGE)
                 {
                     finalValue *= TemperatureTime.Value < 0 ? StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER : 1;
-                    if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                    {
-                        finalValue = GetValueWithBodyFatMultiplier(finalValue);
-                    }
+                    finalValue = GetValueWithBodyFatMultiplier(finalValue);
                     bool isHardTemperature = temperature > HungerConstants.THIRST_HARD_TEMPERATURE_RANGE;
                     if (isHardTemperature || TemperatureTime.Value < StatsConstants.MIN_TO_GET_EFFECT_ONFIRE)
                         TemperatureTime.Increase(finalValue, null);
@@ -1510,10 +1249,7 @@ namespace ExtendedSurvival.Stats
                 else
                 {
                     finalValue *= TemperatureTime.Value > 0 ? StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER : 1;
-                    if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                    {
-                        finalValue = GetValueWithBodyFatMultiplier(finalValue, true);
-                    }
+                    finalValue = GetValueWithBodyFatMultiplier(finalValue, true);
                     bool isHardTemperature = temperature < HungerConstants.HUNGER_HARD_TEMPERATURE_RANGE;
                     if (isHardTemperature || TemperatureTime.Value > StatsConstants.MIN_TO_GET_EFFECT_FROSTY)
                         TemperatureTime.Decrease(finalValue, null);
@@ -1526,10 +1262,7 @@ namespace ExtendedSurvival.Stats
                     if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypothermia))
                         finalValue *= StatsConstants.HYPOTHERMIA_CHANGE_MULTIPLIER;
                     finalValue *= StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER;
-                    if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                    {
-                        finalValue = GetValueWithBodyFatMultiplier(finalValue);
-                    }
+                    finalValue = GetValueWithBodyFatMultiplier(finalValue);
                     TemperatureTime.Increase(finalValue, null);
                     if (TemperatureTime.Value > 0)
                         TemperatureTime.Value = 0;
@@ -1539,10 +1272,7 @@ namespace ExtendedSurvival.Stats
                     if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hyperthermia))
                         finalValue *= StatsConstants.HYPERTHERMIA_CHANGE_MULTIPLIER;
                     finalValue *= StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER;
-                    if (ExtendedSurvivalSettings.Instance.UseNutrition)
-                    {
-                        finalValue = GetValueWithBodyFatMultiplier(finalValue, true);
-                    }
+                    finalValue = GetValueWithBodyFatMultiplier(finalValue, true);
                     TemperatureTime.Decrease(finalValue, null);
                     if (TemperatureTime.Value < 0)
                         TemperatureTime.Value = 0;
@@ -1715,36 +1445,33 @@ namespace ExtendedSurvival.Stats
         {
             var value = GetStaminaToDecrese();
             AddSpendedStamina(value);
-            if (ExtendedSurvivalSettings.Instance.StaminaEnabled)
+            var maxStamina = GetMaxStamina();
+            if (IsCharacterMoving() || IsCharacterUsingTool() || IsOnTreadmill())
             {
-                var maxStamina = GetMaxStamina();
-                if (IsCharacterMoving() || IsCharacterUsingTool() || IsOnTreadmill())
+                if (Stamina.Value > 0)
                 {
-                    if (Stamina.Value > 0)
-                    {
-                        Stamina.Decrease(GetValueWithPerformance(value, true), Player?.IdentityId);
-                    }
-                    else
-                    {
-                        var staminaDamage = StatsConstants.BASE_STAMINA_DAMAGE_FACTOR * ExtendedSurvivalSettings.Instance.StaminaSettings.DamageMultiplier;
-                        if (staminaDamage > 0 && CanTakeDamage)
-                            Entity.DoDamage(staminaDamage, MyDamageType.Environment, true);
-                    }
-                    if (Fatigue.Value < Fatigue.MaxValue)
-                    {
-                        Fatigue.Increase(GetValueWithPerformance(value, true), Player?.IdentityId);
-                    }
+                    Stamina.Decrease(GetValueWithPerformance(value, true), Player?.IdentityId);
                 }
                 else
                 {
-                    if (Stamina.Value < maxStamina)
-                    {
-                        Stamina.Increase(GetValueWithPerformance(GetStaminaToIncrease()), Player?.IdentityId);
-                    }
+                    var staminaDamage = StatsConstants.BASE_STAMINA_DAMAGE_FACTOR * ExtendedSurvivalSettings.Instance.StaminaSettings.DamageMultiplier;
+                    if (staminaDamage > 0 && CanTakeDamage)
+                        Entity.DoDamage(staminaDamage, MyDamageType.Environment, true);
                 }
-                if (Stamina.Value > maxStamina)
-                    Stamina.Value = maxStamina;
+                if (Fatigue.Value < Fatigue.MaxValue)
+                {
+                    Fatigue.Increase(GetValueWithPerformance(value, true), Player?.IdentityId);
+                }
             }
+            else
+            {
+                if (Stamina.Value < maxStamina)
+                {
+                    Stamina.Increase(GetValueWithPerformance(GetStaminaToIncrease()), Player?.IdentityId);
+                }
+            }
+            if (Stamina.Value > maxStamina)
+                Stamina.Value = maxStamina;
         }
 
         private float GetStaminaRuningMultiplier()
@@ -1913,10 +1640,6 @@ namespace ExtendedSurvival.Stats
                         HasDied = Entity.IsDead,
                         LastTimeDied = lastTimeDead,
                         Temperature = currentTemperature,
-                        StaminaEnabled = ExtendedSurvivalSettings.Instance.StaminaEnabled,
-                        BodyTemperatureEnabled = ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled,
-                        UseMetabolism = ExtendedSurvivalSettings.Instance.UseMetabolism,
-                        UseNutrition = ExtendedSurvivalSettings.Instance.UseNutrition,
                         NeedToUpdateLocal = MyAPIGateway.Utilities.IsDedicated || !MyAPIGateway.Session.IsServer,
                         O2Level = OxygenComponent.SuitOxygenLevel,
                         CurrentCargoMass = CurrentCargoMass,

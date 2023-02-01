@@ -189,7 +189,15 @@ namespace ExtendedSurvival.Stats
             Dehydrating = 8, /* Have 5% Thirst */
             /* Oxygen Effects */
             Disoriented = 16, /* Have less than 10% Oxygen */
-            Suffocation = 32 /* Have 5% Oxygen */
+            Suffocation = 32, /* Have 5% Oxygen */
+            FullStomach = 64,
+            StomachBursting = 128,
+            FullGut = 256,
+            GutBurst = 512,
+            FullBladder = 1024,
+            BladderBurst = 2048,
+            Tired = 4096,
+            ExtremelyTired = 8192
 
         }
 
@@ -237,7 +245,8 @@ namespace ExtendedSurvival.Stats
             SevereObesity = 2048,
             Rickets = 4096,
             SevereRickets = 8192,
-            Hypolipidemia = 16384
+            Hypolipidemia = 16384,
+            Queasy = 32768
 
         }
 
@@ -245,7 +254,9 @@ namespace ExtendedSurvival.Stats
         public enum OtherEffects
         {
 
-            None = 0
+            None = 0,
+            PoopOnClothes = 1,
+            PeeOnClothes = 2
 
         }
 
@@ -255,6 +266,7 @@ namespace ExtendedSurvival.Stats
             {
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Poison:
+                case DiseaseEffects.Queasy:
                     return 1;
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
@@ -281,6 +293,7 @@ namespace ExtendedSurvival.Stats
             {
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Poison:
+                case DiseaseEffects.Queasy:
                     return 0;
                 case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Infected:
@@ -336,12 +349,21 @@ namespace ExtendedSurvival.Stats
                     return "Severe Rickets";
                 case DiseaseEffects.Hypolipidemia:
                     return "Hypolipidemia";
+                case DiseaseEffects.Queasy:
+                    return "Queasy";
             }
             return "";
         }
 
         public static string GetOtherEffectDescription(OtherEffects effect)
         {
+            switch (effect)
+            {
+                case OtherEffects.PoopOnClothes:
+                    return "Poop On Clothes";
+                case OtherEffects.PeeOnClothes:
+                    return "Pee On Clothes";
+            }
             return "";
         }
 
@@ -352,6 +374,12 @@ namespace ExtendedSurvival.Stats
 
         public static int GetOtherEffectFeelingLevel(OtherEffects effect)
         {
+            switch (effect)
+            {
+                case OtherEffects.PoopOnClothes:
+                case OtherEffects.PeeOnClothes:
+                    return 1;
+            }
             return 0;
         }
 
@@ -464,6 +492,22 @@ namespace ExtendedSurvival.Stats
                     return "Disoriented";
                 case SurvivalEffects.Suffocation:
                     return "Suffocation";
+                case SurvivalEffects.FullStomach:
+                    return "Full Stomach";
+                case SurvivalEffects.StomachBursting:
+                    return "Stomach Bursting";
+                case SurvivalEffects.FullGut:
+                    return "Full Gut";
+                case SurvivalEffects.GutBurst:
+                    return "Gut Burst";
+                case SurvivalEffects.FullBladder:
+                    return "Full Bladder";
+                case SurvivalEffects.BladderBurst:
+                    return "Bladder Burst";
+                case SurvivalEffects.Tired:
+                    return "Tired";
+                case SurvivalEffects.ExtremelyTired:
+                    return "Extremely Tired";
             }
             return "";
         }
@@ -478,6 +522,14 @@ namespace ExtendedSurvival.Stats
                 case SurvivalEffects.Dehydrating:
                 case SurvivalEffects.Disoriented:
                 case SurvivalEffects.Suffocation:
+                case SurvivalEffects.FullStomach:
+                case SurvivalEffects.StomachBursting:
+                case SurvivalEffects.FullGut:
+                case SurvivalEffects.GutBurst:
+                case SurvivalEffects.FullBladder:
+                case SurvivalEffects.BladderBurst:
+                case SurvivalEffects.Tired:
+                case SurvivalEffects.ExtremelyTired:
                     return 0;
             }
             return 0;
@@ -490,10 +542,18 @@ namespace ExtendedSurvival.Stats
                 case SurvivalEffects.Hungry:
                 case SurvivalEffects.Thirsty:
                 case SurvivalEffects.Disoriented:
+                case SurvivalEffects.Tired:
+                case SurvivalEffects.FullBladder:
+                case SurvivalEffects.FullGut:
+                case SurvivalEffects.FullStomach:
                     return 1;
                 case SurvivalEffects.Famished:
                 case SurvivalEffects.Dehydrating:
                 case SurvivalEffects.Suffocation:
+                case SurvivalEffects.ExtremelyTired:
+                case SurvivalEffects.BladderBurst:
+                case SurvivalEffects.GutBurst:
+                case SurvivalEffects.StomachBursting:
                     return 2;
             }
             return 0;

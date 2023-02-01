@@ -40,7 +40,7 @@
 
         protected override bool IsActive()
         {
-            return ExtendedSurvivalSettings.Instance.BodyTemperatureEnabled && IsWithHelmet() && GetBodyTrackerLevel() >= 1;
+            return IsWithHelmet() && GetBodyTrackerLevel() >= 1;
         }
 
     }

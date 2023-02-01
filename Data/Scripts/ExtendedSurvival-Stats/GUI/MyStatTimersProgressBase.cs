@@ -15,17 +15,17 @@ namespace ExtendedSurvival.Stats
             switch (index)
             {
                 case 0:
-                    return ExtendedSurvivalSettings.Instance.WetEnabled && IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 1;
+                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 1;
                 case 1:
-                    return ExtendedSurvivalSettings.Instance.DamageEffectsEnabled && IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 2;
+                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 2;
                 case 2:
-                    return ExtendedSurvivalSettings.Instance.UseNutrition && IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
+                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
                 case 3:
                 case 4:
                 case 5:
                 case 6:
                 case 7:
-                    return ExtendedSurvivalSettings.Instance.UseNutrition && IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 4;
+                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 4;
             }
             return false;
         }

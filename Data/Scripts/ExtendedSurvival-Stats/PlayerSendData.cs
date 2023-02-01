@@ -15,11 +15,6 @@ namespace ExtendedSurvival.Stats
 
         public Vector2 Temperature { get; set; }
 
-        public bool StaminaEnabled { get; set; }
-        public bool BodyTemperatureEnabled { get; set; }
-        public bool UseMetabolism { get; set; }
-        public bool UseNutrition { get; set; }
-
         public bool NeedToUpdateLocal { get; set; }
         public float O2Level { get; set; }
         public float CurrentCargoMass { get; set; }

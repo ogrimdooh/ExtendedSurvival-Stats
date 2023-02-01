@@ -1,10 +1,24 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using Sandbox.ModAPI;
+using System;
 
 namespace ExtendedSurvival.Stats
 {
     public class PlayerBodyController
     {
+
+        public delegate void OnBodyEvent(PlayerBodyController sender, BodyEventType eventType);
+        public delegate void OnBodyGetDisease(PlayerBodyController sender, StatsConstants.DiseaseEffects disease);
+
+        public enum BodyEventType
+        {
+
+            FullIntestine = 0,
+            FullBladder = 1,
+            FullStomach = 2
+
+        }
 
         public float IntestineVolume { get; set; }
         public float BladderVolume { get; set; }
@@ -22,6 +36,14 @@ namespace ExtendedSurvival.Stats
         public float LipidsAmmount { get; set; }
         public float VitaminsAmmount { get; set; }
         public float MineralsAmmount { get; set; }
+
+        public event OnBodyEvent BodyEvent;
+        public event OnBodyGetDisease BodyGetDisease;
+
+        private float _caloriesToConsume = 0;
+        private float _waterToConsume = 0;
+        private int deltaTime = MyAPIGateway.Session.GameplayFrameCounter;
+        private int spendTime = 0;
 
         public float CurrentBodyWater
         {
@@ -151,15 +173,15 @@ namespace ExtendedSurvival.Stats
 
         private void DoConsumeCicle(float staminaSpended)
         {
-            float caloriesToConsume = PlayerBodyConstants.CaloriesConsumption.X;
-            float waterToConsume = PlayerBodyConstants.WaterConsumption.X;
+            _caloriesToConsume = PlayerBodyConstants.CaloriesConsumption.X;
+            _waterToConsume = PlayerBodyConstants.WaterConsumption.X;
             if (staminaSpended > 0)
             {
-                caloriesToConsume += PlayerBodyConstants.CaloriesConsumption.Y * staminaSpended;
-                waterToConsume += PlayerBodyConstants.WaterConsumption.Y * staminaSpended;
+                _caloriesToConsume += PlayerBodyConstants.CaloriesConsumption.Y * staminaSpended;
+                _waterToConsume += PlayerBodyConstants.WaterConsumption.Y * staminaSpended;
             }
-            CaloriesAmmount -= caloriesToConsume;
-            WaterAmmount -= waterToConsume;
+            CaloriesAmmount -= _caloriesToConsume;
+            WaterAmmount -= _waterToConsume;
         }
 
         private void DoAbsorptionCicle()
@@ -190,17 +212,50 @@ namespace ExtendedSurvival.Stats
             var waterToBladder = PlayerBodyConstants.WaterToBladder;
             if (WaterAmmount > PlayerBodyConstants.WaterReserveSize.W)
             {
-                waterToBladder += WaterAmmount - PlayerBodyConstants.WaterReserveSize.W;
+                // 50% of water overload go to bladder
+                waterToBladder += (WaterAmmount - PlayerBodyConstants.WaterReserveSize.W) * 0.50f;
                 WaterAmmount = PlayerBodyConstants.WaterReserveSize.W;
+            }
+            if (_waterToConsume > 0)
+            {
+                // 15% of consumed water go to bladder
+                waterToBladder += _waterToConsume * 0.15f; 
             }
             BladderVolume += waterToBladder;
         }
 
-        public void DoCicle(float staminaSpended)
+        private void DoCheckBodyState()
         {
-            DoConsumeCicle(staminaSpended);
-            DoAbsorptionCicle();
-            DoBladderCicle();
+            if (BodyEvent != null)
+            {
+                if (CurrentBladderAmmount >= 1)
+                    BodyEvent(this, BodyEventType.FullBladder);
+                if (CurrentIntestineAmmount >= 1)
+                    BodyEvent(this, BodyEventType.FullIntestine);
+                if (CurrentStomachAmmount >= 1)
+                    BodyEvent(this, BodyEventType.FullStomach);
+            }  
+        }
+
+        public bool DoCicle(float staminaSpended)
+        {
+            spendTime += (MyAPIGateway.Session.GameplayFrameCounter - deltaTime) * 10;
+            deltaTime = MyAPIGateway.Session.GameplayFrameCounter;
+            if (spendTime >= 1000)
+            {
+                spendTime -= 1000;
+                DoConsumeCicle(staminaSpended);
+                DoAbsorptionCicle();
+                DoBladderCicle();
+                DoCheckBodyState();
+                return true;
+            }
+            return false;
+        }
+
+        protected static bool CheckChance(float chance)
+        {
+            return new Random().Next(1, 101) <= chance;
         }
 
         public void DoConsumeItem(FoodDefinition food)
@@ -214,6 +269,32 @@ namespace ExtendedSurvival.Stats
             {
                 IngestedFoods.Add(food.GetAsIngestedFood());
             }
+            if (BodyGetDisease != null && food.DiseaseChance != null && food.DiseaseChance.Any())
+            {
+                foreach (var disease in food.DiseaseChance.Keys)
+                {
+                    var chance = food.DiseaseChance[disease] * 100;
+                    if (chance >= 100 || CheckChance(chance))
+                    {
+                        BodyGetDisease(this, disease);
+                    }
+                }
+            }
+        }
+
+        public void DoEmptyBladder()
+        {
+            BladderVolume = 0;
+        }
+
+        public void DoEmptyIntestine()
+        {
+            IntestineVolume = 0;
+        }
+
+        public void DoEmptyStomach()
+        {
+            IngestedFoods.Clear();
         }
 
     }

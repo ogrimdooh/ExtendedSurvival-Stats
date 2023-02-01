@@ -34,7 +34,7 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 CaloriesConsumption = new SerializableVector2(0.01f, 0.02f);
+        public static readonly SerializableVector2 CaloriesConsumption = new SerializableVector2(0.1f, 0.25f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
@@ -44,7 +44,7 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// Minimum amount of water that goes to the bladder
         /// </summary>
-        public const float WaterToBladder = 0.005f;
+        public const float WaterToBladder = 0.0005f;
 
         /// <summary>
         /// Start ammount of body water
