@@ -2591,7 +2591,7 @@ namespace ExtendedSurvival.Stats
             Product = new FoodRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.APPLEPIE_ID,
-                Ammount = 3
+                Ammount = 2
             },
             RecipeName = "ApplePie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
@@ -2618,7 +2618,7 @@ namespace ExtendedSurvival.Stats
             Product = new FoodRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_APPLEPIE_ID,
-                Ammount = 3
+                Ammount = 2
             },
             RecipeName = "AlienApplePie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
@@ -2645,7 +2645,7 @@ namespace ExtendedSurvival.Stats
             Product = new FoodRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.CHICKENPIE_ID,
-                Ammount = 3
+                Ammount = 2
             },
             RecipeName = "ChickenPie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
@@ -2677,7 +2677,7 @@ namespace ExtendedSurvival.Stats
             Product = new FoodRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_CHICKENPIE_ID,
-                Ammount = 3
+                Ammount = 2
             },
             RecipeName = "AlienChickenPie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
@@ -2754,7 +2754,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CEREALBAR_ID,
+                    Id = ItensConstants.CEREAL_ID,
                     Ammount = 0.025f
                 }
             },
@@ -3278,7 +3278,7 @@ namespace ExtendedSurvival.Stats
                         FOOD_DEFINITIONS.Add(food, foodDef);
                     }
                     else
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(NutritionConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{preparationDef.RecipeName}]");
+                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(FoodConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{preparationDef.RecipeName}]");
                 }
                 // Override food definition
                 foreach (var food in FOOD_DEFINITIONS.Keys)
@@ -3310,7 +3310,7 @@ namespace ExtendedSurvival.Stats
                                 consumableDef.Postprocess();
                             }
                             else
-                                ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(NutritionConstants), $"TryOverrideRecipes item not found. Food=[{food}]");
+                                ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(FoodConstants), $"TryOverrideRecipes item not found. Food=[{food}]");
                             break;
                         case FoodDefinition.FoodDefinitionType.Ore:
                         case FoodDefinition.FoodDefinitionType.Ingot:
@@ -3324,7 +3324,7 @@ namespace ExtendedSurvival.Stats
                                 physicalItemDef.Postprocess();
                             }
                             else
-                                ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(NutritionConstants), $"TryOverrideRecipes item not found. Food=[{food}]");
+                                ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(FoodConstants), $"TryOverrideRecipes item not found. Food=[{food}]");
                             break;
                     }
                 }
@@ -3367,7 +3367,7 @@ namespace ExtendedSurvival.Stats
                             recipeDef.DescriptionString = targetIngredient.Description;
                         }
                         else
-                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(NutritionConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{targetIngredient.RecipeName}]");
+                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(FoodConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{targetIngredient.RecipeName}]");
                     }
                 }
                 // Post process recipes
@@ -3378,7 +3378,7 @@ namespace ExtendedSurvival.Stats
             }
             catch (System.Exception ex)
             {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(NutritionConstants), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(FoodConstants), ex);
             }
         }
 

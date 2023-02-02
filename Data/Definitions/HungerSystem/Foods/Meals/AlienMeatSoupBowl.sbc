@@ -8,7 +8,7 @@
         <SubtypeId>AlienMeatSoupBowl</SubtypeId>
       </Id>
       <DisplayName>Alien Meat Soup</DisplayName>
-      <Icon>Textures\GUI\Icons\meat_soup.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meat_soup.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienMeatSoupBowl_Construction</SubtypeId>
       </Id>
       <DisplayName>Alien Meat Soup</DisplayName>
-      <Icon>Textures\GUI\Icons\meat_soup.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meat_soup.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />

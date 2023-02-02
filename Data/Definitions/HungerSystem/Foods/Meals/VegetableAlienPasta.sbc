@@ -8,7 +8,7 @@
         <SubtypeId>VegetableAlienPasta</SubtypeId>
       </Id>
       <DisplayName>Vegetable Alien Pasta</DisplayName>
-      <Icon>Textures\GUI\Icons\vegetable_pasta.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_vegetable_pasta.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>VegetableAlienPasta_Construction</SubtypeId>
       </Id>
       <DisplayName>Vegetable Alien Pasta</DisplayName>
-      <Icon>Textures\GUI\Icons\vegetable_pasta.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_vegetable_pasta.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Pasta" />

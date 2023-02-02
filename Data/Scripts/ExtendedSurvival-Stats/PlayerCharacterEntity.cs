@@ -15,6 +15,8 @@ using Sandbox.Definitions;
 using Sandbox.Common.ObjectBuilders.Definitions;
 using Sandbox.Game.GameSystems;
 using VRage.Collections;
+using VRage.ObjectBuilders;
+using Sandbox.Common.ObjectBuilders;
 
 namespace ExtendedSurvival.Stats
 {
@@ -57,13 +59,6 @@ namespace ExtendedSurvival.Stats
         public MyEntityStat Intestine { get { return GetStat(StatsConstants.ValidStats.Intestine); } }
         public MyEntityStat Bladder { get { return GetStat(StatsConstants.ValidStats.Bladder); } }
 
-        public MyEntityStat IntakeBodyWater { get { return GetStat(StatsConstants.ValidStats.IntakeBodyWater); } }
-        public MyEntityStat IntakeCarbohydrates { get { return GetStat(StatsConstants.ValidStats.IntakeCarbohydrates); } }
-        public MyEntityStat IntakeProtein { get { return GetStat(StatsConstants.ValidStats.IntakeProtein); } }
-        public MyEntityStat IntakeLipids { get { return GetStat(StatsConstants.ValidStats.IntakeLipids); } }
-        public MyEntityStat IntakeVitamins { get { return GetStat(StatsConstants.ValidStats.IntakeVitamins); } }
-        public MyEntityStat IntakeMinerals { get { return GetStat(StatsConstants.ValidStats.IntakeMinerals); } }
-
         public MyEntityStat BodyWeight { get { return GetStat(StatsConstants.ValidStats.BodyWeight); } }
         public MyEntityStat BodyMuscles { get { return GetStat(StatsConstants.ValidStats.BodyMuscles); } }
         public MyEntityStat BodyFat { get { return GetStat(StatsConstants.ValidStats.BodyFat); } }
@@ -89,7 +84,7 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                return GetValueWithBodyMuscleMultiplier(CurrentBaseCargoMass);
+                return CurrentBaseCargoMass;
             }
         }
 
@@ -105,7 +100,7 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                return GetValueWithBodyMuscleMultiplier(CurrentBaseCargoVolume);
+                return CurrentBaseCargoVolume;
             }
         }
 
@@ -226,6 +221,49 @@ namespace ExtendedSurvival.Stats
             controller = new PlayerBodyController();
             controller.BodyEvent += Controller_BodyEvent;
             controller.BodyGetDisease += Controller_BodyGetDisease;
+            controller.InstantFoodEffect += Controller_InstantFoodEffect;
+            controller.OverTimeFoodEffect += Controller_OverTimeFoodEffect;
+        }
+
+        private void DoFoodEffect(FoodEffectTarget target, float ammount)
+        {
+            if (ammount != 0)
+            {
+                MyEntityStat stat = null;
+                switch (target)
+                {
+                    case FoodEffectTarget.Health:
+                        stat = Health;
+                        break;
+                    case FoodEffectTarget.Stamina:
+                        stat = Stamina;
+                        break;
+                    case FoodEffectTarget.Fatigue:
+                        stat = Fatigue;
+                        ammount *= -1;
+                        break;
+                    case FoodEffectTarget.Temperature:
+                        stat = TemperatureTime;
+                        break;
+                }
+                if (stat != null)
+                {
+                    if (ammount > 0)
+                        stat.Increase(ammount, Player?.IdentityId);
+                    else
+                        stat.Decrease(ammount * -1, Player?.IdentityId);
+                }
+            }
+        }
+
+        private void Controller_OverTimeFoodEffect(PlayerBodyController sender, FoodEffectTarget target, float ammount)
+        {
+            DoFoodEffect(target, ammount);
+        }
+
+        private void Controller_InstantFoodEffect(PlayerBodyController sender, FoodEffectTarget target, float ammount)
+        {
+            DoFoodEffect(target, ammount);
         }
 
         private void Controller_BodyGetDisease(PlayerBodyController sender, StatsConstants.DiseaseEffects disease)
@@ -248,6 +286,26 @@ namespace ExtendedSurvival.Stats
                     DoVomit();
                     break;
             }
+        }
+
+        private void DoCleanYourself()
+        {
+            if (StatsConstants.IsFlagSet(CurrentOtherEffects, StatsConstants.OtherEffects.PoopOnClothes))
+            {
+                CurrentOtherEffects &= ~StatsConstants.OtherEffects.PoopOnClothes;
+            }
+            if (StatsConstants.IsFlagSet(CurrentOtherEffects, StatsConstants.OtherEffects.PeeOnClothes))
+            {
+                CurrentOtherEffects &= ~StatsConstants.OtherEffects.PeeOnClothes;
+            }
+        }
+
+        private void DoBodyNeeds()
+        {
+            if (controller.CurrentBladderAmmount >= 0.075f)
+                controller.DoEmptyBladder();
+            if (controller.CurrentIntestineAmmount >= 0.5f)
+                controller.DoEmptyIntestine();
         }
 
         private void DoShitYourself()
@@ -291,6 +349,55 @@ namespace ExtendedSurvival.Stats
             return false;
         }
 
+        private static readonly string[] ValidBathroom = new string[] {
+            "LargeBlockBathroomOpen",
+            "LargeBlockBathroom",
+            "LargeBlockToilet",
+            "LargeBlockCryoChamber",
+            "SmallBlockCryoChamber"
+        };
+
+        private bool IsOnValidBathroom()
+        {
+            var block = GetControlledEntity();
+            if (block != null)
+            {
+                return ValidBathroom.Contains(block.BlockDefinition.SubtypeId);
+            }
+            return false;
+        }
+
+        private static readonly MyObjectBuilderType[] ValidRestBlock = new MyObjectBuilderType[] {
+            typeof(MyObjectBuilder_CryoChamber),
+            typeof(MyObjectBuilder_Cockpit)
+        };
+
+        private bool IsOnValidRestBlock()
+        {
+            var block = GetControlledEntity();
+            if (block != null)
+            {
+                return ValidRestBlock.Contains(block.BlockDefinition.TypeId);
+            }
+            return false;
+        }
+
+        private static readonly string[] GoodRestBlock = new string[] {
+            "LargeBlockCryoChamber",
+            "SmallBlockCryoChamber",
+            "LargeBlockBed"
+        };
+
+        private bool IsOnGoodRestBlock()
+        {
+            var block = GetControlledEntity();
+            if (block != null)
+            {
+                return GoodRestBlock.Contains(block.BlockDefinition.SubtypeId);
+            }
+            return false;
+        }
+
         private bool IsOnTreadmill()
         {
             var block = GetControlledEntity();
@@ -322,10 +429,16 @@ namespace ExtendedSurvival.Stats
                 }
                 if (hasDied && storeData != null && ExtendedSurvivalSettings.Instance.HardModeEnabled)
                 {
-                    foreach (var key in storeData.Stats.Keys)
-                    {
-                        RestoreStatValue(key, storeData.Stats[key], StatsConstants.STATS_MIN_VALUE.ContainsKey(key) ? StatsConstants.STATS_MIN_VALUE[key] : 0);
-                    }
+                    SurvivalEffects.Value = storeData.GetStatValue(nameof(CurrentSurvivalEffects));
+                    DamageEffects.Value = storeData.GetStatValue(nameof(CurrentDamageEffects));
+                    TemperatureEffects.Value = storeData.GetStatValue(nameof(CurrentTemperatureEffects));
+                    DiseaseEffects.Value = storeData.GetStatValue(nameof(CurrentDiseaseEffects));
+                    OtherEffects.Value = storeData.GetStatValue(nameof(CurrentOtherEffects));
+                    WoundedTime.Value = storeData.GetStatValue(nameof(WoundedTime));
+                    TemperatureTime.Value = storeData.GetStatValue(nameof(TemperatureTime));
+                    WetTime.Value = storeData.GetStatValue(nameof(WetTime));
+                    Stamina.Value = storeData.GetStatValue(nameof(Stamina));
+                    Fatigue.Value = storeData.GetStatValue(nameof(Fatigue));
                     if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.ON_DEATH_NO_CHANGE_IF))
                     {
                         CurrentDamageEffects &= ~StatsConstants.ON_DEATH_REMOVE_DAMAGE;
@@ -545,10 +658,6 @@ namespace ExtendedSurvival.Stats
                     if (HasFoodThirstEffects && DateTime.Now > lastFraskCreated)
                     {
                         lastFraskCreated = DateTime.Now.AddMilliseconds(FoodThirstEffectsTimeLeft);
-                        if (NutritionConstants.FOOD_RECIPIENTS.ContainsKey(removedUniqueId))
-                        {
-                            Inventory.AddMaxItems(1f, ItensConstants.GetPhysicalObjectBuilder(NutritionConstants.FOOD_RECIPIENTS[removedUniqueId]));
-                        }
                         if (FoodConstants.FOOD_DEFINITIONS.ContainsKey(removedUniqueId))
                         {
                             controller.DoConsumeItem(FoodConstants.FOOD_DEFINITIONS[removedUniqueId]);
@@ -603,21 +712,6 @@ namespace ExtendedSurvival.Stats
                 }
                 CheckOxygenValue();
             }
-        }
-
-        private float GetValueWithPerformance(float value, bool inv = false)
-        {
-            return value + (value * CurrentPerformance * (inv ? -1 : 1));
-        }
-
-        private float GetValueWithBodyFatMultiplier(float value, bool inv = false)
-        {
-            return value + (value * CurrentBodyFatMultiplier * (inv ? -1 : 1));
-        }
-
-        private float GetValueWithBodyMuscleMultiplier(float value, bool inv = false)
-        {
-            return value + (value * CurrentBodyMusclesMultiplier * (inv ? -1 : 1));
         }
 
         public void CheckValuesToDoDamage()
@@ -677,13 +771,33 @@ namespace ExtendedSurvival.Stats
                     BodyMuscles.Value = BodyMuscles.MaxValue * controller.CurrentMuscle;
                     BodyPerformance.Value = BodyPerformance.MaxValue * controller.CurrentPerformance;
                     BodyImmune.Value = BodyImmune.MaxValue * controller.CurrentImunity;
-                    /*
-                    ProcessHunger();
-                    ProcessThirst();
-                    */
                     ProcessHealth();
                     ProcessCargoMax();
                 }
+                if (IsOnValidBathroom())
+                {
+                    DoCleanYourself();
+                    DoBodyNeeds();
+                }
+                if (IsOnValidRestBlock() && !IsOnTreadmill())
+                {
+                    ProcessRest(IsOnGoodRestBlock());
+                }
+                else
+                {
+                    ProcessFatigue();
+                }
+            }
+        }
+
+        private void ProcessRest(bool goodRest)
+        {
+            if (Fatigue.Value > Fatigue.MinValue)
+            {
+                var valueToDecrease = StatsConstants.BASE_FATIGUE_DECREASE_FACTOR;
+                if (goodRest)
+                    valueToDecrease *= StatsConstants.BASE_FATIGUE_DECREASE_MULTIPLIER;
+                Fatigue.Decrease(valueToDecrease, Player?.IdentityId);
             }
         }
 
@@ -787,6 +901,15 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        private void ProcessFatigue()
+        {
+            if (Fatigue.Value < Fatigue.MaxValue)
+            {
+                var value = StatsConstants.BASE_FATIGUE_INCREASE_FACTOR;
+                Fatigue.Increase(value, Player?.IdentityId);
+            }
+        }
+
         private void ProcessCargoMax()
         {
             if (Inventory != null)
@@ -849,7 +972,6 @@ namespace ExtendedSurvival.Stats
                     var chance = StatsConstants.CHANCE_TO_GET_PNEUMONIA;
                     if (isWet)
                         chance += StatsConstants.PNEUMONIA_CHANCE_INCRISE;
-                    chance = GetValueWithPerformance(chance, true);
                     float temperatureMultiplier = 1f - (TemperatureTime.CurrentRatio * 2);
                     if (temperatureMultiplier > 0 && CheckChance(chance * temperatureMultiplier))
                     {
@@ -1241,7 +1363,6 @@ namespace ExtendedSurvival.Stats
                 if (temperature > HungerConstants.THIRST_TEMPERATURE_RANGE)
                 {
                     finalValue *= TemperatureTime.Value < 0 ? StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER : 1;
-                    finalValue = GetValueWithBodyFatMultiplier(finalValue);
                     bool isHardTemperature = temperature > HungerConstants.THIRST_HARD_TEMPERATURE_RANGE;
                     if (isHardTemperature || TemperatureTime.Value < StatsConstants.MIN_TO_GET_EFFECT_ONFIRE)
                         TemperatureTime.Increase(finalValue, null);
@@ -1249,7 +1370,6 @@ namespace ExtendedSurvival.Stats
                 else
                 {
                     finalValue *= TemperatureTime.Value > 0 ? StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER : 1;
-                    finalValue = GetValueWithBodyFatMultiplier(finalValue, true);
                     bool isHardTemperature = temperature < HungerConstants.HUNGER_HARD_TEMPERATURE_RANGE;
                     if (isHardTemperature || TemperatureTime.Value > StatsConstants.MIN_TO_GET_EFFECT_FROSTY)
                         TemperatureTime.Decrease(finalValue, null);
@@ -1262,7 +1382,6 @@ namespace ExtendedSurvival.Stats
                     if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypothermia))
                         finalValue *= StatsConstants.HYPOTHERMIA_CHANGE_MULTIPLIER;
                     finalValue *= StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER;
-                    finalValue = GetValueWithBodyFatMultiplier(finalValue);
                     TemperatureTime.Increase(finalValue, null);
                     if (TemperatureTime.Value > 0)
                         TemperatureTime.Value = 0;
@@ -1272,7 +1391,6 @@ namespace ExtendedSurvival.Stats
                     if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hyperthermia))
                         finalValue *= StatsConstants.HYPERTHERMIA_CHANGE_MULTIPLIER;
                     finalValue *= StatsConstants.TEMPERATURE_CHANGE_MULTIPLIER;
-                    finalValue = GetValueWithBodyFatMultiplier(finalValue, true);
                     TemperatureTime.Decrease(finalValue, null);
                     if (TemperatureTime.Value < 0)
                         TemperatureTime.Value = 0;
@@ -1388,7 +1506,7 @@ namespace ExtendedSurvival.Stats
             var currentStatusValue = Health.Value / Health.MaxValue;
             if (currentStatusValue < maxRegen)
             {
-                Health.Increase(GetValueWithPerformance(finalRegen), null);
+                Health.Increase(finalRegen, null);
             }
         }
 
@@ -1450,7 +1568,7 @@ namespace ExtendedSurvival.Stats
             {
                 if (Stamina.Value > 0)
                 {
-                    Stamina.Decrease(GetValueWithPerformance(value, true), Player?.IdentityId);
+                    Stamina.Decrease(value, Player?.IdentityId);
                 }
                 else
                 {
@@ -1460,14 +1578,16 @@ namespace ExtendedSurvival.Stats
                 }
                 if (Fatigue.Value < Fatigue.MaxValue)
                 {
-                    Fatigue.Increase(GetValueWithPerformance(value, true), Player?.IdentityId);
+                    if (IsOnTreadmill())
+                        value *= StatsConstants.BASE_FATIGUE_INCREASE_MULTIPLIER;
+                    Fatigue.Increase(value, Player?.IdentityId);
                 }
             }
             else
             {
                 if (Stamina.Value < maxStamina)
                 {
-                    Stamina.Increase(GetValueWithPerformance(GetStaminaToIncrease()), Player?.IdentityId);
+                    Stamina.Increase(GetStaminaToIncrease(), Player?.IdentityId);
                 }
             }
             if (Stamina.Value > maxStamina)
@@ -1508,7 +1628,7 @@ namespace ExtendedSurvival.Stats
             }
             if (ExtendedSurvivalSettings.Instance.StaminaSettings.IncriseStaminaDrainWithBodyFat && CurrentBodyFatMultiplier > 0)
             {
-                finalValue = GetValueWithBodyFatMultiplier(finalValue);
+
             }
             if (IsCharacterSprinting())
             {
@@ -1533,57 +1653,6 @@ namespace ExtendedSurvival.Stats
             return finalValue;
         }
 
-        private float GetHungerToDecrease()
-        {
-            var finalValue = HungerConstants.BASE_HUNGER_FACTOR * ExtendedSurvivalSettings.Instance.HungerSettings.DrainMultiplier;
-            if (IsCharacterMoving())
-                finalValue += GetSpeed() * HungerConstants.MOVE_INC_HUNGER_FACTOR * ExtendedSurvivalSettings.Instance.HungerSettings.MovingDrainMultiplier;
-            if (IsOnTreadmill())
-                finalValue += 5 * HungerConstants.MOVE_INC_HUNGER_FACTOR * ExtendedSurvivalSettings.Instance.HungerSettings.TreadmillDrainMultiplier;
-            if (ExtendedSurvivalSettings.Instance.HungerSettings.IncriseHungerDrainWithTemperature)
-            {
-                if (StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Frosty))
-                    finalValue *= HungerConstants.TEMPERATURE_HUNGER_FACTOR.Y;
-                else if (StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Cold))
-                    finalValue *= HungerConstants.TEMPERATURE_HUNGER_FACTOR.X;
-            }
-            return finalValue;
-        }
-
-        private float GetThirstToDecrease()
-        {
-            var finalValue = HungerConstants.BASE_THIRST_FACTOR * ExtendedSurvivalSettings.Instance.ThirstSettings.DrainMultiplier;
-            if (IsCharacterMoving())
-                finalValue += GetSpeed() * HungerConstants.MIVE_INC_THIRST_FACTOR * ExtendedSurvivalSettings.Instance.ThirstSettings.MovingDrainMultiplier;
-            if (IsOnTreadmill())
-                finalValue += 5 * HungerConstants.MOVE_INC_HUNGER_FACTOR * ExtendedSurvivalSettings.Instance.ThirstSettings.TreadmillDrainMultiplier;
-            if (ExtendedSurvivalSettings.Instance.ThirstSettings.IncriseThirstDrainWithTemperature)
-            {
-                if (StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.OnFire))
-                    finalValue *= HungerConstants.TEMPERATURE_THIRST_FACTOR.Y;
-                else if (StatsConstants.IsFlagSet(CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Overheating))
-                    finalValue *= HungerConstants.TEMPERATURE_THIRST_FACTOR.X;
-            }
-            return finalValue;
-        }
-
-        private static float GetThirstToIncrise(WeatherConstants.WeatherEffects effect, WeatherConstants.WeatherEffectsLevel level, float intensity)
-        {
-            var finalValue = HungerConstants.BASE_THIRST_FACTOR;
-            switch (effect)
-            {
-                case WeatherConstants.WeatherEffects.Rain:
-                    finalValue += HungerConstants.RAIN_INC_THIRST_FACTOR * (1 + intensity);
-                    finalValue *= level == WeatherConstants.WeatherEffectsLevel.Light ? HungerConstants.RAIN_THIRST_FACTOR.X : HungerConstants.RAIN_THIRST_FACTOR.Y;
-                    break;
-                case WeatherConstants.WeatherEffects.Thunderstorm:
-                    finalValue += HungerConstants.THUNDER_INC_THIRST_FACTOR * (1 + intensity);
-                    finalValue *= level == WeatherConstants.WeatherEffectsLevel.Light ? HungerConstants.THUNDER_THIRST_FACTOR.X : HungerConstants.THUNDER_THIRST_FACTOR.Y;
-                    break;
-            }
-            return finalValue * ExtendedSurvivalSettings.Instance.ThirstSettings.GainMultiplier;
-        }
-
         public void PlayerHealthRecharging()
         {
             var maxLife = MAX_HEALTH_REGEN_AT_SURVIVAL_KIT * Health.MaxValue;
@@ -1596,6 +1665,45 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public void LoadStoreData(PlayerData storeData)
+        {
+            try
+            {
+                if (!IsValid)
+                    ConfigureCharacter(Entity);
+                if (IsValid)
+                {
+                    if (storeData != null)
+                    {
+                        controller.LoadPlayerData(storeData);
+                        SurvivalEffects.Value = storeData.GetStatValue(nameof(CurrentSurvivalEffects));
+                        DamageEffects.Value = storeData.GetStatValue(nameof(CurrentDamageEffects));
+                        TemperatureEffects.Value = storeData.GetStatValue(nameof(CurrentTemperatureEffects));
+                        DiseaseEffects.Value = storeData.GetStatValue(nameof(CurrentDiseaseEffects));
+                        OtherEffects.Value = storeData.GetStatValue(nameof(CurrentOtherEffects));
+                        WoundedTime.Value = storeData.GetStatValue(nameof(WoundedTime));
+                        TemperatureTime.Value = storeData.GetStatValue(nameof(TemperatureTime));
+                        WetTime.Value = storeData.GetStatValue(nameof(WetTime));
+                        Stamina.Value = storeData.GetStatValue(nameof(Stamina));
+                        Fatigue.Value = storeData.GetStatValue(nameof(Fatigue));
+                        Health.Value = storeData.GetStatValue(nameof(Health));
+                    }
+                    else
+                    {
+                        ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), "storeData null");
+                    }
+                }
+                else
+                {
+                    ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), "LoadStoreData Not Valid Player");
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+            }
+        }
+
         public PlayerData GetStoreData()
         {
             try
@@ -1604,16 +1712,28 @@ namespace ExtendedSurvival.Stats
                     ConfigureCharacter(Entity);
                 if (IsValid)
                 {
-                    var data = new PlayerData();
-                    foreach (var key in Stats.Keys)
+                    var data = new PlayerData
                     {
-                        data.Stats.Add(key, Stats[key]?.Value ?? 0);
-                    }
+                        PlayerId = PlayerId,
+                        SteamPlayerId = Player?.SteamUserId ?? 0
+                    };
+                    controller.SavePlayerData(data);
+                    data.SetStatValue(nameof(CurrentSurvivalEffects), (int)CurrentSurvivalEffects);
+                    data.SetStatValue(nameof(CurrentDamageEffects), (int)CurrentDamageEffects);
+                    data.SetStatValue(nameof(CurrentTemperatureEffects), (int)CurrentTemperatureEffects);
+                    data.SetStatValue(nameof(CurrentDiseaseEffects), (int)CurrentDiseaseEffects);
+                    data.SetStatValue(nameof(CurrentOtherEffects), (int)CurrentOtherEffects);
+                    data.SetStatValue(nameof(WoundedTime), WoundedTime.Value);
+                    data.SetStatValue(nameof(TemperatureTime), TemperatureTime.Value);
+                    data.SetStatValue(nameof(WetTime), WetTime.Value);
+                    data.SetStatValue(nameof(Stamina), Stamina.Value);
+                    data.SetStatValue(nameof(Fatigue), Fatigue.Value);
+                    data.SetStatValue(nameof(Health), Health.Value);
                     return data;
                 }
                 else
                 {
-                    ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), "GetData Not Valid Player");
+                    ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), "GetStoreData Not Valid Player");
                     return null;
                 }
             }

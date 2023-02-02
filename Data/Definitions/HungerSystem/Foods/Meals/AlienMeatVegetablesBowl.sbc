@@ -8,7 +8,7 @@
         <SubtypeId>AlienMeatVegetablesBowl</SubtypeId>
       </Id>
       <DisplayName>Alien Meat With Vegetables</DisplayName>
-      <Icon>Textures\GUI\Icons\meat_vegetables.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meat_vegetables.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienMeatVegetablesBowl_Construction</SubtypeId>
       </Id>
       <DisplayName>Meat With Vegetables</DisplayName>
-      <Icon>Textures\GUI\Icons\meat_vegetables.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meat_vegetables.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />

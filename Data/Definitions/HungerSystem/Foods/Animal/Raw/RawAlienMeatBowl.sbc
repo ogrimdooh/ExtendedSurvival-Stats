@@ -8,7 +8,7 @@
         <SubtypeId>RawAlienMeatBowl</SubtypeId>
       </Id>
       <DisplayName>Raw Alien Meat Bowl</DisplayName>
-      <Icon>Textures\GUI\Icons\meat_bowl.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meat_bowl.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>RawAlienMeatBowl_Construction</SubtypeId>
       </Id>
       <DisplayName>Raw Alien Meat Bowl</DisplayName>
-      <Icon>Textures\GUI\Icons\meat_bowl.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meat_bowl.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />

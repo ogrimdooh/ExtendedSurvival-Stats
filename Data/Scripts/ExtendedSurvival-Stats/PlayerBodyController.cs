@@ -5,11 +5,13 @@ using System;
 
 namespace ExtendedSurvival.Stats
 {
+
     public class PlayerBodyController
     {
 
         public delegate void OnBodyEvent(PlayerBodyController sender, BodyEventType eventType);
         public delegate void OnBodyGetDisease(PlayerBodyController sender, StatsConstants.DiseaseEffects disease);
+        public delegate void OnFoodEffect(PlayerBodyController sender, FoodEffectTarget target, float ammount);
 
         public enum BodyEventType
         {
@@ -39,6 +41,8 @@ namespace ExtendedSurvival.Stats
 
         public event OnBodyEvent BodyEvent;
         public event OnBodyGetDisease BodyGetDisease;
+        public event OnFoodEffect InstantFoodEffect;
+        public event OnFoodEffect OverTimeFoodEffect;
 
         private float _caloriesToConsume = 0;
         private float _waterToConsume = 0;
@@ -170,6 +174,7 @@ namespace ExtendedSurvival.Stats
         }
 
         public List<IngestedFood> IngestedFoods { get; set; } = new List<IngestedFood>();
+        public List<ActiveFoodEffect> ActiveFoodEffects { get; set; } = new List<ActiveFoodEffect>();
 
         private void DoConsumeCicle(float staminaSpended)
         {
@@ -182,6 +187,22 @@ namespace ExtendedSurvival.Stats
             }
             CaloriesAmmount -= _caloriesToConsume;
             WaterAmmount -= _waterToConsume;
+        }
+
+        private void DoEffectCicle()
+        {
+            foreach (var effect in ActiveFoodEffects)
+            {
+                if (effect.CurrentValue.Current > 0)
+                {
+                    if (OverTimeFoodEffect != null)
+                    {
+                        OverTimeFoodEffect(this, effect.EffectTarget, effect.CurrentValue.ConsumeRate);
+                    }
+                    effect.CurrentValue.Current -= effect.CurrentValue.ConsumeRate;
+                }
+            }
+            ActiveFoodEffects.RemoveAll(x => x.CurrentValue.Current <= 0);
         }
 
         private void DoAbsorptionCicle()
@@ -246,6 +267,7 @@ namespace ExtendedSurvival.Stats
                 spendTime -= 1000;
                 DoConsumeCicle(staminaSpended);
                 DoAbsorptionCicle();
+                DoEffectCicle();
                 DoBladderCicle();
                 DoCheckBodyState();
                 return true;
@@ -280,6 +302,27 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             }
+            if (food.Effects != null && food.Effects.Any())
+            {
+                foreach (var effect in food.Effects)
+                {
+                    switch (effect.EffectType)
+                    {
+                        case FoodEffectType.Instant:
+                            if (InstantFoodEffect != null)
+                            {
+                                InstantFoodEffect(this, effect.EffectTarget, effect.Ammount);
+                            }
+                            break;
+                        case FoodEffectType.OverTime:
+                            ActiveFoodEffects.Add(new ActiveFoodEffect() { 
+                                EffectTarget = effect.EffectTarget,
+                                CurrentValue = new IngestedFoodProperty(effect.Ammount, effect.Ammount / Math.Max(1, effect.TimeToEffect))
+                            });
+                            break;
+                    }
+                }
+            }
         }
 
         public void DoEmptyBladder()
@@ -295,6 +338,62 @@ namespace ExtendedSurvival.Stats
         public void DoEmptyStomach()
         {
             IngestedFoods.Clear();
+        }
+
+        public void SavePlayerData(PlayerData saveData)
+        {
+            saveData.SetStatValue(nameof(IntestineVolume), IntestineVolume);
+            saveData.SetStatValue(nameof(BladderVolume), BladderVolume);
+            saveData.SetStatValue(nameof(CurrentWeight), CurrentWeight);
+            saveData.SetStatValue(nameof(CurrentFat), CurrentFat);
+            saveData.SetStatValue(nameof(CurrentMuscle), CurrentMuscle);
+            saveData.SetStatValue(nameof(CurrentPerformance), CurrentPerformance);
+            saveData.SetStatValue(nameof(CurrentImunity), CurrentImunity);
+            saveData.SetStatValue(nameof(WaterAmmount), WaterAmmount);
+            saveData.SetStatValue(nameof(CaloriesAmmount), CaloriesAmmount);
+            saveData.SetStatValue(nameof(ProteinAmmount), ProteinAmmount);
+            saveData.SetStatValue(nameof(CarbohydrateAmmount), CarbohydrateAmmount);
+            saveData.SetStatValue(nameof(LipidsAmmount), LipidsAmmount);
+            saveData.SetStatValue(nameof(VitaminsAmmount), VitaminsAmmount);
+            saveData.SetStatValue(nameof(MineralsAmmount), MineralsAmmount);
+            saveData.IngestedFoods.Clear();
+            foreach (var food in IngestedFoods)
+            {
+                saveData.IngestedFoods.Add(food.GetSaveData());
+            }
+            saveData.ActiveFoodEffects.Clear();
+            foreach (var effect in ActiveFoodEffects)
+            {
+                saveData.ActiveFoodEffects.Add(effect.GetSaveData());
+            }
+        }
+
+        public void LoadPlayerData(PlayerData saveData)
+        {
+            IntestineVolume = saveData.GetStatValue(nameof(IntestineVolume));
+            BladderVolume = saveData.GetStatValue(nameof(BladderVolume));
+            CurrentWeight = saveData.GetStatValue(nameof(CurrentWeight));
+            CurrentFat = saveData.GetStatValue(nameof(CurrentFat));
+            CurrentMuscle = saveData.GetStatValue(nameof(CurrentMuscle));
+            CurrentPerformance = saveData.GetStatValue(nameof(CurrentPerformance));
+            CurrentImunity = saveData.GetStatValue(nameof(CurrentImunity));
+            WaterAmmount = saveData.GetStatValue(nameof(WaterAmmount));
+            CaloriesAmmount = saveData.GetStatValue(nameof(CaloriesAmmount));
+            ProteinAmmount = saveData.GetStatValue(nameof(ProteinAmmount));
+            CarbohydrateAmmount = saveData.GetStatValue(nameof(CarbohydrateAmmount));
+            LipidsAmmount = saveData.GetStatValue(nameof(LipidsAmmount));
+            VitaminsAmmount = saveData.GetStatValue(nameof(VitaminsAmmount));
+            MineralsAmmount = saveData.GetStatValue(nameof(MineralsAmmount));
+            IngestedFoods.Clear();
+            foreach (var food in saveData.IngestedFoods)
+            {
+                IngestedFoods.Add(IngestedFood.FromSaveData(food));
+            }
+            ActiveFoodEffects.Clear();
+            foreach (var effect in saveData.ActiveFoodEffects)
+            {
+                ActiveFoodEffects.Add(ActiveFoodEffect.FromSaveData(effect));
+            }
         }
 
     }

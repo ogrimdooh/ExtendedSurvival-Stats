@@ -8,7 +8,7 @@
         <SubtypeId>RoastedAlienSausage</SubtypeId>
       </Id>
       <DisplayName>Roast Alien Sausage</DisplayName>
-      <Icon>Textures\GUI\Icons\roast_sausage.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_roast_sausage.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>RoastedAlienSausage_Construction</SubtypeId>
       </Id>
       <DisplayName>Roast Alien Sausage</DisplayName>
-      <Icon>Textures\GUI\Icons\roast_sausage.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_roast_sausage.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RawSausage" />

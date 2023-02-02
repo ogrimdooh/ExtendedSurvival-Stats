@@ -8,7 +8,7 @@
         <SubtypeId>AlienDough</SubtypeId>
       </Id>
       <DisplayName>Alien Dough</DisplayName>
-      <Icon>Textures\GUI\Icons\dough.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_dough.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.03</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienDough_Construction</SubtypeId>
       </Id>
       <DisplayName>Alien Dough</DisplayName>
-      <Icon>Textures\GUI\Icons\dough.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_dough.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Milk" />

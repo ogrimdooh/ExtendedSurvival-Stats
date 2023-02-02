@@ -8,7 +8,7 @@
         <SubtypeId>AlienCakeDough</SubtypeId>
       </Id>
       <DisplayName>Alien Cake Dough</DisplayName>
-      <Icon>Textures\GUI\Icons\cake_dough.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_cake_dough.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.03</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienCakeDough_Construction</SubtypeId>
       </Id>
       <DisplayName>Alien Cake Dough</DisplayName>
-      <Icon>Textures\GUI\Icons\cake_dough.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_cake_dough.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Bowl" />

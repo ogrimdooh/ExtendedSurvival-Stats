@@ -228,6 +228,9 @@ namespace ExtendedSurvival.Stats
                     else
                     {
                         PlayerCharacters[character.EntityId] = new PlayerCharacterEntity(character);
+                        var steamId = PlayerCharacters[character.EntityId].Player?.SteamUserId;
+                        if (steamId.HasValue)
+                            PlayerCharacters[character.EntityId].LoadStoreData(ExtendedSurvivalStorage.Instance.GetPlayerData(steamId.Value));
                     }
                 }
                 else

@@ -8,7 +8,7 @@
         <SubtypeId>AlienBread</SubtypeId>
       </Id>
       <DisplayName>Alien Bread</DisplayName>
-      <Icon>Textures\GUI\Icons\bread.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_bread.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienBread_Construction</SubtypeId>
       </Id>
       <DisplayName>Bread</DisplayName>
-      <Icon>Textures\GUI\Icons\bread.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_bread.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienDough" />

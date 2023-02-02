@@ -51,6 +51,38 @@ namespace ExtendedSurvival.Stats
         public IngestedFoodProperty Minerals { get; set; }
         public IngestedFoodProperty Calories { get; set; }
 
+        public PlayerData.IngestedFoodData GetSaveData()
+        {
+            return new PlayerData.IngestedFoodData()
+            {
+                Id = Id.DefinitionId,
+                Solid = Solid.GetSaveData(),
+                Liquid = Liquid.GetSaveData(),
+                Protein = Protein.GetSaveData(),
+                Carbohydrate = Carbohydrate.GetSaveData(),
+                Lipids = Lipids.GetSaveData(),
+                Vitamins = Vitamins.GetSaveData(),
+                Minerals = Minerals.GetSaveData(),
+                Calories = Calories.GetSaveData()
+            };
+        }
+
+        public static IngestedFood FromSaveData(PlayerData.IngestedFoodData data)
+        {
+            return new IngestedFood()
+            {
+                Id = new UniqueEntityId(data.Id),
+                Solid = IngestedFoodProperty.FromSaveData(data.Solid),
+                Liquid = IngestedFoodProperty.FromSaveData(data.Liquid),
+                Protein = IngestedFoodProperty.FromSaveData(data.Protein),
+                Carbohydrate = IngestedFoodProperty.FromSaveData(data.Carbohydrate),
+                Lipids = IngestedFoodProperty.FromSaveData(data.Lipids),
+                Vitamins = IngestedFoodProperty.FromSaveData(data.Vitamins),
+                Minerals = IngestedFoodProperty.FromSaveData(data.Minerals),
+                Calories = IngestedFoodProperty.FromSaveData(data.Calories)
+            };
+        }
+
     }
 
 }

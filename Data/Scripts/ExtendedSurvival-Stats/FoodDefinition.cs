@@ -110,6 +110,7 @@ namespace ExtendedSurvival.Stats
                 Id = Id,
                 Solid = new IngestedFoodProperty(Solid, Solid / TimeToConsume),
                 Liquid = new IngestedFoodProperty(Liquid, Liquid / TimeToConsume),
+                Protein = new IngestedFoodProperty(Protein, Protein / TimeToConsume),
                 Carbohydrate = new IngestedFoodProperty(Carbohydrate, Carbohydrate / TimeToConsume),
                 Lipids = new IngestedFoodProperty(Lipids, Lipids / TimeToConsume),
                 Vitamins = new IngestedFoodProperty(Vitamins, Vitamins / TimeToConsume),
@@ -122,6 +123,7 @@ namespace ExtendedSurvival.Stats
         {
             target.Solid.AddAmmount(Solid);
             target.Liquid.AddAmmount(Liquid);
+            target.Protein.AddAmmount(Protein);
             target.Carbohydrate.AddAmmount(Carbohydrate);
             target.Lipids.AddAmmount(Lipids);
             target.Vitamins.AddAmmount(Vitamins);
@@ -147,14 +149,14 @@ namespace ExtendedSurvival.Stats
                 case FoodRecipeDefinition.RecipePreparationType.Frying:
                     NoNegativeHealth();
                     NoDiseaseChance();
-                    NoNegativeTemperature();
+                    NoTemperatureChange();
                     ChangeLipids(1.25f);
                     ChangeWater(0.25f);
                     break;
                 case FoodRecipeDefinition.RecipePreparationType.Baking:
                     NoNegativeHealth();
                     NoDiseaseChance();
-                    NoNegativeTemperature();
+                    NoTemperatureChange();
                     ChangeLipids(0.8f);
                     ChangeWater(0.5f);
                     break;

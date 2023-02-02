@@ -8,7 +8,7 @@
         <SubtypeId>RawAlienSausage</SubtypeId>
       </Id>
       <DisplayName>Raw Alien Sausage</DisplayName>
-      <Icon>Textures\GUI\Icons\sausages.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_sausages.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>RawAlienSausage_Construction</SubtypeId>
       </Id>
       <DisplayName>Raw Alien Sausage</DisplayName>
-      <Icon>Textures\GUI\Icons\sausages.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_sausages.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawMeatBowl" />

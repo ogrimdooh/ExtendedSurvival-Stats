@@ -318,6 +318,19 @@ namespace ExtendedSurvival.Stats
 
             if (IsServer)
             {
+                try
+                {
+                    foreach (var key in ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Keys)
+                    {
+                        var player = ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters[key];
+                        ExtendedSurvivalStorage.Instance.SetPlayerData(player.GetStoreData());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+                }
+
                 ExtendedSurvivalSettings.Save();
                 ExtendedSurvivalStorage.Save();
             }

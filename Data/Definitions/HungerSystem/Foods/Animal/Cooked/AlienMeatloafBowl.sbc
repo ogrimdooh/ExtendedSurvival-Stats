@@ -8,7 +8,7 @@
         <SubtypeId>AlienMeatloafBowl</SubtypeId>
       </Id>
       <DisplayName>Alien Meatloaf</DisplayName>
-      <Icon>Textures\GUI\Icons\meatloaf.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meatloaf.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienMeatloafBowl_Construction</SubtypeId>
       </Id>
       <DisplayName>Alien Meatloaf</DisplayName>
-      <Icon>Textures\GUI\Icons\meatloaf.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_meatloaf.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="2" TypeId="ConsumableItem" SubtypeId="RawAlienMeatBowl" />

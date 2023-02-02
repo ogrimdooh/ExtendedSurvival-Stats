@@ -8,7 +8,7 @@
         <SubtypeId>AlienApplePie</SubtypeId>
       </Id>
       <DisplayName>Alien Apple Pie</DisplayName>
-      <Icon>Textures\GUI\Icons\apple_pie.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_apple_pie.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienApplePie_Construction</SubtypeId>
       </Id>
       <DisplayName>Alien Apple Pie</DisplayName>
-      <Icon>Textures\GUI\Icons\apple_pie.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_apple_pie.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienCakeDough" />

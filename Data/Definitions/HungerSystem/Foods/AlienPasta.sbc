@@ -8,7 +8,7 @@
         <SubtypeId>AlienPasta</SubtypeId>
       </Id>
       <DisplayName>Alien Pasta</DisplayName>
-      <Icon>Textures\GUI\Icons\pasta.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_pasta.dds</Icon>
       <Description></Description>
       <Size>
         <X>0.05</X>
@@ -37,7 +37,7 @@
         <SubtypeId>AlienPasta_Construction</SubtypeId>
       </Id>
       <DisplayName>Pasta</DisplayName>
-      <Icon>Textures\GUI\Icons\pasta.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_pasta.dds</Icon>
       <Description></Description>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienDough" />

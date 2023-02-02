@@ -33,6 +33,11 @@ namespace ExtendedSurvival.Stats
         public const float BASE_HEALTH_REGEN_FACTOR = 0.2f;
         public const float MAX_HEALTH_REGEN_AT_SURVIVAL_KIT = 0.2f;
 
+        public const float BASE_FATIGUE_INCREASE_FACTOR = 1.0f;
+        public const float BASE_FATIGUE_INCREASE_MULTIPLIER = 2.5f;
+        public const float BASE_FATIGUE_DECREASE_FACTOR = 5.0f;
+        public const float BASE_FATIGUE_DECREASE_MULTIPLIER = 10.0f;
+
         public const float BASE_STAMINA_DAMAGE_FACTOR = 2.5f;
         public const float BASE_STAMINA_DECREASE_FACTOR = 2.5f;
         public const float BASE_TOOL_STAMINA_DECREASE_FACTOR = 1.25f;
@@ -163,12 +168,6 @@ namespace ExtendedSurvival.Stats
             Stomach,
             Intestine,
             Bladder,
-            IntakeBodyWater,
-            IntakeCarbohydrates,
-            IntakeProtein,
-            IntakeLipids,
-            IntakeVitamins,
-            IntakeMinerals,
             BodyWeight,
             BodyMuscles,
             BodyFat,

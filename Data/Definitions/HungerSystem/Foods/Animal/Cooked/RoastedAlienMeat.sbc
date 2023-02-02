@@ -9,7 +9,7 @@
       </Id>
       <DisplayName>Roast Alien Meat</DisplayName>
       <Description></Description>
-      <Icon>Textures\GUI\Icons\roast_meat.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_roast_meat.dds</Icon>
       <Size>
         <X>0.05</X>
         <Y>0.05</Y>
@@ -38,7 +38,7 @@
       </Id>
       <DisplayName>Roast Alien Meat</DisplayName>
       <Description></Description>
-      <Icon>Textures\GUI\Icons\roast_meat.dds</Icon>
+      <Icon>Textures\GUI\Icons\alien_roast_meat.dds</Icon>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="AlienMeat" />
       </Prerequisites>
