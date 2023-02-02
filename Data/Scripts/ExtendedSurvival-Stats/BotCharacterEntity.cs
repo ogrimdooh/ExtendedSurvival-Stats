@@ -133,6 +133,11 @@ namespace ExtendedSurvival.Stats
                     {
                         Torpor.Increase(damage.Amount * TorporConstants.PROPOFOL_MULTIPLIER, null);
                     }
+                    else
+                    {
+                        // Animals take more damage from bulets
+                        Entity.DoDamage(damage.Amount * 10, MyDamageType.Environment, true);
+                    }
                     if (Torpor.Value >= Torpor.MaxValue)
                         PassOut();
                 }

@@ -1,6 +1,7 @@
 ﻿using Sandbox.Definitions;
 using System.Collections.Generic;
 using VRage;
+using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
@@ -22,6 +23,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 80f,
             Name = "Apple",
             Description = "Apple is a red and appetizing fruit, it has a low caloric value.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 10,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
@@ -3264,7 +3270,12 @@ namespace ExtendedSurvival.Stats
                             Id = preparationDef.Product.Id,
                             Name = preparationDef.Name,
                             Description = preparationDef.Description,
-                            DefinitionType = preparationDef.DefinitionType
+                            DefinitionType = preparationDef.DefinitionType,
+                            AcquisitionAmount = preparationDef.AcquisitionAmount,
+                            OrderAmount = preparationDef.OrderAmount,
+                            OfferAmount = preparationDef.OfferAmount,
+                            MinimalPricePerUnit = preparationDef.MinimalPricePerUnit,
+                            CanPlayerOrder = preparationDef.CanPlayerOrder
                         };
                         foreach (var item in preparationDef.Ingredients)
                         {
@@ -3307,6 +3318,14 @@ namespace ExtendedSurvival.Stats
                                 consumableDef.DisplayNameString = foodDef.Name;
                                 consumableDef.DescriptionEnum = null;
                                 consumableDef.DescriptionString = foodDef.GetFullDescription();
+                                consumableDef.MinimumAcquisitionAmount = foodDef.AcquisitionAmount.X;
+                                consumableDef.MaximumAcquisitionAmount = foodDef.AcquisitionAmount.Y;
+                                consumableDef.MinimumOrderAmount = foodDef.OrderAmount.X;
+                                consumableDef.MaximumOrderAmount = foodDef.OrderAmount.Y;
+                                consumableDef.MinimumOfferAmount = foodDef.OfferAmount.X;
+                                consumableDef.MaximumOfferAmount = foodDef.OfferAmount.Y;
+                                consumableDef.MinimalPricePerUnit = foodDef.MinimalPricePerUnit;
+                                consumableDef.CanPlayerOrder = foodDef.CanPlayerOrder;
                                 consumableDef.Postprocess();
                             }
                             else

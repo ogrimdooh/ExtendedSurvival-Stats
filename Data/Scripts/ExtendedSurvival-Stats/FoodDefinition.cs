@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
@@ -34,6 +35,11 @@ namespace ExtendedSurvival.Stats
         public FoodDefinitionType DefinitionType { get; set; } = FoodDefinitionType.Consumable;
         public bool IgnoreDefinition { get; set; } = false;
         public bool SimpleDescription { get; set; } = false;
+        public Vector2I AcquisitionAmount { get; set; } = Vector2I.Zero;
+        public Vector2I OrderAmount { get; set; } = Vector2I.Zero;
+        public Vector2I OfferAmount { get; set; } = Vector2I.Zero;
+        public int MinimalPricePerUnit { get; set; }
+        public bool CanPlayerOrder { get; set; } = false;
 
         public List<FoodEffect> Effects { get; set; }
         public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; }

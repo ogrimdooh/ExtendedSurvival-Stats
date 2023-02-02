@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using VRage;
+using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
@@ -38,6 +39,11 @@ namespace ExtendedSurvival.Stats
         public RecipeItem Product { get; set; }
         public RecipeItem[] OtherResults { get; set; } = new RecipeItem[] { };
         public float ProductionTime { get; set; }
+        public Vector2I AcquisitionAmount { get; set; } = Vector2I.Zero;
+        public Vector2I OrderAmount { get; set; } = Vector2I.Zero;
+        public Vector2I OfferAmount { get; set; } = Vector2I.Zero;
+        public int MinimalPricePerUnit { get; set; }
+        public bool CanPlayerOrder { get; set; } = false;
 
         public string GetFullDescription()
         {
