@@ -55,6 +55,7 @@ namespace ExtendedSurvival.Stats
         public MyEntityStat BodyWater { get { return GetStat(StatsConstants.ValidStats.BodyWater); } }
         public MyEntityStat BodyPerformance { get { return GetStat(StatsConstants.ValidStats.BodyPerformance); } }
         public MyEntityStat BodyImmune { get { return GetStat(StatsConstants.ValidStats.BodyImmune); } }
+        public MyEntityStat BodyCalories { get { return GetStat(StatsConstants.ValidStats.BodyCalories); } }        
 
         public MyEntityStat Stomach { get { return GetStat(StatsConstants.ValidStats.Stomach); } }
         public MyEntityStat Intestine { get { return GetStat(StatsConstants.ValidStats.Intestine); } }
@@ -791,6 +792,7 @@ namespace ExtendedSurvival.Stats
                     BodyMuscles.Value = BodyMuscles.MaxValue * controller.CurrentMuscle;
                     BodyPerformance.Value = BodyPerformance.MaxValue * controller.CurrentPerformance;
                     BodyImmune.Value = BodyImmune.MaxValue * controller.CurrentImunity;
+                    BodyCalories.Value = controller.CaloriesAmmount;
                     ProcessHealth();
                     ProcessCargoMax();
                 }

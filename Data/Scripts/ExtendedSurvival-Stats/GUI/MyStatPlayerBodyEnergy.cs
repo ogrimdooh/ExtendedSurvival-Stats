@@ -1,7 +1,12 @@
-﻿namespace ExtendedSurvival.Stats
+﻿using Sandbox.Game.Entities;
+using VRage.Utils;
+
+namespace ExtendedSurvival.Stats
 {
     public class MyStatPlayerBodyEnergy : MyStatSimpleProgressBase
     {
+
+        private MyEntityStat BodyCalories;
 
         protected override string GetStatName()
         {
@@ -18,7 +23,20 @@
             return IsWithHelmet() && GetBodyTrackerLevel() >= 2;
         }
 
-        public override string ToString() => string.Format("{0:0}%", (float)(CurrentValue * 100.0));
+        private MyEntityStat GetPlayerStat(string statName)
+        {
+            MyEntityStat stat;
+            StatComp.TryGetStat(MyStringHash.GetOrCompute(statName), out stat);
+            return stat;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            BodyCalories = GetPlayerStat(StatsConstants.ValidStats.BodyCalories.ToString());
+        }
+
+        public override string ToString() => BodyCalories != null ? BodyCalories.Value.ToString("#0.00") : "-";
 
     }
 

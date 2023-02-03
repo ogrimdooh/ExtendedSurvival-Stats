@@ -32,6 +32,11 @@ namespace ExtendedSurvival.Stats
         public static readonly SerializableVector2 CaloriesReserveSize = new Vector2(0.0f, 1000.0f);
 
         /// <summary>
+        /// X: Min, Y: Max
+        /// </summary>
+        public static readonly SerializableVector2 CaloriesLimit = new Vector2(-5000.0f, 5000.0f);
+
+        /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
         public static readonly SerializableVector2 CaloriesConsumption = new SerializableVector2(0.1f, 0.25f);
@@ -40,6 +45,11 @@ namespace ExtendedSurvival.Stats
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
         public static readonly SerializableVector2 WaterConsumption = new SerializableVector2(0.00005f, 0.0001f);
+
+        /// <summary>
+        /// X: Loss amount, Y: Gain amount
+        /// </summary>
+        public static readonly SerializableVector2 WeightChange = new Vector2(1f / 1800f, 1f / 1800f);
 
         /// <summary>
         /// Minimum amount of water that goes to the bladder

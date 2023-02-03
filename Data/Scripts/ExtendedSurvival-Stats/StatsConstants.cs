@@ -172,7 +172,8 @@ namespace ExtendedSurvival.Stats
             BodyMuscles,
             BodyFat,
             FoodDetector,
-            MedicalDetector
+            MedicalDetector,
+            BodyCalories
 
         }
 

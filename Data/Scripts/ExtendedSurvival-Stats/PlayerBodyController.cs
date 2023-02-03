@@ -179,6 +179,12 @@ namespace ExtendedSurvival.Stats
         public List<IngestedFood> IngestedFoods { get; set; } = new List<IngestedFood>();
         public List<ActiveConsumibleEffect> ActiveFoodEffects { get; set; } = new List<ActiveConsumibleEffect>();
 
+        private void DoCheckMinAndMaxValues()
+        {
+            CaloriesAmmount = Math.Min(Math.Max(CaloriesAmmount, PlayerBodyConstants.CaloriesLimit.X), PlayerBodyConstants.CaloriesLimit.Y);
+            WaterAmmount = Math.Min(Math.Max(WaterAmmount, PlayerBodyConstants.WaterReserveSize.X), PlayerBodyConstants.WaterReserveSize.W);
+        }
+
         private void DoConsumeCicle(float staminaSpended)
         {
             _caloriesToConsume = PlayerBodyConstants.CaloriesConsumption.X;
@@ -261,6 +267,18 @@ namespace ExtendedSurvival.Stats
             }  
         }
 
+        private void DoCheckBodyWeight()
+        {
+            if (CaloriesAmmount < PlayerBodyConstants.CaloriesReserveSize.X)
+            {
+                CurrentWeight -= PlayerBodyConstants.WeightChange.X;
+            }
+            else if (CaloriesAmmount > PlayerBodyConstants.CaloriesReserveSize.Y)
+            {
+                CurrentWeight += PlayerBodyConstants.WeightChange.Y;
+            }
+        }
+
         public void CheckMinimalToLive()
         {
             if (WaterAmmount <= 0)
@@ -281,6 +299,8 @@ namespace ExtendedSurvival.Stats
                 DoEffectCicle();
                 DoBladderCicle();
                 DoCheckBodyState();
+                DoCheckMinAndMaxValues();
+                DoCheckBodyWeight();
                 return true;
             }
             return false;

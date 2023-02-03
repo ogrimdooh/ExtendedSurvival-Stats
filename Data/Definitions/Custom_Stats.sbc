@@ -140,6 +140,17 @@
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyCalories</SubtypeId>
+      </Id>
+      <Name>BodyCalories</Name>
+      <MinValue>-5000</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>5000</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>    
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
         <SubtypeId>BodyEnergy</SubtypeId>
       </Id>
       <Name>BodyEnergy</Name>
