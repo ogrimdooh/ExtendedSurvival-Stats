@@ -45,6 +45,9 @@ namespace ExtendedSurvival.Stats
         public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; }
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
 
+        public bool NeedConservation { get; set; } = false;
+        public long StartConservationTime { get; set; } = 0;
+
         private string GetNutritionDescription()
         {
             var values = new StringBuilder();
@@ -59,6 +62,10 @@ namespace ExtendedSurvival.Stats
             values.AppendLine(string.Format("Calories: {0}Cal", Calories.ToString("#0.00")));
             values.AppendLine(" ");
             values.AppendLine(string.Format("Digestion Time: {0}s", TimeToConsume.ToString("#0.0")));
+            if (NeedConservation)
+            {
+                values.AppendLine(string.Format("Rotting time: {0}s", (StartConservationTime / 1000).ToString("#0.0")));
+            }
             if (Effects != null && Effects.Any())
             {
                 values.AppendLine(" ");
@@ -134,6 +141,28 @@ namespace ExtendedSurvival.Stats
             };
         }
 
+        public ExtendedSurvivalCoreAPI.ItemExtraInfo GetItemExtraInfo()
+        {
+            return new ExtendedSurvivalCoreAPI.ItemExtraInfo()
+            {
+                DefinitionId = Id.DefinitionId,
+                StartConservationTime = StartConservationTime,
+                NeedUpdate = true,
+                NeedConservation = true,
+                RemoveWhenSpoil = true,
+                RemoveAmmount = 1,
+                AddNewItemWhenSpoil = true,
+                AddDefinitionId = new List<ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo>()
+                {
+                    new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                    {
+                        DefinitionId = ItensConstants.SPOILED_MATERIAL_ID.DefinitionId,
+                        Ammount = GetMass()
+                    }
+                }
+            };
+        }
+
         public void AddToIngestedFood(IngestedFood target)
         {
             target.Solid.AddAmmount(Solid);
@@ -146,15 +175,23 @@ namespace ExtendedSurvival.Stats
             target.Calories.AddAmmount(Calories);
         }
 
-        public void ApplyPreparation(FoodRecipeDefinition.RecipePreparationType preparation)
+        public void ApplyPreparation(FoodRecipeDefinition.RecipePreparationType preparation, bool needConservation, long maxTime)
         {
+            NeedConservation = needConservation;
+            StartConservationTime = maxTime;
             switch (preparation)
             {
+                case FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing:
+                    NeedConservation = false;
+                    NoNegativeHealth();
+                    NoDiseaseChance();
+                    break;
                 case FoodRecipeDefinition.RecipePreparationType.Processing:
                     NoNegativeHealth();
                     NoDiseaseChance();
                     break;
                 case FoodRecipeDefinition.RecipePreparationType.Cooking:
+                    StartConservationTime = maxTime * 3;
                     NoNegativeHealth();
                     NoDiseaseChance();
                     NoNegativeTemperature();
@@ -162,6 +199,7 @@ namespace ExtendedSurvival.Stats
                     ChangeWater(0.75f);
                     break;
                 case FoodRecipeDefinition.RecipePreparationType.Frying:
+                    StartConservationTime = maxTime * 2;
                     NoNegativeHealth();
                     NoDiseaseChance();
                     NoTemperatureChange();
@@ -169,6 +207,7 @@ namespace ExtendedSurvival.Stats
                     ChangeWater(0.25f);
                     break;
                 case FoodRecipeDefinition.RecipePreparationType.Baking:
+                    StartConservationTime = maxTime * 4;
                     NoNegativeHealth();
                     NoDiseaseChance();
                     NoTemperatureChange();
@@ -176,6 +215,7 @@ namespace ExtendedSurvival.Stats
                     ChangeWater(0.5f);
                     break;
                 case FoodRecipeDefinition.RecipePreparationType.Drying:
+                    StartConservationTime = maxTime * 5;
                     NoNegativeHealth();
                     NoDiseaseChance();
                     NoTemperatureChange();

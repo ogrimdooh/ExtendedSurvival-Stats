@@ -26,7 +26,8 @@ namespace ExtendedSurvival.Stats
             Baking = 3,
             Mixing = 4,
             Processing = 5,
-            Drying = 6
+            Drying = 6,
+            IndustrialProcessing = 7
 
         }
 

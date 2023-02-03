@@ -345,6 +345,14 @@ namespace ExtendedSurvival.Stats
 
         public override void LoadData()
         {
+
+            if (IsServer)
+            {
+                ExtendedSurvivalSettings.Load();
+                ExtendedSurvivalStorage.Load();
+                CheckDefinitions();
+            }
+
             TextAPI = new HudAPIv2();
             ESCoreAPI = new ExtendedSurvivalCoreAPI(()=> {
                 if (IsServer)
@@ -376,10 +384,14 @@ namespace ExtendedSurvival.Stats
                                 return !HasIce(observerId) || !HasAnyFertilizer(observerId);
                             }
                         );
+                        foreach (var itemKey in FoodConstants.FOOD_DEFINITIONS.Where(x => x.Value.NeedConservation))
+                        {
+                            ExtendedSurvivalCoreAPI.AddItemExtraInfo(itemKey.Value.GetItemExtraInfo());
+                        }
                         foreach (var itemKey in ItensConstants.ITEM_EXTRA_INFO_DEF.Keys)
                         {
                             ExtendedSurvivalCoreAPI.AddItemExtraInfo(ItensConstants.ITEM_EXTRA_INFO_DEF[itemKey]);
-                        }
+                        }                        
                         ExtendedSurvivalCoreAPI.AddItemCategory(LivestockConstants.ANIMAL_CATEGORY);
                         foreach (var animalId in ItensConstants.ANIMALS_IDS)
                         {
@@ -397,13 +409,6 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             });
-
-            if (IsServer)
-            {
-                ExtendedSurvivalSettings.Load();
-                ExtendedSurvivalStorage.Load();
-                CheckDefinitions();
-            }
 
             base.LoadData();
         }
@@ -619,12 +624,12 @@ namespace ExtendedSurvival.Stats
 
                     player.ProcessActivityCycle();
                     player.CheckStatusValues();
-                    player.CheckValuesToDoDamage();
 
                     if (RunCount < 300)
                         continue;
 
                     player.ProcessStatsCycle();
+                    player.CheckValuesToDoDamage();
                 }
             }
             catch (Exception ex)

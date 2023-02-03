@@ -1,4 +1,5 @@
 ﻿using Sandbox.Definitions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using VRage;
@@ -8,6 +9,13 @@ namespace ExtendedSurvival.Stats
 {
     public static class FoodConstants
     {
+
+        public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;
+        public static readonly long BASE_RAW_VEGETABLE_SPOIL_TIME = (long)(7.5f * 60 * 1000);
+        public static readonly long BASE_RAW_FRUIT_SPOIL_TIME = 10 * 60 * 1000;
+        public static readonly long BASE_RAW_MUSHROOM_SPOIL_TIME = (long)(12.5f * 60 * 1000);
+        public static readonly long BASE_MILK_SPOIL_TIME = 15 * 60 * 1000;
+        public static readonly long BASE_EGG_SPOIL_TIME = 15 * 60 * 1000;
 
         public static readonly FoodDefinition APPLE_DEFINITION = new FoodDefinition()
         {
@@ -21,6 +29,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.165f,
             Calories = 71f,
             TimeToConsume = 80f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_FRUIT_SPOIL_TIME,
             Name = "Apple",
             Description = "Apple is a red and appetizing fruit, it has a low caloric value.",
             CanPlayerOrder = true,
@@ -62,6 +72,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.272f,
             Calories = 136f,
             TimeToConsume = 60f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
             Name = "Broccoli",
             Description = "Broccoli is an edible green plant in the cabbage family, it is a particularly rich source of vitamin.",
             CanPlayerOrder = true,
@@ -97,6 +109,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.5784f,
             Calories = 51.6f,
             TimeToConsume = 120f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
             Name = "Beetroot",
             Description = "Beetroot is the taproot portion of a beet plant, it is a particularly rich source of minerals.",
             CanPlayerOrder = true,
@@ -132,6 +146,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.7344f,
             Calories = 49.5f,
             TimeToConsume = 120f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
             Name = "Caroot",
             Description = "Caroot is a root vegetable, it is a particularly rich source of minerals.",
             CanPlayerOrder = true,
@@ -167,6 +183,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.1341f,
             Calories = 10.2f,
             TimeToConsume = 10f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
             Name = "Shiitake",
             Description = "Shiitake is an edible mushroom, it is a particularly rich source of protein.",
             CanPlayerOrder = true,
@@ -202,6 +220,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.0832f,
             Calories = 4.4f,
             TimeToConsume = 10f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
             Name = "Champignon",
             Description = "Champignon is an edible mushroom, it is a particularly rich source of protein.",
             CanPlayerOrder = true,
@@ -237,6 +257,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.3444f,
             Calories = 21.6f,
             TimeToConsume = 60f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_FRUIT_SPOIL_TIME,
             Name = "Tomato",
             Description = "The tomato is the edible berry, it has a low caloric value.",
             CanPlayerOrder = true,
@@ -374,6 +396,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.480f,
             Calories = 264.0f,
             TimeToConsume = 60f,
+            NeedConservation = true,
+            StartConservationTime = BASE_MILK_SPOIL_TIME,
             Name = "Milk",
             Description = "Milk is a white liquid food produced by the mammary glands of mammals.",
             CanPlayerOrder = true,
@@ -419,6 +443,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.039f,
             Calories = 264.0f,
             TimeToConsume = 180f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Meat",
             Description = "Meat has been one of the main sources of protein since prehistoric times.",
             CanPlayerOrder = true,
@@ -454,6 +480,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.049f,
             Calories = 292.0f,
             TimeToConsume = 180f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Alien Meat",
             Description = "It is a strange meat and has a strong smell, but the taste is normal.",
             CanPlayerOrder = true,
@@ -489,6 +517,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.038f,
             Calories = 219.0f,
             TimeToConsume = 180f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Chicken Meat",
             Description = "Chicken is the most common type of poultry in the world.",
             CanPlayerOrder = true,
@@ -524,6 +554,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.033f,
             Calories = 541.0f,
             TimeToConsume = 180f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Bacon",
             Description = "Bacon is a type of salt-cured pork made from various cuts, typically the belly or less fatty parts of the back.",
             CanPlayerOrder = true,
@@ -559,6 +591,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.078f,
             Calories = 528.0f,
             TimeToConsume = 240f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Noble Meat",
             Description = "Noble cut of meat, with a high concentration of protein.",
             CanPlayerOrder = true,
@@ -594,6 +628,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.098f,
             Calories = 584.0f,
             TimeToConsume = 240f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Alien Noble Meat",
             Description = "It is a noble cut of a strange meat, the smell is more acceptable and tastier.",
             CanPlayerOrder = true,
@@ -629,6 +665,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.0366f,
             Calories = 93.0f,
             TimeToConsume = 120f,
+            NeedConservation = true,
+            StartConservationTime = BASE_EGG_SPOIL_TIME,
             Name = "Egg",
             Description = "Eggs are a very rich food from a nutritional point of view.",
             CanPlayerOrder = true,
@@ -664,6 +702,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.061f,
             Calories = 155.0f,
             TimeToConsume = 160f,
+            NeedConservation = true,
+            StartConservationTime = BASE_EGG_SPOIL_TIME,
             Name = "Alien Egg",
             Description = "It's actually quite a big egg, but it's best not to think too hard about where it comes from.",
             CanPlayerOrder = true,
@@ -699,6 +739,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.011f,
             Calories = 9.9f,
             TimeToConsume = 50f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Shrimp Meat",
             Description = "One of the most consumed seafood worldwide, shrimp is rich in nutrients and has several health benefits.",
             CanPlayerOrder = true,
@@ -734,6 +776,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.045f,
             Calories = 206.0f,
             TimeToConsume = 100f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Fish Meat",
             Description = "Fish has been an important dietary source of protein and other nutrients throughout human history.",
             CanPlayerOrder = true,
@@ -769,6 +813,8 @@ namespace ExtendedSurvival.Stats
             Minerals = 0.090f,
             Calories = 412.0f,
             TimeToConsume = 160f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Noble Fish Meat",
             Description = "High quality fish meat, with a high concentration of protein.",
             CanPlayerOrder = true,
@@ -1033,7 +1079,7 @@ namespace ExtendedSurvival.Stats
                 Ammount = 4
             },
             RecipeName = "ClangCola",
-            Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
+            Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
             Ingredients = new FoodRecipeDefinition.RecipeItem[]
             {
                 new FoodRecipeDefinition.RecipeItem()
@@ -1755,7 +1801,7 @@ namespace ExtendedSurvival.Stats
                 Ammount = 1
             },
             RecipeName = "CerealBar_Construction",
-            Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
+            Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
             Ingredients = new FoodRecipeDefinition.RecipeItem[]
             {
                 new FoodRecipeDefinition.RecipeItem()
@@ -2988,7 +3034,7 @@ namespace ExtendedSurvival.Stats
                 Ammount = 1
             },
             RecipeName = "ProteinBar_Construction",
-            Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
+            Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
             Ingredients = new FoodRecipeDefinition.RecipeItem[]
             {
                 new FoodRecipeDefinition.RecipeItem()
@@ -3020,7 +3066,7 @@ namespace ExtendedSurvival.Stats
                 Ammount = 1
             },
             RecipeName = "VitaminPills_Construction",
-            Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
+            Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
             Ingredients = new FoodRecipeDefinition.RecipeItem[]
             {
                 new FoodRecipeDefinition.RecipeItem()
@@ -3526,15 +3572,22 @@ namespace ExtendedSurvival.Stats
                             CanPlayerOrder = preparationDef.CanPlayerOrder,
                             CureDisease = preparationDef.CureDisease
                         };
+                        bool needConservation = false;
+                        long maxTime = 0;
                         foreach (var item in preparationDef.Ingredients)
                         {
                             if (FOOD_RECIPIENTS.Contains(item.Id) || MEDICAL_INGREDIENTS.Contains(item.Id) || !FOOD_DEFINITIONS.ContainsKey(item.Id))
                                 continue;
                             var ingredientDef = FOOD_DEFINITIONS[item.Id];
+                            needConservation = needConservation || ingredientDef.NeedConservation;
+                            if (ingredientDef.StartConservationTime > 0)
+                            {
+                                maxTime = Math.Max(maxTime, ingredientDef.StartConservationTime);
+                            }
                             foodDef.Increment(ingredientDef, item.Ammount);
                         }
                         foodDef.Divide(preparationDef.Product.Ammount);
-                        foodDef.ApplyPreparation(preparationDef.Preparation);
+                        foodDef.ApplyPreparation(preparationDef.Preparation, needConservation, maxTime);
                         FOOD_DEFINITIONS.Add(food, foodDef);
                     }
                     else

@@ -261,6 +261,14 @@ namespace ExtendedSurvival.Stats
             }  
         }
 
+        public void CheckMinimalToLive()
+        {
+            if (WaterAmmount <= 0)
+            {
+                WaterAmmount = PlayerBodyConstants.ReviveWaterReserve;
+            }
+        }
+
         public bool DoCicle(float staminaSpended)
         {
             spendTime += (MyAPIGateway.Session.GameplayFrameCounter - deltaTime) * 10;

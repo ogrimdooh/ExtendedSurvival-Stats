@@ -455,7 +455,7 @@ namespace ExtendedSurvival.Stats
                 {
                     LoadPlayerStat(stat.ToString());
                 }
-                if (hasDied && storeData != null && ExtendedSurvivalSettings.Instance.HardModeEnabled)
+                if (hasDied && storeData != null)
                 {
                     SurvivalEffects.Value = storeData.GetStatValue(nameof(CurrentSurvivalEffects));
                     DamageEffects.Value = storeData.GetStatValue(nameof(CurrentDamageEffects));
@@ -467,15 +467,25 @@ namespace ExtendedSurvival.Stats
                     WetTime.Value = storeData.GetStatValue(nameof(WetTime));
                     Stamina.Value = storeData.GetStatValue(nameof(Stamina));
                     Fatigue.Value = storeData.GetStatValue(nameof(Fatigue));
-                    if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.ON_DEATH_NO_CHANGE_IF))
+                    if (ExtendedSurvivalSettings.Instance.HardModeEnabled)
                     {
-                        CurrentDamageEffects &= ~StatsConstants.ON_DEATH_REMOVE_DAMAGE;
-                        CurrentDamageEffects |= StatsConstants.ON_DEATH_APPLY_DAMAGE;
+                        if (!StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.ON_DEATH_NO_CHANGE_IF))
+                        {
+                            CurrentDamageEffects &= ~StatsConstants.ON_DEATH_REMOVE_DAMAGE;
+                            CurrentDamageEffects |= StatsConstants.ON_DEATH_APPLY_DAMAGE;
+                        }
+                        if (CurrentDamageEffects != StatsConstants.DamageEffects.None)
+                        {
+                            Health.Value = Health.MaxValue * StatsConstants.DAMAGE_HEALTH_START_VALUE[(StatsConstants.DamageEffects)StatsConstants.GetMaxSetFlagValue(CurrentDamageEffects)];
+                        }
                     }
-                    if (CurrentDamageEffects != StatsConstants.DamageEffects.None)
+                    else
                     {
-                        Health.Value = Health.MaxValue * StatsConstants.DAMAGE_HEALTH_START_VALUE[(StatsConstants.DamageEffects)StatsConstants.GetMaxSetFlagValue(CurrentDamageEffects)];
+                        CurrentDamageEffects = StatsConstants.DamageEffects.None;
                     }
+                    controller.CheckMinimalToLive();
+                    hasDied = false;
+                    storeData = null;
                 }
                 CheckHungerValues();
                 CheckThirstValues();
@@ -519,6 +529,7 @@ namespace ExtendedSurvival.Stats
             Thirst.OnStatChanged -= Thirst_OnStatChanged;
             Stamina.OnStatChanged -= Stamina_OnStatChanged;
             enterUnderWater = false;
+            hasDied = true;
             storeData = GetStoreData();
         }
 
@@ -1702,6 +1713,7 @@ namespace ExtendedSurvival.Stats
                         Stamina.Value = storeData.GetStatValue(nameof(Stamina));
                         Fatigue.Value = storeData.GetStatValue(nameof(Fatigue));
                         Health.Value = storeData.GetStatValue(nameof(Health));
+                        controller.CheckMinimalToLive();
                     }
                     else
                     {

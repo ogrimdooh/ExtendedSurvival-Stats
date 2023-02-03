@@ -52,6 +52,11 @@ namespace ExtendedSurvival.Stats
         public const float StartWaterReserve = 1.75f;
 
         /// <summary>
+        ///  ammount of body water
+        /// </summary>
+        public const float ReviveWaterReserve = 0.5f;
+
+        /// <summary>
         /// Start body weight
         /// </summary>
         public const float StartWeight = 80f;
