@@ -19,7 +19,7 @@
         <string>ConsumableItem/Water_Flask_Small</string>
         <string>ConsumableItem/Water_Flask_Medium</string>
         <string>ConsumableItem/Water_Flask_Big</string>
-
+        
         <string>ConsumableItem/Bandages</string>
         <string>ConsumableItem/SimpleMedicine</string>
         <string>ConsumableItem/Medicine</string>
@@ -27,7 +27,7 @@
         <string>ConsumableItem/HealthBuster</string>
         <string>ConsumableItem/HealthInjection</string>
         <string>ConsumableItem/HealthPowerInjection</string>
-        <string>ConsumableItem/Medkit</string>
+        <string>ConsumableItem/Medkit</string>   
         
         <string>ConsumableItem/Powerkit</string>
         
@@ -43,8 +43,10 @@
         <string>ConsumableItem/RawBroccoliBowl</string>
         <string>ConsumableItem/RawBeetrootBowl</string>
         <string>ConsumableItem/RawCarrotBowl</string>
-        <string>ConsumableItem/RoastMushrooms</string>
+        <string>ConsumableItem/RoastChampignons</string>
+        <string>ConsumableItem/RoastShiitake</string>
         <string>ConsumableItem/Bread</string>
+        <string>ConsumableItem/AlienBread</string>
         <string>ConsumableItem/Meat</string>
         <string>ConsumableItem/NobleMeat</string>
         <string>ConsumableItem/AlienMeat</string>
@@ -52,30 +54,67 @@
         <string>ConsumableItem/AlienEgg</string>
         <string>ConsumableItem/Egg</string>
         <string>ConsumableItem/RawSausage</string>
+        <string>ConsumableItem/RawAlienSausage</string>
         <string>ConsumableItem/RawMeatBowl</string>
         <string>ConsumableItem/RawNobleMeatBowl</string>
+        <string>ConsumableItem/RawAlienMeatBowl</string>
+        <string>ConsumableItem/RawAlienNobleMeatBowl</string>
         <string>ConsumableItem/RoastedMeat</string>
+        <string>ConsumableItem/RoastedAlienMeat</string>
         <string>ConsumableItem/RoastedSausage</string>
+        <string>ConsumableItem/RoastedAlienSausage</string>
         <string>ConsumableItem/FriedEgg</string>
+        <string>ConsumableItem/FriedAlienEgg</string>
         <string>ConsumableItem/SaladBowl</string>
         <string>ConsumableItem/VegetableSoupBowl</string>
         <string>ConsumableItem/StewBowl</string>
+        <string>ConsumableItem/AlienStewBowl</string>
         <string>ConsumableItem/MeatVegetablesBowl</string>
+        <string>ConsumableItem/AlienMeatVegetablesBowl</string>
         <string>ConsumableItem/MeatloafBowl</string>
+        <string>ConsumableItem/AlienMeatloafBowl</string>
         <string>ConsumableItem/MeatSoupBowl</string>
+        <string>ConsumableItem/AlienMeatSoupBowl</string>
         <string>ConsumableItem/MushroomPateBowl</string>
         <string>ConsumableItem/MeatMushroom</string>
+        <string>ConsumableItem/AlienMeatMushroom</string>
         <string>ConsumableItem/Sandwich</string>
+        <string>ConsumableItem/AlienSandwich</string>
         <string>ConsumableItem/ShrimpMeat</string>
         <string>ConsumableItem/FishMeat</string>
         <string>ConsumableItem/NobleFishMeat</string>
         <string>ConsumableItem/RawFishMeatBowl</string>
+        <string>ConsumableItem/RawNobleFishMeatBowl</string>        
         <string>ConsumableItem/RoastedShrimp</string>
         <string>ConsumableItem/RoastedFish</string>
         <string>ConsumableItem/RoastedNobleFish</string>
         <string>ConsumableItem/FishMushroom</string>
         <string>ConsumableItem/FishSoupBowl</string>
         <string>ConsumableItem/ShrimpSoupBowl</string>
+        <string>ConsumableItem/ChickenMeat</string>
+        <string>ConsumableItem/Bacon</string>
+        <string>ConsumableItem/Dough</string>
+        <string>ConsumableItem/AlienDough</string>
+        <string>ConsumableItem/CakeDough</string>
+        <string>ConsumableItem/AlienCakeDough</string>
+        <string>ConsumableItem/RoastedChicken</string>
+        <string>ConsumableItem/RoastedBacon</string>
+        <string>ConsumableItem/WaterBread</string>
+        <string>ConsumableItem/Pasta</string>
+        <string>ConsumableItem/AlienPasta</string>
+        <string>ConsumableItem/VegetablePasta</string>
+        <string>ConsumableItem/VegetableAlienPasta</string>
+        <string>ConsumableItem/MeatPasta</string>
+        <string>ConsumableItem/AlienMeatPasta</string>
+        <string>ConsumableItem/Cheese</string>
+        <string>ConsumableItem/ApplePie</string>
+        <string>ConsumableItem/AlienApplePie</string>
+        <string>ConsumableItem/ChickenPie</string>
+        <string>ConsumableItem/AlienChickenPie</string>
+        <string>ConsumableItem/FatPorridge</string>
+        <string>ConsumableItem/VitaminPills</string>
+        <string>ConsumableItem/ProteinBar</string>        
+      
       </ItemIds>
     </Category>
 
