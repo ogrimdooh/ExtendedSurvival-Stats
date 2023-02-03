@@ -4,8 +4,8 @@ using System.Linq;
 using VRage;
 
 namespace ExtendedSurvival.Stats
-{
-    public class MedicalRecipeDefinition
+{ 
+    public class SimpleRecipeDefinition
     {
 
         public struct RecipeItem
@@ -16,6 +16,7 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public string Name { get; set; }
         public string RecipeName { get; set; }
         public float ProductAmmount { get; set; }
         public RecipeItem[] Ingredients { get; set; } = new RecipeItem[] { };

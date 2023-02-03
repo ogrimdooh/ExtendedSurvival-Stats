@@ -31,12 +31,30 @@
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>GrainsRation_Construction</SubtypeId>
+        <SubtypeId>WheatRation_Construction</SubtypeId>
       </Id>
-      <DisplayName>Grains Ration</DisplayName>
-      <Icon>Textures\GUI\Icons\grains_ration.dds</Icon>
+      <DisplayName>Wheat Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\grains_ration_r1.dds</Icon>
       <Prerequisites>
         <Item Amount="8" TypeId="Ingot" SubtypeId="Wheat" />
+        <Item Amount="12" TypeId="Ore" SubtypeId="Ice" />
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="GrainsRation" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CerealRation_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Cereal Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\grains_ration_r2.dds</Icon>
+      <Prerequisites>
+        <Item Amount="8" TypeId="Ingot" SubtypeId="Cereal" />
         <Item Amount="12" TypeId="Ore" SubtypeId="Ice" />
         <Item Amount="0.25" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>

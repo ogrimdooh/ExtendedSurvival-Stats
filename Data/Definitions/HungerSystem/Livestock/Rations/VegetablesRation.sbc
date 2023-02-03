@@ -31,10 +31,48 @@
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>VegetablesRation_Construction</SubtypeId>
+        <SubtypeId>BroccoliRation_Construction</SubtypeId>
       </Id>
-      <DisplayName>Vegetables Ration</DisplayName>
-      <Icon>Textures\GUI\Icons\vegetables_ration.dds</Icon>
+      <DisplayName>Broccoli Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetables_ration_r1.dds</Icon>
+      <Prerequisites>
+        <Item Amount="6" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
+        <Item Amount="24" TypeId="Ore" SubtypeId="Ice" />
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="VegetablesRation" />
+        <Item Amount="6" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BeetrootRation_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Beetroot Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetables_ration_r2.dds</Icon>
+      <Prerequisites>
+        <Item Amount="6" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
+        <Item Amount="24" TypeId="Ore" SubtypeId="Ice" />
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="Ore" SubtypeId="VegetablesRation" />
+        <Item Amount="6" TypeId="PhysicalObject" SubtypeId="Bowl" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CarrotRation_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Carrot Ration</DisplayName>
+      <Icon>Textures\GUI\Icons\vegetables_ration_r3.dds</Icon>
       <Prerequisites>
         <Item Amount="6" TypeId="ConsumableItem" SubtypeId="RawBroccoliBowl" />
         <Item Amount="24" TypeId="Ore" SubtypeId="Ice" />

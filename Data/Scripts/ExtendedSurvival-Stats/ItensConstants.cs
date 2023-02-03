@@ -65,6 +65,10 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId SILICON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILICON_SUBTYPEID);
         public static readonly UniqueEntityId SILICON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILICON_SUBTYPEID);
 
+        public const string CARBON_SUBTYPEID = "Carbon";
+        public static readonly UniqueEntityId CARBON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), CARBON_SUBTYPEID);
+        public static readonly UniqueEntityId CARBON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CARBON_SUBTYPEID);
+
         public const string IRON_SUBTYPEID = "Iron";
         public static readonly UniqueEntityId IRON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), IRON_SUBTYPEID);
         public static readonly UniqueEntityId IRON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), IRON_SUBTYPEID);
@@ -206,15 +210,6 @@ namespace ExtendedSurvival.Stats
 
         public const string POOP_SUBTYPEID = "Poop";
         public static readonly UniqueEntityId POOP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), POOP_SUBTYPEID);
-
-        public const string MEATRATION_SUBTYPEID = "MeatRation";
-        public static readonly UniqueEntityId MEATRATION_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), MEATRATION_SUBTYPEID);
-
-        public const string VEGETABLERATION_SUBTYPEID = "VegetablesRation";
-        public static readonly UniqueEntityId VEGETABLERATION_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), VEGETABLERATION_SUBTYPEID);
-
-        public const string GRAINSRATION_SUBTYPEID = "GrainsRation";
-        public static readonly UniqueEntityId GRAINSRATION_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), GRAINSRATION_SUBTYPEID);
 
         public const string CONCENTRATEDFAT_SUBTYPEID = "ConcentratedFat";
         public static readonly UniqueEntityId CONCENTRATEDFAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CONCENTRATEDFAT_SUBTYPEID);

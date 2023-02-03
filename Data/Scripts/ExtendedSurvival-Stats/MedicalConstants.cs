@@ -36,19 +36,19 @@ namespace ExtendedSurvival.Stats
                     Ammount = 40
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "Bandages_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 2.56f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.25f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SMALLALOEVERAEXTRACT_ID,
                         Ammount = 1
@@ -84,24 +84,24 @@ namespace ExtendedSurvival.Stats
                     Ammount = 80
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "PowerBandages_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 5.12f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.25f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.POLIETILENOGLICOL_ID,
                         Ammount = 1
@@ -148,29 +148,29 @@ namespace ExtendedSurvival.Stats
                     Ammount = 50
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "SimpleMedicine_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 5.12f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.15f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.MINTEXTRACT_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.CHAMOMILEEXTRACT_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.POLIETILENOGLICOL_ID,
                         Ammount = 1
@@ -210,24 +210,24 @@ namespace ExtendedSurvival.Stats
                     Ammount = 40
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "Medicine_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 5.12f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.15f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SMALLALOEVERAEXTRACT_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.POLIETILENOGLICOL_ID,
                         Ammount = 1
@@ -270,29 +270,29 @@ namespace ExtendedSurvival.Stats
                     Ammount = 75
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "HealthBuster_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 10.24f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.IRON_INGOT_ID,
                         Ammount = 0.05f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.25f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILVERSULFADIAZINE_ID,
                         Ammount = 1
@@ -337,34 +337,34 @@ namespace ExtendedSurvival.Stats
                     Ammount = 250
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "HealthInjection_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 10.24f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.IRON_INGOT_ID,
                         Ammount = 0.05f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.15f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.ARNICAEXTRACT_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILVERSULFADIAZINE_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.POLIETILENOGLICOL_ID,
                         Ammount = 1
@@ -407,34 +407,34 @@ namespace ExtendedSurvival.Stats
                     Ammount = 150
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "HealthPowerInjection_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 10.24f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.IRON_INGOT_ID,
                         Ammount = 0.05f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.15f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 2
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILVERSULFADIAZINE_ID,
                         Ammount = 1
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.POLIETILENOGLICOL_ID,
                         Ammount = 1
@@ -478,34 +478,34 @@ namespace ExtendedSurvival.Stats
                     Ammount = 300
                 }
             },
-            RecipeDefinition = new MedicalRecipeDefinition()
+            RecipeDefinition = new SimpleRecipeDefinition()
             {
                 RecipeName = "Medkit_Construction",
                 ProductAmmount = 1,
                 ProductionTime = 20.48f,
-                Ingredients = new MedicalRecipeDefinition.RecipeItem[]
+                Ingredients = new SimpleRecipeDefinition.RecipeItem[]
                 {
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.IRON_INGOT_ID,
                         Ammount = 0.05f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILICON_INGOT_ID,
                         Ammount = 0.15f
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 3
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.SILVERSULFADIAZINE_ID,
                         Ammount = 2
                     },
-                    new MedicalRecipeDefinition.RecipeItem()
+                    new SimpleRecipeDefinition.RecipeItem()
                     {
                         Id = ItensConstants.POLIETILENOGLICOL_ID,
                         Ammount = 1

@@ -57,7 +57,7 @@ namespace ExtendedSurvival.Stats
             get
             {
                 if (inventoryObservers.Any() && ExtendedSurvivalCoreAPI.Registered)
-                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), ItensConstants.MEATRATION_ID.DefinitionId);
+                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), RationConstants.MEATRATION_ID.DefinitionId);
                 return false;
             }
         }
@@ -67,7 +67,7 @@ namespace ExtendedSurvival.Stats
             get
             {
                 if (inventoryObservers.Any())
-                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), ItensConstants.VEGETABLERATION_ID.DefinitionId);
+                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), RationConstants.VEGETABLERATION_ID.DefinitionId);
                 return false;
             }
         }
@@ -77,7 +77,7 @@ namespace ExtendedSurvival.Stats
             get
             {
                 if (inventoryObservers.Any())
-                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), ItensConstants.GRAINSRATION_ID.DefinitionId);
+                    return ExtendedSurvivalCoreAPI.HasItemInObserver(GetObserver(0), RationConstants.GRAINSRATION_ID.DefinitionId);
                 return false;
             }
         }
@@ -144,9 +144,9 @@ namespace ExtendedSurvival.Stats
                 {
                     definition.InputConstraint.Add(item.DefinitionId);
                 }
-                definition.InputConstraint.Add(ItensConstants.MEATRATION_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.VEGETABLERATION_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.GRAINSRATION_ID.DefinitionId);
+                definition.InputConstraint.Add(RationConstants.MEATRATION_ID.DefinitionId);
+                definition.InputConstraint.Add(RationConstants.VEGETABLERATION_ID.DefinitionId);
+                definition.InputConstraint.Add(RationConstants.GRAINSRATION_ID.DefinitionId);
                 definition.InputConstraint.Add(ItensConstants.POOP_ID.DefinitionId);
                 definition.InputConstraint.Add(ItensConstants.BONES_ID.DefinitionId);
                 definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
@@ -185,15 +185,15 @@ namespace ExtendedSurvival.Stats
                                         var uniqueId = new UniqueEntityId(extraInfo.DefinitionId);
                                         if (ItensConstants.ANIMALS_HERBICORES_IDS.Contains(uniqueId) && HasVegetableRation)
                                         {
-                                            gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, ItensConstants.VEGETABLERATION_ID.DefinitionId, gasContainer);
+                                            gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, RationConstants.VEGETABLERATION_ID.DefinitionId, gasContainer);
                                         }
                                         else if (ItensConstants.ANIMALS_CARNIVORES_IDS.Contains(uniqueId) && HasMeatRation)
                                         {
-                                            gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, ItensConstants.MEATRATION_ID.DefinitionId, gasContainer);
+                                            gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, RationConstants.MEATRATION_ID.DefinitionId, gasContainer);
                                         }
                                         else if (ItensConstants.ANIMALS_BIRDS_IDS.Contains(uniqueId) && HasGrainRation)
                                         {
-                                            gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, ItensConstants.MEATRATION_ID.DefinitionId, gasContainer);
+                                            gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, RationConstants.MEATRATION_ID.DefinitionId, gasContainer);
                                         }
                                         if (gotfeed)
                                         {

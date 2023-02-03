@@ -76,10 +76,16 @@
   </BlueprintClasses>
   <BlueprintClassEntries>
     <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="MeatRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="AlienMeatRation_Construction" />
     <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="NobleMeatRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="AlienNobleMeatRation_Construction" />
     <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="FishMeatRation_Construction" />
-    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="VegetablesRation_Construction" />
-    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="GrainsRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="NobleFishMeatRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="BroccoliRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="BeetrootRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="CarrotRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="WheatRation_Construction" />
+    <Entry Class="FoodProcessor_Rations_Blueprints" BlueprintSubtypeId="CerealRation_Construction" />
     
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawCarrotBowl_Construction" />
     <Entry Class="FoodProcessor_Refine_Blueprints" BlueprintSubtypeId="RawBeetrootBowl_Construction" />

@@ -22,7 +22,7 @@ namespace ExtendedSurvival.Stats
         public List<StatsConstants.DamageEffects> CureDamage { get; set; }
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
         public List<ConsumibleEffect> Effects { get; set; }
-        public MedicalRecipeDefinition RecipeDefinition { get; set; }
+        public SimpleRecipeDefinition RecipeDefinition { get; set; }
 
         public string GetFullDescription()
         {

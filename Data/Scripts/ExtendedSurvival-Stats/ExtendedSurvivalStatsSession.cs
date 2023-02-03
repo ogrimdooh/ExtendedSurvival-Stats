@@ -460,9 +460,10 @@ namespace ExtendedSurvival.Stats
                     }
                 }
 
-                // FOOD, MEDICAL AND TRADE
+                // ITENS OVERRIDES
                 FoodConstants.TryOverrideDefinitions();
                 MedicalConstants.TryOverrideDefinitions();
+                RationConstants.TryOverrideDefinitions();
                 FactionTypeConstants.TryOverrideDefinitions();
 
                 // SPAWNS
