@@ -455,9 +455,10 @@ namespace ExtendedSurvival.Stats
                     }
                 }
 
-                // NUTRITION
+                // FOOD, MEDICAL AND TRADE
                 FoodConstants.TryOverrideDefinitions();
                 MedicalConstants.TryOverrideDefinitions();
+                FactionTypeConstants.TryOverrideDefinitions();
 
                 // SPAWNS
                 SpawnGroupOverride.SetDefinitions();

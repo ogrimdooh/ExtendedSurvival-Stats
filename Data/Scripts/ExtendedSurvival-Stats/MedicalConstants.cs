@@ -1,5 +1,6 @@
 ﻿using Sandbox.Definitions;
 using System.Collections.Generic;
+using System.Linq;
 using VRageMath;
 
 namespace ExtendedSurvival.Stats
@@ -529,6 +530,7 @@ namespace ExtendedSurvival.Stats
         {
             try
             {
+                var targetFaction = FactionTypeConstants.FACTION_TYPES_DEFINITIONS[FactionTypeConstants.TRADER_ID];
                 // Override medical definition
                 foreach (var medical in MEDICAL_DEFINITIONS.Keys)
                 {
@@ -579,6 +581,12 @@ namespace ExtendedSurvival.Stats
                     }
                     else
                         ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(FoodConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{medicalDef.RecipeDefinition.RecipeName}]");
+                    // Add itens to faction types
+                    if (medicalDef.CanPlayerOrder)
+                    {
+                        targetFaction.OffersList.Add(medical);
+                        targetFaction.OrdersList.Add(medical);
+                    }
                 }
             }
             catch (System.Exception ex)

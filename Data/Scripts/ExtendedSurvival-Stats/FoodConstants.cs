@@ -1,5 +1,6 @@
 ﻿using Sandbox.Definitions;
 using System.Collections.Generic;
+using System.Linq;
 using VRage;
 using VRageMath;
 
@@ -24,9 +25,9 @@ namespace ExtendedSurvival.Stats
             Description = "Apple is a red and appetizing fruit, it has a low caloric value.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
-            OfferAmount = new Vector2I(1500, 4500),
-            OrderAmount = new Vector2I(500, 1500),
-            AcquisitionAmount = new Vector2I(1000, 3000),
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
@@ -63,6 +64,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 60f,
             Name = "Broccoli",
             Description = "Broccoli is an edible green plant in the cabbage family, it is a particularly rich source of vitamin.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 15,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
@@ -93,6 +99,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 120f,
             Name = "Beetroot",
             Description = "Beetroot is the taproot portion of a beet plant, it is a particularly rich source of minerals.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 10,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
@@ -123,6 +134,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 120f,
             Name = "Caroot",
             Description = "Caroot is a root vegetable, it is a particularly rich source of minerals.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 10,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
@@ -153,6 +169,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 10f,
             Name = "Shiitake",
             Description = "Shiitake is an edible mushroom, it is a particularly rich source of protein.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 5,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.05f }
@@ -183,6 +204,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 10f,
             Name = "Champignon",
             Description = "Champignon is an edible mushroom, it is a particularly rich source of protein.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 5,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.05f }
@@ -213,6 +239,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 60f,
             Name = "Tomato",
             Description = "The tomato is the edible berry, it has a low caloric value.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 15,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
@@ -249,7 +280,12 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 1200f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
             Name = "Cereal",
-            Description = "Cereal is a highly nutritious grain."
+            Description = "Cereal is a highly nutritious grain.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 12,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000)
         };
 
         public static readonly FoodDefinition WHEATSACK_DEFINITION = new FoodDefinition()
@@ -266,7 +302,12 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 1200f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
             Name = "Wheat Sack",
-            Description = "Wheat grain is a staple food used to make flour, and with it, bread."
+            Description = "Wheat grain is a staple food used to make flour, and with it, bread.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 18,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000)
         };
 
         public static readonly FoodDefinition COFFEESACK_DEFINITION = new FoodDefinition()
@@ -284,6 +325,11 @@ namespace ExtendedSurvival.Stats
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
             Name = "Coffee Sack",
             Description = "Coffee is a stimulant, because it has caffeine, it can be an alternative to maintain body heat in cold places.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 22,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
             Effects = new List<ConsumibleEffect>()
             {
                 new ConsumibleEffect()
@@ -330,6 +376,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 60f,
             Name = "Milk",
             Description = "Milk is a white liquid food produced by the mammary glands of mammals.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 50,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300),
             Effects = new List<ConsumibleEffect>()
             {
                 new ConsumibleEffect()
@@ -370,6 +421,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             Name = "Meat",
             Description = "Meat has been one of the main sources of protein since prehistoric times.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 25,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
@@ -400,6 +456,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             Name = "Alien Meat",
             Description = "It is a strange meat and has a strong smell, but the taste is normal.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 25,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
@@ -430,6 +491,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             Name = "Chicken Meat",
             Description = "Chicken is the most common type of poultry in the world.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 35,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
@@ -460,6 +526,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             Name = "Bacon",
             Description = "Bacon is a type of salt-cured pork made from various cuts, typically the belly or less fatty parts of the back.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 35,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
@@ -490,6 +561,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 240f,
             Name = "Noble Meat",
             Description = "Noble cut of meat, with a high concentration of protein.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 45,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
@@ -520,6 +596,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 240f,
             Name = "Alien Noble Meat",
             Description = "It is a noble cut of a strange meat, the smell is more acceptable and tastier.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 45,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
@@ -550,6 +631,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 120f,
             Name = "Egg",
             Description = "Eggs are a very rich food from a nutritional point of view.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 15,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.25f }
@@ -580,6 +666,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 160f,
             Name = "Alien Egg",
             Description = "It's actually quite a big egg, but it's best not to think too hard about where it comes from.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 15,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.35f }
@@ -610,6 +701,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 50f,
             Name = "Shrimp Meat",
             Description = "One of the most consumed seafood worldwide, shrimp is rich in nutrients and has several health benefits.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 5,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.75f }
@@ -640,6 +736,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 100f,
             Name = "Fish Meat",
             Description = "Fish has been an important dietary source of protein and other nutrients throughout human history.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 15,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.75f }
@@ -670,6 +771,11 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 160f,
             Name = "Noble Fish Meat",
             Description = "High quality fish meat, with a high concentration of protein.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 25,
+            OfferAmount = new Vector2I(1500, 4500),
+            OrderAmount = new Vector2I(500, 1500),
+            AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.75f }
@@ -795,6 +901,11 @@ namespace ExtendedSurvival.Stats
             ProductionTime = 1.28f,
             Name = "Small Water Flask",
             Description = "A small flask with water.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 50,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
@@ -826,6 +937,11 @@ namespace ExtendedSurvival.Stats
             ProductionTime = 2.56f,
             Name = "Medium Water Flask",
             Description = "A medium flask with water.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 100,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
@@ -857,6 +973,11 @@ namespace ExtendedSurvival.Stats
             ProductionTime = 5.12f,
             Name = "Medium Big Flask",
             Description = "A big flask with water.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 150,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
@@ -893,6 +1014,11 @@ namespace ExtendedSurvival.Stats
             ProductionTime = 2.56f,
             Name = "Apple Juice",
             Description = "A big flask with juice extracted from apples.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 200,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
@@ -924,6 +1050,11 @@ namespace ExtendedSurvival.Stats
             ProductionTime = 5.12f,
             Name = "Apple Soda",
             Description = "A refreshing apple-based soda.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 50,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
@@ -960,6 +1091,11 @@ namespace ExtendedSurvival.Stats
             ProductionTime = 5.12f,
             Name = "Cofee Can",
             Description = "A thermos of hot coffee.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 50,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
@@ -1356,7 +1492,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = "Raw Sausage",
-            Description = "A sausage full of raw meat."
+            Description = "A sausage full of raw meat.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -1378,7 +1519,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = "Raw Alien Sausage",
-            Description = "A sausage full of raw alien meat."
+            Description = "A sausage full of raw alien meat.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition ROAST_CHAMPIGNON_DEFINITION = new FoodRecipeDefinition()
@@ -1620,7 +1766,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = "Cereal Bar",
-            Description = "A bar made with cereals, simple and easy to produce."
+            Description = "A bar made with cereals, simple and easy to produce.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 8,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition WATERBREAD_DEFINITION = new FoodRecipeDefinition()
@@ -1647,7 +1798,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = "Water Bread",
-            Description = "One of the oldest condiments developed by man."
+            Description = "One of the oldest condiments developed by man.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 10,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition BREAD_DEFINITION = new FoodRecipeDefinition()
@@ -1669,7 +1825,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Bread",
-            Description = "A milk bread, soft and tasty."
+            Description = "A milk bread, soft and tasty.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 15,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_BREAD_DEFINITION = new FoodRecipeDefinition()
@@ -1691,7 +1852,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Alien Bread",
-            Description = "A milk bread using alien eggs, even with the strange color is soft and tasty."
+            Description = "A milk bread using alien eggs, even with the strange color is soft and tasty.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 15,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition PASTA_DEFINITION = new FoodRecipeDefinition()
@@ -1895,7 +2061,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Cheese",
-            Description = "Cheese is a solid food made from milk."
+            Description = "Cheese is a solid food made from milk.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 125,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition SALAD_DEFINITION = new FoodRecipeDefinition()
@@ -2663,7 +2834,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Apple Pie",
-            Description = "A pie made with apples."
+            Description = "A pie made with apples.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 275,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_APPLEPIE_DEFINITION = new FoodRecipeDefinition()
@@ -2690,7 +2866,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Alien Apple Pie",
-            Description = "A pie made with apples and alien eggs in the dough."
+            Description = "A pie made with apples and alien eggs in the dough.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 275,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition CHICKENPIE_DEFINITION = new FoodRecipeDefinition()
@@ -2722,7 +2903,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Chicken Pie",
-            Description = "A pie made with chicken and bacon."
+            Description = "A pie made with chicken and bacon.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 250,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_CHICKENPIE_DEFINITION = new FoodRecipeDefinition()
@@ -2754,7 +2940,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Alien Chicken Pie",
-            Description = "A pie made with chicken and bacon and alien eggs in the dough."
+            Description = "A pie made with chicken and bacon and alien eggs in the dough.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 250,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition FATPORRIDGE_DEFINITION = new FoodRecipeDefinition()
@@ -2813,7 +3004,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = "Protein Bar",
-            Description = "A cereal bar enriched with a high amount of protein."
+            Description = "A cereal bar enriched with a high amount of protein.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 45,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly FoodRecipeDefinition VITAMINPILLS_DEFINITION = new FoodRecipeDefinition()
@@ -2840,7 +3036,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Vitamin Pills",
-            Description = "Vitamin replacement pills."
+            Description = "Vitamin replacement pills.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 475,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
         };
 
         public static readonly Dictionary<UniqueEntityId, FoodRecipeDefinition> FOOD_RECIPES = new Dictionary<UniqueEntityId, FoodRecipeDefinition>()
@@ -3441,6 +3642,13 @@ namespace ExtendedSurvival.Stats
                 foreach (var recipe in recipesToPostprocess)
                 {
                     recipe.Postprocess();
+                }
+                // Add itens to faction types
+                var targetFaction = FactionTypeConstants.FACTION_TYPES_DEFINITIONS[FactionTypeConstants.TRADER_ID];
+                foreach (var food in FOOD_DEFINITIONS.Where(x => x.Value.CanPlayerOrder))
+                {
+                    targetFaction.OffersList.Add(food.Key);
+                    targetFaction.OrdersList.Add(food.Key);
                 }
             }
             catch (System.Exception ex)
