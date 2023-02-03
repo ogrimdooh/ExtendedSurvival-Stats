@@ -63,8 +63,11 @@ namespace ExtendedSurvival.Stats
         }
 
         [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
-        public class ActiveFoodEffectData
+        public class ActiveConsumibleEffectData
         {
+
+            [XmlElement]
+            public SerializableDefinitionId Id { get; set; }
 
             [XmlElement]
             public int EffectTarget { get; set; }
@@ -81,7 +84,7 @@ namespace ExtendedSurvival.Stats
         public List<StatData> Stats { get; set; } = new List<StatData>();
         [XmlArray("IngestedFoods"), XmlArrayItem("Food", typeof(IngestedFoodData))]
         public List<IngestedFoodData> IngestedFoods { get; set; } = new List<IngestedFoodData>();
-        public List<ActiveFoodEffectData> ActiveFoodEffects { get; set; } = new List<ActiveFoodEffectData>();
+        public List<ActiveConsumibleEffectData> ActiveFoodEffects { get; set; } = new List<ActiveConsumibleEffectData>();
 
         public void SetStatValue(string name, float value)
         {

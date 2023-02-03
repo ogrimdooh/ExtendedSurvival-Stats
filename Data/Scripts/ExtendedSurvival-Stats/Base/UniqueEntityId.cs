@@ -20,10 +20,9 @@ namespace ExtendedSurvival.Stats
             {
                 return MyStringHash.Get(subtypeId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(UniqueEntityId), $"Try to get subtypeId : {subtypeId}");
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(UniqueEntityId), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(UniqueEntityId), $"SubtypeId : {subtypeId} : Not Found");
                 return MyStringHash.GetOrCompute(subtypeId);
             }
         }
@@ -109,12 +108,24 @@ namespace ExtendedSurvival.Stats
 
         public static bool operator ==(UniqueEntityId l, UniqueEntityId r)
         {
-            return l.Equals(r);
+            if (l.IsNotNull())
+            {
+                if (r.IsNotNull())
+                    return l.Equals(r);
+                return false;
+            }
+            return r.IsNull();
         }
 
         public static bool operator !=(UniqueEntityId l, UniqueEntityId r)
         {
-            return !l.Equals(r);
+            if (l.IsNotNull())
+            {
+                if (r.IsNotNull())
+                    return !l.Equals(r);
+                return true;
+            }
+            return r.IsNotNull();
         }
 
     }

@@ -44,6 +44,7 @@ namespace ExtendedSurvival.Stats
         public Vector2I OfferAmount { get; set; } = Vector2I.Zero;
         public int MinimalPricePerUnit { get; set; }
         public bool CanPlayerOrder { get; set; } = false;
+        public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
 
         public string GetFullDescription()
         {

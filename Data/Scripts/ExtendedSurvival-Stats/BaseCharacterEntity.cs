@@ -89,22 +89,6 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public bool HasHealthEffects
-        {
-            get
-            {
-                return IsValid && Health.HasAnyEffect();
-            }
-        }
-
-        public float HealthEffectsTimeLeft
-        {
-            get
-            {
-                return Health.HasAnyEffect() ? Health.GetEffects().Max(x => x.Value.Duration * 1000) : 0;
-            }
-        }
-
         protected virtual bool GetIsValid()
         {
             return Entity != null && Stats.Any() && !Stats.Any(x => !IgnoreCheckStats.Contains(x.Key) && x.Value == null);

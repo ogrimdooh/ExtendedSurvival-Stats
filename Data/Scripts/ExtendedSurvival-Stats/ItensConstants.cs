@@ -61,6 +61,14 @@ namespace ExtendedSurvival.Stats
         public const string SOILPOWDER_SUBTYPEID = "Soil";
         public static readonly UniqueEntityId SOILPOWDER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SOILPOWDER_SUBTYPEID);
 
+        public const string SILICON_SUBTYPEID = "Silicon";
+        public static readonly UniqueEntityId SILICON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILICON_SUBTYPEID);
+        public static readonly UniqueEntityId SILICON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILICON_SUBTYPEID);
+
+        public const string IRON_SUBTYPEID = "Iron";
+        public static readonly UniqueEntityId IRON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), IRON_SUBTYPEID);
+        public static readonly UniqueEntityId IRON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), IRON_SUBTYPEID);
+
         public const string ICE_SUBTYPEID = "Ice";
         public static readonly UniqueEntityId ICE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ICE_SUBTYPEID);
 
@@ -79,17 +87,17 @@ namespace ExtendedSurvival.Stats
         public const string MEDKIT_SUBTYPEID = "Medkit";
         public static readonly UniqueEntityId MEDKIT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEDKIT_SUBTYPEID);
 
-        public const string ANTI_INFRAMMATORY_SUBTYPEID = "HealthInjection";
-        public static readonly UniqueEntityId ANTI_INFRAMMATORY_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ANTI_INFRAMMATORY_SUBTYPEID);
+        public const string HEALTHINJECTION_SUBTYPEID = "HealthInjection";
+        public static readonly UniqueEntityId HEALTHINJECTION_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTHINJECTION_SUBTYPEID);
 
-        public const string ANTIBIOTIC_SUBTYPEID = "HealthPowerInjection";
-        public static readonly UniqueEntityId ANTIBIOTIC_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ANTIBIOTIC_SUBTYPEID);
+        public const string HEALTHPOWERINJECTION_SUBTYPEID = "HealthPowerInjection";
+        public static readonly UniqueEntityId HEALTHPOWERINJECTION_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTHPOWERINJECTION_SUBTYPEID);
 
-        public const string DIGESTIVE_SUBTYPEID = "SimpleMedicine";
-        public static readonly UniqueEntityId DIGESTIVE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), DIGESTIVE_SUBTYPEID);
+        public const string SIMPLEMEDICINE_SUBTYPEID = "SimpleMedicine";
+        public static readonly UniqueEntityId SIMPLEMEDICINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SIMPLEMEDICINE_SUBTYPEID);
 
-        public const string DETOXIFYING_SUBTYPEID = "Medicine";
-        public static readonly UniqueEntityId DETOXIFYING_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), DETOXIFYING_SUBTYPEID);
+        public const string MEDICINE_SUBTYPEID = "Medicine";
+        public static readonly UniqueEntityId MEDICINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEDICINE_SUBTYPEID);
 
         public const string VEGETABLE_SOUP_BOWL_SUBTYPEID = "VegetableSoupBowl";
         public static readonly UniqueEntityId VEGETABLE_SOUP_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VEGETABLE_SOUP_BOWL_SUBTYPEID);
@@ -150,6 +158,24 @@ namespace ExtendedSurvival.Stats
 
         public const string RAW_BEETROOT_BOWL_SUBTYPEID = "RawBeetrootBowl";
         public static readonly UniqueEntityId RAW_BEETROOT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_BEETROOT_BOWL_SUBTYPEID);
+
+        public const string SMALLALOEVERAEXTRACT_SUBTYPEID = "SmallAloeVeraExtract";
+        public static readonly UniqueEntityId SMALLALOEVERAEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SMALLALOEVERAEXTRACT_SUBTYPEID);
+        
+        public const string ALOEVERAEXTRACT_SUBTYPEID = "AloeVeraExtract";
+        public static readonly UniqueEntityId ALOEVERAEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ALOEVERAEXTRACT_SUBTYPEID);
+        
+        public const string SILVERSULFADIAZINE_SUBTYPEID = "SilverSulfadiazine";
+        public static readonly UniqueEntityId SILVERSULFADIAZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SILVERSULFADIAZINE_SUBTYPEID);
+        
+        public const string ARNICAEXTRACT_SUBTYPEID = "ArnicaExtract";
+        public static readonly UniqueEntityId ARNICAEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), ARNICAEXTRACT_SUBTYPEID);
+
+        public const string MINTEXTRACT_SUBTYPEID = "MintExtract";
+        public static readonly UniqueEntityId MINTEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), MINTEXTRACT_SUBTYPEID);
+
+        public const string CHAMOMILEEXTRACT_SUBTYPEID = "ChamomileExtract";
+        public static readonly UniqueEntityId CHAMOMILEEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), CHAMOMILEEXTRACT_SUBTYPEID);
 
         public const string SHRIMP_SUBTYPEID = "Shrimp";
         public static readonly UniqueEntityId SHRIMP_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHRIMP_SUBTYPEID);
@@ -631,31 +657,21 @@ namespace ExtendedSurvival.Stats
         public static Dictionary<UniqueEntityId, StatsConstants.DamageEffects> REMOVE_DAMAGE_EFFECTS = new Dictionary<UniqueEntityId, StatsConstants.DamageEffects>()
         {
             { BANDAGES_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
-            { DIGESTIVE_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
-            { DETOXIFYING_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
+            { SIMPLEMEDICINE_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
+            { MEDICINE_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
             { POWER_BANDAGES_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
             { HEALTH_BUSTER_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
-            { ANTI_INFRAMMATORY_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
-            { ANTIBIOTIC_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
+            { HEALTHINJECTION_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
+            { HEALTHPOWERINJECTION_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
             { MEDKIT_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded | StatsConstants.DamageEffects.BrokenBones }
         };
 
         public static Dictionary<UniqueEntityId, StatsConstants.DiseaseEffects> REMOVE_DISEASE_EFFECTS = new Dictionary<UniqueEntityId, StatsConstants.DiseaseEffects>()
         {
-            { ANTI_INFRAMMATORY_ID, StatsConstants.DiseaseEffects.Infected },
-            { ANTIBIOTIC_ID, StatsConstants.DiseaseEffects.Pneumonia },
-            { DIGESTIVE_ID, StatsConstants.DiseaseEffects.Dysentery },
-            { DETOXIFYING_ID, StatsConstants.DiseaseEffects.Poison },
-            { VEGETABLE_SOUP_BOWL_ID, StatsConstants.DiseaseEffects.Hypothermia },
-            { MEAT_SOUP_BOWL_ID, StatsConstants.DiseaseEffects.Hypothermia },
-            { MUSHROOMPATE_BOWL_ID, StatsConstants.DiseaseEffects.Hypothermia },
-            { FISHSOUPBOWL_ID, StatsConstants.DiseaseEffects.Hypothermia },
-            { SHRIMPSOUPBOWL_ID, StatsConstants.DiseaseEffects.Hypothermia },
-            { COFFEE_CAN_ID, StatsConstants.DiseaseEffects.Hypothermia },
-            { WATER_FLASK_MEDIUM_ID, StatsConstants.DiseaseEffects.Hyperthermia },
-            { WATER_FLASK_BIG_ID, StatsConstants.DiseaseEffects.Hyperthermia },
-            { APPLE_JUICE_ID, StatsConstants.DiseaseEffects.Hyperthermia },
-            { SODA_ID, StatsConstants.DiseaseEffects.Hyperthermia }
+            { HEALTHINJECTION_ID, StatsConstants.DiseaseEffects.Infected },
+            { HEALTHPOWERINJECTION_ID, StatsConstants.DiseaseEffects.Pneumonia },
+            { SIMPLEMEDICINE_ID, StatsConstants.DiseaseEffects.Dysentery | StatsConstants.DiseaseEffects.Queasy },
+            { MEDICINE_ID, StatsConstants.DiseaseEffects.Poison }
         };
 
         public static readonly List<UniqueEntityId> TREE_IDS = new List<UniqueEntityId>()
@@ -749,81 +765,6 @@ namespace ExtendedSurvival.Stats
             WOLFBABYDEAD_ID,
             PIGBABYDEAD_ID,
             CHICKENBABYDEAD_ID
-        };
-
-        public static readonly List<UniqueEntityId> FOODS_IDS = new List<UniqueEntityId>()
-        {
-            /* WATER FOOD */
-            SHRIMP_ID,
-            FISH_ID,
-            ALIENFISH_ID,
-            NOBLEFISH_ID,
-            ALIENNOBLEFISH_ID,
-            SHRIMPMEAT_ID,
-            FISHMEAT_ID,
-            NOBLEFISHMEAT_ID,
-            RAWFISHMEATBOWL_ID,
-            ROASTEDSHRIMP_ID,
-            ROASTEDFISH_ID,
-            ROASTEDNOBLEFISH_ID,
-            FISHMUSHROOM_ID,
-            FISHSOUPBOWL_ID,
-            SHRIMPSOUPBOWL_ID,
-            /* RAW MEAT */
-            MEAT_ID,
-            ALIEN_MEAT_ID,
-            NOBLE_MEAT_ID,
-            ALIEN_NOBLE_MEAT_ID,
-            RAW_MEAT_BOWL_ID,
-            RAW_NOBLE_MEAT_BOWL_ID,
-            ALIEN_EGG_ID,
-            EGG_ID,
-            RAW_SAUSAGE_ID,
-            CHICKENMEAT_ID,
-            BACON_ID,
-            /* MEAT FOOD */
-            ROASTED_MEAT_ID,
-            ROASTED_SAUSAGE_ID,
-            MEATLOAF_ID,
-            FRIED_EGG_ID,
-            STEW_ID,
-            MEATPASTA_ID,
-            ROASTEDCHICKEN_ID,
-            ROASTEDBACON_ID,
-            /* RAW VEGETABLES */
-            BROCCOLI_ID,
-            BEETROOT_ID,
-            CAROOT_ID,
-            CHAMPIGNONS_ID,
-            SHIITAKE_ID,
-            AMANITAMUSCARIA_ID,
-            APPLE_ID,
-            TOMATO_ID,
-            RAW_BROCCOLI_BOWL_ID,
-            CAKEDOUGH_ID,
-            DOUGH_ID,
-            /* VEGETABLE FOOD */
-            SALAD_ID,
-            BREAD_ID,
-            CEREALBAR_ID,
-            ROAST_CHAMPIGNON_ID,
-            MUSHROOMPATE_BOWL_ID,
-            VEGETABLE_SOUP_BOWL_ID,
-            VEGETABLEPASTA_ID,
-            WATERBREAD_ID,
-            FATPORRIDGE_ID,
-            PROTEINBAR_ID,
-            /* MEALS */
-            MEAT_MUSHROOMS_ID,
-            MEAT_SOUP_BOWL_ID,
-            MEAT_VEGETABLES_ID,
-            SANDWICH_ID,
-            CHEESE_ID,
-            APPLEPIE_ID,
-            CHICKENPIE_ID,
-            PASTA_ID,
-            /* ROT FOOD */
-            SPOILED_MATERIAL_ID
         };
 
         public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;

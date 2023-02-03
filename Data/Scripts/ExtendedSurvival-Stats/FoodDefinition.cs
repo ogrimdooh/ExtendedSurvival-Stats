@@ -41,8 +41,9 @@ namespace ExtendedSurvival.Stats
         public int MinimalPricePerUnit { get; set; }
         public bool CanPlayerOrder { get; set; } = false;
 
-        public List<FoodEffect> Effects { get; set; }
+        public List<ConsumibleEffect> Effects { get; set; }
         public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; }
+        public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
 
         private string GetNutritionDescription()
         {
@@ -86,7 +87,15 @@ namespace ExtendedSurvival.Stats
                 values.AppendLine(" ");
                 foreach (var disease in DiseaseChance.Keys)
                 {
-                    values.AppendLine(string.Format("{0} chance to get {1} when eat", DiseaseChance[disease].ToString("P1"), disease.ToString()));
+                    values.AppendLine(string.Format("{0} chance to get {1} when eat", DiseaseChance[disease].ToString("P1"), StatsConstants.GetDiseaseEffectDescription(disease)));
+                }
+            }
+            if (CureDisease != null && CureDisease.Any())
+            {
+                values.AppendLine(" ");
+                foreach (var disease in CureDisease)
+                {
+                    values.AppendLine(string.Format("Can cure {0} when eat", StatsConstants.GetDiseaseEffectDescription(disease)));
                 }
             }
             return values.ToString();
@@ -261,7 +270,7 @@ namespace ExtendedSurvival.Stats
             if (other.Effects != null && other.Effects.Any())
             {
                 if (Effects == null)
-                    Effects = new List<FoodEffect>();
+                    Effects = new List<ConsumibleEffect>();
                 foreach (var effect in other.Effects)
                 {
                     if (Effects.Any(x => x.EffectTarget == effect.EffectTarget && x.EffectType == effect.EffectType))

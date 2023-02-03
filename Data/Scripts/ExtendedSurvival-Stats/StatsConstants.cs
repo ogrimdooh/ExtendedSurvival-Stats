@@ -71,9 +71,9 @@ namespace ExtendedSurvival.Stats
         public static readonly Dictionary<DamageEffects, float> DAMAGE_STAMINA_REGEN_FACTOR = new Dictionary<DamageEffects, float>()
         {
             { DamageEffects.Contusion, 0.9f },
-            { DamageEffects.Wounded, 0.7f },
-            { DamageEffects.DeepWounded, 0.5f },
-            { DamageEffects.BrokenBones, 0.3f }
+            { DamageEffects.Wounded, 0.8f },
+            { DamageEffects.DeepWounded, 0.7f },
+            { DamageEffects.BrokenBones, 0.6f }
         };
 
         public static readonly Dictionary<DamageEffects, Vector2> DAMAGE_HEALTH_REGEN_FACTOR = new Dictionary<DamageEffects, Vector2>()
@@ -171,7 +171,8 @@ namespace ExtendedSurvival.Stats
             BodyWeight,
             BodyMuscles,
             BodyFat,
-            FoodDetector
+            FoodDetector,
+            MedicalDetector
 
         }
 

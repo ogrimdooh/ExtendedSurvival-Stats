@@ -129,7 +129,7 @@ namespace ExtendedSurvival.Stats
                         Volume = MaxVolume,
                         InputConstraint = new MyInventoryConstraint("RefrigeratorInventory", null, true)
                     };
-                    foreach (var item in ItensConstants.FOODS_IDS)
+                    foreach (var item in FoodConstants.FOOD_DEFINITIONS.Keys)
                     {
                         definition.InputConstraint.Add(item.DefinitionId);
                     }

@@ -2,7 +2,7 @@
 
 namespace ExtendedSurvival.Stats
 {
-    public class FoodEffect
+    public class ConsumibleEffect
     {
 
         public FoodEffectTarget EffectTarget { get; set; } = FoodEffectTarget.Health;
@@ -10,7 +10,7 @@ namespace ExtendedSurvival.Stats
         public float Ammount { get; set; }
         public float TimeToEffect { get; set; }
 
-        public void Increment(FoodEffect other, float multiplier = 1)
+        public void Increment(ConsumibleEffect other, float multiplier = 1)
         {
             if (other.EffectTarget == EffectTarget && other.EffectType == EffectType)
             {
@@ -19,9 +19,9 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public FoodEffect GetNew(float multiplier = 1)
+        public ConsumibleEffect GetNew(float multiplier = 1)
         {
-            return new FoodEffect()
+            return new ConsumibleEffect()
             {
                 EffectTarget = EffectTarget,
                 EffectType = EffectType,

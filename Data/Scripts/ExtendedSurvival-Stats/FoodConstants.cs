@@ -5,7 +5,6 @@ using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
-
     public static class FoodConstants
     {
 
@@ -32,15 +31,15 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Stamina,
                     EffectType = FoodEffectType.Instant,
                     Ammount = 5
                 },
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -68,9 +67,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -98,9 +97,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -128,9 +127,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -158,9 +157,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.05f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
@@ -188,9 +187,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.05f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
@@ -218,15 +217,15 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Stamina,
                     EffectType = FoodEffectType.Instant,
                     Ammount = 5
                 },
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -285,9 +284,9 @@ namespace ExtendedSurvival.Stats
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
             Name = "Coffee Sack",
             Description = "Coffee is a stimulant, because it has caffeine, it can be an alternative to maintain body heat in cold places.",
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Temperature,
                     EffectType = FoodEffectType.OverTime,
@@ -305,9 +304,9 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 600f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
             IgnoreDefinition = true,
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Temperature,
                     EffectType = FoodEffectType.OverTime,
@@ -331,23 +330,23 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 60f,
             Name = "Milk",
             Description = "Milk is a white liquid food produced by the mammary glands of mammals.",
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Temperature,
                     EffectType = FoodEffectType.OverTime,
                     Ammount = -300,
                     TimeToEffect = 60
                 },
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Stamina,
                     EffectType = FoodEffectType.OverTime,
                     Ammount = 25,
                     TimeToEffect = 5
                 },
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -375,9 +374,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -405,9 +404,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -435,9 +434,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -465,9 +464,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -495,9 +494,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -525,9 +524,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -555,9 +554,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.25f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -585,9 +584,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.35f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -615,9 +614,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.75f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -645,9 +644,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.75f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -675,9 +674,9 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.DiseaseEffects.Dysentery, 0.75f }
             },
-            Effects = new List<FoodEffect>()
+            Effects = new List<ConsumibleEffect>()
             {
-                new FoodEffect()
+                new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
@@ -795,7 +794,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 1.28f,
             Name = "Small Water Flask",
-            Description = "A small flask with water."
+            Description = "A small flask with water.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hyperthermia
+            }
         };
 
         public static readonly FoodRecipeDefinition WATER_FLASK_MEDIUM_DEFINITION = new FoodRecipeDefinition()
@@ -822,7 +825,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = "Medium Water Flask",
-            Description = "A medium flask with water."
+            Description = "A medium flask with water.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hyperthermia
+            }
         };
 
         public static readonly FoodRecipeDefinition WATER_FLASK_BIG_DEFINITION = new FoodRecipeDefinition()
@@ -849,7 +856,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = "Medium Big Flask",
-            Description = "A big flask with water."
+            Description = "A big flask with water.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hyperthermia
+            }
         };
 
         public static readonly FoodRecipeDefinition APPLE_JUICE_DEFINITION = new FoodRecipeDefinition()
@@ -881,7 +892,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = "Apple Juice",
-            Description = "A big flask with juice extracted from apples."
+            Description = "A big flask with juice extracted from apples.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hyperthermia
+            }
         };
 
         public static readonly FoodRecipeDefinition SODA_DEFINITION = new FoodRecipeDefinition()
@@ -908,7 +923,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = "Apple Soda",
-            Description = "A refreshing apple-based soda."
+            Description = "A refreshing apple-based soda.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hyperthermia
+            }
         };
 
         public static readonly FoodRecipeDefinition COFFEE_CAN_DEFINITION = new FoodRecipeDefinition()
@@ -940,7 +959,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = "Cofee Can",
-            Description = "A thermos of hot coffee."
+            Description = "A thermos of hot coffee.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hypothermia
+            }
         };
 
         public static readonly FoodRecipeDefinition DOUGH_DEFINITION = new FoodRecipeDefinition()
@@ -1941,7 +1964,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Vegetable Soup",
-            Description = "Soup is nutritious and can warm the body easily."
+            Description = "Soup is nutritious and can warm the body easily.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hypothermia
+            }
         };
 
         public static readonly FoodRecipeDefinition STEW_DEFINITION = new FoodRecipeDefinition()
@@ -2170,7 +2197,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Meat Soup",
-            Description = "The flavor of the meat makes the soup tastier."
+            Description = "The flavor of the meat makes the soup tastier.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hypothermia
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2207,7 +2238,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Alien Meat Soup",
-            Description = "The flavor of the alien meat makes the soup tastier."
+            Description = "The flavor of the alien meat makes the soup tastier.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hypothermia
+            }
         };
 
         public static readonly FoodRecipeDefinition MUSHROOMPATE_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2244,7 +2279,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Mushroom Pate",
-            Description = "A pate made with mushrooms."
+            Description = "A pate made with mushrooms.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hypothermia
+            }
         };
 
         public static readonly FoodRecipeDefinition MEAT_MUSHROOMS_DEFINITION = new FoodRecipeDefinition()
@@ -2547,7 +2586,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Fish Soup",
-            Description = "The flavor of the noble fish meat makes the soup tastier."
+            Description = "The flavor of the noble fish meat makes the soup tastier.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hypothermia
+            }
         };
 
         public static readonly FoodRecipeDefinition SHRIMPSOUPBOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2589,7 +2632,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = "Shrimp Soup",
-            Description = "The flavor of the shrimps with fish meat makes the soup tastier."
+            Description = "The flavor of the shrimps with fish meat makes the soup tastier.",
+            CureDisease = new List<StatsConstants.DiseaseEffects>()
+            {
+                StatsConstants.DiseaseEffects.Hypothermia
+            }
         };
 
         public static readonly FoodRecipeDefinition APPLEPIE_DEFINITION = new FoodRecipeDefinition()
@@ -3275,7 +3322,8 @@ namespace ExtendedSurvival.Stats
                             OrderAmount = preparationDef.OrderAmount,
                             OfferAmount = preparationDef.OfferAmount,
                             MinimalPricePerUnit = preparationDef.MinimalPricePerUnit,
-                            CanPlayerOrder = preparationDef.CanPlayerOrder
+                            CanPlayerOrder = preparationDef.CanPlayerOrder,
+                            CureDisease = preparationDef.CureDisease
                         };
                         foreach (var item in preparationDef.Ingredients)
                         {

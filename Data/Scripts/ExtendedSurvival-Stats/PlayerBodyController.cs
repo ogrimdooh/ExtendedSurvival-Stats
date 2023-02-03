@@ -10,7 +10,8 @@ namespace ExtendedSurvival.Stats
     {
 
         public delegate void OnBodyEvent(PlayerBodyController sender, BodyEventType eventType);
-        public delegate void OnBodyGetDisease(PlayerBodyController sender, StatsConstants.DiseaseEffects disease);
+        public delegate void OnBodyDisease(PlayerBodyController sender, StatsConstants.DiseaseEffects disease);
+        public delegate void OnBodyDamage(PlayerBodyController sender, StatsConstants.DamageEffects damage);
         public delegate void OnFoodEffect(PlayerBodyController sender, FoodEffectTarget target, float ammount);
 
         public enum BodyEventType
@@ -40,7 +41,9 @@ namespace ExtendedSurvival.Stats
         public float MineralsAmmount { get; set; }
 
         public event OnBodyEvent BodyEvent;
-        public event OnBodyGetDisease BodyGetDisease;
+        public event OnBodyDisease BodyGetDisease;
+        public event OnBodyDisease BodyCureDisease;
+        public event OnBodyDamage BodyCureDamage;
         public event OnFoodEffect InstantFoodEffect;
         public event OnFoodEffect OverTimeFoodEffect;
 
@@ -174,7 +177,7 @@ namespace ExtendedSurvival.Stats
         }
 
         public List<IngestedFood> IngestedFoods { get; set; } = new List<IngestedFood>();
-        public List<ActiveFoodEffect> ActiveFoodEffects { get; set; } = new List<ActiveFoodEffect>();
+        public List<ActiveConsumibleEffect> ActiveFoodEffects { get; set; } = new List<ActiveConsumibleEffect>();
 
         private void DoConsumeCicle(float staminaSpended)
         {
@@ -280,6 +283,13 @@ namespace ExtendedSurvival.Stats
             return new Random().Next(1, 101) <= chance;
         }
 
+        public void DoConsumeItem(MedicalDefinition medical)
+        {
+            DoProcessInjectedCureDamage(medical.CureDamage);
+            DoProcessInjectedCureDisease(medical.CureDisease);
+            DoProcessInjectedEffects(medical.Id, medical.Effects);
+        }
+
         public void DoConsumeItem(FoodDefinition food)
         {
             if (IngestedFoods.Any(x => x.Id == food.Id))
@@ -291,20 +301,53 @@ namespace ExtendedSurvival.Stats
             {
                 IngestedFoods.Add(food.GetAsIngestedFood());
             }
-            if (BodyGetDisease != null && food.DiseaseChance != null && food.DiseaseChance.Any())
+            DoProcessInjectedDiseaseChance(food.DiseaseChance);
+            DoProcessInjectedCureDisease(food.CureDisease);
+            DoProcessInjectedEffects(food.Id, food.Effects);
+        }
+
+        private void DoProcessInjectedDiseaseChance(Dictionary<StatsConstants.DiseaseEffects, float> diseaseChance)
+        {
+            if (BodyGetDisease != null && diseaseChance != null && diseaseChance.Any())
             {
-                foreach (var disease in food.DiseaseChance.Keys)
+                foreach (var disease in diseaseChance.Keys)
                 {
-                    var chance = food.DiseaseChance[disease] * 100;
+                    var chance = diseaseChance[disease] * 100;
                     if (chance >= 100 || CheckChance(chance))
                     {
                         BodyGetDisease(this, disease);
                     }
                 }
             }
-            if (food.Effects != null && food.Effects.Any())
+        }
+
+        private void DoProcessInjectedCureDisease(List<StatsConstants.DiseaseEffects> cureDisease)
+        {
+            if (BodyCureDisease != null && cureDisease != null && cureDisease.Any())
             {
-                foreach (var effect in food.Effects)
+                foreach (var disease in cureDisease)
+                {
+                    BodyCureDisease(this, disease);
+                }
+            }
+        }
+
+        private void DoProcessInjectedCureDamage(List<StatsConstants.DamageEffects> cureDamage)
+        {
+            if (BodyCureDamage != null && cureDamage != null && cureDamage.Any())
+            {
+                foreach (var damage in cureDamage)
+                {
+                    BodyCureDamage(this, damage);
+                }
+            }
+        }
+
+        private void DoProcessInjectedEffects(UniqueEntityId id, List<ConsumibleEffect> effects)
+        {
+            if (effects != null && effects.Any())
+            {
+                foreach (var effect in effects)
                 {
                     switch (effect.EffectType)
                     {
@@ -315,10 +358,21 @@ namespace ExtendedSurvival.Stats
                             }
                             break;
                         case FoodEffectType.OverTime:
-                            ActiveFoodEffects.Add(new ActiveFoodEffect() { 
-                                EffectTarget = effect.EffectTarget,
-                                CurrentValue = new IngestedFoodProperty(effect.Ammount, effect.Ammount / Math.Max(1, effect.TimeToEffect))
-                            });
+
+                            if (ActiveFoodEffects.Any(x => x.Id == id))
+                            {
+                                var effectInDigestion = ActiveFoodEffects.FirstOrDefault(x => x.Id == id);
+                                effectInDigestion.CurrentValue.AddAmmount(effect.Ammount);
+                            }
+                            else
+                            {
+                                ActiveFoodEffects.Add(new ActiveConsumibleEffect()
+                                {
+                                    Id = id,
+                                    EffectTarget = effect.EffectTarget,
+                                    CurrentValue = new IngestedFoodProperty(effect.Ammount, effect.Ammount / Math.Max(1, effect.TimeToEffect))
+                                });
+                            }
                             break;
                     }
                 }
@@ -392,7 +446,7 @@ namespace ExtendedSurvival.Stats
             ActiveFoodEffects.Clear();
             foreach (var effect in saveData.ActiveFoodEffects)
             {
-                ActiveFoodEffects.Add(ActiveFoodEffect.FromSaveData(effect));
+                ActiveFoodEffects.Add(ActiveConsumibleEffect.FromSaveData(effect));
             }
         }
 

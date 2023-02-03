@@ -34,7 +34,8 @@ namespace ExtendedSurvival.Stats
         public MyCharacterOxygenComponent OxygenComponent { get; private set; }
 
         public MyEntityStat FoodDetector { get { return GetStat(StatsConstants.ValidStats.FoodDetector); } }
-        
+        public MyEntityStat MedicalDetector { get { return GetStat(StatsConstants.ValidStats.MedicalDetector); } }
+
         public MyEntityStat Hunger { get { return GetStat(StatsConstants.ValidStats.Hunger); } }
         public MyEntityStat Thirst { get { return GetStat(StatsConstants.ValidStats.Thirst); } }
         public MyEntityStat Stamina { get { return GetStat(StatsConstants.ValidStats.Stamina); } }
@@ -198,14 +199,27 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public bool HasHealthEffects
+        {
+            get
+            {
+                return IsValid && MedicalDetector.HasAnyEffect();
+            }
+        }
+
         public float FoodThirstEffectsTimeLeft
         {
             get
             {
-                return Math.Max(
-                    Hunger.HasAnyEffect() ? Hunger.GetEffects().Max(x => x.Value.Duration * 1000) : 0,
-                    Thirst.HasAnyEffect() ? Thirst.GetEffects().Max(x => x.Value.Duration * 1000) : 0
-                );
+                return FoodDetector.HasAnyEffect() ? FoodDetector.GetEffects().Max(x => x.Value.Duration * 1000) : 0;
+            }
+        }
+
+        public float HealthEffectsTimeLeft
+        {
+            get
+            {
+                return MedicalDetector.HasAnyEffect() ? MedicalDetector.GetEffects().Max(x => x.Value.Duration * 1000) : 0;
             }
         }
 
@@ -221,8 +235,22 @@ namespace ExtendedSurvival.Stats
             controller = new PlayerBodyController();
             controller.BodyEvent += Controller_BodyEvent;
             controller.BodyGetDisease += Controller_BodyGetDisease;
+            controller.BodyCureDisease += Controller_BodyCureDisease;
             controller.InstantFoodEffect += Controller_InstantFoodEffect;
             controller.OverTimeFoodEffect += Controller_OverTimeFoodEffect;
+            controller.BodyCureDamage += Controller_BodyCureDamage;
+        }
+
+        private void Controller_BodyCureDamage(PlayerBodyController sender, StatsConstants.DamageEffects damage)
+        {
+            if (StatsConstants.IsFlagSet(CurrentDamageEffects, damage))
+                CurrentDamageEffects &= ~damage;
+        }
+
+        private void Controller_BodyCureDisease(PlayerBodyController sender, StatsConstants.DiseaseEffects disease)
+        {
+            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, disease))
+                CurrentDiseaseEffects &= ~disease;
         }
 
         private void DoFoodEffect(FoodEffectTarget target, float ammount)
@@ -665,29 +693,10 @@ namespace ExtendedSurvival.Stats
                     }
                     if (HasHealthEffects && DateTime.Now > lastRegenEffect)
                     {
-                        lastRegenEffect = DateTime.Now.AddMilliseconds(FoodThirstEffectsTimeLeft);
-                        if (ItensConstants.REMOVE_DAMAGE_EFFECTS.Keys.Contains(removedUniqueId))
+                        lastRegenEffect = DateTime.Now.AddMilliseconds(HealthEffectsTimeLeft);
+                        if (MedicalConstants.MEDICAL_DEFINITIONS.ContainsKey(removedUniqueId))
                         {
-                            CurrentDamageEffects &= ~ItensConstants.REMOVE_DAMAGE_EFFECTS[removedUniqueId];
-                            if (StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones))
-                            {
-                                CurrentDamageEffects &= ~StatsConstants.DamageEffects.BrokenBones;
-                                CurrentDamageEffects |= StatsConstants.DamageEffects.DeepWounded;
-                            }
-                            else if (StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded))
-                            {
-                                CurrentDamageEffects &= ~StatsConstants.DamageEffects.DeepWounded;
-                                CurrentDamageEffects |= StatsConstants.DamageEffects.Wounded;
-                            }
-                            else if (StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.Wounded))
-                            {
-                                CurrentDamageEffects &= ~StatsConstants.DamageEffects.Wounded;
-                                CurrentDamageEffects |= StatsConstants.DamageEffects.Contusion;
-                            }
-                        }
-                        if (ItensConstants.REMOVE_DISEASE_EFFECTS.Keys.Contains(removedUniqueId))
-                        {
-                            CurrentDiseaseEffects &= ~ItensConstants.REMOVE_DISEASE_EFFECTS[removedUniqueId];
+                            controller.DoConsumeItem(MedicalConstants.MEDICAL_DEFINITIONS[removedUniqueId]);
                         }
                     }
                     lastRemovedIten = null;
@@ -1649,6 +1658,12 @@ namespace ExtendedSurvival.Stats
                 var maxDamageEffect = (StatsConstants.DamageEffects)StatsConstants.GetMaxSetFlagValue(CurrentDamageEffects);
                 if (StatsConstants.DAMAGE_STAMINA_REGEN_FACTOR.ContainsKey(maxDamageEffect))
                     finalValue *= StatsConstants.DAMAGE_STAMINA_REGEN_FACTOR[maxDamageEffect];
+            }
+            var activeSurvivalEffects = CurrentSurvivalEffects.GetFlags();
+            if (activeSurvivalEffects.Any())
+            {
+                var effectWeight = activeSurvivalEffects.Sum(x => StatsConstants.GetSurvivalEffectFeelingLevel(x));
+                finalValue *= Math.Max(1 - (0.1f * effectWeight), 0.3f);
             }
             return finalValue;
         }

@@ -356,7 +356,7 @@ namespace ExtendedSurvival.Stats
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.WATER_FLASK_SMALL_ID.DefinitionId, 5);
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.CEREALBAR_ID.DefinitionId, 10);
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.BANDAGES_ID.DefinitionId, 3);
-                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.ANTI_INFRAMMATORY_ID.DefinitionId, 1);
+                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.HEALTHINJECTION_ID.DefinitionId, 1);
 
                         ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
                             LivestockConstants.CREATURE_HEALTH,
@@ -457,10 +457,7 @@ namespace ExtendedSurvival.Stats
 
                 // NUTRITION
                 FoodConstants.TryOverrideDefinitions();
-                /*
-                NutritionConstants.CalculateRecipesNutrition();
-                NutritionConstants.TryOverrideRecipes();
-                */
+                MedicalConstants.TryOverrideDefinitions();
 
                 // SPAWNS
                 SpawnGroupOverride.SetDefinitions();

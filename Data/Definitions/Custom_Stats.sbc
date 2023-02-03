@@ -193,6 +193,17 @@
       <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>MedicalDetector</SubtypeId>
+      </Id>
+      <Name>MedicalDetector</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>    
     <!-- DIGESTION -->
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
