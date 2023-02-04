@@ -555,7 +555,7 @@ namespace ExtendedSurvival.Stats
                         consumableDef.DisplayNameEnum = null;
                         consumableDef.DisplayNameString = medicalDef.Name;
                         consumableDef.DescriptionEnum = null;
-                        consumableDef.DescriptionString = medicalDef.GetFullDescription();
+                        consumableDef.DescriptionString = null;
                         consumableDef.MinimumAcquisitionAmount = medicalDef.AcquisitionAmount.X;
                         consumableDef.MaximumAcquisitionAmount = medicalDef.AcquisitionAmount.Y;
                         consumableDef.MinimumOrderAmount = medicalDef.OrderAmount.X;
@@ -564,7 +564,7 @@ namespace ExtendedSurvival.Stats
                         consumableDef.MaximumOfferAmount = medicalDef.OfferAmount.Y;
                         consumableDef.MinimalPricePerUnit = medicalDef.MinimalPricePerUnit;
                         consumableDef.CanPlayerOrder = medicalDef.CanPlayerOrder;
-                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + consumableDef.DescriptionString);
+                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + medicalDef.GetFullDescription());
                         consumableDef.Postprocess();
                     }
                     else
@@ -579,7 +579,7 @@ namespace ExtendedSurvival.Stats
                         recipeDef.DisplayNameEnum = null;
                         recipeDef.DisplayNameString = medicalDef.Name;
                         recipeDef.DescriptionEnum = null;
-                        recipeDef.DescriptionString = medicalDef.GetFullDescription();
+                        recipeDef.DescriptionString = null;
                         recipeDef.Postprocess();
                     }
                     else

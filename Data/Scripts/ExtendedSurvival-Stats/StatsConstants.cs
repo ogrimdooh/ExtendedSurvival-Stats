@@ -454,6 +454,7 @@ namespace ExtendedSurvival.Stats
             {
                 case DamageEffects.Contusion:
                 case DamageEffects.Wounded:
+                    return 1;
                 case DamageEffects.DeepWounded:
                 case DamageEffects.BrokenBones:
                     return 2;

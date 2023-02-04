@@ -33,6 +33,8 @@ namespace ExtendedSurvival.Stats
             public float Current { get; set; }
             [XmlElement]
             public float ConsumeRate { get; set; }
+            [XmlElement]
+            public bool IsPositive { get; set; }
 
         }
 

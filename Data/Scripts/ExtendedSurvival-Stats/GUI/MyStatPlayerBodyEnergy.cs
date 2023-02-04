@@ -36,7 +36,7 @@ namespace ExtendedSurvival.Stats
             BodyCalories = GetPlayerStat(StatsConstants.ValidStats.BodyCalories.ToString());
         }
 
-        public override string ToString() => BodyCalories != null ? BodyCalories.Value.ToString("#0.00") : "-";
+        public override string ToString() => BodyCalories != null ? BodyCalories.Value.ToString("#0.0") : "-";
 
     }
 

@@ -214,7 +214,8 @@ namespace ExtendedSurvival.Stats
         {
             foreach (var effect in ActiveFoodEffects)
             {
-                if (effect.CurrentValue.Current > 0)
+                if ((effect.CurrentValue.IsPositive && effect.CurrentValue.Current > 0) ||
+                    (!effect.CurrentValue.IsPositive && effect.CurrentValue.Current < 0))
                 {
                     if (OverTimeFoodEffect != null)
                     {
@@ -223,7 +224,10 @@ namespace ExtendedSurvival.Stats
                     effect.CurrentValue.Current -= effect.CurrentValue.ConsumeRate;
                 }
             }
-            ActiveFoodEffects.RemoveAll(x => x.CurrentValue.Current <= 0);
+            ActiveFoodEffects.RemoveAll(x => 
+                (x.CurrentValue.IsPositive && x.CurrentValue.Current <= 0) ||
+                (!x.CurrentValue.IsPositive && x.CurrentValue.Current >= 0)
+            );
         }
 
         private void DoAbsorptionCicle()

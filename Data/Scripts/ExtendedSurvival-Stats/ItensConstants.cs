@@ -49,6 +49,27 @@ namespace ExtendedSurvival.Stats
         public const string PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID = "LidocainPistolMagazine";
         public static readonly UniqueEntityId PISTOL_LIDOCAIN_MAGZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_AmmoMagazine), PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID);
 
+        public const string STEEL_SUBTYPEID = "Steel";
+        public static readonly UniqueEntityId STEEL_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), STEEL_SUBTYPEID);
+
+        public const string CARBONGEAR_SUBTYPEID = "CarbonGear";
+        public static readonly UniqueEntityId CARBONGEAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), CARBONGEAR_SUBTYPEID);
+
+        public const string NICKELGEAR_SUBTYPEID = "NickelGear";
+        public static readonly UniqueEntityId NICKELGEAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), NICKELGEAR_SUBTYPEID);
+
+        public const string COPPERWIRE_SUBTYPEID = "CopperWire";
+        public static readonly UniqueEntityId COPPERWIRE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), COPPERWIRE_SUBTYPEID);
+
+        public const string TRANSISTOR_SUBTYPEID = "Transistor";
+        public static readonly UniqueEntityId TRANSISTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), TRANSISTOR_SUBTYPEID);
+
+        public const string CAPACITOR_SUBTYPEID = "Capacitor";
+        public static readonly UniqueEntityId CAPACITOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), CAPACITOR_SUBTYPEID);
+
+        public const string CHIP_SUBTYPEID = "Chip";
+        public static readonly UniqueEntityId CHIP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), CHIP_SUBTYPEID);
+
         public const string LEAF_SUBTYPEID = "Leaf";
         public static readonly UniqueEntityId LEAF_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), LEAF_SUBTYPEID);
 
@@ -60,10 +81,28 @@ namespace ExtendedSurvival.Stats
 
         public const string SOILPOWDER_SUBTYPEID = "Soil";
         public static readonly UniqueEntityId SOILPOWDER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SOILPOWDER_SUBTYPEID);
+        
+        public const string COBALTSTEEL_SUBTYPEID = "CobaltSteel";
+        public static readonly UniqueEntityId COBALTSTEEL_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), COBALTSTEEL_SUBTYPEID);
+
+        public const string ENHANCEDCHIP_SUBTYPEID = "EnhancedChip";
+        public static readonly UniqueEntityId ENHANCEDCHIP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), ENHANCEDCHIP_SUBTYPEID);
 
         public const string SILICON_SUBTYPEID = "Silicon";
         public static readonly UniqueEntityId SILICON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILICON_SUBTYPEID);
         public static readonly UniqueEntityId SILICON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILICON_SUBTYPEID);
+
+        public const string COBALT_SUBTYPEID = "Cobalt";
+        public static readonly UniqueEntityId COBALT_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), COBALT_SUBTYPEID);
+        public static readonly UniqueEntityId COBALT_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COBALT_SUBTYPEID);
+
+        public const string PLATINUM_SUBTYPEID = "Platinum";
+        public static readonly UniqueEntityId PLATINUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), PLATINUM_SUBTYPEID);
+        public static readonly UniqueEntityId PLATINUM_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), PLATINUM_SUBTYPEID);
+
+        public const string URANIUM_SUBTYPEID = "Platinum";
+        public static readonly UniqueEntityId URANIUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), URANIUM_SUBTYPEID);
+        public static readonly UniqueEntityId URANIUM_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), URANIUM_SUBTYPEID);
 
         public const string CARBON_SUBTYPEID = "Carbon";
         public static readonly UniqueEntityId CARBON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), CARBON_SUBTYPEID);
@@ -72,6 +111,19 @@ namespace ExtendedSurvival.Stats
         public const string IRON_SUBTYPEID = "Iron";
         public static readonly UniqueEntityId IRON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), IRON_SUBTYPEID);
         public static readonly UniqueEntityId IRON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), IRON_SUBTYPEID);
+
+        public const string NICKEL_SUBTYPEID = "Nickel";
+        public static readonly UniqueEntityId NICKEL_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), NICKEL_SUBTYPEID);
+        public static readonly UniqueEntityId NICKEL_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), NICKEL_SUBTYPEID);
+        
+        public const string STEELGEAR_SUBTYPEID = "SteelGear";
+        public static readonly UniqueEntityId STEELGEAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), STEELGEAR_SUBTYPEID);
+
+        public const string SILVERCONNECTOR_SUBTYPEID = "SilverConnector";
+        public static readonly UniqueEntityId SILVERCONNECTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), SILVERCONNECTOR_SUBTYPEID);
+
+        public const string ELITECHIP_SUBTYPEID = "EliteChip";
+        public static readonly UniqueEntityId ELITECHIP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), ELITECHIP_SUBTYPEID);
 
         public const string ICE_SUBTYPEID = "Ice";
         public static readonly UniqueEntityId ICE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ICE_SUBTYPEID);

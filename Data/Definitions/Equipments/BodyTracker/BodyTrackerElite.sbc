@@ -54,7 +54,7 @@
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>ProficientBodyTracker_VanilaConstruction</SubtypeId>
+        <SubtypeId>EliteBodyTracker_VanilaConstruction</SubtypeId>
       </Id>
       <DisplayName>Enhanced Body Tracker</DisplayName>
       <Icon>Textures\GUI\Icons\body_tracker_lv1.dds</Icon>

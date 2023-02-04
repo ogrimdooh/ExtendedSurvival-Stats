@@ -53,6 +53,7 @@ namespace ExtendedSurvival.Stats
             var values = new StringBuilder();
             values.AppendLine(string.Format("Liquid: {0}L", Liquid.ToString("#0.00")));
             values.AppendLine(string.Format("Solid: {0}Kg", Solid.ToString("#0.00")));
+            values.AppendLine(string.Format("Stomach: {0}%", (GetMass() * 100 / PlayerBodyConstants.StomachSize.W).ToString("#0.00")));
             values.AppendLine(" ");
             values.AppendLine(string.Format("Protein: {0}g", Protein.ToString("#0.00")));
             values.AppendLine(string.Format("Carbohydrate: {0}g", Carbohydrate.ToString("#0.00")));
@@ -219,7 +220,9 @@ namespace ExtendedSurvival.Stats
                     NoNegativeHealth();
                     NoDiseaseChance();
                     NoTemperatureChange();
-                    ChangeWater(0.1f);
+                    var removedWater = ChangeWater(0.1f);
+                    Solid += removedWater * -1;
+                    ChangeSolid(0.5f);
                     break;
             }
         }
@@ -263,9 +266,18 @@ namespace ExtendedSurvival.Stats
             Lipids *= multiplier;
         }
 
-        private void ChangeWater(float multiplier)
+        private float ChangeWater(float multiplier)
         {
+            var oldValue = Liquid;
             Liquid *= multiplier;
+            return Liquid - oldValue;
+        }
+
+        private float ChangeSolid(float multiplier)
+        {
+            var oldValue = Solid;
+            Solid *= multiplier;
+            return Solid - oldValue;
         }
 
         public void Assign(FoodDefinition other)

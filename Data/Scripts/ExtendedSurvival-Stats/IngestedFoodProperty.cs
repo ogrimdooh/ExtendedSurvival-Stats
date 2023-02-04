@@ -6,6 +6,7 @@
         public float Max { get; set; }
         public float Current { get; set; }
         public float ConsumeRate { get; set; }
+        public bool IsPositive { get; set; }
 
         public IngestedFoodProperty()
         {
@@ -17,6 +18,7 @@
             Max = max;
             Current = max;
             ConsumeRate = consumeRate;
+            IsPositive = max > 0;
         }
 
         public void AddAmmount(float ammount)
@@ -31,7 +33,8 @@
             {
                 Max = Max,
                 Current = Current,
-                ConsumeRate = ConsumeRate
+                ConsumeRate = ConsumeRate,
+                IsPositive = IsPositive
             };
         }
 
@@ -41,7 +44,8 @@
             {
                 Max = data.Max,
                 Current = data.Current,
-                ConsumeRate = data.ConsumeRate
+                ConsumeRate = data.ConsumeRate,
+                IsPositive = data.IsPositive
             };
         }
 

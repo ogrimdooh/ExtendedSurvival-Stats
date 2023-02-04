@@ -1248,7 +1248,7 @@ namespace ExtendedSurvival.Stats
                         consumableDef.DisplayNameEnum = null;
                         consumableDef.DisplayNameString = animalDef.Name;
                         consumableDef.DescriptionEnum = null;
-                        consumableDef.DescriptionString = animalDef.GetFullDescription();
+                        consumableDef.DescriptionString = null;
                         consumableDef.MinimumAcquisitionAmount = animalDef.AcquisitionAmount.X;
                         consumableDef.MaximumAcquisitionAmount = animalDef.AcquisitionAmount.Y;
                         consumableDef.MinimumOrderAmount = animalDef.OrderAmount.X;
@@ -1257,7 +1257,7 @@ namespace ExtendedSurvival.Stats
                         consumableDef.MaximumOfferAmount = animalDef.OfferAmount.Y;
                         consumableDef.MinimalPricePerUnit = animalDef.MinimalPricePerUnit;
                         consumableDef.CanPlayerOrder = animalDef.CanPlayerOrder;
-                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + consumableDef.DescriptionString);
+                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + animalDef.GetFullDescription());
                         consumableDef.Postprocess();
                     }
                     else
@@ -1267,7 +1267,7 @@ namespace ExtendedSurvival.Stats
                     {
                         recipeDef.BaseProductionTimeInSeconds = animalDef.RecipeTime;
                         recipeDef.DescriptionEnum = null;
-                        recipeDef.DescriptionString = "";
+                        recipeDef.DescriptionString = null;
                         recipeDef.DisplayNameEnum = null;
                         if (animalDef.IsDeadBody)
                         {

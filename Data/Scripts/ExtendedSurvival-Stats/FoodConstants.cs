@@ -245,6 +245,49 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly FoodDefinition AMANITAMUSCARIA_DEFINITION = new FoodDefinition()
+        {
+            Id = ItensConstants.AMANITAMUSCARIA_ID,
+            Solid = 0.004f,
+            Liquid = 0.016f,
+            Protein = 0.218f,
+            Carbohydrate = 0.352f,
+            Lipids = 0.045f,
+            Vitamins = 0.0012f,
+            Minerals = 0.0838f,
+            Calories = 7.2f,
+            TimeToConsume = 10f,
+            NeedConservation = true,
+            StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
+            Name = "Amanita Muscaria",
+            Description = "Amanita muscaria is poisonous mushroom, not recommended to eat, but has great chemical and medical application.",
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 25,
+            OfferAmount = new Vector2I(15000, 45000),
+            OrderAmount = new Vector2I(5000, 15000),
+            AcquisitionAmount = new Vector2I(10000, 30000),
+            DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
+            {
+                { StatsConstants.DiseaseEffects.Poison, 1.0f }
+            },
+            Effects = new List<ConsumibleEffect>()
+            {
+                new ConsumibleEffect()
+                {
+                    EffectTarget = FoodEffectTarget.Health,
+                    EffectType = FoodEffectType.Instant,
+                    Ammount = -50
+                },
+                new ConsumibleEffect()
+                {
+                    EffectTarget = FoodEffectTarget.Health,
+                    EffectType = FoodEffectType.OverTime,
+                    Ammount = -150,
+                    TimeToEffect = 30
+                }
+            }
+        };
+
         public static readonly FoodDefinition TOMATO_DEFINITION = new FoodDefinition()
         {
             Id = ItensConstants.TOMATO_ID,
@@ -387,8 +430,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition MILK_DEFINITION = new FoodDefinition()
         {
             Id = ItensConstants.MILK_ID,
-            Solid = 0.0f,
-            Liquid = 0.4f,
+            Solid = 0.05f,
+            Liquid = 0.35f,
             Protein = 12.8f,
             Carbohydrate = 19.2f,
             Lipids = 15.6f,
@@ -900,6 +943,7 @@ namespace ExtendedSurvival.Stats
             { ItensConstants.CAROOT_ID, CAROOT_DEFINITION },
             { ItensConstants.SHIITAKE_ID, SHIITAKE_DEFINITION },
             { ItensConstants.CHAMPIGNONS_ID, CHAMPIGNONS_DEFINITION },
+            { ItensConstants.AMANITAMUSCARIA_ID, AMANITAMUSCARIA_DEFINITION },
             { ItensConstants.TOMATO_ID, TOMATO_DEFINITION },
             { ItensConstants.CEREAL_ID, CEREAL_DEFINITION },
             { ItensConstants.WHEATSACK_ID, WHEATSACK_DEFINITION },
@@ -1295,7 +1339,7 @@ namespace ExtendedSurvival.Stats
                 new FoodRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.BROCCOLI_ID,
-                    Ammount = 5
+                    Ammount = 2
                 }
             },
             ProductionTime = 2.56f,
@@ -3619,7 +3663,7 @@ namespace ExtendedSurvival.Stats
                                 consumableDef.DisplayNameEnum = null;
                                 consumableDef.DisplayNameString = foodDef.Name;
                                 consumableDef.DescriptionEnum = null;
-                                consumableDef.DescriptionString = foodDef.GetFullDescription();
+                                consumableDef.DescriptionString = null;
                                 consumableDef.MinimumAcquisitionAmount = foodDef.AcquisitionAmount.X;
                                 consumableDef.MaximumAcquisitionAmount = foodDef.AcquisitionAmount.Y;
                                 consumableDef.MinimumOrderAmount = foodDef.OrderAmount.X;
@@ -3628,7 +3672,7 @@ namespace ExtendedSurvival.Stats
                                 consumableDef.MaximumOfferAmount = foodDef.OfferAmount.Y;
                                 consumableDef.MinimalPricePerUnit = foodDef.MinimalPricePerUnit;
                                 consumableDef.CanPlayerOrder = foodDef.CanPlayerOrder;
-                                consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + consumableDef.DescriptionString);
+                                consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + foodDef.GetFullDescription());
                                 consumableDef.Postprocess();
                             }
                             else
@@ -3642,7 +3686,8 @@ namespace ExtendedSurvival.Stats
                                 physicalItemDef.DisplayNameEnum = null;
                                 physicalItemDef.DisplayNameString = foodDef.Name;
                                 physicalItemDef.DescriptionEnum = null;
-                                physicalItemDef.DescriptionString = foodDef.GetFullDescription();
+                                physicalItemDef.DescriptionString = null;
+                                physicalItemDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + foodDef.GetFullDescription());
                                 physicalItemDef.Postprocess();
                             }
                             else
@@ -3686,7 +3731,7 @@ namespace ExtendedSurvival.Stats
                             recipeDef.DisplayNameEnum = null;
                             recipeDef.DisplayNameString = targetIngredient.Name;
                             recipeDef.DescriptionEnum = null;
-                            recipeDef.DescriptionString = targetIngredient.Description;
+                            recipeDef.DescriptionString = null;
                         }
                         else
                             ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(FoodConstants), $"CalculateRecipesNutrition recipe not found. Recipe=[{targetIngredient.RecipeName}]");

@@ -515,6 +515,7 @@ namespace ExtendedSurvival.Stats
                 MedicalConstants.TryOverrideDefinitions();
                 RationConstants.TryOverrideDefinitions();
                 LivestockConstants.TryOverrideDefinitions();
+                EquipmentConstants.TryOverrideDefinitions();
                 FactionTypeConstants.TryOverrideDefinitions();
 
                 // SPAWNS

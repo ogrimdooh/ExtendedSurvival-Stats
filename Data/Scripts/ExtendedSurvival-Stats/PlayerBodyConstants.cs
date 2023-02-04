@@ -9,7 +9,7 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// X: Sem fome, Y: Satisfeito, Z: Passando mal, W: Vomita
         /// </summary>
-        public static readonly Vector4 StomachSize = new Vector4(0.25f, 0.5f, 0.75f, 1.0f);
+        public static readonly Vector4 StomachSize = new Vector4(0.3f, 0.6f, 0.9f, 1.2f);
 
         /// <summary>
         /// X: Já pode fazer, Y: Precisa fazer, Z: Passando mal, W: Faz na roupa

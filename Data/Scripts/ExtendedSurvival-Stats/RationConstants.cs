@@ -6,6 +6,7 @@ using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
+
     public static class RationConstants
     {
 
@@ -424,7 +425,7 @@ namespace ExtendedSurvival.Stats
                         consumableDef.DisplayNameEnum = null;
                         consumableDef.DisplayNameString = rationDef.Name;
                         consumableDef.DescriptionEnum = null;
-                        consumableDef.DescriptionString = rationDef.GetFullDescription();
+                        consumableDef.DescriptionString = null;
                         consumableDef.MinimumAcquisitionAmount = rationDef.AcquisitionAmount.X;
                         consumableDef.MaximumAcquisitionAmount = rationDef.AcquisitionAmount.Y;
                         consumableDef.MinimumOrderAmount = rationDef.OrderAmount.X;
@@ -433,11 +434,11 @@ namespace ExtendedSurvival.Stats
                         consumableDef.MaximumOfferAmount = rationDef.OfferAmount.Y;
                         consumableDef.MinimalPricePerUnit = rationDef.MinimalPricePerUnit;
                         consumableDef.CanPlayerOrder = rationDef.CanPlayerOrder;
-                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + consumableDef.DescriptionString);
+                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + rationDef.GetFullDescription());
                         consumableDef.Postprocess();
                     }
                     else
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(FoodConstants), $"TryOverrideRecipes item not found. Food=[{ration}]");
+                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(RationConstants), $"TryOverrideRecipes item not found. Food=[{ration}]");
                     // Recipe definition
                     foreach (var recipe in rationDef.RecipesDefinition)
                     {
@@ -450,7 +451,7 @@ namespace ExtendedSurvival.Stats
                             recipeDef.DisplayNameEnum = null;
                             recipeDef.DisplayNameString = recipe.Name;
                             recipeDef.DescriptionEnum = null;
-                            recipeDef.DescriptionString = rationDef.GetFullDescription();
+                            recipeDef.DescriptionString = null;
                             recipeDef.Postprocess();
                         }
                         else
@@ -466,7 +467,7 @@ namespace ExtendedSurvival.Stats
             }
             catch (System.Exception ex)
             {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(FoodConstants), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(RationConstants), ex);
             }
         }
 

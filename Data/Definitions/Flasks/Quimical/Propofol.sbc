@@ -37,7 +37,7 @@
       <Icon>Textures\GUI\Icons\propofol.dds</Icon>
       <Prerequisites>
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Lidocaine" />
-        <Item Amount="5" TypeId="Ingot" SubtypeId="Sulfor" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Amatoxina" />
         <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
       </Prerequisites>
       <Results>
