@@ -183,22 +183,22 @@ namespace ExtendedSurvival.Stats
 
             None = 0,
             /* Hunger Effects */
-            Hungry = 1, /* Have less than 10% Hunger */
-            Famished = 2, /* Have 5% Hunger */
+            Hungry = 1 << 1, /* Have less than 10% Hunger */
+            Famished = 1 << 2, /* Have 5% Hunger */
             /* Thirst Effects */
-            Thirsty = 4, /* Have less than 10% Thirst */
-            Dehydrating = 8, /* Have 5% Thirst */
+            Thirsty = 1 << 3, /* Have less than 10% Thirst */
+            Dehydrating = 1 << 4, /* Have 5% Thirst */
             /* Oxygen Effects */
-            Disoriented = 16, /* Have less than 10% Oxygen */
-            Suffocation = 32, /* Have 5% Oxygen */
-            FullStomach = 64,
-            StomachBursting = 128,
-            FullGut = 256,
-            GutBurst = 512,
-            FullBladder = 1024,
-            BladderBurst = 2048,
-            Tired = 4096,
-            ExtremelyTired = 8192
+            Disoriented = 1 << 5, /* Have less than 10% Oxygen */
+            Suffocation = 1 << 6, /* Have 5% Oxygen */
+            FullStomach = 1 << 7,
+            StomachBursting = 1 << 8,
+            FullGut = 1 << 9,
+            GutBurst = 1 << 10,
+            FullBladder = 1 << 11,
+            BladderBurst = 1 << 12,
+            Tired = 1 << 13,
+            ExtremelyTired = 1 << 14
 
         }
 
@@ -207,10 +207,10 @@ namespace ExtendedSurvival.Stats
         {
 
             None = 0,
-            Contusion = 1, /* Take damage more than 10% Max Life */
-            Wounded = 2, /* Take damage more than 20% Max Life */
-            DeepWounded = 4, /* Take damage more than 40% Max Life, replace Wounded */
-            BrokenBones = 8 /* Take damage more than 60% Max Life, replace Contusion */
+            Contusion = 1 << 1, /* Take damage more than 10% Max Life */
+            Wounded = 1 << 2, /* Take damage more than 20% Max Life */
+            DeepWounded = 1 << 3, /* Take damage more than 40% Max Life, replace Wounded */
+            BrokenBones = 1 << 4 /* Take damage more than 60% Max Life, replace Contusion */
 
         }
 
@@ -219,11 +219,11 @@ namespace ExtendedSurvival.Stats
         {
 
             None = 0,
-            Overheating = 1, /* Stay in a hot place more than 6 minutes, or burning more than 3 minutes */
-            OnFire = 2, /* Stay in a burning more than 6 minutes, replace Overheating */
-            Cold = 4, /* Stay in a cold place more than 6 minutes, or freezing more than 3 minutes */
-            Frosty = 8, /* Stay in a freezing more than 6 minutes, replace Cold */
-            Wet = 16 /* Stay in the rain or enter under water (Water Mod)  */
+            Overheating = 1 << 1, /* Stay in a hot place more than 6 minutes, or burning more than 3 minutes */
+            OnFire = 1 << 2, /* Stay in a burning more than 6 minutes, replace Overheating */
+            Cold = 1 << 3, /* Stay in a cold place more than 6 minutes, or freezing more than 3 minutes */
+            Frosty = 1 << 4, /* Stay in a freezing more than 6 minutes, replace Cold */
+            Wet = 1 << 5 /* Stay in the rain or enter under water (Water Mod)  */
 
         }
 
@@ -232,22 +232,22 @@ namespace ExtendedSurvival.Stats
         {
 
             None = 0,
-            Pneumonia = 1, /* After getting cold or frosty can get Pneumonia by chance, wet incrise that chance */
-            Dysentery = 2, /* Recived by eating raw meat food, with raw vegetables or fruits has a little chance */
-            Poison = 4, /* Recived by food or poison damage */
-            Infected = 8, /* Dont remove Wounded, DeepWounded or BrokenBones in 10 minutes */
-            Hypothermia = 16, /* Get max temperature negative timer */
-            Hyperthermia = 32, /* Get max temperature positive timer */
-            Starvation = 64,
-            SevereStarvation = 128,
-            Dehydration = 256,
-            SevereDehydration = 512,
-            Obesity = 1024,
-            SevereObesity = 2048,
-            Rickets = 4096,
-            SevereRickets = 8192,
-            Hypolipidemia = 16384,
-            Queasy = 32768
+            Pneumonia = 1 << 1, /* After getting cold or frosty can get Pneumonia by chance, wet incrise that chance */
+            Dysentery = 1 << 2, /* Recived by eating raw meat food, with raw vegetables or fruits has a little chance */
+            Poison = 1 << 3, /* Recived by food or poison damage */
+            Infected = 1 << 4, /* Dont remove Wounded, DeepWounded or BrokenBones in 10 minutes */
+            Hypothermia = 1 << 5, /* Get max temperature negative timer */
+            Hyperthermia = 1 << 6, /* Get max temperature positive timer */
+            Starvation = 1 << 7,
+            SevereStarvation = 1 << 8,
+            Dehydration = 1 << 9,
+            SevereDehydration = 1 << 10,
+            Obesity = 1 << 11,
+            SevereObesity = 1 << 12,
+            Rickets = 1 << 13,
+            SevereRickets = 1 << 14,
+            Hypolipidemia = 1 << 15,
+            Queasy = 1 << 16
 
         }
 
@@ -256,8 +256,8 @@ namespace ExtendedSurvival.Stats
         {
 
             None = 0,
-            PoopOnClothes = 1,
-            PeeOnClothes = 2
+            PoopOnClothes = 1 << 1,
+            PeeOnClothes = 1 << 2
 
         }
 

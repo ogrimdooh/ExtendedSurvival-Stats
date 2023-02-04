@@ -306,7 +306,7 @@ namespace ExtendedSurvival.Stats
         {
             Id = ItensConstants.HEALTHINJECTION_ID,
             Name = "Health Injection",
-            Description = "A powerful injectable capable of curing infections and reducing fatigue.",
+            Description = "A powerful injectable capable of curing infections, diseases and reducing fatigue.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(100, 300),
@@ -320,7 +320,8 @@ namespace ExtendedSurvival.Stats
             },
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             { 
-                StatsConstants.DiseaseEffects.Infected 
+                StatsConstants.DiseaseEffects.Infected,
+                StatsConstants.DiseaseEffects.Pneumonia
             },
             Effects = new List<ConsumibleEffect>()
             {

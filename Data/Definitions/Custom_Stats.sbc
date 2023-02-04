@@ -55,7 +55,7 @@
       <Name>SurvivalEffects</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>32767</MaxValue>
+      <MaxValue>1073741824</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -66,7 +66,7 @@
       <Name>DamageEffects</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>32767</MaxValue>
+      <MaxValue>1073741824</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -77,7 +77,7 @@
       <Name>TemperatureEffects</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>32767</MaxValue>
+      <MaxValue>1073741824</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -88,7 +88,7 @@
       <Name>DiseaseEffects</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>32767</MaxValue>
+      <MaxValue>1073741824</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -99,7 +99,7 @@
       <Name>OtherEffects</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>32767</MaxValue>
+      <MaxValue>1073741824</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <!-- TIMERS -->

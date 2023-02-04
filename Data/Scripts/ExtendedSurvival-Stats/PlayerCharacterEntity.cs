@@ -488,33 +488,19 @@ namespace ExtendedSurvival.Stats
                     hasDied = false;
                     storeData = null;
                 }
-                CheckHungerValues();
-                CheckThirstValues();
-                CheckOxygenValue();
-                CheckHealthValue();
             }
         }
 
         protected override void OnEndConfigureCharacter()
         {
-            if (StatComponent != null)
-            {
-                Hunger.OnStatChanged += Hunger_OnStatChanged;
-                Thirst.OnStatChanged += Thirst_OnStatChanged;
-                Stamina.OnStatChanged += Stamina_OnStatChanged;
-            }
             base.OnEndConfigureCharacter();
+
         }
 
         protected override void OnBeginResetConfiguration()
         {
+
             base.OnBeginResetConfiguration();
-            if (Hunger != null)
-                Hunger.OnStatChanged -= Hunger_OnStatChanged;
-            if (Thirst != null)
-                Thirst.OnStatChanged -= Thirst_OnStatChanged;
-            if (Stamina != null)
-                Stamina.OnStatChanged -= Stamina_OnStatChanged;
         }
 
         protected override void OnEndResetConfiguration()
@@ -526,9 +512,6 @@ namespace ExtendedSurvival.Stats
         protected override void OnCharacterDied()
         {
             base.OnCharacterDied();
-            Hunger.OnStatChanged -= Hunger_OnStatChanged;
-            Thirst.OnStatChanged -= Thirst_OnStatChanged;
-            Stamina.OnStatChanged -= Stamina_OnStatChanged;
             enterUnderWater = false;
             hasDied = true;
             storeData = GetStoreData();
@@ -547,27 +530,15 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        private void Stamina_OnStatChanged(float newValue, float oldValue, object statChangeData)
-        {
-
-        }
-
-        private void Thirst_OnStatChanged(float newValue, float oldValue, object statChangeData)
-        {
-            CheckThirstValues();
-        }
-
-        private void Hunger_OnStatChanged(float newValue, float oldValue, object statChangeData)
-        {
-            CheckHungerValues();
-        }
-
         private void CheckHealthValue()
         {
             var percentValue = Health.Value / Health.MaxValue;
             if (percentValue == 1)
             {
-                CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
+                if (StatsConstants.IsFlagSet(CurrentDamageEffects, StatsConstants.DamageEffects.Contusion))
+                {
+                    CurrentDamageEffects &= ~StatsConstants.DamageEffects.Contusion;
+                }
             }
         }
 
@@ -701,6 +672,7 @@ namespace ExtendedSurvival.Stats
                         if (FoodConstants.FOOD_DEFINITIONS.ContainsKey(removedUniqueId))
                         {
                             controller.DoConsumeItem(FoodConstants.FOOD_DEFINITIONS[removedUniqueId]);
+                            RefeshInterfaceStats();
                         }
                     }
                     if (HasHealthEffects && DateTime.Now > lastRegenEffect)
@@ -709,6 +681,7 @@ namespace ExtendedSurvival.Stats
                         if (MedicalConstants.MEDICAL_DEFINITIONS.ContainsKey(removedUniqueId))
                         {
                             controller.DoConsumeItem(MedicalConstants.MEDICAL_DEFINITIONS[removedUniqueId]);
+                            RefeshInterfaceStats();
                         }
                     }
                     lastRemovedIten = null;
@@ -733,6 +706,80 @@ namespace ExtendedSurvival.Stats
                 }
                 CheckOxygenValue();
             }
+        }
+
+        public void SetCharacterStatValue(string name, float value)
+        {
+            StatsConstants.ValidStats stat;
+            if (Enum.TryParse(name, true, out stat))
+            {
+                switch (stat)
+                {
+                    case StatsConstants.ValidStats.Stamina:
+                        Stamina.Value = value;
+                        break;
+                    case StatsConstants.ValidStats.Fatigue:
+                        Fatigue.Value = value;
+                        break;
+                    case StatsConstants.ValidStats.WoundedTime:
+                        WoundedTime.Value = value;
+                        break;
+                    case StatsConstants.ValidStats.TemperatureTime:
+                        TemperatureTime.Value = value;
+                        break;
+                    case StatsConstants.ValidStats.WetTime:
+                        WetTime.Value = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyWater:
+                        controller.WaterAmmount = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyPerformance:
+                        controller.CurrentPerformance = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyImmune:
+                        controller.CurrentImunity = value;
+                        break;
+                    case StatsConstants.ValidStats.Stomach:
+                        if (value == 0)
+                            controller.DoEmptyStomach();
+                        break;
+                    case StatsConstants.ValidStats.Intestine:
+                        controller.IntestineVolume = value;
+                        break;
+                    case StatsConstants.ValidStats.Bladder:
+                        controller.BladderVolume = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyWeight:
+                        controller.CurrentWeight = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyMuscles:
+                        controller.CurrentMuscle = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyFat:
+                        controller.CurrentFat = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyCalories:
+                        controller.CaloriesAmmount = value;
+                        break;
+                }
+            }
+        }
+
+        public void ResetCharacterStats()
+        {
+            controller.ResetCharacterStats();
+            SurvivalEffects.Value = SurvivalEffects.DefaultValue;
+            DamageEffects.Value = DamageEffects.DefaultValue;
+            TemperatureEffects.Value = TemperatureEffects.DefaultValue;
+            DiseaseEffects.Value = DiseaseEffects.DefaultValue;
+            OtherEffects.Value = OtherEffects.DefaultValue;
+            WoundedTime.Value = WoundedTime.DefaultValue;
+            TemperatureTime.Value = TemperatureTime.DefaultValue;
+            WetTime.Value = WetTime.DefaultValue;
+            Stamina.Value = Stamina.DefaultValue;
+            Fatigue.Value = Fatigue.DefaultValue;
+            Health.Value = Health.DefaultValue;
+            RefeshInterfaceStats();
         }
 
         public void CheckValuesToDoDamage()
@@ -771,43 +818,58 @@ namespace ExtendedSurvival.Stats
             _spendedStamina += value;
         }
 
-        public void ProcessStatsCycle()
+        private void RefeshInterfaceStats()
+        {
+            Hunger.Value = Hunger.MaxValue * controller.CurrentHungerAmmount;
+            Thirst.Value = Thirst.MaxValue * controller.CurrentThirstAmmount;
+            Intestine.Value = Intestine.MaxValue * controller.CurrentIntestineAmmount;
+            Stomach.Value = Stomach.MaxValue * controller.CurrentStomachAmmount;
+            Bladder.Value = Bladder.MaxValue * controller.CurrentBladderAmmount;
+            BodyWater.Value = BodyWater.MaxValue * controller.CurrentBodyWater;
+            BodyEnergy.Value = BodyEnergy.MaxValue * controller.CurrentBodyEnergy;
+            BodyWeight.Value = controller.CurrentWeight;
+            BodyFat.Value = BodyFat.MaxValue * controller.CurrentFat;
+            BodyMuscles.Value = BodyMuscles.MaxValue * controller.CurrentMuscle;
+            BodyPerformance.Value = BodyPerformance.MaxValue * controller.CurrentPerformance;
+            BodyImmune.Value = BodyImmune.MaxValue * controller.CurrentImunity;
+            BodyCalories.Value = controller.CaloriesAmmount;
+        }
+
+        public void ProcessStatsCycle(int runCount)
         {
             if (!MyAPIGateway.Session.CreativeMode && IsValid)
             {
-                ProcessEffectsTimers();
                 if (!IsOnCryoChamber())
                 {
-                    controller.DoCicle(GetSpendedStamina());
-                    ClearSpendedStamina();
-                    Hunger.Value = Hunger.MaxValue * controller.CurrentHungerAmmount;
-                    Thirst.Value = Thirst.MaxValue * controller.CurrentThirstAmmount;
-                    Intestine.Value = Intestine.MaxValue * controller.CurrentIntestineAmmount;
-                    Stomach.Value = Stomach.MaxValue * controller.CurrentStomachAmmount;
-                    Bladder.Value = Bladder.MaxValue * controller.CurrentBladderAmmount;
-                    BodyWater.Value = BodyWater.MaxValue * controller.CurrentBodyWater;
-                    BodyEnergy.Value = BodyEnergy.MaxValue * controller.CurrentBodyEnergy;
-                    BodyWeight.Value = controller.CurrentWeight;
-                    BodyFat.Value = BodyFat.MaxValue * controller.CurrentFat;
-                    BodyMuscles.Value = BodyMuscles.MaxValue * controller.CurrentMuscle;
-                    BodyPerformance.Value = BodyPerformance.MaxValue * controller.CurrentPerformance;
-                    BodyImmune.Value = BodyImmune.MaxValue * controller.CurrentImunity;
-                    BodyCalories.Value = controller.CaloriesAmmount;
-                    ProcessHealth();
-                    ProcessCargoMax();
+                    if (controller.DoCicle(GetSpendedStamina()))
+                    {
+                        ClearSpendedStamina();
+                        ProcessHealth();
+                    }
                 }
                 if (IsOnValidBathroom())
                 {
                     DoCleanYourself();
                     DoBodyNeeds();
                 }
-                if (IsOnValidRestBlock() && !IsOnTreadmill())
+                RefeshInterfaceStats();
+                if (runCount >= 300)
                 {
-                    ProcessRest(IsOnGoodRestBlock());
-                }
-                else
-                {
-                    ProcessFatigue();
+                    ProcessEffectsTimers();
+                    if (IsOnValidRestBlock() && !IsOnTreadmill())
+                    {
+                        ProcessRest(IsOnGoodRestBlock());
+                    }
+                    else
+                    {
+                        ProcessFatigue();
+                    }
+                    ProcessCargoMax();
+                    CheckHungerValues();
+                    CheckThirstValues();
+                    CheckOxygenValue();
+                    CheckHealthValue();
+                    CheckValuesToDoDamage();
                 }
             }
         }

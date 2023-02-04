@@ -29,7 +29,7 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// X: Start to lose weight, Y: Starts to gain weight
         /// </summary>
-        public static readonly SerializableVector2 CaloriesReserveSize = new Vector2(0.0f, 1000.0f);
+        public static readonly SerializableVector2 CaloriesReserveSize = new Vector2(0.0f, 2000.0f);
 
         /// <summary>
         /// X: Min, Y: Max
@@ -37,9 +37,14 @@ namespace ExtendedSurvival.Stats
         public static readonly SerializableVector2 CaloriesLimit = new Vector2(-5000.0f, 5000.0f);
 
         /// <summary>
+        /// X: Min, Y: Max
+        /// </summary>
+        public static readonly SerializableVector2 WeightLimit = new Vector2(40.0f, 300.0f);
+
+        /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 CaloriesConsumption = new SerializableVector2(0.1f, 0.25f);
+        public static readonly SerializableVector2 CaloriesConsumption = new SerializableVector2(0.01f, 0.05f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
@@ -94,7 +99,7 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// Start ammount of body calories
         /// </summary>
-        public const float StartCalories = 1000f;
+        public const float StartCalories = 1500f;
 
     }
 

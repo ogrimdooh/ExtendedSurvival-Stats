@@ -106,11 +106,13 @@ namespace ExtendedSurvival.Stats
 
         private const string SETTINGS_COMMAND = "settings";
         private const string SETTINGS_COMMAND_PLAYER_STATUS = "player.setstatus";
+        private const string SETTINGS_COMMAND_PLAYER_RESETSTATUS = "player.resetstatus";
 
         private static readonly Dictionary<string, KeyValuePair<int, bool>> VALID_COMMANDS = new Dictionary<string, KeyValuePair<int, bool>>()
         {
             { SETTINGS_COMMAND, new KeyValuePair<int, bool>(3, false) },
-            { SETTINGS_COMMAND_PLAYER_STATUS, new KeyValuePair<int, bool>(3, false) }
+            { SETTINGS_COMMAND_PLAYER_STATUS, new KeyValuePair<int, bool>(3, true) },
+            { SETTINGS_COMMAND_PLAYER_RESETSTATUS, new KeyValuePair<int, bool>(1, true) }
         };
 
         private void ClientUpdateMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
@@ -161,6 +163,49 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        private void DoCommand_Settings(string name, string value)
+        {
+            ExtendedSurvivalSettings.Instance.SetConfigValue(name, value);
+        }
+
+        private void DoCommand_PlayerStat(string name, string value, string player, ulong steamId)
+        {
+            PlayerCharacterEntity playerChar = null;
+            if (!string.IsNullOrWhiteSpace(player))
+            {
+                playerChar = ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Values.FirstOrDefault(x => x.Player?.DisplayName.CompareTo(player) == 0);
+            }
+            else
+            {
+                playerChar = ExtendedSurvivalStatsEntityManager.Instance.GetPlayerCharacterBySteamId(steamId);
+            }
+            if (playerChar != null)
+            {
+                float targetValue;
+                if (float.TryParse(value, out targetValue))
+                {
+                    playerChar.SetCharacterStatValue(name, targetValue);
+                }
+            }
+        }
+
+        private void DoCommand_PlayerReset(string player, ulong steamId)
+        {
+            PlayerCharacterEntity playerChar = null;
+            if (!string.IsNullOrWhiteSpace(player))
+            {
+                playerChar = ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Values.FirstOrDefault(x => x.Player?.DisplayName.CompareTo(player) == 0);
+            }
+            else
+            {
+                playerChar = ExtendedSurvivalStatsEntityManager.Instance.GetPlayerCharacterBySteamId(steamId);
+            }
+            if (playerChar != null)
+            {
+                playerChar.ResetCharacterStats();
+            }
+        }
+
         private void CommandsMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
         {
             try
@@ -177,25 +222,24 @@ namespace ExtendedSurvival.Stats
                             switch (mCommandData.content[0])
                             {
                                 case SETTINGS_COMMAND:
-                                    ExtendedSurvivalSettings.Instance.SetConfigValue(mCommandData.content[1], mCommandData.content[2]);
+                                    DoCommand_Settings(
+                                        mCommandData.content[1], 
+                                        mCommandData.content[2]
+                                    );
                                     break;
                                 case SETTINGS_COMMAND_PLAYER_STATUS:
-                                    var playerChar = ExtendedSurvivalStatsEntityManager.Instance.GetPlayerCharacterBySteamId(mCommandData.sender);
-                                    if (playerChar != null)
-                                    {
-                                        if (!mCommandData.content[1].Contains("Effect"))
-                                        {
-                                            MyEntityStat targetStat = playerChar.GetStatCache(mCommandData.content[1]);
-                                            if (targetStat != null)
-                                            {
-                                                float targetValue;
-                                                if (float.TryParse(mCommandData.content[2], out targetValue))
-                                                {
-                                                    targetStat.Value = targetValue;
-                                                }
-                                            }
-                                        }
-                                    }
+                                    DoCommand_PlayerStat(
+                                        mCommandData.content[1],
+                                        mCommandData.content[2],
+                                        mCommandData.content.Length >= 4 ? mCommandData.content[3] : null,
+                                        mCommandData.sender
+                                    );
+                                    break;
+                                case SETTINGS_COMMAND_PLAYER_RESETSTATUS:
+                                    DoCommand_PlayerReset(
+                                        mCommandData.content.Length >= 2 ? mCommandData.content[1] : null,
+                                        mCommandData.sender
+                                    );
                                     break;
                             }
                         }
@@ -632,12 +676,7 @@ namespace ExtendedSurvival.Stats
 
                     player.ProcessActivityCycle();
                     player.CheckStatusValues();
-
-                    if (RunCount < 300)
-                        continue;
-
-                    player.ProcessStatsCycle();
-                    player.CheckValuesToDoDamage();
+                    player.ProcessStatsCycle(RunCount);
                 }
             }
             catch (Exception ex)

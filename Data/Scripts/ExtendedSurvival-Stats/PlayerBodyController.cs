@@ -182,7 +182,19 @@ namespace ExtendedSurvival.Stats
         private void DoCheckMinAndMaxValues()
         {
             CaloriesAmmount = Math.Min(Math.Max(CaloriesAmmount, PlayerBodyConstants.CaloriesLimit.X), PlayerBodyConstants.CaloriesLimit.Y);
-            WaterAmmount = Math.Min(Math.Max(WaterAmmount, PlayerBodyConstants.WaterReserveSize.X), PlayerBodyConstants.WaterReserveSize.W);
+            WaterAmmount = Math.Min(Math.Max(WaterAmmount, 0f), PlayerBodyConstants.WaterReserveSize.W);
+            IntestineVolume = Math.Min(Math.Max(IntestineVolume, 0f), PlayerBodyConstants.IntestineSize.W);
+            BladderVolume = Math.Min(Math.Max(BladderVolume, 0f), PlayerBodyConstants.BladderSize.W);
+            CurrentWeight = Math.Min(Math.Max(CurrentWeight, PlayerBodyConstants.WeightLimit.X), PlayerBodyConstants.WeightLimit.Y);
+            CurrentFat = Math.Min(Math.Max(CurrentFat, 0f), 1f);
+            CurrentMuscle = Math.Min(Math.Max(CurrentMuscle, 0f), 1f);
+            CurrentPerformance = Math.Min(Math.Max(CurrentPerformance, 0f), 1f);
+            CurrentImunity = Math.Min(Math.Max(CurrentImunity, 0f), 1f);
+            ProteinAmmount = Math.Min(Math.Max(ProteinAmmount, 0f), 1000f);
+            CarbohydrateAmmount = Math.Min(Math.Max(CarbohydrateAmmount, 0f), 1000f);
+            LipidsAmmount = Math.Min(Math.Max(LipidsAmmount, 0f), 1000f);
+            VitaminsAmmount = Math.Min(Math.Max(VitaminsAmmount, 0f), 1000f);
+            MineralsAmmount = Math.Min(Math.Max(MineralsAmmount, 0f), 1000f);
         }
 
         private void DoConsumeCicle(float staminaSpended)
@@ -277,6 +289,25 @@ namespace ExtendedSurvival.Stats
             {
                 CurrentWeight += PlayerBodyConstants.WeightChange.Y;
             }
+        }
+
+        public void ResetCharacterStats()
+        {
+            IntestineVolume = 0;
+            BladderVolume = 0;
+            CurrentWeight = PlayerBodyConstants.StartWeight;
+            CurrentFat = PlayerBodyConstants.StartFat;
+            CurrentMuscle = PlayerBodyConstants.StartMuscle;
+            CurrentPerformance = PlayerBodyConstants.StartPerformance;
+            CurrentImunity = PlayerBodyConstants.StartImunity;
+            WaterAmmount = PlayerBodyConstants.StartWaterReserve;
+            CaloriesAmmount = PlayerBodyConstants.StartCalories;
+            ProteinAmmount = 0;
+            CarbohydrateAmmount = 0;
+            LipidsAmmount = 0;
+            VitaminsAmmount = 0;
+            MineralsAmmount = 0;
+            DoEmptyStomach();
         }
 
         public void CheckMinimalToLive()
