@@ -3628,6 +3628,7 @@ namespace ExtendedSurvival.Stats
                                 consumableDef.MaximumOfferAmount = foodDef.OfferAmount.Y;
                                 consumableDef.MinimalPricePerUnit = foodDef.MinimalPricePerUnit;
                                 consumableDef.CanPlayerOrder = foodDef.CanPlayerOrder;
+                                consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + consumableDef.DescriptionString);
                                 consumableDef.Postprocess();
                             }
                             else

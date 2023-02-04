@@ -74,7 +74,7 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                return IsUnderwater ? (float)Math.Round((WaterAPI.GetDepth(Entity.GetPosition()).Value * -1) - 1.5f, 2) : 0f;
+                return IsUnderwater ? (float)Math.Round((WaterModAPI.GetDepth(Entity.GetPosition()).Value * -1) - 1.5f, 2) : 0f;
             }
         }
 
@@ -321,6 +321,25 @@ namespace ExtendedSurvival.Stats
 
         }
 
+
+        private Guid DoCreateNewObserver()
+        {
+            return ExtendedSurvivalCoreAPI.AddInventoryObserver(Entity, 0);
+        }
+
+        protected virtual Guid CreateNewObserver()
+        {
+            if (ExtendedSurvivalCoreAPI.Registered)
+                return DoCreateNewObserver();
+            else
+                ExtendedSurvivalStatsSession.AddToInvokeAfterCoreApiLoaded(() => {
+                    var id = DoCreateNewObserver();
+                    if (id != Guid.Empty)
+                        InventoryObserver = id;
+                });
+            return Guid.Empty;
+        }
+
         protected virtual void OnEndConfigureCharacter()
         {
             if (StatComponent != null)
@@ -328,10 +347,7 @@ namespace ExtendedSurvival.Stats
             Inventory = Entity.GetInventory() as MyInventory;
             if (Inventory != null)
             {
-                if (ExtendedSurvivalCoreAPI.Registered)
-                {
-                    InventoryObserver = ExtendedSurvivalCoreAPI.AddInventoryObserver(Entity, 0);
-                }
+                InventoryObserver = CreateNewObserver();
                 Inventory.ContentsRemoved += Inventory_ContentsRemoved;
             }
             hasDied = false;
@@ -474,7 +490,7 @@ namespace ExtendedSurvival.Stats
             double o2AtPos = 0;
             if (currentValue == WeatherConstants.EnvironmentDetector.Atmosphere)
             {
-                if (WaterAPI.Registered && platAtRange.HasWater && WaterAPI.IsUnderwater(pos) && (WaterAPI.GetDepth(Entity.GetPosition()).Value * -1) > 1.5f)
+                if (WaterModAPI.Registered && platAtRange.HasWater && WaterModAPI.IsUnderwater(pos) && (WaterModAPI.GetDepth(Entity.GetPosition()).Value * -1) > 1.5f)
                     return WeatherConstants.EnvironmentDetector.Underwater;
                 o2AtPos = Math.Round(platAtRange.Entity.GetOxygenForPosition(pos) * 100, 0);
             }

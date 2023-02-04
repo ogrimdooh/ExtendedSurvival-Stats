@@ -370,6 +370,7 @@ namespace ExtendedSurvival.Stats
                             LivestockConstants.CREATURE_HEALTH,
                             LivestockConstants.FEED_TIME_CICLE,
                             LivestockConstants.BASE_HUNGRY_FACTOR,
+                            LivestockConstants.BASE_TOLERANCE_TIME,
                             (Guid observerId) =>
                             {
                                 return true;
@@ -379,6 +380,7 @@ namespace ExtendedSurvival.Stats
                             LivestockConstants.TREE_HEALTH,
                             FarmConstants.BASE_TIME_TO_PRODUCE,
                             FarmConstants.BASE_TREE_DECAY_FACTOR,
+                            FarmConstants.BASE_TOLERANCE_TIME,
                             (Guid observerId) =>
                             {
                                 return !HasIce(observerId) || !HasAnyFertilizer(observerId);
@@ -388,12 +390,16 @@ namespace ExtendedSurvival.Stats
                         {
                             ExtendedSurvivalCoreAPI.AddItemExtraInfo(itemKey.Value.GetItemExtraInfo());
                         }
+                        foreach (var itemKey in LivestockConstants.LIVESTOCK_DEFINITIONS)
+                        {
+                            ExtendedSurvivalCoreAPI.AddItemExtraInfo(itemKey.Value.GetItemExtraInfo());
+                        }
                         foreach (var itemKey in ItensConstants.ITEM_EXTRA_INFO_DEF.Keys)
                         {
                             ExtendedSurvivalCoreAPI.AddItemExtraInfo(ItensConstants.ITEM_EXTRA_INFO_DEF[itemKey]);
                         }                        
                         ExtendedSurvivalCoreAPI.AddItemCategory(LivestockConstants.ANIMAL_CATEGORY);
-                        foreach (var animalId in ItensConstants.ANIMALS_IDS)
+                        foreach (var animalId in LivestockConstants.ANIMALS_IDS)
                         {
                             ExtendedSurvivalCoreAPI.AddDefinitionToCategory(animalId.DefinitionId, LivestockConstants.ANIMAL_CATEGORY);
                         }
@@ -464,6 +470,7 @@ namespace ExtendedSurvival.Stats
                 FoodConstants.TryOverrideDefinitions();
                 MedicalConstants.TryOverrideDefinitions();
                 RationConstants.TryOverrideDefinitions();
+                LivestockConstants.TryOverrideDefinitions();
                 FactionTypeConstants.TryOverrideDefinitions();
 
                 // SPAWNS

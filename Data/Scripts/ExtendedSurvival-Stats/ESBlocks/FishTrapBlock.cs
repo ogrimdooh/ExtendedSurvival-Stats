@@ -193,7 +193,7 @@ namespace ExtendedSurvival.Stats
         {
             get
             {
-                return WaterAPI.Registered && WaterAPI.IsUnderwater(CurrentEntity.GetPosition());
+                return WaterModAPI.Registered && WaterModAPI.IsUnderwater(CurrentEntity.GetPosition());
             }
         }
 
@@ -229,7 +229,7 @@ namespace ExtendedSurvival.Stats
                                 var collectorInventory = collector.GetInventory();
                                 if (collectorInventory.CanTransferItemTo(_inventory, ItensConstants.ICE_ID.DefinitionId))
                                 {
-                                    totalConector.depths.Add((float)Math.Round(WaterAPI.GetDepth(collector.GetPosition()).Value * -1, 2));
+                                    totalConector.depths.Add((float)Math.Round(WaterModAPI.GetDepth(collector.GetPosition()).Value * -1, 2));
                                 }
                             }
                         }

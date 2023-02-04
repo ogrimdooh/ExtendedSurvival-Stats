@@ -136,11 +136,11 @@ namespace ExtendedSurvival.Stats
                     Volume = INVENTORY_SIZE[EntitySubType].Y,
                     InputConstraint = new MyInventoryConstraint("CageInventory", null, true)
                 };
-                foreach (var item in ItensConstants.ANIMALS_IDS)
+                foreach (var item in LivestockConstants.ANIMALS_IDS)
                 {
                     definition.InputConstraint.Add(item.DefinitionId);
                 }
-                foreach (var item in ItensConstants.DEAD_ANIMALS_IDS)
+                foreach (var item in LivestockConstants.DEAD_ANIMALS_IDS)
                 {
                     definition.InputConstraint.Add(item.DefinitionId);
                 }
@@ -183,15 +183,15 @@ namespace ExtendedSurvival.Stats
                                         var popFactor = float.Parse(extraInfo.GetCustomAttributes(LivestockConstants.CREATURE_POOP_FACTOR_ID));
                                         bool gotfeed = false;
                                         var uniqueId = new UniqueEntityId(extraInfo.DefinitionId);
-                                        if (ItensConstants.ANIMALS_HERBICORES_IDS.Contains(uniqueId) && HasVegetableRation)
+                                        if (LivestockConstants.ANIMALS_HERBICORES_IDS.Contains(uniqueId) && HasVegetableRation)
                                         {
                                             gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, RationConstants.VEGETABLERATION_ID.DefinitionId, gasContainer);
                                         }
-                                        else if (ItensConstants.ANIMALS_CARNIVORES_IDS.Contains(uniqueId) && HasMeatRation)
+                                        else if (LivestockConstants.ANIMALS_CARNIVORES_IDS.Contains(uniqueId) && HasMeatRation)
                                         {
                                             gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, RationConstants.MEATRATION_ID.DefinitionId, gasContainer);
                                         }
-                                        else if (ItensConstants.ANIMALS_BIRDS_IDS.Contains(uniqueId) && HasGrainRation)
+                                        else if (LivestockConstants.ANIMALS_BIRDS_IDS.Contains(uniqueId) && HasGrainRation)
                                         {
                                             gotfeed = ProcessEatRoutine(eatFactor, absFactor, popFactor, RationConstants.MEATRATION_ID.DefinitionId, gasContainer);
                                         }

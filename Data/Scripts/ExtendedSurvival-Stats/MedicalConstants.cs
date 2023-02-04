@@ -1,4 +1,5 @@
 ﻿using Sandbox.Definitions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using VRageMath;
@@ -548,8 +549,8 @@ namespace ExtendedSurvival.Stats
                             Time = 3,
                             Value = 0.025f
                         });
-                        consumableDef.Volume = medicalDef.Volume;
-                        consumableDef.Mass = medicalDef.Mass;
+                        consumableDef.Volume = medicalDef.GetVolume();
+                        consumableDef.Mass = medicalDef.GetMass();
                         consumableDef.DisplayNameEnum = null;
                         consumableDef.DisplayNameString = medicalDef.Name;
                         consumableDef.DescriptionEnum = null;
@@ -562,6 +563,7 @@ namespace ExtendedSurvival.Stats
                         consumableDef.MaximumOfferAmount = medicalDef.OfferAmount.Y;
                         consumableDef.MinimalPricePerUnit = medicalDef.MinimalPricePerUnit;
                         consumableDef.CanPlayerOrder = medicalDef.CanPlayerOrder;
+                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + consumableDef.DescriptionString);
                         consumableDef.Postprocess();
                     }
                     else

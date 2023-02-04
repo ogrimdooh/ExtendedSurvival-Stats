@@ -1,4 +1,5 @@
 ﻿using Sandbox.Definitions;
+using System;
 using System.Collections.Generic;
 using VRage.Game;
 using VRageMath;
@@ -23,7 +24,7 @@ namespace ExtendedSurvival.Stats
             Name = "Meat Ration",
             Description = "A meat-based feed, perfect for carnivorous animals.",
             CanPlayerOrder = true,
-            MinimalPricePerUnit = 15000,
+            MinimalPricePerUnit = 375,
             OfferAmount = new Vector2I(100, 300),
             OrderAmount = new Vector2I(25, 75),
             AcquisitionAmount = new Vector2I(50, 150),
@@ -220,7 +221,7 @@ namespace ExtendedSurvival.Stats
             Name = "Vegetables Ration",
             Description = "A vegetable-based feed, perfect for herbivorous animals.",
             CanPlayerOrder = true,
-            MinimalPricePerUnit = 15000,
+            MinimalPricePerUnit = 295,
             OfferAmount = new Vector2I(100, 300),
             OrderAmount = new Vector2I(25, 75),
             AcquisitionAmount = new Vector2I(50, 150),
@@ -327,7 +328,7 @@ namespace ExtendedSurvival.Stats
             Name = "Grains Ration",
             Description = "A grain-based feed, perfect for birds.",
             CanPlayerOrder = true,
-            MinimalPricePerUnit = 15000,
+            MinimalPricePerUnit = 275,
             OfferAmount = new Vector2I(100, 300),
             OrderAmount = new Vector2I(25, 75),
             AcquisitionAmount = new Vector2I(50, 150),
@@ -418,8 +419,8 @@ namespace ExtendedSurvival.Stats
                     var consumableDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(ration.subtypeId.String);
                     if (consumableDef != null)
                     {                        
-                        consumableDef.Volume = rationDef.Volume;
-                        consumableDef.Mass = rationDef.Mass;
+                        consumableDef.Volume = rationDef.GetVolume();
+                        consumableDef.Mass = rationDef.GetMass();
                         consumableDef.DisplayNameEnum = null;
                         consumableDef.DisplayNameString = rationDef.Name;
                         consumableDef.DescriptionEnum = null;
@@ -432,6 +433,7 @@ namespace ExtendedSurvival.Stats
                         consumableDef.MaximumOfferAmount = rationDef.OfferAmount.Y;
                         consumableDef.MinimalPricePerUnit = rationDef.MinimalPricePerUnit;
                         consumableDef.CanPlayerOrder = rationDef.CanPlayerOrder;
+                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + consumableDef.DescriptionString);
                         consumableDef.Postprocess();
                     }
                     else

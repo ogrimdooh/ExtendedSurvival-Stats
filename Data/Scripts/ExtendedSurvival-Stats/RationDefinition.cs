@@ -18,6 +18,16 @@ namespace ExtendedSurvival.Stats
         public bool CanPlayerOrder { get; set; } = false;
         public List<SimpleRecipeDefinition> RecipesDefinition { get; set; } = new List<SimpleRecipeDefinition>();
 
+        public float GetVolume()
+        {
+            return Volume / 1000;
+        }
+
+        public float GetMass()
+        {
+            return Mass;
+        }
+
         public string GetFullDescription()
         {
             return Description;

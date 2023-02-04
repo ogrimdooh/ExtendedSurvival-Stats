@@ -65,6 +65,7 @@ namespace ExtendedSurvival.Stats
         public const float BASE_TREE_ABSORCION_FACTOR = 0.01f;
         public const float BASE_DECAY_FACTOR = 0.0025f;
         public const float BASE_TREE_DECAY_FACTOR = 0.00125f;
+        public const long BASE_TOLERANCE_TIME = 12;
 
         public const float PREFER_FERTILIZER_MULTIPLIER = 1.25f;
         public const float POWER_FERTILIZER_MULTIPLIER = 1.5f;

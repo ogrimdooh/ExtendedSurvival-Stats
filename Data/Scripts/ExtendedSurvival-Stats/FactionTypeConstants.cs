@@ -57,7 +57,7 @@ namespace ExtendedSurvival.Stats
                 switch (OverrideMethod)
                 {
                     case FactionOverrideMethod.Increment:
-                        return source.Concat(GridsForSale).Distinct().ToArray();
+                        return source != null ? source.Concat(GridsForSale).Distinct().ToArray() : GridsForSale.Distinct().ToArray();
                     case FactionOverrideMethod.Replace:
                         return GridsForSale.Distinct().ToArray();
                 }

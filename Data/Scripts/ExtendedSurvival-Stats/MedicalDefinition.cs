@@ -24,6 +24,16 @@ namespace ExtendedSurvival.Stats
         public List<ConsumibleEffect> Effects { get; set; }
         public SimpleRecipeDefinition RecipeDefinition { get; set; }
 
+        public float GetVolume()
+        {
+            return Volume / 1000;
+        }
+
+        public float GetMass()
+        {
+            return Mass;
+        }
+
         public string GetFullDescription()
         {
             return Description + Environment.NewLine + Environment.NewLine + GetApplicationDescription();
