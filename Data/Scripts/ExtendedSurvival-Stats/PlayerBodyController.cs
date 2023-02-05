@@ -49,8 +49,8 @@ namespace ExtendedSurvival.Stats
 
         private float _caloriesToConsume = 0;
         private float _waterToConsume = 0;
-        private int deltaTime = MyAPIGateway.Session.GameplayFrameCounter;
-        private int spendTime = 0;
+        private long deltaTime = 0;
+        private long spendTime = 0;
 
         public float CurrentBodyWater
         {
@@ -322,10 +322,22 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        private long GetGameTime()
+        {
+            return ExtendedSurvivalCoreAPI.Registered ? ExtendedSurvivalCoreAPI.GetGameTime() : 0;
+        }
+
+        public void DoRefreshDeltaTime()
+        {
+            deltaTime = GetGameTime();
+        }
+
         public bool DoCicle(float staminaSpended)
         {
-            spendTime += (MyAPIGateway.Session.GameplayFrameCounter - deltaTime) * 10;
-            deltaTime = MyAPIGateway.Session.GameplayFrameCounter;
+            if (deltaTime == 0)
+                DoRefreshDeltaTime();
+            spendTime += GetGameTime() - deltaTime;
+            DoRefreshDeltaTime();
             if (spendTime >= 1000)
             {
                 spendTime -= 1000;

@@ -847,6 +847,10 @@ namespace ExtendedSurvival.Stats
                         ProcessHealth();
                     }
                 }
+                else
+                {
+                    controller.DoRefreshDeltaTime();
+                }
                 if (IsOnValidBathroom())
                 {
                     DoCleanYourself();
@@ -1646,10 +1650,10 @@ namespace ExtendedSurvival.Stats
         private void ProcessStamina()
         {
             var value = GetStaminaToDecrese();
-            AddSpendedStamina(value);
             var maxStamina = GetMaxStamina();
             if (IsCharacterMoving() || IsCharacterUsingTool() || IsOnTreadmill())
             {
+                AddSpendedStamina(value);
                 if (Stamina.Value > 0)
                 {
                     Stamina.Decrease(value, Player?.IdentityId);

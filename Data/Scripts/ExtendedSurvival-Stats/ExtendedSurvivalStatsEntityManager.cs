@@ -14,6 +14,7 @@ using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
+
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate)]
     public class ExtendedSurvivalStatsEntityManager : BaseSessionComponent
     {
