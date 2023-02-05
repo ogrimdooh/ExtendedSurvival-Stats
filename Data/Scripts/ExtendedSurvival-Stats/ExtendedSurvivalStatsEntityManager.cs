@@ -54,6 +54,7 @@ namespace ExtendedSurvival.Stats
                 if (IsServer)
                 {
                     RegisterWatcher();
+                    SuperficialMiningController.InitShipDrillCollec();
                 }
                 else
                 {
