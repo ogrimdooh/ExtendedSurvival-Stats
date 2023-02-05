@@ -1045,7 +1045,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.WATER_FLASK_BIG_ID,
                 Ammount = 1
             },
-            RecipeName = "Water_Flask_Medium_Construction",
+            RecipeName = "Water_Flask_Big_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
             Ingredients = new FoodRecipeDefinition.RecipeItem[]
             {
@@ -1061,7 +1061,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Medium Big Flask",
+            Name = "Big Water Flask",
             Description = "A big flask with water.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150,

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using VRageMath;
+﻿using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
@@ -17,17 +15,6 @@ namespace ExtendedSurvival.Stats
         public Vector2I OfferAmount { get; set; } = Vector2I.Zero;
         public int MinimalPricePerUnit { get; set; }
         public bool CanPlayerOrder { get; set; } = false;
-        public List<SimpleRecipeDefinition> RecipesDefinition { get; set; } = new List<SimpleRecipeDefinition>();
-
-        public SimpleRecipeDefinition RecipeDefinition
-        {
-            get
-            {
-                if (RecipesDefinition != null && RecipesDefinition.Any())
-                    return RecipesDefinition.First();
-                return null;
-            }
-        }
 
         public virtual float GetVolume()
         {

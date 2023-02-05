@@ -28,6 +28,9 @@ namespace ExtendedSurvival.Stats
         public const string SURVIVALKIT_SURVIVAL_BLUEPRINTS = "SurvivalKit_Survival_Blueprints";
         public const string SURVIVALKIT_MEDICAL_BLUEPRINTS = "SurvivalKit_Medical_Blueprints";
 
+        public const string WOOD_SUBTYPEID = "Wood";
+        public static readonly UniqueEntityId WOODLOG_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), WOOD_SUBTYPEID);
+
         public const string POLIETILENOGLICOL_SUBTYPEID = "Polietilenoglicol";
         public static readonly UniqueEntityId POLIETILENOGLICOL_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), POLIETILENOGLICOL_SUBTYPEID);
 
@@ -90,32 +93,44 @@ namespace ExtendedSurvival.Stats
 
         public const string SILICON_SUBTYPEID = "Silicon";
         public static readonly UniqueEntityId SILICON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILICON_SUBTYPEID);
-        public static readonly UniqueEntityId SILICON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILICON_SUBTYPEID);
+        public static readonly UniqueEntityId SILICON_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILICON_SUBTYPEID);
 
         public const string COBALT_SUBTYPEID = "Cobalt";
         public static readonly UniqueEntityId COBALT_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), COBALT_SUBTYPEID);
-        public static readonly UniqueEntityId COBALT_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COBALT_SUBTYPEID);
+        public static readonly UniqueEntityId COBALT_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COBALT_SUBTYPEID);
 
         public const string PLATINUM_SUBTYPEID = "Platinum";
         public static readonly UniqueEntityId PLATINUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), PLATINUM_SUBTYPEID);
-        public static readonly UniqueEntityId PLATINUM_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), PLATINUM_SUBTYPEID);
+        public static readonly UniqueEntityId PLATINUM_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), PLATINUM_SUBTYPEID);
 
         public const string URANIUM_SUBTYPEID = "Platinum";
         public static readonly UniqueEntityId URANIUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), URANIUM_SUBTYPEID);
-        public static readonly UniqueEntityId URANIUM_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), URANIUM_SUBTYPEID);
+        public static readonly UniqueEntityId URANIUM_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), URANIUM_SUBTYPEID);
 
         public const string CARBON_SUBTYPEID = "Carbon";
         public static readonly UniqueEntityId CARBON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), CARBON_SUBTYPEID);
-        public static readonly UniqueEntityId CARBON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CARBON_SUBTYPEID);
+        public static readonly UniqueEntityId CARBON_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CARBON_SUBTYPEID);
 
         public const string IRON_SUBTYPEID = "Iron";
         public static readonly UniqueEntityId IRON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), IRON_SUBTYPEID);
-        public static readonly UniqueEntityId IRON_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), IRON_SUBTYPEID);
+        public static readonly UniqueEntityId IRON_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), IRON_SUBTYPEID);
 
         public const string NICKEL_SUBTYPEID = "Nickel";
         public static readonly UniqueEntityId NICKEL_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), NICKEL_SUBTYPEID);
-        public static readonly UniqueEntityId NICKEL_Ore_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), NICKEL_SUBTYPEID);
-        
+        public static readonly UniqueEntityId NICKEL_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), NICKEL_SUBTYPEID);
+
+        public const string MAGNESIUM_SUBTYPEID = "Magnesium";
+        public static readonly UniqueEntityId MAGNESIUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), MAGNESIUM_SUBTYPEID);
+        public static readonly UniqueEntityId MAGNESIUM_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), MAGNESIUM_SUBTYPEID);
+
+        public const string POTASSIUM_SUBTYPEID = "Potassium";
+        public static readonly UniqueEntityId POTASSIUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), POTASSIUM_SUBTYPEID);
+        public static readonly UniqueEntityId POTASSIUM_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), POTASSIUM_SUBTYPEID);
+
+        public const string SULFOR_SUBTYPEID = "Sulfor";
+        public static readonly UniqueEntityId SULFOR_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SULFOR_SUBTYPEID);
+        public static readonly UniqueEntityId SULFOR_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SULFOR_SUBTYPEID);
+
         public const string STEELGEAR_SUBTYPEID = "SteelGear";
         public static readonly UniqueEntityId STEELGEAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), STEELGEAR_SUBTYPEID);
 
@@ -500,57 +515,6 @@ namespace ExtendedSurvival.Stats
         public const string COFFEESACK_SUBTYPEID = "Coffee";
         public static readonly UniqueEntityId COFFEESACK_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), COFFEESACK_SUBTYPEID);
 
-        public const string FERTILIZER_SUBTYPEID = "Fertilizer";
-        public static readonly UniqueEntityId FERTILIZER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), FERTILIZER_SUBTYPEID);
-
-        public const string MINERALFERTILIZER_SUBTYPEID = "MineralFertilizer";
-        public static readonly UniqueEntityId MINERALFERTILIZER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), MINERALFERTILIZER_SUBTYPEID);
-
-        public const string SUPERFERTILIZER_SUBTYPEID = "SuperFertilizer";
-        public static readonly UniqueEntityId SUPERFERTILIZER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SUPERFERTILIZER_SUBTYPEID);
-
-        public const string ARNICA_SEEDS_SUBTYPEID = "ArnicaSeeds";
-        public static readonly UniqueEntityId ARNICA_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ARNICA_SEEDS_SUBTYPEID);
-
-        public const string BEETROOT_SEEDS_SUBTYPEID = "BeetrootSeeds";
-        public static readonly UniqueEntityId BEETROOT_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), BEETROOT_SEEDS_SUBTYPEID);
-
-        public const string BROCCOLI_SEEDS_SUBTYPEID = "BroccoliSeeds";
-        public static readonly UniqueEntityId BROCCOLI_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), BROCCOLI_SEEDS_SUBTYPEID);
-
-        public const string CARROT_SEEDS_SUBTYPEID = "CarrotSeeds";
-        public static readonly UniqueEntityId CARROT_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CARROT_SEEDS_SUBTYPEID);
-
-        public const string COFFEE_SEEDS_SUBTYPEID = "CoffeeSeeds";
-        public static readonly UniqueEntityId COFFEE_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COFFEE_SEEDS_SUBTYPEID);
-
-        public const string MINT_SEEDS_SUBTYPEID = "MintSeeds";
-        public static readonly UniqueEntityId MINT_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), MINT_SEEDS_SUBTYPEID);
-
-        public const string TOMATO_SEEDS_SUBTYPEID = "TomatoSeeds";
-        public static readonly UniqueEntityId TOMATO_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), TOMATO_SEEDS_SUBTYPEID);
-
-        public const string WHEAT_SEEDS_SUBTYPEID = "WheatSeeds";
-        public static readonly UniqueEntityId WHEAT_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), WHEAT_SEEDS_SUBTYPEID);
-
-        public const string CHAMOMILE_SEEDS_SUBTYPEID = "ChamomileSeeds";
-        public static readonly UniqueEntityId CHAMOMILE_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CHAMOMILE_SEEDS_SUBTYPEID);
-
-        public const string ALOEVERA_SEEDS_SUBTYPEID = "AloeVeraSeeds";
-        public static readonly UniqueEntityId ALOEVERA_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ALOEVERA_SEEDS_SUBTYPEID);
-
-        public const string ERYTHROXYLUM_SEEDS_SUBTYPEID = "ErythroxylumSeeds";
-        public static readonly UniqueEntityId ERYTHROXYLUM_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ERYTHROXYLUM_SEEDS_SUBTYPEID);
-
-        public const string TREEDEAD_SUBTYPEID = "TreeDead";
-        public static readonly UniqueEntityId TREEDEAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), TREEDEAD_SUBTYPEID);
-
-        public const string APPLETREESEEDLING_SUBTYPEID = "AppleTreeSeedling";
-        public static readonly UniqueEntityId APPLETREESEEDLING_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), APPLETREESEEDLING_SUBTYPEID);
-
-        public const string APPLETREE_SUBTYPEID = "AppleTree";
-        public static readonly UniqueEntityId APPLETREE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), APPLETREE_SUBTYPEID);
-
         public const string CEREAL_SUBTYPEID = "Cereal";
         public static readonly UniqueEntityId CEREAL_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CEREAL_SUBTYPEID);
 
@@ -599,12 +563,6 @@ namespace ExtendedSurvival.Stats
             { HEALTHPOWERINJECTION_ID, StatsConstants.DiseaseEffects.Pneumonia },
             { SIMPLEMEDICINE_ID, StatsConstants.DiseaseEffects.Dysentery | StatsConstants.DiseaseEffects.Queasy },
             { MEDICINE_ID, StatsConstants.DiseaseEffects.Poison }
-        };
-
-        public static readonly List<UniqueEntityId> TREE_IDS = new List<UniqueEntityId>()
-        {
-            APPLETREESEEDLING_ID,
-            APPLETREE_ID
         };
 
         public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;
@@ -741,10 +699,10 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                APPLETREESEEDLING_ID,
+                SeedsAndFertilizerConstants.APPLETREESEEDLING_ID,
                 new ExtendedSurvivalCoreAPI.ItemExtraInfo()
                 {
-                    DefinitionId = APPLETREESEEDLING_ID.DefinitionId,
+                    DefinitionId = SeedsAndFertilizerConstants.APPLETREESEEDLING_ID.DefinitionId,
                     NeedUpdate = true,
                     RemoveWhenSpoil = true,
                     RemoveAmmount = 1,
@@ -760,10 +718,10 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                APPLETREE_ID,
+                SeedsAndFertilizerConstants.APPLETREE_ID,
                 new ExtendedSurvivalCoreAPI.ItemExtraInfo()
                 {
-                    DefinitionId = APPLETREE_ID.DefinitionId,
+                    DefinitionId = SeedsAndFertilizerConstants.APPLETREE_ID.DefinitionId,
                     NeedUpdate = true,
                     RemoveWhenSpoil = true,
                     RemoveAmmount = 1,
@@ -772,7 +730,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
                         {
-                            DefinitionId = TREEDEAD_ID.DefinitionId,
+                            DefinitionId = SeedsAndFertilizerConstants.TREEDEAD_ID.DefinitionId,
                             Ammount = 1
                         }
                     }

@@ -1,6 +1,6 @@
 ﻿namespace ExtendedSurvival.Stats
 {
-    public class EquipmentDefinition : SimpleDefinition
+    public class EquipmentDefinition : SimpleFactoringDefinition<SimpleRecipeDefinition>
     {
 
     }

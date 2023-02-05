@@ -106,6 +106,15 @@ namespace ExtendedSurvival.Stats
                     values.AppendLine(string.Format("Can cure {0} when eat", StatsConstants.GetDiseaseEffectDescription(disease)));
                 }
             }
+            if (FarmConstants.DEFINITIONS.ContainsKey(Id))
+            {
+                var farmDef = FarmConstants.DEFINITIONS[Id];
+                var fertilizerDef = SeedsAndFertilizerConstants.FERTILIZERS_DEFINITIONS[farmDef.PreferredFertilizer];
+                values.AppendLine(" ");
+                values.AppendLine("Mushrooms can be multiplied by putting together fertilizer and ice on farms.");
+                values.AppendLine(string.Format("Need sunlight: {0}", farmDef.SunRequired ? "Yes" : "No"));
+                values.AppendLine(string.Format("Favorite Fertilizer: {0}", fertilizerDef.Name));
+            }
             return values.ToString();
         }
 

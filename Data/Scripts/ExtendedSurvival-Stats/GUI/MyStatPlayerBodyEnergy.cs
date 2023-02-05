@@ -25,8 +25,11 @@ namespace ExtendedSurvival.Stats
 
         private MyEntityStat GetPlayerStat(string statName)
         {
-            MyEntityStat stat;
-            StatComp.TryGetStat(MyStringHash.GetOrCompute(statName), out stat);
+            MyEntityStat stat = null;
+            if (StatComp != null)
+            {
+                StatComp.TryGetStat(MyStringHash.GetOrCompute(statName), out stat);
+            }
             return stat;
         }
 

@@ -4,8 +4,9 @@ using System.Linq;
 using VRage;
 
 namespace ExtendedSurvival.Stats
-{ 
-    public class SimpleRecipeDefinition
+{
+
+    public class SimpleRecipeDefinition : BaseRecipeDefinition
     {
 
         public struct RecipeItem
@@ -16,12 +17,9 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        public string Name { get; set; }
-        public string RecipeName { get; set; }
         public float ProductAmmount { get; set; }
         public RecipeItem[] Ingredients { get; set; } = new RecipeItem[] { };
         public RecipeItem[] OtherResults { get; set; } = new RecipeItem[] { };
-        public float ProductionTime { get; set; }
 
         public MyBlueprintDefinitionBase.Item[] GetIngredients()
         {

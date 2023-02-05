@@ -353,7 +353,7 @@ namespace ExtendedSurvival.Stats
             }
             definition.InputConstraint.Add(ItensConstants.ICE_ID.DefinitionId);
             definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
-            definition.InputConstraint.Add(ItensConstants.TREEDEAD_ID.DefinitionId);
+            definition.InputConstraint.Add(SeedsAndFertilizerConstants.TREEDEAD_ID.DefinitionId);
             foreach (var key in FarmConstants.TREE_DEFINITIONS.Keys)
             {
                 if (!definition.InputConstraint.ConstrainedIds.Contains(key.DefinitionId))

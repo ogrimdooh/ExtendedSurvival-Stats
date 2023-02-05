@@ -1,7 +1,7 @@
 ﻿namespace ExtendedSurvival.Stats
 {
 
-    public class RationDefinition : SimpleDefinition
+    public class RationDefinition : SimpleFactoringDefinition<SimpleRecipeDefinition>
     {
 
     }
