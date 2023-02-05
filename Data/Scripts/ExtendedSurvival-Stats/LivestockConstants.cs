@@ -166,7 +166,8 @@ namespace ExtendedSurvival.Stats
             Id = COWFEMALE_ID,
             DeadId = COWDEAD_ID,
             Name = "Cow",
-            Description = "It is a female bovine and can be used for breeding, milk production or butchery.",
+            Description = "It is a female bovine and can be used for breeding, milk" + Environment.NewLine + 
+                          "production or butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -183,7 +184,8 @@ namespace ExtendedSurvival.Stats
             Id = COWBABY_ID,
             DeadId = COWBABYDEAD_ID,
             Name = "Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -234,7 +236,8 @@ namespace ExtendedSurvival.Stats
             Id = DEERBABY_ID,
             DeadId = DEERBABYDEAD_ID,
             Name = "Deer Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -285,7 +288,8 @@ namespace ExtendedSurvival.Stats
             Id = HORSEBABY_ID,
             DeadId = HORSEBABYDEAD_ID,
             Name = "Horse Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -336,7 +340,8 @@ namespace ExtendedSurvival.Stats
             Id = SHEEPBABY_ID,
             DeadId = SHEEPBABYDEAD_ID,
             Name = "Sheep Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 37500,
             OfferAmount = new Vector2I(20, 40),
@@ -370,7 +375,8 @@ namespace ExtendedSurvival.Stats
             Id = SPIDERFEMALE_ID,
             DeadId = SPIDERDEAD_ID,
             Name = "Female Spider",
-            Description = "It is a female spider and can be used for breeding, egg production or butchery.",
+            Description = "It is a female spider and can be used for breeding, egg production" + Environment.NewLine + 
+                          "or butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -387,7 +393,8 @@ namespace ExtendedSurvival.Stats
             Id = SPIDERBABY_ID,
             DeadId = SPIDERBABYDEAD_ID,
             Name = "Spider Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -438,7 +445,8 @@ namespace ExtendedSurvival.Stats
             Id = WOLFBABY_ID,
             DeadId = WOLFBABYDEAD_ID,
             Name = "Wolf Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 37500,
             OfferAmount = new Vector2I(20, 40),
@@ -489,7 +497,8 @@ namespace ExtendedSurvival.Stats
             Id = PIGBABY_ID,
             DeadId = PIGBABYDEAD_ID,
             Name = "Pig Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 37500,
             OfferAmount = new Vector2I(20, 40),
@@ -523,7 +532,8 @@ namespace ExtendedSurvival.Stats
             Id = CHICKENFEMALE_ID,
             DeadId = CHICKENDEAD_ID,
             Name = "Female Chicken",
-            Description = "It is a female chicken and can be used for breeding, egg production or butchery.",
+            Description = "It is a female chicken and can be used for breeding, egg production" + Environment.NewLine + 
+                          "or butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(20, 40),
@@ -540,7 +550,8 @@ namespace ExtendedSurvival.Stats
             Id = CHICKENBABY_ID,
             DeadId = CHICKENBABYDEAD_ID,
             Name = "Chicken Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal or can be used for butchery.",
+            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
+                          "or can be used for butchery.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 750,
             OfferAmount = new Vector2I(20, 40),

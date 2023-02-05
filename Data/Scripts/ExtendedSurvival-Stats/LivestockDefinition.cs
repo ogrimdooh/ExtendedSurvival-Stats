@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using VRageMath;
 
@@ -83,13 +84,16 @@ namespace ExtendedSurvival.Stats
             if (IsDeadBody)
             {
                 values.AppendLine(" ");
-                values.AppendLine("Note: An animal carcass will rot over time, so as not to lose the meat it can be processed in a slaughterhouse.");
+                values.AppendLine("Note: An animal carcass will rot over time, so as not to lose" + Environment.NewLine + 
+                                  "the meat it can be processed in a slaughterhouse.");
                 values.AppendLine(string.Format("Rotting time: {0}s", (StartConservationTime / 1000).ToString("#0.0")));
             }
             else
             {
                 values.AppendLine(" ");
-                values.AppendLine("Note: An animal needs to be placed in a Cage, and will need to regularly receive rations in the block's inventory according to its diet.");
+                values.AppendLine("Note: An animal needs to be placed in a Cage, and will need to" + Environment.NewLine +
+                                  "regularly receive rations in the block's inventory according" + Environment.NewLine + 
+                                  "to its diet.");
             }
             return values.ToString();
         }

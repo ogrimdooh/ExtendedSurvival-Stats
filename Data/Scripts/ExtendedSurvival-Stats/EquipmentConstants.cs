@@ -26,8 +26,9 @@ namespace ExtendedSurvival.Stats
         {
             Id = BODYTRACKER_ID,
             Name = "Body Tracker",
-            Description = 
-                "An accessory responsible for monitoring the state of the body and showing it on the spacesuit helmet display." + Environment.NewLine +
+            Description =
+                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
+                "showing it on the spacesuit helmet display." + Environment.NewLine +
                 "Can detect:" + Environment.NewLine +
                 "- Wet level;" + Environment.NewLine +
                 "- Body temperature;" + Environment.NewLine +
@@ -118,7 +119,8 @@ namespace ExtendedSurvival.Stats
             Id = ENHANCEDBODYTRACKER_ID,
             Name = "Enhanced Body Tracker",
             Description =
-                "An accessory responsible for monitoring the state of the body and showing it on the spacesuit helmet display." + Environment.NewLine +
+                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
+                "showing it on the spacesuit helmet display." + Environment.NewLine +
                 "Can detect:" + Environment.NewLine +
                 "- Wet level;" + Environment.NewLine +
                 "- Body temperature;" + Environment.NewLine +
@@ -222,7 +224,8 @@ namespace ExtendedSurvival.Stats
             Id = PROFICIENTBODYTRACKER_ID,
             Name = "Proficient Body Tracker",
             Description =
-                "An accessory responsible for monitoring the state of the body and showing it on the spacesuit helmet display." + Environment.NewLine +
+                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
+                "showing it on the spacesuit helmet display." + Environment.NewLine +
                 "Can detect:" + Environment.NewLine +
                 "- Wet level;" + Environment.NewLine +
                 "- Body temperature;" + Environment.NewLine +
@@ -334,7 +337,8 @@ namespace ExtendedSurvival.Stats
             Id = ELITEBODYTRACKER_ID,
             Name = "Elite Body Tracker",
             Description =
-                "An accessory responsible for monitoring the state of the body and showing it on the spacesuit helmet display." + Environment.NewLine +
+                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
+                "showing it on the spacesuit helmet display." + Environment.NewLine +
                 "Can detect:" + Environment.NewLine +
                 "- Wet level;" + Environment.NewLine +
                 "- Body temperature;" + Environment.NewLine +

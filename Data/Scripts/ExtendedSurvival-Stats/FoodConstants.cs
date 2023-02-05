@@ -32,7 +32,7 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_FRUIT_SPOIL_TIME,
             Name = "Apple",
-            Description = "Apple is a red and appetizing fruit, it has a low caloric value.",
+            Description = "Apple is a red and appetizing fruit," + Environment.NewLine + "it has a low caloric value.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(15000, 45000),
@@ -75,7 +75,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
             Name = "Broccoli",
-            Description = "Broccoli is an edible green plant in the cabbage family, it is a particularly rich source of vitamin.",
+            Description = "Broccoli is an edible green plant in the cabbage family," + Environment.NewLine + 
+                          "it is a particularly rich source of vitamin.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(15000, 45000),
@@ -112,7 +113,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
             Name = "Beetroot",
-            Description = "Beetroot is the taproot portion of a beet plant, it is a particularly rich source of minerals.",
+            Description = "Beetroot is the taproot portion of a beet plant," + Environment.NewLine + 
+                          "it is a particularly rich source of minerals.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(15000, 45000),
@@ -149,7 +151,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
             Name = "Caroot",
-            Description = "Caroot is a root vegetable, it is a particularly rich source of minerals.",
+            Description = "Caroot is a root vegetable, it is a particularly rich" + Environment.NewLine + 
+                          "source of minerals.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(15000, 45000),
@@ -186,7 +189,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
             Name = "Shiitake",
-            Description = "Shiitake is an edible mushroom, it is a particularly rich source of protein.",
+            Description = "Shiitake is an edible mushroom, it is a particularly" + Environment.NewLine + 
+                          "rich source of protein.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(15000, 45000),
@@ -223,7 +227,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
             Name = "Champignon",
-            Description = "Champignon is an edible mushroom, it is a particularly rich source of protein.",
+            Description = "Champignon is an edible mushroom, it is a particularly" + Environment.NewLine + 
+                          "rich source of protein.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(15000, 45000),
@@ -260,7 +265,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
             Name = "Amanita Muscaria",
-            Description = "Amanita muscaria is poisonous mushroom, not recommended to eat, but has great chemical and medical application.",
+            Description = "Amanita muscaria is poisonous mushroom, not recommended to eat," + Environment.NewLine + 
+                          "but has great chemical and medical application.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(15000, 45000),
@@ -389,7 +395,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 1200f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
             Name = "Coffee Sack",
-            Description = "Coffee is a stimulant, because it has caffeine, it can be an alternative to maintain body heat in cold places.",
+            Description = "Coffee is a stimulant, because it has caffeine, it can be an" + Environment.NewLine + 
+                          "alternative to maintain body heat in cold places.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 22,
             OfferAmount = new Vector2I(15000, 45000),
@@ -442,7 +449,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_MILK_SPOIL_TIME,
             Name = "Milk",
-            Description = "Milk is a white liquid food produced by the mammary glands of mammals.",
+            Description = "Milk is a white liquid food produced by the mammary" + Environment.NewLine + 
+                          "glands of mammals.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(150, 450),
@@ -489,7 +497,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Meat",
-            Description = "Meat has been one of the main sources of protein since prehistoric times.",
+            Description = "Meat has been one of the main sources of protein since" + Environment.NewLine + 
+                          "prehistoric times.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(1500, 4500),
@@ -526,7 +535,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Alien Meat",
-            Description = "It is a strange meat and has a strong smell, but the taste is normal.",
+            Description = "It is a strange meat and has a strong smell," + Environment.NewLine + 
+                          "but the taste is normal.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(1500, 4500),
@@ -600,7 +610,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Bacon",
-            Description = "Bacon is a type of salt-cured pork made from various cuts, typically the belly or less fatty parts of the back.",
+            Description = "Bacon is a type of salt-cured pork made from various cuts," + Environment.NewLine + 
+                          "typically the belly or less fatty parts of the back.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 35,
             OfferAmount = new Vector2I(1500, 4500),
@@ -674,7 +685,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Alien Noble Meat",
-            Description = "It is a noble cut of a strange meat, the smell is more acceptable and tastier.",
+            Description = "It is a noble cut of a strange meat, the smell is" + Environment.NewLine + 
+                          "more acceptable and tastier.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 45,
             OfferAmount = new Vector2I(1500, 4500),
@@ -748,7 +760,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_EGG_SPOIL_TIME,
             Name = "Alien Egg",
-            Description = "It's actually quite a big egg, but it's best not to think too hard about where it comes from.",
+            Description = "It's actually quite a big egg, but it's best not to" + Environment.NewLine + 
+                          "think too hard about where it comes from.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(1500, 4500),
@@ -785,7 +798,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Shrimp Meat",
-            Description = "One of the most consumed seafood worldwide, shrimp is rich in nutrients and has several health benefits.",
+            Description = "One of the most consumed seafood worldwide, shrimp is" + Environment.NewLine + 
+                          "rich in nutrients and has several health benefits.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(1500, 4500),
@@ -822,7 +836,8 @@ namespace ExtendedSurvival.Stats
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
             Name = "Fish Meat",
-            Description = "Fish has been an important dietary source of protein and other nutrients throughout human history.",
+            Description = "Fish has been an important dietary source of protein and" + Environment.NewLine + 
+                          "other nutrients throughout human history.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(1500, 4500),

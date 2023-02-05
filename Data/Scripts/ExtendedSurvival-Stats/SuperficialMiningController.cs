@@ -22,7 +22,18 @@ namespace ExtendedSurvival.Stats
             public UniqueEntityId ItemId { get; set; }
             public float Ammount { get; set; }
             public float Chance { get; set; }
-            public string[] ValidSubType { get; set; } = new string[] { "Soil" };
+            public string[] ValidSubType { get; set; } = new string[] 
+            { 
+                "Soil" 
+            };
+            public string[] ValidPlanetSubType { get; set; } = new string[] 
+            { 
+                "EarthLike", 
+                "Pertam",
+                "Dover",
+                "Enitor",
+                "Eremus Nubis"
+            };
 
             public MiningDropLoot(UniqueEntityId itemId, float ammount, float chance)
             {
@@ -44,7 +55,11 @@ namespace ExtendedSurvival.Stats
         {
             new MiningDropLoot(ItensConstants.CHAMPIGNONS_ID, 20, 4),
             new MiningDropLoot(ItensConstants.SHIITAKE_ID, 20, 4),
-            new MiningDropLoot(ItensConstants.AMANITAMUSCARIA_ID, 2, 1) { ValidSubType = new string[] { "AlienSoil" } },
+            new MiningDropLoot(ItensConstants.AMANITAMUSCARIA_ID, 2, 5) 
+            { 
+                ValidSubType = new string[] { "AlienSoil" },
+                ValidPlanetSubType = new string[] { "Alien", "Titan" }
+            },
             new MiningDropLoot(ItensConstants.CAROOT_ID, 1, 2),
             new MiningDropLoot(ItensConstants.BEETROOT_ID, 1, 2),
             new MiningDropLoot(ItensConstants.ALOEVERA_ID, 5, 5),
@@ -54,109 +69,106 @@ namespace ExtendedSurvival.Stats
             new MiningDropLoot(ItensConstants.MINT_ID, 10, 3)
         };
 
+        private static Dictionary<UniqueEntityId, float> DoInternalDrill(string typeId, string subtypeId, Vector3D pos, float maxDistance)
+        {
+            var lootAmmount = new Dictionary<UniqueEntityId, float>();
+            if (typeId.Contains("Ore") && subtypeId.Contains("Soil") && ExtendedSurvivalCoreAPI.Registered)
+            {
+                var platAtRange = MyGamePruningStructure.GetClosestPlanet(pos);
+                if (platAtRange != null && platAtRange.HasAtmosphere)
+                {
+                    var planetId = platAtRange.Generator.EnvironmentDefinition.Id.SubtypeName;
+                    var surfaceRange = platAtRange.GetClosestSurfacePointGlobal(pos);
+                    if (Vector3.Distance(pos, surfaceRange) < maxDistance)
+                    {
+                        var validDrops = MINE_DROPS.Where(x => x.ValidSubType.Contains(subtypeId) && x.ValidPlanetSubType.Contains(planetId)).ToArray();
+                        if (validDrops.Any())
+                        {
+                            for (int c = 0; c < MAX_DROP_TRY_COUNT; c++)
+                            {
+                                var i = rnd.Next(0, validDrops.Length - 1);
+                                if (rnd.Next(1, 101) <= validDrops[i].Chance)
+                                    lootAmmount.Add(validDrops[i].ItemId, validDrops[i].Ammount);
+                                if (lootAmmount.Count >= MAX_DROP_COUNT)
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            return lootAmmount;
+        }
+
         public static void InitShipDrillCollec()
         {
             // Add event to ship drill
             MyVisualScriptLogicProvider.ShipDrillCollected = (string entityName, long entityId, string gridName, long gridId, string typeId, string subtypeId, float amount) =>
             {
-                if (typeId.Contains("Ore") && subtypeId.Contains("Soil") && ExtendedSurvivalCoreAPI.Registered)
+                try
                 {
                     var entity = MyAPIGateway.Entities.GetEntityById(entityId);
                     Vector3D pos = entity.GetPosition();
-                    var platAtRange = MyGamePruningStructure.GetClosestPlanet(pos);
-                    if (platAtRange != null && platAtRange.HasAtmosphere)
+                    var lootAmmount = DoInternalDrill(typeId, subtypeId, pos, MAX_DISTANCE_TO_GENERATE_LOOT_SHIPDRILL);
+                    if (lootAmmount.Any())
                     {
-                        var pos2 = new Vector3((float)pos.X, (float)pos.Y, (float)pos.Z);
-                        var surfaceRange = platAtRange.GetClosestSurfacePointGlobal(pos);
-                        if (Vector3.Distance(pos, surfaceRange) < MAX_DISTANCE_TO_GENERATE_LOOT_SHIPDRILL)
+                        var inventory = entity.GetInventory();
+                        if (inventory != null)
                         {
-                            var lootAmmount = new Dictionary<int, double>();
-                            for (int c = 0; c < MAX_DROP_TRY_COUNT; c++)
+                            var drill = entity as IMyShipDrill;
+                            var grid = drill.CubeGrid as MyCubeGrid;
+                            foreach (var i in lootAmmount.Keys)
                             {
-                                var i = rnd.Next(0, MINE_DROPS.Count - 1);
-                                if (MINE_DROPS[i].ValidSubType.Contains(subtypeId))
+                                float amountfinal = (int)lootAmmount[i];
+                                if (i.typeId == typeof(MyObjectBuilder_Ore))
                                 {
-                                    if (rnd.Next(1, 101) <= MINE_DROPS[i].Chance)
-                                        lootAmmount.Add(i, MINE_DROPS[i].Ammount);
-                                    if (lootAmmount.Count >= MAX_DROP_COUNT)
-                                        break;
+                                    inventory.AddMaxItems(amountfinal, ItensConstants.GetPhysicalObjectBuilder(i));
                                 }
-                            }
-                            if (lootAmmount.Any())
-                            {
-                                var inventory = entity.GetInventory();
-                                if (inventory != null)
+                                else
                                 {
-                                    var drill = entity as IMyShipDrill;
-                                    var grid = drill.CubeGrid as MyCubeGrid;
-                                    foreach (var i in lootAmmount.Keys)
+                                    var target = grid.Inventories.FirstOrDefault(x => inventory.CanTransferItemTo(x.GetInventory(), i.DefinitionId));
+                                    if (target != null)
                                     {
-                                        float amountfinal = (int)lootAmmount[i];
-                                        if (MINE_DROPS[i].ItemId.typeId == typeof(MyObjectBuilder_Ore))
-                                        {
-                                            inventory.AddMaxItems(amountfinal, ItensConstants.GetPhysicalObjectBuilder(MINE_DROPS[i].ItemId));
-                                        }
-                                        else
-                                        {
-                                            var target = grid.Inventories.FirstOrDefault(x => inventory.CanTransferItemTo(x.GetInventory(), MINE_DROPS[i].ItemId.DefinitionId));
-                                            if (target != null)
-                                            {
-                                                target.GetInventory().AddMaxItems(amountfinal, ItensConstants.GetPhysicalObjectBuilder(MINE_DROPS[i].ItemId));
-                                            }
-                                        }
+                                        target.GetInventory().AddMaxItems(amountfinal, ItensConstants.GetPhysicalObjectBuilder(i));
                                     }
                                 }
                             }
                         }
                     }
+                }
+                catch (Exception ex)
+                {
+                    ExtendedSurvivalStatsLogging.Instance.LogError(typeof(SuperficialMiningController), ex);
                 }
             };
         }
 
         public static bool CheckEntityIsAFloatingObject(MyEntity obj)
         {
-            var floatingObj = obj as MyFloatingObject;
-            if (floatingObj != null)
+            try
             {
-                var typeId = floatingObj.Item.Content.TypeId.ToString();
-                if (typeId.Contains("Ore"))
+                var floatingObj = obj as MyFloatingObject;
+                if (floatingObj != null)
                 {
-                    var subTypeId = floatingObj.Item.Content.SubtypeId.ToString();
-                    if (subTypeId.Contains("Soil") && ExtendedSurvivalCoreAPI.Registered)
+                    Vector3D upp = obj.WorldMatrix.Up;
+                    Vector3D fww = obj.WorldMatrix.Forward;
+                    var typeId = floatingObj.Item.Content.TypeId.ToString();
+                    var subtypeId = floatingObj.Item.Content.SubtypeId.ToString();
+                    Vector3D pos = (obj as IMyEntity).GetPosition();
+                    var lootAmmount = DoInternalDrill(typeId, subtypeId, pos, MAX_DISTANCE_TO_GENERATE_LOOT);
+                    if (lootAmmount.Any())
                     {
-                        Vector3D upp = obj.WorldMatrix.Up;
-                        Vector3D fww = obj.WorldMatrix.Forward;
-                        Vector3D rtt = obj.WorldMatrix.Right;
-                        Vector3D pos = (obj as IMyEntity).GetPosition();
-                        var platAtRange = MyGamePruningStructure.GetClosestPlanet(pos);
-                        if (platAtRange != null && platAtRange.HasAtmosphere)
+                        foreach (var i in lootAmmount.Keys)
                         {
-                            var pos2 = new Vector3((float)pos.X, (float)pos.Y, (float)pos.Z);
-                            var surfaceRange = platAtRange.GetClosestSurfacePointGlobal(pos);
-                            if (Vector3.Distance(pos, surfaceRange) < MAX_DISTANCE_TO_GENERATE_LOOT)
-                            {
-                                var lootAmmount = new Dictionary<int, double>();
-                                for (int c = 0; c < MAX_DROP_TRY_COUNT; c++)
-                                {
-                                    var i = rnd.Next(0, MINE_DROPS.Count - 1);
-                                    if (MINE_DROPS[i].ValidSubType.Contains(subTypeId))
-                                    {
-                                        if (rnd.Next(1, 101) <= MINE_DROPS[i].Chance)
-                                            lootAmmount.Add(i, MINE_DROPS[i].Ammount);
-                                        if (lootAmmount.Count >= MAX_DROP_COUNT)
-                                            break;
-                                    }
-                                }
-                                foreach (var i in lootAmmount.Keys)
-                                {
-                                    MyFixedPoint amountfinal = (int)lootAmmount[i];
-                                    MyFloatingObjects.Spawn(new MyPhysicalInventoryItem(amountfinal, ItensConstants.GetPhysicalObjectBuilder(MINE_DROPS[i].ItemId)), pos, fww, upp);
-                                }
-                            }
+                            MyFixedPoint amountfinal = (int)lootAmmount[i];
+                            MyFloatingObjects.Spawn(new MyPhysicalInventoryItem(amountfinal, ItensConstants.GetPhysicalObjectBuilder(i)), pos, fww, upp);
                         }
                     }
+                    return true;
                 }
-                return true;
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(SuperficialMiningController), ex);
             }
             return false;
         }

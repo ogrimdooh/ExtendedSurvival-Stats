@@ -111,7 +111,8 @@ namespace ExtendedSurvival.Stats
                 var farmDef = FarmConstants.DEFINITIONS[Id];
                 var fertilizerDef = SeedsAndFertilizerConstants.FERTILIZERS_DEFINITIONS[farmDef.PreferredFertilizer];
                 values.AppendLine(" ");
-                values.AppendLine("Mushrooms can be multiplied by putting together fertilizer and ice on farms.");
+                values.AppendLine("Mushrooms can be multiplied by putting together" + Environment.NewLine + 
+                                  "fertilizer and ice on farms.");
                 values.AppendLine(string.Format("Need sunlight: {0}", farmDef.SunRequired ? "Yes" : "No"));
                 values.AppendLine(string.Format("Favorite Fertilizer: {0}", fertilizerDef.Name));
             }

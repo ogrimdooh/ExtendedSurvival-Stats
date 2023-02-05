@@ -17,7 +17,8 @@ namespace ExtendedSurvival.Stats
             }
             else
             {
-                values.AppendLine(string.Format("Provides a {0}% production multiplier when used with compatible plants.", (FarmConstants.PREFER_FERTILIZER_MULTIPLIER * 100).ToString("#0.00")));
+                values.AppendLine(string.Format("Provides a {0}% production multiplier when used" + Environment.NewLine + 
+                                                "with compatible plants.", (FarmConstants.PREFER_FERTILIZER_MULTIPLIER * 100).ToString("#0.00")));
                 values.AppendLine("It is compatible with:");
                 foreach (var farmDefKey in FarmConstants.DEFINITIONS.Where(x => x.Value.PreferredFertilizer == Id).Select(x => x.Key))
                 {

@@ -418,7 +418,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = SUPERFERTILIZER_ID,
             Name = "Super Fertilizer",
-            Description = "Mixture of mineral and organic fertilizers, can be used efficiently with all seeds.",
+            Description = "Mixture of mineral and organic fertilizers," + Environment.NewLine + 
+                          "can be used efficiently with all seeds.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 18000,
             OfferAmount = new Vector2I(100, 300),
@@ -504,7 +505,9 @@ namespace ExtendedSurvival.Stats
         {
             Id = APPLETREE_ID,
             Name = "Apple Tree",
-            Description = "Can generate apples and saplings if placed with fertilizer and ice in a tree farm, also can be turned into wood in a grinder.",
+            Description = "Can generate apples and saplings if placed with fertilizer" + Environment.NewLine +
+                          "and ice in a tree farm, also can be turned into wood in a" + Environment.NewLine + 
+                          "grinder.",
             Mass = 1250f,
             Volume = 1250f,
             RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
@@ -546,7 +549,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = APPLETREESEEDLING_ID,
             Name = "Apple Tree Seedling",
-            Description = "Can grow into an apple tree if placed with fertilizer and ice in a tree farm.",
+            Description = "Can grow into an apple tree if placed with fertilizer" + Environment.NewLine + 
+                          "and ice in a tree farm.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 12500,
             OfferAmount = new Vector2I(10, 30),

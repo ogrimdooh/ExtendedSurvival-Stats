@@ -241,7 +241,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = ItensConstants.HEALTH_BUSTER_ID,
             Name = "Health Buster",
-            Description = "A powerful injectable that causes spontaneous regeneration in the body.",
+            Description = "A powerful injectable that causes spontaneous regeneration" + Environment.NewLine + 
+                          "in the body.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(100, 300),
@@ -306,7 +307,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = ItensConstants.HEALTHINJECTION_ID,
             Name = "Health Injection",
-            Description = "A powerful injectable capable of curing infections, diseases and reducing fatigue.",
+            Description = "A powerful injectable capable of curing infections, diseases" + Environment.NewLine + 
+                          "and reducing fatigue.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(100, 300),
@@ -379,7 +381,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = ItensConstants.HEALTHPOWERINJECTION_ID,
             Name = "Health Power Injection",
-            Description = "A very powerful injectable that causes spontaneous regeneration in the body.",
+            Description = "A very powerful injectable that causes spontaneous regeneration" + Environment.NewLine + 
+                          "in the body.",
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(100, 300),
