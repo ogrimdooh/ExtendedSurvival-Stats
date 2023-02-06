@@ -5,6 +5,7 @@ using Sandbox.Game.EntityComponents;
 using Sandbox.ModAPI;
 using System;
 using System.Linq;
+using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.ModAPI;
@@ -16,6 +17,20 @@ namespace ExtendedSurvival.Stats
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false, "SmallBlockRefrigerator", "LargeBlockRefrigerator")]
     public class RefrigeratorBlock : SimpleInventoryLogicComponent<IMyGasGenerator>
     {
+
+        public const string LARGE_BLOCK_NAME = "Large Refrigerator";
+        public const string SMALL_BLOCK_NAME = "Small Refrigerator"; 
+
+        public static string GetFullDescription(bool smallBlock)
+        {
+            float basePowerUse = smallBlock ? 0.005f : 0.025f;
+            var values = new StringBuilder();
+            values.AppendLine(string.Format(
+                "Refrigerator are blocks that can keep items from rotting. The energy cost varies based in inventory volume, " + string.Format(
+                "from {0}kW/h up to {1}kW/h.", (basePowerUse * 1000).ToString("#0.0"), (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0"))
+            ));
+            return values.ToString();
+        }
 
         private const float MAS_MASS = int.MaxValue;
         private const float MAS_VOLUME = 1.250f;

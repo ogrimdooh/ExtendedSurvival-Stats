@@ -13,12 +13,25 @@ using VRageMath;
 using VRage.Utils;
 using System.Linq;
 using Sandbox.Common.ObjectBuilders.Definitions;
+using System.Text;
 
 namespace ExtendedSurvival.Stats
 {
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenFarm), false, "LargeBlockTreeFarm")]
     public class TreeFarmBlock : BaseInventoryLogicComponent<IMyOxygenFarm>
     {
+
+        public const string BLOCK_NAME = "Tree Farm";
+
+        public static string GetFullDescription()
+        {
+            var values = new StringBuilder();
+            values.AppendLine(string.Format(
+                "Tree farms are blocks that can grow and keep trees alive to produce fruit when you have ice and fertilizer in your inventory. " +
+                "Rotting time decreases by {0}% when producing.", (FarmConstants.BASE_SPOILMULTIPLIER_WITH_TREE * 100).ToString("#0.0")
+            ));
+            return values.ToString();
+        }
 
         private const float MAS_MASS = int.MaxValue;
         private const float MAS_VOLUME = 4;

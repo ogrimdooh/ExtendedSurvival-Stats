@@ -5,9 +5,11 @@ using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using VRage;
 using VRage.Game;
 using VRage.Game.Components;
+using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
 using VRageMath;
@@ -18,6 +20,21 @@ namespace ExtendedSurvival.Stats
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false, "FishTrap")]
     public class FishTrapBlock : SimpleInventoryLogicComponent<IMyGasGenerator>
     {
+
+        public const string BLOCK_NAME = "Fish Trap";
+
+        public static string GetFullDescription()
+        {
+            float basePowerUse = 0.005f;
+            var values = new StringBuilder();
+            values.AppendLine(string.Format(
+                "Fish traps are blocks that can capture fish by consuming baits, they need to be submerged and connected to submerged collectors to work. " + string.Format(
+                "The fishing cycles are {0}s and cost of energy can vary from {1}kW/h up to {2}kW/h.", (TIME_TO_GENERATE / 1000).ToString("#0.0"), (basePowerUse * 1000).ToString("#0.0"), (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0"))
+            ));
+            return values.ToString();
+        }
+
+        public static readonly string[] COMPOSTERS_IDS = new string[] { "LargeBlockComposter" };
 
         public class CollectorsToConnect
         {
@@ -62,7 +79,7 @@ namespace ExtendedSurvival.Stats
         private const float MAS_VOLUME = 2.587f;
 
         private const float POWER_MULTIPLIER = 100f;
-        private const float TIME_TO_GENERATE = 5000f;
+        private const long TIME_TO_GENERATE = 5000;
         public static readonly Dictionary<UniqueEntityId, FishingBaitDefinition> BAIT_RESULT = new Dictionary<UniqueEntityId, FishingBaitDefinition>()
         {
             {
@@ -198,10 +215,49 @@ namespace ExtendedSurvival.Stats
         }
 
         private bool _inventoryDefined = false;
-        private DateTime deltaTime = DateTime.Now;
-        private float progress = 0;
+        private long deltaTime = 0;
+        private long progress = 0;
         private CollectorsToConnect totalConector = new CollectorsToConnect();
         private bool isWorking = false;
+
+        private long GetGameTime()
+        {
+            return ExtendedSurvivalCoreAPI.Registered ? ExtendedSurvivalCoreAPI.GetGameTime() : 0;
+        }
+
+        public void DoRefreshDeltaTime()
+        {
+            deltaTime = GetGameTime();
+        }
+
+        public void DoRefreshLastCompostersUpdate()
+        {
+            lastUpdate = GetGameTime();
+        }
+
+        protected const long MIN_TO_UPDATE = 10000;
+        protected long lastUpdate = 0;
+        protected List<IMySlimBlock> composters = new List<IMySlimBlock>();
+        protected virtual void RefreshComposters()
+        { 
+            try
+            {
+                if (ExtendedSurvivalCoreAPI.Registered)
+                {
+                    var spendFromLastUpdate = GetGameTime() - lastUpdate;
+                    if (spendFromLastUpdate > MIN_TO_UPDATE)
+                    {
+                        DoRefreshLastCompostersUpdate();
+                        composters.Clear();
+                        Grid.GetBlocks(composters, x => COMPOSTERS_IDS.Contains(x.BlockDefinition.Id.SubtypeName));
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+            }
+        }
 
         protected override void OnInit(MyObjectBuilder_EntityBase objectBuilder)
         {
@@ -275,14 +331,18 @@ namespace ExtendedSurvival.Stats
                     if (IsPowered && Grid != null && planetAtRange != null && totalConector.Total > 0)
                     {
                         var planetType = planetAtRange.Entity.Name;
-                        var spendTime = DateTime.Now - deltaTime;
-                        progress += (float)spendTime.TotalMilliseconds;
+                        if (deltaTime == 0)
+                            DoRefreshDeltaTime();
+                        progress += GetGameTime() - deltaTime;
+                        DoRefreshDeltaTime();
                         if (progress > TIME_TO_GENERATE)
                         {
                             progress -= TIME_TO_GENERATE;
-                            foreach (var key in BAIT_RESULT.Keys)
+                            if (inventoryObservers.Any())
                             {
-                                if (inventoryObservers.Any())
+                                int countGenerated = 0;
+                                bool needBaits = false;
+                                foreach (var key in BAIT_RESULT.Keys)
                                 {
                                     var baitItens = ExtendedSurvivalCoreAPI.GetItemInfoByItemType(GetObserver(0), key.DefinitionId);
                                     if (baitItens != null && baitItens.Any())
@@ -302,7 +362,6 @@ namespace ExtendedSurvival.Stats
                                                 if (validResults.Length > 0)
                                                 {
                                                     Inventory.RemoveItems(baitItem.ItemId, (MyFixedPoint)totalToConsume);
-                                                    int countGenerated = 0;
                                                     foreach (var item in validResults)
                                                     {
                                                         if (CheckCanGenerate(item.ChanceToGenerate))
@@ -317,21 +376,57 @@ namespace ExtendedSurvival.Stats
                                                 }
                                                 break;
                                             }
+                                            else
+                                            {
+                                                needBaits = true;
+                                            }
                                         }
+                                        else
+                                        {
+                                            needBaits = true;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        needBaits = true;
+                                    }
+                                }
+                                if (countGenerated == 0 && needBaits)
+                                {
+                                    RefreshComposters();
+                                    foreach (var block in composters.Where(x => x.FatBlock != null && x.FatBlock.GetInventory().CanTransferItemTo(Inventory, BAIT_RESULT.Keys.First().DefinitionId)))
+                                    {
+                                        var targetInv = block.FatBlock.GetInventory();
+                                        bool baitAdded = false;
+                                        foreach (var key in BAIT_RESULT.Keys)
+                                        {
+                                            var amount = targetInv.GetItemAmount(key.DefinitionId);
+                                            if (amount > 0)
+                                            {
+                                                var amountAdded = (Inventory as IMyInventory).AddMaxItems(amount, ItensConstants.GetPhysicalObjectBuilder(key));
+                                                targetInv.RemoveItemsOfType(amountAdded, key.DefinitionId);
+                                                baitAdded = true;
+                                            }
+                                        }
+                                        if (baitAdded)
+                                            break;
                                     }
                                 }
                             }
                         }
                     }
                     else
+                    {
                         progress = 0;
+                        DoRefreshDeltaTime();
+                    }
                 }
                 else
                 {
                     progress = 0;
                     isWorking = false;
+                    DoRefreshDeltaTime();
                 }
-                deltaTime = DateTime.Now;
             }
             UpdatePowerConsume();
         }

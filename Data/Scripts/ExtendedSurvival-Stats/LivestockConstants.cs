@@ -1234,6 +1234,26 @@ namespace ExtendedSurvival.Stats
             { CHICKEN_ID, BASE_CHICKEN_INFO }
         };
 
+        private static UniqueEntityId[] productionIds = null;
+        public static UniqueEntityId[] GetProductionIds()
+        {
+            if (productionIds == null)
+            {
+                var ids = new HashSet<UniqueEntityId>();
+                foreach (var item in ANIMALS)
+                {
+                    foreach (var productions in item.Value.customProductions)
+                    {
+                        ids.Add(productions.product);
+                        if (productions.requiredProduct != null)
+                            ids.Add(productions.requiredProduct);
+                    }
+                }
+                productionIds = ids.ToArray();
+            }
+            return productionIds;
+        }
+
         public static AnimalInfo? GetAnimalInfo(UniqueEntityId itemId)
         {
             if (ANIMALS.Values.Any(x => x.genderIds.Any(y => y.Value == itemId)))

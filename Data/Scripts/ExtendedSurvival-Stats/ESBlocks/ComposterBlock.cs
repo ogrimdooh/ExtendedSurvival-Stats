@@ -128,8 +128,18 @@ namespace ExtendedSurvival.Stats
             NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
 
-        private DateTime deltaTime = DateTime.Now;
-        private float progress = 0;
+        private long GetGameTime()
+        {
+            return ExtendedSurvivalCoreAPI.Registered ? ExtendedSurvivalCoreAPI.GetGameTime() : 0;
+        }
+
+        public void DoRefreshDeltaTime()
+        {
+            deltaTime = GetGameTime();
+        }
+
+        private long deltaTime = 0;
+        private long progress = 0;
 
         protected override void OnUpdateAfterSimulation100()
         {
@@ -179,13 +189,13 @@ namespace ExtendedSurvival.Stats
             return volume * 100 / MAS_VOLUME;
         }
 
-        private float GetTimeToGenerate()
+        private long GetTimeToGenerate()
         {
             var smAmount = (float)Inventory.GetItemAmount(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
             if (smAmount == 0)
-                return MAX_TIME_TO_GENERATE;
+                return (long)MAX_TIME_TO_GENERATE;
             var timeToReduce = MAX_TIME_TO_GENERATE * GetSpoilMaterialFilledFactor(smAmount);
-            return Math.Max(MIN_TIME_TO_GENERATE, MAX_TIME_TO_GENERATE - timeToReduce);
+            return (long)Math.Max(MIN_TIME_TO_GENERATE, MAX_TIME_TO_GENERATE - timeToReduce);
         }
 
         private void UpdatePowerConsume()
@@ -199,8 +209,10 @@ namespace ExtendedSurvival.Stats
                 }
                 if (IsPowered && HasSpoilMaterial)
                 {
-                    var spendTime = DateTime.Now - deltaTime;
-                    progress += (float)spendTime.TotalMilliseconds;
+                    if (deltaTime == 0)
+                        DoRefreshDeltaTime();
+                    progress += GetGameTime() - deltaTime;
+                    DoRefreshDeltaTime();
                     var timeToUse = GetTimeToGenerate();
                     if (progress > timeToUse)
                     {
@@ -216,8 +228,10 @@ namespace ExtendedSurvival.Stats
                     }
                 }
                 else
-                    progress = 0;
-                deltaTime = DateTime.Now;
+                {
+                    progress = 0; 
+                    DoRefreshDeltaTime();
+                }
             }
         }
 

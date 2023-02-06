@@ -3,6 +3,7 @@ using Sandbox.Definitions;
 using Sandbox.ModAPI;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRage.ObjectBuilders;
@@ -12,6 +13,20 @@ namespace ExtendedSurvival.Stats
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Assembler), false, "BasicFoodProcessor", "FoodProcessor", "FoodProcessorIndustrial")]
     public class FoodProcessorBlock : BaseAssemblerBlock
     {
+
+        public const string BASIC_BLOCK_NAME = "Basic Food Processor";
+        public const string BLOCK_NAME = "Food Processor";
+        public const string INDUSTRIAL_BLOCK_NAME = "Industrial Food Processor";
+
+        public static string GetFullDescription()
+        {
+            var values = new StringBuilder();
+            values.AppendLine(string.Format(
+                "Food processors are blocks that can prepare and cook food. " +
+                "At the end of production, if you have a refrigerator connected, it will store food automatically."
+            ));
+            return values.ToString();
+        }
 
         public static readonly string[] REFRIGERATOS_IDS = new string[] { "SmallBlockRefrigerator", "LargeBlockRefrigerator" };
         public static readonly string[] RISHTRAPS_IDS = new string[] { "FishTrap" };

@@ -15,6 +15,7 @@ using VRage;
 using System.Linq;
 using VRage.Utils;
 using VRageMath;
+using System.Text;
 
 namespace ExtendedSurvival.Stats
 {
@@ -22,6 +23,20 @@ namespace ExtendedSurvival.Stats
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenFarm), false, "LargeBlockFarm")]
     public class FarmBlock : BaseInventoryLogicComponent<IMyOxygenFarm>
     {
+
+        public const string BLOCK_NAME = "Farm";
+
+        public static string GetFullDescription()
+        {
+            var values = new StringBuilder();
+            values.AppendLine(string.Format(
+                "Farms are blocks that generate vegetables, mushrooms and herbs when seeds, ice and fertilizers are placed in the inventory. " +
+                "Resource cost increases by {0}% for extra seed type and rotting time decreases by {0}% when producing.", 
+                (FarmConstants.BASE_INCRESE_COST * 100).ToString("#0.0"),
+                (FarmConstants.BASE_SPOILMULTIPLIER_WITH_TREE * 100).ToString("#0.0")
+            ));
+            return values.ToString();
+        }
 
         private const float MAS_MASS = int.MaxValue;
         private const float MAS_VOLUME = 4;
@@ -339,7 +354,7 @@ namespace ExtendedSurvival.Stats
         protected override void OnUpdateAfterSimulation100()
         {
             base.OnUpdateAfterSimulation100();
-
+            
         }
 
     }

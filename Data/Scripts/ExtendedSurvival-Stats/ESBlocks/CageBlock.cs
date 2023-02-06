@@ -21,6 +21,20 @@ namespace ExtendedSurvival.Stats
     public class CageBlock : SimpleInventoryLogicComponent<IMyCargoContainer> 
     {
 
+        public const string SMALL_BLOCK_NAME = "Small Cage";
+        public const string BLOCK_NAME = "Small Cage";
+        public const string LARGE_BLOCK_NAME = "Large Cage";
+
+        public static string GetFullDescription()
+        {
+            var values = new StringBuilder();
+            values.AppendLine(string.Format(
+                "Cage are blocks used to store and keep captured animals alive. " +
+                "When you feed the animals they will eat to stay alive, and in some cases produce products."
+            ));
+            return values.ToString();
+        }
+
         private const float INV_SMALL_MASS = int.MaxValue;
         private const float INV_SMALL_VOLUME = 0.900f;
 
@@ -119,8 +133,18 @@ namespace ExtendedSurvival.Stats
             NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
 
-        private DateTime deltaTime = DateTime.Now;
-        private float progress = 0;
+        private long GetGameTime()
+        {
+            return ExtendedSurvivalCoreAPI.Registered ? ExtendedSurvivalCoreAPI.GetGameTime() : 0;
+        }
+
+        public void DoRefreshDeltaTime()
+        {
+            deltaTime = GetGameTime();
+        }
+
+        private long deltaTime = 0;
+        private long progress = 0;
         private Dictionary<uint, float> reproductionProgress = new Dictionary<uint, float>();
         protected override void OnUpdateAfterSimulation100()
         {
@@ -144,16 +168,16 @@ namespace ExtendedSurvival.Stats
                 {
                     definition.InputConstraint.Add(item.DefinitionId);
                 }
-                definition.InputConstraint.Add(RationConstants.MEATRATION_ID.DefinitionId);
-                definition.InputConstraint.Add(RationConstants.VEGETABLERATION_ID.DefinitionId);
-                definition.InputConstraint.Add(RationConstants.GRAINSRATION_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.POOP_ID.DefinitionId);
+                foreach (var item in RationConstants.RATIONS_DEFINITIONS.Keys)
+                {
+                    definition.InputConstraint.Add(item.DefinitionId);
+                }
+                foreach (var item in LivestockConstants.GetProductionIds())
+                {
+                    definition.InputConstraint.Add(item.DefinitionId);
+                }
                 definition.InputConstraint.Add(ItensConstants.BONES_ID.DefinitionId);
                 definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.ALIEN_EGG_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.EGG_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.MILK_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.FLASK_BIG_ID.DefinitionId);
                 Inventory.Init(definition);
                 _inventoryDefined = true;
             }
@@ -161,8 +185,10 @@ namespace ExtendedSurvival.Stats
             {
                 if (HasAnimals && HasRation)
                 {
-                    var spendTime = DateTime.Now - deltaTime;
-                    progress += (float)spendTime.TotalMilliseconds;
+                    if (deltaTime == 0)
+                        DoRefreshDeltaTime();
+                    progress += GetGameTime() - deltaTime;
+                    DoRefreshDeltaTime();
                     if (progress > LivestockConstants.FEED_TIME_CICLE)
                     {
                         progress -= LivestockConstants.FEED_TIME_CICLE;
@@ -227,7 +253,7 @@ namespace ExtendedSurvival.Stats
                                                         {
                                                             if (!reproductionProgress.ContainsKey(animal.ItemId))
                                                                 reproductionProgress.Add(animal.ItemId, 0);
-                                                            reproductionProgress[animal.ItemId] += (float)spendTime.TotalMilliseconds;
+                                                            reproductionProgress[animal.ItemId] += LivestockConstants.FEED_TIME_CICLE;
                                                             if (reproductionProgress[animal.ItemId] > LivestockConstants.REPRODUCTION_TIME_CICLE)
                                                             {
                                                                 reproductionProgress[animal.ItemId] -= LivestockConstants.REPRODUCTION_TIME_CICLE;
@@ -260,8 +286,10 @@ namespace ExtendedSurvival.Stats
                     }
                 }
                 else
+                {
                     reproductionProgress.Clear();
-                deltaTime = DateTime.Now;
+                    DoRefreshDeltaTime();
+                }
             }
         }
 
