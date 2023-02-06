@@ -40,7 +40,6 @@
       <BlockPairName>BlockRefrigerator</BlockPairName>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>22</BuildTimeSeconds>
-      <ResourceSourceGroup>Reactors</ResourceSourceGroup>
       <ResourceSinkGroup>Factory</ResourceSinkGroup>
       <IceConsumptionPerSecond>25</IceConsumptionPerSecond>
       <InventoryMaxVolume>4</InventoryMaxVolume>
@@ -115,7 +114,6 @@
       <Center x="1" y="1" z="0" />
       <BuildTimeSeconds>14</BuildTimeSeconds>
       <EdgeType>Light</EdgeType>
-      <ResourceSourceGroup>Reactors</ResourceSourceGroup>
       <ResourceSinkGroup>Factory</ResourceSinkGroup>
       <IceConsumptionPerSecond>5</IceConsumptionPerSecond>
       <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>

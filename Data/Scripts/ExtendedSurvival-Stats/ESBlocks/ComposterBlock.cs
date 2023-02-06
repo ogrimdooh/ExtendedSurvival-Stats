@@ -5,6 +5,7 @@ using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.ModAPI;
@@ -17,7 +18,23 @@ namespace ExtendedSurvival.Stats
     public class ComposterBlock : SimpleInventoryLogicComponent<IMyGasGenerator>
     {
 
-        private class DecompositionResultDefinition
+        public const string BLOCK_NAME = "Composter";
+
+        public static string GetFullDescription()
+        {
+            float basePowerUse = 0.0125f;
+            var values = new StringBuilder();
+            values.AppendLine(string.Format(
+                "Composters are blocks that can speed up up to {0}x the ", SPOIL_MULTIPLIER) +
+                "rotting of itens. If it had organic material in the inventory, " +
+                "will spawn fish baits in time cicle, this cicles can ranges from " + string.Format(
+                "{0}s to {1}s based in amount of organic material.", (MIN_TIME_TO_GENERATE / 1000).ToString("#0.0"), (MAX_TIME_TO_GENERATE / 1000).ToString("#0.0")) +
+                "The energy cost varies based in inventory volume, " + string.Format(
+                "from {0}kW/h up to {1}kW/h.", (basePowerUse * 1000).ToString("#0.0"), (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0")));
+            return values.ToString();
+        }
+
+        public class DecompositionResultDefinition
         {
 
             public UniqueEntityId Product { get; set; }
@@ -30,22 +47,23 @@ namespace ExtendedSurvival.Stats
         private const float MAS_MASS = int.MaxValue;
         private const float MAS_VOLUME = 1.250f;
 
-        private const float POWER_MULTIPLIER = 100f;
-        private const float SPOIL_MULTIPLIER = 10f;
+        public const float POWER_MULTIPLIER = 100f;
+        public const float SPOIL_MULTIPLIER = 10f;
 
-        private const float TIME_TO_GENERATE = 5000f;
-        private static readonly List<DecompositionResultDefinition> DECOMPOSITION_RESULT = new List<DecompositionResultDefinition>()
+        public const float MAX_TIME_TO_GENERATE = 10000f;
+        public const float MIN_TIME_TO_GENERATE = 2500f;
+        public static readonly List<DecompositionResultDefinition> DECOMPOSITION_RESULT = new List<DecompositionResultDefinition>()
         {
             new DecompositionResultDefinition()
             {
-                Product =ItensConstants.FISH_BAIT_SMALL_ID,
+                Product =FishingConstants.FISH_BAIT_SMALL_ID,
                 BaseFactor = new Vector2(0.4f, 0.8f),
                 AllowDecimal = true,
                 ChanceToGenerate = 15
             },
             new DecompositionResultDefinition()
             {
-                Product =ItensConstants.FISH_NOBLE_BAIT_ID,
+                Product =FishingConstants.FISH_NOBLE_BAIT_ID,
                 BaseFactor = new Vector2(0.1f, 0.2f),
                 AllowDecimal = true,
                 ChanceToGenerate = 7.5f
@@ -127,21 +145,47 @@ namespace ExtendedSurvival.Stats
                         MaxItemCount = int.MaxValue,
                         Mass = MaxMass,
                         Volume = MaxVolume,
-                        InputConstraint = new MyInventoryConstraint("RefrigeratorInventory", null, true)
+                        InputConstraint = new MyInventoryConstraint("ComposterInventory", null, true)
                     };
                     foreach (var item in FoodConstants.FOOD_DEFINITIONS.Keys)
                     {
                         definition.InputConstraint.Add(item.DefinitionId);
                     }
-                    definition.InputConstraint.Add(ItensConstants.FISH_BAIT_SMALL_ID.DefinitionId);
-                    definition.InputConstraint.Add(ItensConstants.FISH_NOBLE_BAIT_ID.DefinitionId);
+                    foreach (var item in LivestockConstants.DEAD_ANIMALS_IDS)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
+                    foreach (var item in FishingConstants.FISHS_DEFINITIONS.Keys)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
+                    foreach (var item in FishingConstants.FISH_BAITS_DEFINITIONS.Keys)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
                     definition.InputConstraint.Add(ItensConstants.FISH_BONES_ID.DefinitionId);
-                    definition.InputConstraint.Add(ItensConstants.BOWL_ID.DefinitionId);
+                    definition.InputConstraint.Add(ItensConstants.BONES_ID.DefinitionId);
+                    definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
                     Inventory.Init(definition);
                 }
                 _inventoryDefined = true;
             }
             UpdatePowerConsume();
+        }
+
+        private float GetSpoilMaterialFilledFactor(float amount)
+        {
+            var volume = amount * 0.4f;
+            return volume * 100 / MAS_VOLUME;
+        }
+
+        private float GetTimeToGenerate()
+        {
+            var smAmount = (float)Inventory.GetItemAmount(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
+            if (smAmount == 0)
+                return MAX_TIME_TO_GENERATE;
+            var timeToReduce = MAX_TIME_TO_GENERATE * GetSpoilMaterialFilledFactor(smAmount);
+            return Math.Max(MIN_TIME_TO_GENERATE, MAX_TIME_TO_GENERATE - timeToReduce);
         }
 
         private void UpdatePowerConsume()
@@ -157,9 +201,10 @@ namespace ExtendedSurvival.Stats
                 {
                     var spendTime = DateTime.Now - deltaTime;
                     progress += (float)spendTime.TotalMilliseconds;
-                    if (progress > TIME_TO_GENERATE)
+                    var timeToUse = GetTimeToGenerate();
+                    if (progress > timeToUse)
                     {
-                        progress -= TIME_TO_GENERATE;
+                        progress -= timeToUse;
                         foreach (var item in DECOMPOSITION_RESULT)
                         {
                             if (CheckCanGenerate(item.ChanceToGenerate))

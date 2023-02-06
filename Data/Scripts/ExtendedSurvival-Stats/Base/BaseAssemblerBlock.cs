@@ -61,6 +61,12 @@ namespace ExtendedSurvival.Stats
             CheckQueue();
         }
 
+        protected virtual void OnCheckQueueNotFoundPrerequisiteInOutputInventory(MyProductionQueueItem queue, 
+            MyBlueprintDefinitionBase blueprint, MyBlueprintDefinitionBase.Item item)
+        {
+
+        }
+
         private void CheckQueue()
         {
             try
@@ -84,6 +90,10 @@ namespace ExtendedSurvival.Stats
                                     }
                                     var amountAdded = (InputInventory as IMyInventory).AddMaxItems(requiredAmount, ItensConstants.GetPhysicalObjectBuilder(new UniqueEntityId(prerequisites.Id)));
                                     OutputInventory.RemoveItemsOfType(amountAdded, prerequisites.Id);
+                                }
+                                else
+                                {
+                                    OnCheckQueueNotFoundPrerequisiteInOutputInventory(queue, blueprint, prerequisites);
                                 }
                             }
                         }

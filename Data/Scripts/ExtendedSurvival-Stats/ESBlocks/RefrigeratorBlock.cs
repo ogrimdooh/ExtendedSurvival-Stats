@@ -94,8 +94,17 @@ namespace ExtendedSurvival.Stats
                     {
                         definition.InputConstraint.Add(item.DefinitionId);
                     }
+                    foreach (var item in LivestockConstants.DEAD_ANIMALS_IDS)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
+                    foreach (var item in FishingConstants.FISHS_DEFINITIONS.Keys)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
                     definition.InputConstraint.Add(ItensConstants.FISH_BONES_ID.DefinitionId);
-                    definition.InputConstraint.Add(ItensConstants.BOWL_ID.DefinitionId);
+                    definition.InputConstraint.Add(ItensConstants.BONES_ID.DefinitionId);
+                    definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
                     Inventory.Init(definition);
                 }
                 _inventoryDefined = true;

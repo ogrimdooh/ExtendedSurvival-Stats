@@ -438,6 +438,10 @@ namespace ExtendedSurvival.Stats
                         {
                             ExtendedSurvivalCoreAPI.AddItemExtraInfo(itemKey.Value.GetItemExtraInfo());
                         }
+                        foreach (var itemKey in FishingConstants.FISHS_DEFINITIONS)
+                        {
+                            ExtendedSurvivalCoreAPI.AddItemExtraInfo(itemKey.Value.GetItemExtraInfo());
+                        }
                         foreach (var itemKey in ItensConstants.ITEM_EXTRA_INFO_DEF.Keys)
                         {
                             ExtendedSurvivalCoreAPI.AddItemExtraInfo(ItensConstants.ITEM_EXTRA_INFO_DEF[itemKey]);
@@ -517,12 +521,14 @@ namespace ExtendedSurvival.Stats
                 LivestockConstants.TryOverrideDefinitions();
                 EquipmentConstants.TryOverrideDefinitions();
                 SeedsAndFertilizerConstants.TryOverrideDefinitions();
+                FishingConstants.TryOverrideDefinitions();
                 FactionTypeConstants.TryOverrideDefinitions();
 
                 // SPAWNS
                 SpawnGroupOverride.SetDefinitions();
 
                 // BLOCKS
+                DescriptionBlocksOverride.TryOverride();
                 AssemblerOverride.TryOverride();
 
                 //HUD

@@ -40,7 +40,6 @@
       <BlockPairName>BlockComposter</BlockPairName>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>22</BuildTimeSeconds>
-      <ResourceSourceGroup>Reactors</ResourceSourceGroup>
       <ResourceSinkGroup>Factory</ResourceSinkGroup>
       <IceConsumptionPerSecond>25</IceConsumptionPerSecond>
       <InventoryMaxVolume>4</InventoryMaxVolume>

@@ -34,7 +34,7 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        private class FishingBaitDefinition
+        public class FishingBaitDefinition
         {
 
             public Vector2 ConsumeFactor { get; set; }
@@ -44,7 +44,7 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        private class FishingResultDefinition
+        public class FishingResultDefinition
         {
 
             public UniqueEntityId Product { get; set; }
@@ -63,10 +63,10 @@ namespace ExtendedSurvival.Stats
 
         private const float POWER_MULTIPLIER = 100f;
         private const float TIME_TO_GENERATE = 5000f;
-        private static readonly Dictionary<UniqueEntityId, FishingBaitDefinition> BAIT_RESULT = new Dictionary<UniqueEntityId, FishingBaitDefinition>()
+        public static readonly Dictionary<UniqueEntityId, FishingBaitDefinition> BAIT_RESULT = new Dictionary<UniqueEntityId, FishingBaitDefinition>()
         {
             {
-                ItensConstants.FISH_BAIT_SMALL_ID,
+                FishingConstants.FISH_BAIT_SMALL_ID,
                 new FishingBaitDefinition()
                 {
                     ConsumeFactor = new Vector2(0.1f, 0.5f),
@@ -76,7 +76,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.FISH_ID,
+                            Product = FishingConstants.FISH_ID,
                             BaseFactor = new Vector2(1,2),
                             AllowDecimal = false,
                             ChanceToGenerate = 30,
@@ -85,7 +85,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.SHRIMP_ID,
+                            Product = FishingConstants.SHRIMP_ID,
                             BaseFactor = new Vector2(1,2),
                             AllowDecimal = false,
                             ChanceToGenerate = 15,
@@ -94,7 +94,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.NOBLEFISH_ID,
+                            Product = FishingConstants.NOBLEFISH_ID,
                             BaseFactor = new Vector2(1,1),
                             AllowDecimal = false,
                             ChanceToGenerate = 5,
@@ -103,7 +103,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.ALIENFISH_ID,
+                            Product = FishingConstants.ALIENFISH_ID,
                             BaseFactor = new Vector2(1,2),
                             AllowDecimal = false,
                             ChanceToGenerate = 30,
@@ -112,7 +112,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.ALIENNOBLEFISH_ID,
+                            Product = FishingConstants.ALIENNOBLEFISH_ID,
                             BaseFactor = new Vector2(1,1),
                             AllowDecimal = false,
                             ChanceToGenerate = 5,
@@ -123,7 +123,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                ItensConstants.FISH_NOBLE_BAIT_ID,
+                FishingConstants.FISH_NOBLE_BAIT_ID,
                 new FishingBaitDefinition()
                 {
                     ConsumeFactor = new Vector2(0.1f, 0.5f),
@@ -133,7 +133,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.FISH_ID,
+                            Product = FishingConstants.FISH_ID,
                             BaseFactor = new Vector2(1,2),
                             AllowDecimal = false,
                             ChanceToGenerate = 60,
@@ -142,7 +142,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.SHRIMP_ID,
+                            Product = FishingConstants.SHRIMP_ID,
                             BaseFactor = new Vector2(1,2),
                             AllowDecimal = false,
                             ChanceToGenerate = 30,
@@ -151,7 +151,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.NOBLEFISH_ID,
+                            Product = FishingConstants.NOBLEFISH_ID,
                             BaseFactor = new Vector2(1,1),
                             AllowDecimal = false,
                             ChanceToGenerate = 10,
@@ -160,7 +160,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.ALIENFISH_ID,
+                            Product = FishingConstants.ALIENFISH_ID,
                             BaseFactor = new Vector2(1,2),
                             AllowDecimal = false,
                             ChanceToGenerate = 60,
@@ -169,7 +169,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FishingResultDefinition()
                         {
-                            Product = ItensConstants.ALIENNOBLEFISH_ID,
+                            Product = FishingConstants.ALIENNOBLEFISH_ID,
                             BaseFactor = new Vector2(1,1),
                             AllowDecimal = false,
                             ChanceToGenerate = 10,
@@ -252,15 +252,16 @@ namespace ExtendedSurvival.Stats
                     Volume = MAS_VOLUME,
                     InputConstraint = new MyInventoryConstraint("FishTrap", null, true)
                 };
-                definition.InputConstraint.Add(ItensConstants.FISH_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.ALIENFISH_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.NOBLEFISH_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.ALIENNOBLEFISH_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.SHRIMP_ID.DefinitionId);
+                foreach (var item in FishingConstants.FISHS_DEFINITIONS.Keys)
+                {
+                    definition.InputConstraint.Add(item.DefinitionId);
+                }
+                foreach (var item in FishingConstants.FISH_BAITS_DEFINITIONS.Keys)
+                {
+                    definition.InputConstraint.Add(item.DefinitionId);
+                }
                 definition.InputConstraint.Add(ItensConstants.FISH_BONES_ID.DefinitionId);
                 definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.FISH_BAIT_SMALL_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.FISH_NOBLE_BAIT_ID.DefinitionId);
                 Inventory.Init(definition);
                 _inventoryDefined = true;
             }
