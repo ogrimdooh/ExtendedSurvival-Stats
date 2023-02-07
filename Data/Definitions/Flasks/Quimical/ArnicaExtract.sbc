@@ -9,7 +9,7 @@
       </Id>
       <DisplayName>Arnica Extract</DisplayName>
       <Icon>Textures\GUI\Icons\arnica_extract.dds</Icon>
-      <Description></Description>
+      <Description>teste</Description>
       <Size>
         <X>0.14</X>
         <Y>0.43</Y>
@@ -34,6 +34,7 @@
         <SubtypeId>ArnicaExtract_Construction</SubtypeId>
       </Id>
       <DisplayName>Arnica Extract</DisplayName>
+      <Description>teste</Description>
       <Icon>Textures\GUI\Icons\arnica_extract.dds</Icon>
       <Prerequisites>
         <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Water_Flask_Small" />

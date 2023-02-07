@@ -34,7 +34,7 @@
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>NobleMeatToConcentrated_Construction</SubtypeId>
+        <SubtypeId>NobleAlienMeatToConcentrated_Construction</SubtypeId>
       </Id>
       <DisplayName>Concentrated Protein From Alien Noble Meat</DisplayName>
       <Icon>Textures\GUI\Icons\concentrated_protein_from_alien_noble_meat.dds</Icon>
@@ -52,7 +52,7 @@
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>NobleMeatToConcentratedFat_Construction</SubtypeId>
+        <SubtypeId>NobleAlienMeatToConcentratedFat_Construction</SubtypeId>
       </Id>
       <DisplayName>Concentrated Fat From Alien Noble Meat</DisplayName>
       <Icon>Textures\GUI\Icons\concentrated_protein_from_alien_noble_meat.dds</Icon>

@@ -46,12 +46,6 @@ namespace ExtendedSurvival.Stats
         public const string ELITEBODYTRACKER_SUBTYPEID = "EliteBodyTracker";
         public static readonly UniqueEntityId ELITEBODYTRACKER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITEBODYTRACKER_SUBTYPEID);
 
-        public const string PISTOL_PROPOFOL_MAGZINE_SUBTYPEID = "PropofolPistolMagazine";
-        public static readonly UniqueEntityId PISTOL_PROPOFOL_MAGZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_AmmoMagazine), PISTOL_PROPOFOL_MAGZINE_SUBTYPEID);
-
-        public const string PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID = "LidocainPistolMagazine";
-        public static readonly UniqueEntityId PISTOL_LIDOCAIN_MAGZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_AmmoMagazine), PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID);
-
         public const string STEEL_SUBTYPEID = "Steel";
         public static readonly UniqueEntityId STEEL_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), STEEL_SUBTYPEID);
 
@@ -91,6 +85,15 @@ namespace ExtendedSurvival.Stats
         public const string ENHANCEDCHIP_SUBTYPEID = "EnhancedChip";
         public static readonly UniqueEntityId ENHANCEDCHIP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), ENHANCEDCHIP_SUBTYPEID);
 
+        public const string EMPTYPISTOLMAGAZINE_SUBTYPEID = "EmptyPistolMagazine";
+        public static readonly UniqueEntityId EMPTYPISTOLMAGAZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), EMPTYPISTOLMAGAZINE_SUBTYPEID);
+
+        public const string IRONSCREW_SUBTYPEID = "IronScrew";
+        public static readonly UniqueEntityId IRONSCREW_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), IRONSCREW_SUBTYPEID);
+
+        public const string STEELSCREW_SUBTYPEID = "SteelScrew";
+        public static readonly UniqueEntityId STEELSCREW_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), STEELSCREW_SUBTYPEID);
+
         public const string SILICON_SUBTYPEID = "Silicon";
         public static readonly UniqueEntityId SILICON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILICON_SUBTYPEID);
         public static readonly UniqueEntityId SILICON_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILICON_SUBTYPEID);
@@ -98,6 +101,10 @@ namespace ExtendedSurvival.Stats
         public const string COBALT_SUBTYPEID = "Cobalt";
         public static readonly UniqueEntityId COBALT_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), COBALT_SUBTYPEID);
         public static readonly UniqueEntityId COBALT_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COBALT_SUBTYPEID);
+
+        public const string SILVER_SUBTYPEID = "Silver";
+        public static readonly UniqueEntityId SILVER_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILVER_SUBTYPEID);
+        public static readonly UniqueEntityId SILVER_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILVER_SUBTYPEID);
 
         public const string PLATINUM_SUBTYPEID = "Platinum";
         public static readonly UniqueEntityId PLATINUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), PLATINUM_SUBTYPEID);
@@ -118,6 +125,10 @@ namespace ExtendedSurvival.Stats
         public const string NICKEL_SUBTYPEID = "Nickel";
         public static readonly UniqueEntityId NICKEL_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), NICKEL_SUBTYPEID);
         public static readonly UniqueEntityId NICKEL_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), NICKEL_SUBTYPEID);
+
+        public const string ALUMINUM_SUBTYPEID = "Aluminum";
+        public static readonly UniqueEntityId ALUMINUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), ALUMINUM_SUBTYPEID);
+        public static readonly UniqueEntityId ALUMINUM_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ALUMINUM_SUBTYPEID);
 
         public const string MAGNESIUM_SUBTYPEID = "Magnesium";
         public static readonly UniqueEntityId MAGNESIUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), MAGNESIUM_SUBTYPEID);
@@ -230,23 +241,8 @@ namespace ExtendedSurvival.Stats
         public const string RAW_BEETROOT_BOWL_SUBTYPEID = "RawBeetrootBowl";
         public static readonly UniqueEntityId RAW_BEETROOT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_BEETROOT_BOWL_SUBTYPEID);
 
-        public const string SMALLALOEVERAEXTRACT_SUBTYPEID = "SmallAloeVeraExtract";
-        public static readonly UniqueEntityId SMALLALOEVERAEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SMALLALOEVERAEXTRACT_SUBTYPEID);
-        
-        public const string ALOEVERAEXTRACT_SUBTYPEID = "AloeVeraExtract";
-        public static readonly UniqueEntityId ALOEVERAEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ALOEVERAEXTRACT_SUBTYPEID);
-        
         public const string SILVERSULFADIAZINE_SUBTYPEID = "SilverSulfadiazine";
         public static readonly UniqueEntityId SILVERSULFADIAZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SILVERSULFADIAZINE_SUBTYPEID);
-        
-        public const string ARNICAEXTRACT_SUBTYPEID = "ArnicaExtract";
-        public static readonly UniqueEntityId ARNICAEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), ARNICAEXTRACT_SUBTYPEID);
-
-        public const string MINTEXTRACT_SUBTYPEID = "MintExtract";
-        public static readonly UniqueEntityId MINTEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), MINTEXTRACT_SUBTYPEID);
-
-        public const string CHAMOMILEEXTRACT_SUBTYPEID = "ChamomileExtract";
-        public static readonly UniqueEntityId CHAMOMILEEXTRACT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), CHAMOMILEEXTRACT_SUBTYPEID);
 
         public const string BONES_SUBTYPEID = "Bones";
         public static readonly UniqueEntityId BONES_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), BONES_SUBTYPEID);

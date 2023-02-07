@@ -125,11 +125,11 @@ namespace ExtendedSurvival.Stats
                 var gun = ExtendedSurvivalStatsEntityManager.Instance.GetHandheldGun(damage.AttackerId);
                 if (gun != null)
                 {
-                    if (gun.CurrentAmmoMagazineId == ItensConstants.PISTOL_LIDOCAIN_MAGZINE_ID.DefinitionId)
+                    if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_LIDOCAIN_MAGZINE_ID.DefinitionId)
                     {
                         Torpor.Increase(damage.Amount * TorporConstants.LIDOCAIN_MULTIPLIER, null);
                     }
-                    else if (gun.CurrentAmmoMagazineId == ItensConstants.PISTOL_PROPOFOL_MAGZINE_ID.DefinitionId)
+                    else if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_PROPOFOL_MAGZINE_ID.DefinitionId)
                     {
                         Torpor.Increase(damage.Amount * TorporConstants.PROPOFOL_MULTIPLIER, null);
                     }

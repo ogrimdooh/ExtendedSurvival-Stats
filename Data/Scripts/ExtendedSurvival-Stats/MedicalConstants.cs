@@ -51,7 +51,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.SMALLALOEVERAEXTRACT_ID,
+                        Id = QuimicalConstants.SMALLALOEVERAEXTRACT_ID,
                         Ammount = 1
                     }
                 }
@@ -99,7 +99,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.ALOEVERAEXTRACT_ID,
+                        Id = QuimicalConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 1
                     },
                     new SimpleRecipeDefinition.RecipeItem()
@@ -163,12 +163,12 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.MINTEXTRACT_ID,
+                        Id = QuimicalConstants.MINTEXTRACT_ID,
                         Ammount = 1
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.CHAMOMILEEXTRACT_ID,
+                        Id = QuimicalConstants.CHAMOMILEEXTRACT_ID,
                         Ammount = 1
                     },
                     new SimpleRecipeDefinition.RecipeItem()
@@ -225,7 +225,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.SMALLALOEVERAEXTRACT_ID,
+                        Id = QuimicalConstants.SMALLALOEVERAEXTRACT_ID,
                         Ammount = 1
                     },
                     new SimpleRecipeDefinition.RecipeItem()
@@ -291,7 +291,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.ALOEVERAEXTRACT_ID,
+                        Id = QuimicalConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 1
                     },
                     new SimpleRecipeDefinition.RecipeItem()
@@ -360,7 +360,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.ARNICAEXTRACT_ID,
+                        Id = QuimicalConstants.ARNICAEXTRACT_ID,
                         Ammount = 1
                     },
                     new SimpleRecipeDefinition.RecipeItem()
@@ -431,7 +431,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.ALOEVERAEXTRACT_ID,
+                        Id = QuimicalConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 2
                     },
                     new SimpleRecipeDefinition.RecipeItem()
@@ -502,7 +502,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new SimpleRecipeDefinition.RecipeItem()
                     {
-                        Id = ItensConstants.ALOEVERAEXTRACT_ID,
+                        Id = QuimicalConstants.ALOEVERAEXTRACT_ID,
                         Ammount = 3
                     },
                     new SimpleRecipeDefinition.RecipeItem()

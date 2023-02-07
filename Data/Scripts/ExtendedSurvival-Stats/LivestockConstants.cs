@@ -279,7 +279,7 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(10, 20),
             Mass = 500f,
             Volume = 500f,
-            RecipeName = "FemaleHorse_Killing",
+            RecipeName = "HorseFemale_Killing",
             RecipeTime = 5.12f
         };
 
