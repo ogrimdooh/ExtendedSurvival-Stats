@@ -1143,7 +1143,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALUMINUMCAN_ID,
+                    Id = RecipientConstants.ALUMINUMCAN_ID,
                     Ammount = 4
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1179,7 +1179,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALUMINUMCAN_ID,
+                    Id = RecipientConstants.ALUMINUMCAN_ID,
                     Ammount = 4
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1348,7 +1348,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1375,7 +1375,7 @@ namespace ExtendedSurvival.Stats
            {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1402,7 +1402,7 @@ namespace ExtendedSurvival.Stats
            {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1429,7 +1429,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1456,7 +1456,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1483,7 +1483,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1510,7 +1510,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1537,7 +1537,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -1564,7 +1564,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -2539,7 +2539,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -2595,7 +2595,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
                 }
             },
@@ -2637,7 +2637,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
                 }
             },
@@ -2819,7 +2819,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
                 }
             },
@@ -3071,7 +3071,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FoodRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BOWL_ID,
+                    Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
                 new FoodRecipeDefinition.RecipeItem()
@@ -3228,8 +3228,8 @@ namespace ExtendedSurvival.Stats
             { ItensConstants.FLASK_BIG_ID },
             { ItensConstants.FLASK_SMALL_ID },
             { ItensConstants.FLASK_MEDIUM_ID },
-            { ItensConstants.ALUMINUMCAN_ID },
-            { ItensConstants.BOWL_ID }
+            { RecipientConstants.ALUMINUMCAN_ID },
+            { RecipientConstants.BOWL_ID }
         };
 
         public static readonly List<UniqueEntityId> MEDICAL_INGREDIENTS = new List<UniqueEntityId>()

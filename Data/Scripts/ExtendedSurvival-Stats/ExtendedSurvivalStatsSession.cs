@@ -524,6 +524,8 @@ namespace ExtendedSurvival.Stats
                 FishingConstants.TryOverrideDefinitions();
                 WeaponsConstants.TryOverrideDefinitions();
                 QuimicalConstants.TryOverrideDefinitions();
+                HerbsConstants.TryOverrideDefinitions();
+                RecipientConstants.TryOverrideDefinitions();
                 FactionTypeConstants.TryOverrideDefinitions();
 
                 // SPAWNS

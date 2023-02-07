@@ -20,8 +20,9 @@ namespace ExtendedSurvival.Stats
         {
 
             public UniqueEntityId ItemId { get; set; }
-            public float Ammount { get; set; }
+            public Vector2 Ammount { get; set; }
             public float Chance { get; set; }
+            public bool AlowFrac { get; set; } = false;
             public string[] ValidSubType { get; set; } = new string[] 
             { 
                 "Soil" 
@@ -35,11 +36,12 @@ namespace ExtendedSurvival.Stats
                 "Eremus Nubis"
             };
 
-            public MiningDropLoot(UniqueEntityId itemId, float ammount, float chance)
+            public MiningDropLoot(UniqueEntityId itemId, Vector2 ammount, float chance, bool alowFrac = false)
             {
                 ItemId = itemId;
                 Ammount = ammount;
                 Chance = chance;
+                AlowFrac = alowFrac;
             }
 
         }
@@ -53,20 +55,20 @@ namespace ExtendedSurvival.Stats
 
         public static readonly List<MiningDropLoot> MINE_DROPS = new List<MiningDropLoot>()
         {
-            new MiningDropLoot(ItensConstants.CHAMPIGNONS_ID, 20, 4),
-            new MiningDropLoot(ItensConstants.SHIITAKE_ID, 20, 4),
-            new MiningDropLoot(ItensConstants.AMANITAMUSCARIA_ID, 2, 5) 
+            new MiningDropLoot(ItensConstants.CHAMPIGNONS_ID, new Vector2(4, 8), 4),
+            new MiningDropLoot(ItensConstants.SHIITAKE_ID, new Vector2(4, 8), 4),
+            new MiningDropLoot(ItensConstants.AMANITAMUSCARIA_ID, new Vector2(2, 4), 5) 
             { 
                 ValidSubType = new string[] { "AlienSoil" },
                 ValidPlanetSubType = new string[] { "Alien", "Titan" }
             },
-            new MiningDropLoot(ItensConstants.CAROOT_ID, 1, 2),
-            new MiningDropLoot(ItensConstants.BEETROOT_ID, 1, 2),
-            new MiningDropLoot(ItensConstants.ALOEVERA_ID, 5, 5),
-            new MiningDropLoot(ItensConstants.ERYTHROXYLUM_ID, 5, 5),
-            new MiningDropLoot(ItensConstants.ARNICA_ID, 20, 3),
-            new MiningDropLoot(ItensConstants.CHAMOMILE_ID, 10, 3),
-            new MiningDropLoot(ItensConstants.MINT_ID, 10, 3)
+            new MiningDropLoot(ItensConstants.CAROOT_ID, new Vector2(1, 4), 2),
+            new MiningDropLoot(ItensConstants.BEETROOT_ID, new Vector2(1, 4), 2),
+            new MiningDropLoot(HerbsConstants.ALOEVERA_ID, new Vector2(2, 6), 5),
+            new MiningDropLoot(HerbsConstants.ERYTHROXYLUM_ID, new Vector2(1, 4), 5),
+            new MiningDropLoot(HerbsConstants.ARNICA_ID, new Vector2(1, 4), 3),
+            new MiningDropLoot(HerbsConstants.CHAMOMILE_ID, new Vector2(3, 9), 3),
+            new MiningDropLoot(HerbsConstants.MINT_ID, new Vector2(3, 9), 3)
         };
 
         private static Dictionary<UniqueEntityId, float> DoInternalDrill(string typeId, string subtypeId, Vector3D pos, float maxDistance)
@@ -88,7 +90,12 @@ namespace ExtendedSurvival.Stats
                             {
                                 var i = rnd.Next(0, validDrops.Length - 1);
                                 if (rnd.Next(1, 101) <= validDrops[i].Chance)
-                                    lootAmmount.Add(validDrops[i].ItemId, validDrops[i].Ammount);
+                                {
+                                    var value = validDrops[i].Ammount.GetRandom();
+                                    if (!validDrops[i].AlowFrac)
+                                        value = (int)value;
+                                    lootAmmount.Add(validDrops[i].ItemId, value);
+                                }
                                 if (lootAmmount.Count >= MAX_DROP_COUNT)
                                     break;
                             }

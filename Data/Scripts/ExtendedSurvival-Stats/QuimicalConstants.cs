@@ -6,6 +6,7 @@ using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
+
     public static class QuimicalConstants
     {
 
@@ -102,7 +103,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.ERYTHROXYLUM_ID,
+                            Id = HerbsConstants.ERYTHROXYLUM_ID,
                             Ammount = 30f
                         }
                     }
@@ -138,7 +139,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.ALOEVERA_ID,
+                            Id = HerbsConstants.ALOEVERA_ID,
                             Ammount = 7.5f
                         }
                     }
@@ -174,7 +175,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.ALOEVERA_ID,
+                            Id = HerbsConstants.ALOEVERA_ID,
                             Ammount = 15f
                         }
                     }
@@ -210,7 +211,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.ARNICA_ID,
+                            Id = HerbsConstants.ARNICA_ID,
                             Ammount = 15f
                         }
                     }
@@ -246,7 +247,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.MINT_ID,
+                            Id = HerbsConstants.MINT_ID,
                             Ammount = 7.5f
                         }
                     }
@@ -282,7 +283,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.CHAMOMILE_ID,
+                            Id = HerbsConstants.CHAMOMILE_ID,
                             Ammount = 7.5f
                         }
                     }
@@ -369,7 +370,7 @@ namespace ExtendedSurvival.Stats
                         itemDef.Postprocess();
                     }
                     else
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(EquipmentConstants), $"TryOverrideRecipes item not found. Food=[{quimical}]");
+                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(QuimicalConstants), $"TryOverrideRecipes item not found. Food=[{quimical}]");
                     // Recipe definition
                     foreach (var recipe in quimicalDef.RecipesDefinition)
                     {
@@ -386,7 +387,7 @@ namespace ExtendedSurvival.Stats
                             recipeDef.Postprocess();
                         }
                         else
-                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(EquipmentConstants), $"TryOverrideDefinitions recipe not found. Recipe=[{recipe.RecipeName}]");
+                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(QuimicalConstants), $"TryOverrideDefinitions recipe not found. Recipe=[{recipe.RecipeName}]");
                     }
                     // Add itens to faction types
                     if (quimicalDef.CanPlayerOrder)
@@ -398,7 +399,7 @@ namespace ExtendedSurvival.Stats
             }
             catch (System.Exception ex)
             {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(EquipmentConstants), ex);
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(QuimicalConstants), ex);
             }
         }
 

@@ -3,7 +3,15 @@ using System.Linq;
 
 namespace ExtendedSurvival.Stats
 {
-    public abstract class SimpleFactoringDefinition<T> : SimpleDefinition where T : BaseRecipeDefinition
+
+    public interface ISimpleFactoringDefinition
+    {
+
+        IEnumerable<BaseRecipeDefinition> GetRecipesDefinition();
+
+    }
+
+    public abstract class SimpleFactoringDefinition<T> : SimpleDefinition, ISimpleFactoringDefinition where T : BaseRecipeDefinition
     {
 
         public List<T> RecipesDefinition { get; set; } = new List<T>();
@@ -16,6 +24,11 @@ namespace ExtendedSurvival.Stats
                     return RecipesDefinition.First();
                 return null;
             }
+        }
+
+        public IEnumerable<BaseRecipeDefinition> GetRecipesDefinition()
+        {
+            return RecipesDefinition;
         }
 
     }

@@ -94,6 +94,9 @@ namespace ExtendedSurvival.Stats
         public const string STEELSCREW_SUBTYPEID = "SteelScrew";
         public static readonly UniqueEntityId STEELSCREW_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), STEELSCREW_SUBTYPEID);
 
+        public const string SAND_SUBTYPEID = "Sand";
+        public static readonly UniqueEntityId SAND_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SAND_SUBTYPEID);
+
         public const string SILICON_SUBTYPEID = "Silicon";
         public static readonly UniqueEntityId SILICON_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILICON_SUBTYPEID);
         public static readonly UniqueEntityId SILICON_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILICON_SUBTYPEID);
@@ -463,21 +466,6 @@ namespace ExtendedSurvival.Stats
         public const string TOMATO_SUBTYPEID = "Tomato";
         public static readonly UniqueEntityId TOMATO_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), TOMATO_SUBTYPEID);
 
-        public const string ARNICA_SUBTYPEID = "Arnica";
-        public static readonly UniqueEntityId ARNICA_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ARNICA_SUBTYPEID);
-
-        public const string CHAMOMILE_SUBTYPEID = "Chamomile";
-        public static readonly UniqueEntityId CHAMOMILE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CHAMOMILE_SUBTYPEID);
-
-        public const string ALOEVERA_SUBTYPEID = "AloeVera";
-        public static readonly UniqueEntityId ALOEVERA_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ALOEVERA_SUBTYPEID);
-
-        public const string MINT_SUBTYPEID = "Mint";
-        public static readonly UniqueEntityId MINT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), MINT_SUBTYPEID);
-
-        public const string ERYTHROXYLUM_SUBTYPEID = "Erythroxylum";
-        public static readonly UniqueEntityId ERYTHROXYLUM_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ERYTHROXYLUM_SUBTYPEID);
-
         public const string WHEAT_SUBTYPEID = "Wheat";
         public static readonly UniqueEntityId WHEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), WHEAT_SUBTYPEID);
 
@@ -504,12 +492,6 @@ namespace ExtendedSurvival.Stats
 
         public const string WATER_FLASK_BIG_SUBTYPEID = "Water_Flask_Big";
         public static readonly UniqueEntityId WATER_FLASK_BIG_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), WATER_FLASK_BIG_SUBTYPEID);
-
-        public const string BOWL_SUBTYPEID = "Bowl";
-        public static readonly UniqueEntityId BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), BOWL_SUBTYPEID);
-
-        public const string ALUMINUMCAN_SUBTYPEID = "AluminumCan";
-        public static readonly UniqueEntityId ALUMINUMCAN_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ALUMINUMCAN_SUBTYPEID);
 
         public const string FLASK_SMALL_SUBTYPEID = "Flask_Small";
         public static readonly UniqueEntityId FLASK_SMALL_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FLASK_SMALL_SUBTYPEID);

@@ -286,7 +286,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.ARNICA_ID,
+                            Product =HerbsConstants.ARNICA_ID,
                             BaseFactor = new Vector2(2.5f, 7.5f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -406,7 +406,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.MINT_ID,
+                            Product =HerbsConstants.MINT_ID,
                             BaseFactor = new Vector2(3.75f, 6.50f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -496,7 +496,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.CHAMOMILE_ID,
+                            Product =HerbsConstants.CHAMOMILE_ID,
                             BaseFactor = new Vector2(3.75f, 6.50f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -526,7 +526,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.ALOEVERA_ID,
+                            Product =HerbsConstants.ALOEVERA_ID,
                             BaseFactor = new Vector2(5.75f, 12.5f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -556,7 +556,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.ERYTHROXYLUM_ID,
+                            Product =HerbsConstants.ERYTHROXYLUM_ID,
                             BaseFactor = new Vector2(5.75f, 12.5f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,

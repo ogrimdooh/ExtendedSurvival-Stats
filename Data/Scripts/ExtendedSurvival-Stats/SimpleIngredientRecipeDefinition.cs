@@ -5,7 +5,16 @@ using VRage;
 
 namespace ExtendedSurvival.Stats
 {
-    public class SimpleIngredientRecipeDefinition : BaseRecipeDefinition
+
+    public interface ISimpleIngredientRecipeDefinition
+    {
+
+        MyBlueprintDefinitionBase.Item[] GetIngredients(UniqueEntityId ProductId);
+        MyBlueprintDefinitionBase.Item[] GetProduct();
+
+    }
+
+    public class SimpleIngredientRecipeDefinition : BaseRecipeDefinition, ISimpleIngredientRecipeDefinition
     {
 
         public struct RecipeItem
