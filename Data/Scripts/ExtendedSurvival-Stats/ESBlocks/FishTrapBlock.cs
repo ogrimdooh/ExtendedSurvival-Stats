@@ -316,7 +316,7 @@ namespace ExtendedSurvival.Stats
                 {
                     definition.InputConstraint.Add(item.DefinitionId);
                 }
-                definition.InputConstraint.Add(ItensConstants.FISH_BONES_ID.DefinitionId);
+                definition.InputConstraint.Add(OreConstants.FISH_BONES_ID.DefinitionId);
                 definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
                 Inventory.Init(definition);
                 _inventoryDefined = true;

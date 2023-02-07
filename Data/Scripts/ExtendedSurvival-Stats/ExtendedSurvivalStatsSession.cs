@@ -526,6 +526,8 @@ namespace ExtendedSurvival.Stats
                 QuimicalConstants.TryOverrideDefinitions();
                 HerbsConstants.TryOverrideDefinitions();
                 RecipientConstants.TryOverrideDefinitions();
+                OreConstants.TryOverrideDefinitions();
+                IngotsConstants.TryOverrideDefinitions();
                 FactionTypeConstants.TryOverrideDefinitions();
 
                 // SPAWNS
@@ -565,7 +567,7 @@ namespace ExtendedSurvival.Stats
             {
                 DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), ItensConstants.MEAT_ID, 6),
                 DefinitionUtils.GetLootItem(new Vector2(3, 6).GetMultiplier(multiplier), ItensConstants.NOBLE_MEAT_ID, 1),
-                DefinitionUtils.GetLootItem(new Vector2(10, 20).GetMultiplier(multiplier), ItensConstants.BONES_ID, 3)
+                DefinitionUtils.GetLootItem(new Vector2(10, 20).GetMultiplier(multiplier), OreConstants.BONES_ID, 3)
             };
         }
 
@@ -575,7 +577,7 @@ namespace ExtendedSurvival.Stats
             {
                 DefinitionUtils.GetLootItem(new Vector2(12, 24).GetMultiplier(multiplier), ItensConstants.ALIEN_MEAT_ID, 6),
                 DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), ItensConstants.ALIEN_NOBLE_MEAT_ID, 1),
-                DefinitionUtils.GetLootItem(new Vector2(20, 40).GetMultiplier(multiplier), ItensConstants.BONES_ID, 3),
+                DefinitionUtils.GetLootItem(new Vector2(20, 40).GetMultiplier(multiplier), OreConstants.BONES_ID, 3),
                 DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), ItensConstants.ALIEN_EGG_ID, 2)
             };
         }

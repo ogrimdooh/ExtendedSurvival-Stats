@@ -247,15 +247,6 @@ namespace ExtendedSurvival.Stats
         public const string SILVERSULFADIAZINE_SUBTYPEID = "SilverSulfadiazine";
         public static readonly UniqueEntityId SILVERSULFADIAZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SILVERSULFADIAZINE_SUBTYPEID);
 
-        public const string BONES_SUBTYPEID = "Bones";
-        public static readonly UniqueEntityId BONES_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), BONES_SUBTYPEID);
-
-        public const string FISH_BONES_SUBTYPEID = "FishBones";
-        public static readonly UniqueEntityId FISH_BONES_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), FISH_BONES_SUBTYPEID);
-
-        public const string POOP_SUBTYPEID = "Poop";
-        public static readonly UniqueEntityId POOP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), POOP_SUBTYPEID);
-
         public const string CONCENTRATEDFAT_SUBTYPEID = "ConcentratedFat";
         public static readonly UniqueEntityId CONCENTRATEDFAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CONCENTRATEDFAT_SUBTYPEID);
 

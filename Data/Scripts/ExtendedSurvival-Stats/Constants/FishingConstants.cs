@@ -57,7 +57,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.FISH_BONES_ID,
+                            Id = OreConstants.FISH_BONES_ID,
                             Ammount = 0.3f
                         }
                     }
@@ -95,7 +95,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.FISH_BONES_ID,
+                            Id = OreConstants.FISH_BONES_ID,
                             Ammount = 0.3f
                         }
                     }
@@ -133,7 +133,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.FISH_BONES_ID,
+                            Id = OreConstants.FISH_BONES_ID,
                             Ammount = 0.6f
                         }
                     }
@@ -171,7 +171,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.FISH_BONES_ID,
+                            Id = OreConstants.FISH_BONES_ID,
                             Ammount = 0.6f
                         }
                     }

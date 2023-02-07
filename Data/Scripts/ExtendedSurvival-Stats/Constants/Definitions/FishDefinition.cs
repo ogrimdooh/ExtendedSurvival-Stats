@@ -60,7 +60,7 @@ namespace ExtendedSurvival.Stats
                     },
                     new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
                     {
-                        DefinitionId = ItensConstants.FISH_BONES_ID.DefinitionId,
+                        DefinitionId = OreConstants.FISH_BONES_ID.DefinitionId,
                         Ammount = Mass * 0.25f
                     }
                 };

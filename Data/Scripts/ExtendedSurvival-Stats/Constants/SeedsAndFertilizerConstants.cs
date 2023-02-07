@@ -264,7 +264,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.BONES_ID,
+                            Id = OreConstants.BONES_ID,
                             Ammount = 7.5f
                         }
                     }
@@ -289,7 +289,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.POOP_ID,
+                            Id = OreConstants.POOP_ID,
                             Ammount = 7.5f
                         }
                     }

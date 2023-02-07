@@ -572,7 +572,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BONES_ID,
+                    Id = OreConstants.BONES_ID,
                     Ammount = 0.08f
                 },
                 new LivestockDefinition.RecipeItem()
@@ -598,7 +598,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BONES_ID,
+                    Id = OreConstants.BONES_ID,
                     Ammount = 0.08f
                 },
                 new LivestockDefinition.RecipeItem()
@@ -624,7 +624,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BONES_ID,
+                    Id = OreConstants.BONES_ID,
                     Ammount = 0.08f
                 },
                 new LivestockDefinition.RecipeItem()
@@ -656,7 +656,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BONES_ID,
+                    Id = OreConstants.BONES_ID,
                     Ammount = 0.08f
                 },
                 new LivestockDefinition.RecipeItem()

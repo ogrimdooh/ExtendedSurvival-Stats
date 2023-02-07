@@ -176,7 +176,7 @@ namespace ExtendedSurvival.Stats
                 {
                     definition.InputConstraint.Add(item.DefinitionId);
                 }
-                definition.InputConstraint.Add(ItensConstants.BONES_ID.DefinitionId);
+                definition.InputConstraint.Add(OreConstants.BONES_ID.DefinitionId);
                 definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
                 Inventory.Init(definition);
                 _inventoryDefined = true;
@@ -342,7 +342,7 @@ namespace ExtendedSurvival.Stats
                 Inventory.RemoveItemsOfType((MyFixedPoint)eatFactor, rationId);
                 gasContainer.GasLevel += absFactor;
                 gasContainer.GasLevel = Math.Min(gasContainer.GasLevel, 1f);
-                Inventory.AddMaxItems(popFactor, ItensConstants.GetPhysicalObjectBuilder(ItensConstants.POOP_ID));
+                Inventory.AddMaxItems(popFactor, ItensConstants.GetPhysicalObjectBuilder(OreConstants.POOP_ID));
             }
             return true;
         }
