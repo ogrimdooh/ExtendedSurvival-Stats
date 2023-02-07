@@ -5,7 +5,7 @@ using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
-    public class LivestockDefinition
+    public class LivestockDefinition : SimpleDefinition
     {
 
         public enum RecipeItemAmmountType
@@ -36,32 +36,12 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        public UniqueEntityId Id { get; set; }
-        public UniqueEntityId DeadId { get; set; }        
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public float Volume { get; set; }
-        public float Mass { get; set; }
-        public Vector2I AcquisitionAmount { get; set; } = Vector2I.Zero;
-        public Vector2I OrderAmount { get; set; } = Vector2I.Zero;
-        public Vector2I OfferAmount { get; set; } = Vector2I.Zero;
-        public int MinimalPricePerUnit { get; set; }
-        public bool CanPlayerOrder { get; set; } = false;
+        public UniqueEntityId DeadId { get; set; }
         public bool IsDeadBody { get; set; } = false;
         public long StartConservationTime { get; set; } = 0;
         public string RecipeName { get; set; }
         public float RecipeTime { get; set; }
         public List<RecipeItem> BodyResults { get; set; }
-
-        public float GetVolume()
-        {
-            return Volume / 1000;
-        }
-
-        public float GetMass()
-        {
-            return Mass;
-        }
 
         private string GetDedailDescription()
         {
@@ -158,9 +138,9 @@ namespace ExtendedSurvival.Stats
             return extraInfo;
         }
 
-        public string GetFullDescription()
+        public override string GetFullDescription()
         {
-            return Description + GetDedailDescription();
+            return base.GetFullDescription() + GetDedailDescription();
         }
 
     }

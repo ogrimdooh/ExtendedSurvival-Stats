@@ -7,7 +7,7 @@ using VRageMath;
 namespace ExtendedSurvival.Stats
 {
 
-    public class FoodDefinition
+    public class FoodDefinition : SimpleDefinition
     {
 
         public enum FoodDefinitionType
@@ -19,7 +19,6 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        public UniqueEntityId Id { get; set; }
         public float Solid { get; set; }
         public float Liquid { get; set; }
         public float ExtraWeight { get; set; }
@@ -30,16 +29,9 @@ namespace ExtendedSurvival.Stats
         public float Minerals { get; set; }
         public float Calories { get; set; }
         public float TimeToConsume { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
         public FoodDefinitionType DefinitionType { get; set; } = FoodDefinitionType.Consumable;
         public bool IgnoreDefinition { get; set; } = false;
         public bool SimpleDescription { get; set; } = false;
-        public Vector2I AcquisitionAmount { get; set; } = Vector2I.Zero;
-        public Vector2I OrderAmount { get; set; } = Vector2I.Zero;
-        public Vector2I OfferAmount { get; set; } = Vector2I.Zero;
-        public int MinimalPricePerUnit { get; set; }
-        public bool CanPlayerOrder { get; set; } = false;
 
         public List<ConsumibleEffect> Effects { get; set; }
         public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; }
@@ -119,19 +111,19 @@ namespace ExtendedSurvival.Stats
             return values.ToString();
         }
 
-        public string GetFullDescription()
+        public override string GetFullDescription()
         {
             if (SimpleDescription)
-                return Description;
-            return Description + Environment.NewLine + Environment.NewLine + GetNutritionDescription();
+                return base.GetFullDescription();
+            return base.GetFullDescription() + Environment.NewLine + Environment.NewLine + GetNutritionDescription();
         }
 
-        public float GetVolume()
+        public override float GetVolume()
         {
             return GetMass() / 1000;
         }
 
-        public float GetMass()
+        public override float GetMass()
         {
             return Solid + Liquid + ExtraWeight;
         }

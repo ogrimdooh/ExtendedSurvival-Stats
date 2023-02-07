@@ -1,6 +1,6 @@
 ﻿namespace ExtendedSurvival.Stats
 {
-    public class FoodConcentratedExtractDefinition
+    public class FoodConcentratedExtractDefinition : BaseRecipeDefinition
     {
 
         public struct RecipeItem
@@ -11,10 +11,7 @@
 
         }
 
-        public string Name { get; set; }
         public string Description { get; set; }
-        public string RecipeName { get; set; }
-        public float ProductionTime { get; set; }
         public RecipeItem Ingredient { get; set; }
 
     }

@@ -105,48 +105,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            try
-            {
-                var targetFaction = FactionTypeConstants.FACTION_TYPES_DEFINITIONS[FactionTypeConstants.TRADER_ID];
-                // Override medical definition
-                foreach (var herb in HERBS_DEFINITIONS.Keys)
-                {
-                    var herbDef = HERBS_DEFINITIONS[herb];
-                    // Item definition
-                    var itemDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(herb.subtypeId.String);
-                    if (itemDef != null)
-                    {
-                        itemDef.Volume = herbDef.GetVolume();
-                        itemDef.Mass = herbDef.GetMass();
-                        itemDef.DisplayNameEnum = null;
-                        itemDef.DisplayNameString = herbDef.Name;
-                        itemDef.DescriptionEnum = null;
-                        itemDef.DescriptionString = null;
-                        itemDef.MinimumAcquisitionAmount = herbDef.AcquisitionAmount.X;
-                        itemDef.MaximumAcquisitionAmount = herbDef.AcquisitionAmount.Y;
-                        itemDef.MinimumOrderAmount = herbDef.OrderAmount.X;
-                        itemDef.MaximumOrderAmount = herbDef.OrderAmount.Y;
-                        itemDef.MinimumOfferAmount = herbDef.OfferAmount.X;
-                        itemDef.MaximumOfferAmount = herbDef.OfferAmount.Y;
-                        itemDef.MinimalPricePerUnit = herbDef.MinimalPricePerUnit;
-                        itemDef.CanPlayerOrder = herbDef.CanPlayerOrder;
-                        itemDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + herbDef.GetFullDescription());
-                        itemDef.Postprocess();
-                    }
-                    else
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(HerbsConstants), $"TryOverrideRecipes item not found. Food=[{herb}]");
-                    // Add itens to faction types
-                    if (herbDef.CanPlayerOrder)
-                    {
-                        targetFaction.OffersList.Add(herb);
-                        targetFaction.OrdersList.Add(herb);
-                    }
-                }
-            }
-            catch (System.Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(HerbsConstants), ex);
-            }
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions(HERBS_DEFINITIONS);
         }
 
     }

@@ -409,66 +409,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            try
-            {
-                var targetFaction = FactionTypeConstants.FACTION_TYPES_DEFINITIONS[FactionTypeConstants.TRADER_ID];
-                // Override medical definition
-                foreach (var ration in RATIONS_DEFINITIONS.Keys)
-                {
-                    var rationDef = RATIONS_DEFINITIONS[ration];
-                    // Item definition
-                    var consumableDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(ration.subtypeId.String);
-                    if (consumableDef != null)
-                    {                        
-                        consumableDef.Volume = rationDef.GetVolume();
-                        consumableDef.Mass = rationDef.GetMass();
-                        consumableDef.DisplayNameEnum = null;
-                        consumableDef.DisplayNameString = rationDef.Name;
-                        consumableDef.DescriptionEnum = null;
-                        consumableDef.DescriptionString = null;
-                        consumableDef.MinimumAcquisitionAmount = rationDef.AcquisitionAmount.X;
-                        consumableDef.MaximumAcquisitionAmount = rationDef.AcquisitionAmount.Y;
-                        consumableDef.MinimumOrderAmount = rationDef.OrderAmount.X;
-                        consumableDef.MaximumOrderAmount = rationDef.OrderAmount.Y;
-                        consumableDef.MinimumOfferAmount = rationDef.OfferAmount.X;
-                        consumableDef.MaximumOfferAmount = rationDef.OfferAmount.Y;
-                        consumableDef.MinimalPricePerUnit = rationDef.MinimalPricePerUnit;
-                        consumableDef.CanPlayerOrder = rationDef.CanPlayerOrder;
-                        consumableDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + rationDef.GetFullDescription());
-                        consumableDef.Postprocess();
-                    }
-                    else
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(RationConstants), $"TryOverrideRecipes item not found. Food=[{ration}]");
-                    // Recipe definition
-                    foreach (var recipe in rationDef.RecipesDefinition)
-                    {
-                        var recipeDef = DefinitionUtils.TryGetBlueprintDefinition(recipe.RecipeName);
-                        if (recipeDef != null)
-                        {
-                            recipeDef.Prerequisites = recipe.GetIngredients();
-                            recipeDef.Results = recipe.GetProduct(rationDef.Id);
-                            recipeDef.BaseProductionTimeInSeconds = recipe.ProductionTime;
-                            recipeDef.DisplayNameEnum = null;
-                            recipeDef.DisplayNameString = recipe.Name;
-                            recipeDef.DescriptionEnum = null;
-                            recipeDef.DescriptionString = null;
-                            recipeDef.Postprocess();
-                        }
-                        else
-                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(RationConstants), $"TryOverrideDefinitions recipe not found. Recipe=[{recipe.RecipeName}]");
-                    }                    
-                    // Add itens to faction types
-                    if (rationDef.CanPlayerOrder)
-                    {
-                        targetFaction.OffersList.Add(ration);
-                        targetFaction.OrdersList.Add(ration);
-                    }
-                }
-            }
-            catch (System.Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(RationConstants), ex);
-            }
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions(RATIONS_DEFINITIONS);
         }
 
     }

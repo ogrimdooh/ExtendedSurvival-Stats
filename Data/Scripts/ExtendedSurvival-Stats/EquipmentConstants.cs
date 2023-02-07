@@ -463,66 +463,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            try
-            {
-                var targetFaction = FactionTypeConstants.FACTION_TYPES_DEFINITIONS[FactionTypeConstants.TRADER_ID];
-                // Override medical definition
-                foreach (var equipment in EQUIPMENTS_DEFINITIONS.Keys)
-                {
-                    var equipmentDef = EQUIPMENTS_DEFINITIONS[equipment];
-                    // Item definition
-                    var itemDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(equipment.subtypeId.String);
-                    if (itemDef != null)
-                    {
-                        itemDef.Volume = equipmentDef.GetVolume();
-                        itemDef.Mass = equipmentDef.GetMass();
-                        itemDef.DisplayNameEnum = null;
-                        itemDef.DisplayNameString = equipmentDef.Name;
-                        itemDef.DescriptionEnum = null;
-                        itemDef.DescriptionString = null;
-                        itemDef.MinimumAcquisitionAmount = equipmentDef.AcquisitionAmount.X;
-                        itemDef.MaximumAcquisitionAmount = equipmentDef.AcquisitionAmount.Y;
-                        itemDef.MinimumOrderAmount = equipmentDef.OrderAmount.X;
-                        itemDef.MaximumOrderAmount = equipmentDef.OrderAmount.Y;
-                        itemDef.MinimumOfferAmount = equipmentDef.OfferAmount.X;
-                        itemDef.MaximumOfferAmount = equipmentDef.OfferAmount.Y;
-                        itemDef.MinimalPricePerUnit = equipmentDef.MinimalPricePerUnit;
-                        itemDef.CanPlayerOrder = equipmentDef.CanPlayerOrder;
-                        itemDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + equipmentDef.GetFullDescription());
-                        itemDef.Postprocess();
-                    }
-                    else
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(EquipmentConstants), $"TryOverrideRecipes item not found. Food=[{equipment}]");
-                    // Recipe definition
-                    foreach (var recipe in equipmentDef.RecipesDefinition)
-                    {
-                        var recipeDef = DefinitionUtils.TryGetBlueprintDefinition(recipe.RecipeName);
-                        if (recipeDef != null)
-                        {
-                            recipeDef.Prerequisites = recipe.GetIngredients();
-                            recipeDef.Results = recipe.GetProduct(equipmentDef.Id);
-                            recipeDef.BaseProductionTimeInSeconds = recipe.ProductionTime;
-                            recipeDef.DisplayNameEnum = null;
-                            recipeDef.DisplayNameString = equipmentDef.Name;
-                            recipeDef.DescriptionEnum = null;
-                            recipeDef.DescriptionString = null;
-                            recipeDef.Postprocess();
-                        }
-                        else
-                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(EquipmentConstants), $"TryOverrideDefinitions recipe not found. Recipe=[{recipe.RecipeName}]");
-                    }
-                    // Add itens to faction types
-                    if (equipmentDef.CanPlayerOrder)
-                    {
-                        targetFaction.OffersList.Add(equipment);
-                        targetFaction.OrdersList.Add(equipment);
-                    }
-                }
-            }
-            catch (System.Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(EquipmentConstants), ex);
-            }
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions(EQUIPMENTS_DEFINITIONS);
         }
 
     }

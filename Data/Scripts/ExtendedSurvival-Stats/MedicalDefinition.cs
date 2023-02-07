@@ -6,37 +6,16 @@ using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
-    public class MedicalDefinition
+    public class MedicalDefinition : SimpleFactoringDefinition<SimpleRecipeDefinition>
     {
 
-        public UniqueEntityId Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public float Volume { get; set; }
-        public float Mass { get; set; }
-        public Vector2I AcquisitionAmount { get; set; } = Vector2I.Zero;
-        public Vector2I OrderAmount { get; set; } = Vector2I.Zero;
-        public Vector2I OfferAmount { get; set; } = Vector2I.Zero;
-        public int MinimalPricePerUnit { get; set; }
-        public bool CanPlayerOrder { get; set; } = false;
         public List<StatsConstants.DamageEffects> CureDamage { get; set; }
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
         public List<ConsumibleEffect> Effects { get; set; }
-        public SimpleRecipeDefinition RecipeDefinition { get; set; }
-
-        public float GetVolume()
+        
+        public override string GetFullDescription()
         {
-            return Volume / 1000;
-        }
-
-        public float GetMass()
-        {
-            return Mass;
-        }
-
-        public string GetFullDescription()
-        {
-            return Description + Environment.NewLine + Environment.NewLine + GetApplicationDescription();
+            return base.GetFullDescription() + Environment.NewLine + Environment.NewLine + GetApplicationDescription();
         }
 
         private string GetApplicationDescription()

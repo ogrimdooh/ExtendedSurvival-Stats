@@ -983,21 +983,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition WATER_FLASK_SMALL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.WATER_FLASK_SMALL_ID,
                 Ammount = 1
             },
             RecipeName = "Water_Flask_Small_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.FLASK_SMALL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ICE_ID,
                     Ammount = 0.1f
@@ -1019,21 +1019,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition WATER_FLASK_MEDIUM_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                 Ammount = 1
             },
             RecipeName = "Water_Flask_Medium_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ICE_ID,
                     Ammount = 0.2f
@@ -1055,21 +1055,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition WATER_FLASK_BIG_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.WATER_FLASK_BIG_ID,
                 Ammount = 1
             },
             RecipeName = "Water_Flask_Big_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.FLASK_BIG_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ICE_ID,
                     Ammount = 0.4f
@@ -1091,26 +1091,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition APPLE_JUICE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.APPLE_JUICE_ID,
                 Ammount = 1
             },
             RecipeName = "AppleJuice_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.FLASK_BIG_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.APPLE_ID,
                     Ammount = 4
@@ -1132,21 +1132,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition SODA_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.SODA_ID,
                 Ammount = 4
             },
             RecipeName = "ClangCola",
             Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.ALUMINUMCAN_ID,
                     Ammount = 4
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.APPLE_JUICE_ID,
                     Ammount = 1
@@ -1168,26 +1168,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition COFFEE_CAN_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.COFFEE_CAN_ID,
                 Ammount = 4
             },
             RecipeName = "CosmicCoffee",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.ALUMINUMCAN_ID,
                     Ammount = 4
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_BIG_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.COFFEESACK_ID,
                     Ammount = 0.4f
@@ -1209,26 +1209,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition DOUGH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.DOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "Dough_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.MILK_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WHEATSACK_ID,
                     Ammount = 0.5f
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.EGG_ID,
                     Ammount = 4
@@ -1241,26 +1241,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_DOUGH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_DOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "AlienDough_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.MILK_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WHEATSACK_ID,
                     Ammount = 0.5f
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_EGG_ID,
                     Ammount = 4
@@ -1273,26 +1273,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition CAKEDOUGH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.CAKEDOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "CakeDough_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.MILK_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WHEATSACK_ID,
                     Ammount = 0.25f
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.EGG_ID,
                     Ammount = 2
@@ -1305,26 +1305,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_CAKEDOUGH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_CAKEDOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "AlienCakeDough_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.MILK_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WHEATSACK_ID,
                     Ammount = 0.25f
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_EGG_ID,
                     Ammount = 2
@@ -1337,21 +1337,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_BROCCOLI_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawBroccoliBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.BROCCOLI_ID,
                     Ammount = 2
@@ -1364,21 +1364,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_CARROT_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_CARROT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawCarrotBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
            {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CAROOT_ID,
                     Ammount = 5
@@ -1391,21 +1391,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_BEETROOT_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawBeetrootBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
            {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.BEETROOT_ID,
                     Ammount = 5
@@ -1418,21 +1418,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_MEAT_BOWL_RECIPE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawMeatBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.MEAT_ID,
                     Ammount = 2
@@ -1445,21 +1445,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_MEAT_BOWL_RECIPE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawAlienMeatBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_MEAT_ID,
                     Ammount = 2
@@ -1472,21 +1472,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_NOBLE_MEAT_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_NOBLE_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawNobleMeatBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.NOBLE_MEAT_ID,
                     Ammount = 2
@@ -1499,21 +1499,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_NOBLE_MEAT_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawAlienNobleMeatBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
                     Ammount = 2
@@ -1526,21 +1526,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAWFISHMEATBOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAWFISHMEATBOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawFishMeatBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.FISHMEAT_ID,
                     Ammount = 2
@@ -1553,21 +1553,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAWNOBLEFISHMEATBOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAWNOBLEFISHMEATBOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawNobleFishMeatBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.NOBLEFISHMEAT_ID,
                     Ammount = 2
@@ -1580,16 +1580,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RawSausage_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_MEAT_BOWL_ID,
                     Ammount = 2
@@ -1607,16 +1607,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.RAW_ALIEN_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RawAlienSausage_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 2
@@ -1634,16 +1634,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROAST_CHAMPIGNON_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROAST_CHAMPIGNON_ID,
                 Ammount = 1
             },
             RecipeName = "RoastChampignonMushrooms_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHAMPIGNONS_ID,
                     Ammount = 10
@@ -1656,16 +1656,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROAST_SHIITAKE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROAST_SHIITAKE_ID,
                 Ammount = 1
             },
             RecipeName = "RoastShiitakeMushrooms_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.SHIITAKE_ID,
                     Ammount = 10
@@ -1678,16 +1678,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition FRIED_EGG_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.FRIED_EGG_ID,
                 Ammount = 1
             },
             RecipeName = "FriedEgg_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Frying,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.EGG_ID,
                     Ammount = 1
@@ -1700,16 +1700,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition FRIED_ALIEN_EGG_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.FRIED_ALIEN_EGG_ID,
                 Ammount = 1
             },
             RecipeName = "FriedAlienEgg_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Frying,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_EGG_ID,
                     Ammount = 1
@@ -1722,16 +1722,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTEDBACON_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTEDBACON_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedBacon_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.BACON_ID,
                     Ammount = 1
@@ -1744,16 +1744,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTEDCHICKEN_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTEDCHICKEN_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedChicken_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHICKENMEAT_ID,
                     Ammount = 1
@@ -1766,16 +1766,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTED_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTED_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedSausage_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_SAUSAGE_ID,
                     Ammount = 1
@@ -1788,16 +1788,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTED_ALIEN_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTED_ALIEN_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedAlienSausage_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_ALIEN_SAUSAGE_ID,
                     Ammount = 1
@@ -1810,16 +1810,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTED_MEAT_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTED_MEAT_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedMeat_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.MEAT_ID,
                     Ammount = 1
@@ -1832,16 +1832,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTED_ALIEN_MEAT_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTED_ALIEN_MEAT_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedAlienMeat_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_MEAT_ID,
                     Ammount = 1
@@ -1854,16 +1854,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition CEREALBAR_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.CEREALBAR_ID,
                 Ammount = 1
             },
             RecipeName = "CerealBar_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CEREAL_ID,
                     Ammount = 0.1f
@@ -1881,21 +1881,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition WATERBREAD_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.WATERBREAD_ID,
                 Ammount = 1
             },
             RecipeName = "WaterBread_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_SMALL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WHEATSACK_ID,
                     Ammount = 0.25f
@@ -1913,16 +1913,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition BREAD_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.BREAD_ID,
                 Ammount = 2
             },
             RecipeName = "Bread_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.DOUGH_ID,
                     Ammount = 1
@@ -1940,16 +1940,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_BREAD_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_BREAD_ID,
                 Ammount = 2
             },
             RecipeName = "AlienBread_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_DOUGH_ID,
                     Ammount = 1
@@ -1967,21 +1967,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition PASTA_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.PASTA_ID,
                 Ammount = 1
             },
             RecipeName = "Pasta_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.DOUGH_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WHEATSACK_ID,
                     Ammount = 0.1f
@@ -1994,21 +1994,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_PASTA_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_PASTA_ID,
                 Ammount = 1
             },
             RecipeName = "AlienPasta_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_DOUGH_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WHEATSACK_ID,
                     Ammount = 0.1f
@@ -2021,26 +2021,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition VEGETABLEPASTA_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.VEGETABLEPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "VegetablePasta_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.PASTA_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.TOMATO_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
                     Ammount = 1
@@ -2053,26 +2053,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition VEGETABLEALIENPASTA_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.VEGETABLEALIENPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "VegetableAlienPasta_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_PASTA_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.TOMATO_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
                     Ammount = 1
@@ -2085,26 +2085,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition MEATPASTA_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.MEATPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "MeatPasta_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.PASTA_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.TOMATO_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_MEAT_BOWL_ID,
                     Ammount = 1
@@ -2117,26 +2117,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIENMEATPASTA_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIENMEATPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatPasta_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_PASTA_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.TOMATO_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 1
@@ -2149,16 +2149,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition CHEESE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.CHEESE_ID,
                 Ammount = 1
             },
             RecipeName = "Cheese_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Drying,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.MILK_ID,
                     Ammount = 2
@@ -2176,31 +2176,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition SALAD_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.SALAD_ID,
                 Ammount = 3
             },
             RecipeName = "Salad_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.TOMATO_ID,
                     Ammount = 3
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
@@ -2213,26 +2213,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition VEGETABLE_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.VEGETABLE_SOUP_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "VegetableSoupBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
@@ -2249,21 +2249,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition STEW_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.STEW_ID,
                 Ammount = 2
             },
             RecipeName = "StewBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_MEAT_BOWL_ID,
                     Ammount = 2
@@ -2276,21 +2276,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_STEW_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_STEW_ID,
                 Ammount = 2
             },
             RecipeName = "AlienStewBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 2
@@ -2303,31 +2303,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition MEAT_VEGETABLES_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.MEAT_VEGETABLES_ID,
                 Ammount = 2
             },
             RecipeName = "MeatVegetablesBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.NOBLE_MEAT_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
@@ -2340,31 +2340,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_VEGETABLES_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_MEAT_VEGETABLES_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatVegetablesBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
@@ -2377,26 +2377,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition MEATLOAF_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.MEATLOAF_ID,
                 Ammount = 2
             },
             RecipeName = "MeatloafBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_MEAT_BOWL_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
@@ -2409,26 +2409,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIENMEATLOAF_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIENMEATLOAF_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatloafBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
@@ -2441,31 +2441,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition MEAT_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.MEAT_SOUP_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "MeatSoupBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
@@ -2482,31 +2482,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_MEAT_SOUP_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatSoupBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
@@ -2523,31 +2523,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition MUSHROOMPATE_BOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.MUSHROOMPATE_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "MushroomPate_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHAMPIGNONS_ID,
                     Ammount = 10
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.SHIITAKE_ID,
                     Ammount = 10
@@ -2564,36 +2564,36 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition MEAT_MUSHROOMS_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.MEAT_MUSHROOMS_ID,
                 Ammount = 2
             },
             RecipeName = "MeatMushroom_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.NOBLE_MEAT_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHAMPIGNONS_ID,
                     Ammount = 10
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.SHIITAKE_ID,
                     Ammount = 10
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
@@ -2606,36 +2606,36 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_MUSHROOMS_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_MEAT_MUSHROOMS_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatMushroom_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHAMPIGNONS_ID,
                     Ammount = 10
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.SHIITAKE_ID,
                     Ammount = 10
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
@@ -2648,31 +2648,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition SANDWICH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.SANDWICH_ID,
                 Ammount = 3
             },
             RecipeName = "Sandwich_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.TOMATO_ID,
                     Ammount = 3
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.BREAD_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHEESE_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ROASTED_SAUSAGE_ID,
                     Ammount = 1
@@ -2685,31 +2685,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_SANDWICH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_SANDWICH_ID,
                 Ammount = 3
             },
             RecipeName = "AlienSandwich_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Processing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.TOMATO_ID,
                     Ammount = 3
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_BREAD_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHEESE_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ROASTED_ALIEN_SAUSAGE_ID,
                     Ammount = 1
@@ -2722,16 +2722,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTEDSHRIMP_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTEDSHRIMP_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedShrimp_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Frying,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.SHRIMPMEAT_ID,
                     Ammount = 10
@@ -2744,16 +2744,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTEDFISH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTEDFISH_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedFish_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.FISHMEAT_ID,
                     Ammount = 1
@@ -2766,16 +2766,16 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ROASTEDNOBLEFISH_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ROASTEDNOBLEFISH_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedNobleFish_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.NOBLEFISHMEAT_ID,
                     Ammount = 1
@@ -2788,36 +2788,36 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition FISHMUSHROOM_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.FISHMUSHROOM_ID,
                 Ammount = 2
             },
             RecipeName = "FishMushroom_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.NOBLEFISHMEAT_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHAMPIGNONS_ID,
                     Ammount = 10
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.SHIITAKE_ID,
                     Ammount = 10
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 2
@@ -2830,31 +2830,31 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition FISHSOUPBOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.FISHSOUPBOWL_ID,
                 Ammount = 2
             },
             RecipeName = "FishSoupBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAWNOBLEFISHMEATBOWL_ID,
                     Ammount = 1
@@ -2871,36 +2871,36 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition SHRIMPSOUPBOWL_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.SHRIMPSOUPBOWL_ID,
                 Ammount = 2
             },
             RecipeName = "ShrimpSoupBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_MEDIUM_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.SHRIMPMEAT_ID,
                     Ammount = 5
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.RAWFISHMEATBOWL_ID,
                     Ammount = 1
@@ -2917,21 +2917,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition APPLEPIE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.APPLEPIE_ID,
                 Ammount = 2
             },
             RecipeName = "ApplePie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CAKEDOUGH_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.APPLE_ID,
                     Ammount = 12f
@@ -2949,21 +2949,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_APPLEPIE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_APPLEPIE_ID,
                 Ammount = 2
             },
             RecipeName = "AlienApplePie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_CAKEDOUGH_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.APPLE_ID,
                     Ammount = 12f
@@ -2981,26 +2981,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition CHICKENPIE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.CHICKENPIE_ID,
                 Ammount = 2
             },
             RecipeName = "ChickenPie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CAKEDOUGH_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHICKENMEAT_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.BACON_ID,
                     Ammount = 1
@@ -3018,26 +3018,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition ALIEN_CHICKENPIE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.ALIEN_CHICKENPIE_ID,
                 Ammount = 2
             },
             RecipeName = "AlienChickenPie_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Baking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ALIEN_CAKEDOUGH_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CHICKENMEAT_ID,
                     Ammount = 2
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.BACON_ID,
                     Ammount = 1
@@ -3055,26 +3055,26 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition FATPORRIDGE_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.FATPORRIDGE_ID,
                 Ammount = 1
             },
             RecipeName = "FatPorridge_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.WATER_FLASK_SMALL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
                     Ammount = 1
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CONCENTRATEDFAT_ID,
                     Ammount = 0.15f
@@ -3087,21 +3087,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition PROTEINBAR_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.PROTEINBAR_ID,
                 Ammount = 1
             },
             RecipeName = "ProteinBar_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CONCENTRATEDPROTEIN_ID,
                     Ammount = 0.075f
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CEREAL_ID,
                     Ammount = 0.025f
@@ -3119,21 +3119,21 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodRecipeDefinition VITAMINPILLS_DEFINITION = new FoodRecipeDefinition()
         {
-            Product = new FoodRecipeDefinition.RecipeItem()
+            Product = new FullRecipeDefinition.RecipeItem()
             {
                 Id = ItensConstants.VITAMINPILLS_ID,
                 Ammount = 1
             },
             RecipeName = "VitaminPills_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.IndustrialProcessing,
-            Ingredients = new FoodRecipeDefinition.RecipeItem[]
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.CONCENTRATEDVITAMIN_ID,
                     Ammount = 0.1f
                 },
-                new FoodRecipeDefinition.RecipeItem()
+                new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.POLIETILENOGLICOL_ID,
                     Ammount = 1
@@ -3661,7 +3661,7 @@ namespace ExtendedSurvival.Stats
                     switch (foodDef.DefinitionType)
                     {
                         case FoodDefinition.FoodDefinitionType.Consumable:
-                            var consumableDef = DefinitionUtils.TryGetDefinition<MyConsumableItemDefinition>(food.subtypeId.String);
+                            var consumableDef = DefinitionUtils.TryGetDefinition<MyConsumableItemDefinition>(food.DefinitionId);
                             if (consumableDef != null)
                             {
                                 if (consumableDef.Stats == null)
@@ -3695,7 +3695,7 @@ namespace ExtendedSurvival.Stats
                             break;
                         case FoodDefinition.FoodDefinitionType.Ore:
                         case FoodDefinition.FoodDefinitionType.Ingot:
-                            var physicalItemDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(food.subtypeId.String);
+                            var physicalItemDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(food.DefinitionId);
                             if (physicalItemDef != null)
                             {
                                 physicalItemDef.DisplayNameEnum = null;

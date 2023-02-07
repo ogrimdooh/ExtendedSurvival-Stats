@@ -341,66 +341,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            try
-            {
-                var targetFaction = FactionTypeConstants.FACTION_TYPES_DEFINITIONS[FactionTypeConstants.TRADER_ID];
-                // Override medical definition
-                foreach (var quimical in QUIMICALS_DEFINITIONS.Keys)
-                {
-                    var quimicalDef = QUIMICALS_DEFINITIONS[quimical];
-                    // Item definition
-                    var itemDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(quimical.subtypeId.String);
-                    if (itemDef != null)
-                    {
-                        itemDef.Volume = quimicalDef.GetVolume();
-                        itemDef.Mass = quimicalDef.GetMass();
-                        itemDef.DisplayNameEnum = null;
-                        itemDef.DisplayNameString = quimicalDef.Name;
-                        itemDef.DescriptionEnum = null;
-                        itemDef.DescriptionString = null;
-                        itemDef.MinimumAcquisitionAmount = quimicalDef.AcquisitionAmount.X;
-                        itemDef.MaximumAcquisitionAmount = quimicalDef.AcquisitionAmount.Y;
-                        itemDef.MinimumOrderAmount = quimicalDef.OrderAmount.X;
-                        itemDef.MaximumOrderAmount = quimicalDef.OrderAmount.Y;
-                        itemDef.MinimumOfferAmount = quimicalDef.OfferAmount.X;
-                        itemDef.MaximumOfferAmount = quimicalDef.OfferAmount.Y;
-                        itemDef.MinimalPricePerUnit = quimicalDef.MinimalPricePerUnit;
-                        itemDef.CanPlayerOrder = quimicalDef.CanPlayerOrder;
-                        itemDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + quimicalDef.GetFullDescription());
-                        itemDef.Postprocess();
-                    }
-                    else
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(QuimicalConstants), $"TryOverrideRecipes item not found. Food=[{quimical}]");
-                    // Recipe definition
-                    foreach (var recipe in quimicalDef.RecipesDefinition)
-                    {
-                        var recipeDef = DefinitionUtils.TryGetBlueprintDefinition(recipe.RecipeName);
-                        if (recipeDef != null)
-                        {
-                            recipeDef.Prerequisites = recipe.GetIngredients();
-                            recipeDef.Results = recipe.GetProduct(quimicalDef.Id);
-                            recipeDef.BaseProductionTimeInSeconds = recipe.ProductionTime;
-                            recipeDef.DisplayNameEnum = null;
-                            recipeDef.DisplayNameString = quimicalDef.Name;
-                            recipeDef.DescriptionEnum = null;
-                            recipeDef.DescriptionString = null;
-                            recipeDef.Postprocess();
-                        }
-                        else
-                            ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(QuimicalConstants), $"TryOverrideDefinitions recipe not found. Recipe=[{recipe.RecipeName}]");
-                    }
-                    // Add itens to faction types
-                    if (quimicalDef.CanPlayerOrder)
-                    {
-                        targetFaction.OffersList.Add(quimical);
-                        targetFaction.OrdersList.Add(quimical);
-                    }
-                }
-            }
-            catch (System.Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(QuimicalConstants), ex);
-            }
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions(QUIMICALS_DEFINITIONS);
         }
 
     }
