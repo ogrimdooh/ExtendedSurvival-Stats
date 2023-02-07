@@ -7,7 +7,7 @@
         <SubtypeId>FoodProcessor</SubtypeId>
       </Id>
       <DisplayName>Food Processor</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\assembler.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\FoodProcessor.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <GuiVisible>false</GuiVisible>
@@ -80,7 +80,7 @@
         <SubtypeId>FoodProcessorIndustrial</SubtypeId>
       </Id>
       <DisplayName>Industrial Food Processor</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\AdvancedAssemblerIndustrial.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\IndustrialFoodProcessor.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <GuiVisible>false</GuiVisible>

@@ -7,7 +7,7 @@
         <SubtypeId>BasicFoodProcessor</SubtypeId>
       </Id>
       <DisplayName>Basic Food Processor</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\BasicFoodProcessor.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <GuiVisible>false</GuiVisible>

@@ -7,7 +7,7 @@
         <SubtypeId>Slaughterhouse</SubtypeId>
       </Id>
       <DisplayName>Slaughterhouse</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\refinery.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\Slaughterhouse.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <GuiVisible>false</GuiVisible>
@@ -76,7 +76,7 @@
         <SubtypeId>SlaughterhouseIndustrial</SubtypeId>
       </Id>
       <DisplayName>Industrial Slaughterhouse</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\AdvancedRefinery.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\IndustrialSlaughterhouse.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <GuiVisible>false</GuiVisible>

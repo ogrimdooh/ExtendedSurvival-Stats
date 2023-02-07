@@ -7,7 +7,7 @@
         <SubtypeId>FishTrap</SubtypeId> 
       </Id>
       <DisplayName>Fish Trap</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\OxygenGenerator.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\FishTrap.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>

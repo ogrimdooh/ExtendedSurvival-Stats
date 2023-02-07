@@ -7,7 +7,7 @@
         <SubtypeId>LargeBlockSmallCage</SubtypeId>
       </Id>
       <DisplayName>Small Cage</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\container.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\SmallCage.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -57,7 +57,7 @@
         <SubtypeId>SmallBlockSmallCage</SubtypeId>
       </Id>
       <DisplayName>Small Cage</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\container_large.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\LargeCage.dds</Icon>
       <Description></Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
@@ -103,7 +103,7 @@
         <SubtypeId>LargeBlockLargeCage</SubtypeId>
       </Id>
       <DisplayName>Large Cage</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\container_large.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\LargeCage.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <GuiVisible>false</GuiVisible>

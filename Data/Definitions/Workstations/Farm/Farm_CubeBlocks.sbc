@@ -7,7 +7,7 @@
         <SubtypeId>LargeBlockFarm</SubtypeId>
       </Id>
       <DisplayName>Farm</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\SolarHydroponics.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\Farm.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>

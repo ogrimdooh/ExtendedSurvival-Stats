@@ -7,7 +7,7 @@
         <SubtypeId>BasicSlaughterhouse</SubtypeId>
       </Id>
       <DisplayName>Basic Slaughterhouse</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\Blastfurnace.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\BasicSlaughterhouse.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <GuiVisible>false</GuiVisible>

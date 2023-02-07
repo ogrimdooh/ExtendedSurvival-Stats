@@ -7,7 +7,7 @@
         <SubtypeId>LargeBlockComposter</SubtypeId>
       </Id>
       <DisplayName>Composter</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\OxygenGenerator.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\Composter.dds</Icon>
       <Description></Description>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
