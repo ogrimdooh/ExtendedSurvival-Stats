@@ -18,18 +18,30 @@ namespace ExtendedSurvival.Stats
     public class RefrigeratorBlock : SimpleInventoryLogicComponent<IMyGasGenerator>
     {
 
-        public const string LARGE_BLOCK_NAME = "Large Refrigerator";
-        public const string SMALL_BLOCK_NAME = "Small Refrigerator"; 
+        public static string LARGE_BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_LARGE_REFRIGERATOR);
+            }
+        }
+
+        public static string SMALL_BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_SMALL_REFRIGERATOR);
+            }
+        }
 
         public static string GetFullDescription(bool smallBlock)
         {
             float basePowerUse = smallBlock ? 0.005f : 0.025f;
-            var values = new StringBuilder();
-            values.AppendLine(string.Format(
-                "Refrigerator are blocks that can keep items from rotting. The energy cost varies based in inventory volume, " + string.Format(
-                "from {0}kW/h up to {1}kW/h.", (basePowerUse * 1000).ToString("#0.0"), (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0"))
-            ));
-            return values.ToString();
+            return string.Format(
+                LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_REFRIGERATOR_DESCRIPTION), 
+                (basePowerUse * 1000).ToString("#0.0"), 
+                (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0")
+            );
         }
 
         private const float MAS_MASS = int.MaxValue;

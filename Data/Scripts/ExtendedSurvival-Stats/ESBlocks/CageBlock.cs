@@ -18,21 +18,35 @@ namespace ExtendedSurvival.Stats
 {
 
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_CargoContainer), false, "LargeBlockSmallCage", "SmallBlockSmallCage", "LargeBlockLargeCage")]
-    public class CageBlock : SimpleInventoryLogicComponent<IMyCargoContainer> 
+    public class CageBlock : SimpleInventoryLogicComponent<IMyCargoContainer>
     {
 
-        public const string SMALL_BLOCK_NAME = "Small Cage";
-        public const string BLOCK_NAME = "Small Cage";
-        public const string LARGE_BLOCK_NAME = "Large Cage";
+        public static string SMALL_BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_SMALL_CAGE);
+            }
+        }
+        public static string BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_SMALL_CAGE);
+            }
+        }
+
+        public static string LARGE_BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_LARGE_CAGE);
+            }
+        }
 
         public static string GetFullDescription()
         {
-            var values = new StringBuilder();
-            values.AppendLine(string.Format(
-                "Cage are blocks used to store and keep captured animals alive. " +
-                "When you feed the animals they will eat to stay alive, and in some cases produce products."
-            ));
-            return values.ToString();
+            return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_CAGE_DESCRIPTION);
         }
 
         private const float INV_SMALL_MASS = int.MaxValue;

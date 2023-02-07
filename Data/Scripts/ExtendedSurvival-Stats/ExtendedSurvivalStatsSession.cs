@@ -46,7 +46,7 @@ namespace ExtendedSurvival.Stats
 
         protected override void DoInit(MyObjectBuilder_SessionComponent sessionComponent)
         {
-
+            
             Static = this;
 
             if (!IsDedicated)

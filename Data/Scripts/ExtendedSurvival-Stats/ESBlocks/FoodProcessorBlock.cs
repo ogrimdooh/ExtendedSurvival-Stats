@@ -14,18 +14,33 @@ namespace ExtendedSurvival.Stats
     public class FoodProcessorBlock : BaseAssemblerBlock
     {
 
-        public const string BASIC_BLOCK_NAME = "Basic Food Processor";
-        public const string BLOCK_NAME = "Food Processor";
-        public const string INDUSTRIAL_BLOCK_NAME = "Industrial Food Processor";
+        public static string BASIC_BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FOODPROCESSOR_BASIC);
+            }
+        }
+
+        public static string BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FOODPROCESSOR);
+            }
+        }
+
+        public static string INDUSTRIAL_BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FOODPROCESSOR_INDUSTRIAL);
+            }
+        }
 
         public static string GetFullDescription()
         {
-            var values = new StringBuilder();
-            values.AppendLine(string.Format(
-                "Food processors are blocks that can prepare and cook food. " +
-                "At the end of production, if you have a refrigerator connected, it will store food automatically."
-            ));
-            return values.ToString();
+            return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FOODPROCESSOR_DESCRIPTION);
         }
 
         public static readonly string[] REFRIGERATOS_IDS = new string[] { "SmallBlockRefrigerator", "LargeBlockRefrigerator" };

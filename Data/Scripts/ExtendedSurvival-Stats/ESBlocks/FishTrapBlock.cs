@@ -21,17 +21,23 @@ namespace ExtendedSurvival.Stats
     public class FishTrapBlock : SimpleInventoryLogicComponent<IMyGasGenerator>
     {
 
-        public const string BLOCK_NAME = "Fish Trap";
+        public static string BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FISHTRAP);
+            }
+        }
 
         public static string GetFullDescription()
         {
             float basePowerUse = 0.005f;
-            var values = new StringBuilder();
-            values.AppendLine(string.Format(
-                "Fish traps are blocks that can capture fish by consuming baits, they need to be submerged and connected to submerged collectors to work. " + string.Format(
-                "The fishing cycles are {0}s and cost of energy can vary from {1}kW/h up to {2}kW/h.", (TIME_TO_GENERATE / 1000).ToString("#0.0"), (basePowerUse * 1000).ToString("#0.0"), (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0"))
-            ));
-            return values.ToString();
+            return string.Format(
+                LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FISHTRAP_DESCRIPTION), 
+                (TIME_TO_GENERATE / 1000).ToString("#0.0"), 
+                (basePowerUse * 1000).ToString("#0.0"), 
+                (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0")
+            );
         }
 
         public static readonly string[] COMPOSTERS_IDS = new string[] { "LargeBlockComposter" };

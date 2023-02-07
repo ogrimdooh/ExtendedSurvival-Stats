@@ -18,20 +18,25 @@ namespace ExtendedSurvival.Stats
     public class ComposterBlock : SimpleInventoryLogicComponent<IMyGasGenerator>
     {
 
-        public const string BLOCK_NAME = "Composter";
+        public static string BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_COMPOSTER);
+            }
+        }
 
         public static string GetFullDescription()
         {
             float basePowerUse = 0.0125f;
-            var values = new StringBuilder();
-            values.AppendLine(string.Format(
-                "Composters are blocks that can speed up up to {0}x the ", SPOIL_MULTIPLIER) +
-                "rotting of itens. If it had organic material in the inventory, " +
-                "will spawn fish baits in time cicle, this cicles can ranges from " + string.Format(
-                "{0}s to {1}s based in amount of organic material.", (MIN_TIME_TO_GENERATE / 1000).ToString("#0.0"), (MAX_TIME_TO_GENERATE / 1000).ToString("#0.0")) +
-                "The energy cost varies based in inventory volume, " + string.Format(
-                "from {0}kW/h up to {1}kW/h.", (basePowerUse * 1000).ToString("#0.0"), (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0")));
-            return values.ToString();
+            return string.Format(
+                LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_COMPOSTER_DESCRIPTION),
+                SPOIL_MULTIPLIER,
+                (MIN_TIME_TO_GENERATE / 1000).ToString("#0.0"),
+                (MAX_TIME_TO_GENERATE / 1000).ToString("#0.0"),
+                (basePowerUse * 1000).ToString("#0.0"),
+                (basePowerUse * 1000 * POWER_MULTIPLIER).ToString("#0.0")
+            );
         }
 
         public class DecompositionResultDefinition

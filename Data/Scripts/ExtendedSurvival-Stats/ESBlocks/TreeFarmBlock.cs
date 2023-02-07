@@ -21,16 +21,20 @@ namespace ExtendedSurvival.Stats
     public class TreeFarmBlock : BaseInventoryLogicComponent<IMyOxygenFarm>
     {
 
-        public const string BLOCK_NAME = "Tree Farm";
+        public static string BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_TREEFARM);
+            }
+        }
 
         public static string GetFullDescription()
         {
-            var values = new StringBuilder();
-            values.AppendLine(string.Format(
-                "Tree farms are blocks that can grow and keep trees alive to produce fruit when you have ice and fertilizer in your inventory. " +
-                "Rotting time decreases by {0}% when producing.", (FarmConstants.BASE_SPOILMULTIPLIER_WITH_TREE * 100).ToString("#0.0")
-            ));
-            return values.ToString();
+            return string.Format(
+                LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_TREEFARM_DESCRIPTION), 
+                (FarmConstants.BASE_SPOILMULTIPLIER_WITH_TREE * 100).ToString("#0.0")
+            );
         }
 
         private const float MAS_MASS = int.MaxValue;

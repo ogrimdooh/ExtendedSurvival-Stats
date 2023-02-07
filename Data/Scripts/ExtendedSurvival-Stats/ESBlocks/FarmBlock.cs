@@ -24,18 +24,21 @@ namespace ExtendedSurvival.Stats
     public class FarmBlock : BaseInventoryLogicComponent<IMyOxygenFarm>
     {
 
-        public const string BLOCK_NAME = "Farm";
+        public static string BLOCK_NAME
+        {
+            get
+            {
+                return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FARM);
+            }
+        }
 
         public static string GetFullDescription()
         {
-            var values = new StringBuilder();
-            values.AppendLine(string.Format(
-                "Farms are blocks that generate vegetables, mushrooms and herbs when seeds, ice and fertilizers are placed in the inventory. " +
-                "Resource cost increases by {0}% for extra seed type and rotting time decreases by {0}% when producing.", 
+            return string.Format(
+                LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FARM_DESCRIPTION),
                 (FarmConstants.BASE_INCRESE_COST * 100).ToString("#0.0"),
                 (FarmConstants.BASE_SPOILMULTIPLIER_WITH_TREE * 100).ToString("#0.0")
-            ));
-            return values.ToString();
+            );
         }
 
         private const float MAS_MASS = int.MaxValue;
