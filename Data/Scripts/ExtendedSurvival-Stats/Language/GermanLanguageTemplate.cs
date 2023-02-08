@@ -4,11 +4,11 @@ using VRage;
 namespace ExtendedSurvival.Stats
 {
 
-    public class EnglishLanguageTemplate : BaseLanguageTemplate
+    public class GermanLanguageTemplate : BaseLanguageTemplate
     {
 
-        public EnglishLanguageTemplate() 
-            : base(MyLanguagesEnum.English)
+        public GermanLanguageTemplate() 
+            : base(MyLanguagesEnum.German)
         {
         }
 
@@ -17,27 +17,28 @@ namespace ExtendedSurvival.Stats
 			#region GENERALS
 			AddEntry(
 				LanguageEntries.TERMS_YES_NAME,
-				"Yes"
+				"Ja"
 			);
 			AddEntry(
 				LanguageEntries.TERMS_NO_NAME,
-				"No"
+				"Nein"
 			);
 			#endregion
 			#region CUBE_BLOCKS
 			AddEntry(
                 LanguageEntries.CUBEBLOCK_SMALL_CAGE,
-                "Small Cage"
-            );
+				"Kleiner Käfig"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_LARGE_CAGE,
-                "Large Cage"
-            );
+				"Großer Käfig"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_CAGE_DESCRIPTION,
-                "Cage are blocks used to store and keep captured animals alive. " +
-                "When you feed the animals they will eat to stay alive, and in some " +
-                "cases produce products."
+				"Käfige sind Blöcke, die verwendet werden, um gefangene Tiere zu " +
+				"lagern und am Leben zu erhalten. Wenn Sie die Tiere füttern, fressen " +
+				"sie, um am Leben zu bleiben, und produzieren in einigen Fällen " +
+				"Produkte. "
             );
             AddEntry(
                 LanguageEntries.CUBEBLOCK_COMPOSTER,
@@ -45,304 +46,304 @@ namespace ExtendedSurvival.Stats
             );
             AddEntry(
                 LanguageEntries.CUBEBLOCK_COMPOSTER_DESCRIPTION,
-                "Composters are blocks that can speed up up to {0}x the " +
-                "rotting of itens. If it had organic material in the inventory, " +
-                "will spawn fish baits in time cicle, this cicles can ranges from " +
-                "{1}s to {2}s based in amount of organic material." +
-                "The energy cost varies based in inventory volume, " +
-                "from {3}kW/h up to {4}kW/h."
-            );
+				"Komposter sind Blöcke, die bis zum {0}x beschleunigen können " +
+				"Verrottung von itens. Wenn es organisches Material im Inventar hatte, " +
+				"werden Fischköder in Zeitzyklen spawnen, diese Zyklen können von reichen " +
+				"{1}s bis {2}s basierend auf der Menge an organischem Material. " +
+				"Die Energiekosten variieren je nach Bestandsvolumen, " +
+				"von {3}kW/h bis zu {4}kW/h."
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FARM,
-                "Farm"
-            );
+				"Bauernhof"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FARM_DESCRIPTION,
-                "Farms are blocks that generate vegetables, mushrooms and herbs " +
-                "when seeds, ice and fertilizers are placed in the inventory. " +
-                "Resource cost increases by {0}% for extra seed type and rotting " +
-                "time decreases by {0}% when producing."
-            );
+				"Farmen sind Blöcke, die Gemüse, Pilze und Kräuter erzeugen " +
+				"wenn Samen, Eis und Düngemittel ins Inventar gelegt werden. " +
+				"Die Ressourcenkosten steigen um {0}% für zusätzliche Samenart und Verrottung " +
+				"Die Zeit verringert sich beim Produzieren um {0}%."
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_TREEFARM,
-                "Tree Farm"
-            );
+				"Baumfarm"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_TREEFARM_DESCRIPTION,
-                "Tree farms are blocks that can grow and keep trees alive to produce " +
-                "fruit when you have ice and fertilizer in your inventory. " +
-                "Rotting time decreases by {0}% when producing."
-            );
+				"Baumfarmen sind Blöcke, die wachsen und Bäume am Leben erhalten können, um zu produzieren " +
+				"Obst, wenn du Eis und Dünger in deinem Inventar hast. " +
+				"Die Verrottungszeit verringert sich beim Produzieren um {0} %."
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FISHTRAP,
-				"Fish Trap"
+				"Fischfalle"
 			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FISHTRAP_DESCRIPTION,
-                "Fish traps are blocks that can capture fish by consuming baits, they need " +
-                "to be submerged and connected to submerged collectors to work. " +
-                "The fishing cycles are {0}s and cost of energy can vary from {1}kW/h up to {2}kW/h."
-            );
+				"Reusen sind Blöcke, die Fische durch den Verzehr von Ködern fangen können, die sie brauchen " +
+				"untergetaucht und an untergetauchte Kollektoren angeschlossen werden, um zu arbeiten. " +
+				"Die Fangzyklen sind {0}s und die Energiekosten können von {1}kW/h bis zu {2}kW/h variieren."
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FOODPROCESSOR,
-                "Food Processor"
-            );
+				"Küchenmaschine"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FOODPROCESSOR_BASIC,
-                "Basic Food Processor"
+                "Einfache Küchenmaschine"
             );
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FOODPROCESSOR_INDUSTRIAL,
-                "Industrial Food Processor"
-            );
+				"Industrielle Küchenmaschine"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_FOODPROCESSOR_DESCRIPTION,
-                "Food processors are blocks that can prepare and cook food. " +
-                "At the end of production, if you have a refrigerator connected, " +
-                "it will store food automatically."
-            );
+				"Küchenmaschinen sind Blöcke, die Lebensmittel zubereiten und kochen können. " +
+				"Am Ende der Produktion, wenn Sie einen Kühlschrank angeschlossen haben, " +
+				"Es speichert Lebensmittel automatisch."
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_SLAUGHTERHOUSE,
-                "Slaughterhouse"
-            );
+				"Schlachthof"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_SLAUGHTERHOUSE_BASIC,
-                "Basic Slaughterhouse"
-            );
+				"Einfaches Schlachthaus"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_SLAUGHTERHOUSE_INDUSTRIAL,
-                "Industrial Slaughterhouse"
-            );
+				"Industrieller Schlachthof"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_SLAUGHTERHOUSE_DESCRIPTION,
-                "Slaughterhouses are blocks that can slaughter farmed " +
-                "animals and extract their meat. At the end of production, " +
-                "if you have a refrigerator connected, it will store food " +
-                "automatically."
-            );
+				"Schlachthöfe sind Blöcke, die gezüchtet werden können " +
+				"Tiere und extrahieren ihr Fleisch. Am Ende der Produktion, " +
+				"Wenn Sie einen Kühlschrank angeschlossen haben, werden darin Lebensmittel gelagert " +
+				"automatisch."
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_SMALL_REFRIGERATOR,
-                "Small Refrigerator"
-            );
+				"Kleiner Kühlschrank"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_LARGE_REFRIGERATOR,
-                "Large Refrigerator"
-            );
+				"Großer Kühlschrank"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_REFRIGERATOR_DESCRIPTION,
-                "Refrigerator are blocks that can keep items from rotting. " +
-                "The energy cost varies based in inventory volume, " +
-                "from {0}kW/h up to {1}kW/h."
-            );
+				"Kühlschränke sind Blöcke, die verhindern können, dass Gegenstände verrotten. " +
+				"Die Energiekosten variieren je nach Bestandsvolumen, " +
+				"von {0}kW/h bis zu {1}kW/h."
+			);
             #endregion
             #region EQUIPMENTS
             AddEntry(
                 LanguageEntries.BODYTRACKER_NAME,
-                "Body Tracker"
-            );
+				"Bodytracker"
+			);
             AddEntry(
                 LanguageEntries.BODYTRACKER_DESCRIPTION,
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine +
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Basic negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Ein Zubehör, das dafür verantwortlich ist, den Zustand des Körpers zu " + Environment.NewLine +
+				"überwachen und auf dem Helmdisplay des Raumanzugs anzuzeigen." + Environment.NewLine +
+				"Kann erkennen:" + Environment.NewLine +
+				"- Nasses Niveau;" + Environment.NewLine +
+				"- Körpertemperatur;" + Environment.NewLine +
+				"- Grundlegende negative Auswirkungen;" + Environment.NewLine + Environment.NewLine +
+				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+			);
             AddEntry(
                 LanguageEntries.ENHANCEDBODYTRACKER_NAME,
-                "Enhanced Body Tracker"
-            );
+				"Verbesserter Bodytracker"
+			);
             AddEntry(
                 LanguageEntries.ENHANCEDBODYTRACKER_DESCRIPTION,
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine +
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Body energy;" + Environment.NewLine +
-                "- Body water;" + Environment.NewLine +
-                "- Untreated wound;" + Environment.NewLine +
-                "- Intermediate negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Ein Zubehör, das dafür verantwortlich ist, den Zustand des Körpers zu " + Environment.NewLine +
+				"überwachen und auf dem Helmdisplay des Raumanzugs anzuzeigen." + Environment.NewLine +
+				"Kann erkennen:" + Environment.NewLine +
+				"- Nasses Niveau;" + Environment.NewLine +
+				"- Körpertemperatur;" + Environment.NewLine +
+				"- Körperenergie;" + Environment.NewLine +
+				"- Körperwasser;" + Environment.NewLine +
+				"- Unbehandelte Wunde;" + Environment.NewLine +
+				"- Mittlere negative Auswirkungen;" + Environment.NewLine + Environment.NewLine +
+				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+			);
             AddEntry(
                 LanguageEntries.PROFICIENTBODYTRACKER_NAME,
-                "Proficient Body Tracker"
-            );
+				"Kompetenter Bodytracker"
+			);
             AddEntry(
                 LanguageEntries.PROFICIENTBODYTRACKER_DESCRIPTION,
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine +
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Body energy;" + Environment.NewLine +
-                "- Body water;" + Environment.NewLine +
-                "- Body weight;" + Environment.NewLine +
-                "- Body efficiency;" + Environment.NewLine +
-                "- Body fatigue;" + Environment.NewLine +
-                "- Untreated wound;" + Environment.NewLine +
-                "- Advanced negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Ein Zubehör, das dafür verantwortlich ist, den Zustand des Körpers zu " + Environment.NewLine +
+				"überwachen und auf dem Helmdisplay des Raumanzugs anzuzeigen." + Environment.NewLine +
+				"Kann erkennen:" + Environment.NewLine +
+				"- Nasses Niveau;" + Environment.NewLine +
+				"- Körpertemperatur;" + Environment.NewLine +
+				"- Körperenergie;" + Environment.NewLine +
+				"- Körperwasser;" + Environment.NewLine +
+				"- Körpergewicht;" + Environment.NewLine +
+				"- Körperliche Leistungsfähigkeit;" + Environment.NewLine +
+				"- Körperermüdung;" + Environment.NewLine +
+				"- Unbehandelte Wunde;" + Environment.NewLine +
+				"- Erweiterte negative Effekte;" + Environment.NewLine + Environment.NewLine +
+				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+			);
             AddEntry(
                 LanguageEntries.ELITEBODYTRACKER_NAME,
-                "Elite Body Tracker"
-            );
+				"Elite Bodytracker"
+			);
             AddEntry(
                 LanguageEntries.ELITEBODYTRACKER_DESCRIPTION,
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine +
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Body energy;" + Environment.NewLine +
-                "- Body water;" + Environment.NewLine +
-                "- Body weight;" + Environment.NewLine +
-                "- Body efficiency;" + Environment.NewLine +
-                "- Body fatigue;" + Environment.NewLine +
-                "- Body immunity;" + Environment.NewLine +
-                "- Body muscle;" + Environment.NewLine +
-                "- Body fat;" + Environment.NewLine +
-                "- Untreated wound;" + Environment.NewLine +
-                "- All negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Ein Zubehör, das dafür verantwortlich ist, den Zustand des Körpers zu " + Environment.NewLine +
+				"überwachen und auf dem Helmdisplay des Raumanzugs anzuzeigen." + Environment.NewLine +
+				"Kann erkennen:" + Environment.NewLine +
+				"- Nasses Niveau;" + Environment.NewLine +
+				"- Körpertemperatur;" + Environment.NewLine +
+				"- Körperenergie;" + Environment.NewLine +
+				"- Körperwasser;" + Environment.NewLine +
+				"- Körpergewicht;" + Environment.NewLine +
+				"- Körperliche Leistungsfähigkeit;" + Environment.NewLine +
+				"- Körperermüdung;" + Environment.NewLine +
+				"- Körperliche Immunität;" + Environment.NewLine +
+				"- Körpermuskel;" + Environment.NewLine +
+				"- Körperfett;" + Environment.NewLine +
+				"- Unbehandelte Wunde;" + Environment.NewLine +
+				"- Alles negative Auswirkungen;" + Environment.NewLine + Environment.NewLine +
+				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+			);
             #endregion
             #region FISHING
             AddEntry(
                 LanguageEntries.FISH_NAME,
-                "Fish"
-            );
+				"Fisch"
+			);
             AddEntry(
                 LanguageEntries.FISH_DESCRIPTION,
-                "Fish are abundant in most bodies of water. They can be found" + Environment.NewLine + 
-                "in nearly all aquatic environments."
-            );
+				"Fische sind in den meisten Gewässern reichlich vorhanden. " + Environment.NewLine +
+				"Sie kommen in fast allen Gewässern vor."
+			);
             AddEntry(
                 LanguageEntries.ALIENFISH_NAME,
-                "Alien Fish"
-            );
+				"Außerirdischer Fisch"
+			);
             AddEntry(
                 LanguageEntries.ALIENFISH_DESCRIPTION,
-                "Fish are abundant in most bodies of water. They can be found" + Environment.NewLine +
-                "in nearly all aquatic environments."
-            );
+				"Fische sind in den meisten Gewässern reichlich vorhanden. " + Environment.NewLine +
+				"Sie kommen in fast allen Gewässern vor."
+			);
             AddEntry(
                 LanguageEntries.NOBLEFISH_NAME,
-                "Noble Fish"
-            );
+				"Edler Fisch"
+			);
             AddEntry(
                 LanguageEntries.NOBLEFISH_DESCRIPTION,
-                "Noble fish are more difficult to catch. They can be found in" + Environment.NewLine + 
-                "deeper waters."
-            );
+				"Edelfische sind schwieriger zu fangen. Sie können in tieferen " + Environment.NewLine +
+				"Gewässern gefunden werden."
+			);
             AddEntry(
                 LanguageEntries.ALIENNOBLEFISH_NAME,
-                "Alien Noble Fish"
-            );
+				"Außerirdischer Edelfisch"
+			);
             AddEntry(
                 LanguageEntries.ALIENNOBLEFISH_DESCRIPTION,
-                "Noble fish are more difficult to catch. They can be found in" + Environment.NewLine + 
-                "deeper waters."
-            );
+				"Edelfische sind schwieriger zu fangen. Sie können in tieferen " + Environment.NewLine +
+				"Gewässern gefunden werden."
+			);
             AddEntry(
                 LanguageEntries.SHRIMP_NAME,
-                "Shrimp"
-            );
+				"Garnele"
+			);
             AddEntry(
                 LanguageEntries.SHRIMP_DESCRIPTION,
-                "Shrimp are crustaceans with elongated bodies and a primarily" + Environment.NewLine + 
-                "swimming mode of locomotion."
-            );
+				"Garnelen sind Krebstiere mit länglichen Körpern und einer " + Environment.NewLine +
+				"hauptsächlich schwimmenden Fortbewegungsart."
+			);
             AddEntry(
                 LanguageEntries.FISH_BAIT_SMALL_NAME,
-                "Fish Bait"
+                "Fisch Köder"
             );
             AddEntry(
                 LanguageEntries.FISH_BAIT_SMALL_DESCRIPTION,
-                "A kind of small worm, some fish may find it appetizing."
-            );
+				"Eine Art kleiner Wurm, manche Fische mögen ihn appetitlich finden."
+			);
             AddEntry(
                 LanguageEntries.FISH_NOBLE_BAIT_NAME,
-                "Noble Fish Bait"
-            );
+				"Edler Fischköder"
+			);
             AddEntry(
                 LanguageEntries.FISH_NOBLE_BAIT_DESCRIPTION,
-                "A kind of small worm, some fish may find it appetizing."
-            );
+				"Eine Art kleiner Wurm, manche Fische mögen ihn appetitlich finden."
+			);
             #region FishBaitDefinition
             AddEntry(
                 LanguageEntries.FISHBAITDEFINITION_DESCRIPTION,
-                "Can be used in traps to catch fish." + Environment.NewLine +
-                "Will consume from {0} to {1} per cycle." + Environment.NewLine +
-                "Can capture up to {2} fish per cicle." + Environment.NewLine +
-                "Valid targets:"
-            );
+				"Kann in Fallen verwendet werden, um Fische zu fangen." + Environment.NewLine +
+				"Verbraucht von {0} bis {1} pro Zyklus." + Environment.NewLine +
+				"Kann bis zu {2} Fische pro Kreis fangen." + Environment.NewLine +
+				"Gültige Ziele:"
+			);
             AddEntry(
                 LanguageEntries.FISHBAITDEFINITION_FISH_DESCRIPTION,
-                "- {1}% to get {0} at minimum depth of {2}m"
-            );
+				"- {1}%, um {0} in einer Mindesttiefe von {2}m zu erhalten"
+			);
             AddEntry(
                 LanguageEntries.FISHBAITDEFINITION_DECOMPOSITION_DESCRIPTION,
-                "It can be generated in composters." + Environment.NewLine +
-                "{0}% chance to spawn {1} to {2} per cycle."
-            );
+				"Es kann in Kompostern erzeugt werden." + Environment.NewLine +
+				"{0}% kann, {1} bis {2} pro Zyklus zu spawnen."
+			);
             #endregion
             #region FishDefinition
             AddEntry(
                 LanguageEntries.FISHDEFINITION_DESCRIPTION,
-                "Rotting time: {0}s" + Environment.NewLine + Environment.NewLine +
-                "Can be captured in traps:"
-            );
+				"Rottezeit: {0}s" + Environment.NewLine + Environment.NewLine +
+				"Kann in Fallen gefangen werden:"
+			);
             AddEntry(
                 LanguageEntries.FISHDEFINITION_BAIT_DESCRIPTION,
-                "- {1}% using {0} at minimum depth of {2}m"
-            );
+				"- {1}% mit {0} in einer Mindesttiefe von {2}m"
+			);
             AddEntry(
                 LanguageEntries.FISHDEFINITION_NOTE_DESCRIPTION,
-                "Note: They can have their meat extracted in food processors."
-            );
+				"Hinweis: Sie können ihr Fleisch in Küchenmaschinen extrahieren lassen."
+			);
 			#endregion
 			#endregion
 			#region FOODS
 			AddEntry(
 				LanguageEntries.APPLE_NAME,
-				"Apple"
+				"Apfel"
 			);
 			AddEntry(
 				LanguageEntries.APPLE_DESCRIPTION,
-				"Apple is a red and appetizing fruit," + Environment.NewLine + 
-				"it has a low caloric value."
+				"Apfel ist eine rote und appetitliche Frucht, sie hat " + Environment.NewLine +
+				"einen niedrigen Kalorienwert."
 			);
 			AddEntry(
 				LanguageEntries.BROCCOLI_NAME,
-				"Broccoli"
+				"Brokkoli"
 			);
 			AddEntry(
 				LanguageEntries.BROCCOLI_DESCRIPTION,
-				"Broccoli is an edible green plant in the cabbage family," + Environment.NewLine +
-				"it is a particularly rich source of vitamin."
+				"Brokkoli ist eine essbare grüne Pflanze aus der Familie der " + Environment.NewLine +
+				"Kohlgewächse, sie ist eine besonders reichhaltige Vitaminquelle."
 			);
 			AddEntry(
 				LanguageEntries.BEETROOT_NAME,
-				"Beetroot"
+				"Rote Beete"
 			);
 			AddEntry(
 				LanguageEntries.BEETROOT_DESCRIPTION,
-				"Beetroot is the taproot portion of a beet plant," + Environment.NewLine +
-				"it is a particularly rich source of minerals."
+				"Rote Beete ist der Pfahlwurzelanteil einer Rübenpflanze, sie " + Environment.NewLine +
+				"ist eine besonders reichhaltige Mineralstoffquelle."
 			);
 			AddEntry(
 				LanguageEntries.CAROOT_NAME,
-				"Caroot"
+				"Karotte"
 			);
 			AddEntry(
 				LanguageEntries.CAROOT_DESCRIPTION,
-				"Caroot is a root vegetable, it is a particularly rich" + Environment.NewLine +
-				"source of minerals."
+				"Die Karotte ist ein Wurzelgemüse, sie ist eine besonders " + Environment.NewLine +
+				"reichhaltige Mineralstoffquelle."
 			);
 			AddEntry(
 				LanguageEntries.SHIITAKE_NAME,
@@ -350,8 +351,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.SHIITAKE_DESCRIPTION,
-				"Shiitake is an edible mushroom, it is a particularly" + Environment.NewLine +
-				"rich source of protein."
+				"Shiitake ist ein Speisepilz, er ist eine besonders reichhaltige " + Environment.NewLine +
+				"Proteinquelle."
 			);
 			AddEntry(
 				LanguageEntries.CHAMPIGNONS_NAME,
@@ -359,8 +360,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.CHAMPIGNONS_DESCRIPTION,
-				"Champignon is an edible mushroom, it is a particularly" + Environment.NewLine +
-				"rich source of protein."
+				"Champignon ist ein Speisepilz, er ist eine besonders reichhaltige " + Environment.NewLine +
+				"Proteinquelle."
 			);
 			AddEntry(
 				LanguageEntries.AMANITAMUSCARIA_NAME,
@@ -368,901 +369,912 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.AMANITAMUSCARIA_DESCRIPTION,
-				"Amanita muscaria is poisonous mushroom, not recommended to eat," + Environment.NewLine +
-				"but has great chemical and medical application."
+				"Amanita muscaria ist ein giftiger Pilz, der nicht zum Verzehr empfohlen " + Environment.NewLine +
+				"wird, aber eine großartige chemische und medizinische Anwendung hat."
 			);
 			AddEntry(
 				LanguageEntries.TOMATO_NAME,
-				"Tomato"
+				"Tomate"
 			);
 			AddEntry(
 				LanguageEntries.TOMATO_DESCRIPTION,
-				"The tomato is the edible berry, it has a low caloric value."
+				"Die Tomate ist die essbare Beere, sie hat einen geringen Kalorienwert."
 			);
 			AddEntry(
 				LanguageEntries.CEREAL_NAME,
-				"Cereal"
+				"Getreide"
 			);
 			AddEntry(
 				LanguageEntries.CEREAL_DESCRIPTION,
-				"Cereal is a highly nutritious grain."
+				"Getreide ist ein sehr nahrhaftes Getreide."
 			);
 			AddEntry(
 				LanguageEntries.WHEATSACK_NAME,
-				"Wheat Sack"
+				"Weizensack"
 			);
 			AddEntry(
 				LanguageEntries.WHEATSACK_DESCRIPTION,
-				"Wheat grain is a staple food used to make flour, and with it, bread."
+				"Weizenkorn ist ein Grundnahrungsmittel, aus dem Mehl und damit Brot " + Environment.NewLine +
+				"hergestellt wird."
 			);
 			AddEntry(
 				LanguageEntries.COFFEESACK_NAME,
-				"Coffee Sack"
+				"Kaffeesack"
 			);
 			AddEntry(
 				LanguageEntries.COFFEESACK_DESCRIPTION,
-				"Coffee is a stimulant, because it has caffeine, it can be an" + Environment.NewLine +
-				"alternative to maintain body heat in cold places."
+				"Kaffee ist ein Stimulans, da er Koffein enthält, kann er eine Alternative " + Environment.NewLine +
+				"sein, um die Körperwärme an kalten Orten aufrechtzuerhalten."
 			);
 			AddEntry(
 				LanguageEntries.MILK_NAME,
-				"Milk"
+				"Milch"
 			);
 			AddEntry(
 				LanguageEntries.MILK_DESCRIPTION,
-				"Milk is a white liquid food produced by the mammary" + Environment.NewLine +
-				"glands of mammals."
+				"Milch ist eine weiße, flüssige Nahrung, die von den Milchdrüsen von " + Environment.NewLine +
+				"Säugetieren produziert wird."
 			);
 			AddEntry(
 				LanguageEntries.MEAT_NAME,
-				"Meat"
+				"Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.MEAT_DESCRIPTION,
-				"Meat has been one of the main sources of protein since" + Environment.NewLine +
-				"prehistoric times."
+				"Fleisch ist seit prähistorischen Zeiten eine der wichtigsten " + Environment.NewLine +
+				"Proteinquellen."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_NAME,
-				"Alien Meat"
+				"Außerirdisches Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_DESCRIPTION,
-				"It is a strange meat and has a strong smell," + Environment.NewLine +
-				"but the taste is normal."
+				"Es ist ein seltsames Fleisch und hat einen starken Geruch, aber " + Environment.NewLine +
+				"der Geschmack ist normal."
 			);
 			AddEntry(
 				LanguageEntries.CHICKENMEAT_NAME,
-				"Chicken Meat"
+				"Hühnerfleisch"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENMEAT_DESCRIPTION,
-				"Chicken is the most common type of poultry in the world."
+				"Huhn ist die häufigste Geflügelart der Welt."
 			);
 			AddEntry(
 				LanguageEntries.BACON_NAME,
-				"Bacon"
+				"Speck"
 			);
 			AddEntry(
 				LanguageEntries.BACON_DESCRIPTION,
-				"Bacon is a type of salt-cured pork made from various cuts," + Environment.NewLine +
-				"typically the belly or less fatty parts of the back."
+				"Speck ist eine Art von salzgepökeltem Schweinefleisch, das aus " + Environment.NewLine +
+				"verschiedenen Teilstücken hergestellt wird, typischerweise dem " + Environment.NewLine +
+				"Bauch oder den weniger fettigen Teilen des Rückens."
 			);
 			AddEntry(
 				LanguageEntries.NOBLE_MEAT_NAME,
-				"Noble Meat"
+				"Edles Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.NOBLE_MEAT_DESCRIPTION,
-				"Noble cut of meat, with a high concentration of protein."
+				"Edles Fleischstück mit hoher Proteinkonzentration."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_NOBLE_MEAT_NAME,
-				"Alien Noble Meat"
+				"Außerirdisches edles Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_NOBLE_MEAT_DESCRIPTION,
-				"It is a noble cut of a strange meat, the smell is" + Environment.NewLine +
-				"more acceptable and tastier."
+				"Es ist ein edler Teil eines fremden Fleisches, der Geruch " + Environment.NewLine +
+				"ist akzeptabler und schmackhafter."
 			);
 			AddEntry(
 				LanguageEntries.EGG_NAME,
-				"Egg"
+				"Ei"
 			);
 			AddEntry(
 				LanguageEntries.EGG_DESCRIPTION,
-				"Eggs are a very rich food from a nutritional point of view."
+				"Eier sind aus ernährungsphysiologischer Sicht ein sehr " + Environment.NewLine +
+				"reichhaltiges Lebensmittel."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_EGG_NAME,
-				"Alien Egg"
+				"Außerirdisches Ei"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_EGG_DESCRIPTION,
-				"It's actually quite a big egg, but it's best not to" + Environment.NewLine +
-				"think too hard about where it comes from."
+				"Es ist eigentlich ein ziemlich großes Ei, aber es ist " + Environment.NewLine +
+				"am besten, nicht zu sehr darüber nachzudenken, woher " + Environment.NewLine +
+				"es kommt."
 			);
 			AddEntry(
 				LanguageEntries.SHRIMPMEAT_NAME,
-				"Shrimp Meat"
+				"Garnelenfleisch"
 			);
 			AddEntry(
 				LanguageEntries.SHRIMPMEAT_DESCRIPTION,
-				"One of the most consumed seafood worldwide, shrimp is" + Environment.NewLine +
-				"rich in nutrients and has several health benefits."
+				"Garnelen sind eine der am häufigsten konsumierten " + Environment.NewLine +
+				"Meeresfrüchte weltweit. Sie sind reich an Nährstoffen " + Environment.NewLine +
+				"und haben mehrere gesundheitliche Vorteile."
 			);
 			AddEntry(
 				LanguageEntries.FISHMEAT_NAME,
-				"Fish Meat"
+				"Fisch Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.FISHMEAT_DESCRIPTION,
-				"Fish has been an important dietary source of protein and" + Environment.NewLine +
-				"other nutrients throughout human history."
+				"Fisch war im Laufe der Menschheitsgeschichte eine wichtige " + Environment.NewLine +
+				"Nahrungsquelle für Proteine ​​und andere Nährstoffe."
 			);
 			AddEntry(
 				LanguageEntries.NOBLEFISHMEAT_NAME,
-				"Noble Fish Meat"
+				"Edles Fischfleisch"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEFISHMEAT_DESCRIPTION,
-				"High quality fish meat, with a high concentration of protein."
+				"Hochwertiges Fischfleisch mit einer hohen Proteinkonzentration."
 			);
 			AddEntry(
 				LanguageEntries.CONCENTRATEDFAT_NAME,
-				"Concentrated Fat"
+				"Konzentriertes Fett"
 			);
 			AddEntry(
 				LanguageEntries.CONCENTRATEDFAT_DESCRIPTION,
-				"Concentration of fat, which can be used to make other products."
+				"Fettkonzentration, die zur Herstellung anderer Produkte verwendet " + Environment.NewLine +
+				"werden kann."
 			);
 			AddEntry(
 				LanguageEntries.CONCENTRATEDPROTEIN_NAME,
-				"Concentrated Protein"
+				"Konzentriertes Protein"
 			);
 			AddEntry(
 				LanguageEntries.CONCENTRATEDPROTEIN_DESCRIPTION,
-				"Concentration of protein, which can be used to make other products."
+				"Konzentration von Protein, das zur Herstellung anderer Produkte " + Environment.NewLine +
+				"verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.CONCENTRATEDVITAMIN_NAME,
-				"Concentrated Vitamin"
+				"Konzentriertes Vitamin"
 			);
 			AddEntry(
 				LanguageEntries.CONCENTRATEDVITAMIN_DESCRIPTION,
-				"Concentration of vitamins, which can be used to make other products."
+				"Konzentration von Vitaminen, die zur Herstellung anderer Produkte " + Environment.NewLine +
+				"verwendet werden können."
 			);
 			AddEntry(
 				LanguageEntries.WATER_FLASK_SMALL_NAME,
-				"Small Water Flask"
+				"Kleine Wasserflasche"
 			);
 			AddEntry(
 				LanguageEntries.WATER_FLASK_SMALL_DESCRIPTION,
-				"A small flask with water."
+				"Eine kleine Flasche mit Wasser."
 			);
 			AddEntry(
 				LanguageEntries.WATER_FLASK_MEDIUM_NAME,
-				"Medium Water Flask"
+				"Mittlere Wasserflasche"
 			);
 			AddEntry(
 				LanguageEntries.WATER_FLASK_MEDIUM_DESCRIPTION,
-				"A medium flask with water."
+				"Eine mittlere Flasche mit Wasser."
 			);
 			AddEntry(
 				LanguageEntries.WATER_FLASK_BIG_NAME,
-				"Big Water Flask"
+				"Große Wasserflasche"
 			);
 			AddEntry(
 				LanguageEntries.WATER_FLASK_BIG_DESCRIPTION,
-				"A big flask with water."
+				"Eine große Flasche mit Wasser."
 			);
 			AddEntry(
 				LanguageEntries.APPLE_JUICE_NAME,
-				"Apple Juice"
+				"Apfelsaft"
 			);
 			AddEntry(
 				LanguageEntries.APPLE_JUICE_DESCRIPTION,
-				"A big flask with juice extracted from apples."
+				"Eine große Flasche mit Apfelsaft."
 			);
 			AddEntry(
 				LanguageEntries.SODA_NAME,
-				"Apple Soda"
+				"Apfelsoda"
 			);
 			AddEntry(
 				LanguageEntries.SODA_DESCRIPTION,
-				"A refreshing apple-based soda."
+				"Ein erfrischendes Soda auf Apfelbasis."
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_CAN_NAME,
-				"Cofee Can"
+				"Kaffee kann"
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_CAN_DESCRIPTION,
-				"A thermos of hot coffee."
+				"Eine Thermoskanne mit heißem Kaffee."
 			);
 			AddEntry(
 				LanguageEntries.DOUGH_NAME,
-				"Dough"
+				"Teig"
 			);
 			AddEntry(
 				LanguageEntries.DOUGH_DESCRIPTION,
-				"A dough made with milk and eggs."
+				"Ein Teig aus Milch und Eiern."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_DOUGH_NAME,
-				"Alien Dough"
+				"Außerirdischer Teig"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_DOUGH_DESCRIPTION,
-				"A dough made with milk and alien eggs."
+				"Ein Teig aus Milch und außerirdischen Eiern."
 			);
 			AddEntry(
 				LanguageEntries.CAKEDOUGH_NAME,
-				"Cake Dough"
+				"Kuchenteig"
 			);
 			AddEntry(
 				LanguageEntries.CAKEDOUGH_DESCRIPTION,
-				"A cake dough made with milk and eggs."
+				"Ein Kuchenteig aus Milch und Eiern."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_CAKEDOUGH_NAME,
-				"Alien Cake Dough"
+				"Außerirdischer Kuchenteig"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_CAKEDOUGH_DESCRIPTION,
-				"A cake dough made with milk and alien eggs."
+				"Ein Kuchenteig aus Milch und außerirdischen Eiern."
 			);
 			AddEntry(
 				LanguageEntries.RAW_BROCCOLI_BOWL_NAME,
-				"Raw Broccoli Bowl"
+				"Rohe Brokkoli-Schüssel"
 			);
 			AddEntry(
 				LanguageEntries.RAW_BROCCOLI_BOWL_DESCRIPTION,
-				"A bowl with minced broccoli."
+				"Eine Schüssel mit gehacktem Brokkoli."
 			);
 			AddEntry(
 				LanguageEntries.RAW_CARROT_BOWL_NAME,
-				"Raw Carrot Bowl"
+				"Rohe Karottenschale"
 			);
 			AddEntry(
 				LanguageEntries.RAW_CARROT_BOWL_DESCRIPTION,
-				"A bowl with minced carrot."
+				"Eine Schüssel mit gehackter Karotte."
 			);
 			AddEntry(
 				LanguageEntries.RAW_BEETROOT_BOWL_NAME,
-				"Raw Beetroot Bowl"
+				"Rohe Rote-Bete-Schüssel"
 			);
 			AddEntry(
 				LanguageEntries.RAW_BEETROOT_BOWL_DESCRIPTION,
-				"A bowl with minced beetroot."
+				"Eine Schüssel mit gehackter Rote Bete."
 			);
 			AddEntry(
 				LanguageEntries.RAW_MEAT_BOWL_NAME,
-				"Raw Meat Bowl"
+				"Schüssel für rohes Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.RAW_MEAT_BOWL_DESCRIPTION,
-				"A bowl with minced meat."
+				"Eine Schüssel mit Hackfleisch."
 			);
 			AddEntry(
 				LanguageEntries.RAW_ALIEN_MEAT_BOWL_NAME,
-				"Raw Alien Meat Bowl"
+				"Rohe Alien-Fleischschale"
 			);
 			AddEntry(
 				LanguageEntries.RAW_ALIEN_MEAT_BOWL_DESCRIPTION,
-				"A bowl with minced alien meat."
+				"Eine Schüssel mit gehacktem Alien-Fleisch."
 			);
 			AddEntry(
 				LanguageEntries.RAW_NOBLE_MEAT_BOWL_NAME,
-				"Raw Noble Meat Bowl"
+				"Raw Noble Fleischschale"
 			);
 			AddEntry(
 				LanguageEntries.RAW_NOBLE_MEAT_BOWL_DESCRIPTION,
-				"A bowl with minced noble meat."
+				"Eine Schüssel mit edlem Hackfleisch."
 			);
 			AddEntry(
 				LanguageEntries.RAW_ALIEN_NOBLE_MEAT_BOWL_NAME,
-				"Raw Alien Noble Meat Bowl"
+				"Raw Alien Edle Fleischschale"
 			);
 			AddEntry(
 				LanguageEntries.RAW_ALIEN_NOBLE_MEAT_BOWL_DESCRIPTION,
-				"A bowl with minced alien noble meat."
+				"Eine Schüssel mit gehacktem Alien-Edelfleisch."
 			);
 			AddEntry(
 				LanguageEntries.RAWFISHMEATBOWL_NAME,
-				"Raw Fish Meat Bowl"
+				"Rohe Fischfleischschale"
 			);
 			AddEntry(
 				LanguageEntries.RAWFISHMEATBOWL_DESCRIPTION,
-				"A bowl with minced fish meat."
+				"Eine Schüssel mit gehacktem Fischfleisch."
 			);
 			AddEntry(
 				LanguageEntries.RAWNOBLEFISHMEATBOWL_NAME,
-				"Raw Noble Fish Meat Bowl"
+				"Rohe edle Fischfleischschale"
 			);
 			AddEntry(
 				LanguageEntries.RAWNOBLEFISHMEATBOWL_DESCRIPTION,
-				"A bowl with minced noble fish meat."
+				"Eine Schale mit gehacktem edlem Fischfleisch."
 			);
 			AddEntry(
 				LanguageEntries.RAW_SAUSAGE_NAME,
-				"Raw Sausage"
+				"Rohwurst"
 			);
 			AddEntry(
 				LanguageEntries.RAW_SAUSAGE_DESCRIPTION,
-				"A sausage full of raw meat."
+				"Eine Wurst voller rohem Fleisch."
 			);
 			AddEntry(
 				LanguageEntries.RAW_ALIEN_SAUSAGE_NAME,
-				"Raw Alien Sausage"
+				"Rohe Alien-Wurst"
 			);
 			AddEntry(
 				LanguageEntries.RAW_ALIEN_SAUSAGE_DESCRIPTION,
-				"A sausage full of raw alien meat."
+				"Eine Wurst voller rohem Alien-Fleisch."
 			);
 			AddEntry(
 				LanguageEntries.ROAST_CHAMPIGNON_NAME,
-				"Roast Champignons"
+				"Gebratene Champignons"
 			);
 			AddEntry(
 				LanguageEntries.ROAST_CHAMPIGNON_DESCRIPTION,
-				"A simple and tasty way to eat mushrooms."
+				"Eine einfache und leckere Art, Pilze zu essen."
 			);
 			AddEntry(
 				LanguageEntries.ROAST_SHIITAKE_NAME,
-				"Roast Shiitakes"
+				"Gebratene Shiitake"
 			);
 			AddEntry(
 				LanguageEntries.ROAST_SHIITAKE_DESCRIPTION,
-				"A simple and tasty way to eat mushrooms."
+				"Eine einfache und leckere Art, Pilze zu essen."
 			);
 			AddEntry(
 				LanguageEntries.FRIED_EGG_NAME,
-				"Fried Egg"
+				"Spiegelei"
 			);
 			AddEntry(
 				LanguageEntries.FRIED_EGG_DESCRIPTION,
-				"One of the most primitive ways to eat an egg."
+				"Eine der primitivsten Arten, ein Ei zu essen."
 			);
 			AddEntry(
 				LanguageEntries.FRIED_ALIEN_EGG_NAME,
-				"Fried Alien Egg"
+				"Gebratenes Alien-Ei"
 			);
 			AddEntry(
 				LanguageEntries.FRIED_ALIEN_EGG_DESCRIPTION,
-				"The color is strange but it's still a fried egg."
+				"Die Farbe ist seltsam, aber es ist immer noch ein Spiegelei."
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDBACON_NAME,
-				"Roast Bacon"
+				"Speck braten"
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDBACON_DESCRIPTION,
-				"Bacon is life!"
+				"Speck ist Leben!"
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDCHICKEN_NAME,
-				"Roast Chicken"
+				"Brathähnchen"
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDCHICKEN_DESCRIPTION,
-				"Light, low-fat meat."
+				"Leichtes, fettarmes Fleisch."
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_SAUSAGE_NAME,
-				"Roast Sausage"
+				"Bratwurst"
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_SAUSAGE_DESCRIPTION,
-				"Processed and well-seasoned meat, it can be eaten alone or as a condiment."
+				"Verarbeitetes und gut gewürztes Fleisch, es kann allein oder als Gewürz gegessen werden."
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_ALIEN_SAUSAGE_NAME,
-				"Roast Alien Sausage"
+				"Gebratene Alien-Wurst"
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_ALIEN_SAUSAGE_DESCRIPTION,
-				"After processing and seasoning, even with the strange color, the taste is very good."
+				"Nach der Verarbeitung und Würze ist der Geschmack trotz der seltsamen Farbe sehr gut."
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_MEAT_NAME,
-				"Roast Meat"
+				"Gebratenes Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_MEAT_DESCRIPTION,
-				"Since the beginning of civilization roasted meat has been a source of food for humans."
+				"Seit Beginn der Zivilisation ist gebratenes Fleisch eine Nahrungsquelle für den Menschen."
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_ALIEN_MEAT_NAME,
-				"Roast Alien Meat"
+				"Gebratenes Alien-Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.ROASTED_ALIEN_MEAT_DESCRIPTION,
-				"Even though it's a strange meat, a barbecue is a barbecue."
+				"Auch wenn es ein seltsames Fleisch ist, ein Barbecue ist ein Barbecue."
 			);
 			AddEntry(
 				LanguageEntries.CEREALBAR_NAME,
-				"Cereal Bar"
+				"Müsliriegel"
 			);
 			AddEntry(
 				LanguageEntries.CEREALBAR_DESCRIPTION,
-				"A bar made with cereals, simple and easy to produce."
+				"Ein Riegel aus Getreide, einfach und leicht herzustellen."
 			);
 			AddEntry(
 				LanguageEntries.WATERBREAD_NAME,
-				"Water Bread"
+				"Wasserbrot"
 			);
 			AddEntry(
 				LanguageEntries.WATERBREAD_DESCRIPTION,
-				"One of the oldest condiments developed by man."
+				"Eines der ältesten vom Menschen entwickelten Gewürze."
 			);
 			AddEntry(
 				LanguageEntries.BREAD_NAME,
-				"Bread"
+				"Brot"
 			);
 			AddEntry(
 				LanguageEntries.BREAD_DESCRIPTION,
-				"A milk bread, soft and tasty."
+				"Ein Milchbrot, weich und lecker."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_BREAD_NAME,
-				"Alien Bread"
+				"Außerirdisches Brot"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_BREAD_DESCRIPTION,
-				"A milk bread using alien eggs, even with the strange color is soft and tasty."
+				"Ein Milchbrot mit Alien-Eiern ist trotz der seltsamen Farbe weich und lecker."
 			);
 			AddEntry(
 				LanguageEntries.PASTA_NAME,
-				"Pasta"
+				"Nudelteig"
 			);
 			AddEntry(
 				LanguageEntries.PASTA_DESCRIPTION,
-				"A good pasta dough to be cooked with other condiments."
+				"Ein guter Nudelteig, der mit anderen Gewürzen gekocht werden kann."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_PASTA_NAME,
-				"Alien Pasta"
+				"Außerirdischer Nudelteig"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_PASTA_DESCRIPTION,
-				"A good pasta dough using alien eggs to be cooked with other condiments."
+				"Ein guter Nudelteig mit außerirdischen Eiern, der mit anderen Gewürzen gekocht werden kann."
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLEPASTA_NAME,
-				"Vegetable Pasta"
+				"Gemüsepasta"
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLEPASTA_DESCRIPTION,
-				"A delicious pasta with tomatoes and broccoli."
+				"Eine leckere Pasta mit Tomaten und Brokkoli."
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLEALIENPASTA_NAME,
-				"Vegetable Alien Pasta"
+				"Außerirdischer Gemüsepasta"
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLEALIENPASTA_DESCRIPTION,
-				"A delicious pasta using alien eggs with tomatoes and broccoli."
+				"Eine köstliche Pasta mit außerirdischen Eiern mit Tomaten und Brokkoli."
 			);
 			AddEntry(
 				LanguageEntries.MEATPASTA_NAME,
-				"Meat Pasta"
+				"Fleischnudeln"
 			);
 			AddEntry(
 				LanguageEntries.MEATPASTA_DESCRIPTION,
-				"A delicious pasta with tomatoes and meat."
+				"Eine leckere Pasta mit Tomaten und Fleisch."
 			);
 			AddEntry(
 				LanguageEntries.ALIENMEATPASTA_NAME,
-				"Alien Meat Pasta"
+				"Außerirdischer Fleischnudeln"
 			);
 			AddEntry(
 				LanguageEntries.ALIENMEATPASTA_DESCRIPTION,
-				"A delicious pasta using alien eggs with tomatoes and alien meat."
+				"Eine köstliche Pasta aus Alien-Eiern mit Tomaten und Alien-Fleisch."
 			);
 			AddEntry(
 				LanguageEntries.CHEESE_NAME,
-				"Cheese"
+				"Käse"
 			);
 			AddEntry(
 				LanguageEntries.CHEESE_DESCRIPTION,
-				"Cheese is a solid food made from milk."
+				"Käse ist ein festes Lebensmittel aus Milch."
 			);
 			AddEntry(
 				LanguageEntries.SALAD_NAME,
-				"Salad"
+				"Salat"
 			);
 			AddEntry(
 				LanguageEntries.SALAD_DESCRIPTION,
-				"Chopped and disinfected vegetables, a light and fresh meal."
+				"Gehacktes und desinfiziertes Gemüse, eine leichte und frische Mahlzeit."
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLE_SOUP_BOWL_NAME,
-				"Vegetable Soup"
+				"Gemüsesuppe"
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLE_SOUP_BOWL_DESCRIPTION,
-				"Soup is nutritious and can warm the body easily."
+				"Suppe ist nahrhaft und kann den Körper leicht erwärmen."
 			);
 			AddEntry(
 				LanguageEntries.STEW_NAME,
-				"Stew"
+				"Eintopf"
 			);
 			AddEntry(
 				LanguageEntries.STEW_DESCRIPTION,
-				"A good beef stew."
+				"Ein guter Rindfleischeintopf."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_STEW_NAME,
-				"Alien Stew"
+				"Außerirdischer Eintopf"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_STEW_DESCRIPTION,
-				"A good alien beef stew."
+				"Ein guter Außerirdischer Rindfleischeintopf."
 			);
 			AddEntry(
 				LanguageEntries.MEAT_VEGETABLES_NAME,
-				"Meat With Vegetables"
+				"Fleisch mit Gemüse"
 			);
 			AddEntry(
 				LanguageEntries.MEAT_VEGETABLES_DESCRIPTION,
-				"Tasty meat served with well-cooked vegetables."
+				"Schmackhaftes Fleisch, serviert mit gut gekochtem Gemüse."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_VEGETABLES_NAME,
-				"Alien Meat With Vegetables"
+				"Außerirdischer Fleisch mit Gemüse"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_VEGETABLES_DESCRIPTION,
-				"Tasty alien meat served with well-cooked vegetables."
+				"Schmackhaftes Außerirdischer Fleisch, serviert mit gut gekochtem Gemüse."
 			);
 			AddEntry(
 				LanguageEntries.MEATLOAF_NAME,
-				"Meatloaf"
+				"Hackbraten"
 			);
 			AddEntry(
 				LanguageEntries.MEATLOAF_DESCRIPTION,
-				"A tasty meatloaf."
+				"Ein leckerer Hackbraten."
 			);
 			AddEntry(
 				LanguageEntries.ALIENMEATLOAF_NAME,
-				"Alien Meatloaf"
+				"Außerirdischer Hackbraten"
 			);
 			AddEntry(
 				LanguageEntries.ALIENMEATLOAF_DESCRIPTION,
-				"A tasty alien meatloaf."
+				"Ein leckerer Außerirdischer Hackbraten."
 			);
 			AddEntry(
 				LanguageEntries.MEAT_SOUP_BOWL_NAME,
-				"Meat Soup"
+				"Fleischsuppe"
 			);
 			AddEntry(
 				LanguageEntries.MEAT_SOUP_BOWL_DESCRIPTION,
-				"The flavor of the meat makes the soup tastier."
+				"Der Geschmack des Fleisches macht die Suppe schmackhafter."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_SOUP_BOWL_NAME,
-				"Alien Meat Soup"
+				"Außerirdischer Fleischsuppe"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_SOUP_BOWL_DESCRIPTION,
-				"The flavor of the alien meat makes the soup tastier."
+				"Der Geschmack des außerirdischen Fleisches macht die Suppe schmackhafter."
 			);
 			AddEntry(
 				LanguageEntries.MUSHROOMPATE_BOWL_NAME,
-				"Mushroom Pate"
+				"Pilz-Pastete"
 			);
 			AddEntry(
 				LanguageEntries.MUSHROOMPATE_BOWL_DESCRIPTION,
-				"A pate made with mushrooms."
+				"Eine Pastete mit Pilzen."
 			);
 			AddEntry(
 				LanguageEntries.MEAT_MUSHROOMS_NAME,
-				"Meat With Mushrooms"
+				"Fleisch mit Pilzen"
 			);
 			AddEntry(
 				LanguageEntries.MEAT_MUSHROOMS_DESCRIPTION,
-				"Tasty meat with sautéed mushrooms."
+				"Leckeres Fleisch mit sautierten Pilzen."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_MUSHROOMS_NAME,
-				"Alien Meat With Mushrooms"
+				"Außerirdischer Fleisch mit Pilzen"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_MEAT_MUSHROOMS_DESCRIPTION,
-				"Tasty alien meat with sautéed mushrooms."
+				"Leckeres Alienfleisch mit sautierten Pilzen."
 			);
 			AddEntry(
 				LanguageEntries.SANDWICH_NAME,
-				"Sausage Sandwich"
+				"Wurst-Sandwich"
 			);
 			AddEntry(
 				LanguageEntries.SANDWICH_DESCRIPTION,
-				"Sliced sausage sandwich with cheese and tomato."
+				"Geschnittenes Wurstsandwich mit Käse und Tomate."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_SANDWICH_NAME,
-				"Alien Sausage Sandwich"
+				"Außerirdischer Wurst-Sandwich"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_SANDWICH_DESCRIPTION,
-				"Sliced alien sausage sandwich with cheese and tomato."
+				"Geschnittenes ausländisches Wurstsandwich mit Käse und Tomate."
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDSHRIMP_NAME,
-				"Fried Shrimps"
+				"Gebratene Garnelen"
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDSHRIMP_DESCRIPTION,
-				"Fried shrimp is very tasty."
+				"Gebratene Garnelen sind sehr lecker."
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDFISH_NAME,
-				"Roast Fish"
+				"Gebratener Fisch"
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDFISH_DESCRIPTION,
-				"A well-roasted fish meat."
+				"Ein gut gebratenes Fischfleisch."
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDNOBLEFISH_NAME,
-				"Roast Noble Fish"
+				"Edelfisch braten"
 			);
 			AddEntry(
 				LanguageEntries.ROASTEDNOBLEFISH_DESCRIPTION,
-				"A well-roasted noble fish meat."
+				"Ein gut gebratenes edles Fischfleisch."
 			);
 			AddEntry(
 				LanguageEntries.FISHMUSHROOM_NAME,
-				"Fish With Mushrooms"
+				"Fisch mit Pilzen"
 			);
 			AddEntry(
 				LanguageEntries.FISHMUSHROOM_DESCRIPTION,
-				"Tasty fish with sautéed mushrooms."
+				"Leckerer Fisch mit sautierten Pilzen."
 			);
 			AddEntry(
 				LanguageEntries.FISHSOUPBOWL_NAME,
-				"Fish Soup"
+				"Fischsuppe"
 			);
 			AddEntry(
 				LanguageEntries.FISHSOUPBOWL_DESCRIPTION,
-				"The flavor of the noble fish meat makes the soup tastier."
+				"Das Aroma des edlen Fischfleisches macht die Suppe schmackhafter."
 			);
 			AddEntry(
 				LanguageEntries.SHRIMPSOUPBOWL_NAME,
-				"Shrimp Soup"
+				"Schrimpsuppe"
 			);
 			AddEntry(
 				LanguageEntries.SHRIMPSOUPBOWL_DESCRIPTION,
-				"The flavor of the shrimps with fish meat makes the soup tastier."
+				"Der Geschmack der Garnelen mit Fischfleisch macht die Suppe schmackhafter."
 			);
 			AddEntry(
 				LanguageEntries.APPLEPIE_NAME,
-				"Apple Pie"
+				"Apfelkuchen"
 			);
 			AddEntry(
 				LanguageEntries.APPLEPIE_DESCRIPTION,
-				"A pie made with apples."
+				"Ein Kuchen mit Äpfeln."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_APPLEPIE_NAME,
-				"Alien Apple Pie"
+				"Außerirdischer Apfelkuchen"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_APPLEPIE_DESCRIPTION,
-				"A pie made with apples and alien eggs in the dough."
+				"Ein Kuchen mit Äpfeln und außerirdischen Eiern im Teig."
 			);
 			AddEntry(
 				LanguageEntries.CHICKENPIE_NAME,
-				"Chicken Pie"
+				"Hühnerpastete"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENPIE_DESCRIPTION,
-				"A pie made with chicken and bacon."
+				"Ein Kuchen mit Hühnchen und Speck."
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_CHICKENPIE_NAME,
-				"Alien Chicken Pie"
+				"Außerirdischer Hühnerkuchen"
 			);
 			AddEntry(
 				LanguageEntries.ALIEN_CHICKENPIE_DESCRIPTION,
-				"A pie made with chicken and bacon and alien eggs in the dough."
+				"Ein Kuchen mit Hühnchen und Speck und außerirdischen Eiern im Teig."
 			);
 			AddEntry(
 				LanguageEntries.FATPORRIDGE_NAME,
-				"Fat Porridge"
+				"Fetter Brei"
 			);
 			AddEntry(
 				LanguageEntries.FATPORRIDGE_DESCRIPTION,
-				"Porridge made from concentrated fat, a great way to gain weight."
+				"Brei aus konzentriertem Fett, eine großartige Möglichkeit, um an Gewicht zuzunehmen."
 			);
 			AddEntry(
 				LanguageEntries.PROTEINBAR_NAME,
-				"Protein Bar"
+				"Proteinriegel"
 			);
 			AddEntry(
 				LanguageEntries.PROTEINBAR_DESCRIPTION,
-				"A cereal bar enriched with a high amount of protein."
+				"Ein mit viel Protein angereicherter Müsliriegel."
 			);
 			AddEntry(
 				LanguageEntries.VITAMINPILLS_NAME,
-				"Vitamin Pills"
+				"Vitamin Pillen"
 			);
 			AddEntry(
 				LanguageEntries.VITAMINPILLS_DESCRIPTION,
-				"Vitamin replacement pills."
+				"Vitaminersatzpillen."
 			);
 			AddEntry(
 				LanguageEntries.TOMATOTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Vitamin From Tomato"
+				"Konzentriertes Vitamin aus Tomate"
 			);
 			AddEntry(
 				LanguageEntries.APPLETOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Vitamin From Apple"
+				"Konzentriertes Vitamin aus Apfel"
 			);
 			AddEntry(
 				LanguageEntries.ALIENEGGTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Alien Egg"
+				"Konzentriertes Protein aus außerirdischem Ei"
 			);
 			AddEntry(
 				LanguageEntries.EGGTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Egg"
+				"Konzentriertes Protein aus Ei"
 			);
 			AddEntry(
 				LanguageEntries.SHRIMPMEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Shrimp Meat"
+				"Konzentriertes Protein aus Garnelenfleisch"
 			);
 			AddEntry(
 				LanguageEntries.SHRIMPMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Shrimp Meat"
+				"Konzentriertes Fett aus Garnelenfleisch"
 			);
 			AddEntry(
 				LanguageEntries.FISHMEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Fish Meat"
+				"Konzentriertes Protein aus Fischfleisch"
 			);
 			AddEntry(
 				LanguageEntries.FISHMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Fish Meat"
+				"Konzentriertes Fett aus Fischfleisch"
 			);
 			AddEntry(
 				LanguageEntries.ALIENMEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Alien Meat"
+				"Konzentriertes Protein aus außerirdischem Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.ALIENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Alien Meat"
+				"Konzentriertes Fett aus außerirdischem Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.MEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Meat"
+				"Konzentriertes Protein aus Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.MEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Meat"
+				"Konzentriertes Fett aus Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENMEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Chicken Meat"
+				"Konzentriertes Protein aus Hühnerfleisch"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Chicken Meat"
+				"Konzentriertes Fett aus Hühnerfleisch"
 			);
 			AddEntry(
 				LanguageEntries.MILKTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Milk"
+				"Konzentriertes Protein aus Milch"
 			);
 			AddEntry(
 				LanguageEntries.MILKTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Milk"
+				"Konzentriertes Fett aus Milch"
 			);
 			AddEntry(
 				LanguageEntries.BACONTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Bacon"
+				"Konzentriertes Protein aus Speck"
 			);
 			AddEntry(
 				LanguageEntries.BACONTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Bacon"
+				"Konzentriertes Fett aus Speck"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEFISHMEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Noble Fish Meat"
+				"Konzentriertes Protein aus edlem Fischfleisch"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEFISHMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Noble Fish Meat"
+				"Konzentriertes Fett aus edlem Fischfleisch"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEALIENMEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Alien Noble Meat"
+				"Konzentriertes Protein aus Alien Noble Meat"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEALIENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Alien Noble Meat"
+				"Konzentriertes Fett aus Alien Noble Meat"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEMEATTOCONCENTRATED_CONSTRUCTION_NAME,
-				"Concentrated Protein From Noble Meat"
+				"Konzentriertes Protein aus edlem Fleisch"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME,
-				"Concentrated Fat From Noble Meat"
+				"Konzentriertes Fett aus edlem Fleisch"
 			);
 			#region FoodDefinition
 			AddEntry(
 				LanguageEntries.FOODDEFINITION_DESCRIPTION,
-				"Liquid: {0}L" + Environment.NewLine +
-				"Solid: {1}Kg" + Environment.NewLine +
-				"Stomach: {2}%" + Environment.NewLine + Environment.NewLine +
-				"Protein: {3}g" + Environment.NewLine +
-				"Carbohydrate: {4}g" + Environment.NewLine +
-				"Lipids: {5}g" + Environment.NewLine +
-				"Vitamins: {6}g" + Environment.NewLine +
-				"Minerals: {7}g" + Environment.NewLine +
-				"Calories: {8}Cal" + Environment.NewLine + Environment.NewLine +
-				"Digestion Time: {9}s"
+				"Flüssig: {0}L" + Environment.NewLine +
+				"Solide: {1}Kg" + Environment.NewLine +
+				"Magen: {2}%" + Environment.NewLine + Environment.NewLine +
+				"Eiweiß: {3}g" + Environment.NewLine +
+				"Kohlenhydrat: {4}g" + Environment.NewLine +
+				"Lipide: {5}g" + Environment.NewLine +
+				"Vitamine: {6}g" + Environment.NewLine +
+				"Mineralien: {7}g" + Environment.NewLine +
+				"Kalorien: {8}Cal" + Environment.NewLine + Environment.NewLine +
+				"Verdauungszeit: {9}s"
 			);
 			AddEntry(
 				LanguageEntries.FOODDEFINITION_ROTTING_DESCRIPTION,
-				"Rotting time: {0}s"
+				"Verrottungszeit: {0}s"
 			);
 			AddEntry(
 				LanguageEntries.FOODDEFINITION_EFFECT_INSTANT_DESCRIPTION,
-				"{1} {0} instantly"
+				"{1} {0} sofort"
 			);
 			AddEntry(
 				LanguageEntries.FOODDEFINITION_EFFECT_OVERTIME_DESCRIPTION,
-				"{1} {0} over {2}s"
+				"{1} {0} über {2}s"
 			);
 			AddEntry(
 				LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION,
-				"{0} chance to get {1} when eat"
+				"{0} kann, beim Essen {1} zu bekommen"
 			);
 			AddEntry(
 				LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION,
-				"Can cure {0} when eat"
+				"Kann {0} beim Essen heilen"
 			);
 			AddEntry(
 				LanguageEntries.FOODDEFINITION_MUSHROOMS_DESCRIPTION,
-				"Mushrooms can be multiplied by putting together" + Environment.NewLine +
-				"fertilizer and ice on farms." + Environment.NewLine +
-				"Need sunlight: {0}" + Environment.NewLine +
-				"Favorite Fertilizer: {1}"
+				"Pilze können vermehrt werden, indem man Dünger und " + Environment.NewLine +
+				"Eis auf Farmen zusammenstellt." + Environment.NewLine +
+				"Sonnenlicht brauchen: {0}" + Environment.NewLine +
+				"Lieblingsdünger: {1}"
 			);
 			#endregion
 			#endregion
 			#region HERBS
 			AddEntry(
 				LanguageEntries.ARNICA_NAME,
-				"Arnica"
+				"Arnika"
 			);
 			AddEntry(
 				LanguageEntries.ARNICA_DESCRIPTION,
-				"Arnica is a rare common flower and has anti-inflammatory and anti-biotic applications."
+				"Arnika ist eine seltene gemeinsame Blume und hat entzündungshemmende und " + Environment.NewLine +
+				"antibiotische Anwendungen."
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILE_NAME,
-				"Chamomile"
+				"Kamille"
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILE_DESCRIPTION,
-				"Chamomile is a very common flower and has calming and digestive effects."
+				"Kamille ist eine sehr verbreitete Blume und wirkt beruhigend und " + Environment.NewLine +
+				"verdauungsfördernd."
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERA_NAME,
-				"Aloe vera"
+				"Aloe Vera"
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERA_DESCRIPTION,
-				"Aloe vera is a herb and has a wide application in medicine."
+				"Aloe Vera ist ein Kraut und hat eine breite Anwendung in der Medizin."
 			);
 			AddEntry(
 				LanguageEntries.MINT_NAME,
-				"Mint"
+				"Minze"
 			);
 			AddEntry(
 				LanguageEntries.MINT_DESCRIPTION,
-				"Mint is a very common herb and has refreshing and digestive effects."
+				"Minze ist ein weit verbreitetes Kraut und hat eine erfrischende und " + Environment.NewLine +
+				"verdauungsfördernde Wirkung."
 			);
 			AddEntry(
 				LanguageEntries.ERYTHROXYLUM_NAME,
@@ -1270,500 +1282,517 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ERYTHROXYLUM_DESCRIPTION,
-				"Erythroxylum is a common herb with numbing effects."
+				"Erythroxylum ist ein weit verbreitetes Kraut mit betäubender Wirkung."
 			);
 			#endregion
 			#region INGOTS
 			AddEntry(
 				LanguageEntries.BONEMEAL_NAME,
-				"Bone Meal"
+				"Knochenmehl"
 			);
 			AddEntry(
 				LanguageEntries.BONEMEAL_DESCRIPTION,
-				"Bone meal is a mixture of finely and coarsely ground animal bones " + Environment.NewLine +
-				"and slaughter-house waste products."
+				"Knochenmehl ist eine Mischung aus fein und grob gemahlenen " + Environment.NewLine +
+				"Tierknochen und Schlachtabfällen."
 			);
 			#endregion
 			#region LIVESTOCK
 			AddEntry(
 				LanguageEntries.COWMALE_NAME,
-				"Ox"
+				"Ochse"
 			);
 			AddEntry(
 				LanguageEntries.COWMALE_DESCRIPTION,
-				"It is a male bovine and can be used for breeding or butchery."
+				"Es ist ein männliches Rind und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.COWFEMALE_NAME,
-				"Cow"
+				"Kuh"
 			);
 			AddEntry(
 				LanguageEntries.COWFEMALE_DESCRIPTION,
-				"It is a female bovine and can be used for breeding, milk" + Environment.NewLine +
-				"production or butchery."
+				"Es ist ein weibliches Rind und kann für die Zucht, Milchproduktion " + Environment.NewLine +
+				"oder Schlachtung verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.COWBABY_NAME,
-				"Calf"
+				"Kalb"
 			);
 			AddEntry(
 				LanguageEntries.COWBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen Tier " + Environment.NewLine +
+				"heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.DEERMALE_NAME,
-				"Male Deer"
+				"Männlicher Hirsch"
 			);
 			AddEntry(
 				LanguageEntries.DEERMALE_DESCRIPTION,
-				"It is a male deer and can be used for breeding or butchery."
+				"Es ist ein männlicher Hirsch und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.DEERFEMALE_NAME,
-				"Female Deer"
+				"Weibliches Reh"
 			);
 			AddEntry(
 				LanguageEntries.DEERFEMALE_DESCRIPTION,
-				"It is a female deer and can be used for breeding or butchery."
+				"Es ist ein weiblicher Hirsch und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.DEERBABY_NAME,
-				"Deer Calf"
+				"Hirschkalb"
 			);
 			AddEntry(
 				LanguageEntries.DEERBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen Tier " + Environment.NewLine +
+				"heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.HORSEMALE_NAME,
-				"Male Horse"
+				"Männliches Pferd"
 			);
 			AddEntry(
 				LanguageEntries.HORSEMALE_DESCRIPTION,
-				"It is a male horse and can be used for breeding or butchery."
+				"Es ist ein männliches Pferd und kann für die Zucht oder Schlachtung " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.HORSEFEMALE_NAME,
-				"Female Horse"
+				"Weibliches Pferd"
 			);
 			AddEntry(
 				LanguageEntries.HORSEFEMALE_DESCRIPTION,
-				"It is a female horse and can be used for breeding or butchery."
+				"Es ist ein weibliches Pferd und kann zur Zucht oder Schlachtung " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.HORSEBABY_NAME,
-				"Horse Calf"
+				"Pferdekalb"
 			);
 			AddEntry(
 				LanguageEntries.HORSEBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen Tier " + Environment.NewLine +
+				"heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.SHEEPMALE_NAME,
-				"Male Sheep"
+				"Männliche Schafe"
 			);
 			AddEntry(
 				LanguageEntries.SHEEPMALE_DESCRIPTION,
-				"It is a male sheep and can be used for breeding or butchery."
+				"Es ist ein männliches Schaf und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.SHEEPFEMALE_NAME,
-				"Female Sheep"
+				"Weibliche Schafe"
 			);
 			AddEntry(
 				LanguageEntries.SHEEPFEMALE_DESCRIPTION,
-				"It is a female sheep and can be used for breeding or butchery."
+				"Es ist ein weibliches Schaf und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.SHEEPBABY_NAME,
-				"Sheep Calf"
+				"Schaf Kalb"
 			);
 			AddEntry(
 				LanguageEntries.SHEEPBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen " + Environment.NewLine +
+				"Tier heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.SPIDERMALE_NAME,
-				"Male Spider"
+				"Männliche Spinne"
 			);
 			AddEntry(
 				LanguageEntries.SPIDERMALE_DESCRIPTION,
-				"It is a male spider and can be used for breeding or butchery."
+				"Es ist eine männliche Spinne und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.SPIDERFEMALE_NAME,
-				"Female Spider"
+				"Weibliche Spinne"
 			);
 			AddEntry(
 				LanguageEntries.SPIDERFEMALE_DESCRIPTION,
-				"It is a female spider and can be used for breeding, egg production" + Environment.NewLine +
-				"or butchery."
+				"Es ist eine weibliche Spinne und kann für die Zucht, Eierproduktion " + Environment.NewLine +
+				"oder Schlachtung verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.SPIDERBABY_NAME,
-				"Spider Calf"
+				"Spinnenkalb"
 			);
 			AddEntry(
 				LanguageEntries.SPIDERBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen Tier " + Environment.NewLine +
+				"heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.WOLFMALE_NAME,
-				"Male Wolf"
+				"Männlicher Wolf"
 			);
 			AddEntry(
 				LanguageEntries.WOLFMALE_DESCRIPTION,
-				"It is a male wolf and can be used for breeding or butchery."
+				"Es ist ein männlicher Wolf und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.WOLFFEMALE_NAME,
-				"Female Wolf"
+				"Weiblicher Wolf"
 			);
 			AddEntry(
 				LanguageEntries.WOLFFEMALE_DESCRIPTION,
-				"It is a female wolf and can be used for breeding or butchery."
+				"Es ist ein weiblicher Wolf und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.WOLFBABY_NAME,
-				"Wolf Calf"
+				"Wolfjungen"
 			);
 			AddEntry(
 				LanguageEntries.WOLFBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen Tier " + Environment.NewLine +
+				"heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.COWDEAD_NAME,
-				"Dead Cow"
+				"Tote Kuh"
 			);
 			AddEntry(
 				LanguageEntries.COWDEAD_DESCRIPTION,
-				"A cow carcass."
+				"Ein Kuhkadaver."
 			);
 			AddEntry(
 				LanguageEntries.DEERDEAD_NAME,
-				"Dead Deer"
+				"Totes Reh"
 			);
 			AddEntry(
 				LanguageEntries.DEERDEAD_DESCRIPTION,
-				"A deer carcass."
+				"Ein Hirschkadaver."
 			);
 			AddEntry(
 				LanguageEntries.HORSEDEAD_NAME,
-				"Dead Horse"
+				"Totes Pferd"
 			);
 			AddEntry(
 				LanguageEntries.HORSEDEAD_DESCRIPTION,
-				"A horse carcass."
+				"Ein Pferdekadaver."
 			);
 			AddEntry(
 				LanguageEntries.SHEEPDEAD_NAME,
-				"Dead Sheep"
+				"Tote Schafe"
 			);
 			AddEntry(
 				LanguageEntries.SHEEPDEAD_DESCRIPTION,
-				"A sheep carcass."
+				"Ein Schafkadaver."
 			);
 			AddEntry(
 				LanguageEntries.SPIDERDEAD_NAME,
-				"Dead Spider"
+				"Tote Spinne"
 			);
 			AddEntry(
 				LanguageEntries.SPIDERDEAD_DESCRIPTION,
-				"A spider carcass."
+				"Ein Spinnenkadaver."
 			);
 			AddEntry(
 				LanguageEntries.WOLFDEAD_NAME,
-				"Dead Wolf"
+				"Toter Wolf"
 			);
 			AddEntry(
 				LanguageEntries.WOLFDEAD_DESCRIPTION,
-				"A wolf carcass."
+				"Ein Wolfskadaver."
 			);
 			AddEntry(
 				LanguageEntries.COWBABYDEAD_NAME,
-				"Dead Calf"
+				"Totes Kalb"
 			);
 			AddEntry(
 				LanguageEntries.COWBABYDEAD_DESCRIPTION,
-				"A calf carcass."
+				"Ein Kalbskadaver."
 			);
 			AddEntry(
 				LanguageEntries.DEERBABYDEAD_NAME,
-				"Dead Deer Calf"
+				"Totes Hirschkalb"
 			);
 			AddEntry(
 				LanguageEntries.DEERBABYDEAD_DESCRIPTION,
-				"A deer calf carcass."
+				"Ein Hirschkalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.HORSEBABYDEAD_NAME,
-				"Dead Horse Calf"
+				"Totes Pferdekalb"
 			);
 			AddEntry(
 				LanguageEntries.HORSEBABYDEAD_DESCRIPTION,
-				"A horse calf carcass."
+				"Ein Pferdekalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.SHEEPBABYDEAD_NAME,
-				"Dead Sheep Calf"
+				"Totes Schaf Kalb"
 			);
 			AddEntry(
 				LanguageEntries.SHEEPBABYDEAD_DESCRIPTION,
-				"A sheep calf carcass."
+				"Ein Schaf Kalb Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.SPIDERBABYDEAD_NAME,
-				"Dead Spider Calf"
+				"Totes Spinnenkalb"
 			);
 			AddEntry(
 				LanguageEntries.SPIDERBABYDEAD_DESCRIPTION,
-				"A spider calf carcass."
+				"Ein Spinnenkalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.WOLFBABYDEAD_NAME,
-				"Dead Wolf Calf"
+				"Totes Wolfskalb"
 			);
 			AddEntry(
 				LanguageEntries.WOLFBABYDEAD_DESCRIPTION,
-				"A wolf calf carcass."
+				"Ein Wolfskalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.PIGBABYDEAD_NAME,
-				"Dead Pig Calf"
+				"Totes Schweinekalb"
 			);
 			AddEntry(
 				LanguageEntries.PIGBABYDEAD_DESCRIPTION,
-				"A pig calf carcass."
+				"Ein Schweinekalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.CHICKENBABYDEAD_NAME,
-				"Dead Chicken Calf"
+				"Totes Hühnerkalb"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENBABYDEAD_DESCRIPTION,
-				"A chicken calf carcass."
+				"Ein Hühnerkalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.PIGDEAD_NAME,
-				"Dead Pig"
+				"Totes Schwein"
 			);
 			AddEntry(
 				LanguageEntries.PIGDEAD_DESCRIPTION,
-				"A pig calf carcass."
+				"Ein Schweinekalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.CHICKENDEAD_NAME,
-				"Dead Chicken"
+				"Totes Huhn"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENDEAD_DESCRIPTION,
-				"A chicken calf carcass."
+				"Ein Hühnerkalb-Kadaver."
 			);
 			AddEntry(
 				LanguageEntries.PIGMALE_NAME,
-				"Male Pig"
+				"Männliches Schwein"
 			);
 			AddEntry(
 				LanguageEntries.PIGMALE_DESCRIPTION,
-				"It is a male pig and can be used for breeding or butchery."
+				"Es ist ein männliches Schwein und kann zur Zucht oder zum " + Environment.NewLine +
+				"Schlachten verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.PIGFEMALE_NAME,
-				"Female Pig"
+				"Weibliches Schwein"
 			);
 			AddEntry(
 				LanguageEntries.PIGFEMALE_DESCRIPTION,
-				"It is a female pig and can be used for breeding or butchery."
+				"Es ist ein weibliches Schwein und kann zur Zucht oder zum " + Environment.NewLine +
+				"Schlachten verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.PIGBABY_NAME,
-				"Pig Calf"
+				"Schwein Kalb"
 			);
 			AddEntry(
 				LanguageEntries.PIGBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen " + Environment.NewLine +
+				"Tier heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			AddEntry(
 				LanguageEntries.CHICKENMALE_NAME,
-				"Male Chicken"
+				"Männliches Huhn"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENMALE_DESCRIPTION,
-				"It is a male chicken and can be used for breeding or butchery."
+				"Es ist ein männliches Huhn und kann zur Zucht oder zum Schlachten " + Environment.NewLine +
+				"verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.CHICKENFEMALE_NAME,
-				"Female Chicken"
+				"Weibliches Huhn"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENFEMALE_DESCRIPTION,
-				"It is a female chicken and can be used for breeding, egg production" + Environment.NewLine +
-				"or butchery."
+				"Es ist ein weibliches Huhn und kann für die Zucht, Eierproduktion " + Environment.NewLine +
+				"oder Schlachtung verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.CHICKENBABY_NAME,
-				"Chicken Calf"
+				"Hühnerkalb"
 			);
 			AddEntry(
 				LanguageEntries.CHICKENBABY_DESCRIPTION,
-				"It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine +
-				"or can be used for butchery."
+				"Es ist ein Kalb, das nach der Fütterung zu einem erwachsenen Tier " + Environment.NewLine +
+				"heranwächst oder zum Schlachten verwendet werden kann."
 			);
 			#region LivestockDefinition
 			AddEntry(
 				LanguageEntries.LIVESTOCKDEFINITION_HERBIVOROUS_DESCRIPTION,
-				"This is a herbivorous animal, and can feed on plant-based feed."
+				"Dies ist ein pflanzenfressendes Tier und kann sich von pflanzlichem " + Environment.NewLine +
+				"Futter ernähren."
 			);
 			AddEntry(
 				LanguageEntries.LIVESTOCKDEFINITION_CARNIVOROUS_DESCRIPTION,
-				"This is a carnivorous animal, and can feed on meat-based feed."
+				"Dies ist ein fleischfressendes Tier und kann sich von fleischbasiertem " + Environment.NewLine +
+				"Futter ernähren."
 			);
 			AddEntry(
 				LanguageEntries.LIVESTOCKDEFINITION_BIRD_DESCRIPTION,
-				"This is a bird, and can feed on grain-based feed."
+				"Dies ist ein Vogel und kann sich von Getreidefutter ernähren."
 			);
 			AddEntry(
 				LanguageEntries.LIVESTOCKDEFINITION_CARCASS_DESCRIPTION,
-				"Note: An animal carcass will rot over time, so as not to lose" + Environment.NewLine +
-				"the meat it can be processed in a slaughterhouse." + Environment.NewLine +
-				"Rotting time: {0}s"
+				"Hinweis: Ein Tierkadaver verrottet mit der Zeit, um das Fleisch nicht " + Environment.NewLine +
+				"zu verlieren, kann er in einem Schlachthof verarbeitet werden." + Environment.NewLine +
+				"Verrottungszeit: {0}s"
 			);
 			AddEntry(
 				LanguageEntries.LIVESTOCKDEFINITION_DESCRIPTION,
-				"Note: An animal needs to be placed in a Cage, and will need to" + Environment.NewLine +
-				"regularly receive rations in the block's inventory according" + Environment.NewLine +
-				"to its diet."
+				"Hinweis: Ein Tier muss in einen Käfig gesetzt werden und entsprechend " + Environment.NewLine +
+				"seiner Ernährung regelmäßig Rationen im Inventar des Blocks erhalten."
 			);
 			AddEntry(
 				LanguageEntries.LIVESTOCK_BUTCHERY_DESCRIPTION,
-				"Butchery {0}"
+				"Metzgerei {0}"
 			);
 			AddEntry(
 				LanguageEntries.LIVESTOCK_SLAUGHTER_DESCRIPTION,
-				"Slaughter {0}"
+				"Schlachten {0}"
 			);
 			#endregion
 			#endregion
 			#region MEDICAL
 			AddEntry(
 				LanguageEntries.BANDAGES_NAME,
-				"Simple Bandages"
+				"Einfache Bandagen"
 			);
 			AddEntry(
 				LanguageEntries.BANDAGES_DESCRIPTION,
-				"Simple bandages that can be used for first aid."
+				"Einfache Bandagen, die für die Erste Hilfe verwendet werden " + Environment.NewLine +
+				"können."
 			);
 			AddEntry(
 				LanguageEntries.POWER_BANDAGES_NAME,
-				"Power Bandages"
+				"Kraftbandagen"
 			);
 			AddEntry(
 				LanguageEntries.POWER_BANDAGES_DESCRIPTION,
-				"Simple bandages that can be used for first aid."
+				"Einfache Bandagen, die für die Erste Hilfe verwendet werden " + Environment.NewLine +
+				"können."
 			);
 			AddEntry(
 				LanguageEntries.HEALTH_BUSTER_NAME,
-				"Health Buster"
+				"Beschleuniger und Heilung"
 			);
 			AddEntry(
 				LanguageEntries.HEALTH_BUSTER_DESCRIPTION,
-				"A powerful injectable that causes spontaneous regeneration" + Environment.NewLine +
-				"in the body."
+				"Ein starkes Injektionsmittel, das eine spontane Regeneration im " + Environment.NewLine +
+				"Körper bewirkt."
 			);
 			AddEntry(
 				LanguageEntries.MEDKIT_NAME,
-				"Medkit"
+				"Erste-Hilfe-Set"
 			);
 			AddEntry(
 				LanguageEntries.MEDKIT_DESCRIPTION,
-				"An injectable capable of regenerating even bones."
+				"Ein injizierbares Mittel, das sogar Knochen regenerieren kann."
 			);
 			AddEntry(
 				LanguageEntries.HEALTHINJECTION_NAME,
-				"Health Injection"
+				"Gesundheitsspritze"
 			);
 			AddEntry(
 				LanguageEntries.HEALTHINJECTION_DESCRIPTION,
-				"A powerful injectable capable of curing infections, diseases" + Environment.NewLine +
-				"and reducing fatigue."
+				"Ein starkes injizierbares Mittel, das Infektionen und Krankheiten " + Environment.NewLine +
+				"heilen und Müdigkeit reduzieren kann."
 			);
 			AddEntry(
 				LanguageEntries.HEALTHPOWERINJECTION_NAME,
-				"Health Power Injection"
+				"Starke Gesundheitsinjektion"
 			);
 			AddEntry(
 				LanguageEntries.HEALTHPOWERINJECTION_DESCRIPTION,
-				"A very powerful injectable that causes spontaneous regeneration" + Environment.NewLine +
-				"in the body."
+				"Ein sehr starkes Injektionsmittel, das eine spontane Regeneration " + Environment.NewLine +
+				"im Körper bewirkt."
 			);
 			AddEntry(
 				LanguageEntries.SIMPLEMEDICINE_NAME,
-				"Simple Medicine"
+				"Einfache Medizin"
 			);
 			AddEntry(
 				LanguageEntries.SIMPLEMEDICINE_DESCRIPTION,
-				"A useful remedy for digestive problems or mild pain."
+				"Ein nützliches Mittel bei Verdauungsproblemen oder leichten Schmerzen."
 			);
 			AddEntry(
 				LanguageEntries.MEDICINE_NAME,
-				"Medicine"
+				"Medizin"
 			);
 			AddEntry(
 				LanguageEntries.MEDICINE_DESCRIPTION,
-				"A useful remedy against poisons, and minor injuries."
+				"Ein nützliches Mittel gegen Gifte und kleinere Verletzungen."
 			);
 			#endregion
 			#region ORES
 			AddEntry(
 				LanguageEntries.BONES_NAME,
-				"Bones"
+				"Knochen"
 			);
 			AddEntry(
 				LanguageEntries.BONES_DESCRIPTION,
-				"A bone is a rigid organ that constitutes part of the skeleton in most " + Environment.NewLine +
-				"vertebrate animals."
+				"Ein Knochen ist ein starres Organ, das bei den meisten Wirbeltieren Teil " + Environment.NewLine +
+				"des Skeletts ist."
 			);
 			AddEntry(
 				LanguageEntries.FISH_BONES_NAME,
-				"Fish Bones"
+				"Gräten"
 			);
 			AddEntry(
 				LanguageEntries.FISH_BONES_DESCRIPTION,
-				"A bone is a rigid organ that constitutes part of the skeleton in most " + Environment.NewLine +
-				"vertebrate animals."
+				"Ein Knochen ist ein starres Organ, das bei den meisten Wirbeltieren Teil " + Environment.NewLine +
+				"des Skeletts ist."
 			);
 			AddEntry(
 				LanguageEntries.POOP_NAME,
-				"Poop"
+				"Kacke"
 			);
 			AddEntry(
 				LanguageEntries.POOP_DESCRIPTION,
-				"The solid or semisolid remains of the food that could not be digested " + Environment.NewLine +
-				"in the small intestine."
+				"Die festen oder halbfesten Reste der Nahrung, die im Dünndarm nicht verdaut " + Environment.NewLine +
+				"werden konnten."
 			);
 			AddEntry(
 				LanguageEntries.WHEAT_NAME,
-				"Wheat"
+				"Weizen"
 			);
 			AddEntry(
 				LanguageEntries.WHEAT_DESCRIPTION,
-				"Wheat grain is a staple food used to make flour, and with it, bread."
+				"Weizenkorn ist ein Grundnahrungsmittel, aus dem Mehl und damit Brot hergestellt " + Environment.NewLine +
+				"wird."
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_NAME,
-				"Coffee"
+				"Kaffee"
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_DESCRIPTION,
-				"Coffee is a stimulant, because it has caffeine, it can be an" + Environment.NewLine +
-				"alternative to maintain body heat in cold places."
+				"Kaffee ist ein Stimulans, da er Koffein enthält, kann er eine Alternative sein, " + Environment.NewLine +
+				"um die Körperwärme an kalten Orten aufrechtzuerhalten."
 			);
 			#endregion
 			#region QUIMICALS
@@ -1773,55 +1802,56 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.PROPOFOL_DESCRIPTION,
-				"Propofol is a short-acting medication that results in a decreased level of consciousness."
+				"Propofol ist ein kurz wirkendes Medikament, das zu einer Bewusstseinsminderung führt."
 			);
 			AddEntry(
 				LanguageEntries.LIDOCAINE_NAME,
-				"Lidocaine"
+				"Lidocain"
 			);
 			AddEntry(
 				LanguageEntries.LIDOCAINE_DESCRIPTION,
-				"Lidocaine is a slow-acting medication that results in a decreased level of consciousness."
+				"Lidocain ist ein langsam wirkendes Medikament, das zu einem verminderten " + Environment.NewLine +
+				"Bewusstseinsgrad führt."
 			);
 			AddEntry(
 				LanguageEntries.SMALLALOEVERAEXTRACT_NAME,
-				"Small Aloe Vera Extract"
+				"Kleiner Aloe Vera Extrakt"
 			);
 			AddEntry(
 				LanguageEntries.SMALLALOEVERAEXTRACT_DESCRIPTION,
-				"Aloe vera extract has a wide application in medicine."
+				"Aloe Vera Extrakt hat eine breite Anwendung in der Medizin."
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERAEXTRACT_NAME,
-				"Aloe Vera Extract"
+				"Aloe Vera Extrakt"
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERAEXTRACT_DESCRIPTION,
-				"Aloe vera extract has a wide application in medicine."
+				"Aloe Vera Extrakt hat eine breite Anwendung in der Medizin."
 			);
 			AddEntry(
 				LanguageEntries.ARNICAEXTRACT_NAME,
-				"Arnica Extract"
+				"Arnika-Extrakt"
 			);
 			AddEntry(
 				LanguageEntries.ARNICAEXTRACT_DESCRIPTION,
-				"Arnica extract has anti-inflammatory and anti-biotic applications."
+				"Arnika-Extrakt hat entzündungshemmende und antibiotische Anwendungen."
 			);
 			AddEntry(
 				LanguageEntries.MINTEXTRACT_NAME,
-				"Mint Extract"
+				"Minze-Extrakt"
 			);
 			AddEntry(
 				LanguageEntries.MINTEXTRACT_DESCRIPTION,
-				"Mint extract has refreshing and digestive effects."
+				"Minzextrakt hat eine erfrischende und verdauungsfördernde Wirkung."
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILEEXTRACT_NAME,
-				"Chamomile Extract"
+				"Kamillenextrakt"
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILEEXTRACT_DESCRIPTION,
-				"Chamomile extract has calming and digestive effects."
+				"Kamillenextrakt wirkt beruhigend und verdauungsfördernd."
 			);
 			AddEntry(
 				LanguageEntries.AMATOXINA_NAME,
@@ -1829,600 +1859,602 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.AMATOXINA_DESCRIPTION,
-				"Amatoxina is a toxic compounds found in poisonous mushrooms."
+				"Amatoxina ist eine giftige Verbindung, die in giftigen Pilzen vorkommt."
 			);
 			#endregion
 			#region RATIONS
 			AddEntry(
 				LanguageEntries.MEATRATION_NAME,
-				"Meat Ration"
+				"Fleischration"
 			);
 			AddEntry(
 				LanguageEntries.MEATRATION_DESCRIPTION,
-				"A meat-based feed, perfect for carnivorous animals."
+				"Ein fleischbasiertes Futter, perfekt für fleischfressende Tiere."
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLERATION_NAME,
-				"Vegetables Ration"
+				"Gemüseration"
 			);
 			AddEntry(
 				LanguageEntries.VEGETABLERATION_DESCRIPTION,
-				"A vegetable-based feed, perfect for herbivorous animals."
+				"Ein pflanzliches Futter, perfekt für pflanzenfressende Tiere."
 			);
 			AddEntry(
 				LanguageEntries.GRAINSRATION_NAME,
-				"Grains Ration"
+				"Körnerration"
 			);
 			AddEntry(
 				LanguageEntries.GRAINSRATION_DESCRIPTION,
-				"A grain-based feed, perfect for birds."
+				"Ein Futter auf Getreidebasis, perfekt für Vögel."
 			);
 			AddEntry(
 				LanguageEntries.MEATRATION_CONSTRUCTION_NAME,
-				"Meat Ration"
+				"Fleischration"
 			);
 			AddEntry(
 				LanguageEntries.ALIENMEATRATION_CONSTRUCTION_NAME,
-				"Alien Meat Ration"
+				"Außerirdische Fleischration"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEMEATRATION_CONSTRUCTION_NAME,
-				"Noble Meat Ration"
+				"Edle Fleischration"
 			);
 			AddEntry(
 				LanguageEntries.ALIENNOBLEMEATRATION_CONSTRUCTION_NAME,
-				"Alien Noble Meat Ration"
+				"Außerirdische Edle Fleischration"
 			);
 			AddEntry(
 				LanguageEntries.FISHMEATRATION_CONSTRUCTION_NAME,
-				"Fish Meat Ration"
+				"Fischfleischration"
 			);
 			AddEntry(
 				LanguageEntries.NOBLEFISHMEATRATION_CONSTRUCTION_NAME,
-				"Noble Fish Meat Ration"
+				"Edle Fischfleischration"
 			);
 			AddEntry(
 				LanguageEntries.BROCCOLIRATION_CONSTRUCTION_NAME,
-				"Broccoli Ration"
+				"Brokkoli-Ration"
 			);
 			AddEntry(
 				LanguageEntries.BEETROOTRATION_CONSTRUCTION_NAME,
-				"Beetroot Ration"
+				"Rote-Bete-Ration"
 			);
 			AddEntry(
 				LanguageEntries.CARROTRATION_CONSTRUCTION_NAME,
-				"Carrot Ration"
+				"Karotten-Ration"
 			);
 			AddEntry(
 				LanguageEntries.WHEATRATION_CONSTRUCTION_NAME,
-				"Wheat Ration"
+				"Weizenration"
 			);
 			AddEntry(
 				LanguageEntries.CEREALRATION_CONSTRUCTION_NAME,
-				"Cereal Ration"
+				"Getreideration"
 			);
 			#endregion
 			#region RECIPIENTS
 			AddEntry(
 				LanguageEntries.BOWL_NAME,
-				"Bowl"
+				"Schüssel"
 			);
 			AddEntry(
 				LanguageEntries.BOWL_DESCRIPTION,
-				"Bowl are containers mainly used for storing and preparing food."
+				"Schalen sind Behälter, die hauptsächlich zum Aufbewahren und Zubereiten " + Environment.NewLine +
+				"von Speisen verwendet werden."
 			);
 			AddEntry(
 				LanguageEntries.ALUMINUMCAN_NAME,
-				"Aluminum Can"
+				"Aluminiumdosen"
 			);
 			AddEntry(
 				LanguageEntries.ALUMINUMCAN_DESCRIPTION,
-				"Aluminum cans are used to store beverages safely without risking rot."
+				"Aluminiumdosen werden verwendet, um Getränke sicher aufzubewahren, ohne " + Environment.NewLine +
+				"Fäulnis zu riskieren."
 			);
 			AddEntry(
 				LanguageEntries.BOWLOFWOOD_CONSTRUCTION_NAME,
-				"Bowl Of Wood"
+				"Schale aus Holz"
 			);
 			AddEntry(
 				LanguageEntries.BOWLOFGLASS_CONSTRUCTION_NAME,
-				"Bowl Of Glass"
+				"Schüssel Glas"
 			);
 			#endregion
 			#region SEEDS
 			AddEntry(
 				LanguageEntries.ARNICA_SEEDS_NAME,
-				"Arnica Seeds"
+				"Arnika-Samen"
 			);
 			AddEntry(
 				LanguageEntries.ARNICA_SEEDS_DESCRIPTION,
-				"Arnica seeds can be grown with fertilizer and ice on farms."
+				"Arnikasamen können mit Dünger und Eis auf Farmen angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.BEETROOT_SEEDS_NAME,
-				"Beetroot Seeds"
+				"Rote-Bete-Samen"
 			);
 			AddEntry(
 				LanguageEntries.BEETROOT_SEEDS_DESCRIPTION,
-				"Beetroot seeds can be grown with fertilizer and ice on farms."
+				"Rote-Bete-Samen können mit Dünger und Eis auf Farmen angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.BROCCOLI_SEEDS_NAME,
-				"Broccoli Seeds"
+				"Brokkoli-Samen"
 			);
 			AddEntry(
 				LanguageEntries.BROCCOLI_SEEDS_DESCRIPTION,
-				"Broccoli seeds can be grown with fertilizer and ice on farms."
+				"Brokkolisamen können auf Farmen mit Dünger und Eis angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.CARROT_SEEDS_NAME,
-				"Carrot Seeds"
+				"Karottensamen"
 			);
 			AddEntry(
 				LanguageEntries.CARROT_SEEDS_DESCRIPTION,
-				"Carrot seeds can be grown with fertilizer and ice on farms."
+				"Karottensamen können auf Farmen mit Dünger und Eis angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_SEEDS_NAME,
-				"Coffee Seeds"
+				"Kaffeesamen"
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_SEEDS_DESCRIPTION,
-				"Coffee seeds can be grown with fertilizer and ice on farms."
+				"Kaffeesamen können mit Dünger und Eis auf Farmen angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.MINT_SEEDS_NAME,
-				"Mint Seeds"
+				"Minzsamen"
 			);
 			AddEntry(
 				LanguageEntries.MINT_SEEDS_DESCRIPTION,
-				"Mint seeds can be grown with fertilizer and ice on farms."
+				"Minzsamen können mit Dünger und Eis auf Farmen angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.TOMATO_SEEDS_NAME,
-				"Tomato Seeds"
+				"Tomatensamen"
 			);
 			AddEntry(
 				LanguageEntries.TOMATO_SEEDS_DESCRIPTION,
-				"Tomato seeds can be grown with fertilizer and ice on farms."
+				"Tomatensamen können mit Dünger und Eis auf Farmen angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.WHEAT_SEEDS_NAME,
-				"Wheat Seeds"
+				"Weizensamen"
 			);
 			AddEntry(
 				LanguageEntries.WHEAT_SEEDS_DESCRIPTION,
-				"Wheat seeds can be grown with fertilizer and ice on farms."
+				"Weizensamen können mit Dünger und Eis auf Farmen angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILE_SEEDS_NAME,
-				"Chamomile Seeds"
+				"Kamillensamen"
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILE_SEEDS_DESCRIPTION,
-				"Chamomile seeds can be grown with fertilizer and ice on farms."
+				"Kamillensamen können auf Farmen mit Dünger und Eis angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERA_SEEDS_NAME,
-				"Aloevera Seeds"
+				"Aloevera-Samen"
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERA_SEEDS_DESCRIPTION,
-				"Aloevera seeds can be grown with fertilizer and ice on farms."
+				"Aloevera-Samen können auf Farmen mit Dünger und Eis angebaut werden."
 			);
 			AddEntry(
 				LanguageEntries.ERYTHROXYLUM_SEEDS_NAME,
-				"Erythroxylum Seeds"
+				"Erythroxylum-Samen"
 			);
 			AddEntry(
 				LanguageEntries.ERYTHROXYLUM_SEEDS_DESCRIPTION,
-				"Erythroxylum seeds can be grown with fertilizer and ice on farms."
+				"Erythroxylum-Samen können auf Farmen mit Dünger und Eis angebaut werden."
 			);
 			#region SeedDefinition
 			AddEntry(
 				LanguageEntries.SEEDDEFINITION_DESCRIPTION,
-				"Need sunlight: {0}" + Environment.NewLine +
-				"Favorite Fertilizer: {1}"
+				"Sonnenlicht brauchen: {0}" + Environment.NewLine +
+				"Lieblingsdünger: {1}"
 			);
 			#endregion
 			#endregion
 			#region FERTILIZERS
 			AddEntry(
 				LanguageEntries.FERTILIZER_NAME,
-				"Organic Fertilizer"
+				"Organischer Dünger"
 			);
 			AddEntry(
 				LanguageEntries.FERTILIZER_DESCRIPTION,
-				"Fertilizer made from organic matter."
+				"Dünger aus organischem Material."
 			);
 			AddEntry(
 				LanguageEntries.MINERALFERTILIZER_NAME,
-				"Mineral Fertilizer"
+				"Mineraldünger"
 			);
 			AddEntry(
 				LanguageEntries.MINERALFERTILIZER_DESCRIPTION,
-				"Fertilizer made from mineral matter."
+				"Dünger aus mineralischen Stoffen."
 			);
 			AddEntry(
 				LanguageEntries.SUPERFERTILIZER_NAME,
-				"Super Fertilizer"
+				"Super Dünger"
 			);
 			AddEntry(
 				LanguageEntries.SUPERFERTILIZER_DESCRIPTION,
-				"Mixture of mineral and organic fertilizers," + Environment.NewLine +
-				"can be used efficiently with all seeds."
+				"Mischung aus mineralischen und organischen Düngemitteln, " + Environment.NewLine +
+				"kann mit allen Saaten effizient eingesetzt werden."
 			);
 			AddEntry(
 				LanguageEntries.BONEFERTILIZER_CONSTRUCTION_NAME,
-				"Organic Fertilizer From Bone Meal"
+				"Organischer Dünger aus Knochenmehl"
 			);
 			AddEntry(
 				LanguageEntries.POOPFERTILIZER_CONSTRUCTION_NAME,
-				"Organic Fertilizer From Poop"
+				"Organischer Dünger von Poop"
 			);
 			AddEntry(
 				LanguageEntries.SPOILEDMATERIALFERTILIZER_CONSTRUCTION_NAME,
-				"Organic Fertilizer From Organic Material"
+				"Organischer Dünger aus organischem Material"
 			);
 			AddEntry(
 				LanguageEntries.MAGNESIUMFERTILIZER_CONSTRUCTION_NAME,
-				"Mineral Fertilizer From Magnesium"
+				"Mineraldünger aus Magnesium"
 			);
 			AddEntry(
 				LanguageEntries.POTASSIUMFERTILIZER_CONSTRUCTION_NAME,
-				"Mineral Fertilizer From Potassium"
+				"Mineraldünger aus Kalium"
 			);
 			AddEntry(
 				LanguageEntries.FERTILIZER_CONSTRUCTION_NAME,
-				"Mineral Fertilizer From Sulfur"
+				"Mineraldünger aus Schwefel"
 			);
 			#region FertilizerDefinition
 			AddEntry(
 				LanguageEntries.FERTILIZERDEFINITION_POWER_DESCRIPTION,
-				"Provides a {0}% production multiplier when used." + Environment.NewLine +
-				"It is compatible with all plants."
+				"Bietet bei Verwendung einen Produktionsmultiplikator von {0}%." + Environment.NewLine +
+				"Es ist mit allen Pflanzen kompatibel."
 			);
 			AddEntry(
 				LanguageEntries.FERTILIZERDEFINITION_DESCRIPTION,
-				"Provides a {0}% production multiplier when used" + Environment.NewLine +
-				"with compatible plants." + Environment.NewLine +
-				"It is compatible with:"
+				"Bietet einen Produktionsmultiplikator von {0}%, wenn es " + Environment.NewLine +
+				"mit kompatiblen Pflanzen verwendet wird." + Environment.NewLine +
+				"Es ist kompatibel mit:"
 			);
 			#endregion
 			#endregion
 			#region TREES
 			AddEntry(
 				LanguageEntries.TREEDEAD_NAME,
-				"Dead Tree"
+				"Toter Baum"
 			);
 			AddEntry(
 				LanguageEntries.TREEDEAD_DESCRIPTION,
-				"A dead tree can be turned into wood in a grinder."
+				"Ein toter Baum kann in einer Mühle zu Holz verarbeitet werden."
 			);
 			AddEntry(
 				LanguageEntries.APPLETREESEEDLING_NAME,
-				"Apple Tree Seedling"
+				"Apfelbaum-Sämling"
 			);
 			AddEntry(
 				LanguageEntries.APPLETREESEEDLING_DESCRIPTION,
-				"Can grow into an apple tree if placed with fertilizer" + Environment.NewLine +
-				"and ice in a tree farm."
+				"Kann zu einem Apfelbaum heranwachsen, wenn er mit Dünger und " + Environment.NewLine +
+				"Eis in einer Baumfarm platziert wird."
 			);
 			AddEntry(
 				LanguageEntries.APPLETREE_NAME,
-				"Apple Tree"
+				"Apfelbaum"
 			);
 			AddEntry(
 				LanguageEntries.APPLETREE_DESCRIPTION,
-				"Can generate apples and saplings if placed with fertilizer" + Environment.NewLine +
-				"and ice in a tree farm, also can be turned into wood in a" + Environment.NewLine +
-				"grinder."
+				"Kann Äpfel und Setzlinge erzeugen, wenn sie mit Dünger und Eis " + Environment.NewLine +
+				"in einer Baumfarm platziert werden, kann auch in einer Mühle zu " + Environment.NewLine +
+				"Holz verarbeitet werden."
 			);
 			AddEntry(
 				LanguageEntries.TREEDEAD_DESCONSTRUCTION_NAME,
-				"Wood Logs From Dead Tree"
+				"Holzscheite vom toten Baum"
 			);
 			AddEntry(
 				LanguageEntries.APPLETREE_DESCONSTRUCTION_NAME,
-				"Wood Logs From Apple Tree"
+				"Holzscheite vom Apfelbaum"
 			);
 			#region TreeDefinition
 			AddEntry(
 				LanguageEntries.TREEDEFINITION_DESCRIPTION,
-				"Need sunlight: {0}" + Environment.NewLine +
-				"Favorite Fertilizer: {1}"
+				"Sonnenlicht brauchen: {0}" + Environment.NewLine +
+				"Lieblingsdünger: {1}"
 			);
 			#endregion
 			#endregion
 			#region WEAPONS
 			AddEntry(
 				LanguageEntries.PROPOFOLDART_NAME,
-				"Propofol Dart"
+				"Propofol Pfeil"
 			);
 			AddEntry(
 				LanguageEntries.PROPOFOLDART_DESCRIPTION,
-				"A Propofol-based tranquilizer dart."
+				"Ein auf Propofol basierender Beruhigungspfeil."
 			);
 			AddEntry(
 				LanguageEntries.LIDOCAINDART_NAME,
-				"Lidocain Dart"
+				"Lidocain Pfeil"
 			);
 			AddEntry(
 				LanguageEntries.LIDOCAINDART_DESCRIPTION,
-				"A Lidocain-based tranquilizer dart."
+				"Ein auf Lidocain basierender Beruhigungspfeil."
 			);
 			AddEntry(
 				LanguageEntries.PISTOL_PROPOFOL_MAGZINE_NAME,
-				"Pistol DRT-Propofol Magzine"
+				"Pistole DRT-Propofol Magazin"
 			);
 			AddEntry(
 				LanguageEntries.PISTOL_PROPOFOL_MAGZINE_DESCRIPTION,
-				"A pistol clip with Propofol tranquilizer darts."
+				"Ein Pistolenclip mit Propofol-Beruhigungspfeilen."
 			);
 			AddEntry(
 				LanguageEntries.PISTOL_LIDOCAIN_MAGZINE_NAME,
-				"Pistol DRT-Lidocain Magzine"
+				"Pistole DRT-Lidocain Magzine"
 			);
 			AddEntry(
 				LanguageEntries.PISTOL_LIDOCAIN_MAGZINE_DESCRIPTION,
-				"A pistol clip with Lidocain tranquilizer darts."
+				"Ein Pistolenclip mit Lidocain-Beruhigungspfeilen."
 			);
 			AddEntry(
 				LanguageEntries.LIDOCAINPISTOLITEM_NAME,
-				"Pistol DRT-Lidocain"
+				"Pistole DRT-Lidocain"
 			);
 			AddEntry(
 				LanguageEntries.LIDOCAINPISTOLITEM_DESCRIPTION,
-				"A gun for hunting animals with Lidocain tranquilizer darts."
+				"Eine Waffe für die Jagd auf Tiere mit Lidocain-Betäubungspfeilen."
 			);
 			AddEntry(
 				LanguageEntries.PROPOFOLPISTOLITEM_NAME,
-				"Pistol DRT-Propofol"
+				"Pistole DRT-Propofol"
 			);
 			AddEntry(
 				LanguageEntries.PROPOFOLPISTOLITEM_DESCRIPTION,
-				"A gun for hunting animals with Propofol tranquilizer darts."
+				"Eine Waffe für die Jagd auf Tiere mit Propofol-Betäubungspfeilen."
 			);
 			#endregion
 			#region STATS
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_PNEUMONIA_NAME,
-				"Pneumonia"
+				"Lungenentzündung"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_DYSENTERY_NAME,
-				"Dysentery"
+				"Ruhr"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_POISON_NAME,
-				"Poison"
+				"Gift"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_INFECTED_NAME,
-				"Infected"
+				"Infiziert"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_HYPOTHERMIA_NAME,
-				"Hypothermia"
+				"Unterkühlung"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_HYPERTHERMIA_NAME,
-				"Hyperthermia"
+				"Hyperthermie"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_STARVATION_NAME,
-				"Starvation"
+				"Hungersnot"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_SEVERESTARVATION_NAME,
-				"Severe Starvation"
+				"Schwere Hungersnot"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_DEHYDRATION_NAME,
-				"Dehydration"
+				"Austrocknung"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_SEVEREDEHYDRATION_NAME,
-				"Severe Dehydration"
+				"Schwere Austrocknung"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_OBESITY_NAME,
-				"Obesity"
+				"Fettleibigkeit"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_SEVEREOBESITY_NAME,
-				"Severe Obesity"
+				"Schwere Fettleibigkeit"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_RICKETS_NAME,
-				"Rickets"
+				"Rachitis"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_SEVERERICKETS_NAME,
-				"Severe Rickets"
+				"Schwere Rachitis"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_HYPOLIPIDEMIA_NAME,
-				"Hypolipidemia"
+				"Hypolipidämie"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_QUEASY_NAME,
-				"Queasy"
+				"Mulmig"
 			);
 			AddEntry(
 				LanguageEntries.OTHEREFFECTS_POOPONCLOTHES_NAME,
-				"Poop On Clothes"
+				"Auf Kleidung kacken"
 			);
 			AddEntry(
 				LanguageEntries.OTHEREFFECTS_PEEONCLOTHES_NAME,
-				"Pee On Clothes"
+				"Auf Kleidung pinkeln"
 			);
 			AddEntry(
 				LanguageEntries.TEMPERATUREEFFECTS_OVERHEATING_NAME,
-				"Overheating"
+				"Überhitzung"
 			);
 			AddEntry(
 				LanguageEntries.TEMPERATUREEFFECTS_ONFIRE_NAME,
-				"On Fire"
+				"In Brand geraten"
 			);
 			AddEntry(
 				LanguageEntries.TEMPERATUREEFFECTS_COLD_NAME,
-				"Cold"
+				"Kalt"
 			);
 			AddEntry(
 				LanguageEntries.TEMPERATUREEFFECTS_FROSTY_NAME,
-				"Frosty"
+				"Eisig"
 			);
 			AddEntry(
 				LanguageEntries.TEMPERATUREEFFECTS_WET_NAME,
-				"Wet"
+				"Nass"
 			);
 			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
-				"Contusion"
+				"Prellung"
 			);
 			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_WOUNDED_NAME,
-				"Wounded"
+				"Verwundet"
 			);
 			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_DEEPWOUNDED_NAME,
-				"Deep Wounded"
+				"Tief verwundet"
 			);
 			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_BROKENBONES_NAME,
-				"Broken Bones"
+				"Gebrochene Knochen"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_HUNGRY_NAME,
-				"Hungry"
+				"Hungrig"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_FAMISHED_NAME,
-				"Famished"
+				"Ausgehungert"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_THIRSTY_NAME,
-				"Thirsty"
+				"Durstig"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_DEHYDRATING_NAME,
-				"Dehydrating"
+				"Austrocknen"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_DISORIENTED_NAME,
-				"Disoriented"
+				"Desorientiert"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_SUFFOCATION_NAME,
-				"Suffocation"
+				"Erstickung"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_FULLSTOMACH_NAME,
-				"Full Stomach"
+				"Voller Bauch"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_STOMACHBURSTING_NAME,
-				"Stomach Bursting"
+				"Magen platzt"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_FULLGUT_NAME,
-				"Full Gut"
+				"Voller Darm"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_GUTBURST_NAME,
-				"Gut Burst"
+				"Darm platzen"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_FULLBLADDER_NAME,
-				"Full Bladder"
+				"Volle Blase"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_BLADDERBURST_NAME,
-				"Bladder Burst"
+				"Blasenplatzen"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_TIRED_NAME,
-				"Tired"
+				"Müde"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_EXTREMELYTIRED_NAME,
-				"Extremely Tired"
+				"Extrem müde"
 			);
 			AddEntry(
 				LanguageEntries.FEELING_LEVEL0_NAME,
-				"I am feeling good and healthy."
+				"Ich fühle mich gut und gesund."
 			);
 			AddEntry(
 				LanguageEntries.FEELING_LEVEL1_NAME,
-				"I'm not feeling very well."
+				"Mir geht es nicht sehr gut."
 			);
 			AddEntry(
 				LanguageEntries.FEELING_LEVEL2_NAME,
-				"There's something wrong with me."
+				"Mit mir stimmt etwas nicht."
 			);
 			AddEntry(
 				LanguageEntries.FEELING_LEVEL3_NAME,
-				"I need to do something before it's too late."
+				"Ich muss etwas tun, bevor es zu spät ist."
 			);
 			AddEntry(
 				LanguageEntries.FEELING_LEVEL4_NAME,
-				"I need to find help, I think I'm dying."
+				"Ich brauche Hilfe, ich glaube, ich sterbe."
 			);
 			AddEntry(
 				LanguageEntries.FEELING_INFO_NAME,
-				"Known effects:"
+				"Bekannte Effekte:"
 			);
 			AddEntry(
 				LanguageEntries.BOILING_NAME,
-				"Boiling"
+				"Sieden"
 			);
 			AddEntry(
 				LanguageEntries.TOOHOT_NAME,
-				"Too Hot"
+				"Zu heiß"
 			);
 			AddEntry(
 				LanguageEntries.WARMINGUP_NAME,
-				"Warming Up"
+				"Aufwärmen"
 			);
 			AddEntry(
 				LanguageEntries.FREEZING_NAME,
-				"Freezing"
+				"Einfrieren"
 			);
 			AddEntry(
 				LanguageEntries.VERYCOLD_NAME,
-				"Very Cold"
+				"Sehr kalt"
 			);
 			AddEntry(
 				LanguageEntries.COOLINGDOWN_NAME,
-				"Cooling Down"
+				"Abkühlung"
 			);
 			AddEntry(
 				LanguageEntries.STABLE_NAME,
-				"Stable"
+				"Stabil"
 			);
 			AddEntry(
 				LanguageEntries.STATTIMERS_WETLEVEL_NAME,
-				"Wet Level"
+				"Nasses Niveau"
 			);
 			AddEntry(
 				LanguageEntries.STATTIMERS_UNTREATEDWOUND_NAME,
-				"Untreated Wound"
+				"Unbehandelte Wunde"
 			);
 			AddEntry(
 				LanguageEntries.STATTIMERSPROGRESS_COMPLETELYWET_NAME,
-				"Completely Wet"
+				"Völlig nass"
 			);
 			AddEntry(
 				LanguageEntries.STATTIMERSPROGRESS_COMPLETELYDRY_NAME,
-				"Completely Dry"
+				"Völlig trocken"
 			);
 			AddEntry(
 				LanguageEntries.STATTIMERSPROGRESS_INFECTED_NAME,
-				"Infected"
+				"Infiziert"
 			);
 			AddEntry(
 				LanguageEntries.STATTIMERSPROGRESS_NOINJURIES_NAME,
-				"No Injuries"
+				"Keine Verletzungen"
 			);
 			AddEntry(
 				LanguageEntries.HUNGER_NAME,
@@ -2430,103 +2462,103 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.THIRST_NAME,
-				"Thirst"
+				"Durst"
 			);
 			AddEntry(
 				LanguageEntries.STAMINA_NAME,
-				"Stamina"
+				"Ausdauer"
 			);
 			AddEntry(
 				LanguageEntries.FATIGUE_NAME,
-				"Fatigue"
+				"Ermüdung"
 			);
 			AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_NAME,
-				"Survival Effects"
+				"Überlebenseffekte"
 			);
 			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_NAME,
-				"Damage Effects"
+				"Schadenseffekte"
 			);
 			AddEntry(
 				LanguageEntries.TEMPERATUREEFFECTS_NAME,
-				"Temperature Effects"
+				"Temperatureffekte"
 			);
 			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_NAME,
-				"Disease Effects"
+				"Krankheitseffekte"
 			);
 			AddEntry(
 				LanguageEntries.OTHEREFFECTS_NAME,
-				"Other Effects"
+				"Andere Effekte"
 			);
 			AddEntry(
 				LanguageEntries.WOUNDEDTIME_NAME,
-				"Wounded Time"
+				"Verwundete Zeit"
 			);
 			AddEntry(
 				LanguageEntries.TEMPERATURETIME_NAME,
-				"Temperature Time"
+				"Temperatur Zeit"
 			);
 			AddEntry(
 				LanguageEntries.WETTIME_NAME,
-				"Wet Time"
+				"Nasse Zeit"
 			);
 			AddEntry(
 				LanguageEntries.BODYENERGY_NAME,
-				"Energy"
+				"Energie"
 			);
 			AddEntry(
 				LanguageEntries.BODYWATER_NAME,
-				"Water"
+				"Wasser"
 			);
 			AddEntry(
 				LanguageEntries.BODYPERFORMANCE_NAME,
-				"Efficiency"
+				"Effizienz"
 			);
 			AddEntry(
 				LanguageEntries.BODYIMMUNE_NAME,
-				"Immunity"
+				"Immunität"
 			);
 			AddEntry(
 				LanguageEntries.STOMACH_NAME,
-				"Stomach"
+				"Magen"
 			);
 			AddEntry(
 				LanguageEntries.INTESTINE_NAME,
-				"Intestine"
+				"Darm"
 			);
 			AddEntry(
 				LanguageEntries.BLADDER_NAME,
-				"Bladder"
+				"Blase"
 			);
 			AddEntry(
 				LanguageEntries.BODYWEIGHT_NAME,
-				"Weight"
+				"Gewicht"
 			);
 			AddEntry(
 				LanguageEntries.BODYMUSCLES_NAME,
-				"Muscles"
+				"Muskeln"
 			);
 			AddEntry(
 				LanguageEntries.BODYFAT_NAME,
-				"Fat"
+				"Fett"
 			);
 			AddEntry(
 				LanguageEntries.FOODDETECTOR_NAME,
-				"Food Detector"
+				"Lebensmittel-Detektor"
 			);
 			AddEntry(
 				LanguageEntries.MEDICALDETECTOR_NAME,
-				"Medical Detector"
+				"Medizinischer Detektor"
 			);
 			AddEntry(
 				LanguageEntries.BODYCALORIES_NAME,
-				"Calories"
+				"Kalorien"
 			);
 			AddEntry(
 				LanguageEntries.TORPOR_NAME,
-				"Torpor"
+				"Erstarrung"
 			);
 			#endregion
 		}

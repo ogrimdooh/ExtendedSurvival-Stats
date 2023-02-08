@@ -316,6 +316,74 @@ namespace ExtendedSurvival.Stats
             return 0;
         }
 
+        public static string GetValidStatsDescription(ValidStats stat)
+        {
+            switch (stat)
+            {
+                case ValidStats.Hunger:
+                    return LanguageProvider.GetEntry(LanguageEntries.HUNGER_NAME);
+                case ValidStats.Thirst:
+                    return LanguageProvider.GetEntry(LanguageEntries.THIRST_NAME);
+                case ValidStats.Stamina:
+                    return LanguageProvider.GetEntry(LanguageEntries.STAMINA_NAME);
+                case ValidStats.Fatigue:
+                    return LanguageProvider.GetEntry(LanguageEntries.FATIGUE_NAME); 
+                case ValidStats.SurvivalEffects:
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_NAME);
+                case ValidStats.DamageEffects:
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGEEFFECTS_NAME);
+                case ValidStats.TemperatureEffects:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_NAME);
+                case ValidStats.DiseaseEffects:
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_NAME);
+                case ValidStats.OtherEffects:
+                    return LanguageProvider.GetEntry(LanguageEntries.OTHEREFFECTS_NAME);
+                case ValidStats.WoundedTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.WOUNDEDTIME_NAME);
+                case ValidStats.TemperatureTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATURETIME_NAME);
+                case ValidStats.WetTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.WETTIME_NAME);
+                case ValidStats.BodyEnergy:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYENERGY_NAME);
+                case ValidStats.BodyWater:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYWATER_NAME);
+                case ValidStats.BodyPerformance:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYPERFORMANCE_NAME);
+                case ValidStats.BodyImmune:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYIMMUNE_NAME);
+                case ValidStats.Stomach:
+                    return LanguageProvider.GetEntry(LanguageEntries.STOMACH_NAME);
+                case ValidStats.Intestine:
+                    return LanguageProvider.GetEntry(LanguageEntries.INTESTINE_NAME);
+                case ValidStats.Bladder:
+                    return LanguageProvider.GetEntry(LanguageEntries.BLADDER_NAME);
+                case ValidStats.BodyWeight:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYWEIGHT_NAME);
+                case ValidStats.BodyMuscles:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYMUSCLES_NAME);
+                case ValidStats.BodyFat:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYFAT_NAME);
+                case ValidStats.FoodDetector:
+                    return LanguageProvider.GetEntry(LanguageEntries.FOODDETECTOR_NAME);
+                case ValidStats.MedicalDetector:
+                    return LanguageProvider.GetEntry(LanguageEntries.MEDICALDETECTOR_NAME);
+                case ValidStats.BodyCalories:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYCALORIES_NAME);
+            }
+            return "";
+        }
+
+        public static string GetCreatureValidStatsDescription(CreatureValidStats stat)
+        {
+            switch (stat)
+            {
+                case CreatureValidStats.Torpor:
+                    return LanguageProvider.GetEntry(LanguageEntries.TORPOR_NAME);
+            }
+            return "";
+        }
+
         public static string GetDiseaseEffectDescription(DiseaseEffects effect)
         {
             switch (effect)

@@ -135,16 +135,16 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_hunger_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Hunger</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
-
         </StatStyles>
       </StatControl>
 
@@ -276,11 +276,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_thirst_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Thirst</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -417,11 +418,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_stamina_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Stamina</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -559,11 +561,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_stomach_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Stomach</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -700,11 +703,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_intestine_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Intestine</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -841,11 +845,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bladder_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Bladder</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -983,11 +988,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyenergy_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Energy</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -1124,11 +1130,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodywater_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Water</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -1265,11 +1272,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyperformance_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Efficiency</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -1405,11 +1413,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyimmune_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Immunity</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -1546,11 +1555,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyweight_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Weight</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -1687,11 +1697,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_fatigue_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Fatigue</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -1828,11 +1839,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodymuscles_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Muscle</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -1968,11 +1980,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_bodyfat_desc</StatId>
             <OffsetPx>
               <X>47.5</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Fat</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
@@ -2131,11 +2144,12 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>player_temperature_time_desc</StatId>
             <OffsetPx>
               <X>80</X>
               <Y>15</Y>
             </OffsetPx>
-            <Text>Body Temperature</Text>
+            <Text>{STAT}</Text>
             <Font>Blue</Font>
             <Scale>0.5</Scale>
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>

@@ -1,16 +1,16 @@
 ﻿namespace ExtendedSurvival.Stats
 {
-    public class MyStatPlayerBodyFat : MyStatSimpleProgressBase
+    public class MyStatPlayerBodyImmuneDesc : MyStatSimpleProgressBase
     {
 
         protected override string GetStatName()
         {
-            return "BodyFat";
+            return "BodyImmune";
         }
 
         protected override string GetId()
         {
-            return "player_bodyfat";
+            return "player_bodyimmune_desc";
         }
 
         protected override bool IsActive()
@@ -18,7 +18,7 @@
             return IsWithHelmet() && GetBodyTrackerLevel() >= 4;
         }
 
-        public override string ToString() => string.Format("{0:0}%", (float)(CurrentValue * 100.0));
+        public override string ToString() => StatsConstants.GetValidStatsDescription(StatsConstants.ValidStats.BodyImmune);
 
     }
 }

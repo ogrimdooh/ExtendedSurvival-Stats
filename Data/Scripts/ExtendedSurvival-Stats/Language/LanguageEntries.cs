@@ -644,6 +644,33 @@
         public const string STATTIMERSPROGRESS_INFECTED_NAME = "STATTIMERSPROGRESS_INFECTED_NAME";
         public const string STATTIMERSPROGRESS_NOINJURIES_NAME = "STATTIMERSPROGRESS_NOINJURIES_NAME";
 
+        public const string HUNGER_NAME = "HUNGER_NAME";
+        public const string THIRST_NAME = "THIRST_NAME";
+        public const string STAMINA_NAME = "STAMINA_NAME";
+        public const string FATIGUE_NAME = "FATIGUE_NAME";
+        public const string SURVIVALEFFECTS_NAME = "SURVIVALEFFECTS_NAME";
+        public const string DAMAGEEFFECTS_NAME = "DAMAGEEFFECTS_NAME";
+        public const string TEMPERATUREEFFECTS_NAME = "TEMPERATUREEFFECTS_NAME";
+        public const string DISEASEEFFECTS_NAME = "DISEASEEFFECTS_NAME";
+        public const string OTHEREFFECTS_NAME = "OTHEREFFECTS_NAME";
+        public const string WOUNDEDTIME_NAME = "WOUNDEDTIME_NAME";
+        public const string TEMPERATURETIME_NAME = "TEMPERATURETIME_NAME";
+        public const string WETTIME_NAME = "WETTIME_NAME";
+        public const string BODYENERGY_NAME = "BODYENERGY_NAME";
+        public const string BODYWATER_NAME = "BODYWATER_NAME";
+        public const string BODYPERFORMANCE_NAME = "BODYPERFORMANCE_NAME";
+        public const string BODYIMMUNE_NAME = "BODYIMMUNE_NAME";
+        public const string STOMACH_NAME = "STOMACH_NAME";
+        public const string INTESTINE_NAME = "INTESTINE_NAME";
+        public const string BLADDER_NAME = "BLADDER_NAME";
+        public const string BODYWEIGHT_NAME = "BODYWEIGHT_NAME";
+        public const string BODYMUSCLES_NAME = "BODYMUSCLES_NAME";
+        public const string BODYFAT_NAME = "BODYFAT_NAME";
+        public const string FOODDETECTOR_NAME = "FOODDETECTOR_NAME";
+        public const string MEDICALDETECTOR_NAME = "MEDICALDETECTOR_NAME";
+        public const string BODYCALORIES_NAME = "BODYCALORIES_NAME";
+        public const string TORPOR_NAME = "TORPOR_NAME";
+
     }
 
 }

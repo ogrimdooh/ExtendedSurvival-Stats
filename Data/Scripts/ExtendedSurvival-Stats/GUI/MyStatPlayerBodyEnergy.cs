@@ -42,5 +42,4 @@ namespace ExtendedSurvival.Stats
         public override string ToString() => BodyCalories != null ? BodyCalories.Value.ToString("#0.0") : "-";
 
     }
-
 }

@@ -12,6 +12,7 @@ namespace ExtendedSurvival.Stats
         {
             /* Add Languages Templates */
             AddTemplate(new EnglishLanguageTemplate());
+            AddTemplate(new GermanLanguageTemplate()); 
         }
 
         public const MyLanguagesEnum DEFAULT_LANGUAGE = MyLanguagesEnum.English;

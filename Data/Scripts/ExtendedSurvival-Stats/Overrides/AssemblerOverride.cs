@@ -18,6 +18,16 @@ namespace ExtendedSurvival.Stats
         public const string SurvivalKitLarge = "SurvivalKitLarge";
         public const string SurvivalKit = "SurvivalKit";
 
+        public const string BasicAssembler = "BasicAssembler";
+        public const string LargeAssembler = "LargeAssembler";
+        public const string LargeAssemblerIndustrial = "LargeAssemblerIndustrial";
+        public const string AdvancedAssembler = "AdvancedAssembler";
+        public const string AdvancedAssemblerIndustrial = "AdvancedAssemblerIndustrial";
+
+        public const string BasicGrinder = "BasicGrinder";
+        public const string Grinder = "Grinder";
+        public const string GrinderIndustrial = "GrinderIndustrial";
+
         public const string BasicAlchemyBench = "BasicAlchemyBench";
         public const string AlchemyBench = "AlchemyBench";
         public const string AlchemyBenchIndustrial = "AlchemyBenchIndustrial";
@@ -27,6 +37,14 @@ namespace ExtendedSurvival.Stats
 
         public const string AluminumCan_Vanila_Construction = "AluminumCan_Vanila_Construction";
         public const string AluminumCan_Construction = "AluminumCan_Vanila_Construction";
+
+        public const string BasicFoodProcessor = "BasicFoodProcessor";
+        public const string FoodProcessor = "FoodProcessor";
+        public const string FoodProcessorIndustrial = "FoodProcessorIndustrial";
+
+        public const string BasicSlaughterhouse = "BasicSlaughterhouse";
+        public const string Slaughterhouse = "Slaughterhouse";
+        public const string SlaughterhouseIndustrial = "SlaughterhouseIndustrial";
 
         protected override ulong[] GetModId()
         {
@@ -43,11 +61,28 @@ namespace ExtendedSurvival.Stats
             var retorno = new List<UniqueEntityId>();
             try
             {
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), BasicGrinder));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), Grinder));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), GrinderIndustrial));
                 retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_SurvivalKit), SurvivalKit));
                 retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_SurvivalKit), SurvivalKitLarge));
                 retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), BasicAlchemyBench));
                 retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), AlchemyBench));
                 retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), AlchemyBenchIndustrial));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), BasicFoodProcessor));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), FoodProcessor));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), FoodProcessorIndustrial));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), BasicSlaughterhouse));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), Slaughterhouse));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), SlaughterhouseIndustrial));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), BasicAssembler));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), LargeAssembler));
+                retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), LargeAssemblerIndustrial));
+                if (ExtendedSurvivalStatsSession.IsUsingTechnology())
+                {
+                    retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), AdvancedAssembler));
+                    retorno.Add(new UniqueEntityId(typeof(MyObjectBuilder_Assembler), AdvancedAssemblerIndustrial));
+                }
             }
             catch (Exception ex)
             {
@@ -64,7 +99,6 @@ namespace ExtendedSurvival.Stats
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICALCHEMYBENCH_FERTILIZER_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICALCHEMYBENCH_CONCENTRATE_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICALCHEMYBENCH_MEDICAL_BLUEPRINTS));
-                assemblerDefinition.LoadPostProcess();
             }
         }
 
@@ -75,7 +109,6 @@ namespace ExtendedSurvival.Stats
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ALCHEMYBENCH_FERTILIZER_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ALCHEMYBENCH_CONCENTRATE_BLUEPRINTS));
                 assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ALCHEMYBENCH_MEDICAL_BLUEPRINTS));
-                assemblerDefinition.LoadPostProcess();
             }
         }
 
@@ -128,6 +161,7 @@ namespace ExtendedSurvival.Stats
                         SetUpBasicAlchemyBench(assemblerDefinition);
                         break;
                 }
+                assemblerDefinition.LoadPostProcess();
             }
             else
             {
