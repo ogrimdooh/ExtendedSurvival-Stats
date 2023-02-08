@@ -15,6 +15,12 @@ namespace ExtendedSurvival.Stats
         public const string POOP_SUBTYPEID = "Poop";
         public static readonly UniqueEntityId POOP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), POOP_SUBTYPEID);
 
+        public const string WHEAT_SUBTYPEID = "Wheat";
+        public static readonly UniqueEntityId WHEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), WHEAT_SUBTYPEID);
+
+        public const string COFFEE_SUBTYPEID = "Coffee";
+        public static readonly UniqueEntityId COFFEE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COFFEE_SUBTYPEID);
+
         public static readonly OreDefinition POOP_DEFINITION = new OreDefinition()
         {
             Id = POOP_ID,
@@ -80,11 +86,67 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly OreDefinition WHEAT_DEFINITION = new OreDefinition()
+        {
+            Id = WHEAT_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.WHEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WHEAT_DESCRIPTION),
+            CanPlayerOrder = false,
+            Mass = 1f,
+            Volume = 0.05f,
+            RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
+            {
+                new SimpleIngredientRecipeDefinition()
+                {
+                    RecipeName = "WheatToSack_Deconstruction",
+                    IngredientAmmount = 1,
+                    ProductionTime = 1.28f,
+                    Results = new SimpleIngredientRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = IngotsConstants.BONEMEAL_ID,
+                            Ammount = 0.15f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly OreDefinition COFFEE_DEFINITION = new OreDefinition()
+        {
+            Id = COFFEE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.COFFEE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COFFEE_DESCRIPTION),
+            CanPlayerOrder = false,
+            Mass = 1f,
+            Volume = 0.05f,
+            RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
+            {
+                new SimpleIngredientRecipeDefinition()
+                {
+                    RecipeName = "CoffeeToSack_Deconstruction",
+                    IngredientAmmount = 1,
+                    ProductionTime = 1.28f,
+                    Results = new SimpleIngredientRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = IngotsConstants.BONEMEAL_ID,
+                            Ammount = 0.05f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, OreDefinition> ORES_DEFINITIONS = new Dictionary<UniqueEntityId, OreDefinition>()
         {
             { BONES_ID, BONES_DEFINITION },
             { FISH_BONES_ID, FISH_BONES_DEFINITION },
-            { POOP_ID, POOP_DEFINITION }
+            { POOP_ID, POOP_DEFINITION },
+            { WHEAT_ID, WHEAT_DEFINITION },
+            { COFFEE_ID, COFFEE_DEFINITION }
         };
 
         public static void TryOverrideDefinitions()

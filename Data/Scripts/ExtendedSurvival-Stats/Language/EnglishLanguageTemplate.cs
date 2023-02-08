@@ -1745,6 +1745,23 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.POOP_DESCRIPTION,
 				"The solid or semisolid remains of the food that could not be digested in the small intestine."
 			);
+			AddEntry(
+				LanguageEntries.WHEAT_NAME,
+				"Wheat"
+			);
+			AddEntry(
+				LanguageEntries.WHEAT_DESCRIPTION,
+				"Wheat grain is a staple food used to make flour, and with it, bread."
+			);
+			AddEntry(
+				LanguageEntries.COFFEE_NAME,
+				"Coffee"
+			);
+			AddEntry(
+				LanguageEntries.COFFEE_DESCRIPTION,
+				"Coffee is a stimulant, because it has caffeine, it can be an" + Environment.NewLine +
+				"alternative to maintain body heat in cold places."
+			);
 			#endregion
 			#region QUIMICALS
 			AddEntry(

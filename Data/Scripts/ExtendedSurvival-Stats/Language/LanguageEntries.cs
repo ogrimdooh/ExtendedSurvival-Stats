@@ -448,6 +448,10 @@
         public const string FISH_BONES_DESCRIPTION = "FISH_BONES_DESCRIPTION";
         public const string POOP_NAME = "POOP_NAME";
         public const string POOP_DESCRIPTION = "POOP_DESCRIPTION";
+        public const string WHEAT_NAME = "WHEAT_NAME";
+        public const string WHEAT_DESCRIPTION = "WHEAT_DESCRIPTION";
+        public const string COFFEE_NAME = "COFFEE_NAME";
+        public const string COFFEE_DESCRIPTION = "COFFEE_DESCRIPTION";
 
         /* Quimical */
 

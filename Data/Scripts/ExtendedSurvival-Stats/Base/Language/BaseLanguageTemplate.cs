@@ -31,6 +31,7 @@ namespace ExtendedSurvival.Stats
         {
             if (_entries.ContainsKey(key))
                 return _entries[key];
+            ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"LanguageTemplate: entry {key} not found.");
             return null;
         }
 

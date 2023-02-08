@@ -50,6 +50,7 @@ namespace ExtendedSurvival.Stats
         {
             if (CurrentTemplate != null)
                 return CurrentTemplate.GetEntry(key);
+            ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(LanguageProvider), $"CurrentTemplate not found.");
             return null;
         }
 
