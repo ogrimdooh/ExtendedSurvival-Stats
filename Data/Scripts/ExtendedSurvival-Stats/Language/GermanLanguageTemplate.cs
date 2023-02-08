@@ -42,8 +42,8 @@ namespace ExtendedSurvival.Stats
             );
             AddEntry(
                 LanguageEntries.CUBEBLOCK_COMPOSTER,
-                "Composter"
-            );
+				"Komposter"
+			);
             AddEntry(
                 LanguageEntries.CUBEBLOCK_COMPOSTER_DESCRIPTION,
 				"Komposter sind Blöcke, die bis zum {0}x beschleunigen können " +
