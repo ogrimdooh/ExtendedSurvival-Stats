@@ -12,8 +12,8 @@ namespace ExtendedSurvival.Stats
         public static readonly IngotDefinition BONEMEAL_DEFINITION = new IngotDefinition()
         {
             Id = BONEMEAL_ID,
-            Name = "Bone Meal",
-            Description = "Bone meal is a mixture of finely and coarsely ground animal bones and slaughter-house waste products.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BONEMEAL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BONEMEAL_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 2,
             OfferAmount = new Vector2I(10000, 30000),

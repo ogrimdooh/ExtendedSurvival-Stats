@@ -16,8 +16,8 @@ namespace ExtendedSurvival.Stats
         public static readonly RecipientDefinition BOWL_DEFINITION = new RecipientDefinition()
         {
             Id = BOWL_ID,
-            Name = "Bowl",
-            Description = "Bowl are containers mainly used for storing and preparing food.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BOWL_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(1000, 3000),
@@ -29,6 +29,7 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
+                    Name = LanguageProvider.GetEntry(LanguageEntries.BOWLOFWOOD_CONSTRUCTION_NAME),
                     RecipeName = "BowlOfWood_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 1.28f,
@@ -43,6 +44,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
+                    Name = LanguageProvider.GetEntry(LanguageEntries.BOWLOFGLASS_CONSTRUCTION_NAME),
                     RecipeName = "BowlOfGlass_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 1.28f,
@@ -66,8 +68,8 @@ namespace ExtendedSurvival.Stats
         public static readonly RecipientDefinition ALUMINUMCAN_DEFINITION = new RecipientDefinition()
         {
             Id = ALUMINUMCAN_ID,
-            Name = "Aluminum Can",
-            Description = "Aluminum cans are used to store beverages safely without risking rot.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALUMINUMCAN_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALUMINUMCAN_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(1000, 3000),

@@ -25,15 +25,8 @@ namespace ExtendedSurvival.Stats
         public static readonly EquipmentDefinition BODYTRACKER_DEFINITION = new EquipmentDefinition()
         {
             Id = BODYTRACKER_ID,
-            Name = "Body Tracker",
-            Description =
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Basic negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BODYTRACKER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BODYTRACKER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 375,
             OfferAmount = new Vector2I(100, 300),
@@ -117,18 +110,8 @@ namespace ExtendedSurvival.Stats
         public static readonly EquipmentDefinition ENHANCEDBODYTRACKER_DEFINITION = new EquipmentDefinition()
         {
             Id = ENHANCEDBODYTRACKER_ID,
-            Name = "Enhanced Body Tracker",
-            Description =
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Body energy;" + Environment.NewLine +
-                "- Body water;" + Environment.NewLine +
-                "- Untreated wound;" + Environment.NewLine +
-                "- Intermediate negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDBODYTRACKER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDBODYTRACKER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 3750,
             OfferAmount = new Vector2I(100, 300),
@@ -222,21 +205,8 @@ namespace ExtendedSurvival.Stats
         public static readonly EquipmentDefinition PROFICIENTBODYTRACKER_DEFINITION = new EquipmentDefinition()
         {
             Id = PROFICIENTBODYTRACKER_ID,
-            Name = "Proficient Body Tracker",
-            Description =
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Body energy;" + Environment.NewLine +
-                "- Body water;" + Environment.NewLine +
-                "- Body weight;" + Environment.NewLine +
-                "- Body efficiency;" + Environment.NewLine +
-                "- Body fatigue;" + Environment.NewLine +
-                "- Untreated wound;" + Environment.NewLine +
-                "- Advanced negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTBODYTRACKER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTBODYTRACKER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 37500,
             OfferAmount = new Vector2I(100, 300),
@@ -335,24 +305,8 @@ namespace ExtendedSurvival.Stats
         public static readonly EquipmentDefinition ELITEBODYTRACKER_DEFINITION = new EquipmentDefinition()
         {
             Id = ELITEBODYTRACKER_ID,
-            Name = "Elite Body Tracker",
-            Description =
-                "An accessory responsible for monitoring the state of the body and" + Environment.NewLine + 
-                "showing it on the spacesuit helmet display." + Environment.NewLine +
-                "Can detect:" + Environment.NewLine +
-                "- Wet level;" + Environment.NewLine +
-                "- Body temperature;" + Environment.NewLine +
-                "- Body energy;" + Environment.NewLine +
-                "- Body water;" + Environment.NewLine +
-                "- Body weight;" + Environment.NewLine +
-                "- Body efficiency;" + Environment.NewLine +
-                "- Body fatigue;" + Environment.NewLine +
-                "- Body immunity;" + Environment.NewLine +
-                "- Body muscle;" + Environment.NewLine +
-                "- Body fat;" + Environment.NewLine +
-                "- Untreated wound;" + Environment.NewLine +
-                "- All negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITEBODYTRACKER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ELITEBODYTRACKER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 375000,
             OfferAmount = new Vector2I(100, 300),

@@ -148,8 +148,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = COWMALE_ID,
             DeadId = COWDEAD_ID,
-            Name = "Ox",
-            Description = "It is a male bovine and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COWMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COWMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -165,9 +165,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = COWFEMALE_ID,
             DeadId = COWDEAD_ID,
-            Name = "Cow",
-            Description = "It is a female bovine and can be used for breeding, milk" + Environment.NewLine + 
-                          "production or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COWFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COWFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -183,9 +182,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = COWBABY_ID,
             DeadId = COWBABYDEAD_ID,
-            Name = "Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COWBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COWBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -201,8 +199,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = DEERMALE_ID,
             DeadId = DEERDEAD_ID,
-            Name = "Male Deer",
-            Description = "It is a male deer and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.DEERMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DEERMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -218,8 +216,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = DEERFEMALE_ID,
             DeadId = DEERDEAD_ID,
-            Name = "Female Deer",
-            Description = "It is a female deer and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.DEERFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DEERFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -235,9 +233,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = DEERBABY_ID,
             DeadId = DEERBABYDEAD_ID,
-            Name = "Deer Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.DEERBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DEERBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -253,8 +250,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = HORSEMALE_ID,
             DeadId = HORSEDEAD_ID,
-            Name = "Male Horse",
-            Description = "It is a male horse and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.HORSEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HORSEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -270,8 +267,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = HORSEFEMALE_ID,
             DeadId = HORSEDEAD_ID,
-            Name = "Female Horse",
-            Description = "It is a female horse and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.HORSEFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HORSEFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -287,9 +284,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = HORSEBABY_ID,
             DeadId = HORSEBABYDEAD_ID,
-            Name = "Horse Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.HORSEBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HORSEBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -305,8 +301,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = SHEEPMALE_ID,
             DeadId = SHEEPDEAD_ID,
-            Name = "Male Sheep",
-            Description = "It is a male sheep and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHEEPMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHEEPMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 75000,
             OfferAmount = new Vector2I(20, 40),
@@ -322,8 +318,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = SHEEPFEMALE_ID,
             DeadId = SHEEPDEAD_ID,
-            Name = "Female Sheep",
-            Description = "It is a female sheep and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHEEPFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHEEPFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 75000,
             OfferAmount = new Vector2I(20, 40),
@@ -339,9 +335,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = SHEEPBABY_ID,
             DeadId = SHEEPBABYDEAD_ID,
-            Name = "Sheep Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHEEPBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHEEPBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 37500,
             OfferAmount = new Vector2I(20, 40),
@@ -357,8 +352,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = SPIDERMALE_ID,
             DeadId = SPIDERDEAD_ID,
-            Name = "Male Spider",
-            Description = "It is a male spider and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SPIDERMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SPIDERMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -374,9 +369,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = SPIDERFEMALE_ID,
             DeadId = SPIDERDEAD_ID,
-            Name = "Female Spider",
-            Description = "It is a female spider and can be used for breeding, egg production" + Environment.NewLine + 
-                          "or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SPIDERFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SPIDERFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150000,
             OfferAmount = new Vector2I(20, 40),
@@ -392,9 +386,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = SPIDERBABY_ID,
             DeadId = SPIDERBABYDEAD_ID,
-            Name = "Spider Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SPIDERBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SPIDERBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50000,
             OfferAmount = new Vector2I(20, 40),
@@ -410,8 +403,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = WOLFMALE_ID,
             DeadId = WOLFDEAD_ID,
-            Name = "Male Wolf",
-            Description = "It is a male wolf and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WOLFMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WOLFMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 75000,
             OfferAmount = new Vector2I(20, 40),
@@ -427,8 +420,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = WOLFFEMALE_ID,
             DeadId = WOLFDEAD_ID,
-            Name = "Female Wolf",
-            Description = "It is a female wolf and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WOLFFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WOLFFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 75000,
             OfferAmount = new Vector2I(20, 40),
@@ -444,9 +437,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = WOLFBABY_ID,
             DeadId = WOLFBABYDEAD_ID,
-            Name = "Wolf Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WOLFBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WOLFBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 37500,
             OfferAmount = new Vector2I(20, 40),
@@ -462,8 +454,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = PIGMALE_ID,
             DeadId = PIGDEAD_ID,
-            Name = "Male Pig",
-            Description = "It is a male pig and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PIGMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PIGMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 75000,
             OfferAmount = new Vector2I(20, 40),
@@ -479,8 +471,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = PIGFEMALE_ID,
             DeadId = PIGDEAD_ID,
-            Name = "Female Pig",
-            Description = "It is a female pig and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PIGFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PIGFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 75000,
             OfferAmount = new Vector2I(20, 40),
@@ -496,9 +488,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = PIGBABY_ID,
             DeadId = PIGBABYDEAD_ID,
-            Name = "Pig Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PIGBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PIGBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 37500,
             OfferAmount = new Vector2I(20, 40),
@@ -514,8 +505,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = CHICKENMALE_ID,
             DeadId = CHICKENDEAD_ID,
-            Name = "Male Chicken",
-            Description = "It is a male chicken and can be used for breeding or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHICKENMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(20, 40),
@@ -531,9 +522,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = CHICKENFEMALE_ID,
             DeadId = CHICKENDEAD_ID,
-            Name = "Female Chicken",
-            Description = "It is a female chicken and can be used for breeding, egg production" + Environment.NewLine + 
-                          "or butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENFEMALE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHICKENFEMALE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(20, 40),
@@ -549,9 +539,8 @@ namespace ExtendedSurvival.Stats
         {
             Id = CHICKENBABY_ID,
             DeadId = CHICKENBABYDEAD_ID,
-            Name = "Chicken Calf",
-            Description = "It is a calf, after being fed it will grow into an adult animal" + Environment.NewLine + 
-                          "or can be used for butchery.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENBABY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHICKENBABY_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 750,
             OfferAmount = new Vector2I(20, 40),
@@ -670,8 +659,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition COWDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = COWDEAD_ID,
-            Name = "Dead Cow",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COWDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COWDEAD_DESCRIPTION),
             Mass = 500f,
             Volume = 500f,
             IsDeadBody = true,
@@ -684,8 +673,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition DEERDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = DEERDEAD_ID,
-            Name = "Dead Deer",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.DEERDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DEERDEAD_DESCRIPTION),
             Mass = 500f,
             Volume = 500f,
             IsDeadBody = true,
@@ -698,8 +687,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition HORSEDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = HORSEDEAD_ID,
-            Name = "Dead Horse",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.HORSEDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HORSEDEAD_DESCRIPTION),
             Mass = 500f,
             Volume = 500f,
             IsDeadBody = true,
@@ -712,8 +701,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition SHEEPDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = SHEEPDEAD_ID,
-            Name = "Dead Sheep",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHEEPDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHEEPDEAD_DESCRIPTION),
             Mass = 250f,
             Volume = 250f,
             IsDeadBody = true,
@@ -726,8 +715,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition SPIDERDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = SPIDERDEAD_ID,
-            Name = "Dead Spider",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SPIDERDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SPIDERDEAD_DESCRIPTION),
             Mass = 500f,
             Volume = 500f,
             IsDeadBody = true,
@@ -740,8 +729,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition WOLFDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = WOLFDEAD_ID,
-            Name = "Dead Wolf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WOLFDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WOLFDEAD_DESCRIPTION),
             Mass = 250f,
             Volume = 250f,
             IsDeadBody = true,
@@ -754,8 +743,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition COWBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = COWBABYDEAD_ID,
-            Name = "Dead Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COWBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COWBABYDEAD_DESCRIPTION),
             Mass = 250f,
             Volume = 250f,
             IsDeadBody = true,
@@ -768,8 +757,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition DEERBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = DEERBABYDEAD_ID,
-            Name = "Dead Deer Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.DEERBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DEERBABYDEAD_DESCRIPTION),
             Mass = 250f,
             Volume = 250f,
             IsDeadBody = true,
@@ -782,8 +771,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition HORSEBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = HORSEBABYDEAD_ID,
-            Name = "Dead Horse Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.HORSEBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HORSEBABYDEAD_DESCRIPTION),
             Mass = 250f,
             Volume = 250f,
             IsDeadBody = true,
@@ -796,8 +785,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition SHEEPBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = SHEEPBABYDEAD_ID,
-            Name = "Dead Sheep Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHEEPBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHEEPBABYDEAD_DESCRIPTION),
             Mass = 125f,
             Volume = 125f,
             IsDeadBody = true,
@@ -810,8 +799,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition SPIDERBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = SPIDERBABYDEAD_ID,
-            Name = "Dead Spider Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SPIDERBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SPIDERBABYDEAD_DESCRIPTION),
             Mass = 250f,
             Volume = 250f,
             IsDeadBody = true,
@@ -824,8 +813,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition WOLFBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = WOLFBABYDEAD_ID,
-            Name = "Dead Wolf Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WOLFBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WOLFBABYDEAD_DESCRIPTION),
             Mass = 125f,
             Volume = 125f,
             IsDeadBody = true,
@@ -838,8 +827,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition PIGBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = PIGBABYDEAD_ID,
-            Name = "Dead Pig Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PIGBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PIGBABYDEAD_DESCRIPTION),
             Mass = 125f,
             Volume = 125f,
             IsDeadBody = true,
@@ -852,8 +841,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition CHICKENBABYDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = CHICKENBABYDEAD_ID,
-            Name = "Dead Chicken Calf",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENBABYDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHICKENBABYDEAD_DESCRIPTION),
             Mass = 1f,
             Volume = 1f,
             IsDeadBody = true,
@@ -866,8 +855,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition PIGDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = PIGDEAD_ID,
-            Name = "Dead Pig",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PIGDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PIGDEAD_DESCRIPTION),
             Mass = 250f,
             Volume = 250f,
             IsDeadBody = true,
@@ -880,8 +869,8 @@ namespace ExtendedSurvival.Stats
         public static readonly LivestockDefinition CHICKENDEAD_DEFINITION = new LivestockDefinition()
         {
             Id = CHICKENDEAD_ID,
-            Name = "Dead Chicken",
-            Description = "",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHICKENDEAD_DESCRIPTION),
             Mass = 10f,
             Volume = 10f,
             IsDeadBody = true,
@@ -1302,7 +1291,10 @@ namespace ExtendedSurvival.Stats
                         recipeDef.DisplayNameEnum = null;
                         if (animalDef.IsDeadBody)
                         {
-                            recipeDef.DisplayNameString = string.Format("Butchery {0}", animalDef.Name);
+                            recipeDef.DisplayNameString = string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.LIVESTOCK_BUTCHERY_DESCRIPTION), 
+                                animalDef.Name
+                            );
                             recipeDef.Prerequisites = new MyBlueprintDefinitionBase.Item[] {
                                 new MyBlueprintDefinitionBase.Item()
                                 {
@@ -1317,7 +1309,10 @@ namespace ExtendedSurvival.Stats
                         }
                         else
                         {
-                            recipeDef.DisplayNameString = string.Format("Slaughter {0}", animalDef.Name);
+                            recipeDef.DisplayNameString = string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.LIVESTOCK_SLAUGHTER_DESCRIPTION), 
+                                animalDef.Name
+                            );
                             recipeDef.Prerequisites = new MyBlueprintDefinitionBase.Item[] {
                                 new MyBlueprintDefinitionBase.Item()
                                 {

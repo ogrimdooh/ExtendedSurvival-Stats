@@ -18,8 +18,8 @@ namespace ExtendedSurvival.Stats
         public static readonly WeaponComponentDefinition PROPOFOLDART_DEFINITION = new WeaponComponentDefinition()
         {
             Id = PROPOFOLDART_ID,
-            Name = "Propofol Dart",
-            Description = "A Propofol-based tranquilizer dart.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROPOFOLDART_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PROPOFOLDART_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 12500,
             OfferAmount = new Vector2I(100, 300),
@@ -64,8 +64,8 @@ namespace ExtendedSurvival.Stats
         public static readonly WeaponComponentDefinition LIDOCAINDART_DEFINITION = new WeaponComponentDefinition()
         {
             Id = LIDOCAINDART_ID,
-            Name = "Lidocain Dart",
-            Description = "A Lidocain-based tranquilizer dart.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.LIDOCAINDART_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.LIDOCAINDART_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 2350,
             OfferAmount = new Vector2I(1000, 3000),
@@ -122,8 +122,8 @@ namespace ExtendedSurvival.Stats
         public static readonly WeaponMagzineDefinition PISTOL_PROPOFOL_MAGZINE_DEFINITION = new WeaponMagzineDefinition()
         {
             Id = PISTOL_PROPOFOL_MAGZINE_ID,
-            Name = "Pistol DRT-Propofol Magzine",
-            Description = "A pistol clip with Propofol tranquilizer darts.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PISTOL_PROPOFOL_MAGZINE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PISTOL_PROPOFOL_MAGZINE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 64000,
             OfferAmount = new Vector2I(100, 300),
@@ -158,8 +158,8 @@ namespace ExtendedSurvival.Stats
         public static readonly WeaponMagzineDefinition PISTOL_LIDOCAIN_MAGZINE_DEFINITION = new WeaponMagzineDefinition()
         {
             Id = PISTOL_LIDOCAIN_MAGZINE_ID,
-            Name = "Pistol DRT-Lidocain Magzine",
-            Description = "A pistol clip with Lidocain tranquilizer darts.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PISTOL_LIDOCAIN_MAGZINE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PISTOL_LIDOCAIN_MAGZINE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 12500,
             OfferAmount = new Vector2I(100, 300),
@@ -206,8 +206,8 @@ namespace ExtendedSurvival.Stats
         public static readonly WeaponDefinition LIDOCAINPISTOLITEM_DEFINITION = new WeaponDefinition()
         {
             Id = PROPOFOLPISTOLITEM_ID,
-            Name = "Pistol DRT-Propofol",
-            Description = "A gun for hunting animals with Propofol tranquilizer darts.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROPOFOLPISTOLITEM_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PROPOFOLPISTOLITEM_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 75000,
             OfferAmount = new Vector2I(20, 40),
@@ -281,8 +281,8 @@ namespace ExtendedSurvival.Stats
         public static readonly WeaponDefinition PROPOFOLPISTOLITEM_DEFINITION = new WeaponDefinition()
         {
             Id = LIDOCAINPISTOLITEM_ID,
-            Name = "Pistol DRT-Lidocain",
-            Description = "A gun for hunting animals with Lidocain tranquilizer darts.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.LIDOCAINPISTOLITEM_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.LIDOCAINPISTOLITEM_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25000,
             OfferAmount = new Vector2I(20, 40),

@@ -407,8 +407,8 @@ namespace ExtendedSurvival.Stats
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.BODYTRACKER_ID.DefinitionId, 1);
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.WATER_FLASK_SMALL_ID.DefinitionId, 5);
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.CEREALBAR_ID.DefinitionId, 10);
-                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.BANDAGES_ID.DefinitionId, 3);
-                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.HEALTHINJECTION_ID.DefinitionId, 1);
+                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(MedicalConstants.BANDAGES_ID.DefinitionId, 3);
+                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(MedicalConstants.HEALTHINJECTION_ID.DefinitionId, 1);
 
                         ExtendedSurvivalCoreAPI.AddGasSpoilInfo(
                             LivestockConstants.CREATURE_HEALTH,
@@ -547,7 +547,7 @@ namespace ExtendedSurvival.Stats
         {
             return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
             {
-                DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), ItensConstants.BANDAGES_ID, 0.1f),
+                DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), MedicalConstants.BANDAGES_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.CARROT_SEEDS_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.MINT_SEEDS_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.ARNICA_SEEDS_ID, 0.1f),

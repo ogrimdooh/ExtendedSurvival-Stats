@@ -64,8 +64,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition ARNICA_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = ARNICA_SEEDS_ID,
-            Name = "Arnica Seeds",
-            Description = "Arnica seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ARNICA_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ARNICA_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 1250,
             OfferAmount = new Vector2I(1000, 3000),
@@ -78,8 +78,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition BEETROOT_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = BEETROOT_SEEDS_ID,
-            Name = "Beetroot Seeds",
-            Description = "Beetroot seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BEETROOT_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BEETROOT_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -92,8 +92,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition BROCCOLI_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = BROCCOLI_SEEDS_ID,
-            Name = "Broccoli Seeds",
-            Description = "Broccoli seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BROCCOLI_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BROCCOLI_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -106,8 +106,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition CARROT_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = CARROT_SEEDS_ID,
-            Name = "Carrot Seeds",
-            Description = "Carrot seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CARROT_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CARROT_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -120,8 +120,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition COFFEE_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = COFFEE_SEEDS_ID,
-            Name = "Coffee Seeds",
-            Description = "Coffee seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COFFEE_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COFFEE_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 1250,
             OfferAmount = new Vector2I(1000, 3000),
@@ -134,8 +134,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition MINT_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = MINT_SEEDS_ID,
-            Name = "Mint Seeds",
-            Description = "Mint seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MINT_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MINT_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -148,8 +148,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition TOMATO_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = TOMATO_SEEDS_ID,
-            Name = "Tomato Seeds",
-            Description = "Tomato seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.TOMATO_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOMATO_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -162,8 +162,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition WHEAT_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = WHEAT_SEEDS_ID,
-            Name = "Wheat Seeds",
-            Description = "Wheat seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WHEAT_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WHEAT_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 1250,
             OfferAmount = new Vector2I(1000, 3000),
@@ -176,8 +176,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition CHAMOMILE_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = CHAMOMILE_SEEDS_ID,
-            Name = "Chamomile Seeds",
-            Description = "Chamomile seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHAMOMILE_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHAMOMILE_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -190,8 +190,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition ALOEVERA_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = ALOEVERA_SEEDS_ID,
-            Name = "Aloevera Seeds",
-            Description = "Aloevera seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALOEVERA_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALOEVERA_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -204,8 +204,8 @@ namespace ExtendedSurvival.Stats
         public static readonly SeedDefinition ERYTHROXYLUM_SEEDS_DEFINITION = new SeedDefinition()
         {
             Id = ERYTHROXYLUM_SEEDS_ID,
-            Name = "Erythroxylum Seeds",
-            Description = "Erythroxylum seeds can be grown with fertilizer and ice on farms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ERYTHROXYLUM_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ERYTHROXYLUM_SEEDS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 625,
             OfferAmount = new Vector2I(1000, 3000),
@@ -233,8 +233,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FertilizerDefinition FERTILIZER_DEFINITION = new FertilizerDefinition()
         {
             Id = FERTILIZER_ID,
-            Name = "Organic Fertilizer",
-            Description = "Fertilizer made from organic matter.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FERTILIZER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FERTILIZER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 4500,
             OfferAmount = new Vector2I(100, 300),
@@ -246,7 +246,7 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Organic Fertilizer From Bone Meal",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.BONEFERTILIZER_CONSTRUCTION_NAME),
                     RecipeName = "BoneFertilizer_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -271,7 +271,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Organic Fertilizer From Poop",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.POOPFERTILIZER_CONSTRUCTION_NAME),
                     RecipeName = "PoopFertilizer_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -296,7 +296,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Organic Fertilizer From Organic Material",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.SPOILEDMATERIALFERTILIZER_CONSTRUCTION_NAME),
                     RecipeName = "SpoiledMaterialFertilizer_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -325,8 +325,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FertilizerDefinition MINERALFERTILIZER_DEFINITION = new FertilizerDefinition()
         {
             Id = MINERALFERTILIZER_ID,
-            Name = "Mineral Fertilizer",
-            Description = "Fertilizer made from mineral matter.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MINERALFERTILIZER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MINERALFERTILIZER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 9000,
             OfferAmount = new Vector2I(100, 300),
@@ -338,7 +338,7 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Mineral Fertilizer From Magnesium",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.MAGNESIUMFERTILIZER_CONSTRUCTION_NAME),
                     RecipeName = "MagnesiumFertilizer_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -363,7 +363,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Mineral Fertilizer From Potassium",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.POTASSIUMFERTILIZER_CONSTRUCTION_NAME),
                     RecipeName = "PotassiumFertilizer_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -388,7 +388,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Mineral Fertilizer From Sulfur",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.FERTILIZER_CONSTRUCTION_NAME),
                     RecipeName = "Fertilizer_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -417,9 +417,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FertilizerDefinition SUPERFERTILIZER_DEFINITION = new FertilizerDefinition()
         {
             Id = SUPERFERTILIZER_ID,
-            Name = "Super Fertilizer",
-            Description = "Mixture of mineral and organic fertilizers," + Environment.NewLine + 
-                          "can be used efficiently with all seeds.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SUPERFERTILIZER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SUPERFERTILIZER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 18000,
             OfferAmount = new Vector2I(100, 300),
@@ -431,7 +430,6 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Super Fertilizer",
                     RecipeName = "SuperFertilizer_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 2.56f,
@@ -462,15 +460,15 @@ namespace ExtendedSurvival.Stats
         public static readonly TreeDefinition TREEDEAD_DEFINITION = new TreeDefinition()
         {
             Id = TREEDEAD_ID,
-            Name = "Dead Tree",
-            Description = "A dead tree can be turned into wood in a grinder.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.TREEDEAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TREEDEAD_DESCRIPTION),
             Mass = 750f,
             Volume = 750f,
             RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
             {
                 new SimpleIngredientRecipeDefinition()
                 {
-                    Name = "Wood Logs From Dead Tree",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.TREEDEAD_DESCONSTRUCTION_NAME),
                     RecipeName = "TreeDead_Desconstruction",
                     IngredientAmmount = 1,
                     ProductionTime = 10.24f,
@@ -504,17 +502,15 @@ namespace ExtendedSurvival.Stats
         public static readonly TreeDefinition APPLETREE_DEFINITION = new TreeDefinition()
         {
             Id = APPLETREE_ID,
-            Name = "Apple Tree",
-            Description = "Can generate apples and saplings if placed with fertilizer" + Environment.NewLine +
-                          "and ice in a tree farm, also can be turned into wood in a" + Environment.NewLine + 
-                          "grinder.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.APPLETREE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.APPLETREE_DESCRIPTION),
             Mass = 1250f,
             Volume = 1250f,
             RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
             {
                 new SimpleIngredientRecipeDefinition()
                 {
-                    Name = "Wood Logs From Apple Tree",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.APPLETREE_DESCONSTRUCTION_NAME),
                     RecipeName = "AppleTree_Desconstruction",
                     IngredientAmmount = 1,
                     ProductionTime = 10.24f,
@@ -548,9 +544,8 @@ namespace ExtendedSurvival.Stats
         public static readonly TreeDefinition APPLETREESEEDLING_DEFINITION = new TreeDefinition()
         {
             Id = APPLETREESEEDLING_ID,
-            Name = "Apple Tree Seedling",
-            Description = "Can grow into an apple tree if placed with fertilizer" + Environment.NewLine + 
-                          "and ice in a tree farm.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.APPLETREESEEDLING_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.APPLETREESEEDLING_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 12500,
             OfferAmount = new Vector2I(10, 30),

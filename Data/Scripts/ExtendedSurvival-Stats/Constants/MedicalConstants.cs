@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using VRage.Game;
 using VRageMath;
 
 namespace ExtendedSurvival.Stats
@@ -10,11 +11,35 @@ namespace ExtendedSurvival.Stats
     public static class MedicalConstants
     {
 
+        public const string BANDAGES_SUBTYPEID = "Bandages";
+        public static readonly UniqueEntityId BANDAGES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), BANDAGES_SUBTYPEID);
+
+        public const string POWER_BANDAGES_SUBTYPEID = "PowerBandages";
+        public static readonly UniqueEntityId POWER_BANDAGES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), POWER_BANDAGES_SUBTYPEID);
+
+        public const string HEALTH_BUSTER_SUBTYPEID = "HealthBuster";
+        public static readonly UniqueEntityId HEALTH_BUSTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTH_BUSTER_SUBTYPEID);
+
+        public const string MEDKIT_SUBTYPEID = "Medkit";
+        public static readonly UniqueEntityId MEDKIT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEDKIT_SUBTYPEID);
+
+        public const string HEALTHINJECTION_SUBTYPEID = "HealthInjection";
+        public static readonly UniqueEntityId HEALTHINJECTION_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTHINJECTION_SUBTYPEID);
+
+        public const string HEALTHPOWERINJECTION_SUBTYPEID = "HealthPowerInjection";
+        public static readonly UniqueEntityId HEALTHPOWERINJECTION_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTHPOWERINJECTION_SUBTYPEID);
+
+        public const string SIMPLEMEDICINE_SUBTYPEID = "SimpleMedicine";
+        public static readonly UniqueEntityId SIMPLEMEDICINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SIMPLEMEDICINE_SUBTYPEID);
+
+        public const string MEDICINE_SUBTYPEID = "Medicine";
+        public static readonly UniqueEntityId MEDICINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEDICINE_SUBTYPEID);
+
         public static readonly MedicalDefinition BANDAGES_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.BANDAGES_ID,
-            Name = "Simple Bandages",
-            Description = "Simple bandages that can be used for first aid.",
+            Id = BANDAGES_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.BANDAGES_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BANDAGES_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 1500,
             OfferAmount = new Vector2I(10000, 30000),
@@ -63,9 +88,9 @@ namespace ExtendedSurvival.Stats
 
         public static readonly MedicalDefinition POWER_BANDAGES_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.POWER_BANDAGES_ID,
-            Name = "Power Bandages",
-            Description = "Simple bandages that can be used for first aid.",
+            Id = POWER_BANDAGES_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.POWER_BANDAGES_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.POWER_BANDAGES_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 3750,
             OfferAmount = new Vector2I(1000, 3000),
@@ -119,9 +144,9 @@ namespace ExtendedSurvival.Stats
 
         public static readonly MedicalDefinition SIMPLEMEDICINE_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.SIMPLEMEDICINE_ID,
-            Name = "Simple Medicine",
-            Description = "A useful remedy for digestive problems or mild pain.",
+            Id = SIMPLEMEDICINE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SIMPLEMEDICINE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SIMPLEMEDICINE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 1500,
             OfferAmount = new Vector2I(10000, 30000),
@@ -191,9 +216,9 @@ namespace ExtendedSurvival.Stats
 
         public static readonly MedicalDefinition MEDICINE_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.MEDICINE_ID,
-            Name = "Medicine",
-            Description = "A useful remedy against poisons, and minor injuries.",
+            Id = MEDICINE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEDICINE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEDICINE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 3750,
             OfferAmount = new Vector2I(1000, 3000),
@@ -251,10 +276,9 @@ namespace ExtendedSurvival.Stats
 
         public static readonly MedicalDefinition HEALTH_BUSTER_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.HEALTH_BUSTER_ID,
-            Name = "Health Buster",
-            Description = "A powerful injectable that causes spontaneous regeneration" + Environment.NewLine + 
-                          "in the body.",
+            Id = HEALTH_BUSTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HEALTH_BUSTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HEALTH_BUSTER_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(100, 300),
@@ -320,10 +344,9 @@ namespace ExtendedSurvival.Stats
 
         public static readonly MedicalDefinition HEALTHINJECTION_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.HEALTHINJECTION_ID,
-            Name = "Health Injection",
-            Description = "A powerful injectable capable of curing infections, diseases" + Environment.NewLine + 
-                          "and reducing fatigue.",
+            Id = HEALTHINJECTION_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HEALTHINJECTION_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HEALTHINJECTION_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(100, 300),
@@ -397,10 +420,9 @@ namespace ExtendedSurvival.Stats
 
         public static readonly MedicalDefinition HEALTHPOWERINJECTION_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.HEALTHPOWERINJECTION_ID,
-            Name = "Health Power Injection",
-            Description = "A very powerful injectable that causes spontaneous regeneration" + Environment.NewLine + 
-                          "in the body.",
+            Id = HEALTHPOWERINJECTION_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HEALTHPOWERINJECTION_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HEALTHPOWERINJECTION_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 7500,
             OfferAmount = new Vector2I(100, 300),
@@ -471,9 +493,9 @@ namespace ExtendedSurvival.Stats
 
         public static readonly MedicalDefinition MEDKIT_DEFINITION = new MedicalDefinition()
         {
-            Id = ItensConstants.MEDKIT_ID,
-            Name = "Medkit",
-            Description = "An injectable capable of regenerating even bones.",
+            Id = MEDKIT_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEDKIT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEDKIT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15000,
             OfferAmount = new Vector2I(100, 300),
@@ -545,14 +567,14 @@ namespace ExtendedSurvival.Stats
 
         public static Dictionary<UniqueEntityId, MedicalDefinition> MEDICAL_DEFINITIONS = new Dictionary<UniqueEntityId, MedicalDefinition>()
         {
-            { ItensConstants.BANDAGES_ID, BANDAGES_DEFINITION },
-            { ItensConstants.POWER_BANDAGES_ID, POWER_BANDAGES_DEFINITION },
-            { ItensConstants.SIMPLEMEDICINE_ID, SIMPLEMEDICINE_DEFINITION },
-            { ItensConstants.MEDICINE_ID, MEDICINE_DEFINITION },
-            { ItensConstants.HEALTH_BUSTER_ID, HEALTH_BUSTER_DEFINITION },
-            { ItensConstants.HEALTHINJECTION_ID, HEALTHINJECTION_DEFINITION },
-            { ItensConstants.HEALTHPOWERINJECTION_ID, HEALTHPOWERINJECTION_DEFINITION },
-            { ItensConstants.MEDKIT_ID, MEDKIT_DEFINITION }
+            { BANDAGES_ID, BANDAGES_DEFINITION },
+            { POWER_BANDAGES_ID, POWER_BANDAGES_DEFINITION },
+            { SIMPLEMEDICINE_ID, SIMPLEMEDICINE_DEFINITION },
+            { MEDICINE_ID, MEDICINE_DEFINITION },
+            { HEALTH_BUSTER_ID, HEALTH_BUSTER_DEFINITION },
+            { HEALTHINJECTION_ID, HEALTHINJECTION_DEFINITION },
+            { HEALTHPOWERINJECTION_ID, HEALTHPOWERINJECTION_DEFINITION },
+            { MEDKIT_ID, MEDKIT_DEFINITION }
         };
 
         public static void TryOverrideDefinitions()

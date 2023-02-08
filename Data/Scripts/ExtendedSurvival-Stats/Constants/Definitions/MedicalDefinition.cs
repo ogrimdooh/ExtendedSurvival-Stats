@@ -28,13 +28,15 @@ namespace ExtendedSurvival.Stats
                     switch (effect.EffectType)
                     {
                         case FoodEffectType.Instant:
-                            values.AppendLine(string.Format("{1} {0} instantly",
+                            values.AppendLine(string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_EFFECT_INSTANT_DESCRIPTION),
                                 effect.EffectTarget.ToString(),
                                 effect.Ammount.ToString("#0.00")
                             ));
                             break;
                         case FoodEffectType.OverTime:
-                            values.AppendLine(string.Format("{1} {0} over {2}s",
+                            values.AppendLine(string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_EFFECT_OVERTIME_DESCRIPTION),
                                 effect.EffectTarget.ToString(),
                                 effect.Ammount.ToString("#0.00"),
                                 effect.TimeToEffect.ToString("#0.0")
@@ -48,7 +50,10 @@ namespace ExtendedSurvival.Stats
                 values.AppendLine(" ");
                 foreach (var damage in CureDamage)
                 {
-                    values.AppendLine(string.Format("Can cure {0} when use", StatsConstants.GetDamageEffectDescription(damage)));
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION), 
+                        StatsConstants.GetDamageEffectDescription(damage)
+                    ));
                 }
             }
             if (CureDisease != null && CureDisease.Any())
@@ -56,7 +61,10 @@ namespace ExtendedSurvival.Stats
                 values.AppendLine(" ");
                 foreach (var disease in CureDisease)
                 {
-                    values.AppendLine(string.Format("Can cure {0} when use", StatsConstants.GetDiseaseEffectDescription(disease)));
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION), 
+                        StatsConstants.GetDiseaseEffectDescription(disease)
+                    ));
                 }
             }
             return values.ToString();

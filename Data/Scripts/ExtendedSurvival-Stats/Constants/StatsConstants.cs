@@ -321,37 +321,37 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case DiseaseEffects.Pneumonia:
-                    return "Pneumonia";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_PNEUMONIA_NAME);
                 case DiseaseEffects.Dysentery:
-                    return "Dysentery";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_DYSENTERY_NAME);
                 case DiseaseEffects.Poison:
-                    return "Poison";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_POISON_NAME);
                 case DiseaseEffects.Infected:
-                    return "Infected";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_INFECTED_NAME);
                 case DiseaseEffects.Hypothermia:
-                    return "Hypothermia";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_HYPOTHERMIA_NAME);
                 case DiseaseEffects.Hyperthermia:
-                    return "Hyperthermia";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_HYPERTHERMIA_NAME);
                 case DiseaseEffects.Starvation:
-                    return "Starvation";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_STARVATION_NAME);
                 case DiseaseEffects.SevereStarvation:
-                    return "Severe Starvation";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_SEVERESTARVATION_NAME);
                 case DiseaseEffects.Dehydration:
-                    return "Dehydration";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_DEHYDRATION_NAME);
                 case DiseaseEffects.SevereDehydration:
-                    return "Severe Dehydration";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_SEVEREDEHYDRATION_NAME);
                 case DiseaseEffects.Obesity:
-                    return "Obesity";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_OBESITY_NAME);
                 case DiseaseEffects.SevereObesity:
-                    return "Severe Obesity";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_SEVEREOBESITY_NAME);
                 case DiseaseEffects.Rickets:
-                    return "Rickets";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_RICKETS_NAME);
                 case DiseaseEffects.SevereRickets:
-                    return "Severe Rickets";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_SEVERERICKETS_NAME);
                 case DiseaseEffects.Hypolipidemia:
-                    return "Hypolipidemia";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_HYPOLIPIDEMIA_NAME);
                 case DiseaseEffects.Queasy:
-                    return "Queasy";
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_QUEASY_NAME);
             }
             return "";
         }
@@ -361,9 +361,9 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case OtherEffects.PoopOnClothes:
-                    return "Poop On Clothes";
+                    return LanguageProvider.GetEntry(LanguageEntries.OTHEREFFECTS_POOPONCLOTHES_NAME);
                 case OtherEffects.PeeOnClothes:
-                    return "Pee On Clothes";
+                    return LanguageProvider.GetEntry(LanguageEntries.OTHEREFFECTS_PEEONCLOTHES_NAME);
             }
             return "";
         }
@@ -389,15 +389,15 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case TemperatureEffects.Overheating:
-                    return "Overheating";
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_OVERHEATING_NAME);
                 case TemperatureEffects.OnFire:
-                    return "On Fire";
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_ONFIRE_NAME);
                 case TemperatureEffects.Cold:
-                    return "Cold";
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_COLD_NAME);
                 case TemperatureEffects.Frosty:
-                    return "Frosty";
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_FROSTY_NAME);
                 case TemperatureEffects.Wet:
-                    return "Wet";
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_WET_NAME);
             }
             return "";
         }
@@ -437,13 +437,13 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case DamageEffects.Contusion:
-                    return "Contusion";
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME);
                 case DamageEffects.Wounded:
-                    return "Wounded";
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGEEFFECTS_WOUNDED_NAME);
                 case DamageEffects.DeepWounded:
-                    return "Deep Wounded";
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGEEFFECTS_DEEPWOUNDED_NAME);
                 case DamageEffects.BrokenBones:
-                    return "Broken Bones";
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGEEFFECTS_BROKENBONES_NAME);
             }
             return "";
         }
@@ -483,33 +483,33 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case SurvivalEffects.Hungry:
-                    return "Hungry";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_HUNGRY_NAME);
                 case SurvivalEffects.Famished:
-                    return "Famished";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_FAMISHED_NAME);
                 case SurvivalEffects.Thirsty:
-                    return "Thirsty";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_THIRSTY_NAME);
                 case SurvivalEffects.Dehydrating:
-                    return "Dehydrating";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_DEHYDRATING_NAME);
                 case SurvivalEffects.Disoriented:
-                    return "Disoriented";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_DISORIENTED_NAME);
                 case SurvivalEffects.Suffocation:
-                    return "Suffocation";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_SUFFOCATION_NAME);
                 case SurvivalEffects.FullStomach:
-                    return "Full Stomach";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_FULLSTOMACH_NAME);
                 case SurvivalEffects.StomachBursting:
-                    return "Stomach Bursting";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_STOMACHBURSTING_NAME);
                 case SurvivalEffects.FullGut:
-                    return "Full Gut";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_FULLGUT_NAME);
                 case SurvivalEffects.GutBurst:
-                    return "Gut Burst";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_GUTBURST_NAME);
                 case SurvivalEffects.FullBladder:
-                    return "Full Bladder";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_FULLBLADDER_NAME);
                 case SurvivalEffects.BladderBurst:
-                    return "Bladder Burst";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_BLADDERBURST_NAME);
                 case SurvivalEffects.Tired:
-                    return "Tired";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_TIRED_NAME);
                 case SurvivalEffects.ExtremelyTired:
-                    return "Extremely Tired";
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_EXTREMELYTIRED_NAME);
             }
             return "";
         }
@@ -564,14 +564,14 @@ namespace ExtendedSurvival.Stats
         public static string GetFeelingByTotalEffects(int ammount)
         {
             if (ammount == 0)
-                return "I am feeling good and healthy.";
+                return LanguageProvider.GetEntry(LanguageEntries.FEELING_LEVEL0_NAME);
             if (ammount <= 3)
-                return "I'm not feeling very well.";
+                return LanguageProvider.GetEntry(LanguageEntries.FEELING_LEVEL1_NAME);
             if (ammount <= 6)
-                return "There's something wrong with me.";
+                return LanguageProvider.GetEntry(LanguageEntries.FEELING_LEVEL2_NAME);
             if (ammount <= 9)
-                return "I need to do something before it's too late.";
-            return "I need to find help, I think I'm dying.";
+                return LanguageProvider.GetEntry(LanguageEntries.FEELING_LEVEL3_NAME);
+            return LanguageProvider.GetEntry(LanguageEntries.FEELING_LEVEL4_NAME);
         }
 
         public static readonly Dictionary<SurvivalEffects, MyStringId> SurvivalEffectsIcons = new Dictionary<SurvivalEffects, MyStringId>()

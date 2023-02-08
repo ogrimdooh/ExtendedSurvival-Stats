@@ -16,8 +16,13 @@ namespace ExtendedSurvival.Stats
             var values = new StringBuilder();
             var farmDef = FarmConstants.TREE_DEFINITIONS[Id];
             var fertilizerDef = SeedsAndFertilizerConstants.FERTILIZERS_DEFINITIONS[farmDef.PreferredFertilizer];
-            values.AppendLine(string.Format("Need sunlight: {0}", farmDef.SunRequired ? "Yes" : "No"));
-            values.AppendLine(string.Format("Favorite Fertilizer: {0}", fertilizerDef.Name));
+            values.AppendLine(string.Format(
+                LanguageProvider.GetEntry(LanguageEntries.TREEDEFINITION_DESCRIPTION),
+                farmDef.SunRequired ?
+                    LanguageProvider.GetEntry(LanguageEntries.TERMS_YES_NAME) :
+                    LanguageProvider.GetEntry(LanguageEntries.TERMS_NO_NAME),
+                fertilizerDef.Name
+            ));
             return values.ToString();
         }
 

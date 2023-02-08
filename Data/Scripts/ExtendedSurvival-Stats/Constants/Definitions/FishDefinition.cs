@@ -16,9 +16,10 @@ namespace ExtendedSurvival.Stats
             var values = new StringBuilder();
             if (FishTrapBlock.BAIT_RESULT.Values.Any(x => x.Results.Any(y => y.Product == Id)))
             {
-                values.AppendLine(string.Format("Rotting time: {0}s", (StartConservationTime / 1000).ToString("#0.0")));
-                values.AppendLine(" ");
-                values.AppendLine("Can be captured in traps:");
+                values.AppendLine(string.Format(
+                    LanguageProvider.GetEntry(LanguageEntries.FISHDEFINITION_DESCRIPTION), 
+                    (StartConservationTime / 1000).ToString("#0.0")
+                ));
                 var baits = FishTrapBlock.BAIT_RESULT.Where(x => x.Value.Results.Any(y => y.Product == Id));
                 foreach (var bait in baits)
                 {
@@ -26,10 +27,15 @@ namespace ExtendedSurvival.Stats
                     {
                         var baitInfo = FishingConstants.FISH_BAITS_DEFINITIONS[bait.Key];
                         var result = bait.Value.Results.FirstOrDefault(y => y.Product == Id);
-                        values.AppendLine(string.Format("- {1}% using {0} at minimum depth of {2}m", baitInfo.Name, result.ChanceToGenerate.ToString("#0.00"), result.MinDepth.ToString("#0.0")));
+                        values.AppendLine(string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FISHDEFINITION_BAIT_DESCRIPTION), 
+                            baitInfo.Name, 
+                            result.ChanceToGenerate.ToString("#0.00"), 
+                            result.MinDepth.ToString("#0.0")
+                        ));
                     }
                 }
-                values.AppendLine("Note: They can have their meat extracted in food processors.");
+                values.AppendLine(LanguageProvider.GetEntry(LanguageEntries.FISHDEFINITION_NOTE_DESCRIPTION));
             }
             return values.ToString();
         }

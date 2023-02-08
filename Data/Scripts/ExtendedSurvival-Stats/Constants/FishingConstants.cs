@@ -30,8 +30,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FishDefinition FISH_DEFINITION = new FishDefinition()
         {
             Id = FISH_ID,
-            Name = "Fish",
-            Description = "Fish are abundant in most bodies of water. They can be found" + Environment.NewLine + "in nearly all aquatic environments.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISH_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 30,
             OfferAmount = new Vector2I(1000, 3000),
@@ -68,8 +68,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FishDefinition ALIENFISH_DEFINITION = new FishDefinition()
         {
             Id = ALIENFISH_ID,
-            Name = "Alien Fish",
-            Description = "Fish are abundant in most bodies of water. They can be found" + Environment.NewLine + "in nearly all aquatic environments.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIENFISH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENFISH_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 30,
             OfferAmount = new Vector2I(1000, 3000),
@@ -106,8 +106,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FishDefinition NOBLEFISH_DEFINITION = new FishDefinition()
         {
             Id = NOBLEFISH_ID,
-            Name = "Noble Fish",
-            Description = "Noble fish are more difficult to catch. They can be found in" + Environment.NewLine + "deeper waters.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISH_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(1000, 3000),
@@ -144,8 +144,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FishDefinition ALIENNOBLEFISH_DEFINITION = new FishDefinition()
         {
             Id = ALIENNOBLEFISH_ID,
-            Name = "Alien Noble Fish",
-            Description = "Noble fish are more difficult to catch. They can be found in" + Environment.NewLine + "deeper waters.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIENNOBLEFISH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENNOBLEFISH_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(1000, 3000),
@@ -182,8 +182,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FishDefinition SHRIMP_DEFINITION = new FishDefinition()
         {
             Id = SHRIMP_ID,
-            Name = "Shrimp",
-            Description = "Shrimp are crustaceans with elongated bodies and a primarily" + Environment.NewLine + "swimming mode of locomotion.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHRIMP_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHRIMP_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 3,
             OfferAmount = new Vector2I(1000, 3000),
@@ -230,8 +230,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FishBaitDefinition FISH_BAIT_SMALL_DEFINITION = new FishBaitDefinition()
         {
             Id = FISH_BAIT_SMALL_ID,
-            Name = "Fish Bait",
-            Description = "A kind of small worm, some fish may find it appetizing.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISH_BAIT_SMALL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISH_BAIT_SMALL_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 2,
             OfferAmount = new Vector2I(10000, 30000),
@@ -244,8 +244,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FishBaitDefinition FISH_NOBLE_BAIT_DEFINITION = new FishBaitDefinition()
         {
             Id = FISH_NOBLE_BAIT_ID,
-            Name = "Noble Fish Bait",
-            Description = "A kind of small worm, some fish may find it appetizing.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISH_NOBLE_BAIT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISH_NOBLE_BAIT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 4,
             OfferAmount = new Vector2I(1000, 3000),

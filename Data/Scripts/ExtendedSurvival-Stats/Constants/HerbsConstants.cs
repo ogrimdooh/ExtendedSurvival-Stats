@@ -28,8 +28,8 @@ namespace ExtendedSurvival.Stats
         public static readonly HerbDefinition ARNICA_DEFINITION = new HerbDefinition()
         {
             Id = ARNICA_ID,
-            Name = "Arnica",
-            Description = "Arnica is a rare common flower and has anti-inflammatory and anti-biotic applications.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ARNICA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ARNICA_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 250,
             OfferAmount = new Vector2I(1000, 3000),
@@ -42,8 +42,8 @@ namespace ExtendedSurvival.Stats
         public static readonly HerbDefinition CHAMOMILE_DEFINITION = new HerbDefinition()
         {
             Id = CHAMOMILE_ID,
-            Name = "Chamomile",
-            Description = "Chamomile is a very common flower and has calming and digestive effects.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHAMOMILE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHAMOMILE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 90,
             OfferAmount = new Vector2I(1000, 3000),
@@ -56,8 +56,8 @@ namespace ExtendedSurvival.Stats
         public static readonly HerbDefinition ALOEVERA_DEFINITION = new HerbDefinition()
         {
             Id = ALOEVERA_ID,
-            Name = "Aloe vera",
-            Description = "Aloe vera is a herb and has a wide application in medicine.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALOEVERA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALOEVERA_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150,
             OfferAmount = new Vector2I(1000, 3000),
@@ -70,8 +70,8 @@ namespace ExtendedSurvival.Stats
         public static readonly HerbDefinition MINT_DEFINITION = new HerbDefinition()
         {
             Id = MINT_ID,
-            Name = "Mint",
-            Description = "Mint is a very common herb and has refreshing and digestive effects.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MINT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MINT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 90,
             OfferAmount = new Vector2I(1000, 3000),
@@ -84,8 +84,8 @@ namespace ExtendedSurvival.Stats
         public static readonly HerbDefinition ERYTHROXYLUM_DEFINITION = new HerbDefinition()
         {
             Id = ERYTHROXYLUM_ID,
-            Name = "Erythroxylum",
-            Description = "Erythroxylum is a common herb with numbing effects.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ERYTHROXYLUM_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ERYTHROXYLUM_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 125,
             OfferAmount = new Vector2I(1000, 3000),

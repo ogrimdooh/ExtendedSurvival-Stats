@@ -53,7 +53,7 @@ namespace ExtendedSurvival.Stats
                                 recipeDef.DisplayNameString = definitionDef.Name;
                                 recipeDef.DescriptionEnum = null;
                                 recipeDef.DescriptionString = null;
-                                var recipeAsProduct = recipeDef as ISimpleRecipeDefinition;
+                                var recipeAsProduct = recipe as ISimpleRecipeDefinition;
                                 if (recipeAsProduct != null)
                                 {
                                     recipeDef.Prerequisites = recipeAsProduct.GetIngredients();
@@ -61,11 +61,20 @@ namespace ExtendedSurvival.Stats
                                 }
                                 else
                                 {
-                                    var recipeAsIngredient = recipeDef as ISimpleIngredientRecipeDefinition;
+                                    var recipeAsIngredient = recipe as ISimpleIngredientRecipeDefinition;
                                     if (recipeAsIngredient != null)
                                     {
                                         recipeDef.Prerequisites = recipeAsIngredient.GetIngredients(definitionDef.Id);
                                         recipeDef.Results = recipeAsIngredient.GetProduct();
+                                    }
+                                    else
+                                    {
+                                        var recipeAsFull = recipe as IFullRecipeDefinition;
+                                        if (recipeAsFull != null)
+                                        {
+                                            recipeDef.Prerequisites = recipeAsFull.GetIngredients();
+                                            recipeDef.Results = recipeAsFull.GetProduct();
+                                        }
                                     }
                                 }
                                 recipeDef.Postprocess();

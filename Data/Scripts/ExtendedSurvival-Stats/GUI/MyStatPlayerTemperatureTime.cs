@@ -23,19 +23,19 @@
             if (Stat != null)
             {
                 if (Stat.Value > StatsConstants.MIN_TO_GET_EFFECT_OVERHITING)
-                    return "Boiling";
+                    return LanguageProvider.GetEntry(LanguageEntries.BOILING_NAME);
                 if (Stat.Value > StatsConstants.MIN_TO_GET_EFFECT_ONFIRE)
-                    return "Too Hot";
+                    return LanguageProvider.GetEntry(LanguageEntries.TOOHOT_NAME);
                 if (Stat.Value > 0)
-                    return "Warming Up";
+                    return LanguageProvider.GetEntry(LanguageEntries.WARMINGUP_NAME);
                 if (Stat.Value < StatsConstants.MIN_TO_GET_EFFECT_FROSTY)
-                    return "Freezing";
+                    return LanguageProvider.GetEntry(LanguageEntries.FREEZING_NAME);
                 if (Stat.Value < StatsConstants.MIN_TO_GET_EFFECT_COLD)
-                    return "Very Cold";
+                    return LanguageProvider.GetEntry(LanguageEntries.VERYCOLD_NAME);
                 if (Stat.Value < 0)
-                    return "Cooling Down";
+                    return LanguageProvider.GetEntry(LanguageEntries.COOLINGDOWN_NAME);
             }
-            return "Stable";
+            return LanguageProvider.GetEntry(LanguageEntries.STABLE_NAME);
         }
 
         protected override bool IsActive()

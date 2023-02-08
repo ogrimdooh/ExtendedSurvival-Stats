@@ -177,7 +177,7 @@ namespace ExtendedSurvival.Stats
                 if (sbEffects.Length > 0)
                 {
                     sbFeeling.AppendLine();
-                    sbFeeling.AppendLine("Known effects:");
+                    sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.FEELING_INFO_NAME));
                     sbFeeling.AppendLine();
                 }
             }

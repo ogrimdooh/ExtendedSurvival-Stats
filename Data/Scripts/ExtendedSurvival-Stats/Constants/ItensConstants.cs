@@ -160,30 +160,6 @@ namespace ExtendedSurvival.Stats
         public const string OXYGEN_SUBTYPEID = "Oxygen";
         public static readonly UniqueEntityId OXYGEN_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasProperties), OXYGEN_SUBTYPEID);
 
-        public const string BANDAGES_SUBTYPEID = "Bandages";
-        public static readonly UniqueEntityId BANDAGES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), BANDAGES_SUBTYPEID);
-
-        public const string POWER_BANDAGES_SUBTYPEID = "PowerBandages";
-        public static readonly UniqueEntityId POWER_BANDAGES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), POWER_BANDAGES_SUBTYPEID);
-
-        public const string HEALTH_BUSTER_SUBTYPEID = "HealthBuster";
-        public static readonly UniqueEntityId HEALTH_BUSTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTH_BUSTER_SUBTYPEID);
-
-        public const string MEDKIT_SUBTYPEID = "Medkit";
-        public static readonly UniqueEntityId MEDKIT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEDKIT_SUBTYPEID);
-
-        public const string HEALTHINJECTION_SUBTYPEID = "HealthInjection";
-        public static readonly UniqueEntityId HEALTHINJECTION_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTHINJECTION_SUBTYPEID);
-
-        public const string HEALTHPOWERINJECTION_SUBTYPEID = "HealthPowerInjection";
-        public static readonly UniqueEntityId HEALTHPOWERINJECTION_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), HEALTHPOWERINJECTION_SUBTYPEID);
-
-        public const string SIMPLEMEDICINE_SUBTYPEID = "SimpleMedicine";
-        public static readonly UniqueEntityId SIMPLEMEDICINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SIMPLEMEDICINE_SUBTYPEID);
-
-        public const string MEDICINE_SUBTYPEID = "Medicine";
-        public static readonly UniqueEntityId MEDICINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEDICINE_SUBTYPEID);
-
         public const string VEGETABLE_SOUP_BOWL_SUBTYPEID = "VegetableSoupBowl";
         public static readonly UniqueEntityId VEGETABLE_SOUP_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VEGETABLE_SOUP_BOWL_SUBTYPEID);
 
@@ -492,26 +468,6 @@ namespace ExtendedSurvival.Stats
 
         public const string FLASK_BIG_SUBTYPEID = "Flask_Big";
         public static readonly UniqueEntityId FLASK_BIG_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FLASK_BIG_SUBTYPEID);
-
-        public static Dictionary<UniqueEntityId, StatsConstants.DamageEffects> REMOVE_DAMAGE_EFFECTS = new Dictionary<UniqueEntityId, StatsConstants.DamageEffects>()
-        {
-            { BANDAGES_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
-            { SIMPLEMEDICINE_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
-            { MEDICINE_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
-            { POWER_BANDAGES_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded },
-            { HEALTH_BUSTER_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
-            { HEALTHINJECTION_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
-            { HEALTHPOWERINJECTION_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded },
-            { MEDKIT_ID, StatsConstants.DamageEffects.Contusion | StatsConstants.DamageEffects.Wounded | StatsConstants.DamageEffects.DeepWounded | StatsConstants.DamageEffects.BrokenBones }
-        };
-
-        public static Dictionary<UniqueEntityId, StatsConstants.DiseaseEffects> REMOVE_DISEASE_EFFECTS = new Dictionary<UniqueEntityId, StatsConstants.DiseaseEffects>()
-        {
-            { HEALTHINJECTION_ID, StatsConstants.DiseaseEffects.Infected },
-            { HEALTHPOWERINJECTION_ID, StatsConstants.DiseaseEffects.Pneumonia },
-            { SIMPLEMEDICINE_ID, StatsConstants.DiseaseEffects.Dysentery | StatsConstants.DiseaseEffects.Queasy },
-            { MEDICINE_ID, StatsConstants.DiseaseEffects.Poison }
-        };
 
         public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;
         public static readonly long BASE_RAW_VEGETABLE_SPOIL_TIME = (long)(7.5f * 60 * 1000);

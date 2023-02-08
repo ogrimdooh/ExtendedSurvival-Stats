@@ -12,14 +12,17 @@ namespace ExtendedSurvival.Stats
             var values = new StringBuilder();
             if (Id == FarmConstants.POWER_FERTILIZER)
             {
-                values.AppendLine(string.Format("Provides a {0}% production multiplier when used.", (FarmConstants.POWER_FERTILIZER_MULTIPLIER * 100).ToString("#0.00")));
-                values.AppendLine("It is compatible with all plants."); 
+                values.AppendLine(string.Format(
+                    LanguageProvider.GetEntry(LanguageEntries.FERTILIZERDEFINITION_POWER_DESCRIPTION), 
+                    (FarmConstants.POWER_FERTILIZER_MULTIPLIER * 100).ToString("#0.00")
+                ));
             }
             else
             {
-                values.AppendLine(string.Format("Provides a {0}% production multiplier when used" + Environment.NewLine + 
-                                                "with compatible plants.", (FarmConstants.PREFER_FERTILIZER_MULTIPLIER * 100).ToString("#0.00")));
-                values.AppendLine("It is compatible with:");
+                values.AppendLine(string.Format(
+                    LanguageProvider.GetEntry(LanguageEntries.FERTILIZERDEFINITION_DESCRIPTION), 
+                    (FarmConstants.PREFER_FERTILIZER_MULTIPLIER * 100).ToString("#0.00")
+                ));
                 foreach (var farmDefKey in FarmConstants.DEFINITIONS.Where(x => x.Value.PreferredFertilizer == Id).Select(x => x.Key))
                 {
                     if (SeedsAndFertilizerConstants.SEEDS_DEFINITIONS.ContainsKey(farmDefKey))

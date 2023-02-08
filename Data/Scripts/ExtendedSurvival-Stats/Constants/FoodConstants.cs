@@ -31,8 +31,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 80f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_FRUIT_SPOIL_TIME,
-            Name = "Apple",
-            Description = "Apple is a red and appetizing fruit," + Environment.NewLine + "it has a low caloric value.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.APPLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.APPLE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(15000, 45000),
@@ -74,9 +74,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 60f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
-            Name = "Broccoli",
-            Description = "Broccoli is an edible green plant in the cabbage family," + Environment.NewLine + 
-                          "it is a particularly rich source of vitamin.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BROCCOLI_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BROCCOLI_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(15000, 45000),
@@ -112,9 +111,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 120f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
-            Name = "Beetroot",
-            Description = "Beetroot is the taproot portion of a beet plant," + Environment.NewLine + 
-                          "it is a particularly rich source of minerals.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BEETROOT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BEETROOT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(15000, 45000),
@@ -150,9 +148,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 120f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_VEGETABLE_SPOIL_TIME,
-            Name = "Caroot",
-            Description = "Caroot is a root vegetable, it is a particularly rich" + Environment.NewLine + 
-                          "source of minerals.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CAROOT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CAROOT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(15000, 45000),
@@ -188,9 +185,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 10f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
-            Name = "Shiitake",
-            Description = "Shiitake is an edible mushroom, it is a particularly" + Environment.NewLine + 
-                          "rich source of protein.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHIITAKE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIITAKE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(15000, 45000),
@@ -226,9 +222,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 10f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
-            Name = "Champignon",
-            Description = "Champignon is an edible mushroom, it is a particularly" + Environment.NewLine + 
-                          "rich source of protein.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHAMPIGNONS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHAMPIGNONS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(15000, 45000),
@@ -264,9 +259,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 10f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MUSHROOM_SPOIL_TIME,
-            Name = "Amanita Muscaria",
-            Description = "Amanita muscaria is poisonous mushroom, not recommended to eat," + Environment.NewLine + 
-                          "but has great chemical and medical application.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.AMANITAMUSCARIA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.AMANITAMUSCARIA_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(15000, 45000),
@@ -308,8 +302,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 60f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_FRUIT_SPOIL_TIME,
-            Name = "Tomato",
-            Description = "The tomato is the edible berry, it has a low caloric value.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.TOMATO_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOMATO_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(15000, 45000),
@@ -350,8 +344,8 @@ namespace ExtendedSurvival.Stats
             Calories = 3500.0f,
             TimeToConsume = 1200f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
-            Name = "Cereal",
-            Description = "Cereal is a highly nutritious grain.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CEREAL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CEREAL_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 12,
             OfferAmount = new Vector2I(15000, 45000),
@@ -372,8 +366,8 @@ namespace ExtendedSurvival.Stats
             Calories = 3746.0f,
             TimeToConsume = 1200f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
-            Name = "Wheat Sack",
-            Description = "Wheat grain is a staple food used to make flour, and with it, bread.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WHEATSACK_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WHEATSACK_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 18,
             OfferAmount = new Vector2I(15000, 45000),
@@ -394,9 +388,8 @@ namespace ExtendedSurvival.Stats
             Calories = 0.0f,
             TimeToConsume = 1200f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ingot,
-            Name = "Coffee Sack",
-            Description = "Coffee is a stimulant, because it has caffeine, it can be an" + Environment.NewLine + 
-                          "alternative to maintain body heat in cold places.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COFFEESACK_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COFFEESACK_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 22,
             OfferAmount = new Vector2I(15000, 45000),
@@ -448,9 +441,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 60f,
             NeedConservation = true,
             StartConservationTime = BASE_MILK_SPOIL_TIME,
-            Name = "Milk",
-            Description = "Milk is a white liquid food produced by the mammary" + Environment.NewLine + 
-                          "glands of mammals.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MILK_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MILK_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(150, 450),
@@ -496,9 +488,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Meat",
-            Description = "Meat has been one of the main sources of protein since" + Environment.NewLine + 
-                          "prehistoric times.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(1500, 4500),
@@ -534,9 +525,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Alien Meat",
-            Description = "It is a strange meat and has a strong smell," + Environment.NewLine + 
-                          "but the taste is normal.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(1500, 4500),
@@ -572,8 +562,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Chicken Meat",
-            Description = "Chicken is the most common type of poultry in the world.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENMEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHICKENMEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 35,
             OfferAmount = new Vector2I(1500, 4500),
@@ -609,9 +599,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 180f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Bacon",
-            Description = "Bacon is a type of salt-cured pork made from various cuts," + Environment.NewLine + 
-                          "typically the belly or less fatty parts of the back.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BACON_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BACON_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 35,
             OfferAmount = new Vector2I(1500, 4500),
@@ -647,8 +636,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 240f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Noble Meat",
-            Description = "Noble cut of meat, with a high concentration of protein.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLE_MEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.NOBLE_MEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 45,
             OfferAmount = new Vector2I(1500, 4500),
@@ -684,9 +673,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 240f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Alien Noble Meat",
-            Description = "It is a noble cut of a strange meat, the smell is" + Environment.NewLine + 
-                          "more acceptable and tastier.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_NOBLE_MEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_NOBLE_MEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 45,
             OfferAmount = new Vector2I(1500, 4500),
@@ -722,8 +710,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 120f,
             NeedConservation = true,
             StartConservationTime = BASE_EGG_SPOIL_TIME,
-            Name = "Egg",
-            Description = "Eggs are a very rich food from a nutritional point of view.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.EGG_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.EGG_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(1500, 4500),
@@ -759,9 +747,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 160f,
             NeedConservation = true,
             StartConservationTime = BASE_EGG_SPOIL_TIME,
-            Name = "Alien Egg",
-            Description = "It's actually quite a big egg, but it's best not to" + Environment.NewLine + 
-                          "think too hard about where it comes from.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_EGG_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_EGG_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(1500, 4500),
@@ -797,9 +784,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 50f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Shrimp Meat",
-            Description = "One of the most consumed seafood worldwide, shrimp is" + Environment.NewLine + 
-                          "rich in nutrients and has several health benefits.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHRIMPMEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHRIMPMEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 5,
             OfferAmount = new Vector2I(1500, 4500),
@@ -835,9 +821,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 100f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Fish Meat",
-            Description = "Fish has been an important dietary source of protein and" + Environment.NewLine + 
-                          "other nutrients throughout human history.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISHMEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISHMEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(1500, 4500),
@@ -873,8 +858,8 @@ namespace ExtendedSurvival.Stats
             TimeToConsume = 160f,
             NeedConservation = true,
             StartConservationTime = BASE_RAW_MEAT_SPOIL_TIME,
-            Name = "Noble Fish Meat",
-            Description = "High quality fish meat, with a high concentration of protein.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISHMEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISHMEAT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(1500, 4500),
@@ -909,8 +894,8 @@ namespace ExtendedSurvival.Stats
             Calories = 0.0f,
             TimeToConsume = 600f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
-            Name = "Concentrated Fat",
-            Description = "Concentration of fat, which can be used to make other products.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDFAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDFAT_DESCRIPTION),
             SimpleDescription = true
         };
 
@@ -927,8 +912,8 @@ namespace ExtendedSurvival.Stats
             Calories = 0.0f,
             TimeToConsume = 600f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
-            Name = "Concentrated Protein",
-            Description = "Concentration of protein, which can be used to make other products.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDPROTEIN_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDPROTEIN_DESCRIPTION),
             SimpleDescription = true
         };
 
@@ -945,8 +930,8 @@ namespace ExtendedSurvival.Stats
             Calories = 0.0f,
             TimeToConsume = 600f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
-            Name = "Concentrated Vitamin",
-            Description = "Concentration of vitamins, which can be used to make other products.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDVITAMIN_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDVITAMIN_DESCRIPTION),
             SimpleDescription = true
         };
 
@@ -1004,8 +989,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 1.28f,
-            Name = "Small Water Flask",
-            Description = "A small flask with water.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WATER_FLASK_SMALL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WATER_FLASK_SMALL_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(150, 450),
@@ -1040,8 +1025,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Medium Water Flask",
-            Description = "A medium flask with water.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WATER_FLASK_MEDIUM_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WATER_FLASK_MEDIUM_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 100,
             OfferAmount = new Vector2I(150, 450),
@@ -1076,8 +1061,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Big Water Flask",
-            Description = "A big flask with water.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WATER_FLASK_BIG_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WATER_FLASK_BIG_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 150,
             OfferAmount = new Vector2I(150, 450),
@@ -1117,8 +1102,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Apple Juice",
-            Description = "A big flask with juice extracted from apples.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.APPLE_JUICE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.APPLE_JUICE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 200,
             OfferAmount = new Vector2I(150, 450),
@@ -1153,8 +1138,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Apple Soda",
-            Description = "A refreshing apple-based soda.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SODA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SODA_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(150, 450),
@@ -1194,8 +1179,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Cofee Can",
-            Description = "A thermos of hot coffee.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.COFFEE_CAN_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COFFEE_CAN_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(150, 450),
@@ -1235,8 +1220,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Dough",
-            Description = "A dough made with milk and eggs."
+            Name = LanguageProvider.GetEntry(LanguageEntries.DOUGH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DOUGH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_DOUGH_DEFINITION = new FoodRecipeDefinition()
@@ -1267,8 +1252,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Dough",
-            Description = "A dough made with milk and alien eggs."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_DOUGH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_DOUGH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition CAKEDOUGH_DEFINITION = new FoodRecipeDefinition()
@@ -1299,8 +1284,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Cake Dough",
-            Description = "A cake dough made with milk and eggs."
+            Name = LanguageProvider.GetEntry(LanguageEntries.CAKEDOUGH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CAKEDOUGH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_CAKEDOUGH_DEFINITION = new FoodRecipeDefinition()
@@ -1331,8 +1316,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Cake Dough",
-            Description = "A cake dough made with milk and alien eggs."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_CAKEDOUGH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_CAKEDOUGH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_BROCCOLI_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1358,8 +1343,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Raw Broccoli Bowl",
-            Description = "A bowl with minced broccoli."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_BROCCOLI_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_BROCCOLI_BOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_CARROT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1372,7 +1357,7 @@ namespace ExtendedSurvival.Stats
             RecipeName = "RawCarrotBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
             Ingredients = new FullRecipeDefinition.RecipeItem[]
-           {
+            {
                 new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
@@ -1383,10 +1368,10 @@ namespace ExtendedSurvival.Stats
                     Id = ItensConstants.CAROOT_ID,
                     Ammount = 5
                 }
-           },
+            },
             ProductionTime = 2.56f,
-            Name = "Raw Carrot Bowl",
-            Description = "A bowl with minced carrot."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_CARROT_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_CARROT_BOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_BEETROOT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1399,7 +1384,7 @@ namespace ExtendedSurvival.Stats
             RecipeName = "RawBeetrootBowl_Construction",
             Preparation = FoodRecipeDefinition.RecipePreparationType.Cutting,
             Ingredients = new FullRecipeDefinition.RecipeItem[]
-           {
+            {
                 new FullRecipeDefinition.RecipeItem()
                 {
                     Id = RecipientConstants.BOWL_ID,
@@ -1410,10 +1395,10 @@ namespace ExtendedSurvival.Stats
                     Id = ItensConstants.BEETROOT_ID,
                     Ammount = 5
                 }
-           },
+            },
             ProductionTime = 2.56f,
-            Name = "Raw Beetroot Bowl",
-            Description = "A bowl with minced beetroot."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_BEETROOT_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_BEETROOT_BOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_MEAT_BOWL_RECIPE_DEFINITION = new FoodRecipeDefinition()
@@ -1439,8 +1424,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Raw Meat Bowl",
-            Description = "A bowl with minced meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_MEAT_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_MEAT_BOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_MEAT_BOWL_RECIPE_DEFINITION = new FoodRecipeDefinition()
@@ -1466,8 +1451,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Raw Alien Meat Bowl",
-            Description = "A bowl with minced alien meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_MEAT_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_MEAT_BOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_NOBLE_MEAT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1493,8 +1478,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Raw Noble Meat Bowl",
-            Description = "A bowl with minced noble meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_NOBLE_MEAT_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_NOBLE_MEAT_BOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_NOBLE_MEAT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1520,8 +1505,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Raw Alien Noble Meat Bowl",
-            Description = "A bowl with minced alien noble meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_NOBLE_MEAT_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_NOBLE_MEAT_BOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAWFISHMEATBOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1547,8 +1532,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Raw Fish Meat Bowl",
-            Description = "A bowl with minced fish meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAWFISHMEATBOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAWFISHMEATBOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAWNOBLEFISHMEATBOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1574,8 +1559,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Raw Noble Fish Meat Bowl",
-            Description = "A bowl with minced noble fish meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAWNOBLEFISHMEATBOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAWNOBLEFISHMEATBOWL_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition RAW_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -1596,8 +1581,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Raw Sausage",
-            Description = "A sausage full of raw meat.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_SAUSAGE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_SAUSAGE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 175,
             OfferAmount = new Vector2I(150, 450),
@@ -1623,8 +1608,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Raw Alien Sausage",
-            Description = "A sausage full of raw alien meat.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_SAUSAGE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_SAUSAGE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 175,
             OfferAmount = new Vector2I(150, 450),
@@ -1650,8 +1635,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Champignons",
-            Description = "A simple and tasty way to eat mushrooms."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROAST_CHAMPIGNON_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROAST_CHAMPIGNON_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROAST_SHIITAKE_DEFINITION = new FoodRecipeDefinition()
@@ -1672,8 +1657,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Shiitakes",
-            Description = "A simple and tasty way to eat mushrooms."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROAST_SHIITAKE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROAST_SHIITAKE_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition FRIED_EGG_DEFINITION = new FoodRecipeDefinition()
@@ -1694,8 +1679,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 1.28f,
-            Name = "Fried Egg",
-            Description = "One of the most primitive ways to eat an egg."
+            Name = LanguageProvider.GetEntry(LanguageEntries.FRIED_EGG_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FRIED_EGG_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition FRIED_ALIEN_EGG_DEFINITION = new FoodRecipeDefinition()
@@ -1716,8 +1701,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 1.28f,
-            Name = "Fried Alien Egg",
-            Description = "The color is strange but it's still a fried egg."
+            Name = LanguageProvider.GetEntry(LanguageEntries.FRIED_ALIEN_EGG_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FRIED_ALIEN_EGG_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTEDBACON_DEFINITION = new FoodRecipeDefinition()
@@ -1738,8 +1723,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Bacon",
-            Description = "Bacon is life!"
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDBACON_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDBACON_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTEDCHICKEN_DEFINITION = new FoodRecipeDefinition()
@@ -1760,8 +1745,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Chicken",
-            Description = "Light, low-fat meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDCHICKEN_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDCHICKEN_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTED_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -1782,8 +1767,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Sausage",
-            Description = "Processed and well-seasoned meat, it can be eaten alone or as a condiment."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_SAUSAGE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_SAUSAGE_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTED_ALIEN_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -1804,8 +1789,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Alien Sausage",
-            Description = "After processing and seasoning, even with the strange color, the taste is very good."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_SAUSAGE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_SAUSAGE_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTED_MEAT_DEFINITION = new FoodRecipeDefinition()
@@ -1826,8 +1811,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Meat",
-            Description = "Since the beginning of civilization roasted meat has been a source of food for humans."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_MEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_MEAT_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTED_ALIEN_MEAT_DEFINITION = new FoodRecipeDefinition()
@@ -1848,8 +1833,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Alien Meat",
-            Description = "Even though it's a strange meat, a barbecue is a barbecue."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_MEAT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_MEAT_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition CEREALBAR_DEFINITION = new FoodRecipeDefinition()
@@ -1870,8 +1855,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Cereal Bar",
-            Description = "A bar made with cereals, simple and easy to produce.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CEREALBAR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CEREALBAR_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 8,
             OfferAmount = new Vector2I(150, 450),
@@ -1902,8 +1887,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Water Bread",
-            Description = "One of the oldest condiments developed by man.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.WATERBREAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.WATERBREAD_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(150, 450),
@@ -1929,8 +1914,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Bread",
-            Description = "A milk bread, soft and tasty.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BREAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BREAD_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(150, 450),
@@ -1956,8 +1941,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Bread",
-            Description = "A milk bread using alien eggs, even with the strange color is soft and tasty.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_BREAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_BREAD_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(150, 450),
@@ -1988,8 +1973,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Pasta",
-            Description = "A good pasta dough to be cooked with other condiments."
+            Name = LanguageProvider.GetEntry(LanguageEntries.PASTA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PASTA_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_PASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2015,8 +2000,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 2.56f,
-            Name = "Alien Pasta",
-            Description = "A good pasta dough using alien eggs to be cooked with other condiments."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_PASTA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_PASTA_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition VEGETABLEPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2047,8 +2032,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Vegetable Pasta",
-            Description = "A delicious pasta with tomatoes and broccoli."
+            Name = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEPASTA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEPASTA_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition VEGETABLEALIENPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2079,8 +2064,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Vegetable Alien Pasta",
-            Description = "A delicious pasta using alien eggs with tomatoes and broccoli."
+            Name = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEALIENPASTA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEALIENPASTA_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition MEATPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2111,8 +2096,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Meat Pasta",
-            Description = "A delicious pasta with tomatoes and meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEATPASTA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEATPASTA_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIENMEATPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2143,8 +2128,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Meat Pasta",
-            Description = "A delicious pasta using alien eggs with tomatoes and alien meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATPASTA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATPASTA_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition CHEESE_DEFINITION = new FoodRecipeDefinition()
@@ -2165,8 +2150,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Cheese",
-            Description = "Cheese is a solid food made from milk.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHEESE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHEESE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 125,
             OfferAmount = new Vector2I(150, 450),
@@ -2207,8 +2192,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Salad",
-            Description = "Chopped and disinfected vegetables, a light and fresh meal."
+            Name = LanguageProvider.GetEntry(LanguageEntries.SALAD_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SALAD_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition VEGETABLE_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2239,8 +2224,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Vegetable Soup",
-            Description = "Soup is nutritious and can warm the body easily.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.VEGETABLE_SOUP_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLE_SOUP_BOWL_DESCRIPTION),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
@@ -2270,8 +2255,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Stew",
-            Description = "A good beef stew."
+            Name = LanguageProvider.GetEntry(LanguageEntries.STEW_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.STEW_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_STEW_DEFINITION = new FoodRecipeDefinition()
@@ -2297,8 +2282,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Stew",
-            Description = "A good alien beef stew."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_STEW_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_STEW_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition MEAT_VEGETABLES_DEFINITION = new FoodRecipeDefinition()
@@ -2334,8 +2319,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Meat With Vegetables",
-            Description = "Tasty meat served with well-cooked vegetables."
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEAT_VEGETABLES_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_VEGETABLES_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_VEGETABLES_DEFINITION = new FoodRecipeDefinition()
@@ -2371,8 +2356,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Meat With Vegetables",
-            Description = "Tasty alien meat served with well-cooked vegetables."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_VEGETABLES_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_VEGETABLES_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition MEATLOAF_DEFINITION = new FoodRecipeDefinition()
@@ -2403,8 +2388,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Meatloaf",
-            Description = "A tasty meatloaf."
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEATLOAF_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEATLOAF_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIENMEATLOAF_DEFINITION = new FoodRecipeDefinition()
@@ -2435,8 +2420,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Meatloaf",
-            Description = "A alien tasty meatloaf."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATLOAF_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATLOAF_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition MEAT_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2472,8 +2457,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Meat Soup",
-            Description = "The flavor of the meat makes the soup tastier.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEAT_SOUP_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_SOUP_BOWL_DESCRIPTION),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
@@ -2513,8 +2498,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Meat Soup",
-            Description = "The flavor of the alien meat makes the soup tastier.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_SOUP_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_SOUP_BOWL_DESCRIPTION),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
@@ -2554,8 +2539,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Mushroom Pate",
-            Description = "A pate made with mushrooms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MUSHROOMPATE_BOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MUSHROOMPATE_BOWL_DESCRIPTION),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
@@ -2600,8 +2585,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Meat With Mushrooms",
-            Description = "Tasty meat with sautéed mushrooms."
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEAT_MUSHROOMS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_MUSHROOMS_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_MUSHROOMS_DEFINITION = new FoodRecipeDefinition()
@@ -2642,8 +2627,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Meat With Mushrooms",
-            Description = "Tasty alien meat with sautéed mushrooms."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_MUSHROOMS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_MUSHROOMS_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition SANDWICH_DEFINITION = new FoodRecipeDefinition()
@@ -2679,8 +2664,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Sausage Sandwich",
-            Description = "Sliced sausage sandwich with cheese and tomato."
+            Name = LanguageProvider.GetEntry(LanguageEntries.SANDWICH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SANDWICH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ALIEN_SANDWICH_DEFINITION = new FoodRecipeDefinition()
@@ -2716,8 +2701,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Alien Sausage Sandwich",
-            Description = "Sliced alien sausage sandwich with cheese and tomato."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_SANDWICH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_SANDWICH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTEDSHRIMP_DEFINITION = new FoodRecipeDefinition()
@@ -2738,8 +2723,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Fried Shrimps",
-            Description = "Fried shrimp is very tasty."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDSHRIMP_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDSHRIMP_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTEDFISH_DEFINITION = new FoodRecipeDefinition()
@@ -2760,8 +2745,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Fish",
-            Description = "A well-roasted fish meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDFISH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDFISH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition ROASTEDNOBLEFISH_DEFINITION = new FoodRecipeDefinition()
@@ -2782,8 +2767,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Roast Noble Fish",
-            Description = "A well-roasted noble fish meat."
+            Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDNOBLEFISH_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDNOBLEFISH_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition FISHMUSHROOM_DEFINITION = new FoodRecipeDefinition()
@@ -2824,8 +2809,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Fish With Mushrooms",
-            Description = "Tasty fish with sautéed mushrooms."
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISHMUSHROOM_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISHMUSHROOM_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition FISHSOUPBOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2861,8 +2846,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Fish Soup",
-            Description = "The flavor of the noble fish meat makes the soup tastier.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISHSOUPBOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISHSOUPBOWL_DESCRIPTION),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
@@ -2907,8 +2892,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Shrimp Soup",
-            Description = "The flavor of the shrimps with fish meat makes the soup tastier.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHRIMPSOUPBOWL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHRIMPSOUPBOWL_DESCRIPTION),
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
@@ -2938,8 +2923,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Apple Pie",
-            Description = "A pie made with apples.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.APPLEPIE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.APPLEPIE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 275,
             OfferAmount = new Vector2I(150, 450),
@@ -2970,8 +2955,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Apple Pie",
-            Description = "A pie made with apples and alien eggs in the dough.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_APPLEPIE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_APPLEPIE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 275,
             OfferAmount = new Vector2I(150, 450),
@@ -3007,8 +2992,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Chicken Pie",
-            Description = "A pie made with chicken and bacon.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENPIE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHICKENPIE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 250,
             OfferAmount = new Vector2I(150, 450),
@@ -3044,8 +3029,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Alien Chicken Pie",
-            Description = "A pie made with chicken and bacon and alien eggs in the dough.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_CHICKENPIE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_CHICKENPIE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 250,
             OfferAmount = new Vector2I(150, 450),
@@ -3081,8 +3066,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Fat Porridge",
-            Description = "Porridge made from concentrated fat, a great way to gain weight."
+            Name = LanguageProvider.GetEntry(LanguageEntries.FATPORRIDGE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FATPORRIDGE_DESCRIPTION)
         };
 
         public static readonly FoodRecipeDefinition PROTEINBAR_DEFINITION = new FoodRecipeDefinition()
@@ -3108,8 +3093,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 5.12f,
-            Name = "Protein Bar",
-            Description = "A cereal bar enriched with a high amount of protein.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROTEINBAR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PROTEINBAR_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 45,
             OfferAmount = new Vector2I(150, 450),
@@ -3140,8 +3125,8 @@ namespace ExtendedSurvival.Stats
                 }
             },
             ProductionTime = 10.24f,
-            Name = "Vitamin Pills",
-            Description = "Vitamin replacement pills.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.VITAMINPILLS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.VITAMINPILLS_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 475,
             OfferAmount = new Vector2I(150, 450),
@@ -3244,7 +3229,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.TOMATO_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Vitamin From Tomato",
+            Name = LanguageProvider.GetEntry(LanguageEntries.TOMATOTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",            
             RecipeName = "TomatoToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3257,7 +3242,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.APPLE_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Vitamin From Apple",
+            Name = LanguageProvider.GetEntry(LanguageEntries.APPLETOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "AppleToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3270,7 +3255,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.ALIEN_EGG_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Alien Egg",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIENEGGTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "AlienEggToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3283,7 +3268,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.EGG_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Egg",
+            Name = LanguageProvider.GetEntry(LanguageEntries.EGGTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "EggToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3296,7 +3281,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.SHRIMPMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Shrimp Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHRIMPMEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "ShrimpMeatToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3309,7 +3294,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.SHRIMPMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Shrimp Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHRIMPMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "ShrimpMeatToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3322,7 +3307,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.FISHMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Fish Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISHMEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "FishMeatToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3335,7 +3320,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.FISHMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Fish Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISHMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "FishMeatToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3348,7 +3333,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.ALIEN_MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Alien Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "AlienMeatToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3361,7 +3346,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.ALIEN_MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Alien Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "AlienMeatToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3374,7 +3359,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "MeatToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3387,7 +3372,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "MeatToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3400,7 +3385,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.CHICKENMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Chicken Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENMEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "ChickenMeatToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3413,7 +3398,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.CHICKENMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Chicken Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "ChickenMeatToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3426,7 +3411,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.MILK_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Milk",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MILKTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "MilkToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3439,7 +3424,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.MILK_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Milk",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MILKTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "MilkToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3452,7 +3437,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.BACON_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Bacon",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BACONTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "BaconToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3465,7 +3450,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.BACON_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Bacon",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BACONTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "BaconToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3478,7 +3463,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.NOBLEFISHMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Noble Fish Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISHMEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "NobleFishMeatToConcentrated_Construction",
             ProductionTime = 2.56f 
@@ -3491,7 +3476,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.NOBLEFISHMEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Noble Fish Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISHMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "NobleFishMeatToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3504,7 +3489,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Alien Noble Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEALIENMEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "NobleAlienMeatToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3517,7 +3502,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Alien Noble Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEALIENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "NobleAlienMeatToConcentratedFat_Construction",
             ProductionTime = 2.56f
@@ -3530,7 +3515,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.NOBLE_MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Protein From Noble Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEMEATTOCONCENTRATED_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "NobleMeatToConcentrated_Construction",
             ProductionTime = 2.56f
@@ -3543,7 +3528,7 @@ namespace ExtendedSurvival.Stats
                 Id = ItensConstants.NOBLE_MEAT_ID,
                 Ammount = 1
             },
-            Name = "Concentrated Fat From Noble Meat",
+            Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
             Description = "",
             RecipeName = "NobleMeatToConcentratedFat_Construction",
             ProductionTime = 2.56f

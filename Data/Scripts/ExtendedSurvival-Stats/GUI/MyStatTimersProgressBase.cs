@@ -7,7 +7,7 @@ namespace ExtendedSurvival.Stats
         
         protected override string[] GetStatsNames()
         {
-            return new string[] { "WetTime", "WoundedTime", "IntakeBodyWater", "IntakeCarbohydrates", "IntakeProtein", "IntakeLipids", "IntakeVitamins", "IntakeMinerals" };
+            return new string[] { "WetTime", "WoundedTime", "", "", "", "", "", "" };
         }
 
         protected override bool IsActive(int index)
@@ -35,9 +35,20 @@ namespace ExtendedSurvival.Stats
             switch (index)
             {
                 case 0:
-                    return CurrentValue == 1 ? "Completely Wet" : (CurrentValue > 0 ? string.Format("{0:0}%", (float)(CurrentValue * 100.0)) : "Completely Dry");
+                    return CurrentValue == 1 ? 
+                        LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_COMPLETELYWET_NAME) : 
+                        (
+                            CurrentValue > 0 ? string.Format("{0:0}%", (float)(CurrentValue * 100.0)) : 
+                            LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_COMPLETELYDRY_NAME)
+                        );
                 case 1:
-                    return CurrentValue == 1 ? "Infected" : (CurrentValue > 0 ? string.Format("{0:0}%", (float)(CurrentValue * 100.0)) : "No Injuries");
+                    return CurrentValue == 1 ? 
+                        LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_INFECTED_NAME) : 
+                        (
+                            CurrentValue > 0 ? 
+                            string.Format("{0:0}%", (float)(CurrentValue * 100.0)) : 
+                            LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_NOINJURIES_NAME)
+                        );
                 case 2:
                 case 3:
                 case 4:

@@ -22,8 +22,8 @@ namespace ExtendedSurvival.Stats
         public static readonly RationDefinition MEATRATION_DEFINITION = new RationDefinition()
         {
             Id = MEATRATION_ID,
-            Name = "Meat Ration",
-            Description = "A meat-based feed, perfect for carnivorous animals.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MEATRATION_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEATRATION_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 375,
             OfferAmount = new Vector2I(100, 300),
@@ -35,7 +35,7 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Meat Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.MEATRATION_CONSTRUCTION_NAME),
                     RecipeName = "MeatRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -65,7 +65,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Alien Meat Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATRATION_CONSTRUCTION_NAME),
                     RecipeName = "AlienMeatRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -95,7 +95,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Noble Meat Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEMEATRATION_CONSTRUCTION_NAME),
                     RecipeName = "NobleMeatRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -125,7 +125,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Alien Noble Meat Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.ALIENNOBLEMEATRATION_CONSTRUCTION_NAME),
                     RecipeName = "AlienNobleMeatRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -155,7 +155,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Fish Meat Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.FISHMEATRATION_CONSTRUCTION_NAME),
                     RecipeName = "FishMeatRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -185,7 +185,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Noble Fish Meat Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISHMEATRATION_CONSTRUCTION_NAME),
                     RecipeName = "NobleFishMeatRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -219,8 +219,8 @@ namespace ExtendedSurvival.Stats
         public static readonly RationDefinition VEGETABLERATION_DEFINITION = new RationDefinition()
         {
             Id = VEGETABLERATION_ID,
-            Name = "Vegetables Ration",
-            Description = "A vegetable-based feed, perfect for herbivorous animals.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.VEGETABLERATION_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLERATION_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 295,
             OfferAmount = new Vector2I(100, 300),
@@ -232,7 +232,7 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Broccoli Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.BROCCOLIRATION_CONSTRUCTION_NAME),
                     RecipeName = "BroccoliRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -262,7 +262,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Beetroot Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.BEETROOTRATION_CONSTRUCTION_NAME),
                     RecipeName = "BeetrootRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -292,7 +292,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Carrot Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.CARROTRATION_CONSTRUCTION_NAME),
                     RecipeName = "CarrotRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -326,8 +326,8 @@ namespace ExtendedSurvival.Stats
         public static readonly RationDefinition GRAINSRATION_DEFINITION = new RationDefinition()
         {
             Id = GRAINSRATION_ID,
-            Name = "Grains Ration",
-            Description = "A grain-based feed, perfect for birds.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.GRAINSRATION_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.GRAINSRATION_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 275,
             OfferAmount = new Vector2I(100, 300),
@@ -339,7 +339,7 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Wheat Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.WHEATRATION_CONSTRUCTION_NAME),
                     RecipeName = "WheatRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
@@ -369,7 +369,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    Name = "Cereal Ration",
+                    Name = LanguageProvider.GetEntry(LanguageEntries.CEREALRATION_CONSTRUCTION_NAME),
                     RecipeName = "CerealRation_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,

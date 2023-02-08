@@ -43,21 +43,25 @@ namespace ExtendedSurvival.Stats
         private string GetNutritionDescription()
         {
             var values = new StringBuilder();
-            values.AppendLine(string.Format("Liquid: {0}L", Liquid.ToString("#0.00")));
-            values.AppendLine(string.Format("Solid: {0}Kg", Solid.ToString("#0.00")));
-            values.AppendLine(string.Format("Stomach: {0}%", (GetMass() * 100 / PlayerBodyConstants.StomachSize.W).ToString("#0.00")));
-            values.AppendLine(" ");
-            values.AppendLine(string.Format("Protein: {0}g", Protein.ToString("#0.00")));
-            values.AppendLine(string.Format("Carbohydrate: {0}g", Carbohydrate.ToString("#0.00")));
-            values.AppendLine(string.Format("Lipids: {0}g", Lipids.ToString("#0.00")));
-            values.AppendLine(string.Format("Vitamins: {0}g", Vitamins.ToString("#0.00")));
-            values.AppendLine(string.Format("Minerals: {0}g", Minerals.ToString("#0.00")));
-            values.AppendLine(string.Format("Calories: {0}Cal", Calories.ToString("#0.00")));
-            values.AppendLine(" ");
-            values.AppendLine(string.Format("Digestion Time: {0}s", TimeToConsume.ToString("#0.0")));
+            values.AppendLine(string.Format(
+                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DESCRIPTION),
+                Liquid.ToString("#0.00"),
+                Solid.ToString("#0.00"),
+                (GetMass() * 100 / PlayerBodyConstants.StomachSize.W).ToString("#0.00"),
+                Protein.ToString("#0.00"),
+                Carbohydrate.ToString("#0.00"),
+                Lipids.ToString("#0.00"),
+                Vitamins.ToString("#0.00"),
+                Minerals.ToString("#0.00"),
+                Calories.ToString("#0.00"),
+                TimeToConsume.ToString("#0.0")
+            ));
             if (NeedConservation)
             {
-                values.AppendLine(string.Format("Rotting time: {0}s", (StartConservationTime / 1000).ToString("#0.0")));
+                values.AppendLine(string.Format(
+                    LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_ROTTING_DESCRIPTION), 
+                    (StartConservationTime / 1000).ToString("#0.0")
+                ));
             }
             if (Effects != null && Effects.Any())
             {
@@ -67,13 +71,15 @@ namespace ExtendedSurvival.Stats
                     switch (effect.EffectType)
                     {
                         case FoodEffectType.Instant:
-                            values.AppendLine(string.Format("{1} {0} instantly",
+                            values.AppendLine(string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_EFFECT_INSTANT_DESCRIPTION),
                                 effect.EffectTarget.ToString(),
                                 effect.Ammount.ToString("#0.00")
                             ));
                             break;
                         case FoodEffectType.OverTime:
-                            values.AppendLine(string.Format("{1} {0} over {2}s",
+                            values.AppendLine(string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_EFFECT_OVERTIME_DESCRIPTION),
                                 effect.EffectTarget.ToString(),
                                 effect.Ammount.ToString("#0.00"),
                                 effect.TimeToEffect.ToString("#0.0")
@@ -87,7 +93,11 @@ namespace ExtendedSurvival.Stats
                 values.AppendLine(" ");
                 foreach (var disease in DiseaseChance.Keys)
                 {
-                    values.AppendLine(string.Format("{0} chance to get {1} when eat", DiseaseChance[disease].ToString("P1"), StatsConstants.GetDiseaseEffectDescription(disease)));
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION), 
+                        DiseaseChance[disease].ToString("P1"), 
+                        StatsConstants.GetDiseaseEffectDescription(disease)
+                    ));
                 }
             }
             if (CureDisease != null && CureDisease.Any())
@@ -95,7 +105,10 @@ namespace ExtendedSurvival.Stats
                 values.AppendLine(" ");
                 foreach (var disease in CureDisease)
                 {
-                    values.AppendLine(string.Format("Can cure {0} when eat", StatsConstants.GetDiseaseEffectDescription(disease)));
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION), 
+                        StatsConstants.GetDiseaseEffectDescription(disease)
+                    ));
                 }
             }
             if (FarmConstants.DEFINITIONS.ContainsKey(Id))
@@ -103,10 +116,13 @@ namespace ExtendedSurvival.Stats
                 var farmDef = FarmConstants.DEFINITIONS[Id];
                 var fertilizerDef = SeedsAndFertilizerConstants.FERTILIZERS_DEFINITIONS[farmDef.PreferredFertilizer];
                 values.AppendLine(" ");
-                values.AppendLine("Mushrooms can be multiplied by putting together" + Environment.NewLine + 
-                                  "fertilizer and ice on farms.");
-                values.AppendLine(string.Format("Need sunlight: {0}", farmDef.SunRequired ? "Yes" : "No"));
-                values.AppendLine(string.Format("Favorite Fertilizer: {0}", fertilizerDef.Name));
+                values.AppendLine(string.Format(
+                    LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_MUSHROOMS_DESCRIPTION), 
+                    farmDef.SunRequired ? 
+                        LanguageProvider.GetEntry(LanguageEntries.TERMS_YES_NAME) :
+                        LanguageProvider.GetEntry(LanguageEntries.TERMS_NO_NAME),
+                    fertilizerDef.Name
+                ));
             }
             return values.ToString();
         }

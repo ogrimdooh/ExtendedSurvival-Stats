@@ -37,8 +37,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition PROPOFOL_DEFINITION = new QuimicalDefinition()
         {
             Id = PROPOFOL_ID,
-            Name = "Propofol",
-            Description = "Propofol is a short-acting medication that results in a decreased level of consciousness.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROPOFOL_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PROPOFOL_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 22500,
             OfferAmount = new Vector2I(100, 300),
@@ -78,8 +78,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition LIDOCAINE_DEFINITION = new QuimicalDefinition()
         {
             Id = LIDOCAINE_ID,
-            Name = "Lidocaine",
-            Description = "Lidocaine is a slow-acting medication that results in a decreased level of consciousness.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.LIDOCAINE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.LIDOCAINE_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 4500,
             OfferAmount = new Vector2I(100, 300),
@@ -114,8 +114,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition SMALLALOEVERAEXTRACT_DEFINITION = new QuimicalDefinition()
         {
             Id = SMALLALOEVERAEXTRACT_ID,
-            Name = "Small Aloe Vera Extract",
-            Description = "Aloe vera extract has a wide application in medicine.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.SMALLALOEVERAEXTRACT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SMALLALOEVERAEXTRACT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 1250,
             OfferAmount = new Vector2I(100, 300),
@@ -150,8 +150,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition ALOEVERAEXTRACT_DEFINITION = new QuimicalDefinition()
         {
             Id = ALOEVERAEXTRACT_ID,
-            Name = "Aloe Vera Extract",
-            Description = "Aloe vera extract has a wide application in medicine.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ALOEVERAEXTRACT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALOEVERAEXTRACT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 2500,
             OfferAmount = new Vector2I(100, 300),
@@ -186,8 +186,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition ARNICAEXTRACT_DEFINITION = new QuimicalDefinition()
         {
             Id = ARNICAEXTRACT_ID,
-            Name = "Arnica Extract",
-            Description = "Arnica extract has anti-inflammatory and anti-biotic applications.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.ARNICAEXTRACT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.ARNICAEXTRACT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 4500,
             OfferAmount = new Vector2I(100, 300),
@@ -222,8 +222,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition MINTEXTRACT_DEFINITION = new QuimicalDefinition()
         {
             Id = MINTEXTRACT_ID,
-            Name = "Mint Extract",
-            Description = "Mint extract has refreshing and digestive effects.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.MINTEXTRACT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MINTEXTRACT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 750,
             OfferAmount = new Vector2I(100, 300),
@@ -258,8 +258,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition CHAMOMILEEXTRACT_DEFINITION = new QuimicalDefinition()
         {
             Id = CHAMOMILEEXTRACT_ID,
-            Name = "Chamomile Extract",
-            Description = "Chamomile extract has calming and digestive effects.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHAMOMILEEXTRACT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHAMOMILEEXTRACT_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 750,
             OfferAmount = new Vector2I(100, 300),
@@ -294,8 +294,8 @@ namespace ExtendedSurvival.Stats
         public static readonly QuimicalDefinition AMATOXINA_DEFINITION = new QuimicalDefinition()
         {
             Id = AMATOXINA_ID,
-            Name = "Amatoxina",
-            Description = "Amatoxina is a toxic compounds found in poisonous mushrooms.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.AMATOXINA_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.AMATOXINA_DESCRIPTION),
             CanPlayerOrder = true,
             MinimalPricePerUnit = 15750,
             OfferAmount = new Vector2I(10, 20),

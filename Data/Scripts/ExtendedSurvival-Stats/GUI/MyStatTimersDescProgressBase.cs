@@ -8,21 +8,21 @@
             switch (index)
             {
                 case 0:
-                    return "Wet Level";
+                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_WETLEVEL_NAME);
                 case 1:
-                    return "Untreated Wound";
+                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_UNTREATEDWOUND_NAME);
                 case 2:
-                    return "Intake Water";
+                    return "";
                 case 3:
-                    return "Carbohydrates";
+                    return "";
                 case 4:
-                    return "Protein";
+                    return "";
                 case 5:
-                    return "Lipids";
+                    return "";
                 case 6:
-                    return "Vitamins";
+                    return "";
                 case 7:
-                    return "Minerals";
+                    return "";
             }
             return "";
         }

@@ -18,8 +18,8 @@ namespace ExtendedSurvival.Stats
         public static readonly OreDefinition POOP_DEFINITION = new OreDefinition()
         {
             Id = POOP_ID,
-            Name = "Poop",
-            Description = "The solid or semisolid remains of the food that could not be digested in the small intestine.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.POOP_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.POOP_DESCRIPTION),
             CanPlayerOrder = false,
             Mass = 1f,
             Volume = 0.4f,
@@ -29,8 +29,8 @@ namespace ExtendedSurvival.Stats
         public static readonly OreDefinition BONES_DEFINITION = new OreDefinition()
         {
             Id = BONES_ID,
-            Name = "Bones",
-            Description = "A bone is a rigid organ that constitutes part of the skeleton in most vertebrate animals.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.BONES_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BONES_DESCRIPTION),
             CanPlayerOrder = false,
             Mass = 1f,
             Volume = 0.4f,
@@ -56,8 +56,8 @@ namespace ExtendedSurvival.Stats
         public static readonly OreDefinition FISH_BONES_DEFINITION = new OreDefinition()
         {
             Id = FISH_BONES_ID,
-            Name = "Fish Bones",
-            Description = "A bone is a rigid organ that constitutes part of the skeleton in most vertebrate animals.",
+            Name = LanguageProvider.GetEntry(LanguageEntries.FISH_BONES_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISH_BONES_DESCRIPTION),
             CanPlayerOrder = false,
             Mass = 1f,
             Volume = 0.4f,

@@ -49,31 +49,30 @@ namespace ExtendedSurvival.Stats
             if (LivestockConstants.ANIMALS_HERBICORES_IDS.Contains(Id))
             {
                 values.AppendLine(" ");
-                values.AppendLine("This is a herbivorous animal, and can feed on plant-based feed.");
+                values.AppendLine(LanguageProvider.GetEntry(LanguageEntries.LIVESTOCKDEFINITION_HERBIVOROUS_DESCRIPTION));
             }
             else if (LivestockConstants.ANIMALS_CARNIVORES_IDS.Contains(Id))
             {
                 values.AppendLine(" ");
-                values.AppendLine("This is a carnivorous animal, and can feed on meat-based feed.");
+                values.AppendLine(LanguageProvider.GetEntry(LanguageEntries.LIVESTOCKDEFINITION_CARNIVOROUS_DESCRIPTION));
             } 
             else if (LivestockConstants.ANIMALS_BIRDS_IDS.Contains(Id))
             {
                 values.AppendLine(" ");
-                values.AppendLine("This is a bird, and can feed on grain-based feed.");
+                values.AppendLine(LanguageProvider.GetEntry(LanguageEntries.LIVESTOCKDEFINITION_BIRD_DESCRIPTION));
             }
             if (IsDeadBody)
             {
                 values.AppendLine(" ");
-                values.AppendLine("Note: An animal carcass will rot over time, so as not to lose" + Environment.NewLine + 
-                                  "the meat it can be processed in a slaughterhouse.");
-                values.AppendLine(string.Format("Rotting time: {0}s", (StartConservationTime / 1000).ToString("#0.0")));
+                values.AppendLine(string.Format(
+                    LanguageProvider.GetEntry(LanguageEntries.LIVESTOCKDEFINITION_CARCASS_DESCRIPTION), 
+                    (StartConservationTime / 1000).ToString("#0.0")
+                ));
             }
             else
             {
                 values.AppendLine(" ");
-                values.AppendLine("Note: An animal needs to be placed in a Cage, and will need to" + Environment.NewLine +
-                                  "regularly receive rations in the block's inventory according" + Environment.NewLine + 
-                                  "to its diet.");
+                values.AppendLine(LanguageProvider.GetEntry(LanguageEntries.LIVESTOCKDEFINITION_DESCRIPTION));
             }
             return values.ToString();
         }
