@@ -102,6 +102,63 @@ namespace ExtendedSurvival.Stats
                             Product = FishingConstants.FISH_ID,
                             BaseFactor = new Vector2(1,2),
                             AllowDecimal = false,
+                            ChanceToGenerate = 15,
+                            MinDepth = 2f,
+                            RequiredPlanets = new string[]{ "EarthLike" }
+                        },
+                        new FishingResultDefinition()
+                        {
+                            Product = FishingConstants.SHRIMP_ID,
+                            BaseFactor = new Vector2(1,2),
+                            AllowDecimal = false,
+                            ChanceToGenerate = 7.5f,
+                            MinDepth = 12f,
+                            RequiredPlanets = new string[]{ "EarthLike" }
+                        },
+                        new FishingResultDefinition()
+                        {
+                            Product = FishingConstants.NOBLEFISH_ID,
+                            BaseFactor = new Vector2(1,1),
+                            AllowDecimal = false,
+                            ChanceToGenerate = 2.5f,
+                            MinDepth = 24f,
+                            RequiredPlanets = new string[]{ "EarthLike" }
+                        },
+                        new FishingResultDefinition()
+                        {
+                            Product = FishingConstants.ALIENFISH_ID,
+                            BaseFactor = new Vector2(1,2),
+                            AllowDecimal = false,
+                            ChanceToGenerate = 15f,
+                            MinDepth = 2f,
+                            BlockedPlanets = new string[]{ "EarthLike" }
+                        },
+                        new FishingResultDefinition()
+                        {
+                            Product = FishingConstants.ALIENNOBLEFISH_ID,
+                            BaseFactor = new Vector2(1,1),
+                            AllowDecimal = false,
+                            ChanceToGenerate = 2.5f,
+                            MinDepth = 24f,
+                            BlockedPlanets = new string[]{ "EarthLike" }
+                        }
+                    }
+                }
+            },
+            {
+                FishingConstants.FISH_NOBLE_BAIT_ID,
+                new FishingBaitDefinition()
+                {
+                    ConsumeFactor = new Vector2(0.1f, 0.5f),
+                    AllowDecimal = true,
+                    MaxGenerates = 2,
+                    Results = new List<FishingResultDefinition>()
+                    {
+                        new FishingResultDefinition()
+                        {
+                            Product = FishingConstants.FISH_ID,
+                            BaseFactor = new Vector2(1,2),
+                            AllowDecimal = false,
                             ChanceToGenerate = 30,
                             MinDepth = 2f,
                             RequiredPlanets = new string[]{ "EarthLike" }
@@ -139,63 +196,6 @@ namespace ExtendedSurvival.Stats
                             BaseFactor = new Vector2(1,1),
                             AllowDecimal = false,
                             ChanceToGenerate = 5,
-                            MinDepth = 24f,
-                            BlockedPlanets = new string[]{ "EarthLike" }
-                        }
-                    }
-                }
-            },
-            {
-                FishingConstants.FISH_NOBLE_BAIT_ID,
-                new FishingBaitDefinition()
-                {
-                    ConsumeFactor = new Vector2(0.1f, 0.5f),
-                    AllowDecimal = true,
-                    MaxGenerates = 2,
-                    Results = new List<FishingResultDefinition>()
-                    {
-                        new FishingResultDefinition()
-                        {
-                            Product = FishingConstants.FISH_ID,
-                            BaseFactor = new Vector2(1,2),
-                            AllowDecimal = false,
-                            ChanceToGenerate = 60,
-                            MinDepth = 2f,
-                            RequiredPlanets = new string[]{ "EarthLike" }
-                        },
-                        new FishingResultDefinition()
-                        {
-                            Product = FishingConstants.SHRIMP_ID,
-                            BaseFactor = new Vector2(1,2),
-                            AllowDecimal = false,
-                            ChanceToGenerate = 30,
-                            MinDepth = 12f,
-                            RequiredPlanets = new string[]{ "EarthLike" }
-                        },
-                        new FishingResultDefinition()
-                        {
-                            Product = FishingConstants.NOBLEFISH_ID,
-                            BaseFactor = new Vector2(1,1),
-                            AllowDecimal = false,
-                            ChanceToGenerate = 10,
-                            MinDepth = 24f,
-                            RequiredPlanets = new string[]{ "EarthLike" }
-                        },
-                        new FishingResultDefinition()
-                        {
-                            Product = FishingConstants.ALIENFISH_ID,
-                            BaseFactor = new Vector2(1,2),
-                            AllowDecimal = false,
-                            ChanceToGenerate = 60,
-                            MinDepth = 2f,
-                            BlockedPlanets = new string[]{ "EarthLike" }
-                        },
-                        new FishingResultDefinition()
-                        {
-                            Product = FishingConstants.ALIENNOBLEFISH_ID,
-                            BaseFactor = new Vector2(1,1),
-                            AllowDecimal = false,
-                            ChanceToGenerate = 10,
                             MinDepth = 24f,
                             BlockedPlanets = new string[]{ "EarthLike" }
                         }

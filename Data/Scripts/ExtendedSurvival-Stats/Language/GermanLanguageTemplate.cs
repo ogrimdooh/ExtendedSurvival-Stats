@@ -289,7 +289,8 @@ namespace ExtendedSurvival.Stats
             AddEntry(
                 LanguageEntries.FISHBAITDEFINITION_DECOMPOSITION_DESCRIPTION,
 				"Es kann in Kompostern erzeugt werden." + Environment.NewLine +
-				"{0}% kann, {1} bis {2} pro Zyklus zu spawnen."
+				"{0}% kann, {1} bis {2} pro Zyklus zu spawnen, verbrauch von " + Environment.NewLine +
+				"{3} bis {4} organisches Material."
 			);
             #endregion
             #region FishDefinition

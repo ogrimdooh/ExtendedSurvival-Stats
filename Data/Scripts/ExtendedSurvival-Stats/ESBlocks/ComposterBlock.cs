@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VRage;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.ModAPI;
@@ -57,6 +58,7 @@ namespace ExtendedSurvival.Stats
 
         public const float MAX_TIME_TO_GENERATE = 10000f;
         public const float MIN_TIME_TO_GENERATE = 2500f;
+        public static readonly Vector2 CICLE_CONSUMEFACTOR = new Vector2(0.01f, 0.25f);
         public static readonly List<DecompositionResultDefinition> DECOMPOSITION_RESULT = new List<DecompositionResultDefinition>()
         {
             new DecompositionResultDefinition()
@@ -64,14 +66,14 @@ namespace ExtendedSurvival.Stats
                 Product =FishingConstants.FISH_BAIT_SMALL_ID,
                 BaseFactor = new Vector2(0.4f, 0.8f),
                 AllowDecimal = true,
-                ChanceToGenerate = 15
+                ChanceToGenerate = 5f
             },
             new DecompositionResultDefinition()
             {
                 Product =FishingConstants.FISH_NOBLE_BAIT_ID,
                 BaseFactor = new Vector2(0.1f, 0.2f),
                 AllowDecimal = true,
-                ChanceToGenerate = 7.5f
+                ChanceToGenerate = 2.5f
             }
         };
 
@@ -221,6 +223,11 @@ namespace ExtendedSurvival.Stats
                     var timeToUse = GetTimeToGenerate();
                     if (progress > timeToUse)
                     {
+                        var consumeAmount = (MyFixedPoint)CICLE_CONSUMEFACTOR.GetRandom();
+                        var inventoryAmount = Inventory.GetItemAmount(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
+                        if (consumeAmount > inventoryAmount)
+                            consumeAmount = inventoryAmount;
+                        Inventory.RemoveItemsOfType(consumeAmount, ItensConstants.GetPhysicalObjectBuilder(ItensConstants.SPOILED_MATERIAL_ID));
                         progress -= timeToUse;
                         foreach (var item in DECOMPOSITION_RESULT)
                         {
@@ -228,6 +235,7 @@ namespace ExtendedSurvival.Stats
                             {
                                 var totalToGenerate = CalcResultValueToGenerate(item.BaseFactor, item.AllowDecimal);
                                 Inventory.AddMaxItems(totalToGenerate, ItensConstants.GetPhysicalObjectBuilder(item.Product));
+                                break;
                             }
                         }
                     }

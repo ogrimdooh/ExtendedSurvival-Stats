@@ -288,8 +288,9 @@ namespace ExtendedSurvival.Stats
             AddEntry(
                 LanguageEntries.FISHBAITDEFINITION_DECOMPOSITION_DESCRIPTION,
                 "It can be generated in composters." + Environment.NewLine +
-                "{0}% chance to spawn {1} to {2} per cycle."
-            );
+				"{0}% chance to spawn {1} to {2} per cycle, consuming from " + Environment.NewLine +
+				"{3} to {4} organic material."
+			);
             #endregion
             #region FishDefinition
             AddEntry(

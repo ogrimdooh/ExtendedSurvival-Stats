@@ -43,7 +43,9 @@ namespace ExtendedSurvival.Stats
                     LanguageProvider.GetEntry(LanguageEntries.FISHBAITDEFINITION_DECOMPOSITION_DESCRIPTION), 
                     compInfo.ChanceToGenerate.ToString("#0.00"), 
                     compInfo.BaseFactor.X.ToString("#0.0"), 
-                    compInfo.BaseFactor.Y.ToString("#0.0")
+                    compInfo.BaseFactor.Y.ToString("#0.0"),
+                    ComposterBlock.CICLE_CONSUMEFACTOR.X.ToString("#0.0"),
+                    ComposterBlock.CICLE_CONSUMEFACTOR.Y.ToString("#0.0")
                 ));
             }
             return values.ToString();
