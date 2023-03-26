@@ -60,7 +60,7 @@ namespace ExtendedSurvival.Stats
 
                 MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(NETWORK_ID_COMMANDS, CommandsMsgHandler);
 
-                MyAPIGateway.Session.DamageSystem.RegisterAfterDamageHandler(0, (entity, damage) =>
+                MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(int.MaxValue, (object entity, ref MyDamageInformation damage) =>
                 {
                     if (entity != null)
                     {
@@ -109,6 +109,7 @@ namespace ExtendedSurvival.Stats
         private const string SETTINGS_COMMAND_PLAYER_RESETSTATUS = "player.resetstatus";
         private const string SETTINGS_COMMAND_FOOD_CLEAR_VOLUME = "food.clearvolume";
         private const string SETTINGS_COMMAND_FOOD_SET_VOLUME = "food.setvolume";
+        private const string SETTINGS_COMMAND_BOTS_KILLALL = "bot.killall";
 
         private static readonly Dictionary<string, KeyValuePair<int, bool>> VALID_COMMANDS = new Dictionary<string, KeyValuePair<int, bool>>()
         {
@@ -116,7 +117,8 @@ namespace ExtendedSurvival.Stats
             { SETTINGS_COMMAND_PLAYER_STATUS, new KeyValuePair<int, bool>(3, true) },
             { SETTINGS_COMMAND_PLAYER_RESETSTATUS, new KeyValuePair<int, bool>(1, true) },
             { SETTINGS_COMMAND_FOOD_CLEAR_VOLUME, new KeyValuePair<int, bool>(2, false) },
-            { SETTINGS_COMMAND_FOOD_SET_VOLUME, new KeyValuePair<int, bool>(3, false) }
+            { SETTINGS_COMMAND_FOOD_SET_VOLUME, new KeyValuePair<int, bool>(3, false) },
+            { SETTINGS_COMMAND_BOTS_KILLALL, new KeyValuePair<int, bool>(0, true) }
         };
 
         private void ClientUpdateMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
@@ -277,6 +279,9 @@ namespace ExtendedSurvival.Stats
                                         mCommandData.content[1],
                                         mCommandData.content[2]
                                     );
+                                    break;
+                                case SETTINGS_COMMAND_BOTS_KILLALL:
+                                    ExtendedSurvivalStatsEntityManager.Instance.DoKillAllBots();
                                     break;
                             }
                         }

@@ -47,6 +47,16 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public void DoKillAllBots()
+        {
+            var keys = BotCharacters.Keys;
+            foreach (var key in keys)
+            {
+                if (BotCharacters.ContainsKey(key))
+                    BotCharacters[key].Entity.Close();
+            }
+        }
+
         public override void BeforeStart()
         {
             try
