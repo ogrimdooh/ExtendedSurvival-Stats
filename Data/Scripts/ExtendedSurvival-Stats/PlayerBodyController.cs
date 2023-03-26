@@ -204,6 +204,11 @@ namespace ExtendedSurvival.Stats
         public List<IngestedFood> IngestedFoods { get; set; } = new List<IngestedFood>();
         public List<ActiveConsumibleEffect> ActiveFoodEffects { get; set; } = new List<ActiveConsumibleEffect>();
 
+        public PlayerBodyController()
+        {
+            ResetCharacterStats();
+        }
+
         private void DoCheckMinAndMaxValues()
         {
             CaloriesAmmount = Math.Min(Math.Max(CaloriesAmmount, PlayerBodyConstants.CaloriesLimit.X), PlayerBodyConstants.CaloriesLimit.Y);
@@ -211,8 +216,8 @@ namespace ExtendedSurvival.Stats
             IntestineVolume = Math.Min(Math.Max(IntestineVolume, 0f), PlayerBodyConstants.IntestineSize.W);
             BladderVolume = Math.Min(Math.Max(BladderVolume, 0f), PlayerBodyConstants.BladderSize.W);
             CurrentWeight = Math.Min(Math.Max(CurrentWeight, PlayerBodyConstants.WeightLimit.X), PlayerBodyConstants.WeightLimit.Y);
-            CurrentFat = Math.Min(Math.Max(CurrentFat, 0f), 1f);
-            CurrentMuscle = Math.Min(Math.Max(CurrentMuscle, 0f), 1f);
+            CurrentFat = Math.Min(Math.Max(CurrentFat, PlayerBodyConstants.FatLimit.X), PlayerBodyConstants.FatLimit.Y);
+            CurrentMuscle = Math.Min(Math.Max(CurrentMuscle, PlayerBodyConstants.MuscleLimit.X), PlayerBodyConstants.MuscleLimit.Y);
             CurrentPerformance = Math.Min(Math.Max(CurrentPerformance, 0f), 1f);
             CurrentImunity = Math.Min(Math.Max(CurrentImunity, 0f), 1f);
             ProteinAmmount = Math.Min(Math.Max(ProteinAmmount, 0f), 1000f);
@@ -241,13 +246,13 @@ namespace ExtendedSurvival.Stats
                 _mineralsToConsume += PlayerBodyConstants.MineralsConsumption.Y * staminaSpended;
                 _vitaminsToConsume += PlayerBodyConstants.VitaminsConsumption.Y * staminaSpended;
             }
-            CaloriesAmmount -= _caloriesToConsume;
-            WaterAmmount -= _waterToConsume;
-            ProteinAmmount -= _proteinToConsume;
-            CarbohydrateAmmount -= _carbohydrateToConsume;
-            LipidsAmmount -= _lipidsToConsume;
-            MineralsAmmount -= _mineralsToConsume;
-            VitaminsAmmount -= _vitaminsToConsume;
+            CaloriesAmmount -= _caloriesToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            WaterAmmount -= _waterToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            ProteinAmmount -= _proteinToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            CarbohydrateAmmount -= _carbohydrateToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            LipidsAmmount -= _lipidsToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            MineralsAmmount -= _mineralsToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            VitaminsAmmount -= _vitaminsToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
         }
 
         private void DoEffectCicle()
@@ -368,8 +373,8 @@ namespace ExtendedSurvival.Stats
             IntestineVolume = 0;
             BladderVolume = 0;
             CurrentWeight = PlayerBodyConstants.StartWeight;
-            CurrentFat = PlayerBodyConstants.StartFat;
-            CurrentMuscle = PlayerBodyConstants.StartMuscle;
+            CurrentFat = PlayerBodyConstants.StartWeight* PlayerBodyConstants.StartFat;
+            CurrentMuscle = PlayerBodyConstants.StartWeight* PlayerBodyConstants.StartMuscle;
             CurrentPerformance = PlayerBodyConstants.StartPerformance;
             CurrentImunity = PlayerBodyConstants.StartImunity;
             WaterAmmount = PlayerBodyConstants.StartWaterReserve;
@@ -380,6 +385,8 @@ namespace ExtendedSurvival.Stats
             VitaminsAmmount = PlayerBodyConstants.StartVitamins;
             MineralsAmmount = PlayerBodyConstants.StartMinerals;
             DoEmptyStomach();
+            DoConsumeItem(FoodConstants.FOOD_DEFINITIONS[ItensConstants.SANDWICH_ID]);
+            DoConsumeItem(FoodConstants.FOOD_DEFINITIONS[ItensConstants.WATER_FLASK_SMALL_ID]);
         }
 
         public void CheckMinimalToLive()
@@ -416,7 +423,7 @@ namespace ExtendedSurvival.Stats
                     sedentaryTime = 0;
             }
             DoRefreshDeltaTime();
-            var cicleType = (long)(1000f * ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier);
+            long cicleType = 1000; /* default cycle time */
             if (spendTime >= cicleType)
             {
                 spendTime -= cicleType;
@@ -434,10 +441,12 @@ namespace ExtendedSurvival.Stats
                 }
                 if (weightChange > 0)
                 {
+                    /* The body always gain fat with no stamina spend or no protein reserve */
 
                 }
                 else
                 {
+                    /* No body change, but transform fat into muscle with stamina spend and protein reserve */
 
                 }
                 return true;

@@ -564,9 +564,9 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(TREES_DEFINITIONS);
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(FERTILIZERS_DEFINITIONS);
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(SEEDS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<TreeDefinition, MyPhysicalItemDefinition>(TREES_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<FertilizerDefinition, MyPhysicalItemDefinition>(FERTILIZERS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<SeedDefinition, MyPhysicalItemDefinition>(SEEDS_DEFINITIONS);
         }
 
     }

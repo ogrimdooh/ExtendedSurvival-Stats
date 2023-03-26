@@ -579,7 +579,15 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(MEDICAL_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<MedicalDefinition, MyConsumableItemDefinition>(MEDICAL_DEFINITIONS, (definitionDef, consumableDef) => {
+                consumableDef.Stats.Clear();
+                consumableDef.Stats.Add(new MyConsumableItemDefinition.StatValue()
+                {
+                    Name = StatsConstants.ValidStats.MedicalDetector.ToString(),
+                    Time = 3,
+                    Value = 0.025f
+                });
+            });
         }
 
     }

@@ -417,7 +417,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(EQUIPMENTS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<EquipmentDefinition, MyPhysicalItemDefinition>(EQUIPMENTS_DEFINITIONS);
         }
 
     }

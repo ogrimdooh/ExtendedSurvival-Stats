@@ -1229,7 +1229,7 @@ namespace ExtendedSurvival.Stats
             if (productionIds == null)
             {
                 var ids = new HashSet<UniqueEntityId>();
-                foreach (var item in ANIMALS)
+                foreach (var item in ANIMALS.Where(x => x.Value.customProductions != null && x.Value.customProductions.Any()))
                 {
                     foreach (var productions in item.Value.customProductions)
                     {

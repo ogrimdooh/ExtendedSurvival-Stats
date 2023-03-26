@@ -3594,7 +3594,7 @@ namespace ExtendedSurvival.Stats
                     foodDef.Minerals *= ExtendedSurvivalSettings.Instance.FoodSettings.MineralsMultiplier;
                     foodDef.Vitamins *= ExtendedSurvivalSettings.Instance.FoodSettings.VitaminsMultiplier;
                     foodDef.Calories *= ExtendedSurvivalSettings.Instance.FoodSettings.CaloriesMultiplier;
-                    foodDef.TimeToConsume *= ExtendedSurvivalSettings.Instance.FoodSettings.TimeToConsumeMultiplier;
+                    foodDef.TimeToConsume *= ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
                 }
                 // Override recipes and add food definition
                 var recipesToPostprocess = new List<MyBlueprintDefinitionBase>();

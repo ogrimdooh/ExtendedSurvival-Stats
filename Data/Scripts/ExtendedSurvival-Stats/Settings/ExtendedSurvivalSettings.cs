@@ -261,14 +261,6 @@ namespace ExtendedSurvival.Stats
                         return true;
                     }
                     break;
-                case "foodsettings.timetoconsumemultiplier":
-                    float foodsettingstimetoconsumemultiplier;
-                    if (float.TryParse(value, out foodsettingstimetoconsumemultiplier))
-                    {
-                        FoodSettings.TimeToConsumeMultiplier = foodsettingstimetoconsumemultiplier;
-                        return true;
-                    }
-                    break;
             }
             return false;
         }

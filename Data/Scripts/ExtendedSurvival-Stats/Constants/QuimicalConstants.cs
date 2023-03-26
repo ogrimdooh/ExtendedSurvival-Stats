@@ -341,7 +341,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(QUIMICALS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<QuimicalDefinition, MyPhysicalItemDefinition>(QUIMICALS_DEFINITIONS);
         }
 
     }

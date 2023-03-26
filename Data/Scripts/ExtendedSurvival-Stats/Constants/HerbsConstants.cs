@@ -106,7 +106,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(HERBS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<HerbDefinition, MyPhysicalItemDefinition>(HERBS_DEFINITIONS);
         }
 
     }

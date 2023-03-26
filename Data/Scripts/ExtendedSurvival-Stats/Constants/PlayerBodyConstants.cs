@@ -39,7 +39,17 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// X: Min, Y: Max
         /// </summary>
-        public static readonly SerializableVector2 WeightLimit = new Vector2(40.0f, 300.0f);
+        public static readonly SerializableVector2 WeightLimit = new Vector2(40.0f, 200.0f);
+
+        /// <summary>
+        /// X: Min, Y: Max
+        /// </summary>
+        public static readonly SerializableVector2 MuscleLimit = new Vector2(5.0f, 150.0f);
+
+        /// <summary>
+        /// X: Min, Y: Max
+        /// </summary>
+        public static readonly SerializableVector2 FatLimit = new Vector2(5.0f, 150.0f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended

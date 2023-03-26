@@ -263,8 +263,8 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(FISHS_DEFINITIONS);
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(FISH_BAITS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<FishDefinition, MyPhysicalItemDefinition>(FISHS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<FishBaitDefinition, MyPhysicalItemDefinition>(FISH_BAITS_DEFINITIONS);
         }
 
     }

@@ -165,35 +165,38 @@ namespace ExtendedSurvival.Stats
             base.OnUpdateAfterSimulation100();
             if (!_inventoryDefined)
             {
-                var definition = new MyInventoryComponentDefinition
+                if (Inventory != null)
                 {
-                    RemoveEntityOnEmpty = false,
-                    MultiplierEnabled = false,
-                    MaxItemCount = int.MaxValue,
-                    Mass = INVENTORY_SIZE[EntitySubType].X,
-                    Volume = INVENTORY_SIZE[EntitySubType].Y,
-                    InputConstraint = new MyInventoryConstraint("CageInventory", null, true)
-                };
-                foreach (var item in LivestockConstants.ANIMALS_IDS)
-                {
-                    definition.InputConstraint.Add(item.DefinitionId);
+                    var definition = new MyInventoryComponentDefinition
+                    {
+                        RemoveEntityOnEmpty = false,
+                        MultiplierEnabled = false,
+                        MaxItemCount = int.MaxValue,
+                        Mass = INVENTORY_SIZE[EntitySubType].X,
+                        Volume = INVENTORY_SIZE[EntitySubType].Y,
+                        InputConstraint = new MyInventoryConstraint("CageInventory", null, true)
+                    };
+                    foreach (var item in LivestockConstants.ANIMALS_IDS)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
+                    foreach (var item in LivestockConstants.DEAD_ANIMALS_IDS)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
+                    foreach (var item in RationConstants.RATIONS_DEFINITIONS.Keys)
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
+                    foreach (var item in LivestockConstants.GetProductionIds())
+                    {
+                        definition.InputConstraint.Add(item.DefinitionId);
+                    }
+                    definition.InputConstraint.Add(OreConstants.BONES_ID.DefinitionId);
+                    definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
+                    Inventory.Init(definition);
+                    _inventoryDefined = true;
                 }
-                foreach (var item in LivestockConstants.DEAD_ANIMALS_IDS)
-                {
-                    definition.InputConstraint.Add(item.DefinitionId);
-                }
-                foreach (var item in RationConstants.RATIONS_DEFINITIONS.Keys)
-                {
-                    definition.InputConstraint.Add(item.DefinitionId);
-                }
-                foreach (var item in LivestockConstants.GetProductionIds())
-                {
-                    definition.InputConstraint.Add(item.DefinitionId);
-                }
-                definition.InputConstraint.Add(OreConstants.BONES_ID.DefinitionId);
-                definition.InputConstraint.Add(ItensConstants.SPOILED_MATERIAL_ID.DefinitionId);
-                Inventory.Init(definition);
-                _inventoryDefined = true;
             }
             if (MyAPIGateway.Session.IsServer && ExtendedSurvivalCoreAPI.Registered)
             {

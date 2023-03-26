@@ -409,7 +409,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(RATIONS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<RationDefinition, MyPhysicalItemDefinition>(RATIONS_DEFINITIONS);
         }
 
     }

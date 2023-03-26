@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Sandbox.Definitions;
+using System.Collections.Generic;
 using VRage.Game;
 
 namespace ExtendedSurvival.Stats
@@ -151,7 +152,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(ORES_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<OreDefinition, MyPhysicalItemDefinition>(ORES_DEFINITIONS);
         }
 
     }

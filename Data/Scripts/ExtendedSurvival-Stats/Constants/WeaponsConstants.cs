@@ -203,7 +203,7 @@ namespace ExtendedSurvival.Stats
         public const string PROPOFOLPISTOLITEM_SUBTYPEID = "PropofolPistolItem";
         public static readonly UniqueEntityId PROPOFOLPISTOLITEM_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalGunObject), PROPOFOLPISTOLITEM_SUBTYPEID);
 
-        public static readonly WeaponDefinition LIDOCAINPISTOLITEM_DEFINITION = new WeaponDefinition()
+        public static readonly WeaponDefinition PROPOFOLPISTOLITEM_DEFINITION = new WeaponDefinition()
         {
             Id = PROPOFOLPISTOLITEM_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.PROPOFOLPISTOLITEM_NAME),
@@ -278,7 +278,7 @@ namespace ExtendedSurvival.Stats
             }
         };
 
-        public static readonly WeaponDefinition PROPOFOLPISTOLITEM_DEFINITION = new WeaponDefinition()
+        public static readonly WeaponDefinition LIDOCAINPISTOLITEM_DEFINITION = new WeaponDefinition()
         {
             Id = LIDOCAINPISTOLITEM_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.LIDOCAINPISTOLITEM_NAME),
@@ -356,9 +356,9 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(WEAPONS_DEFINITIONS);
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(WEAPONMAGZINES_DEFINITIONS);
-            PhysicalItemDefinitionOverride.TryOverrideDefinitions(WEAPONCOMPONENTS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<WeaponDefinition, MyPhysicalItemDefinition>(WEAPONS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<WeaponMagzineDefinition, MyPhysicalItemDefinition>(WEAPONMAGZINES_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<WeaponComponentDefinition, MyPhysicalItemDefinition>(WEAPONCOMPONENTS_DEFINITIONS);
         }
 
     }

@@ -1,13 +1,14 @@
 ﻿using Sandbox.Definitions;
 using System;
 using System.Collections.Generic;
+using VRage.Game;
 
 namespace ExtendedSurvival.Stats
 {
     public static class PhysicalItemDefinitionOverride
     {
 
-        public static void TryOverrideDefinitions<T>(Dictionary<UniqueEntityId, T> definitions) where T : SimpleDefinition
+        public static void TryOverrideDefinitions<T, K>(Dictionary<UniqueEntityId, T> definitions, Action<T, K> onEndDefinition = null) where T : SimpleDefinition where K : MyPhysicalItemDefinition
         {
             try
             {
@@ -17,7 +18,7 @@ namespace ExtendedSurvival.Stats
                 {
                     var definitionDef = definitions[definition];
                     // Item definition
-                    var itemDef = DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>(definition.DefinitionId);
+                    var itemDef = DefinitionUtils.TryGetDefinition<K>(definition.DefinitionId);
                     if (itemDef != null)
                     {
                         itemDef.Volume = definitionDef.GetVolume();
@@ -35,6 +36,8 @@ namespace ExtendedSurvival.Stats
                         itemDef.MinimalPricePerUnit = definitionDef.MinimalPricePerUnit;
                         itemDef.CanPlayerOrder = definitionDef.CanPlayerOrder;
                         itemDef.ExtraInventoryTooltipLine.AppendLine(Environment.NewLine + definitionDef.GetFullDescription());
+                        if (onEndDefinition != null)
+                            onEndDefinition(definitionDef, itemDef);
                         itemDef.Postprocess();
                     }
                     else
