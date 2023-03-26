@@ -52,6 +52,31 @@ namespace ExtendedSurvival.Stats
         public static readonly SerializableVector2 WaterConsumption = new SerializableVector2(0.00005f, 0.0001f);
 
         /// <summary>
+        /// X: Stopped, Y: Stamina Spended
+        /// </summary>
+        public static readonly SerializableVector2 ProteinConsumption = new SerializableVector2(0.005f, 0.01f);
+
+        /// <summary>
+        /// X: Stopped, Y: Stamina Spended
+        /// </summary>
+        public static readonly SerializableVector2 LipidConsumption = new SerializableVector2(0.005f, 0.01f);
+
+        /// <summary>
+        /// X: Stopped, Y: Stamina Spended
+        /// </summary>
+        public static readonly SerializableVector2 CarbohydrateConsumption = new SerializableVector2(0.005f, 0.01f);
+
+        /// <summary>
+        /// X: Stopped, Y: Stamina Spended
+        /// </summary>
+        public static readonly SerializableVector2 VitaminsConsumption = new SerializableVector2(0.0005f, 0.001f);
+
+        /// <summary>
+        /// X: Stopped, Y: Stamina Spended
+        /// </summary>
+        public static readonly SerializableVector2 MineralsConsumption = new SerializableVector2(0.0005f, 0.001f);
+        
+        /// <summary>
         /// X: Loss amount, Y: Gain amount
         /// </summary>
         public static readonly SerializableVector2 WeightChange = new Vector2(1f / 1800f, 1f / 1800f);
@@ -100,6 +125,31 @@ namespace ExtendedSurvival.Stats
         /// Start ammount of body calories
         /// </summary>
         public const float StartCalories = 1500f;
+
+        /// <summary>
+        /// Start ammount of body calories
+        /// </summary>
+        public const float StartProteins = 250f;
+
+        /// <summary>
+        /// Start ammount of body calories
+        /// </summary>
+        public const float StartCarbohydrates = 200f;
+
+        /// <summary>
+        /// Start ammount of body calories
+        /// </summary>
+        public const float StartLipids = 150f;
+
+        /// <summary>
+        /// Start ammount of body calories
+        /// </summary>
+        public const float StartVitamins = 25f;
+
+        /// <summary>
+        /// Start ammount of body calories
+        /// </summary>
+        public const float StartMinerals = 25f;
 
     }
 

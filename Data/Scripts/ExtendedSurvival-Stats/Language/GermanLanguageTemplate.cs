@@ -2442,6 +2442,14 @@ namespace ExtendedSurvival.Stats
 				"Unbehandelte Wunde"
 			);
 			AddEntry(
+				LanguageEntries.STATTIMERS_TOXICEXPOSURE_NAME,
+				"Toxische Exposition"
+			);
+			AddEntry(
+				LanguageEntries.STATTIMERS_RADIOACTIVEEXPOSURE_NAME,
+				"Radioaktive Exposition"
+			);
+			AddEntry(
 				LanguageEntries.STATTIMERSPROGRESS_COMPLETELYWET_NAME,
 				"Völlig nass"
 			);
@@ -2560,6 +2568,34 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.TORPOR_NAME,
 				"Erstarrung"
+			);
+			AddEntry(
+				LanguageEntries.BODYPROTEIN_NAME,
+				"Eiweiß"
+			);
+			AddEntry(
+				LanguageEntries.BODYCARBOHYDRATE_NAME,
+				"Kohlenhydrat"
+			);
+			AddEntry(
+				LanguageEntries.BODYLIPIDS_NAME,
+				"Lipide"
+			);
+			AddEntry(
+				LanguageEntries.BODYMINERALS_NAME,
+				"Mineralien"
+			);
+			AddEntry(
+				LanguageEntries.BODYVITAMINS_NAME,
+				"Vitamine"
+			);
+			AddEntry(
+				LanguageEntries.INTOXICATIONTIME_NAME,
+				"Rauschpegel"
+			);
+			AddEntry(
+				LanguageEntries.RADIATIONTIME_NAME,
+				"Radioaktivitätsniveau"
 			);
 			#endregion
 		}

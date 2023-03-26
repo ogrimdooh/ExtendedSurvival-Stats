@@ -27,18 +27,19 @@ namespace ExtendedSurvival.Stats
         public float BladderVolume { get; set; }
 
         public float CurrentWeight { get; set; } = PlayerBodyConstants.StartWeight;
-        public float CurrentFat { get; set; } = PlayerBodyConstants.StartFat;
-        public float CurrentMuscle { get; set; } = PlayerBodyConstants.StartMuscle;
+        public float CurrentFat { get; set; } = PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartFat;
+        public float CurrentMuscle { get; set; } = PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartMuscle;
+
         public float CurrentPerformance { get; set; } = PlayerBodyConstants.StartPerformance;
         public float CurrentImunity { get; set; } = PlayerBodyConstants.StartImunity;
         public float WaterAmmount { get; set; } = PlayerBodyConstants.StartWaterReserve;
         public float CaloriesAmmount { get; set; } = PlayerBodyConstants.StartCalories;
 
-        public float ProteinAmmount { get; set; }
-        public float CarbohydrateAmmount { get; set; }
-        public float LipidsAmmount { get; set; }
-        public float VitaminsAmmount { get; set; }
-        public float MineralsAmmount { get; set; }
+        public float ProteinAmmount { get; set; } = PlayerBodyConstants.StartProteins;
+        public float CarbohydrateAmmount { get; set; } = PlayerBodyConstants.StartCarbohydrates;
+        public float LipidsAmmount { get; set; } = PlayerBodyConstants.StartLipids;
+        public float VitaminsAmmount { get; set; } = PlayerBodyConstants.StartVitamins;
+        public float MineralsAmmount { get; set; } = PlayerBodyConstants.StartMinerals;
 
         public event OnBodyEvent BodyEvent;
         public event OnBodyDisease BodyGetDisease;
@@ -49,8 +50,32 @@ namespace ExtendedSurvival.Stats
 
         private float _caloriesToConsume = 0;
         private float _waterToConsume = 0;
+
+        private float _proteinToConsume = 0;
+        private float _carbohydrateToConsume = 0;
+        private float _lipidsToConsume = 0;
+        private float _vitaminsToConsume = 0;
+        private float _mineralsToConsume = 0;
+
         private long deltaTime = 0;
         private long spendTime = 0;
+        private long sedentaryTime = 0;
+
+        public float FatFactor
+        {
+            get
+            {
+                return CurrentFat / CurrentWeight;
+            }
+        }
+
+        public float MuscleFactor
+        {
+            get
+            {
+                return CurrentMuscle / CurrentWeight;
+            }
+        }
 
         public float CurrentBodyWater
         {
@@ -193,21 +218,36 @@ namespace ExtendedSurvival.Stats
             ProteinAmmount = Math.Min(Math.Max(ProteinAmmount, 0f), 1000f);
             CarbohydrateAmmount = Math.Min(Math.Max(CarbohydrateAmmount, 0f), 1000f);
             LipidsAmmount = Math.Min(Math.Max(LipidsAmmount, 0f), 1000f);
-            VitaminsAmmount = Math.Min(Math.Max(VitaminsAmmount, 0f), 1000f);
-            MineralsAmmount = Math.Min(Math.Max(MineralsAmmount, 0f), 1000f);
+            VitaminsAmmount = Math.Min(Math.Max(VitaminsAmmount, 0f), 100f);
+            MineralsAmmount = Math.Min(Math.Max(MineralsAmmount, 0f), 100f);
         }
 
         private void DoConsumeCicle(float staminaSpended)
         {
             _caloriesToConsume = PlayerBodyConstants.CaloriesConsumption.X;
             _waterToConsume = PlayerBodyConstants.WaterConsumption.X;
+            _proteinToConsume = PlayerBodyConstants.ProteinConsumption.X;
+            _carbohydrateToConsume = PlayerBodyConstants.CarbohydrateConsumption.X;
+            _lipidsToConsume = PlayerBodyConstants.LipidConsumption.X;
+            _mineralsToConsume = PlayerBodyConstants.MineralsConsumption.X;
+            _vitaminsToConsume = PlayerBodyConstants.VitaminsConsumption.X;
             if (staminaSpended > 0)
             {
                 _caloriesToConsume += PlayerBodyConstants.CaloriesConsumption.Y * staminaSpended;
                 _waterToConsume += PlayerBodyConstants.WaterConsumption.Y * staminaSpended;
+                _proteinToConsume += PlayerBodyConstants.ProteinConsumption.Y * staminaSpended;
+                _carbohydrateToConsume += PlayerBodyConstants.CarbohydrateConsumption.Y * staminaSpended;
+                _lipidsToConsume += PlayerBodyConstants.LipidConsumption.Y * staminaSpended;
+                _mineralsToConsume += PlayerBodyConstants.MineralsConsumption.Y * staminaSpended;
+                _vitaminsToConsume += PlayerBodyConstants.VitaminsConsumption.Y * staminaSpended;
             }
             CaloriesAmmount -= _caloriesToConsume;
             WaterAmmount -= _waterToConsume;
+            ProteinAmmount -= _proteinToConsume;
+            CarbohydrateAmmount -= _carbohydrateToConsume;
+            LipidsAmmount -= _lipidsToConsume;
+            MineralsAmmount -= _mineralsToConsume;
+            VitaminsAmmount -= _vitaminsToConsume;
         }
 
         private void DoEffectCicle()
@@ -249,6 +289,31 @@ namespace ExtendedSurvival.Stats
                     CaloriesAmmount += food.Calories.ConsumeRate;
                     food.Calories.Current -= food.Calories.ConsumeRate;
                 }
+                if (food.Protein.Current > 0)
+                {
+                    ProteinAmmount += food.Protein.ConsumeRate;
+                    food.Protein.Current -= food.Protein.ConsumeRate;
+                }
+                if (food.Carbohydrate.Current > 0)
+                {
+                    CarbohydrateAmmount += food.Carbohydrate.ConsumeRate;
+                    food.Carbohydrate.Current -= food.Carbohydrate.ConsumeRate;
+                }
+                if (food.Lipids.Current > 0)
+                {
+                    LipidsAmmount += food.Lipids.ConsumeRate;
+                    food.Lipids.Current -= food.Lipids.ConsumeRate;
+                }
+                if (food.Vitamins.Current > 0)
+                {
+                    VitaminsAmmount += food.Vitamins.ConsumeRate;
+                    food.Vitamins.Current -= food.Vitamins.ConsumeRate;
+                }
+                if (food.Minerals.Current > 0)
+                {
+                    MineralsAmmount += food.Minerals.ConsumeRate;
+                    food.Minerals.Current -= food.Minerals.ConsumeRate;
+                }
             }
             IngestedFoods.RemoveAll(x => x.FullyConsumed);
         }
@@ -283,16 +348,19 @@ namespace ExtendedSurvival.Stats
             }  
         }
 
-        private void DoCheckBodyWeight()
+        private float DoCheckBodyWeight()
         {
+            float bodyChance = 0;
             if (CaloriesAmmount < PlayerBodyConstants.CaloriesReserveSize.X)
             {
-                CurrentWeight -= PlayerBodyConstants.WeightChange.X;
+                bodyChance -= PlayerBodyConstants.WeightChange.X;
             }
             else if (CaloriesAmmount > PlayerBodyConstants.CaloriesReserveSize.Y)
             {
-                CurrentWeight += PlayerBodyConstants.WeightChange.Y;
+                bodyChance += PlayerBodyConstants.WeightChange.Y;
             }
+            CurrentWeight += bodyChance;
+            return bodyChance;
         }
 
         public void ResetCharacterStats()
@@ -306,11 +374,11 @@ namespace ExtendedSurvival.Stats
             CurrentImunity = PlayerBodyConstants.StartImunity;
             WaterAmmount = PlayerBodyConstants.StartWaterReserve;
             CaloriesAmmount = PlayerBodyConstants.StartCalories;
-            ProteinAmmount = 0;
-            CarbohydrateAmmount = 0;
-            LipidsAmmount = 0;
-            VitaminsAmmount = 0;
-            MineralsAmmount = 0;
+            ProteinAmmount = PlayerBodyConstants.StartProteins;
+            CarbohydrateAmmount = PlayerBodyConstants.StartCarbohydrates;
+            LipidsAmmount = PlayerBodyConstants.StartLipids;
+            VitaminsAmmount = PlayerBodyConstants.StartVitamins;
+            MineralsAmmount = PlayerBodyConstants.StartMinerals;
             DoEmptyStomach();
         }
 
@@ -337,17 +405,41 @@ namespace ExtendedSurvival.Stats
             if (deltaTime == 0)
                 DoRefreshDeltaTime();
             spendTime += GetGameTime() - deltaTime;
-            DoRefreshDeltaTime();
-            if (spendTime >= 1000)
+            if (staminaSpended == 0)
             {
-                spendTime -= 1000;
+                sedentaryTime += spendTime;
+            }
+            else if (sedentaryTime > 0)
+            {
+                sedentaryTime -= spendTime * 10;
+                if (sedentaryTime < 0)
+                    sedentaryTime = 0;
+            }
+            DoRefreshDeltaTime();
+            var cicleType = (long)(1000f * ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier);
+            if (spendTime >= cicleType)
+            {
+                spendTime -= cicleType;
                 DoConsumeCicle(staminaSpended);
                 DoAbsorptionCicle();
                 DoEffectCicle();
                 DoBladderCicle();
                 DoCheckBodyState();
                 DoCheckMinAndMaxValues();
-                DoCheckBodyWeight();
+                float weightChange = DoCheckBodyWeight();
+                if (weightChange < 0)
+                {
+                    /* The body always consumes muscle first during body loss with no protein reserve and is sedentary */
+
+                }
+                if (weightChange > 0)
+                {
+
+                }
+                else
+                {
+
+                }
                 return true;
             }
             return false;

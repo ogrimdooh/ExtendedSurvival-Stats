@@ -7,7 +7,18 @@ namespace ExtendedSurvival.Stats
         
         protected override string[] GetStatsNames()
         {
-            return new string[] { "WetTime", "WoundedTime", "", "", "", "", "", "" };
+            return new string[] 
+            { 
+                "WetTime", 
+                "WoundedTime", 
+                "RadiationTime", 
+                "IntoxicationTime",
+                "BodyProtein",
+                "BodyCarbohydrate",
+                "BodyLipids",
+                "BodyVitamins",
+                "BodyMinerals"
+            };
         }
 
         protected override bool IsActive(int index)
@@ -19,12 +30,13 @@ namespace ExtendedSurvival.Stats
                 case 1:
                     return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 2;
                 case 2:
-                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
                 case 3:
+                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
                 case 4:
                 case 5:
                 case 6:
                 case 7:
+                case 8:
                     return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 4;
             }
             return false;

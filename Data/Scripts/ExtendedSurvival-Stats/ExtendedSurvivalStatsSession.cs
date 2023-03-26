@@ -107,12 +107,16 @@ namespace ExtendedSurvival.Stats
         private const string SETTINGS_COMMAND = "settings";
         private const string SETTINGS_COMMAND_PLAYER_STATUS = "player.setstatus";
         private const string SETTINGS_COMMAND_PLAYER_RESETSTATUS = "player.resetstatus";
+        private const string SETTINGS_COMMAND_FOOD_CLEAR_VOLUME = "food.clearvolume";
+        private const string SETTINGS_COMMAND_FOOD_SET_VOLUME = "food.setvolume";
 
         private static readonly Dictionary<string, KeyValuePair<int, bool>> VALID_COMMANDS = new Dictionary<string, KeyValuePair<int, bool>>()
         {
             { SETTINGS_COMMAND, new KeyValuePair<int, bool>(3, false) },
             { SETTINGS_COMMAND_PLAYER_STATUS, new KeyValuePair<int, bool>(3, true) },
-            { SETTINGS_COMMAND_PLAYER_RESETSTATUS, new KeyValuePair<int, bool>(1, true) }
+            { SETTINGS_COMMAND_PLAYER_RESETSTATUS, new KeyValuePair<int, bool>(1, true) },
+            { SETTINGS_COMMAND_FOOD_CLEAR_VOLUME, new KeyValuePair<int, bool>(2, false) },
+            { SETTINGS_COMMAND_FOOD_SET_VOLUME, new KeyValuePair<int, bool>(3, false) }
         };
 
         private void ClientUpdateMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
@@ -166,6 +170,28 @@ namespace ExtendedSurvival.Stats
         private void DoCommand_Settings(string name, string value)
         {
             ExtendedSurvivalSettings.Instance.SetConfigValue(name, value);
+        }
+
+        private void DoCommand_ClearFoodVolume(string name)
+        {
+            var key = FoodConstants.FOOD_DEFINITIONS.Keys.FirstOrDefault(x => x.subtypeId.String.ToLower() == name.ToLower());
+            if (key != null)
+            {
+                ExtendedSurvivalSettings.Instance.ClearFoodVolume(key);
+            }
+        }
+
+        private void DoCommand_SetFoodVolume(string name, string value)
+        {
+            var key = FoodConstants.FOOD_DEFINITIONS.Keys.FirstOrDefault(x => x.subtypeId.String.ToLower() == name.ToLower());
+            if (key != null)
+            {
+                float multiplier;
+                if (float.TryParse(value, out multiplier))
+                {
+                    ExtendedSurvivalSettings.Instance.SetFoodVolume(key, multiplier);
+                }                
+            }
         }
 
         private void DoCommand_PlayerStat(string name, string value, string player, ulong steamId)
@@ -239,6 +265,17 @@ namespace ExtendedSurvival.Stats
                                     DoCommand_PlayerReset(
                                         mCommandData.content.Length >= 2 ? mCommandData.content[1] : null,
                                         mCommandData.sender
+                                    );
+                                    break;
+                                case SETTINGS_COMMAND_FOOD_CLEAR_VOLUME:
+                                    DoCommand_ClearFoodVolume(
+                                        mCommandData.content[1]
+                                    );
+                                    break;
+                                case SETTINGS_COMMAND_FOOD_SET_VOLUME:
+                                    DoCommand_SetFoodVolume(
+                                        mCommandData.content[1],
+                                        mCommandData.content[2]
                                     );
                                     break;
                             }

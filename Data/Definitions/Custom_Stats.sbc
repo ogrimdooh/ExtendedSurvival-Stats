@@ -136,6 +136,28 @@
       <MaxValue>200</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>RadiationTime</SubtypeId>
+      </Id>
+      <Name>RadiationTime</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>200</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>IntoxicationTime</SubtypeId>
+      </Id>
+      <Name>IntoxicationTime</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>200</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
     <!-- METABOLISM -->
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
@@ -244,6 +266,62 @@
         <SubtypeId>Bladder</SubtypeId>
       </Id>
       <Name>Bladder</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <!-- NUTRITION -->
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyProtein</SubtypeId>
+      </Id>
+      <Name>BodyProtein</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>1000</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyCarbohydrate</SubtypeId>
+      </Id>
+      <Name>BodyCarbohydrate</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>1000</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyLipids</SubtypeId>
+      </Id>
+      <Name>BodyLipids</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>1000</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyMinerals</SubtypeId>
+      </Id>
+      <Name>BodyMinerals</Name>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyVitamins</SubtypeId>
+      </Id>
+      <Name>BodyVitamins</Name>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>

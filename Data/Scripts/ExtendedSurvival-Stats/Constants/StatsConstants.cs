@@ -173,7 +173,14 @@ namespace ExtendedSurvival.Stats
             BodyFat,
             FoodDetector,
             MedicalDetector,
-            BodyCalories
+            BodyCalories,
+            BodyProtein,
+            BodyCarbohydrate,
+            BodyLipids,
+            BodyMinerals,
+            BodyVitamins,
+            IntoxicationTime,
+            RadiationTime
 
         }
 

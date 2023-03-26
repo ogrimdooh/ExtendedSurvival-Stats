@@ -12,17 +12,19 @@
                 case 1:
                     return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_UNTREATEDWOUND_NAME);
                 case 2:
-                    return "";
+                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_RADIOACTIVEEXPOSURE_NAME);
                 case 3:
-                    return "";
+                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_TOXICEXPOSURE_NAME);
                 case 4:
-                    return "";
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYPROTEIN_NAME);
                 case 5:
-                    return "";
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYCARBOHYDRATE_NAME);
                 case 6:
-                    return "";
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYLIPIDS_NAME);
                 case 7:
-                    return "";
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYVITAMINS_NAME);
+                case 8:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYMINERALS_NAME);
             }
             return "";
         }

@@ -64,7 +64,16 @@ namespace ExtendedSurvival.Stats
         public MyEntityStat BodyWeight { get { return GetStat(StatsConstants.ValidStats.BodyWeight); } }
         public MyEntityStat BodyMuscles { get { return GetStat(StatsConstants.ValidStats.BodyMuscles); } }
         public MyEntityStat BodyFat { get { return GetStat(StatsConstants.ValidStats.BodyFat); } }
+       
+        public MyEntityStat BodyProtein { get { return GetStat(StatsConstants.ValidStats.BodyProtein); } }
+        public MyEntityStat BodyCarbohydrate { get { return GetStat(StatsConstants.ValidStats.BodyCarbohydrate); } }
+        public MyEntityStat BodyLipids { get { return GetStat(StatsConstants.ValidStats.BodyLipids); } }
+        public MyEntityStat BodyMinerals { get { return GetStat(StatsConstants.ValidStats.BodyMinerals); } }
+        public MyEntityStat BodyVitamins { get { return GetStat(StatsConstants.ValidStats.BodyVitamins); } }
 
+        public MyEntityStat RadiationTime { get { return GetStat(StatsConstants.ValidStats.RadiationTime); } }
+        public MyEntityStat IntoxicationTime { get { return GetStat(StatsConstants.ValidStats.IntoxicationTime); } }
+        
         public float CurrentPerformance
         {
             get
@@ -761,6 +770,21 @@ namespace ExtendedSurvival.Stats
                     case StatsConstants.ValidStats.BodyCalories:
                         controller.CaloriesAmmount = value;
                         break;
+                    case StatsConstants.ValidStats.BodyProtein:
+                        controller.ProteinAmmount = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyCarbohydrate:
+                        controller.CarbohydrateAmmount = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyLipids:
+                        controller.LipidsAmmount = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyVitamins:
+                        controller.VitaminsAmmount = value;
+                        break;
+                    case StatsConstants.ValidStats.BodyMinerals:
+                        controller.MineralsAmmount = value;
+                        break;
                 }
             }
         }
@@ -828,11 +852,16 @@ namespace ExtendedSurvival.Stats
             BodyWater.Value = BodyWater.MaxValue * controller.CurrentBodyWater;
             BodyEnergy.Value = BodyEnergy.MaxValue * controller.CurrentBodyEnergy;
             BodyWeight.Value = controller.CurrentWeight;
-            BodyFat.Value = BodyFat.MaxValue * controller.CurrentFat;
-            BodyMuscles.Value = BodyMuscles.MaxValue * controller.CurrentMuscle;
+            BodyFat.Value = BodyFat.MaxValue * controller.FatFactor;
+            BodyMuscles.Value = BodyMuscles.MaxValue * controller.MuscleFactor;
             BodyPerformance.Value = BodyPerformance.MaxValue * controller.CurrentPerformance;
             BodyImmune.Value = BodyImmune.MaxValue * controller.CurrentImunity;
             BodyCalories.Value = controller.CaloriesAmmount;
+            BodyProtein.Value = controller.ProteinAmmount;
+            BodyCarbohydrate.Value = controller.CarbohydrateAmmount;
+            BodyLipids.Value = controller.LipidsAmmount;
+            BodyMinerals.Value = controller.MineralsAmmount;
+            BodyVitamins.Value = controller.VitaminsAmmount;
         }
 
         public void ProcessStatsCycle(int runCount)

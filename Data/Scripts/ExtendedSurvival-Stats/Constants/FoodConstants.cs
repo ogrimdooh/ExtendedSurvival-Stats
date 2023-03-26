@@ -3584,6 +3584,18 @@ namespace ExtendedSurvival.Stats
         {
             try
             {
+                // Apply Settings to Base Ingredients
+                foreach (var food in FOOD_DEFINITIONS.Keys)
+                {
+                    var foodDef = FOOD_DEFINITIONS[food];
+                    foodDef.Protein *= ExtendedSurvivalSettings.Instance.FoodSettings.ProteinsMultiplier;
+                    foodDef.Carbohydrate *= ExtendedSurvivalSettings.Instance.FoodSettings.CarbohydratesMultiplier;
+                    foodDef.Lipids *= ExtendedSurvivalSettings.Instance.FoodSettings.LipidsMultiplier;
+                    foodDef.Minerals *= ExtendedSurvivalSettings.Instance.FoodSettings.MineralsMultiplier;
+                    foodDef.Vitamins *= ExtendedSurvivalSettings.Instance.FoodSettings.VitaminsMultiplier;
+                    foodDef.Calories *= ExtendedSurvivalSettings.Instance.FoodSettings.CaloriesMultiplier;
+                    foodDef.TimeToConsume *= ExtendedSurvivalSettings.Instance.FoodSettings.TimeToConsumeMultiplier;
+                }
                 // Override recipes and add food definition
                 var recipesToPostprocess = new List<MyBlueprintDefinitionBase>();
                 foreach (var food in FOOD_RECIPES.Keys)
@@ -3643,6 +3655,14 @@ namespace ExtendedSurvival.Stats
                     var foodDef = FOOD_DEFINITIONS[food];
                     if (foodDef.IgnoreDefinition)
                         continue;
+                    // Apply Custom Volume
+                    if (ExtendedSurvivalSettings.Instance.FoodSettings.Volumes.Any(x=>x.Id == food.DefinitionId))
+                    {
+                        var settings = ExtendedSurvivalSettings.Instance.FoodSettings.Volumes.FirstOrDefault(x => x.Id == food.DefinitionId);
+                        foodDef.Solid *= settings.Multiplier;
+                        foodDef.Liquid *= settings.Multiplier;
+                    }
+                    // Aplly Definition
                     switch (foodDef.DefinitionType)
                     {
                         case FoodDefinition.FoodDefinitionType.Consumable:

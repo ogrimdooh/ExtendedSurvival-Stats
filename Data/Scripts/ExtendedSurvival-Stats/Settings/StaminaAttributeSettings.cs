@@ -5,8 +5,11 @@ namespace ExtendedSurvival.Stats
 {
 
     [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
-    public class StaminaAttributeSettings : AttributeSettings
+    public class StaminaAttributeSettings
     {
+
+        [XmlElement]
+        public float DrainMultiplier { get; set; } = 1.0f;
 
         [XmlElement]
         public float GainMultiplier { get; set; } = 1.0f;

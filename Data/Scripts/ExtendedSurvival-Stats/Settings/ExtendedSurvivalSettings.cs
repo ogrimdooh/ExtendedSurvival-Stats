@@ -32,13 +32,13 @@ namespace ExtendedSurvival.Stats
         public bool HardModeEnabled { get; set; } = false;
 
         [XmlElement]
-        public HungerAttributeSettings HungerSettings { get; set; } = new HungerAttributeSettings();
-
-        [XmlElement]
-        public ThirstAttributeSettings ThirstSettings { get; set; } = new ThirstAttributeSettings();
+        public float MetabolismSpeedMultiplier { get; set; } = 1.0f;
 
         [XmlElement]
         public StaminaAttributeSettings StaminaSettings { get; set; } = new StaminaAttributeSettings();
+
+        [XmlElement]
+        public FoodSettings FoodSettings { get; set; } = new FoodSettings();
 
         private static bool Validate(ExtendedSurvivalSettings settings)
         {
@@ -85,6 +85,34 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public bool ClearFoodVolume(UniqueEntityId id)
+        {
+            if (FoodSettings.Volumes.Any(x => x.Id == id.DefinitionId))
+            {
+                FoodSettings.Volumes.RemoveAll(x => x.Id == id.DefinitionId);
+                return true;
+            }
+            return false;
+        }
+
+        public bool SetFoodVolume(UniqueEntityId id, float multiplier)
+        {
+            if (FoodSettings.Volumes.Any(x => x.Id == id.DefinitionId))
+            {
+                var settings = FoodSettings.Volumes.FirstOrDefault(x => x.Id == id.DefinitionId);
+                settings.Multiplier = multiplier;
+            }
+            else
+            {
+                FoodSettings.Volumes.Add(new FoodVolumeSettings() 
+                { 
+                    Id = id.DefinitionId,
+                    Multiplier = multiplier
+                });
+            }
+            return true;
+        }
+
         public bool SetConfigValue(string name, string value)
         {
             switch (name)
@@ -97,6 +125,14 @@ namespace ExtendedSurvival.Stats
                         return true;
                     }
                     break;
+                case "metabolismspeedmultiplier":
+                    float metabolismspeedmultiplier;
+                    if (float.TryParse(value, out metabolismspeedmultiplier))
+                    {
+                        MetabolismSpeedMultiplier = Math.Max(0.01f, Math.Min(10, metabolismspeedmultiplier));
+                        return true;
+                    }
+                    break;                    
                 case "staminasettings.gainmultiplier":
                     float staminasettingsgainmultiplier;
                     if (float.TryParse(value, out staminasettingsgainmultiplier))
@@ -177,75 +213,59 @@ namespace ExtendedSurvival.Stats
                         return true;
                     }
                     break;
-                case "hungersettings.drainmultiplier":
-                    float hungersettingsdrainmultiplier;
-                    if (float.TryParse(value, out hungersettingsdrainmultiplier))
+                case "foodsettings.proteinsmultiplier":
+                    float foodsettingsproteinsmultiplier;
+                    if (float.TryParse(value, out foodsettingsproteinsmultiplier))
                     {
-                        HungerSettings.DrainMultiplier = hungersettingsdrainmultiplier;
+                        FoodSettings.ProteinsMultiplier = foodsettingsproteinsmultiplier;
                         return true;
                     }
                     break;
-                case "hungersettings.movingdrainmultiplier":
-                    float hungersettingsmovingdrainmultiplier;
-                    if (float.TryParse(value, out hungersettingsmovingdrainmultiplier))
+                case "foodsettings.carbohydratesmultiplier":
+                    float foodsettingscarbohydratesmultiplier;
+                    if (float.TryParse(value, out foodsettingscarbohydratesmultiplier))
                     {
-                        HungerSettings.MovingDrainMultiplier = hungersettingsmovingdrainmultiplier;
+                        FoodSettings.CarbohydratesMultiplier = foodsettingscarbohydratesmultiplier;
                         return true;
                     }
                     break;
-                case "hungersettings.treadmilldrainmultiplier":
-                    float hungersettingstreadmilldrainmultiplier;
-                    if (float.TryParse(value, out hungersettingstreadmilldrainmultiplier))
+                case "foodsettings.lipidsmultiplier":
+                    float foodsettingslipidsmultiplier;
+                    if (float.TryParse(value, out foodsettingslipidsmultiplier))
                     {
-                        HungerSettings.TreadmillDrainMultiplier = hungersettingstreadmilldrainmultiplier;
+                        FoodSettings.LipidsMultiplier = foodsettingslipidsmultiplier;
                         return true;
                     }
                     break;
-                case "hungersettings.incrisehungerdrainwithtemperature":
-                    bool hungersettingsincrisehungerdrainwithtemperature;
-                    if (bool.TryParse(value, out hungersettingsincrisehungerdrainwithtemperature))
+                case "foodsettings.vitaminsmultiplier":
+                    float foodsettingsvitaminsmultiplier;
+                    if (float.TryParse(value, out foodsettingsvitaminsmultiplier))
                     {
-                        HungerSettings.IncriseHungerDrainWithTemperature = hungersettingsincrisehungerdrainwithtemperature;
+                        FoodSettings.VitaminsMultiplier = foodsettingsvitaminsmultiplier;
                         return true;
                     }
                     break;
-                case "thirstsettings.gainmultiplier":
-                    float thirstsettingsgainmultiplier;
-                    if (float.TryParse(value, out thirstsettingsgainmultiplier))
+                case "foodsettings.mineralsmultiplier":
+                    float foodsettingsmineralsmultiplier;
+                    if (float.TryParse(value, out foodsettingsmineralsmultiplier))
                     {
-                        ThirstSettings.GainMultiplier = thirstsettingsgainmultiplier;
+                        FoodSettings.MineralsMultiplier = foodsettingsmineralsmultiplier;
                         return true;
                     }
                     break;
-                case "thirstsettings.drainmultiplier":
-                    float thirstsettingsdrainmultiplier;
-                    if (float.TryParse(value, out thirstsettingsdrainmultiplier))
+                case "foodsettings.caloriesmultiplier":
+                    float foodsettingscaloriesmultiplier;
+                    if (float.TryParse(value, out foodsettingscaloriesmultiplier))
                     {
-                        ThirstSettings.DrainMultiplier = thirstsettingsdrainmultiplier;
+                        FoodSettings.CaloriesMultiplier = foodsettingscaloriesmultiplier;
                         return true;
                     }
                     break;
-                case "thirstsettings.movingdrainmultiplier":
-                    float thirstsettingsmovingdrainmultiplier;
-                    if (float.TryParse(value, out thirstsettingsmovingdrainmultiplier))
+                case "foodsettings.timetoconsumemultiplier":
+                    float foodsettingstimetoconsumemultiplier;
+                    if (float.TryParse(value, out foodsettingstimetoconsumemultiplier))
                     {
-                        ThirstSettings.MovingDrainMultiplier = thirstsettingsmovingdrainmultiplier;
-                        return true;
-                    }
-                    break;
-                case "thirstsettings.treadmilldrainmultiplier":
-                    float thirstsettingstreadmilldrainmultiplier;
-                    if (float.TryParse(value, out thirstsettingstreadmilldrainmultiplier))
-                    {
-                        ThirstSettings.TreadmillDrainMultiplier = thirstsettingstreadmilldrainmultiplier;
-                        return true;
-                    }
-                    break;
-                case "thirstsettings.incrisethirstdrainwithtemperature":
-                    bool thirstsettingsincrisethirstdrainwithtemperature;
-                    if (bool.TryParse(value, out thirstsettingsincrisethirstdrainwithtemperature))
-                    {
-                        ThirstSettings.IncriseThirstDrainWithTemperature = thirstsettingsincrisethirstdrainwithtemperature;
+                        FoodSettings.TimeToConsumeMultiplier = foodsettingstimetoconsumemultiplier;
                         return true;
                     }
                     break;
