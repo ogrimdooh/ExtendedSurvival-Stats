@@ -37,6 +37,7 @@ namespace ExtendedSurvival.Stats
 
         public HudAPIv2 TextAPI;
         public ExtendedSurvivalCoreAPI ESCoreAPI;
+        public AdvancedStatsAndEffectsAPI ASECoreAPI;
 
         public const ushort NETWORK_ID_STATSSYSTEM = 40522;
         public const ushort NETWORK_ID_COMMANDS = 40523;
@@ -67,15 +68,9 @@ namespace ExtendedSurvival.Stats
                         var character = entity as IMyCharacter;
                         if (character != null)
                         {
-                            if (character.IsValidPlayer())
+                            if (!character.IsValidPlayer())
                             {
-                                if (ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.ContainsKey(character.EntityId))
-                                    ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters[character.EntityId].OnReciveDamage(damage);
-                            }
-                            else
-                            {
-                                if (ExtendedSurvivalStatsEntityManager.Instance.BotCharacters.ContainsKey(character.EntityId))
-                                    ExtendedSurvivalStatsEntityManager.Instance.BotCharacters[character.EntityId].OnReciveDamage(damage);
+                                CreatureActionsController.DoReciveDamage(character, damage);
                             }
                         }
                     }
@@ -105,20 +100,14 @@ namespace ExtendedSurvival.Stats
         }
 
         private const string SETTINGS_COMMAND = "settings";
-        private const string SETTINGS_COMMAND_PLAYER_STATUS = "player.setstatus";
-        private const string SETTINGS_COMMAND_PLAYER_RESETSTATUS = "player.resetstatus";
         private const string SETTINGS_COMMAND_FOOD_CLEAR_VOLUME = "food.clearvolume";
         private const string SETTINGS_COMMAND_FOOD_SET_VOLUME = "food.setvolume";
-        private const string SETTINGS_COMMAND_BOTS_KILLALL = "bot.killall";
 
         private static readonly Dictionary<string, KeyValuePair<int, bool>> VALID_COMMANDS = new Dictionary<string, KeyValuePair<int, bool>>()
         {
             { SETTINGS_COMMAND, new KeyValuePair<int, bool>(3, false) },
-            { SETTINGS_COMMAND_PLAYER_STATUS, new KeyValuePair<int, bool>(3, true) },
-            { SETTINGS_COMMAND_PLAYER_RESETSTATUS, new KeyValuePair<int, bool>(1, true) },
             { SETTINGS_COMMAND_FOOD_CLEAR_VOLUME, new KeyValuePair<int, bool>(2, false) },
-            { SETTINGS_COMMAND_FOOD_SET_VOLUME, new KeyValuePair<int, bool>(3, false) },
-            { SETTINGS_COMMAND_BOTS_KILLALL, new KeyValuePair<int, bool>(0, true) }
+            { SETTINGS_COMMAND_FOOD_SET_VOLUME, new KeyValuePair<int, bool>(3, false) }
         };
 
         private void ClientUpdateMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
@@ -196,44 +185,6 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        private void DoCommand_PlayerStat(string name, string value, string player, ulong steamId)
-        {
-            PlayerCharacterEntity playerChar = null;
-            if (!string.IsNullOrWhiteSpace(player))
-            {
-                playerChar = ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Values.FirstOrDefault(x => x.Player?.DisplayName.CompareTo(player) == 0);
-            }
-            else
-            {
-                playerChar = ExtendedSurvivalStatsEntityManager.Instance.GetPlayerCharacterBySteamId(steamId);
-            }
-            if (playerChar != null)
-            {
-                float targetValue;
-                if (float.TryParse(value, out targetValue))
-                {
-                    playerChar.SetCharacterStatValue(name, targetValue);
-                }
-            }
-        }
-
-        private void DoCommand_PlayerReset(string player, ulong steamId)
-        {
-            PlayerCharacterEntity playerChar = null;
-            if (!string.IsNullOrWhiteSpace(player))
-            {
-                playerChar = ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Values.FirstOrDefault(x => x.Player?.DisplayName.CompareTo(player) == 0);
-            }
-            else
-            {
-                playerChar = ExtendedSurvivalStatsEntityManager.Instance.GetPlayerCharacterBySteamId(steamId);
-            }
-            if (playerChar != null)
-            {
-                playerChar.ResetCharacterStats();
-            }
-        }
-
         private void CommandsMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
         {
             try
@@ -255,20 +206,6 @@ namespace ExtendedSurvival.Stats
                                         mCommandData.content[2]
                                     );
                                     break;
-                                case SETTINGS_COMMAND_PLAYER_STATUS:
-                                    DoCommand_PlayerStat(
-                                        mCommandData.content[1],
-                                        mCommandData.content[2],
-                                        mCommandData.content.Length >= 4 ? mCommandData.content[3] : null,
-                                        mCommandData.sender
-                                    );
-                                    break;
-                                case SETTINGS_COMMAND_PLAYER_RESETSTATUS:
-                                    DoCommand_PlayerReset(
-                                        mCommandData.content.Length >= 2 ? mCommandData.content[1] : null,
-                                        mCommandData.sender
-                                    );
-                                    break;
                                 case SETTINGS_COMMAND_FOOD_CLEAR_VOLUME:
                                     DoCommand_ClearFoodVolume(
                                         mCommandData.content[1]
@@ -279,9 +216,6 @@ namespace ExtendedSurvival.Stats
                                         mCommandData.content[1],
                                         mCommandData.content[2]
                                     );
-                                    break;
-                                case SETTINGS_COMMAND_BOTS_KILLALL:
-                                    ExtendedSurvivalStatsEntityManager.Instance.DoKillAllBots();
                                     break;
                             }
                         }
@@ -404,19 +338,6 @@ namespace ExtendedSurvival.Stats
 
             if (IsServer)
             {
-                try
-                {
-                    foreach (var key in ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Keys)
-                    {
-                        var player = ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters[key];
-                        ExtendedSurvivalStorage.Instance.SetPlayerData(player.GetStoreData());
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
-                }
-
                 ExtendedSurvivalSettings.Save();
                 ExtendedSurvivalStorage.Save();
             }
@@ -505,6 +426,167 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             });
+            ASECoreAPI = new AdvancedStatsAndEffectsAPI(() => {
+                if (IsServer)
+                {
+                    // Define Consumable Triggers
+                    AdvancedStatsAndEffectsAPI.SetStatAsConsumableTrigger(StatsConstants.ValidStats.FoodDetector.ToString());
+                    AdvancedStatsAndEffectsAPI.SetStatAsConsumableTrigger(StatsConstants.ValidStats.MedicalDetector.ToString());
+                    // Define Virtual Stats
+                    AdvancedStatsAndEffectsAPI.ConfigureVirtualStat(new VirtualStatInfo() 
+                    { 
+                        Name = StatsConstants.VirtualStats.Liquid.ToString(),
+                        Target = StatsConstants.ValidStats.BodyWater.ToString()
+                    });
+                    AdvancedStatsAndEffectsAPI.ConfigureVirtualStat(new VirtualStatInfo() 
+                    { 
+                        Name = StatsConstants.VirtualStats.Solid.ToString(),
+                        Target = StatsConstants.ValidStats.Intestine.ToString()
+                    });
+                    // Define Fixed Stats
+                    // Survival Effects : Group 01
+                    var survivalStats = ((StatsConstants.SurvivalEffects[]) Enum.GetValues(typeof(StatsConstants.SurvivalEffects))).ToList();
+                    foreach (StatsConstants.SurvivalEffects item in survivalStats)
+                    {
+                        if (item != StatsConstants.SurvivalEffects.None)
+                        {
+                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                            {
+                                Group = 1,
+                                Index = survivalStats.IndexOf(item),
+                                Id = item.ToString(),
+                                Name = StatsConstants.GetSurvivalEffectDescription(item)
+                            });
+                        }
+                    }
+                    // Damage Effects : Group 02
+                    var damageStats = ((StatsConstants.DamageEffects[])Enum.GetValues(typeof(StatsConstants.DamageEffects))).ToList();
+                    foreach (StatsConstants.DamageEffects item in damageStats)
+                    {
+                        if (item != StatsConstants.DamageEffects.None)
+                        {
+                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                            {
+                                Group = 2,
+                                Index = damageStats.IndexOf(item),
+                                Id = item.ToString(),
+                                Name = StatsConstants.GetDamageEffectDescription(item)
+                            });
+                        }
+                    }
+                    // Temperature Effects : Group 03
+                    var temperatureStats = ((StatsConstants.TemperatureEffects[])Enum.GetValues(typeof(StatsConstants.TemperatureEffects))).ToList();
+                    foreach (StatsConstants.TemperatureEffects item in temperatureStats)
+                    {
+                        if (item != StatsConstants.TemperatureEffects.None)
+                        {
+                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                            {
+                                Group = 3,
+                                Index = temperatureStats.IndexOf(item),
+                                Id = item.ToString(),
+                                Name = StatsConstants.GetTemperatureEffectDescription(item)
+                            });
+                        }
+                    }
+                    // Disease Effects : Group 04
+                    var diseaseStats = ((StatsConstants.DiseaseEffects[])Enum.GetValues(typeof(StatsConstants.DiseaseEffects))).ToList();
+                    foreach (StatsConstants.DiseaseEffects item in diseaseStats)
+                    {
+                        if (item != StatsConstants.DiseaseEffects.None)
+                        {
+                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                            {
+                                Group = 4,
+                                Index = diseaseStats.IndexOf(item),
+                                Id = item.ToString(),
+                                Name = StatsConstants.GetDiseaseEffectDescription(item),
+                                CanStack = StatsConstants.CanDiseaseEffectStack(item),
+                                MaxStacks = StatsConstants.GetDiseaseEffectMaxStack(item),
+                                CanSelfRemove = StatsConstants.CanDiseaseEffectSelfRemove(item),
+                                TimeToSelfRemove = StatsConstants.GetDiseaseEffectTimeToRemove(item),
+                                CompleteRemove = StatsConstants.IsDiseaseEffectCompleteRemove(item),
+                                StacksWhenRemove = StatsConstants.GetDiseaseEffectStacksWhenRemove(item)
+                            });
+                        }
+                    }
+                    // Other Effects : Group 05
+                    var otherStats = ((StatsConstants.OtherEffects[])Enum.GetValues(typeof(StatsConstants.OtherEffects))).ToList();
+                    foreach (StatsConstants.OtherEffects item in otherStats)
+                    {
+                        if (item != StatsConstants.OtherEffects.None)
+                        {
+                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                            {
+                                Group = 5,
+                                Index = otherStats.IndexOf(item),
+                                Id = item.ToString(),
+                                Name = StatsConstants.GetOtherEffectDescription(item)
+                            });
+                        }
+                    }
+                    // Set foods
+                    foreach (var foodId in FoodConstants.FOOD_DEFINITIONS.Keys)
+                    {
+                        var foodDef = FoodConstants.FOOD_DEFINITIONS[foodId];
+                        AdvancedStatsAndEffectsAPI.ConfigureConsumable(foodDef.GetConsumableConfigure(foodId));
+                    }
+                    // Set medical
+                    foreach (var medicalId in MedicalConstants.MEDICAL_DEFINITIONS.Keys)
+                    {
+                        var medicalDef = MedicalConstants.MEDICAL_DEFINITIONS[medicalId];
+                        AdvancedStatsAndEffectsAPI.ConfigureConsumable(medicalDef.GetConsumableConfigure(medicalId));
+                    }
+                    // Set virtual stats Liquid cycle
+                    AdvancedStatsAndEffectsAPI.AddVirtualStatAbsorptionCicle(
+                        StatsConstants.VirtualStats.Liquid.ToString(),
+                        (virtualStat, amount, consumableId, playerId, character, statComponent) =>
+                        {
+                            if (amount > 0)
+                            {
+                                MyEntityStat Bladder;
+                                statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.ValidStats.Bladder.ToString()), out Bladder);
+                                // 50% of water overload go to bladder
+                                Bladder.Value += amount * 0.50f;
+                            }
+                        },
+                        int.MaxValue
+                    );
+                    // Set before cycle update
+                    AdvancedStatsAndEffectsAPI.AddBeforeCycleCallback((playerId, character, statComponent) => 
+                    {
+                        if (playerId != 0)
+                        {
+                            WeatherConstants.RefreshWeatherInfo(character);
+                            if (character.IsOnValidBathroom())
+                            {
+                                PlayerActionsController.DoCleanYourself(playerId);
+                                PlayerActionsController.DoBodyNeeds(statComponent);
+                            }
+                            PlayerActionsController.ProcessEffectsTimers(playerId, character, statComponent, 1000);
+                            FatigueController.DoCycle(playerId, character, statComponent);
+                            return !character.IsOnCryoChamber();
+                        }
+                        return true;
+                    }, int.MaxValue);
+                    // Set after cycle update
+                    AdvancedStatsAndEffectsAPI.AddAfterCycleCallback((playerId, character, statComponent) =>
+                    {
+                        if (playerId != 0)
+                        {
+                            PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
+                            PlayerActionsController.ProcessHealth(statComponent);
+                        }
+                    }, int.MaxValue);
+                    // Set Stamina before cycle
+                    AdvancedStatsAndEffectsAPI.AddBeforeCycleStatCallback(
+                        StatsConstants.ValidStats.Stamina.ToString(),
+                        StaminaController.DoCycle,
+                        int.MaxValue
+                    );
+
+                }
+            });
 
             base.LoadData();
         }
@@ -537,6 +619,71 @@ namespace ExtendedSurvival.Stats
                 DefinitionUtils.ChangeStatValue("SpaceCharacterHealth", new Vector3(0, 250, 250));
                 DefinitionUtils.ChangeStatValue("WolfHealth", new Vector3(0, 250, 250));
                 DefinitionUtils.ChangeStatValue("SpiderHealth", new Vector3(0, 500, 500));
+
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.Bladder.ToString(), 
+                    new Vector3(0, PlayerBodyConstants.BladderSize.W, 0)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.Stomach.ToString(),
+                    new Vector3(0, PlayerBodyConstants.StomachSize.W, 0)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.Intestine.ToString(),
+                    new Vector3(0, PlayerBodyConstants.IntestineSize.W, 0)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyWater.ToString(),
+                    new Vector3(0, PlayerBodyConstants.WaterReserveSize.W, PlayerBodyConstants.StartWaterReserve)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyCalories.ToString(),
+                    new Vector3(PlayerBodyConstants.CaloriesLimit.X, PlayerBodyConstants.CaloriesLimit.Y, PlayerBodyConstants.StartCalories)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyWeight.ToString(),
+                    new Vector3(PlayerBodyConstants.WeightLimit.X, PlayerBodyConstants.WeightLimit.Y, PlayerBodyConstants.StartWeight)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyMuscles.ToString(),
+                    new Vector3(PlayerBodyConstants.MuscleLimit.X, PlayerBodyConstants.MuscleLimit.Y, PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartMuscle)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyFat.ToString(),
+                    new Vector3(PlayerBodyConstants.FatLimit.X, PlayerBodyConstants.FatLimit.Y, PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartFat)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyPerformance.ToString(),
+                    new Vector3(0, 1, PlayerBodyConstants.StartPerformance)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyImmune.ToString(),
+                    new Vector3(0, 1, PlayerBodyConstants.StartImunity)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyEnergy.ToString(),
+                    new Vector3(0, 1, 0)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyProtein.ToString(),
+                    new Vector3(0, 1000, PlayerBodyConstants.StartProteins)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyCarbohydrate.ToString(),
+                    new Vector3(0, 1000, PlayerBodyConstants.StartCarbohydrates)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyLipids.ToString(),
+                    new Vector3(0, 1000, PlayerBodyConstants.StartLipids)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyVitamins.ToString(),
+                    new Vector3(0, 100, PlayerBodyConstants.StartVitamins)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyMinerals.ToString(),
+                    new Vector3(0, 100, PlayerBodyConstants.StartMinerals)
+                );
 
                 var creatureCharacters = new string[] { "Space_Wolf", "Space_spider", "deer_bot", "deerbuck_bot", "Cow_Bot", "Sheep_Bot", "Horse_Bot" };
                 foreach (var character in creatureCharacters)
@@ -628,6 +775,7 @@ namespace ExtendedSurvival.Stats
         {
             TextAPI.Close();
             ESCoreAPI.Unregister();
+            ASECoreAPI.Unregister();
 
             if (!IsDedicated)
                 MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(NETWORK_ID_STATSSYSTEM, ClientUpdateMsgHandler);
@@ -662,7 +810,7 @@ namespace ExtendedSurvival.Stats
                 {
 
                     ForceWolfAndSpiders();
-
+                    /*
                     foreach (var item in ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Where(x => x.Value.PlayerId > 0 && x.Value.Entity != null && !x.Value.Entity.IsDead))
                     {
                         var player = item.Value;
@@ -696,7 +844,7 @@ namespace ExtendedSurvival.Stats
                                 }
                             }
                         }
-                    }
+                    }*/
 
                 }
 
@@ -706,39 +854,6 @@ namespace ExtendedSurvival.Stats
                 ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
 
-        }
-
-        protected override void DoUpdate60()
-        {
-            base.DoUpdate60();
-
-            if (MyAPIGateway.Session.IsServer)
-            {
-
-                PlayersUpdate();
-
-            }
-        }
-
-        private void PlayersUpdate()
-        {
-            try
-            {
-                foreach (var key in ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Keys)
-                {
-                    var player = ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters[key];
-                    if (!player.IsValid || player.IsDead)
-                        continue;
-
-                    player.ProcessActivityCycle();
-                    player.CheckStatusValues();
-                    player.ProcessStatsCycle(RunCount);
-                }
-            }
-            catch (Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
-            }
         }
 
     }

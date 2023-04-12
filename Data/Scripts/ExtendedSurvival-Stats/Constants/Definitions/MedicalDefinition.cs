@@ -70,6 +70,53 @@ namespace ExtendedSurvival.Stats
             return values.ToString();
         }
 
+        public ConsumableInfo GetConsumableConfigure(UniqueEntityId id)
+        {
+            var info = new ConsumableInfo()
+            {
+                DefinitionId = id.DefinitionId,
+                StatTrigger = StatsConstants.ValidStats.MedicalDetector.ToString()
+            };
+            if (Effects != null)
+            {
+                foreach (var effect in Effects)
+                {
+                    info.OverTimeEffects.Add(new OverTimeEffectInfo()
+                    {
+                        Target = effect.EffectTarget.ToString(),
+                        TimeToEffect = effect.TimeToEffect,
+                        Amount = effect.Ammount,
+                        Type = (OverTimeEffectType)((int)effect.EffectType)
+                    });
+                }
+            }
+            if (CureDamage != null)
+            {
+                foreach (var cure in CureDamage)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = FixedEffectInConsumableType.Remove,
+                        Target = cure.ToString(),
+                        MaxStacks = true
+                    });
+                }
+            }
+            if (CureDisease != null)
+            {
+                foreach (var cure in CureDisease)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = FixedEffectInConsumableType.Remove,
+                        Target = cure.ToString(),
+                        MaxStacks = true
+                    });
+                }
+            }
+            return info;
+        }
+
     }
 
 }

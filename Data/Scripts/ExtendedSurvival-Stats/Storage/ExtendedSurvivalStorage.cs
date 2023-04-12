@@ -52,40 +52,11 @@ namespace ExtendedSurvival.Stats
         [XmlArray("Entities"), XmlArrayItem("Entity", typeof(EntityStorage))]
         public List<EntityStorage> Entities { get; set; } = new List<EntityStorage>();
 
-        [XmlArray("Players"), XmlArrayItem("Player", typeof(PlayerData))]
-        public List<PlayerData> Players { get; set; } = new List<PlayerData>();
-
-        private void CheckPlayers()
-        {
-            if (Players == null)
-                Players = new List<PlayerData>();
-            Players.RemoveAll(x => x == null);
-        }
-
         private void CheckEntities()
         {
             if (Entities == null)
                 Entities = new List<EntityStorage>();
             Entities.RemoveAll(x => x == null);
-        }
-
-        public void SetPlayerData(PlayerData data)
-        {
-            if (data != null)
-            {
-                CheckPlayers();
-                if (Players.Any(x => x.SteamPlayerId == data.SteamPlayerId))
-                    Players.RemoveAll(x => x.SteamPlayerId == data.SteamPlayerId);
-                Players.Add(data);
-            }
-        }
-
-        public PlayerData GetPlayerData(ulong steamPlayerId)
-        {
-            CheckPlayers();
-            if (Players.Any(x => x.SteamPlayerId == steamPlayerId))
-                return Players.FirstOrDefault(x => x.SteamPlayerId == steamPlayerId);
-            return null;
         }
 
         public EntityStorage GetEntity(long id)
@@ -123,7 +94,6 @@ namespace ExtendedSurvival.Stats
         public ExtendedSurvivalStorage()
         {
             Entities = new List<EntityStorage>();
-            Players = new List<PlayerData>();
         }
 
     }

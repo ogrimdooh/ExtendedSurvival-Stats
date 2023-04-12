@@ -146,6 +146,30 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public enum VirtualStats
+        {
+
+            Solid,
+            Liquid
+
+        }
+
+        public enum FixedStats
+        {
+
+            StatsGroup01, /* Survival Effects */
+            StatsGroup02, /* Damage Effects */
+            StatsGroup03, /* Temperature Effects */
+            StatsGroup04, /* Disease Effects */
+            StatsGroup05, /* Other Effects */
+            StatsGroup06,
+            StatsGroup07,
+            StatsGroup08,
+            StatsGroup09,
+            StatsGroup10
+
+        }
+
         public enum ValidStats
         {
 
@@ -153,11 +177,6 @@ namespace ExtendedSurvival.Stats
             Thirst,
             Stamina,
             Fatigue,
-            SurvivalEffects,
-            DamageEffects,
-            TemperatureEffects,
-            DiseaseEffects,
-            OtherEffects,
             WoundedTime,
             TemperatureTime,
             WetTime,
@@ -323,6 +342,30 @@ namespace ExtendedSurvival.Stats
             return 0;
         }
 
+        public static string GetFixedStatsDescription(FixedStats stat)
+        {
+            switch (stat)
+            {
+                case FixedStats.StatsGroup01:
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_NAME);
+                case FixedStats.StatsGroup02:
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGEEFFECTS_NAME);
+                case FixedStats.StatsGroup03:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_NAME);
+                case FixedStats.StatsGroup04:
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_NAME);
+                case FixedStats.StatsGroup05:
+                    return LanguageProvider.GetEntry(LanguageEntries.OTHEREFFECTS_NAME);
+                case FixedStats.StatsGroup06:
+                case FixedStats.StatsGroup07:
+                case FixedStats.StatsGroup08:
+                case FixedStats.StatsGroup09:
+                case FixedStats.StatsGroup10:
+                    return "";
+            }
+            return "";
+        }
+
         public static string GetValidStatsDescription(ValidStats stat)
         {
             switch (stat)
@@ -335,16 +378,6 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.STAMINA_NAME);
                 case ValidStats.Fatigue:
                     return LanguageProvider.GetEntry(LanguageEntries.FATIGUE_NAME); 
-                case ValidStats.SurvivalEffects:
-                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_NAME);
-                case ValidStats.DamageEffects:
-                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGEEFFECTS_NAME);
-                case ValidStats.TemperatureEffects:
-                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_NAME);
-                case ValidStats.DiseaseEffects:
-                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_NAME);
-                case ValidStats.OtherEffects:
-                    return LanguageProvider.GetEntry(LanguageEntries.OTHEREFFECTS_NAME);
                 case ValidStats.WoundedTime:
                     return LanguageProvider.GetEntry(LanguageEntries.WOUNDEDTIME_NAME);
                 case ValidStats.TemperatureTime:
@@ -429,6 +462,69 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_QUEASY_NAME);
             }
             return "";
+        }
+        
+        public static bool CanDiseaseEffectStack(DiseaseEffects effect)
+        {
+            return effect == DiseaseEffects.Poison;
+        }
+
+        public static byte GetDiseaseEffectMaxStack(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Poison:
+                    return 5;
+                default:
+                    return 0;
+            }
+        }
+
+        public static bool CanDiseaseEffectSelfRemove(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Poison:
+                case DiseaseEffects.Pneumonia:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public static int GetDiseaseEffectTimeToRemove(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Poison:
+                    return 30 * 1000; /* 30 segundos */
+                case DiseaseEffects.Pneumonia:
+                    return 10 * 60 * 1000; /* 10 minutos */
+                default:
+                    return 0;
+            }
+        }
+
+        public static bool IsDiseaseEffectCompleteRemove(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Pneumonia:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public static byte GetDiseaseEffectStacksWhenRemove(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Poison:
+                    return 1;
+                default:
+                    return 0;
+            }
         }
 
         public static string GetOtherEffectDescription(OtherEffects effect)

@@ -4,9 +4,8 @@
     public enum FoodEffectType
     {
 
-        None = 0,
-        Instant = 1,
-        OverTime = 2
+        Instant = 0,
+        OverTime = 1
 
     }
 

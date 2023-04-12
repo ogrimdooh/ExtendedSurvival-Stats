@@ -8,6 +8,7 @@
         <SubtypeId>Hunger</SubtypeId>
       </Id>
       <Name>Hunger</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>50</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -19,6 +20,7 @@
         <SubtypeId>Thirst</SubtypeId>
       </Id>
       <Name>Thirst</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>100</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -30,6 +32,7 @@
         <SubtypeId>Stamina</SubtypeId>
       </Id>
       <Name>Stamina</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>100</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -41,65 +44,10 @@
         <SubtypeId>Fatigue</SubtypeId>
       </Id>
       <Name>Fatigue</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>10000</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
-    <!-- EFFECTS -->
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>SurvivalEffects</SubtypeId>
-      </Id>
-      <Name>SurvivalEffects</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>0</DefaultValue>
-      <MaxValue>1073741824</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>DamageEffects</SubtypeId>
-      </Id>
-      <Name>DamageEffects</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>0</DefaultValue>
-      <MaxValue>1073741824</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>TemperatureEffects</SubtypeId>
-      </Id>
-      <Name>TemperatureEffects</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>0</DefaultValue>
-      <MaxValue>1073741824</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>DiseaseEffects</SubtypeId>
-      </Id>
-      <Name>DiseaseEffects</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>0</DefaultValue>
-      <MaxValue>1073741824</MaxValue>
-      <EnabledInCreative>false</EnabledInCreative>
-    </Stat>
-    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
-      <Id>
-        <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>OtherEffects</SubtypeId>
-      </Id>
-      <Name>OtherEffects</Name>
-      <MinValue>0</MinValue>
-      <DefaultValue>0</DefaultValue>
-      <MaxValue>1073741824</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <!-- TIMERS -->
@@ -109,6 +57,7 @@
         <SubtypeId>WoundedTime</SubtypeId>
       </Id>
       <Name>WoundedTime</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>600000</MaxValue>
@@ -120,6 +69,7 @@
         <SubtypeId>TemperatureTime</SubtypeId>
       </Id>
       <Name>TemperatureTime</Name>
+      <Description>#ASE#</Description>
       <MinValue>-360000</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>360000</MaxValue>
@@ -131,6 +81,7 @@
         <SubtypeId>WetTime</SubtypeId>
       </Id>
       <Name>WetTime</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>200</MaxValue>
@@ -142,6 +93,7 @@
         <SubtypeId>RadiationTime</SubtypeId>
       </Id>
       <Name>RadiationTime</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>200</MaxValue>
@@ -153,6 +105,7 @@
         <SubtypeId>IntoxicationTime</SubtypeId>
       </Id>
       <Name>IntoxicationTime</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>200</MaxValue>
@@ -165,6 +118,7 @@
         <SubtypeId>BodyCalories</SubtypeId>
       </Id>
       <Name>BodyCalories</Name>
+      <Description>#ASE#</Description>
       <MinValue>-5000</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>5000</MaxValue>
@@ -176,6 +130,7 @@
         <SubtypeId>BodyEnergy</SubtypeId>
       </Id>
       <Name>BodyEnergy</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>80</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -187,6 +142,7 @@
         <SubtypeId>BodyWater</SubtypeId>
       </Id>
       <Name>BodyWater</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>80</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -198,6 +154,7 @@
         <SubtypeId>BodyPerformance</SubtypeId>
       </Id>
       <Name>BodyPerformance</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>50</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -209,6 +166,7 @@
         <SubtypeId>BodyImmune</SubtypeId>
       </Id>
       <Name>BodyImmune</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>50</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -221,6 +179,7 @@
         <SubtypeId>FoodDetector</SubtypeId>
       </Id>
       <Name>FoodDetector</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -232,6 +191,7 @@
         <SubtypeId>MedicalDetector</SubtypeId>
       </Id>
       <Name>MedicalDetector</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -244,6 +204,7 @@
         <SubtypeId>Stomach</SubtypeId>
       </Id>
       <Name>Stomach</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -255,6 +216,7 @@
         <SubtypeId>Intestine</SubtypeId>
       </Id>
       <Name>Intestine</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -266,6 +228,7 @@
         <SubtypeId>Bladder</SubtypeId>
       </Id>
       <Name>Bladder</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -278,6 +241,7 @@
         <SubtypeId>BodyProtein</SubtypeId>
       </Id>
       <Name>BodyProtein</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>1000</MaxValue>
@@ -289,6 +253,7 @@
         <SubtypeId>BodyCarbohydrate</SubtypeId>
       </Id>
       <Name>BodyCarbohydrate</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>1000</MaxValue>
@@ -300,6 +265,7 @@
         <SubtypeId>BodyLipids</SubtypeId>
       </Id>
       <Name>BodyLipids</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>1000</MaxValue>
@@ -311,6 +277,7 @@
         <SubtypeId>BodyMinerals</SubtypeId>
       </Id>
       <Name>BodyMinerals</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -322,6 +289,7 @@
         <SubtypeId>BodyVitamins</SubtypeId>
       </Id>
       <Name>BodyVitamins</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -334,6 +302,7 @@
         <SubtypeId>BodyWeight</SubtypeId>
       </Id>
       <Name>BodyWeight</Name>
+      <Description>#ASE#</Description>
       <MinValue>40</MinValue>
       <DefaultValue>80</DefaultValue>
       <MaxValue>300</MaxValue>
@@ -345,6 +314,7 @@
         <SubtypeId>BodyMuscles</SubtypeId>
       </Id>
       <Name>BodyMuscles</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>40</DefaultValue>
       <MaxValue>100</MaxValue>
@@ -356,6 +326,7 @@
         <SubtypeId>BodyFat</SubtypeId>
       </Id>
       <Name>BodyFat</Name>
+      <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>30</DefaultValue>
       <MaxValue>100</MaxValue>

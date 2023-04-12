@@ -106,7 +106,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = IngotsConstants.BONEMEAL_ID,
+                            Id = ItensConstants.WHEATSACK_ID,
                             Ammount = 0.15f
                         }
                     }
@@ -133,7 +133,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = IngotsConstants.BONEMEAL_ID,
+                            Id = ItensConstants.COFFEESACK_ID,
                             Ammount = 0.05f
                         }
                     }

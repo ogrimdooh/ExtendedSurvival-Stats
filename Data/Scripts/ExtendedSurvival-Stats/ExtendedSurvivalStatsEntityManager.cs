@@ -1,4 +1,5 @@
 ﻿using Sandbox.Game;
+using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using System;
@@ -21,8 +22,6 @@ namespace ExtendedSurvival.Stats
 
         public static ExtendedSurvivalStatsEntityManager Instance { get; private set; }
 
-        public ConcurrentDictionary<long, PlayerCharacterEntity> PlayerCharacters { get; private set; } = new ConcurrentDictionary<long, PlayerCharacterEntity>();
-        public ConcurrentDictionary<long, BotCharacterEntity> BotCharacters { get; private set; } = new ConcurrentDictionary<long, BotCharacterEntity>();
         public ConcurrentDictionary<long, IMyPlayer> Players { get; private set; } = new ConcurrentDictionary<long, IMyPlayer>();
 
         private bool inicialLoadComplete = false;
@@ -36,24 +35,13 @@ namespace ExtendedSurvival.Stats
                     MyAPIGateway.Players.GetPlayers(playerList, (player) => { return player.IdentityId == playerId; });
                     if (playerList.Any())
                     {
-                        if (PlayerCharacters.Any(x => x.Value.PlayerId == playerId))
+                        var statComp = playerList.FirstOrDefault().Character?.Components?.Get<MyEntityStatComponent>() as MyCharacterStatComponent;
+                        if (statComp != null)
                         {
-                            var playerChar = PlayerCharacters.FirstOrDefault(x => x.Value.PlayerId == playerId).Value;
-                            if (playerChar != null)
-                                playerChar.PlayerHealthRecharging();
+                            PlayerActionsController.PlayerHealthRecharging(playerId, statComp);
                         }
                     }
                 };
-            }
-        }
-
-        public void DoKillAllBots()
-        {
-            var keys = BotCharacters.Keys;
-            foreach (var key in keys)
-            {
-                if (BotCharacters.ContainsKey(key))
-                    BotCharacters[key].Entity.Close();
             }
         }
 
@@ -150,27 +138,6 @@ namespace ExtendedSurvival.Stats
             UpdatePlayerList();
         }
 
-        public PlayerCharacterEntity GetPlayerCharacterBySteamId(ulong steamId)
-        {
-            var query = PlayerCharacters.Where(x => x.Value.Player?.SteamUserId == steamId);
-            return query.Any() ? query.FirstOrDefault().Value : null;
-        }
-
-        public PlayerCharacterEntity GetPlayerCharacter(long playerId)
-        {
-            var query = PlayerCharacters.Where(x => x.Value.PlayerId == playerId);
-            return query.Any() ? query.FirstOrDefault().Value : null;
-        }
-
-        public BaseCharacterEntity GetCharacter(long id)
-        {
-            if (PlayerCharacters.ContainsKey(id))
-                return PlayerCharacters[id];
-            if (BotCharacters.ContainsKey(id))
-                return BotCharacters[id];
-            return null;
-        }
-
         public void UpdatePlayerList()
         {
             Players.Clear();
@@ -208,79 +175,16 @@ namespace ExtendedSurvival.Stats
 
         private void Entities_OnEntityRemove(MyEntity entity)
         {
-            var character = entity as IMyCharacter;
-            if (character != null)
-            {
-                if (BotCharacters.ContainsKey(character.EntityId))
-                    BotCharacters.Remove(character.EntityId);
-            }
+
         }
 
         private void Entities_OnEntityAdd(MyEntity entity)
         {
             if (inicialLoadComplete)
             {
-                string entityName = entity.ToString();
                 if (SuperficialMiningController.CheckEntityIsAFloatingObject(entity))
                     return;
             }
-            var character = entity as IMyCharacter;
-            if (character != null)
-            {
-                var playerId = character.GetPlayerId();
-                if (character.IsValidPlayer())
-                {
-                    UpdatePlayerList();
-                    ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(ExtendedSurvivalStatsEntityManager), $"MyEntities_OnEntityAddWatcher IMyCharacter PlayerId:{playerId} EntityId:{character.EntityId} DisplayName:{character.DisplayName}");
-                    if (PlayerCharacters.Any(x => x.Value.PlayerId == playerId))
-                    {
-                        var playerChar = PlayerCharacters.FirstOrDefault(x => x.Value.PlayerId == playerId).Value;
-                        playerChar.ConfigureCharacter(character);
-                    }
-                    else
-                    {
-                        PlayerCharacters[character.EntityId] = new PlayerCharacterEntity(character);
-                        var steamId = PlayerCharacters[character.EntityId].Player?.SteamUserId;
-                        if (steamId.HasValue)
-                            PlayerCharacters[character.EntityId].LoadStoreData(ExtendedSurvivalStorage.Instance.GetPlayerData(steamId.Value));
-                    }
-                }
-                else
-                {
-                    if (!BotCharacters.ContainsKey(character.EntityId))
-                    {
-                        ExtendedSurvivalStatsLogging.Instance.LogInfo(typeof(ExtendedSurvivalStatsEntityManager), $"MyEntities_OnEntityAddWatcher IMyCharacter BotId:{playerId} EntityId:{character.EntityId} DisplayName:{character.Name}");
-                        BotCharacters[character.EntityId] = new BotCharacterEntity(character);
-                    }
-                }
-            }
-        }
-
-        public BotCharacterEntity[] GetBotInRange(long caller, Vector3D position, float maxDistance, bool ignoreDead = true)
-        {
-            var query = BotCharacters.Where(x => x.Key != caller && (!ignoreDead || !x.Value.IsDead) && Vector3D.Distance(x.Value.Entity.GetPosition(), position) <= maxDistance);
-            return query.Any() ? query.Select(x => x.Value).ToArray() : null;
-        }
-
-        public IMyPlayer GetClosestPlayer(Vector3D rPos)
-        {
-            double distanceSqd = double.MaxValue;
-            IMyPlayer closest = null;
-
-            foreach (var player in Players.Values)
-            {
-                if (player?.Character == null || player.Character.IsDead)
-                    continue;
-
-                var d = Vector3D.DistanceSquared(player.Character.PositionComp.WorldAABB.Center, rPos);
-                if (d < distanceSqd)
-                {
-                    closest = player;
-                    distanceSqd = d;
-                }
-            }
-
-            return closest;
         }
 
     }

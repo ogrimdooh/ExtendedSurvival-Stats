@@ -6,7 +6,7 @@ namespace ExtendedSurvival.Stats
     {
 
         public FoodEffectTarget EffectTarget { get; set; } = FoodEffectTarget.Health;
-        public FoodEffectType EffectType { get; set; } = FoodEffectType.None;
+        public FoodEffectType EffectType { get; set; } = FoodEffectType.Instant;
         public float Ammount { get; set; }
         public float TimeToEffect { get; set; }
 

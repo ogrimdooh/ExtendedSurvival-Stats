@@ -399,7 +399,7 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Temperature,
+                    EffectTarget = FoodEffectTarget.TemperatureTime,
                     EffectType = FoodEffectType.OverTime,
                     Ammount = 6000,
                     TimeToEffect = 600
@@ -419,7 +419,7 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Temperature,
+                    EffectTarget = FoodEffectTarget.TemperatureTime,
                     EffectType = FoodEffectType.OverTime,
                     Ammount = -3000,
                     TimeToEffect = 600
@@ -452,7 +452,7 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Temperature,
+                    EffectTarget = FoodEffectTarget.TemperatureTime,
                     EffectType = FoodEffectType.OverTime,
                     Ammount = -300,
                     TimeToEffect = 60

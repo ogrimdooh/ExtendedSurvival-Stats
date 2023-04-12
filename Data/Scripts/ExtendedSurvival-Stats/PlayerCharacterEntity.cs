@@ -20,7 +20,7 @@ using Sandbox.Common.ObjectBuilders;
 
 namespace ExtendedSurvival.Stats
 {
-
+    /*
     public class PlayerCharacterEntity : BaseCharacterEntity
     {
 
@@ -1904,5 +1904,5 @@ namespace ExtendedSurvival.Stats
         }
 
     }
-
+    */
 }

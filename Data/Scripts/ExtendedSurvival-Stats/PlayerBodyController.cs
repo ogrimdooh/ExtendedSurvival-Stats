@@ -5,7 +5,7 @@ using System;
 
 namespace ExtendedSurvival.Stats
 {
-
+    /*
     public class PlayerBodyController
     {
 
@@ -423,7 +423,7 @@ namespace ExtendedSurvival.Stats
                     sedentaryTime = 0;
             }
             DoRefreshDeltaTime();
-            long cicleType = 1000; /* default cycle time */
+            long cicleType = 1000; 
             if (spendTime >= cicleType)
             {
                 spendTime -= cicleType;
@@ -436,18 +436,15 @@ namespace ExtendedSurvival.Stats
                 float weightChange = DoCheckBodyWeight();
                 if (weightChange < 0)
                 {
-                    /* The body always consumes muscle first during body loss with no protein reserve and is sedentary */
-
+                    
                 }
                 if (weightChange > 0)
                 {
-                    /* The body always gain fat with no stamina spend or no protein reserve */
-
+                   
                 }
                 else
                 {
-                    /* No body change, but transform fat into muscle with stamina spend and protein reserve */
-
+                    
                 }
                 return true;
             }
@@ -627,5 +624,5 @@ namespace ExtendedSurvival.Stats
         }
 
     }
-
+    */
 }

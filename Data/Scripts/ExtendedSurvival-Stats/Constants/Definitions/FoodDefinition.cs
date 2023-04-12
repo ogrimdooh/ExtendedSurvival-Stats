@@ -33,9 +33,9 @@ namespace ExtendedSurvival.Stats
         public bool IgnoreDefinition { get; set; } = false;
         public bool SimpleDescription { get; set; } = false;
 
-        public List<ConsumibleEffect> Effects { get; set; }
-        public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; }
-        public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
+        public List<ConsumibleEffect> Effects { get; set; } = new List<ConsumibleEffect>();
+        public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; } = new Dictionary<StatsConstants.DiseaseEffects, float>();
+        public List<StatsConstants.DiseaseEffects> CureDisease { get; set; } = new List<StatsConstants.DiseaseEffects>();
 
         public bool NeedConservation { get; set; } = false;
         public long StartConservationTime { get; set; } = 0;
@@ -248,7 +248,7 @@ namespace ExtendedSurvival.Stats
         private void NoTemperatureChange()
         {
             if (Effects != null)
-                Effects.RemoveAll(x => x.EffectTarget == FoodEffectTarget.Temperature);
+                Effects.RemoveAll(x => x.EffectTarget == FoodEffectTarget.TemperatureTime);
         }
 
         private void NoDiseaseChance()
@@ -270,9 +270,9 @@ namespace ExtendedSurvival.Stats
 
         private void NoNegativeTemperature()
         {
-            if (Effects != null && Effects.Any(x => x.EffectTarget == FoodEffectTarget.Temperature && x.Ammount < 0))
+            if (Effects != null && Effects.Any(x => x.EffectTarget == FoodEffectTarget.TemperatureTime && x.Ammount < 0))
             {
-                foreach (var effect in Effects.Where(x => x.EffectTarget == FoodEffectTarget.Temperature && x.Ammount < 0))
+                foreach (var effect in Effects.Where(x => x.EffectTarget == FoodEffectTarget.TemperatureTime && x.Ammount < 0))
                 {
                     effect.Ammount *= -1;
                 }
@@ -402,6 +402,95 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             }
+        }
+
+        public ConsumableInfo GetConsumableConfigure(UniqueEntityId id)
+        {
+            var info = new ConsumableInfo()
+            {
+                DefinitionId = id.DefinitionId,
+                TimeToConsume = TimeToConsume,
+                StatTrigger = StatsConstants.ValidStats.FoodDetector.ToString()
+            };
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo() 
+            { 
+                Target = StatsConstants.VirtualStats.Solid.ToString(),
+                Amount = Solid
+            });
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo()
+            {
+                Target = StatsConstants.VirtualStats.Liquid.ToString(),
+                Amount = Liquid
+            });
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo()
+            {
+                Target = StatsConstants.ValidStats.BodyProtein.ToString(),
+                Amount = Protein
+            });
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo()
+            {
+                Target = StatsConstants.ValidStats.BodyCarbohydrate.ToString(),
+                Amount = Carbohydrate
+            });
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo()
+            {
+                Target = StatsConstants.ValidStats.BodyLipids.ToString(),
+                Amount = Lipids
+            });
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo()
+            {
+                Target = StatsConstants.ValidStats.BodyVitamins.ToString(),
+                Amount = Vitamins
+            });
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo()
+            {
+                Target = StatsConstants.ValidStats.BodyMinerals.ToString(),
+                Amount = Minerals
+            });
+            info.OverTimeConsumables.Add(new OverTimeConsumableInfo()
+            {
+                Target = StatsConstants.ValidStats.BodyCalories.ToString(),
+                Amount = Calories
+            });
+            if (Effects != null)
+            {
+                foreach (var effect in Effects)
+                {
+                    info.OverTimeEffects.Add(new OverTimeEffectInfo()
+                    {
+                        Target = effect.EffectTarget.ToString(),
+                        TimeToEffect = effect.TimeToEffect,
+                        Amount = effect.Ammount,
+                        Type = (OverTimeEffectType)((int)effect.EffectType)
+                    });
+                }
+            }
+            if (DiseaseChance != null)
+            {
+                foreach (var disease in DiseaseChance)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = FixedEffectInConsumableType.ChanceAdd,
+                        Chance = disease.Value,
+                        Target = disease.Key.ToString(),
+                        Stacks = 1
+                    });
+                }
+            }
+            if (CureDisease != null)
+            {
+                foreach (var cure in CureDisease)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = FixedEffectInConsumableType.Remove,
+                        Target = cure.ToString(),
+                        MaxStacks = true
+                    });
+                }
+            }
+            return info;
         }
 
     }
