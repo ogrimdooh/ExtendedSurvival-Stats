@@ -190,6 +190,8 @@ namespace ExtendedSurvival.Stats
             BodyWeight,
             BodyMuscles,
             BodyFat,
+            BodyMusclesWeight,
+            BodyFatWeight,
             FoodDetector,
             MedicalDetector,
             BodyCalories,

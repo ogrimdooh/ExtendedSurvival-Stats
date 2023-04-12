@@ -316,7 +316,7 @@
       <Name>BodyMuscles</Name>
       <Description>#ASE#</Description>
       <MinValue>0</MinValue>
-      <DefaultValue>40</DefaultValue>
+      <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
@@ -328,7 +328,31 @@
       <Name>BodyFat</Name>
       <Description>#ASE#</Description>
       <MinValue>0</MinValue>
-      <DefaultValue>30</DefaultValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyMusclesWeight</SubtypeId>
+      </Id>
+      <Name>BodyMusclesWeight</Name>
+      <Description>#ASE#</Description>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>100</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>BodyFatWeight</SubtypeId>
+      </Id>
+      <Name>BodyFatWeight</Name>
+      <Description>#ASE#</Description>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
       <MaxValue>100</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>

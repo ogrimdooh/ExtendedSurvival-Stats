@@ -584,7 +584,25 @@ namespace ExtendedSurvival.Stats
                         StaminaController.DoCycle,
                         int.MaxValue
                     );
-
+                    // Set on player on reset
+                    AdvancedStatsAndEffectsAPI.AddAfterPlayerReset(
+                        (playerId, character, statComponent) =>
+                        {
+                            PlayerActionsController.DoEatStartFood(playerId);
+                        },
+                        int.MaxValue
+                    );
+                    // Set on player on respawn
+                    AdvancedStatsAndEffectsAPI.AddAfterPlayerRespawn(
+                        (playerId, character, statComponent, newPod) =>
+                        {
+                            if (newPod)
+                            {
+                                PlayerActionsController.DoEatStartFood(playerId);
+                            }
+                        },
+                        int.MaxValue
+                    );
                 }
             });
 
@@ -642,15 +660,23 @@ namespace ExtendedSurvival.Stats
                 );
                 DefinitionUtils.ChangeStatValue(
                     StatsConstants.ValidStats.BodyWeight.ToString(),
-                    new Vector3(PlayerBodyConstants.WeightLimit.X, PlayerBodyConstants.WeightLimit.Y, PlayerBodyConstants.StartWeight)
+                    new Vector3(0, PlayerBodyConstants.WeightLimit.Y, PlayerBodyConstants.StartWeight)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyMusclesWeight.ToString(),
+                    new Vector3(0, PlayerBodyConstants.WeightLimit.Y, PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartMuscle)
+                );
+                DefinitionUtils.ChangeStatValue(
+                    StatsConstants.ValidStats.BodyFatWeight.ToString(),
+                    new Vector3(0, PlayerBodyConstants.WeightLimit.Y, PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartFat)
                 );
                 DefinitionUtils.ChangeStatValue(
                     StatsConstants.ValidStats.BodyMuscles.ToString(),
-                    new Vector3(PlayerBodyConstants.MuscleLimit.X, PlayerBodyConstants.MuscleLimit.Y, PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartMuscle)
+                    new Vector3(0, 1, PlayerBodyConstants.StartMuscle)
                 );
                 DefinitionUtils.ChangeStatValue(
                     StatsConstants.ValidStats.BodyFat.ToString(),
-                    new Vector3(PlayerBodyConstants.FatLimit.X, PlayerBodyConstants.FatLimit.Y, PlayerBodyConstants.StartWeight * PlayerBodyConstants.StartFat)
+                    new Vector3(0, 1, PlayerBodyConstants.StartFat)
                 );
                 DefinitionUtils.ChangeStatValue(
                     StatsConstants.ValidStats.BodyPerformance.ToString(),
@@ -662,7 +688,7 @@ namespace ExtendedSurvival.Stats
                 );
                 DefinitionUtils.ChangeStatValue(
                     StatsConstants.ValidStats.BodyEnergy.ToString(),
-                    new Vector3(0, 1, 0)
+                    new Vector3(0, 1, 1)
                 );
                 DefinitionUtils.ChangeStatValue(
                     StatsConstants.ValidStats.BodyProtein.ToString(),

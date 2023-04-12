@@ -89,11 +89,11 @@ namespace ExtendedSurvival.Stats
                 CurrentValue = 0;
                 return;
             }
-            SurvivalEffects = GetPlayerStat("SurvivalEffects");
-            DamageEffects = GetPlayerStat("DamageEffects");
-            TemperatureEffects = GetPlayerStat("TemperatureEffects");
-            DiseaseEffects = GetPlayerStat("DiseaseEffects");
-            OtherEffects = GetPlayerStat("OtherEffects");
+            SurvivalEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup01.ToString());
+            DamageEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup02.ToString());
+            TemperatureEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup03.ToString());
+            DiseaseEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup04.ToString());
+            OtherEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup05.ToString());
             if (IsValid)
             {
                 CurrentValue = SurvivalEffects.Value +

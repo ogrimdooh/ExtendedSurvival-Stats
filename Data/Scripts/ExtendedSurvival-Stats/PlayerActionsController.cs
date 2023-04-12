@@ -511,6 +511,12 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public static void DoEatStartFood(long playerId)
+        {
+            AdvancedStatsAndEffectsAPI.DoPlayerConsume(playerId, ItensConstants.SANDWICH_ID.DefinitionId);
+            AdvancedStatsAndEffectsAPI.DoPlayerConsume(playerId, ItensConstants.WATER_FLASK_SMALL_ID.DefinitionId);
+        }
+
         private static void CheckIntestine(long playerId, StatsConstants.SurvivalEffects CurrentSurvivalEffects, MyEntityStat Intestine)
         {
             var percent = Intestine.Value / Intestine.MaxValue;
@@ -1113,9 +1119,9 @@ namespace ExtendedSurvival.Stats
             var solid = AdvancedStatsAndEffectsAPI.GetRemainOverTimeConsumable(playerId, StatsConstants.VirtualStats.Solid.ToString());
             var liquid = AdvancedStatsAndEffectsAPI.GetRemainOverTimeConsumable(playerId, StatsConstants.VirtualStats.Liquid.ToString());
             Stomach.Value = solid + liquid;
-            Hunger.Value = GetCurrentHungerAmmount(BodyCalories.Value, Stomach.Value);
-            Thirst.Value = GetCurrentThirstAmmount(BodyWater.Value, liquid);
-            BodyEnergy.Value = GetCurrentBodyEnergy(BodyCalories.Value);
+            Hunger.Value = GetCurrentHungerAmmount(BodyCalories.Value, Stomach.Value) * Hunger.MaxValue;
+            Thirst.Value = GetCurrentThirstAmmount(BodyWater.Value, liquid) * Thirst.MaxValue;
+            BodyEnergy.Value = GetCurrentBodyEnergy(BodyCalories.Value) * BodyEnergy.MaxValue;
         }
 
         private static void DoBladderCicle(long playerId, MyEntityStat Bladder)
