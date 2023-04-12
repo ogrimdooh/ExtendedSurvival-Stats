@@ -94,7 +94,7 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// Minimum amount of water that goes to the bladder
         /// </summary>
-        public const float WaterToBladder = 0.0005f;
+        public const float WaterToBladder = 0.00025f; /* ~30 minutes to full Bladder */
 
         /// <summary>
         /// Start ammount of body water

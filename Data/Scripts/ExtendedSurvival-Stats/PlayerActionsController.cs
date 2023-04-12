@@ -1002,7 +1002,7 @@ namespace ExtendedSurvival.Stats
             statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.ValidStats.Thirst.ToString()), out Thirst);
 
             DoConsumeCicle(playerId, staminaSpended, BodyCalories, BodyWater, BodyProtein, BodyCarbohydrate, BodyLipids, BodyMinerals, BodyVitamins);
-            DoBladderCicle(playerId, Bladder);
+            DoBladderCicle(Bladder);
             DoCheckBodyState(playerId, Bladder, Intestine, Stomach, statComponent);
             DoStomachCicle(playerId, Stomach, BodyCalories, BodyWater, Hunger, Thirst, BodyEnergy);
             float weightChange = DoCheckBodyWeight(BodyCalories, BodyWeight);
@@ -1124,15 +1124,9 @@ namespace ExtendedSurvival.Stats
             BodyEnergy.Value = GetCurrentBodyEnergy(BodyCalories.Value) * BodyEnergy.MaxValue;
         }
 
-        private static void DoBladderCicle(long playerId, MyEntityStat Bladder)
+        private static void DoBladderCicle(MyEntityStat Bladder)
         {
-            var waterToBladder = PlayerBodyConstants.WaterToBladder;
-            if (waterToConsume[playerId] > 0)
-            {
-                // 15% of consumed water go to bladder
-                waterToBladder += waterToConsume[playerId] * 0.15f;
-            }
-            Bladder.Value += waterToBladder;
+            Bladder.Value += PlayerBodyConstants.WaterToBladder / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
         }
 
         private static void DoCheckBodyState(long playerId, MyEntityStat Bladder, MyEntityStat Intestine, MyEntityStat Stomach, MyCharacterStatComponent statComponent)
