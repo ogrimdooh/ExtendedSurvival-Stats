@@ -5,7 +5,7 @@
     <BlockVariantGroup>
       <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="SlaughterhouseGroup" />
       <DisplayName>Slaughterhouse Blocks</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\Blastfurnace.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\BasicSlaughterhouse.dds</Icon>
       <Description></Description>
       <Blocks>
         <Block Type="MyObjectBuilder_Assembler" Subtype="BasicSlaughterhouse" />
@@ -17,7 +17,7 @@
     <BlockVariantGroup>
       <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="FoodProcessorGroup" />
       <DisplayName>Food Processor Blocks</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\BasicFoodProcessor.dds</Icon>
       <Description></Description>
       <Blocks>
         <Block Type="MyObjectBuilder_Assembler" Subtype="BasicFoodProcessor" />
@@ -29,7 +29,7 @@
     <BlockVariantGroup>
       <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="CageGroup" />
       <DisplayName>Cage Blocks</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\container_large.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\SmallCage.dds</Icon>
       <Description></Description>
       <Blocks>
         <Block Type="MyObjectBuilder_CargoContainer" Subtype="LargeBlockSmallCage" />
@@ -41,7 +41,7 @@
     <BlockVariantGroup>
       <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="FarmBlocksGroup" />
       <DisplayName>Farm Blocks</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\SolarHydroponics.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\Farm.dds</Icon>
       <Description></Description>
       <Blocks>
         <Block Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockFarm" />
