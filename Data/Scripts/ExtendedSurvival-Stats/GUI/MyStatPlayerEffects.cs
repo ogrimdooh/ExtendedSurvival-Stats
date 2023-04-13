@@ -1,6 +1,7 @@
 ﻿using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
+using System;
 using System.Text;
 using VRage.Utils;
 
@@ -70,7 +71,8 @@ namespace ExtendedSurvival.Stats
                     DamageEffects != null &&
                     TemperatureEffects != null &&
                     DiseaseEffects != null &&
-                    OtherEffects != null;
+                    OtherEffects != null && 
+                    ExtendedSurvivalStatsSession.Static != null;
             }
         }
 
@@ -95,13 +97,13 @@ namespace ExtendedSurvival.Stats
             DiseaseEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup04.ToString());
             OtherEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup05.ToString());
             if (IsValid)
-            {
+            { 
                 CurrentValue = SurvivalEffects.Value +
                     DamageEffects.Value +
                     TemperatureEffects.Value +
                     DiseaseEffects.Value +
                     OtherEffects.Value +
-                    (IsWithHelmet() ? 1 : 0) +
+                    (IsWithHelmet() ? 1 + ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatUpdateHash() : 0) +
                     GetBodyTrackerLevel();
             }
             else
@@ -158,7 +160,17 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetDiseaseEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetDiseaseEffectTrackLevel(effect))
                         {
-                            sbEffects.AppendLine(StatsConstants.GetDiseaseEffectDescription(effect));
+                            var text = StatsConstants.GetDiseaseEffectDescription(effect);
+                            if (StatsConstants.CanDiseaseEffectStack(effect))
+                            {
+                                text += " (" + ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatStack(effect.ToString()).ToString() + ")";
+                            }
+                            if (StatsConstants.CanDiseaseEffectSelfRemove(effect))
+                            {
+                                var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
+                                text += " [" + TimeSpan.FromMilliseconds(timeToRemove).ToString(@"mm\:ss") + "]";
+                            }
+                            sbEffects.AppendLine(text);
                         }
                     }
                 }

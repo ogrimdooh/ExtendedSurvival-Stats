@@ -38,12 +38,37 @@ namespace ExtendedSurvival.Stats
         public HudAPIv2 TextAPI;
         public ExtendedSurvivalCoreAPI ESCoreAPI;
         public AdvancedStatsAndEffectsAPI ASECoreAPI;
+        public AdvancedStatsAndEffectsClientAPI ASECoreClientAPI;
 
         public const ushort NETWORK_ID_STATSSYSTEM = 40522;
         public const ushort NETWORK_ID_COMMANDS = 40523;
         public const ushort NETWORK_ID_DEFINITIONS = 40524;
         public const ushort NETWORK_ID_ENTITYCALLS = 40525;
         public const string CALL_FOR_DEFS = "NEEDDEFS";
+
+        public int GetPlayerFixedStatUpdateHash()
+        {
+            if (IsServer)
+                return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatUpdateHash(MyAPIGateway.Session.Player.IdentityId);
+            else
+                return AdvancedStatsAndEffectsClientAPI.GetPlayerFixedStatUpdateHash();
+        }
+
+        public byte GetPlayerFixedStatStack(string fixedStat)
+        {
+            if (IsServer)
+                return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(MyAPIGateway.Session.Player.IdentityId, fixedStat);
+            else
+                return AdvancedStatsAndEffectsClientAPI.GetPlayerFixedStatStack(fixedStat);
+        }
+
+        public long GetPlayerFixedStatRemainTime(string fixedStat)
+        {
+            if (IsServer)
+                return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(MyAPIGateway.Session.Player.IdentityId, fixedStat);
+            else
+                return AdvancedStatsAndEffectsClientAPI.GetPlayerFixedStatRemainTime(fixedStat);
+        }
 
         protected override void DoInit(MyObjectBuilder_SessionComponent sessionComponent)
         {
@@ -426,186 +451,192 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             });
-            ASECoreAPI = new AdvancedStatsAndEffectsAPI(() => {
-                if (IsServer)
-                {
-                    // Define Consumable Triggers
-                    AdvancedStatsAndEffectsAPI.SetStatAsConsumableTrigger(StatsConstants.ValidStats.FoodDetector.ToString());
-                    AdvancedStatsAndEffectsAPI.SetStatAsConsumableTrigger(StatsConstants.ValidStats.MedicalDetector.ToString());
-                    // Define Virtual Stats
-                    AdvancedStatsAndEffectsAPI.ConfigureVirtualStat(new VirtualStatInfo() 
-                    { 
-                        Name = StatsConstants.VirtualStats.Liquid.ToString(),
-                        Target = StatsConstants.ValidStats.BodyWater.ToString()
-                    });
-                    AdvancedStatsAndEffectsAPI.ConfigureVirtualStat(new VirtualStatInfo() 
-                    { 
-                        Name = StatsConstants.VirtualStats.Solid.ToString(),
-                        Target = StatsConstants.ValidStats.Intestine.ToString()
-                    });
-                    // Define Fixed Stats
-                    // Survival Effects : Group 01
-                    var survivalStats = ((StatsConstants.SurvivalEffects[]) Enum.GetValues(typeof(StatsConstants.SurvivalEffects))).ToList();
-                    foreach (StatsConstants.SurvivalEffects item in survivalStats)
+            if (IsServer)
+            {
+                ASECoreAPI = new AdvancedStatsAndEffectsAPI(() => {
+                    if (IsServer)
                     {
-                        if (item != StatsConstants.SurvivalEffects.None)
+                        // Define Consumable Triggers
+                        AdvancedStatsAndEffectsAPI.SetStatAsConsumableTrigger(StatsConstants.ValidStats.FoodDetector.ToString());
+                        AdvancedStatsAndEffectsAPI.SetStatAsConsumableTrigger(StatsConstants.ValidStats.MedicalDetector.ToString());
+                        // Define Virtual Stats
+                        AdvancedStatsAndEffectsAPI.ConfigureVirtualStat(new VirtualStatInfo()
                         {
-                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
-                            {
-                                Group = 1,
-                                Index = survivalStats.IndexOf(item),
-                                Id = item.ToString(),
-                                Name = StatsConstants.GetSurvivalEffectDescription(item)
-                            });
-                        }
-                    }
-                    // Damage Effects : Group 02
-                    var damageStats = ((StatsConstants.DamageEffects[])Enum.GetValues(typeof(StatsConstants.DamageEffects))).ToList();
-                    foreach (StatsConstants.DamageEffects item in damageStats)
-                    {
-                        if (item != StatsConstants.DamageEffects.None)
+                            Name = StatsConstants.VirtualStats.Liquid.ToString(),
+                            Target = StatsConstants.ValidStats.BodyWater.ToString()
+                        });
+                        AdvancedStatsAndEffectsAPI.ConfigureVirtualStat(new VirtualStatInfo()
                         {
-                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
-                            {
-                                Group = 2,
-                                Index = damageStats.IndexOf(item),
-                                Id = item.ToString(),
-                                Name = StatsConstants.GetDamageEffectDescription(item)
-                            });
-                        }
-                    }
-                    // Temperature Effects : Group 03
-                    var temperatureStats = ((StatsConstants.TemperatureEffects[])Enum.GetValues(typeof(StatsConstants.TemperatureEffects))).ToList();
-                    foreach (StatsConstants.TemperatureEffects item in temperatureStats)
-                    {
-                        if (item != StatsConstants.TemperatureEffects.None)
+                            Name = StatsConstants.VirtualStats.Solid.ToString(),
+                            Target = StatsConstants.ValidStats.Intestine.ToString()
+                        });
+                        // Define Fixed Stats
+                        // Survival Effects : Group 01
+                        var survivalStats = ((StatsConstants.SurvivalEffects[])Enum.GetValues(typeof(StatsConstants.SurvivalEffects))).ToList();
+                        foreach (StatsConstants.SurvivalEffects item in survivalStats)
                         {
-                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                            if (item != StatsConstants.SurvivalEffects.None)
                             {
-                                Group = 3,
-                                Index = temperatureStats.IndexOf(item),
-                                Id = item.ToString(),
-                                Name = StatsConstants.GetTemperatureEffectDescription(item)
-                            });
-                        }
-                    }
-                    // Disease Effects : Group 04
-                    var diseaseStats = ((StatsConstants.DiseaseEffects[])Enum.GetValues(typeof(StatsConstants.DiseaseEffects))).ToList();
-                    foreach (StatsConstants.DiseaseEffects item in diseaseStats)
-                    {
-                        if (item != StatsConstants.DiseaseEffects.None)
-                        {
-                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
-                            {
-                                Group = 4,
-                                Index = diseaseStats.IndexOf(item),
-                                Id = item.ToString(),
-                                Name = StatsConstants.GetDiseaseEffectDescription(item),
-                                CanStack = StatsConstants.CanDiseaseEffectStack(item),
-                                MaxStacks = StatsConstants.GetDiseaseEffectMaxStack(item),
-                                CanSelfRemove = StatsConstants.CanDiseaseEffectSelfRemove(item),
-                                TimeToSelfRemove = StatsConstants.GetDiseaseEffectTimeToRemove(item),
-                                CompleteRemove = StatsConstants.IsDiseaseEffectCompleteRemove(item),
-                                StacksWhenRemove = StatsConstants.GetDiseaseEffectStacksWhenRemove(item)
-                            });
-                        }
-                    }
-                    // Other Effects : Group 05
-                    var otherStats = ((StatsConstants.OtherEffects[])Enum.GetValues(typeof(StatsConstants.OtherEffects))).ToList();
-                    foreach (StatsConstants.OtherEffects item in otherStats)
-                    {
-                        if (item != StatsConstants.OtherEffects.None)
-                        {
-                            AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
-                            {
-                                Group = 5,
-                                Index = otherStats.IndexOf(item),
-                                Id = item.ToString(),
-                                Name = StatsConstants.GetOtherEffectDescription(item)
-                            });
-                        }
-                    }
-                    // Set foods
-                    foreach (var foodId in FoodConstants.FOOD_DEFINITIONS.Keys)
-                    {
-                        var foodDef = FoodConstants.FOOD_DEFINITIONS[foodId];
-                        AdvancedStatsAndEffectsAPI.ConfigureConsumable(foodDef.GetConsumableConfigure(foodId));
-                    }
-                    // Set medical
-                    foreach (var medicalId in MedicalConstants.MEDICAL_DEFINITIONS.Keys)
-                    {
-                        var medicalDef = MedicalConstants.MEDICAL_DEFINITIONS[medicalId];
-                        AdvancedStatsAndEffectsAPI.ConfigureConsumable(medicalDef.GetConsumableConfigure(medicalId));
-                    }
-                    // Set virtual stats Liquid cycle
-                    AdvancedStatsAndEffectsAPI.AddVirtualStatAbsorptionCicle(
-                        StatsConstants.VirtualStats.Liquid.ToString(),
-                        (virtualStat, amount, consumableId, playerId, character, statComponent) =>
-                        {
-                            if (amount > 0)
-                            {
-                                MyEntityStat Bladder;
-                                statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.ValidStats.Bladder.ToString()), out Bladder);
-                                // 50% of water overload go to bladder
-                                Bladder.Value += amount * 0.50f;
+                                AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                                {
+                                    Group = 1,
+                                    Index = survivalStats.IndexOf(item),
+                                    Id = item.ToString(),
+                                    Name = StatsConstants.GetSurvivalEffectDescription(item)
+                                });
                             }
-                        },
-                        int.MaxValue
-                    );
-                    // Set before cycle update
-                    AdvancedStatsAndEffectsAPI.AddBeforeCycleCallback((playerId, character, statComponent) => 
-                    {
-                        if (playerId != 0)
+                        }
+                        // Damage Effects : Group 02
+                        var damageStats = ((StatsConstants.DamageEffects[])Enum.GetValues(typeof(StatsConstants.DamageEffects))).ToList();
+                        foreach (StatsConstants.DamageEffects item in damageStats)
                         {
-                            WeatherConstants.RefreshWeatherInfo(character);
-                            if (character.IsOnValidBathroom())
+                            if (item != StatsConstants.DamageEffects.None)
                             {
-                                PlayerActionsController.DoCleanYourself(playerId);
-                                PlayerActionsController.DoBodyNeeds(statComponent);
+                                AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                                {
+                                    Group = 2,
+                                    Index = damageStats.IndexOf(item),
+                                    Id = item.ToString(),
+                                    Name = StatsConstants.GetDamageEffectDescription(item)
+                                });
                             }
-                            PlayerActionsController.ProcessEffectsTimers(playerId, character, statComponent, 1000);
-                            FatigueController.DoCycle(playerId, character, statComponent);
-                            return !character.IsOnCryoChamber();
                         }
-                        return true;
-                    }, int.MaxValue);
-                    // Set after cycle update
-                    AdvancedStatsAndEffectsAPI.AddAfterCycleCallback((playerId, character, statComponent) =>
-                    {
-                        if (playerId != 0)
+                        // Temperature Effects : Group 03
+                        var temperatureStats = ((StatsConstants.TemperatureEffects[])Enum.GetValues(typeof(StatsConstants.TemperatureEffects))).ToList();
+                        foreach (StatsConstants.TemperatureEffects item in temperatureStats)
                         {
-                            PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
-                            PlayerActionsController.ProcessHealth(statComponent);
+                            if (item != StatsConstants.TemperatureEffects.None)
+                            {
+                                AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                                {
+                                    Group = 3,
+                                    Index = temperatureStats.IndexOf(item),
+                                    Id = item.ToString(),
+                                    Name = StatsConstants.GetTemperatureEffectDescription(item)
+                                });
+                            }
                         }
-                    }, int.MaxValue);
-                    // Set Stamina before cycle
-                    AdvancedStatsAndEffectsAPI.AddBeforeCycleStatCallback(
-                        StatsConstants.ValidStats.Stamina.ToString(),
-                        StaminaController.DoCycle,
-                        int.MaxValue
-                    );
-                    // Set on player on reset
-                    AdvancedStatsAndEffectsAPI.AddAfterPlayerReset(
-                        (playerId, character, statComponent) =>
+                        // Disease Effects : Group 04
+                        var diseaseStats = ((StatsConstants.DiseaseEffects[])Enum.GetValues(typeof(StatsConstants.DiseaseEffects))).ToList();
+                        foreach (StatsConstants.DiseaseEffects item in diseaseStats)
                         {
-                            PlayerActionsController.DoEatStartFood(playerId);
-                        },
-                        int.MaxValue
-                    );
-                    // Set on player on respawn
-                    AdvancedStatsAndEffectsAPI.AddAfterPlayerRespawn(
-                        (playerId, character, statComponent, newPod) =>
+                            if (item != StatsConstants.DiseaseEffects.None)
+                            {
+                                AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                                {
+                                    Group = 4,
+                                    Index = diseaseStats.IndexOf(item),
+                                    Id = item.ToString(),
+                                    Name = StatsConstants.GetDiseaseEffectDescription(item),
+                                    CanStack = StatsConstants.CanDiseaseEffectStack(item),
+                                    MaxStacks = StatsConstants.GetDiseaseEffectMaxStack(item),
+                                    CanSelfRemove = StatsConstants.CanDiseaseEffectSelfRemove(item),
+                                    TimeToSelfRemove = StatsConstants.GetDiseaseEffectTimeToRemove(item),
+                                    CompleteRemove = StatsConstants.IsDiseaseEffectCompleteRemove(item),
+                                    StacksWhenRemove = StatsConstants.GetDiseaseEffectStacksWhenRemove(item)
+                                });
+                            }
+                        }
+                        // Other Effects : Group 05
+                        var otherStats = ((StatsConstants.OtherEffects[])Enum.GetValues(typeof(StatsConstants.OtherEffects))).ToList();
+                        foreach (StatsConstants.OtherEffects item in otherStats)
                         {
-                            if (newPod)
+                            if (item != StatsConstants.OtherEffects.None)
+                            {
+                                AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                                {
+                                    Group = 5,
+                                    Index = otherStats.IndexOf(item),
+                                    Id = item.ToString(),
+                                    Name = StatsConstants.GetOtherEffectDescription(item)
+                                });
+                            }
+                        }
+                        // Set foods
+                        foreach (var foodId in FoodConstants.FOOD_DEFINITIONS.Keys)
+                        {
+                            var foodDef = FoodConstants.FOOD_DEFINITIONS[foodId];
+                            AdvancedStatsAndEffectsAPI.ConfigureConsumable(foodDef.GetConsumableConfigure(foodId));
+                        }
+                        // Set medical
+                        foreach (var medicalId in MedicalConstants.MEDICAL_DEFINITIONS.Keys)
+                        {
+                            var medicalDef = MedicalConstants.MEDICAL_DEFINITIONS[medicalId];
+                            AdvancedStatsAndEffectsAPI.ConfigureConsumable(medicalDef.GetConsumableConfigure(medicalId));
+                        }
+                        // Set virtual stats Liquid cycle
+                        AdvancedStatsAndEffectsAPI.AddVirtualStatAbsorptionCicle(
+                            StatsConstants.VirtualStats.Liquid.ToString(),
+                            (virtualStat, amount, consumableId, playerId, character, statComponent) =>
+                            {
+                                if (amount > 0)
+                                {
+                                    MyEntityStat Bladder;
+                                    statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.ValidStats.Bladder.ToString()), out Bladder);
+                                    // 50% of water overload go to bladder
+                                    Bladder.Value += amount * 0.50f;
+                                }
+                            },
+                            int.MaxValue
+                        );
+                        // Set before cycle update
+                        AdvancedStatsAndEffectsAPI.AddBeforeCycleCallback((playerId, character, statComponent) =>
+                        {
+                            if (playerId != 0)
+                            {
+                                WeatherConstants.RefreshWeatherInfo(character);
+                                if (character.IsOnValidBathroom())
+                                {
+                                    PlayerActionsController.DoCleanYourself(playerId);
+                                    PlayerActionsController.DoBodyNeeds(statComponent);
+                                }
+                                PlayerActionsController.ProcessEffectsTimers(playerId, character, statComponent, 1000);
+                                FatigueController.DoCycle(playerId, character, statComponent);
+                                return !character.IsOnCryoChamber();
+                            }
+                            return true;
+                        }, int.MaxValue);
+                        // Set after cycle update
+                        AdvancedStatsAndEffectsAPI.AddAfterCycleCallback((playerId, character, statComponent) =>
+                        {
+                            if (playerId != 0)
+                            {
+                                PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
+                                PlayerActionsController.ProcessHealth(statComponent);
+                            }
+                        }, int.MaxValue);
+                        // Set Stamina before cycle
+                        AdvancedStatsAndEffectsAPI.AddBeforeCycleStatCallback(
+                            StatsConstants.ValidStats.Stamina.ToString(),
+                            StaminaController.DoCycle,
+                            int.MaxValue
+                        );
+                        // Set on player on reset
+                        AdvancedStatsAndEffectsAPI.AddAfterPlayerReset(
+                            (playerId, character, statComponent) =>
                             {
                                 PlayerActionsController.DoEatStartFood(playerId);
-                            }
-                        },
-                        int.MaxValue
-                    );
-                }
-            });
-
+                            },
+                            int.MaxValue
+                        );
+                        // Set on player on respawn
+                        AdvancedStatsAndEffectsAPI.AddAfterPlayerRespawn(
+                            (playerId, character, statComponent, newPod) =>
+                            {
+                                if (newPod)
+                                {
+                                    PlayerActionsController.DoEatStartFood(playerId);
+                                }
+                            },
+                            int.MaxValue
+                        );
+                    }
+                });
+            }
+            else
+            {
+                ASECoreClientAPI = new AdvancedStatsAndEffectsClientAPI(() => { });
+            }
             base.LoadData();
         }
 
