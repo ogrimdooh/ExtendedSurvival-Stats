@@ -537,6 +537,18 @@ namespace ExtendedSurvival.Stats
                                 });
                             }
                         }
+                        // Add Poison cycle
+                        AdvancedStatsAndEffectsAPI.AddFixedStatCycleCallback(
+                            StatsConstants.DiseaseEffects.Poison.ToString(),
+                            (fixedStat, stack, remainTime, playerId, character, statComponent) => 
+                            {
+                                if (stack > 0)
+                                {
+                                    statComponent.Health.Decrease(stack * StatsConstants.POISON_DAMAGE, playerId);
+                                }
+                            },
+                            int.MaxValue
+                        );
                         // Other Effects : Group 05
                         var otherStats = ((StatsConstants.OtherEffects[])Enum.GetValues(typeof(StatsConstants.OtherEffects))).ToList();
                         foreach (StatsConstants.OtherEffects item in otherStats)
@@ -582,7 +594,7 @@ namespace ExtendedSurvival.Stats
                         // Set before cycle update
                         AdvancedStatsAndEffectsAPI.AddBeforeCycleCallback((playerId, character, statComponent) =>
                         {
-                            if (playerId != 0)
+                            if (playerId != 0 && character.IsValidPlayer())
                             {
                                 WeatherConstants.RefreshWeatherInfo(character);
                                 if (character.IsOnValidBathroom())
@@ -599,7 +611,7 @@ namespace ExtendedSurvival.Stats
                         // Set after cycle update
                         AdvancedStatsAndEffectsAPI.AddAfterCycleCallback((playerId, character, statComponent) =>
                         {
-                            if (playerId != 0)
+                            if (playerId != 0 && character.IsValidPlayer())
                             {
                                 PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
                                 PlayerActionsController.ProcessHealth(statComponent);

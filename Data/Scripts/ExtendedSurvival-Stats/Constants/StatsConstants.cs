@@ -11,6 +11,8 @@ namespace ExtendedSurvival.Stats
     public static class StatsConstants
     {
 
+        public const int POISON_DAMAGE = 5;
+
         public static readonly Vector3 BODY_MUSCLE_MOVE_GAIN = new Vector3(0.01f, 0.03f, 0.26f);
         public const float BODY_MUSCLE_NOMOVE_DRAIN = 0.005f;
         public const float BODY_MUSCLE_PROTEIN_DRAIN = 0.01f;
@@ -488,6 +490,9 @@ namespace ExtendedSurvival.Stats
             {
                 case DiseaseEffects.Poison:
                 case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Queasy:
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Infected:
                     return true;
                 default:
                     return false;
@@ -501,7 +506,11 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Poison:
                     return 30 * 1000; /* 30 segundos */
                 case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Infected:
                     return 10 * 60 * 1000; /* 10 minutos */
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Queasy:
+                    return 5 * 60 * 1000; /* 5 minutos */
                 default:
                     return 0;
             }
@@ -512,6 +521,9 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Queasy:
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Infected:
                     return true;
                 default:
                     return false;

@@ -202,7 +202,7 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 10,
+                    Ammount = -10,
                     TimeToEffect = 5
                 }
             }
@@ -239,7 +239,7 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 10,
+                    Ammount = -10,
                     TimeToEffect = 5
                 }
             }
@@ -274,15 +274,15 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Health,
+                    EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.Instant,
-                    Ammount = -50
+                    Ammount = 250
                 },
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Health,
+                    EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -150,
+                    Ammount = 750,
                     TimeToEffect = 30
                 }
             }
