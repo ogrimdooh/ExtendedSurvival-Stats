@@ -173,6 +173,7 @@ namespace ExtendedSurvival.Stats
                     }
                     lootDefinition.Init(builder, lootDefinition.Context);
                     lootDefinition.DeselectAll();
+                    lootDefinition.Postprocess();
                 }
                 else
                     ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(DefinitionUtils), $"ReplaceLoot: {lootname} Not Found");
@@ -192,6 +193,7 @@ namespace ExtendedSurvival.Stats
                 {
                     botDef.InventoryContentGenerated = true;
                     botDef.InventoryContainerTypeId = new MyDefinitionId(typeof(MyObjectBuilder_ContainerTypeDefinition), MyStringHash.GetOrCompute(lootname));
+                    botDef.Postprocess();
                 }
                 else
                     ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(DefinitionUtils), $"ChangeBotLoot: botname={botname} Not Found");

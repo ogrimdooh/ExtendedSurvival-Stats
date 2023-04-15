@@ -1,4 +1,5 @@
-﻿using Sandbox.Game;
+﻿using Sandbox.Definitions;
+using Sandbox.Game;
 using Sandbox.Game.Entities;
 using Sandbox.Game.Entities.Character.Components;
 using Sandbox.Game.EntityComponents;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using VRage.Game;
 using VRage.Game.Components;
+using VRage.Game.Entity;
 using VRage.Game.ModAPI;
 using VRage.Utils;
 using VRageMath;
@@ -642,6 +644,14 @@ namespace ExtendedSurvival.Stats
                             },
                             int.MaxValue
                         );
+                        // Set on bot add event
+                        AdvancedStatsAndEffectsAPI.AddAfterBotAdd(
+                            (playerId, character) =>
+                            {
+                                character.CharacterDied += BotCharacterDied;
+                            },
+                            int.MaxValue
+                        );
                     }
                 });
             }
@@ -652,6 +662,48 @@ namespace ExtendedSurvival.Stats
             base.LoadData();
         }
 
+        public static void CheckBotLoot(IMyCharacter character)
+        {
+            try
+            {
+                var inventory = character.GetInventory();
+                if (inventory != null && inventory.ItemCount >= 0)
+                {
+                    Vector3D upp = character.WorldMatrix.Up;
+                    Vector3D fww = character.WorldMatrix.Forward;
+                    Vector3D rtt = character.WorldMatrix.Right;
+                    Vector3D pos = character.GetPosition();
+                    for (int i = 0; i < inventory.ItemCount; i++)
+                    {
+                        var item = inventory.GetItemAt(i);
+                        MyFloatingObjects.Spawn(
+                            new MyPhysicalInventoryItem(item.Value.Amount, 
+                            ItensConstants.GetPhysicalObjectBuilder(new UniqueEntityId(item.Value.Type))),
+                            pos + (upp * 1.5) + (fww * (0.33 * GetRandon())) + (rtt * 0.33 * GetRandon()), 
+                            fww, 
+                            upp
+                        );
+                    }
+                    inventory.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(DefinitionUtils), ex);
+            }
+        }
+
+        private static int GetRandon()
+        {
+            var key = "0e3adb60-c593-4813-b39a-1508eb7d9849";
+            return (((((byte)(key[MyUtils.GetRandomInt(1, key.Length)])) + 128) % 6) - 3);
+        }
+
+        private static void BotCharacterDied(IMyCharacter obj)
+        {
+            CheckBotLoot(obj);
+        }
+
         private bool definitionsChecked = false;
         private void CheckDefinitions()
         {
@@ -660,18 +712,18 @@ namespace ExtendedSurvival.Stats
             {
                 definitionsChecked = true;
 
-                DefinitionUtils.ChangeInventoryContainerType("deer_bot", "DeerLoot");
-                DefinitionUtils.ChangeInventoryContainerType("deerbuck_bot", "DeerLoot");
-                DefinitionUtils.ChangeInventoryContainerType("Cow_Bot", "CowLoot");
-                DefinitionUtils.ChangeInventoryContainerType("Sheep_Bot", "SheepLoot");
-                DefinitionUtils.ChangeInventoryContainerType("Horse_Bot", "HorseLoot");
-
                 DefinitionUtils.ReplaceContainerTypeDefinition("WolfLoot", new Vector2I(2, 3), true, GetAnimalLoot());
                 DefinitionUtils.ReplaceContainerTypeDefinition("DeerLoot", new Vector2I(2, 3), true, GetAnimalLoot(2));
                 DefinitionUtils.ReplaceContainerTypeDefinition("CowLoot", new Vector2I(2, 3), true, GetAnimalLoot(3));
                 DefinitionUtils.ReplaceContainerTypeDefinition("SheepLoot", new Vector2I(2, 3), true, GetAnimalLoot());
                 DefinitionUtils.ReplaceContainerTypeDefinition("HorseLoot", new Vector2I(2, 3), true, GetAnimalLoot(2));
                 DefinitionUtils.ReplaceContainerTypeDefinition("SpiderLoot", new Vector2I(2, 4), true, GetSpiderLoot());
+
+                DefinitionUtils.ChangeInventoryContainerType("deer_bot", "DeerLoot");
+                DefinitionUtils.ChangeInventoryContainerType("deerbuck_bot", "DeerLoot");
+                DefinitionUtils.ChangeInventoryContainerType("Cow_Bot", "CowLoot");
+                DefinitionUtils.ChangeInventoryContainerType("Sheep_Bot", "SheepLoot");
+                DefinitionUtils.ChangeInventoryContainerType("Horse_Bot", "HorseLoot");
 
                 DefinitionUtils.ReplaceContainerTypeDefinition("PersonalContainerSmall", new Vector2I(2, 5), false, GetUnknownSignalLoot());
 
