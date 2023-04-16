@@ -959,10 +959,11 @@ namespace ExtendedSurvival.Stats
         public static void DoPlayerCycle(long playerId, long spendTime, MyCharacterStatComponent statComponent)
         {
             var staminaSpended = StaminaController.GetSpendedStamina(playerId);
+
+            if (!sedentaryTime.ContainsKey(playerId))
+                sedentaryTime[playerId] = 0;
             if (staminaSpended == 0)
             {
-                if (!sedentaryTime.ContainsKey(playerId))
-                    sedentaryTime[playerId] = 0;
                 sedentaryTime[playerId] += spendTime;
             }
             else if (sedentaryTime[playerId] > 0)
