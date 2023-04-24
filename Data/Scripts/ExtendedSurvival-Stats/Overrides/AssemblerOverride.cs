@@ -125,7 +125,7 @@ namespace ExtendedSurvival.Stats
         protected override void OnAfterSetDefinitions()
         {
             base.OnAfterSetDefinitions();
-            if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Sulfor") != null)
+            if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Sulfur") != null)
             {
                 AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_FERTILIZER_BLUEPRINTS, Fertilizer_Construction);
             }

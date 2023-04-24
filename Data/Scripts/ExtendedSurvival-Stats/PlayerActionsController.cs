@@ -800,7 +800,7 @@ namespace ExtendedSurvival.Stats
             if (currentEnvironmentType == WeatherConstants.EnvironmentDetector.Underwater && !character.IsDead)
             {
                 var OxygenComponent = character.Components.Get<MyCharacterOxygenComponent>();
-                if (!enterUnderWater[playerId])
+                if (!enterUnderWater.ContainsKey(playerId) || !enterUnderWater[playerId])
                 {
                     enterUnderWater[playerId] = true;
                     enterUnderWaterO2Level[playerId] = OxygenComponent.GetGasFillLevel(MyCharacterOxygenComponent.OxygenId);

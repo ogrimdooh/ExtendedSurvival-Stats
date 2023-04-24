@@ -70,11 +70,11 @@
         <SubtypeId>Fertilizer_Construction</SubtypeId>
       </Id>
       <DisplayName>Mineral Fertilizer From Sulfur</DisplayName>
-      <Icon>Textures\GUI\Icons\fertilizer_mineral_from_sulfor.dds</Icon>
+      <Icon>Textures\GUI\Icons\fertilizer_mineral_from_sulfur.dds</Icon>
       <Prerequisites>
         <Item Amount="15" TypeId="Ingot" SubtypeId="Soil" />
         <Item Amount="5" TypeId="Ingot" SubtypeId="Carbon" />
-        <Item Amount="5" TypeId="Ingot" SubtypeId="Sulfor" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Sulfur" />
       </Prerequisites>
       <Results>
         <Item Amount="1" TypeId="Ore" SubtypeId="MineralFertilizer" />

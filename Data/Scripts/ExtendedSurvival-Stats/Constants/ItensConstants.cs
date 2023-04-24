@@ -141,9 +141,9 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId POTASSIUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), POTASSIUM_SUBTYPEID);
         public static readonly UniqueEntityId POTASSIUM_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), POTASSIUM_SUBTYPEID);
 
-        public const string SULFOR_SUBTYPEID = "Sulfor";
-        public static readonly UniqueEntityId SULFOR_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SULFOR_SUBTYPEID);
-        public static readonly UniqueEntityId SULFOR_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SULFOR_SUBTYPEID);
+        public const string SULFUR_SUBTYPEID = "Sulfur";
+        public static readonly UniqueEntityId SULFUR_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SULFUR_SUBTYPEID);
+        public static readonly UniqueEntityId SULFUR_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SULFUR_SUBTYPEID);
 
         public const string STEELGEAR_SUBTYPEID = "SteelGear";
         public static readonly UniqueEntityId STEELGEAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), STEELGEAR_SUBTYPEID);

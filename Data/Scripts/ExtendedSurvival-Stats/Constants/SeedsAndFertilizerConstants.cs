@@ -406,7 +406,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.SULFOR_INGOT_ID,
+                            Id = ItensConstants.SULFUR_INGOT_ID,
                             Ammount = 2.5f
                         }
                     }
