@@ -14,7 +14,7 @@ namespace ExtendedSurvival.Stats
     public class ExtendedSurvivalSettings : BaseSettings
     {
 
-        private const int CURRENT_VERSION = 1;
+        private const int CURRENT_VERSION = 2;
         private const string FILE_NAME = "ExtendedSurvival.Stats.Settings.xml";
 
         private static ExtendedSurvivalSettings _instance;
@@ -32,7 +32,7 @@ namespace ExtendedSurvival.Stats
         public bool HardModeEnabled { get; set; } = false;
 
         [XmlElement]
-        public float MetabolismSpeedMultiplier { get; set; } = 1.0f;
+        public float MetabolismSpeedMultiplier { get; set; } = 4.0f;
 
         [XmlElement]
         public StaminaAttributeSettings StaminaSettings { get; set; } = new StaminaAttributeSettings();
@@ -46,9 +46,18 @@ namespace ExtendedSurvival.Stats
             return res;
         }
 
+        private static ExtendedSurvivalSettings Upgrade(ExtendedSurvivalSettings settings)
+        {
+            if (settings.Version < 2)
+            {
+                settings.MetabolismSpeedMultiplier = 4.0f;
+            }
+            return settings;
+        }
+
         public static ExtendedSurvivalSettings Load()
         {
-            _instance = Load(FILE_NAME, CURRENT_VERSION, Validate, () => { return new ExtendedSurvivalSettings(); });
+            _instance = Load(FILE_NAME, CURRENT_VERSION, Validate, () => { return new ExtendedSurvivalSettings(); }, Upgrade);
             return _instance;
         }
 
