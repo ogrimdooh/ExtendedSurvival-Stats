@@ -45,9 +45,9 @@ namespace ExtendedSurvival.Stats
             return base.GetFullDescription() + Environment.NewLine + GetFishingDescription();
         }
 
-        public ExtendedSurvivalCoreAPI.ItemExtraInfo GetItemExtraInfo()
+        public ItemExtraInfo GetItemExtraInfo()
         {
-            var extraInfo = new ExtendedSurvivalCoreAPI.ItemExtraInfo()
+            var extraInfo = new ItemExtraInfo()
             {
                 DefinitionId = Id.DefinitionId,
                 StartConservationTime = StartConservationTime,
@@ -57,14 +57,14 @@ namespace ExtendedSurvival.Stats
                 RemoveAmmount = 1,
                 AddNewItemWhenSpoil = true
             };
-            extraInfo.AddDefinitionId = new List<ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo>()
+            extraInfo.AddDefinitionId = new List<ItemExtraDefinitionAmmountInfo>()
                 {
-                    new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                    new ItemExtraDefinitionAmmountInfo()
                     {
                         DefinitionId = ItensConstants.SPOILED_MATERIAL_ID.DefinitionId,
                         Ammount = Mass * 0.75f
                     },
-                    new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                    new ItemExtraDefinitionAmmountInfo()
                     {
                         DefinitionId = OreConstants.FISH_BONES_ID.DefinitionId,
                         Ammount = Mass * 0.25f

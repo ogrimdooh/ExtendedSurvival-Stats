@@ -221,7 +221,7 @@ namespace ExtendedSurvival.Stats
             return false;
         }
 
-        private void GenerateProducts(uint itemId, ExtendedSurvivalCoreAPI.ItemExtraInfo item)
+        private void GenerateProducts(uint itemId, ItemExtraInfo item)
         {
             var uniqueId = new UniqueEntityId(item.DefinitionId);
             var fertilizerToRemove = GetFertilizerToRemove(uniqueId);

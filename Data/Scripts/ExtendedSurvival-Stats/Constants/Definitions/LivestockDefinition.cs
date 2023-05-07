@@ -77,9 +77,9 @@ namespace ExtendedSurvival.Stats
             return values.ToString();
         }
 
-        public ExtendedSurvivalCoreAPI.ItemExtraInfo GetItemExtraInfo()
+        public ItemExtraInfo GetItemExtraInfo()
         {
-            var extraInfo = new ExtendedSurvivalCoreAPI.ItemExtraInfo()
+            var extraInfo = new ItemExtraInfo()
             {
                 DefinitionId = Id.DefinitionId,
                 StartConservationTime = StartConservationTime,
@@ -91,14 +91,14 @@ namespace ExtendedSurvival.Stats
             };
             if (IsDeadBody)
             {
-                extraInfo.AddDefinitionId = new List<ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo>()
+                extraInfo.AddDefinitionId = new List<ItemExtraDefinitionAmmountInfo>()
                 {
-                    new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                    new ItemExtraDefinitionAmmountInfo()
                     {
                         DefinitionId = ItensConstants.SPOILED_MATERIAL_ID.DefinitionId,
                         Ammount = Mass * 0.12f
                     },
-                    new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                    new ItemExtraDefinitionAmmountInfo()
                     {
                         DefinitionId = OreConstants.BONES_ID.DefinitionId,
                         Ammount = Mass * 0.08f
@@ -107,27 +107,27 @@ namespace ExtendedSurvival.Stats
             }
             else
             {
-                extraInfo.AddDefinitionId = new List<ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo>()
+                extraInfo.AddDefinitionId = new List<ItemExtraDefinitionAmmountInfo>()
                     {
-                        new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                        new ItemExtraDefinitionAmmountInfo()
                         {
                             DefinitionId = DeadId.DefinitionId,
                             Ammount = 1
                         }
                     };
-                extraInfo.CustomAttributes = new List<ExtendedSurvivalCoreAPI.ItemExtraCustomAttributeInfo>()
+                extraInfo.CustomAttributes = new List<ItemExtraCustomAttributeInfo>()
                     {
-                        new ExtendedSurvivalCoreAPI.ItemExtraCustomAttributeInfo()
+                        new ItemExtraCustomAttributeInfo()
                         {
                             Key = LivestockConstants.CREATURE_EAT_FACTOR_ID,
                             Value = LivestockConstants.BASE_EAT_FACTOR
                         },
-                        new ExtendedSurvivalCoreAPI.ItemExtraCustomAttributeInfo()
+                        new ItemExtraCustomAttributeInfo()
                         {
                             Key = LivestockConstants.CREATURE_ABSORCION_FACTOR_ID,
                             Value = LivestockConstants.BASE_ABSORCION_FACTOR
                         },
-                        new ExtendedSurvivalCoreAPI.ItemExtraCustomAttributeInfo()
+                        new ItemExtraCustomAttributeInfo()
                         {
                             Key = LivestockConstants.CREATURE_POOP_FACTOR_ID,
                             Value = LivestockConstants.BASE_POOP_FACTOR

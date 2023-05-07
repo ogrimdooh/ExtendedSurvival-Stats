@@ -111,14 +111,14 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        private static ExtendedSurvivalCoreAPI.PlanetInfo GetPlanetAtRange(Vector3D pos)
+        private static PlanetInfo GetPlanetAtRange(Vector3D pos)
         {
             if (ExtendedSurvivalCoreAPI.Registered)
                 return ExtendedSurvivalCoreAPI.GetPlanetAtRange(pos);
             return null;
         }
 
-        private static EnvironmentDetector GetEnvironmentType(IMyCharacter entity, Vector3D pos, ExtendedSurvivalCoreAPI.PlanetInfo platAtRange)
+        private static EnvironmentDetector GetEnvironmentType(IMyCharacter entity, Vector3D pos, PlanetInfo platAtRange)
         {
             WeatherConstants.EnvironmentDetector currentValue;
             entity?.Components?.Get<MyCharacterOxygenComponent>()?.UpdateBeforeSimulation100();

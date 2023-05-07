@@ -27,6 +27,7 @@ namespace ExtendedSurvival.Stats
 
         public const string ES_TECHNOLOGY_LOCALNAME = "SEExtendedSurvival-Technology";
 
+        public const ulong ES_STATS_EFFECTS_MODID = 2840924715;
         public const ulong ES_TECHNOLOGY_MODID = 2842844421;
 
         private static bool? isUsingTechnology = null;
@@ -441,15 +442,17 @@ namespace ExtendedSurvival.Stats
                         {
                             ExtendedSurvivalCoreAPI.AddDefinitionToCategory(animalId.DefinitionId, LivestockConstants.ANIMAL_CATEGORY);
                         }
-                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.CEREAL_ID.DefinitionId, new Vector2(15, 50), 50));
-                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(ItensConstants.APPLE_ID.DefinitionId, new Vector2(2, 6), 25) { AlowDesert = false });
-                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new ExtendedSurvivalCoreAPI.TreeDropLoot(SeedsAndFertilizerConstants.APPLETREESEEDLING_ID.DefinitionId, new Vector2(1, 1), 50) { AlowDesert = false, IsGas = true });
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(ItensConstants.CEREAL_ID.DefinitionId, new Vector2(0.5f, 0.75f), 50));
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(ItensConstants.APPLE_ID.DefinitionId, new Vector2(2, 6), 25) { AlowDesert = false });
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(SeedsAndFertilizerConstants.APPLETREESEEDLING_ID.DefinitionId, new Vector2(1, 1), 50) { AlowDesert = false, IsGas = true });
                     
                         if (InvokeAfterCoreApiLoaded.Any())
                             foreach (var action in InvokeAfterCoreApiLoaded)
                             {
                                 action.Invoke();
                             }
+
+                        ExtendedSurvivalCoreAPI.MarkAsAllItensLoaded(ES_STATS_EFFECTS_MODID);
                     }
                 }
             });

@@ -110,7 +110,7 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public ExtendedSurvivalCoreAPI.PlanetInfo PlanetAtRange
+        public PlanetInfo PlanetAtRange
         {
             get
             {

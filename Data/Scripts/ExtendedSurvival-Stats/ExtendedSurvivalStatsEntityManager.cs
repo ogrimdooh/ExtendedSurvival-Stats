@@ -121,7 +121,7 @@ namespace ExtendedSurvival.Stats
             base.UnloadData();
         }
 
-        public ExtendedSurvivalCoreAPI.HandheldGunInfo GetHandheldGun(long id)
+        public HandheldGunInfo GetHandheldGun(long id)
         {
             if (ExtendedSurvivalCoreAPI.Registered)
                 return ExtendedSurvivalCoreAPI.GetHandheldGunInfo(id);

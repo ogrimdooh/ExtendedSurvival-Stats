@@ -160,9 +160,9 @@ namespace ExtendedSurvival.Stats
             };
         }
 
-        public ExtendedSurvivalCoreAPI.ItemExtraInfo GetItemExtraInfo()
+        public ItemExtraInfo GetItemExtraInfo()
         {
-            return new ExtendedSurvivalCoreAPI.ItemExtraInfo()
+            return new ItemExtraInfo()
             {
                 DefinitionId = Id.DefinitionId,
                 StartConservationTime = StartConservationTime,
@@ -171,9 +171,9 @@ namespace ExtendedSurvival.Stats
                 RemoveWhenSpoil = true,
                 RemoveAmmount = 1,
                 AddNewItemWhenSpoil = true,
-                AddDefinitionId = new List<ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo>()
+                AddDefinitionId = new List<ItemExtraDefinitionAmmountInfo>()
                 {
-                    new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                    new ItemExtraDefinitionAmmountInfo()
                     {
                         DefinitionId = ItensConstants.SPOILED_MATERIAL_ID.DefinitionId,
                         Ammount = GetMass()

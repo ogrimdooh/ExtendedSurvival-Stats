@@ -475,20 +475,20 @@ namespace ExtendedSurvival.Stats
         public static readonly long BASE_VEGETABLE_SPOIL_TIME = 15 * 60 * 1000;
         public static readonly long BASE_MEAL_SPOIL_TIME = 20 * 60 * 1000;
 
-        public static readonly Dictionary<UniqueEntityId, ExtendedSurvivalCoreAPI.ItemExtraInfo> ITEM_EXTRA_INFO_DEF = new Dictionary<UniqueEntityId, ExtendedSurvivalCoreAPI.ItemExtraInfo>()
+        public static readonly Dictionary<UniqueEntityId, ItemExtraInfo> ITEM_EXTRA_INFO_DEF = new Dictionary<UniqueEntityId, ItemExtraInfo>()
         {
             {
                 SeedsAndFertilizerConstants.APPLETREESEEDLING_ID,
-                new ExtendedSurvivalCoreAPI.ItemExtraInfo()
+                new ItemExtraInfo()
                 {
                     DefinitionId = SeedsAndFertilizerConstants.APPLETREESEEDLING_ID.DefinitionId,
                     NeedUpdate = true,
                     RemoveWhenSpoil = true,
                     RemoveAmmount = 1,
                     AddNewItemWhenSpoil = true,
-                    AddDefinitionId = new List<ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo>()
+                    AddDefinitionId = new List<ItemExtraDefinitionAmmountInfo>()
                     {
-                        new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                        new ItemExtraDefinitionAmmountInfo()
                         {
                             DefinitionId = SPOILED_MATERIAL_ID.DefinitionId,
                             Ammount = 2.5f
@@ -498,16 +498,16 @@ namespace ExtendedSurvival.Stats
             },
             {
                 SeedsAndFertilizerConstants.APPLETREE_ID,
-                new ExtendedSurvivalCoreAPI.ItemExtraInfo()
+                new ItemExtraInfo()
                 {
                     DefinitionId = SeedsAndFertilizerConstants.APPLETREE_ID.DefinitionId,
                     NeedUpdate = true,
                     RemoveWhenSpoil = true,
                     RemoveAmmount = 1,
                     AddNewItemWhenSpoil = true,
-                    AddDefinitionId = new List<ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo>()
+                    AddDefinitionId = new List<ItemExtraDefinitionAmmountInfo>()
                     {
-                        new ExtendedSurvivalCoreAPI.ItemExtraDefinitionAmmountInfo()
+                        new ItemExtraDefinitionAmmountInfo()
                         {
                             DefinitionId = SeedsAndFertilizerConstants.TREEDEAD_ID.DefinitionId,
                             Ammount = 1
