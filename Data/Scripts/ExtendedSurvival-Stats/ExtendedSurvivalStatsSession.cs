@@ -397,7 +397,7 @@ namespace ExtendedSurvival.Stats
 
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.BODYTRACKER_ID.DefinitionId, 1);
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.WATER_FLASK_SMALL_ID.DefinitionId, 5);
-                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(ItensConstants.CEREALBAR_ID.DefinitionId, 10);
+                        ExtendedSurvivalCoreAPI.AddExtraStartLoot(FoodConstants.CEREALBAR_ID.DefinitionId, 10);
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(MedicalConstants.BANDAGES_ID.DefinitionId, 3);
                         ExtendedSurvivalCoreAPI.AddExtraStartLoot(MedicalConstants.HEALTHINJECTION_ID.DefinitionId, 1);
 
@@ -442,8 +442,8 @@ namespace ExtendedSurvival.Stats
                         {
                             ExtendedSurvivalCoreAPI.AddDefinitionToCategory(animalId.DefinitionId, LivestockConstants.ANIMAL_CATEGORY);
                         }
-                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(ItensConstants.CEREAL_ID.DefinitionId, new Vector2(0.5f, 0.75f), 50));
-                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(ItensConstants.APPLE_ID.DefinitionId, new Vector2(2, 6), 25) { AlowDesert = false });
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(FoodConstants.CEREAL_ID.DefinitionId, new Vector2(0.5f, 0.75f), 50));
+                        ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(FoodConstants.APPLE_ID.DefinitionId, new Vector2(2, 6), 25) { AlowDesert = false });
                         ExtendedSurvivalCoreAPI.AddTreeDropLoot(new TreeDropLoot(SeedsAndFertilizerConstants.APPLETREESEEDLING_ID.DefinitionId, new Vector2(1, 1), 50) { AlowDesert = false, IsGas = true });
                     
                         if (InvokeAfterCoreApiLoaded.Any())
@@ -452,7 +452,25 @@ namespace ExtendedSurvival.Stats
                                 action.Invoke();
                             }
 
-                        ExtendedSurvivalCoreAPI.MarkAsAllItensLoaded(ES_STATS_EFFECTS_MODID);
+                        EquipmentConstants.RegisterShopItens();
+                        FishingConstants.RegisterShopItens();
+                        FoodConstants.RegisterShopItens();
+                        HerbsConstants.RegisterShopItens();
+                        IngotsConstants.RegisterShopItens();
+                        LivestockConstants.RegisterShopItens();
+                        MedicalConstants.RegisterShopItens();
+                        OreConstants.RegisterShopItens();
+                        QuimicalConstants.RegisterShopItens();
+                        RationConstants.RegisterShopItens();
+                        RecipientConstants.RegisterShopItens();
+                        SeedsAndFertilizerConstants.RegisterShopItens();
+                        WeaponsConstants.RegisterShopItens();
+
+                        if (definitionsCheckedToTheEnd)
+                        {
+                            ExtendedSurvivalCoreAPI.MarkAsAllItensLoaded(ES_STATS_EFFECTS_MODID);
+                            markAsAllItensLoadedCalled = true;
+                        }
                     }
                 }
             });
@@ -708,6 +726,8 @@ namespace ExtendedSurvival.Stats
         }
 
         private bool definitionsChecked = false;
+        private bool definitionsCheckedToTheEnd = false;
+        private bool markAsAllItensLoadedCalled = false;
         private void CheckDefinitions()
         {
             ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), $"CheckDefinitions Called");
@@ -853,6 +873,13 @@ namespace ExtendedSurvival.Stats
                 //HUD
                 HUDOverride.TryOverride();
 
+                definitionsCheckedToTheEnd = true;
+                if (ExtendedSurvivalCoreAPI.Registered && !markAsAllItensLoadedCalled)
+                {
+                    ExtendedSurvivalCoreAPI.MarkAsAllItensLoaded(ES_STATS_EFFECTS_MODID);
+                    markAsAllItensLoadedCalled = true;
+                }
+
             }
         }
 
@@ -878,8 +905,8 @@ namespace ExtendedSurvival.Stats
         {
             return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
             {
-                DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), ItensConstants.MEAT_ID, 6),
-                DefinitionUtils.GetLootItem(new Vector2(3, 6).GetMultiplier(multiplier), ItensConstants.NOBLE_MEAT_ID, 1),
+                DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), FoodConstants.MEAT_ID, 6),
+                DefinitionUtils.GetLootItem(new Vector2(3, 6).GetMultiplier(multiplier), FoodConstants.NOBLE_MEAT_ID, 1),
                 DefinitionUtils.GetLootItem(new Vector2(10, 20).GetMultiplier(multiplier), OreConstants.BONES_ID, 3)
             };
         }
@@ -888,10 +915,10 @@ namespace ExtendedSurvival.Stats
         {
             return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
             {
-                DefinitionUtils.GetLootItem(new Vector2(12, 24).GetMultiplier(multiplier), ItensConstants.ALIEN_MEAT_ID, 6),
-                DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), ItensConstants.ALIEN_NOBLE_MEAT_ID, 1),
+                DefinitionUtils.GetLootItem(new Vector2(12, 24).GetMultiplier(multiplier), FoodConstants.ALIEN_MEAT_ID, 6),
+                DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), FoodConstants.ALIEN_NOBLE_MEAT_ID, 1),
                 DefinitionUtils.GetLootItem(new Vector2(20, 40).GetMultiplier(multiplier), OreConstants.BONES_ID, 3),
-                DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), ItensConstants.ALIEN_EGG_ID, 2)
+                DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), FoodConstants.ALIEN_EGG_ID, 2)
             };
         }
 

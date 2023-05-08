@@ -154,7 +154,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.APPLE_ID,
+                            Product = FoodConstants.APPLE_ID,
                             BaseFactor = new Vector2(1, 2),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -178,7 +178,7 @@ namespace ExtendedSurvival.Stats
         public static readonly Dictionary<UniqueEntityId, FarmDefinition> DEFINITIONS = new Dictionary<UniqueEntityId, FarmDefinition>()
         {
             {
-                ItensConstants.SHIITAKE_ID, new FarmDefinition()
+                FoodConstants.SHIITAKE_ID, new FarmDefinition()
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
@@ -190,7 +190,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.SHIITAKE_ID,
+                            Product =FoodConstants.SHIITAKE_ID,
                             BaseFactor = new Vector2(1, 2),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -200,7 +200,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                ItensConstants.CHAMPIGNONS_ID, new FarmDefinition()
+                FoodConstants.CHAMPIGNONS_ID, new FarmDefinition()
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
@@ -212,7 +212,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.CHAMPIGNONS_ID,
+                            Product =FoodConstants.CHAMPIGNONS_ID,
                             BaseFactor = new Vector2(1, 2),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -222,7 +222,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                ItensConstants.AMANITAMUSCARIA_ID, new FarmDefinition()
+                FoodConstants.AMANITAMUSCARIA_ID, new FarmDefinition()
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
@@ -234,7 +234,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.AMANITAMUSCARIA_ID,
+                            Product =FoodConstants.AMANITAMUSCARIA_ID,
                             BaseFactor = new Vector2(1, 2),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -256,7 +256,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.BEETROOT_ID,
+                            Product =FoodConstants.BEETROOT_ID,
                             BaseFactor = new Vector2(2, 3),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -316,7 +316,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.BROCCOLI_ID,
+                            Product =FoodConstants.BROCCOLI_ID,
                             BaseFactor = new Vector2(1, 2),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -346,7 +346,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.CAROOT_ID,
+                            Product =FoodConstants.CAROOT_ID,
                             BaseFactor = new Vector2(2, 3),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -376,7 +376,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.COFFEE_ID,
+                            Product = OreConstants.COFFEE_ID,
                             BaseFactor = new Vector2(0.5f, 4.5f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -436,7 +436,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.TOMATO_ID,
+                            Product =FoodConstants.TOMATO_ID,
                             BaseFactor = new Vector2(1, 2),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
@@ -466,7 +466,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new FarmResultDefinition()
                         {
-                            Product =ItensConstants.WHEAT_ID,
+                            Product = OreConstants.WHEAT_ID,
                             BaseFactor = new Vector2(1.25f, 7.75f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,

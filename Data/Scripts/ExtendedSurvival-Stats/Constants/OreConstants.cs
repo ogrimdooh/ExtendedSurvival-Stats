@@ -106,7 +106,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.WHEATSACK_ID,
+                            Id = FoodConstants.WHEATSACK_ID,
                             Ammount = 0.15f
                         }
                     }
@@ -133,7 +133,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.COFFEESACK_ID,
+                            Id = FoodConstants.COFFEESACK_ID,
                             Ammount = 0.05f
                         }
                     }
@@ -153,6 +153,28 @@ namespace ExtendedSurvival.Stats
         public static void TryOverrideDefinitions()
         {
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<OreDefinition, MyPhysicalItemDefinition>(ORES_DEFINITIONS);
+        }
+
+        public static void RegisterShopItens()
+        {
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = WHEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = COFFEE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
         }
 
     }

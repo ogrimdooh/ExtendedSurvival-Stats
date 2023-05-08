@@ -43,7 +43,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.MEAT_ID,
+                            Id = FoodConstants.MEAT_ID,
                             Ammount = 12
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -73,7 +73,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.ALIEN_MEAT_ID,
+                            Id = FoodConstants.ALIEN_MEAT_ID,
                             Ammount = 12
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -103,7 +103,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.NOBLE_MEAT_ID,
+                            Id = FoodConstants.NOBLE_MEAT_ID,
                             Ammount = 6
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -133,7 +133,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+                            Id = FoodConstants.ALIEN_NOBLE_MEAT_ID,
                             Ammount = 6
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -163,7 +163,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.FISHMEAT_ID,
+                            Id = FoodConstants.FISHMEAT_ID,
                             Ammount = 16
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -193,7 +193,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.NOBLEFISHMEAT_ID,
+                            Id = FoodConstants.NOBLEFISHMEAT_ID,
                             Ammount = 8
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -240,7 +240,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.BROCCOLI_ID,
+                            Id = FoodConstants.BROCCOLI_ID,
                             Ammount = 12
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -270,7 +270,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.BEETROOT_ID,
+                            Id = FoodConstants.BEETROOT_ID,
                             Ammount = 12
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -300,7 +300,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.CAROOT_ID,
+                            Id = FoodConstants.CAROOT_ID,
                             Ammount = 12
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -347,7 +347,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.WHEATSACK_ID,
+                            Id = FoodConstants.WHEATSACK_ID,
                             Ammount = 1.35f
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -377,7 +377,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.CEREAL_ID,
+                            Id = FoodConstants.CEREAL_ID,
                             Ammount = 1.35f
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -410,6 +410,37 @@ namespace ExtendedSurvival.Stats
         public static void TryOverrideDefinitions()
         {
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<RationDefinition, MyPhysicalItemDefinition>(RATIONS_DEFINITIONS);
+        }
+
+        public static void RegisterShopItens()
+        {
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MEATRATION_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = VEGETABLERATION_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = GRAINSRATION_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
         }
 
     }

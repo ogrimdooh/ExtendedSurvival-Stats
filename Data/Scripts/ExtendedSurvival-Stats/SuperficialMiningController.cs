@@ -55,15 +55,15 @@ namespace ExtendedSurvival.Stats
 
         public static readonly List<MiningDropLoot> MINE_DROPS = new List<MiningDropLoot>()
         {
-            new MiningDropLoot(ItensConstants.CHAMPIGNONS_ID, new Vector2(4, 8), 4),
-            new MiningDropLoot(ItensConstants.SHIITAKE_ID, new Vector2(4, 8), 4),
-            new MiningDropLoot(ItensConstants.AMANITAMUSCARIA_ID, new Vector2(2, 4), 5) 
+            new MiningDropLoot(FoodConstants.CHAMPIGNONS_ID, new Vector2(4, 8), 4),
+            new MiningDropLoot(FoodConstants.SHIITAKE_ID, new Vector2(4, 8), 4),
+            new MiningDropLoot(FoodConstants.AMANITAMUSCARIA_ID, new Vector2(2, 4), 5) 
             { 
                 ValidSubType = new string[] { "AlienSoil" },
                 ValidPlanetSubType = new string[] { "Alien", "Titan" }
             },
-            new MiningDropLoot(ItensConstants.CAROOT_ID, new Vector2(1, 4), 2),
-            new MiningDropLoot(ItensConstants.BEETROOT_ID, new Vector2(1, 4), 2),
+            new MiningDropLoot(FoodConstants.CAROOT_ID, new Vector2(1, 4), 2),
+            new MiningDropLoot(FoodConstants.BEETROOT_ID, new Vector2(1, 4), 2),
             new MiningDropLoot(HerbsConstants.ALOEVERA_ID, new Vector2(2, 6), 5),
             new MiningDropLoot(HerbsConstants.ERYTHROXYLUM_ID, new Vector2(1, 4), 5),
             new MiningDropLoot(HerbsConstants.ARNICA_ID, new Vector2(1, 4), 3),

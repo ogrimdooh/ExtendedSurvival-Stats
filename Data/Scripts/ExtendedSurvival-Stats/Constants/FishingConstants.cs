@@ -52,7 +52,7 @@ namespace ExtendedSurvival.Stats
                     { 
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.FISHMEAT_ID,
+                            Id = FoodConstants.FISHMEAT_ID,
                             Ammount = 3
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
@@ -90,7 +90,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.FISHMEAT_ID,
+                            Id = FoodConstants.FISHMEAT_ID,
                             Ammount = 3
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
@@ -128,7 +128,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.NOBLEFISHMEAT_ID,
+                            Id = FoodConstants.NOBLEFISHMEAT_ID,
                             Ammount = 3
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
@@ -166,7 +166,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.NOBLEFISHMEAT_ID,
+                            Id = FoodConstants.NOBLEFISHMEAT_ID,
                             Ammount = 3
                         },
                         new SimpleIngredientRecipeDefinition.RecipeItem()
@@ -204,7 +204,7 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleIngredientRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.SHRIMPMEAT_ID,
+                            Id = FoodConstants.SHRIMPMEAT_ID,
                             Ammount = 1
                         }
                     }
@@ -265,6 +265,55 @@ namespace ExtendedSurvival.Stats
         {
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<FishDefinition, MyPhysicalItemDefinition>(FISHS_DEFINITIONS);
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<FishBaitDefinition, MyPhysicalItemDefinition>(FISH_BAITS_DEFINITIONS);
+        }
+
+        public static void RegisterShopItens()
+        {
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = FISH_ID.DefinitionId,
+                Rarity = ItemRarity.Common,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIENFISH_ID.DefinitionId,
+                Rarity = ItemRarity.Common,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = NOBLEFISH_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIENNOBLEFISH_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHRIMP_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
         }
 
     }

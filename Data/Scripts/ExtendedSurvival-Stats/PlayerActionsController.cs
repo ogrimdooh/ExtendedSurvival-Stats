@@ -513,7 +513,7 @@ namespace ExtendedSurvival.Stats
 
         public static void DoEatStartFood(long playerId)
         {
-            AdvancedStatsAndEffectsAPI.DoPlayerConsume(playerId, ItensConstants.SANDWICH_ID.DefinitionId);
+            AdvancedStatsAndEffectsAPI.DoPlayerConsume(playerId, FoodConstants.SANDWICH_ID.DefinitionId);
             AdvancedStatsAndEffectsAPI.DoPlayerConsume(playerId, ItensConstants.WATER_FLASK_SMALL_ID.DefinitionId);
         }
 

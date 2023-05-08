@@ -566,13 +566,13 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MEAT_ID,
+                    Id = FoodConstants.MEAT_ID,
                     Ammount = 0.25f,
                     AlowFraction = false
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLE_MEAT_ID,
+                    Id = FoodConstants.NOBLE_MEAT_ID,
                     Ammount = 0.05f,
                     AlowFraction = false
                 }
@@ -592,13 +592,13 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_MEAT_ID,
+                    Id = FoodConstants.ALIEN_MEAT_ID,
                     Ammount = 0.25f,
                     AlowFraction = false
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+                    Id = FoodConstants.ALIEN_NOBLE_MEAT_ID,
                     Ammount = 0.05f,
                     AlowFraction = false
                 }
@@ -618,19 +618,19 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MEAT_ID,
+                    Id = FoodConstants.MEAT_ID,
                     Ammount = 0.20f,
                     AlowFraction = false
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLE_MEAT_ID,
+                    Id = FoodConstants.NOBLE_MEAT_ID,
                     Ammount = 0.05f,
                     AlowFraction = false
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BACON_ID,
+                    Id = FoodConstants.BACON_ID,
                     Ammount = 0.05f,
                     AlowFraction = false
                 }
@@ -650,7 +650,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new LivestockDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHICKENMEAT_ID,
+                    Id = FoodConstants.CHICKENMEAT_ID,
                     Ammount = 0.30f,
                     AlowFraction = false
                 }
@@ -1101,7 +1101,7 @@ namespace ExtendedSurvival.Stats
                     gender = AnimalGender.Female,
                     chanceToGenerate = new Vector2I(10, 1000),
                     baseFactor = new Vector2(1, 1),
-                    product = ItensConstants.EGG_ID
+                    product = FoodConstants.EGG_ID
                 }
             }
         };
@@ -1124,7 +1124,7 @@ namespace ExtendedSurvival.Stats
                     gender = AnimalGender.Female,
                     chanceToGenerate = new Vector2I(10, 1000),
                     baseFactor = new Vector2(1, 1),
-                    product = ItensConstants.MILK_ID,
+                    product = FoodConstants.MILK_ID,
                     hasRequiredProduct = true,
                     requiredAmmount = 1,
                     requiredProduct = ItensConstants.FLASK_BIG_ID
@@ -1202,7 +1202,7 @@ namespace ExtendedSurvival.Stats
                     gender = AnimalGender.Female,
                     chanceToGenerate = new Vector2I(10, 1000),
                     baseFactor = new Vector2(1, 1),
-                    product = ItensConstants.ALIEN_EGG_ID
+                    product = FoodConstants.ALIEN_EGG_ID
                 }
             }
         };
@@ -1346,6 +1346,226 @@ namespace ExtendedSurvival.Stats
             {
                 ExtendedSurvivalStatsLogging.Instance.LogError(typeof(LivestockConstants), ex);
             }
+        }
+
+        public static void RegisterShopItens()
+        {
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = COWMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = COWFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = COWBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = DEERMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = DEERFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = DEERBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = HORSEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = HORSEFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = HORSEBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHEEPMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHEEPFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHEEPBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SPIDERMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SPIDERFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SPIDERBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = WOLFMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = WOLFFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = WOLFBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PIGMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PIGFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PIGBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CHICKENMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CHICKENFEMALE_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CHICKENBABY_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
         }
 
     }

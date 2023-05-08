@@ -3,12 +3,290 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using VRage;
+using VRage.Game;
 using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
     public static class FoodConstants
     {
+
+        public const string CONCENTRATEDFAT_SUBTYPEID = "ConcentratedFat";
+        public static readonly UniqueEntityId CONCENTRATEDFAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CONCENTRATEDFAT_SUBTYPEID);
+
+        public const string CONCENTRATEDPROTEIN_SUBTYPEID = "ConcentratedProtein";
+        public static readonly UniqueEntityId CONCENTRATEDPROTEIN_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CONCENTRATEDPROTEIN_SUBTYPEID);
+
+        public const string CONCENTRATEDVITAMIN_SUBTYPEID = "ConcentratedVitamin";
+        public static readonly UniqueEntityId CONCENTRATEDVITAMIN_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CONCENTRATEDVITAMIN_SUBTYPEID);
+
+        public static readonly UniqueEntityId WHEATSACK_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), OreConstants.WHEAT_SUBTYPEID);
+
+        public static readonly UniqueEntityId COFFEESACK_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), OreConstants.COFFEE_SUBTYPEID);
+
+        public const string CEREAL_SUBTYPEID = "Cereal";
+        public static readonly UniqueEntityId CEREAL_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CEREAL_SUBTYPEID);
+
+        public const string FATPORRIDGE_SUBTYPEID = "FatPorridge";
+        public static readonly UniqueEntityId FATPORRIDGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FATPORRIDGE_SUBTYPEID);
+
+        public const string VITAMINPILLS_SUBTYPEID = "VitaminPills";
+        public static readonly UniqueEntityId VITAMINPILLS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VITAMINPILLS_SUBTYPEID);
+
+        public const string PROTEINBAR_SUBTYPEID = "ProteinBar";
+        public static readonly UniqueEntityId PROTEINBAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), PROTEINBAR_SUBTYPEID);
+
+        public const string SHRIMPMEAT_SUBTYPEID = "ShrimpMeat";
+        public static readonly UniqueEntityId SHRIMPMEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SHRIMPMEAT_SUBTYPEID);
+
+        public const string CHEESE_SUBTYPEID = "Cheese";
+        public static readonly UniqueEntityId CHEESE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CHEESE_SUBTYPEID);
+
+        public const string PASTA_SUBTYPEID = "Pasta";
+        public static readonly UniqueEntityId PASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), PASTA_SUBTYPEID);
+
+        public const string ALIEN_PASTA_SUBTYPEID = "AlienPasta";
+        public static readonly UniqueEntityId ALIEN_PASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_PASTA_SUBTYPEID);
+
+        public const string VEGETABLEPASTA_SUBTYPEID = "VegetablePasta";
+        public static readonly UniqueEntityId VEGETABLEPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VEGETABLEPASTA_SUBTYPEID);
+
+        public const string VEGETABLEALIENPASTA_SUBTYPEID = "VegetableAlienPasta";
+        public static readonly UniqueEntityId VEGETABLEALIENPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VEGETABLEALIENPASTA_SUBTYPEID);
+
+        public const string MEATPASTA_SUBTYPEID = "MeatPasta";
+        public static readonly UniqueEntityId MEATPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEATPASTA_SUBTYPEID);
+
+        public const string ALIENMEATPASTA_SUBTYPEID = "AlienMeatPasta";
+        public static readonly UniqueEntityId ALIENMEATPASTA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIENMEATPASTA_SUBTYPEID);
+
+        public const string WATERBREAD_SUBTYPEID = "WaterBread";
+        public static readonly UniqueEntityId WATERBREAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), WATERBREAD_SUBTYPEID);
+
+        public const string CHICKENMEAT_SUBTYPEID = "ChickenMeat";
+        public static readonly UniqueEntityId CHICKENMEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CHICKENMEAT_SUBTYPEID);
+
+        public const string BACON_SUBTYPEID = "Bacon";
+        public static readonly UniqueEntityId BACON_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), BACON_SUBTYPEID);
+
+        public const string CAKEDOUGH_SUBTYPEID = "CakeDough";
+        public static readonly UniqueEntityId CAKEDOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CAKEDOUGH_SUBTYPEID);
+
+        public const string ALIEN_CAKEDOUGH_SUBTYPEID = "AlienCakeDough";
+        public static readonly UniqueEntityId ALIEN_CAKEDOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_CAKEDOUGH_SUBTYPEID);
+
+        public const string DOUGH_SUBTYPEID = "Dough";
+        public static readonly UniqueEntityId DOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), DOUGH_SUBTYPEID);
+
+        public const string ALIEN_DOUGH_SUBTYPEID = "AlienDough";
+        public static readonly UniqueEntityId ALIEN_DOUGH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_DOUGH_SUBTYPEID);
+
+        public const string ROASTEDCHICKEN_SUBTYPEID = "RoastedChicken";
+        public static readonly UniqueEntityId ROASTEDCHICKEN_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTEDCHICKEN_SUBTYPEID);
+
+        public const string ROASTEDBACON_SUBTYPEID = "RoastedBacon";
+        public static readonly UniqueEntityId ROASTEDBACON_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTEDBACON_SUBTYPEID);
+
+        public const string APPLEPIE_SUBTYPEID = "ApplePie";
+        public static readonly UniqueEntityId APPLEPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), APPLEPIE_SUBTYPEID);
+
+        public const string ALIEN_APPLEPIE_SUBTYPEID = "AlienApplePie";
+        public static readonly UniqueEntityId ALIEN_APPLEPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_APPLEPIE_SUBTYPEID);
+
+        public const string CHICKENPIE_SUBTYPEID = "ChickenPie";
+        public static readonly UniqueEntityId CHICKENPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CHICKENPIE_SUBTYPEID);
+
+        public const string ALIEN_CHICKENPIE_SUBTYPEID = "AlienChickenPie";
+        public static readonly UniqueEntityId ALIEN_CHICKENPIE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_CHICKENPIE_SUBTYPEID);
+
+        public const string FISHMEAT_SUBTYPEID = "FishMeat";
+        public static readonly UniqueEntityId FISHMEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FISHMEAT_SUBTYPEID);
+
+        public const string NOBLEFISHMEAT_SUBTYPEID = "NobleFishMeat";
+        public static readonly UniqueEntityId NOBLEFISHMEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), NOBLEFISHMEAT_SUBTYPEID);
+
+        public const string RAWFISHMEATBOWL_SUBTYPEID = "RawFishMeatBowl";
+        public static readonly UniqueEntityId RAWFISHMEATBOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAWFISHMEATBOWL_SUBTYPEID);
+
+        public const string RAWNOBLEFISHMEATBOWL_SUBTYPEID = "RawNobleFishMeatBowl";
+        public static readonly UniqueEntityId RAWNOBLEFISHMEATBOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAWNOBLEFISHMEATBOWL_SUBTYPEID);
+
+        public const string ROASTEDSHRIMP_SUBTYPEID = "RoastedShrimp";
+        public static readonly UniqueEntityId ROASTEDSHRIMP_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTEDSHRIMP_SUBTYPEID);
+
+        public const string ROASTEDFISH_SUBTYPEID = "RoastedFish";
+        public static readonly UniqueEntityId ROASTEDFISH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTEDFISH_SUBTYPEID);
+
+        public const string ROASTEDNOBLEFISH_SUBTYPEID = "RoastedNobleFish";
+        public static readonly UniqueEntityId ROASTEDNOBLEFISH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTEDNOBLEFISH_SUBTYPEID);
+
+        public const string FISHMUSHROOM_SUBTYPEID = "FishMushroom";
+        public static readonly UniqueEntityId FISHMUSHROOM_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FISHMUSHROOM_SUBTYPEID);
+
+        public const string FISHSOUPBOWL_SUBTYPEID = "FishSoupBowl";
+        public static readonly UniqueEntityId FISHSOUPBOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FISHSOUPBOWL_SUBTYPEID);
+
+        public const string SHRIMPSOUPBOWL_SUBTYPEID = "ShrimpSoupBowl";
+        public static readonly UniqueEntityId SHRIMPSOUPBOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SHRIMPSOUPBOWL_SUBTYPEID);
+
+        public const string APPLE_JUICE_SUBTYPEID = "AppleJuice";
+        public static readonly UniqueEntityId APPLE_JUICE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), APPLE_JUICE_SUBTYPEID);
+
+        public const string MILK_SUBTYPEID = "Milk";
+        public static readonly UniqueEntityId MILK_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MILK_SUBTYPEID);
+
+        public const string SODA_SUBTYPEID = "ClangCola";
+        public static readonly UniqueEntityId SODA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SODA_SUBTYPEID);
+
+        public const string COFFEE_CAN_SUBTYPEID = "CosmicCoffee";
+        public static readonly UniqueEntityId COFFEE_CAN_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), COFFEE_CAN_SUBTYPEID);
+
+        public const string ROASTED_MEAT_SUBTYPEID = "RoastedMeat";
+        public static readonly UniqueEntityId ROASTED_MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_MEAT_SUBTYPEID);
+
+        public const string ROASTED_ALIEN_MEAT_SUBTYPEID = "RoastedAlienMeat";
+        public static readonly UniqueEntityId ROASTED_ALIEN_MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_ALIEN_MEAT_SUBTYPEID);
+
+        public const string CEREALBAR_SUBTYPEID = "CerealBar";
+        public static readonly UniqueEntityId CEREALBAR_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CEREALBAR_SUBTYPEID);
+
+        public const string ROASTED_SAUSAGE_SUBTYPEID = "RoastedSausage";
+        public static readonly UniqueEntityId ROASTED_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_SAUSAGE_SUBTYPEID);
+
+        public const string ROASTED_ALIEN_SAUSAGE_SUBTYPEID = "RoastedAlienSausage";
+        public static readonly UniqueEntityId ROASTED_ALIEN_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROASTED_ALIEN_SAUSAGE_SUBTYPEID);
+
+        public const string FRIED_EGG_SUBTYPEID = "FriedEgg";
+        public static readonly UniqueEntityId FRIED_EGG_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FRIED_EGG_SUBTYPEID);
+
+        public const string FRIED_ALIEN_EGG_SUBTYPEID = "FriedAlienEgg";
+        public static readonly UniqueEntityId FRIED_ALIEN_EGG_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), FRIED_ALIEN_EGG_SUBTYPEID);
+
+        public const string STEW_SUBTYPEID = "StewBowl";
+        public static readonly UniqueEntityId STEW_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), STEW_SUBTYPEID);
+
+        public const string ALIEN_STEW_SUBTYPEID = "AlienStewBowl";
+        public static readonly UniqueEntityId ALIEN_STEW_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_STEW_SUBTYPEID);
+
+        public const string MEATLOAF_SUBTYPEID = "MeatloafBowl";
+        public static readonly UniqueEntityId MEATLOAF_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEATLOAF_SUBTYPEID);
+
+        public const string ALIENMEATLOAF_SUBTYPEID = "AlienMeatloafBowl";
+        public static readonly UniqueEntityId ALIENMEATLOAF_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIENMEATLOAF_SUBTYPEID);
+
+        public const string SALAD_SUBTYPEID = "SaladBowl";
+        public static readonly UniqueEntityId SALAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SALAD_SUBTYPEID);
+
+        public const string BREAD_SUBTYPEID = "Bread";
+        public static readonly UniqueEntityId BREAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), BREAD_SUBTYPEID);
+
+        public const string ALIEN_BREAD_SUBTYPEID = "AlienBread";
+        public static readonly UniqueEntityId ALIEN_BREAD_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_BREAD_SUBTYPEID);
+
+        public const string ROAST_CHAMPIGNON_SUBTYPEID = "RoastChampignons";
+        public static readonly UniqueEntityId ROAST_CHAMPIGNON_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROAST_CHAMPIGNON_SUBTYPEID);
+
+        public const string ROAST_SHIITAKE_SUBTYPEID = "RoastShiitake";
+        public static readonly UniqueEntityId ROAST_SHIITAKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ROAST_SHIITAKE_SUBTYPEID);
+
+        public const string MEAT_VEGETABLES_SUBTYPEID = "MeatVegetablesBowl";
+        public static readonly UniqueEntityId MEAT_VEGETABLES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEAT_VEGETABLES_SUBTYPEID);
+
+        public const string ALIEN_MEAT_VEGETABLES_SUBTYPEID = "AlienMeatVegetablesBowl";
+        public static readonly UniqueEntityId ALIEN_MEAT_VEGETABLES_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_MEAT_VEGETABLES_SUBTYPEID);
+
+        public const string MEAT_MUSHROOMS_SUBTYPEID = "MeatMushroom";
+        public static readonly UniqueEntityId MEAT_MUSHROOMS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEAT_MUSHROOMS_SUBTYPEID);
+
+        public const string ALIEN_MEAT_MUSHROOMS_SUBTYPEID = "AlienMeatMushroom";
+        public static readonly UniqueEntityId ALIEN_MEAT_MUSHROOMS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_MEAT_MUSHROOMS_SUBTYPEID);
+
+        public const string SANDWICH_SUBTYPEID = "Sandwich";
+        public static readonly UniqueEntityId SANDWICH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SANDWICH_SUBTYPEID);
+
+        public const string ALIEN_SANDWICH_SUBTYPEID = "AlienSandwich";
+        public static readonly UniqueEntityId ALIEN_SANDWICH_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_SANDWICH_SUBTYPEID);
+
+        public const string CHAMPIGNONS_SUBTYPEID = "Champignons";
+        public static readonly UniqueEntityId CHAMPIGNONS_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CHAMPIGNONS_SUBTYPEID);
+
+        public const string SHIITAKE_SUBTYPEID = "Shiitake";
+        public static readonly UniqueEntityId SHIITAKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SHIITAKE_SUBTYPEID);
+
+        public const string AMANITAMUSCARIA_SUBTYPEID = "AmanitaMuscaria";
+        public static readonly UniqueEntityId AMANITAMUSCARIA_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), AMANITAMUSCARIA_SUBTYPEID);
+
+        public const string BEETROOT_SUBTYPEID = "Beetroot";
+        public static readonly UniqueEntityId BEETROOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), BEETROOT_SUBTYPEID);
+
+        public const string CAROOT_SUBTYPEID = "Carrot";
+        public static readonly UniqueEntityId CAROOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), CAROOT_SUBTYPEID);
+
+        public const string BROCCOLI_SUBTYPEID = "Broccoli";
+        public static readonly UniqueEntityId BROCCOLI_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), BROCCOLI_SUBTYPEID);
+
+        public const string TOMATO_SUBTYPEID = "Tomato";
+        public static readonly UniqueEntityId TOMATO_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), TOMATO_SUBTYPEID);
+
+        public const string NOBLE_MEAT_SUBTYPEID = "NobleMeat";
+        public static readonly UniqueEntityId NOBLE_MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), NOBLE_MEAT_SUBTYPEID);
+
+        public const string ALIEN_MEAT_SUBTYPEID = "AlienMeat";
+        public static readonly UniqueEntityId ALIEN_MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_MEAT_SUBTYPEID);
+
+        public const string ALIEN_NOBLE_MEAT_SUBTYPEID = "AlienNobleMeat";
+        public static readonly UniqueEntityId ALIEN_NOBLE_MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_NOBLE_MEAT_SUBTYPEID);
+
+        public const string ALIEN_EGG_SUBTYPEID = "AlienEgg";
+        public static readonly UniqueEntityId ALIEN_EGG_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_EGG_SUBTYPEID);
+
+        public const string EGG_SUBTYPEID = "Egg";
+        public static readonly UniqueEntityId EGG_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), EGG_SUBTYPEID);
+
+        public const string RAW_SAUSAGE_SUBTYPEID = "RawSausage";
+        public static readonly UniqueEntityId RAW_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_SAUSAGE_SUBTYPEID);
+
+        public const string RAW_ALIEN_SAUSAGE_SUBTYPEID = "RawAlienSausage";
+        public static readonly UniqueEntityId RAW_ALIEN_SAUSAGE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_ALIEN_SAUSAGE_SUBTYPEID);
+
+        public const string RAW_MEAT_BOWL_SUBTYPEID = "RawMeatBowl";
+        public static readonly UniqueEntityId RAW_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_MEAT_BOWL_SUBTYPEID);
+
+        public const string RAW_ALIEN_MEAT_BOWL_SUBTYPEID = "RawAlienMeatBowl";
+        public static readonly UniqueEntityId RAW_ALIEN_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_ALIEN_MEAT_BOWL_SUBTYPEID);
+
+        public const string RAW_NOBLE_MEAT_BOWL_SUBTYPEID = "RawNobleMeatBowl";
+        public static readonly UniqueEntityId RAW_NOBLE_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_NOBLE_MEAT_BOWL_SUBTYPEID);
+
+        public const string RAW_ALIEN_NOBLE_MEAT_BOWL_SUBTYPEID = "RawAlienNobleMeatBowl";
+        public static readonly UniqueEntityId RAW_ALIEN_NOBLE_MEAT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_ALIEN_NOBLE_MEAT_BOWL_SUBTYPEID);
+
+        public const string RAW_BROCCOLI_BOWL_SUBTYPEID = "RawBroccoliBowl";
+        public static readonly UniqueEntityId RAW_BROCCOLI_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_BROCCOLI_BOWL_SUBTYPEID);
+
+        public const string RAW_CARROT_BOWL_SUBTYPEID = "RawCarrotBowl";
+        public static readonly UniqueEntityId RAW_CARROT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_CARROT_BOWL_SUBTYPEID);
+
+        public const string RAW_BEETROOT_BOWL_SUBTYPEID = "RawBeetrootBowl";
+        public static readonly UniqueEntityId RAW_BEETROOT_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RAW_BEETROOT_BOWL_SUBTYPEID);
+
+        public const string VEGETABLE_SOUP_BOWL_SUBTYPEID = "VegetableSoupBowl";
+        public static readonly UniqueEntityId VEGETABLE_SOUP_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), VEGETABLE_SOUP_BOWL_SUBTYPEID);
+
+        public const string MEAT_SOUP_BOWL_SUBTYPEID = "MeatSoupBowl";
+        public static readonly UniqueEntityId MEAT_SOUP_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEAT_SOUP_BOWL_SUBTYPEID);
+
+        public const string ALIEN_MEAT_SOUP_BOWL_SUBTYPEID = "AlienMeatSoupBowl";
+        public static readonly UniqueEntityId ALIEN_MEAT_SOUP_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ALIEN_MEAT_SOUP_BOWL_SUBTYPEID);
+
+        public const string MUSHROOMPATE_BOWL_SUBTYPEID = "MushroomPateBowl";
+        public static readonly UniqueEntityId MUSHROOMPATE_BOWL_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MUSHROOMPATE_BOWL_SUBTYPEID);
+
+        public const string MEAT_SUBTYPEID = "Meat";
+        public static readonly UniqueEntityId MEAT_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEAT_SUBTYPEID);
+
+        public const string APPLE_SUBTYPEID = "Apple";
+        public static readonly UniqueEntityId APPLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), APPLE_SUBTYPEID);
 
         public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;
         public static readonly long BASE_RAW_VEGETABLE_SPOIL_TIME = (long)(7.5f * 60 * 1000);
@@ -19,7 +297,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition APPLE_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.APPLE_ID,
+            Id = APPLE_ID,
             Solid = 0.03f,
             Liquid = 0.120f,
             Protein = 0.36f,
@@ -62,7 +340,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition BROCCOLI_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.BROCCOLI_ID,
+            Id = BROCCOLI_ID,
             Solid = 0.08f,
             Liquid = 0.320f,
             Protein = 11.2f,
@@ -99,7 +377,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition BEETROOT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.BEETROOT_ID,
+            Id = BEETROOT_ID,
             Solid = 0.015f,
             Liquid = 0.105f,
             Protein = 1.92f,
@@ -136,7 +414,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition CAROOT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.CAROOT_ID,
+            Id = CAROOT_ID,
             Solid = 0.015f,
             Liquid = 0.105f,
             Protein = 1.116f,
@@ -173,7 +451,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition SHIITAKE_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.SHIITAKE_ID,
+            Id = SHIITAKE_ID,
             Solid = 0.003f,
             Liquid = 0.027f,
             Protein = 0.66f,
@@ -210,7 +488,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition CHAMPIGNONS_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.CHAMPIGNONS_ID,
+            Id = CHAMPIGNONS_ID,
             Solid = 0.004f,
             Liquid = 0.016f,
             Protein = 0.618f,
@@ -247,7 +525,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition AMANITAMUSCARIA_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.AMANITAMUSCARIA_ID,
+            Id = AMANITAMUSCARIA_ID,
             Solid = 0.004f,
             Liquid = 0.016f,
             Protein = 0.218f,
@@ -290,7 +568,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition TOMATO_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.TOMATO_ID,
+            Id = TOMATO_ID,
             Solid = 0.05f,
             Liquid = 0.104f,
             Protein = 1.08f,
@@ -333,7 +611,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition CEREAL_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.CEREAL_ID,
+            Id = CEREAL_ID,
             Solid = 0.83f,
             Liquid = 0.17f,
             Protein = 150.0f,
@@ -355,7 +633,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition WHEATSACK_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.WHEATSACK_ID,
+            Id = WHEATSACK_ID,
             Solid = 0.83f,
             Liquid = 0.17f,
             Protein = 137.4f,
@@ -377,7 +655,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition COFFEESACK_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.COFFEESACK_ID,
+            Id = COFFEESACK_ID,
             Solid = 0.8f,
             Liquid = 0.2f,
             Protein = 1.0f,
@@ -429,7 +707,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition MILK_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.MILK_ID,
+            Id = MILK_ID,
             Solid = 0.05f,
             Liquid = 0.35f,
             Protein = 12.8f,
@@ -476,7 +754,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition MEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.MEAT_ID,
+            Id = MEAT_ID,
             Solid = 0.025f,
             Liquid = 0.075f,
             Protein = 26.0f,
@@ -513,7 +791,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition ALIENMEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.ALIEN_MEAT_ID,
+            Id = ALIEN_MEAT_ID,
             Solid = 0.025f,
             Liquid = 0.075f,
             Protein = 28.0f,
@@ -550,7 +828,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition CHICKENMEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.CHICKENMEAT_ID,
+            Id = CHICKENMEAT_ID,
             Solid = 0.04f,
             Liquid = 0.06f,
             Protein = 27.0f,
@@ -587,7 +865,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition BACON_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.BACON_ID,
+            Id = BACON_ID,
             Solid = 0.03f,
             Liquid = 0.07f,
             Protein = 37.0f,
@@ -624,7 +902,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition NOBLE_MEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.NOBLE_MEAT_ID,
+            Id = NOBLE_MEAT_ID,
             Solid = 0.045f,
             Liquid = 0.055f,
             Protein = 52.0f,
@@ -661,7 +939,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition ALIEN_NOBLE_MEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+            Id = ALIEN_NOBLE_MEAT_ID,
             Solid = 0.045f,
             Liquid = 0.055f,
             Protein = 56.0f,
@@ -698,7 +976,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition EGG_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.EGG_ID,
+            Id = EGG_ID,
             Solid = 0.010f,
             Liquid = 0.050f,
             Protein = 7.8f,
@@ -735,7 +1013,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition ALIEN_EGG_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.ALIEN_EGG_ID,
+            Id = ALIEN_EGG_ID,
             Solid = 0.015f,
             Liquid = 0.085f,
             Protein = 13.0f,
@@ -772,7 +1050,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition SHRIMPMEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.SHRIMPMEAT_ID,
+            Id = SHRIMPMEAT_ID,
             Solid = 0.002f,
             Liquid = 0.008f,
             Protein = 2.4f,
@@ -809,7 +1087,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition FISHMEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.FISHMEAT_ID,
+            Id = FISHMEAT_ID,
             Solid = 0.02f,
             Liquid = 0.08f,
             Protein = 22.0f,
@@ -846,7 +1124,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition NOBLEFISHMEAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.NOBLEFISHMEAT_ID,
+            Id = NOBLEFISHMEAT_ID,
             Solid = 0.02f,
             Liquid = 0.08f,
             Protein = 44.0f,
@@ -883,7 +1161,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition CONCENTRATEDFAT_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.CONCENTRATEDFAT_ID,
+            Id = CONCENTRATEDFAT_ID,
             Solid = 1.0f,
             Liquid = 0.0f,
             Protein = 0.0f,
@@ -901,7 +1179,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition CONCENTRATEDPROTEIN_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.CONCENTRATEDPROTEIN_ID,
+            Id = CONCENTRATEDPROTEIN_ID,
             Solid = 1.0f,
             Liquid = 0.0f,
             Protein = 1000.0f,
@@ -919,7 +1197,7 @@ namespace ExtendedSurvival.Stats
 
         public static readonly FoodDefinition CONCENTRATEDVITAMIN_DEFINITION = new FoodDefinition()
         {
-            Id = ItensConstants.CONCENTRATEDVITAMIN_ID,
+            Id = CONCENTRATEDVITAMIN_ID,
             Solid = 1.0f,
             Liquid = 0.0f,
             Protein = 0.0f,
@@ -937,33 +1215,33 @@ namespace ExtendedSurvival.Stats
 
         public static Dictionary<UniqueEntityId, FoodDefinition> FOOD_DEFINITIONS = new Dictionary<UniqueEntityId, FoodDefinition>()
         {
-            { ItensConstants.APPLE_ID, APPLE_DEFINITION },
-            { ItensConstants.BROCCOLI_ID, BROCCOLI_DEFINITION },
-            { ItensConstants.BEETROOT_ID, BEETROOT_DEFINITION },
-            { ItensConstants.CAROOT_ID, CAROOT_DEFINITION },
-            { ItensConstants.SHIITAKE_ID, SHIITAKE_DEFINITION },
-            { ItensConstants.CHAMPIGNONS_ID, CHAMPIGNONS_DEFINITION },
-            { ItensConstants.AMANITAMUSCARIA_ID, AMANITAMUSCARIA_DEFINITION },
-            { ItensConstants.TOMATO_ID, TOMATO_DEFINITION },
-            { ItensConstants.CEREAL_ID, CEREAL_DEFINITION },
-            { ItensConstants.WHEATSACK_ID, WHEATSACK_DEFINITION },
-            { ItensConstants.COFFEESACK_ID, COFFEESACK_DEFINITION },
+            { APPLE_ID, APPLE_DEFINITION },
+            { BROCCOLI_ID, BROCCOLI_DEFINITION },
+            { BEETROOT_ID, BEETROOT_DEFINITION },
+            { CAROOT_ID, CAROOT_DEFINITION },
+            { SHIITAKE_ID, SHIITAKE_DEFINITION },
+            { CHAMPIGNONS_ID, CHAMPIGNONS_DEFINITION },
+            { AMANITAMUSCARIA_ID, AMANITAMUSCARIA_DEFINITION },
+            { TOMATO_ID, TOMATO_DEFINITION },
+            { CEREAL_ID, CEREAL_DEFINITION },
+            { WHEATSACK_ID, WHEATSACK_DEFINITION },
+            { COFFEESACK_ID, COFFEESACK_DEFINITION },
             { ItensConstants.ICE_ID, ICE_DEFINITION },
-            { ItensConstants.MILK_ID, MILK_DEFINITION },
-            { ItensConstants.MEAT_ID, MEAT_DEFINITION },
-            { ItensConstants.ALIEN_MEAT_ID, ALIENMEAT_DEFINITION },
-            { ItensConstants.CHICKENMEAT_ID, CHICKENMEAT_DEFINITION },
-            { ItensConstants.BACON_ID, BACON_DEFINITION },
-            { ItensConstants.NOBLE_MEAT_ID, NOBLE_MEAT_DEFINITION },
-            { ItensConstants.ALIEN_NOBLE_MEAT_ID, ALIEN_NOBLE_MEAT_DEFINITION },
-            { ItensConstants.EGG_ID, EGG_DEFINITION },
-            { ItensConstants.ALIEN_EGG_ID, ALIEN_EGG_DEFINITION },
-            { ItensConstants.SHRIMPMEAT_ID, SHRIMPMEAT_DEFINITION },
-            { ItensConstants.FISHMEAT_ID, FISHMEAT_DEFINITION },
-            { ItensConstants.NOBLEFISHMEAT_ID, NOBLEFISHMEAT_DEFINITION },
-            { ItensConstants.CONCENTRATEDFAT_ID, CONCENTRATEDFAT_DEFINITION },
-            { ItensConstants.CONCENTRATEDPROTEIN_ID, CONCENTRATEDPROTEIN_DEFINITION },
-            { ItensConstants.CONCENTRATEDVITAMIN_ID, CONCENTRATEDVITAMIN_DEFINITION }
+            { MILK_ID, MILK_DEFINITION },
+            { MEAT_ID, MEAT_DEFINITION },
+            { ALIEN_MEAT_ID, ALIENMEAT_DEFINITION },
+            { CHICKENMEAT_ID, CHICKENMEAT_DEFINITION },
+            { BACON_ID, BACON_DEFINITION },
+            { NOBLE_MEAT_ID, NOBLE_MEAT_DEFINITION },
+            { ALIEN_NOBLE_MEAT_ID, ALIEN_NOBLE_MEAT_DEFINITION },
+            { EGG_ID, EGG_DEFINITION },
+            { ALIEN_EGG_ID, ALIEN_EGG_DEFINITION },
+            { SHRIMPMEAT_ID, SHRIMPMEAT_DEFINITION },
+            { FISHMEAT_ID, FISHMEAT_DEFINITION },
+            { NOBLEFISHMEAT_ID, NOBLEFISHMEAT_DEFINITION },
+            { CONCENTRATEDFAT_ID, CONCENTRATEDFAT_DEFINITION },
+            { CONCENTRATEDPROTEIN_ID, CONCENTRATEDPROTEIN_DEFINITION },
+            { CONCENTRATEDVITAMIN_ID, CONCENTRATEDVITAMIN_DEFINITION }
         };
 
         public static readonly FoodRecipeDefinition WATER_FLASK_SMALL_DEFINITION = new FoodRecipeDefinition()
@@ -1078,7 +1356,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.APPLE_JUICE_ID,
+                Id = APPLE_JUICE_ID,
                 Ammount = 1
             },
             RecipeName = "AppleJuice_Construction",
@@ -1097,7 +1375,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.APPLE_ID,
+                    Id = APPLE_ID,
                     Ammount = 4
                 }
             },
@@ -1119,7 +1397,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.SODA_ID,
+                Id = SODA_ID,
                 Ammount = 4
             },
             RecipeName = "ClangCola",
@@ -1133,7 +1411,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.APPLE_JUICE_ID,
+                    Id = APPLE_JUICE_ID,
                     Ammount = 1
                 }
             },
@@ -1155,7 +1433,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.COFFEE_CAN_ID,
+                Id = COFFEE_CAN_ID,
                 Ammount = 4
             },
             RecipeName = "CosmicCoffee",
@@ -1174,7 +1452,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.COFFEESACK_ID,
+                    Id = COFFEESACK_ID,
                     Ammount = 0.4f
                 }
             },
@@ -1196,7 +1474,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.DOUGH_ID,
+                Id = DOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "Dough_Construction",
@@ -1205,17 +1483,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MILK_ID,
+                    Id = MILK_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.WHEATSACK_ID,
+                    Id = WHEATSACK_ID,
                     Ammount = 0.5f
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.EGG_ID,
+                    Id = EGG_ID,
                     Ammount = 4
                 }
             },
@@ -1228,7 +1506,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_DOUGH_ID,
+                Id = ALIEN_DOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "AlienDough_Construction",
@@ -1237,17 +1515,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MILK_ID,
+                    Id = MILK_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.WHEATSACK_ID,
+                    Id = WHEATSACK_ID,
                     Ammount = 0.5f
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_EGG_ID,
+                    Id = ALIEN_EGG_ID,
                     Ammount = 4
                 }
             },
@@ -1260,7 +1538,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.CAKEDOUGH_ID,
+                Id = CAKEDOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "CakeDough_Construction",
@@ -1269,17 +1547,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MILK_ID,
+                    Id = MILK_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.WHEATSACK_ID,
+                    Id = WHEATSACK_ID,
                     Ammount = 0.25f
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.EGG_ID,
+                    Id = EGG_ID,
                     Ammount = 2
                 }
             },
@@ -1292,7 +1570,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_CAKEDOUGH_ID,
+                Id = ALIEN_CAKEDOUGH_ID,
                 Ammount = 2
             },
             RecipeName = "AlienCakeDough_Construction",
@@ -1301,17 +1579,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MILK_ID,
+                    Id = MILK_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.WHEATSACK_ID,
+                    Id = WHEATSACK_ID,
                     Ammount = 0.25f
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_EGG_ID,
+                    Id = ALIEN_EGG_ID,
                     Ammount = 2
                 }
             },
@@ -1324,7 +1602,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
+                Id = RAW_BROCCOLI_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawBroccoliBowl_Construction",
@@ -1338,7 +1616,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BROCCOLI_ID,
+                    Id = BROCCOLI_ID,
                     Ammount = 2
                 }
             },
@@ -1351,7 +1629,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                Id = RAW_CARROT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawCarrotBowl_Construction",
@@ -1365,7 +1643,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CAROOT_ID,
+                    Id = CAROOT_ID,
                     Ammount = 5
                 }
             },
@@ -1378,7 +1656,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                Id = RAW_BEETROOT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawBeetrootBowl_Construction",
@@ -1392,7 +1670,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BEETROOT_ID,
+                    Id = BEETROOT_ID,
                     Ammount = 5
                 }
             },
@@ -1405,7 +1683,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_MEAT_BOWL_ID,
+                Id = RAW_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawMeatBowl_Construction",
@@ -1419,7 +1697,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MEAT_ID,
+                    Id = MEAT_ID,
                     Ammount = 2
                 }
             },
@@ -1432,7 +1710,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
+                Id = RAW_ALIEN_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawAlienMeatBowl_Construction",
@@ -1446,7 +1724,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_MEAT_ID,
+                    Id = ALIEN_MEAT_ID,
                     Ammount = 2
                 }
             },
@@ -1459,7 +1737,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_NOBLE_MEAT_BOWL_ID,
+                Id = RAW_NOBLE_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawNobleMeatBowl_Construction",
@@ -1473,7 +1751,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLE_MEAT_ID,
+                    Id = NOBLE_MEAT_ID,
                     Ammount = 2
                 }
             },
@@ -1486,7 +1764,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
+                Id = RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawAlienNobleMeatBowl_Construction",
@@ -1500,7 +1778,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+                    Id = ALIEN_NOBLE_MEAT_ID,
                     Ammount = 2
                 }
             },
@@ -1513,7 +1791,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAWFISHMEATBOWL_ID,
+                Id = RAWFISHMEATBOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawFishMeatBowl_Construction",
@@ -1527,7 +1805,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.FISHMEAT_ID,
+                    Id = FISHMEAT_ID,
                     Ammount = 2
                 }
             },
@@ -1540,7 +1818,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAWNOBLEFISHMEATBOWL_ID,
+                Id = RAWNOBLEFISHMEATBOWL_ID,
                 Ammount = 1
             },
             RecipeName = "RawNobleFishMeatBowl_Construction",
@@ -1554,7 +1832,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLEFISHMEAT_ID,
+                    Id = NOBLEFISHMEAT_ID,
                     Ammount = 2
                 }
             },
@@ -1567,7 +1845,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_SAUSAGE_ID,
+                Id = RAW_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RawSausage_Construction",
@@ -1576,7 +1854,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_MEAT_BOWL_ID,
+                    Id = RAW_MEAT_BOWL_ID,
                     Ammount = 2
                 }
             },
@@ -1594,7 +1872,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.RAW_ALIEN_SAUSAGE_ID,
+                Id = RAW_ALIEN_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RawAlienSausage_Construction",
@@ -1603,7 +1881,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
+                    Id = RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 2
                 }
             },
@@ -1621,7 +1899,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROAST_CHAMPIGNON_ID,
+                Id = ROAST_CHAMPIGNON_ID,
                 Ammount = 1
             },
             RecipeName = "RoastChampignonMushrooms_Construction",
@@ -1630,7 +1908,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHAMPIGNONS_ID,
+                    Id = CHAMPIGNONS_ID,
                     Ammount = 10
                 }
             },
@@ -1643,7 +1921,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROAST_SHIITAKE_ID,
+                Id = ROAST_SHIITAKE_ID,
                 Ammount = 1
             },
             RecipeName = "RoastShiitakeMushrooms_Construction",
@@ -1652,7 +1930,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.SHIITAKE_ID,
+                    Id = SHIITAKE_ID,
                     Ammount = 10
                 }
             },
@@ -1665,7 +1943,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.FRIED_EGG_ID,
+                Id = FRIED_EGG_ID,
                 Ammount = 1
             },
             RecipeName = "FriedEgg_Construction",
@@ -1674,7 +1952,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.EGG_ID,
+                    Id = EGG_ID,
                     Ammount = 1
                 }
             },
@@ -1687,7 +1965,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.FRIED_ALIEN_EGG_ID,
+                Id = FRIED_ALIEN_EGG_ID,
                 Ammount = 1
             },
             RecipeName = "FriedAlienEgg_Construction",
@@ -1696,7 +1974,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_EGG_ID,
+                    Id = ALIEN_EGG_ID,
                     Ammount = 1
                 }
             },
@@ -1709,7 +1987,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTEDBACON_ID,
+                Id = ROASTEDBACON_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedBacon_Construction",
@@ -1718,7 +1996,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BACON_ID,
+                    Id = BACON_ID,
                     Ammount = 1
                 }
             },
@@ -1731,7 +2009,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTEDCHICKEN_ID,
+                Id = ROASTEDCHICKEN_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedChicken_Construction",
@@ -1740,7 +2018,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHICKENMEAT_ID,
+                    Id = CHICKENMEAT_ID,
                     Ammount = 1
                 }
             },
@@ -1753,7 +2031,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTED_SAUSAGE_ID,
+                Id = ROASTED_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedSausage_Construction",
@@ -1762,7 +2040,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_SAUSAGE_ID,
+                    Id = RAW_SAUSAGE_ID,
                     Ammount = 1
                 }
             },
@@ -1775,7 +2053,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTED_ALIEN_SAUSAGE_ID,
+                Id = ROASTED_ALIEN_SAUSAGE_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedAlienSausage_Construction",
@@ -1784,7 +2062,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_ALIEN_SAUSAGE_ID,
+                    Id = RAW_ALIEN_SAUSAGE_ID,
                     Ammount = 1
                 }
             },
@@ -1797,7 +2075,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTED_MEAT_ID,
+                Id = ROASTED_MEAT_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedMeat_Construction",
@@ -1806,7 +2084,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MEAT_ID,
+                    Id = MEAT_ID,
                     Ammount = 1
                 }
             },
@@ -1819,7 +2097,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTED_ALIEN_MEAT_ID,
+                Id = ROASTED_ALIEN_MEAT_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedAlienMeat_Construction",
@@ -1828,7 +2106,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_MEAT_ID,
+                    Id = ALIEN_MEAT_ID,
                     Ammount = 1
                 }
             },
@@ -1841,7 +2119,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.CEREALBAR_ID,
+                Id = CEREALBAR_ID,
                 Ammount = 1
             },
             RecipeName = "CerealBar_Construction",
@@ -1850,7 +2128,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CEREAL_ID,
+                    Id = CEREAL_ID,
                     Ammount = 0.1f
                 }
             },
@@ -1868,7 +2146,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.WATERBREAD_ID,
+                Id = WATERBREAD_ID,
                 Ammount = 1
             },
             RecipeName = "WaterBread_Construction",
@@ -1882,7 +2160,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.WHEATSACK_ID,
+                    Id = WHEATSACK_ID,
                     Ammount = 0.25f
                 }
             },
@@ -1900,7 +2178,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.BREAD_ID,
+                Id = BREAD_ID,
                 Ammount = 2
             },
             RecipeName = "Bread_Construction",
@@ -1909,7 +2187,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.DOUGH_ID,
+                    Id = DOUGH_ID,
                     Ammount = 1
                 }
             },
@@ -1927,7 +2205,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_BREAD_ID,
+                Id = ALIEN_BREAD_ID,
                 Ammount = 2
             },
             RecipeName = "AlienBread_Construction",
@@ -1936,7 +2214,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_DOUGH_ID,
+                    Id = ALIEN_DOUGH_ID,
                     Ammount = 1
                 }
             },
@@ -1954,7 +2232,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.PASTA_ID,
+                Id = PASTA_ID,
                 Ammount = 1
             },
             RecipeName = "Pasta_Construction",
@@ -1963,12 +2241,12 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.DOUGH_ID,
+                    Id = DOUGH_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.WHEATSACK_ID,
+                    Id = WHEATSACK_ID,
                     Ammount = 0.1f
                 }
             },
@@ -1981,7 +2259,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_PASTA_ID,
+                Id = ALIEN_PASTA_ID,
                 Ammount = 1
             },
             RecipeName = "AlienPasta_Construction",
@@ -1990,12 +2268,12 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_DOUGH_ID,
+                    Id = ALIEN_DOUGH_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.WHEATSACK_ID,
+                    Id = WHEATSACK_ID,
                     Ammount = 0.1f
                 }
             },
@@ -2008,7 +2286,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.VEGETABLEPASTA_ID,
+                Id = VEGETABLEPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "VegetablePasta_Construction",
@@ -2017,17 +2295,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.PASTA_ID,
+                    Id = PASTA_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.TOMATO_ID,
+                    Id = TOMATO_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
+                    Id = RAW_BROCCOLI_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2040,7 +2318,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.VEGETABLEALIENPASTA_ID,
+                Id = VEGETABLEALIENPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "VegetableAlienPasta_Construction",
@@ -2049,17 +2327,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_PASTA_ID,
+                    Id = ALIEN_PASTA_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.TOMATO_ID,
+                    Id = TOMATO_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
+                    Id = RAW_BROCCOLI_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2072,7 +2350,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.MEATPASTA_ID,
+                Id = MEATPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "MeatPasta_Construction",
@@ -2081,17 +2359,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.PASTA_ID,
+                    Id = PASTA_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.TOMATO_ID,
+                    Id = TOMATO_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_MEAT_BOWL_ID,
+                    Id = RAW_MEAT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2104,7 +2382,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIENMEATPASTA_ID,
+                Id = ALIENMEATPASTA_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatPasta_Construction",
@@ -2113,17 +2391,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_PASTA_ID,
+                    Id = ALIEN_PASTA_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.TOMATO_ID,
+                    Id = TOMATO_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
+                    Id = RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2136,7 +2414,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.CHEESE_ID,
+                Id = CHEESE_ID,
                 Ammount = 1
             },
             RecipeName = "Cheese_Construction",
@@ -2145,7 +2423,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.MILK_ID,
+                    Id = MILK_ID,
                     Ammount = 2
                 }
             },
@@ -2163,7 +2441,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.SALAD_ID,
+                Id = SALAD_ID,
                 Ammount = 3
             },
             RecipeName = "Salad_Construction",
@@ -2172,22 +2450,22 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.TOMATO_ID,
+                    Id = TOMATO_ID,
                     Ammount = 3
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BROCCOLI_BOWL_ID,
+                    Id = RAW_BROCCOLI_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2200,7 +2478,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.VEGETABLE_SOUP_BOWL_ID,
+                Id = VEGETABLE_SOUP_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "VegetableSoupBowl_Construction",
@@ -2214,12 +2492,12 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2236,7 +2514,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.STEW_ID,
+                Id = STEW_ID,
                 Ammount = 2
             },
             RecipeName = "StewBowl_Construction",
@@ -2250,7 +2528,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_MEAT_BOWL_ID,
+                    Id = RAW_MEAT_BOWL_ID,
                     Ammount = 2
                 }
             },
@@ -2263,7 +2541,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_STEW_ID,
+                Id = ALIEN_STEW_ID,
                 Ammount = 2
             },
             RecipeName = "AlienStewBowl_Construction",
@@ -2277,7 +2555,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
+                    Id = RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 2
                 }
             },
@@ -2290,7 +2568,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.MEAT_VEGETABLES_ID,
+                Id = MEAT_VEGETABLES_ID,
                 Ammount = 2
             },
             RecipeName = "MeatVegetablesBowl_Construction",
@@ -2304,17 +2582,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLE_MEAT_ID,
+                    Id = NOBLE_MEAT_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2327,7 +2605,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_MEAT_VEGETABLES_ID,
+                Id = ALIEN_MEAT_VEGETABLES_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatVegetablesBowl_Construction",
@@ -2341,17 +2619,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+                    Id = ALIEN_NOBLE_MEAT_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2364,7 +2642,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.MEATLOAF_ID,
+                Id = MEATLOAF_ID,
                 Ammount = 2
             },
             RecipeName = "MeatloafBowl_Construction",
@@ -2378,12 +2656,12 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_MEAT_BOWL_ID,
+                    Id = RAW_MEAT_BOWL_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_NOBLE_MEAT_BOWL_ID,
+                    Id = RAW_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2396,7 +2674,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIENMEATLOAF_ID,
+                Id = ALIENMEATLOAF_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatloafBowl_Construction",
@@ -2410,12 +2688,12 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_ALIEN_MEAT_BOWL_ID,
+                    Id = RAW_ALIEN_MEAT_BOWL_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
+                    Id = RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2428,7 +2706,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.MEAT_SOUP_BOWL_ID,
+                Id = MEAT_SOUP_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "MeatSoupBowl_Construction",
@@ -2442,17 +2720,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_NOBLE_MEAT_BOWL_ID,
+                    Id = RAW_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2469,7 +2747,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_MEAT_SOUP_BOWL_ID,
+                Id = ALIEN_MEAT_SOUP_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatSoupBowl_Construction",
@@ -2483,17 +2761,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
+                    Id = RAW_ALIEN_NOBLE_MEAT_BOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2510,7 +2788,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.MUSHROOMPATE_BOWL_ID,
+                Id = MUSHROOMPATE_BOWL_ID,
                 Ammount = 2
             },
             RecipeName = "MushroomPate_Construction",
@@ -2529,12 +2807,12 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHAMPIGNONS_ID,
+                    Id = CHAMPIGNONS_ID,
                     Ammount = 10
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.SHIITAKE_ID,
+                    Id = SHIITAKE_ID,
                     Ammount = 10
                 }
             },
@@ -2551,7 +2829,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.MEAT_MUSHROOMS_ID,
+                Id = MEAT_MUSHROOMS_ID,
                 Ammount = 2
             },
             RecipeName = "MeatMushroom_Construction",
@@ -2565,17 +2843,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLE_MEAT_ID,
+                    Id = NOBLE_MEAT_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHAMPIGNONS_ID,
+                    Id = CHAMPIGNONS_ID,
                     Ammount = 10
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.SHIITAKE_ID,
+                    Id = SHIITAKE_ID,
                     Ammount = 10
                 },
                 new FullRecipeDefinition.RecipeItem()
@@ -2593,7 +2871,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_MEAT_MUSHROOMS_ID,
+                Id = ALIEN_MEAT_MUSHROOMS_ID,
                 Ammount = 2
             },
             RecipeName = "AlienMeatMushroom_Construction",
@@ -2607,17 +2885,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+                    Id = ALIEN_NOBLE_MEAT_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHAMPIGNONS_ID,
+                    Id = CHAMPIGNONS_ID,
                     Ammount = 10
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.SHIITAKE_ID,
+                    Id = SHIITAKE_ID,
                     Ammount = 10
                 },
                 new FullRecipeDefinition.RecipeItem()
@@ -2635,7 +2913,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.SANDWICH_ID,
+                Id = SANDWICH_ID,
                 Ammount = 3
             },
             RecipeName = "Sandwich_Construction",
@@ -2644,22 +2922,22 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.TOMATO_ID,
+                    Id = TOMATO_ID,
                     Ammount = 3
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BREAD_ID,
+                    Id = BREAD_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHEESE_ID,
+                    Id = CHEESE_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ROASTED_SAUSAGE_ID,
+                    Id = ROASTED_SAUSAGE_ID,
                     Ammount = 1
                 }
             },
@@ -2672,7 +2950,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_SANDWICH_ID,
+                Id = ALIEN_SANDWICH_ID,
                 Ammount = 3
             },
             RecipeName = "AlienSandwich_Construction",
@@ -2681,22 +2959,22 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.TOMATO_ID,
+                    Id = TOMATO_ID,
                     Ammount = 3
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_BREAD_ID,
+                    Id = ALIEN_BREAD_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHEESE_ID,
+                    Id = CHEESE_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ROASTED_ALIEN_SAUSAGE_ID,
+                    Id = ROASTED_ALIEN_SAUSAGE_ID,
                     Ammount = 1
                 }
             },
@@ -2709,7 +2987,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTEDSHRIMP_ID,
+                Id = ROASTEDSHRIMP_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedShrimp_Construction",
@@ -2718,7 +2996,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.SHRIMPMEAT_ID,
+                    Id = SHRIMPMEAT_ID,
                     Ammount = 10
                 }
             },
@@ -2731,7 +3009,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTEDFISH_ID,
+                Id = ROASTEDFISH_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedFish_Construction",
@@ -2740,7 +3018,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.FISHMEAT_ID,
+                    Id = FISHMEAT_ID,
                     Ammount = 1
                 }
             },
@@ -2753,7 +3031,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ROASTEDNOBLEFISH_ID,
+                Id = ROASTEDNOBLEFISH_ID,
                 Ammount = 1
             },
             RecipeName = "RoastedNobleFish_Construction",
@@ -2762,7 +3040,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLEFISHMEAT_ID,
+                    Id = NOBLEFISHMEAT_ID,
                     Ammount = 1
                 }
             },
@@ -2775,7 +3053,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.FISHMUSHROOM_ID,
+                Id = FISHMUSHROOM_ID,
                 Ammount = 2
             },
             RecipeName = "FishMushroom_Construction",
@@ -2789,17 +3067,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.NOBLEFISHMEAT_ID,
+                    Id = NOBLEFISHMEAT_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHAMPIGNONS_ID,
+                    Id = CHAMPIGNONS_ID,
                     Ammount = 10
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.SHIITAKE_ID,
+                    Id = SHIITAKE_ID,
                     Ammount = 10
                 },
                 new FullRecipeDefinition.RecipeItem()
@@ -2817,7 +3095,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.FISHSOUPBOWL_ID,
+                Id = FISHSOUPBOWL_ID,
                 Ammount = 2
             },
             RecipeName = "FishSoupBowl_Construction",
@@ -2831,17 +3109,17 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAWNOBLEFISHMEATBOWL_ID,
+                    Id = RAWNOBLEFISHMEATBOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2858,7 +3136,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.SHRIMPSOUPBOWL_ID,
+                Id = SHRIMPSOUPBOWL_ID,
                 Ammount = 2
             },
             RecipeName = "ShrimpSoupBowl_Construction",
@@ -2872,22 +3150,22 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_CARROT_BOWL_ID,
+                    Id = RAW_CARROT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAW_BEETROOT_BOWL_ID,
+                    Id = RAW_BEETROOT_BOWL_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.SHRIMPMEAT_ID,
+                    Id = SHRIMPMEAT_ID,
                     Ammount = 5
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.RAWFISHMEATBOWL_ID,
+                    Id = RAWFISHMEATBOWL_ID,
                     Ammount = 1
                 }
             },
@@ -2904,7 +3182,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.APPLEPIE_ID,
+                Id = APPLEPIE_ID,
                 Ammount = 2
             },
             RecipeName = "ApplePie_Construction",
@@ -2913,12 +3191,12 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CAKEDOUGH_ID,
+                    Id = CAKEDOUGH_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.APPLE_ID,
+                    Id = APPLE_ID,
                     Ammount = 12f
                 }
             },
@@ -2936,7 +3214,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_APPLEPIE_ID,
+                Id = ALIEN_APPLEPIE_ID,
                 Ammount = 2
             },
             RecipeName = "AlienApplePie_Construction",
@@ -2945,12 +3223,12 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_CAKEDOUGH_ID,
+                    Id = ALIEN_CAKEDOUGH_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.APPLE_ID,
+                    Id = APPLE_ID,
                     Ammount = 12f
                 }
             },
@@ -2968,7 +3246,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.CHICKENPIE_ID,
+                Id = CHICKENPIE_ID,
                 Ammount = 2
             },
             RecipeName = "ChickenPie_Construction",
@@ -2977,17 +3255,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CAKEDOUGH_ID,
+                    Id = CAKEDOUGH_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHICKENMEAT_ID,
+                    Id = CHICKENMEAT_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BACON_ID,
+                    Id = BACON_ID,
                     Ammount = 1
                 }
             },
@@ -3005,7 +3283,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_CHICKENPIE_ID,
+                Id = ALIEN_CHICKENPIE_ID,
                 Ammount = 2
             },
             RecipeName = "AlienChickenPie_Construction",
@@ -3014,17 +3292,17 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.ALIEN_CAKEDOUGH_ID,
+                    Id = ALIEN_CAKEDOUGH_ID,
                     Ammount = 1
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CHICKENMEAT_ID,
+                    Id = CHICKENMEAT_ID,
                     Ammount = 2
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.BACON_ID,
+                    Id = BACON_ID,
                     Ammount = 1
                 }
             },
@@ -3042,7 +3320,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.FATPORRIDGE_ID,
+                Id = FATPORRIDGE_ID,
                 Ammount = 1
             },
             RecipeName = "FatPorridge_Construction",
@@ -3061,7 +3339,7 @@ namespace ExtendedSurvival.Stats
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CONCENTRATEDFAT_ID,
+                    Id = CONCENTRATEDFAT_ID,
                     Ammount = 0.15f
                 }
             },
@@ -3074,7 +3352,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.PROTEINBAR_ID,
+                Id = PROTEINBAR_ID,
                 Ammount = 1
             },
             RecipeName = "ProteinBar_Construction",
@@ -3083,12 +3361,12 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CONCENTRATEDPROTEIN_ID,
+                    Id = CONCENTRATEDPROTEIN_ID,
                     Ammount = 0.075f
                 },
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CEREAL_ID,
+                    Id = CEREAL_ID,
                     Ammount = 0.025f
                 }
             },
@@ -3106,7 +3384,7 @@ namespace ExtendedSurvival.Stats
         {
             Product = new FullRecipeDefinition.RecipeItem()
             {
-                Id = ItensConstants.VITAMINPILLS_ID,
+                Id = VITAMINPILLS_ID,
                 Ammount = 1
             },
             RecipeName = "VitaminPills_Construction",
@@ -3115,7 +3393,7 @@ namespace ExtendedSurvival.Stats
             {
                 new FullRecipeDefinition.RecipeItem()
                 {
-                    Id = ItensConstants.CONCENTRATEDVITAMIN_ID,
+                    Id = CONCENTRATEDVITAMIN_ID,
                     Ammount = 0.1f
                 },
                 new FullRecipeDefinition.RecipeItem()
@@ -3139,73 +3417,73 @@ namespace ExtendedSurvival.Stats
             { ItensConstants.WATER_FLASK_SMALL_ID, WATER_FLASK_SMALL_DEFINITION },
             { ItensConstants.WATER_FLASK_MEDIUM_ID, WATER_FLASK_MEDIUM_DEFINITION },
             { ItensConstants.WATER_FLASK_BIG_ID, WATER_FLASK_BIG_DEFINITION },
-            { ItensConstants.APPLE_JUICE_ID, APPLE_JUICE_DEFINITION },
-            { ItensConstants.SODA_ID, SODA_DEFINITION },
-            { ItensConstants.COFFEE_CAN_ID, COFFEE_CAN_DEFINITION },
-            { ItensConstants.DOUGH_ID, DOUGH_DEFINITION },
-            { ItensConstants.ALIEN_DOUGH_ID, ALIEN_DOUGH_DEFINITION },
-            { ItensConstants.CAKEDOUGH_ID, CAKEDOUGH_DEFINITION },
-            { ItensConstants.ALIEN_CAKEDOUGH_ID, ALIEN_CAKEDOUGH_DEFINITION },
-            { ItensConstants.RAW_BROCCOLI_BOWL_ID, RAW_BROCCOLI_BOWL_DEFINITION },
-            { ItensConstants.RAW_CARROT_BOWL_ID, RAW_CARROT_BOWL_DEFINITION },
-            { ItensConstants.RAW_BEETROOT_BOWL_ID, RAW_BEETROOT_BOWL_DEFINITION },
-            { ItensConstants.RAW_MEAT_BOWL_ID, RAW_MEAT_BOWL_RECIPE_DEFINITION },
-            { ItensConstants.RAW_ALIEN_MEAT_BOWL_ID, RAW_ALIEN_MEAT_BOWL_RECIPE_DEFINITION },
-            { ItensConstants.RAW_NOBLE_MEAT_BOWL_ID, RAW_NOBLE_MEAT_BOWL_DEFINITION },
-            { ItensConstants.RAW_ALIEN_NOBLE_MEAT_BOWL_ID, RAW_ALIEN_NOBLE_MEAT_BOWL_DEFINITION },
-            { ItensConstants.RAWFISHMEATBOWL_ID, RAWFISHMEATBOWL_DEFINITION },
-            { ItensConstants.RAWNOBLEFISHMEATBOWL_ID, RAWNOBLEFISHMEATBOWL_DEFINITION },
-            { ItensConstants.RAW_SAUSAGE_ID, RAW_SAUSAGE_DEFINITION },
-            { ItensConstants.RAW_ALIEN_SAUSAGE_ID, RAW_ALIEN_SAUSAGE_DEFINITION },
-            { ItensConstants.ROAST_CHAMPIGNON_ID, ROAST_CHAMPIGNON_DEFINITION },
-            { ItensConstants.ROAST_SHIITAKE_ID, ROAST_SHIITAKE_DEFINITION },
-            { ItensConstants.FRIED_EGG_ID, FRIED_EGG_DEFINITION },
-            { ItensConstants.FRIED_ALIEN_EGG_ID, FRIED_ALIEN_EGG_DEFINITION },
-            { ItensConstants.ROASTEDBACON_ID, ROASTEDBACON_DEFINITION },
-            { ItensConstants.ROASTEDCHICKEN_ID, ROASTEDCHICKEN_DEFINITION },
-            { ItensConstants.ROASTED_SAUSAGE_ID, ROASTED_SAUSAGE_DEFINITION },
-            { ItensConstants.ROASTED_ALIEN_SAUSAGE_ID, ROASTED_ALIEN_SAUSAGE_DEFINITION },
-            { ItensConstants.ROASTED_MEAT_ID, ROASTED_MEAT_DEFINITION },
-            { ItensConstants.ROASTED_ALIEN_MEAT_ID, ROASTED_ALIEN_MEAT_DEFINITION },
-            { ItensConstants.CEREALBAR_ID, CEREALBAR_DEFINITION },
-            { ItensConstants.WATERBREAD_ID, WATERBREAD_DEFINITION },
-            { ItensConstants.BREAD_ID, BREAD_DEFINITION },
-            { ItensConstants.ALIEN_BREAD_ID, ALIEN_BREAD_DEFINITION },
-            { ItensConstants.PASTA_ID, PASTA_DEFINITION },
-            { ItensConstants.ALIEN_PASTA_ID, ALIEN_PASTA_DEFINITION },
-            { ItensConstants.VEGETABLEPASTA_ID, VEGETABLEPASTA_DEFINITION },
-            { ItensConstants.VEGETABLEALIENPASTA_ID, VEGETABLEALIENPASTA_DEFINITION },
-            { ItensConstants.MEATPASTA_ID, MEATPASTA_DEFINITION },
-            { ItensConstants.ALIENMEATPASTA_ID, ALIENMEATPASTA_DEFINITION },
-            { ItensConstants.CHEESE_ID, CHEESE_DEFINITION },
-            { ItensConstants.SALAD_ID, SALAD_DEFINITION },
-            { ItensConstants.VEGETABLE_SOUP_BOWL_ID, VEGETABLE_SOUP_BOWL_DEFINITION },
-            { ItensConstants.STEW_ID, STEW_DEFINITION },
-            { ItensConstants.ALIEN_STEW_ID, ALIEN_STEW_DEFINITION },
-            { ItensConstants.MEAT_VEGETABLES_ID, MEAT_VEGETABLES_DEFINITION },
-            { ItensConstants.ALIEN_MEAT_VEGETABLES_ID, ALIEN_MEAT_VEGETABLES_DEFINITION },
-            { ItensConstants.MEATLOAF_ID, MEATLOAF_DEFINITION },
-            { ItensConstants.ALIENMEATLOAF_ID, ALIENMEATLOAF_DEFINITION },
-            { ItensConstants.MEAT_SOUP_BOWL_ID, MEAT_SOUP_BOWL_DEFINITION },
-            { ItensConstants.ALIEN_MEAT_SOUP_BOWL_ID, ALIEN_MEAT_SOUP_BOWL_DEFINITION },
-            { ItensConstants.MUSHROOMPATE_BOWL_ID, MUSHROOMPATE_BOWL_DEFINITION },
-            { ItensConstants.MEAT_MUSHROOMS_ID, MEAT_MUSHROOMS_DEFINITION },
-            { ItensConstants.ALIEN_MEAT_MUSHROOMS_ID, ALIEN_MEAT_MUSHROOMS_DEFINITION },
-            { ItensConstants.SANDWICH_ID, SANDWICH_DEFINITION },
-            { ItensConstants.ALIEN_SANDWICH_ID, ALIEN_SANDWICH_DEFINITION },
-            { ItensConstants.ROASTEDSHRIMP_ID, ROASTEDSHRIMP_DEFINITION },
-            { ItensConstants.ROASTEDFISH_ID, ROASTEDFISH_DEFINITION },
-            { ItensConstants.ROASTEDNOBLEFISH_ID, ROASTEDNOBLEFISH_DEFINITION },
-            { ItensConstants.FISHMUSHROOM_ID, FISHMUSHROOM_DEFINITION },
-            { ItensConstants.FISHSOUPBOWL_ID, FISHSOUPBOWL_DEFINITION },
-            { ItensConstants.SHRIMPSOUPBOWL_ID, SHRIMPSOUPBOWL_DEFINITION },
-            { ItensConstants.APPLEPIE_ID, APPLEPIE_DEFINITION },
-            { ItensConstants.ALIEN_APPLEPIE_ID, ALIEN_APPLEPIE_DEFINITION },
-            { ItensConstants.CHICKENPIE_ID, CHICKENPIE_DEFINITION },
-            { ItensConstants.ALIEN_CHICKENPIE_ID, ALIEN_CHICKENPIE_DEFINITION },
-            { ItensConstants.FATPORRIDGE_ID, FATPORRIDGE_DEFINITION },
-            { ItensConstants.PROTEINBAR_ID, PROTEINBAR_DEFINITION },
-            { ItensConstants.VITAMINPILLS_ID, VITAMINPILLS_DEFINITION }
+            { APPLE_JUICE_ID, APPLE_JUICE_DEFINITION },
+            { SODA_ID, SODA_DEFINITION },
+            { COFFEE_CAN_ID, COFFEE_CAN_DEFINITION },
+            { DOUGH_ID, DOUGH_DEFINITION },
+            { ALIEN_DOUGH_ID, ALIEN_DOUGH_DEFINITION },
+            { CAKEDOUGH_ID, CAKEDOUGH_DEFINITION },
+            { ALIEN_CAKEDOUGH_ID, ALIEN_CAKEDOUGH_DEFINITION },
+            { RAW_BROCCOLI_BOWL_ID, RAW_BROCCOLI_BOWL_DEFINITION },
+            { RAW_CARROT_BOWL_ID, RAW_CARROT_BOWL_DEFINITION },
+            { RAW_BEETROOT_BOWL_ID, RAW_BEETROOT_BOWL_DEFINITION },
+            { RAW_MEAT_BOWL_ID, RAW_MEAT_BOWL_RECIPE_DEFINITION },
+            { RAW_ALIEN_MEAT_BOWL_ID, RAW_ALIEN_MEAT_BOWL_RECIPE_DEFINITION },
+            { RAW_NOBLE_MEAT_BOWL_ID, RAW_NOBLE_MEAT_BOWL_DEFINITION },
+            { RAW_ALIEN_NOBLE_MEAT_BOWL_ID, RAW_ALIEN_NOBLE_MEAT_BOWL_DEFINITION },
+            { RAWFISHMEATBOWL_ID, RAWFISHMEATBOWL_DEFINITION },
+            { RAWNOBLEFISHMEATBOWL_ID, RAWNOBLEFISHMEATBOWL_DEFINITION },
+            { RAW_SAUSAGE_ID, RAW_SAUSAGE_DEFINITION },
+            { RAW_ALIEN_SAUSAGE_ID, RAW_ALIEN_SAUSAGE_DEFINITION },
+            { ROAST_CHAMPIGNON_ID, ROAST_CHAMPIGNON_DEFINITION },
+            { ROAST_SHIITAKE_ID, ROAST_SHIITAKE_DEFINITION },
+            { FRIED_EGG_ID, FRIED_EGG_DEFINITION },
+            { FRIED_ALIEN_EGG_ID, FRIED_ALIEN_EGG_DEFINITION },
+            { ROASTEDBACON_ID, ROASTEDBACON_DEFINITION },
+            { ROASTEDCHICKEN_ID, ROASTEDCHICKEN_DEFINITION },
+            { ROASTED_SAUSAGE_ID, ROASTED_SAUSAGE_DEFINITION },
+            { ROASTED_ALIEN_SAUSAGE_ID, ROASTED_ALIEN_SAUSAGE_DEFINITION },
+            { ROASTED_MEAT_ID, ROASTED_MEAT_DEFINITION },
+            { ROASTED_ALIEN_MEAT_ID, ROASTED_ALIEN_MEAT_DEFINITION },
+            { CEREALBAR_ID, CEREALBAR_DEFINITION },
+            { WATERBREAD_ID, WATERBREAD_DEFINITION },
+            { BREAD_ID, BREAD_DEFINITION },
+            { ALIEN_BREAD_ID, ALIEN_BREAD_DEFINITION },
+            { PASTA_ID, PASTA_DEFINITION },
+            { ALIEN_PASTA_ID, ALIEN_PASTA_DEFINITION },
+            { VEGETABLEPASTA_ID, VEGETABLEPASTA_DEFINITION },
+            { VEGETABLEALIENPASTA_ID, VEGETABLEALIENPASTA_DEFINITION },
+            { MEATPASTA_ID, MEATPASTA_DEFINITION },
+            { ALIENMEATPASTA_ID, ALIENMEATPASTA_DEFINITION },
+            { CHEESE_ID, CHEESE_DEFINITION },
+            { SALAD_ID, SALAD_DEFINITION },
+            { VEGETABLE_SOUP_BOWL_ID, VEGETABLE_SOUP_BOWL_DEFINITION },
+            { STEW_ID, STEW_DEFINITION },
+            { ALIEN_STEW_ID, ALIEN_STEW_DEFINITION },
+            { MEAT_VEGETABLES_ID, MEAT_VEGETABLES_DEFINITION },
+            { ALIEN_MEAT_VEGETABLES_ID, ALIEN_MEAT_VEGETABLES_DEFINITION },
+            { MEATLOAF_ID, MEATLOAF_DEFINITION },
+            { ALIENMEATLOAF_ID, ALIENMEATLOAF_DEFINITION },
+            { MEAT_SOUP_BOWL_ID, MEAT_SOUP_BOWL_DEFINITION },
+            { ALIEN_MEAT_SOUP_BOWL_ID, ALIEN_MEAT_SOUP_BOWL_DEFINITION },
+            { MUSHROOMPATE_BOWL_ID, MUSHROOMPATE_BOWL_DEFINITION },
+            { MEAT_MUSHROOMS_ID, MEAT_MUSHROOMS_DEFINITION },
+            { ALIEN_MEAT_MUSHROOMS_ID, ALIEN_MEAT_MUSHROOMS_DEFINITION },
+            { SANDWICH_ID, SANDWICH_DEFINITION },
+            { ALIEN_SANDWICH_ID, ALIEN_SANDWICH_DEFINITION },
+            { ROASTEDSHRIMP_ID, ROASTEDSHRIMP_DEFINITION },
+            { ROASTEDFISH_ID, ROASTEDFISH_DEFINITION },
+            { ROASTEDNOBLEFISH_ID, ROASTEDNOBLEFISH_DEFINITION },
+            { FISHMUSHROOM_ID, FISHMUSHROOM_DEFINITION },
+            { FISHSOUPBOWL_ID, FISHSOUPBOWL_DEFINITION },
+            { SHRIMPSOUPBOWL_ID, SHRIMPSOUPBOWL_DEFINITION },
+            { APPLEPIE_ID, APPLEPIE_DEFINITION },
+            { ALIEN_APPLEPIE_ID, ALIEN_APPLEPIE_DEFINITION },
+            { CHICKENPIE_ID, CHICKENPIE_DEFINITION },
+            { ALIEN_CHICKENPIE_ID, ALIEN_CHICKENPIE_DEFINITION },
+            { FATPORRIDGE_ID, FATPORRIDGE_DEFINITION },
+            { PROTEINBAR_ID, PROTEINBAR_DEFINITION },
+            { VITAMINPILLS_ID, VITAMINPILLS_DEFINITION }
         };
 
         public static readonly List<UniqueEntityId> FOOD_RECIPIENTS = new List<UniqueEntityId>()
@@ -3226,7 +3504,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.TOMATO_ID,
+                Id = TOMATO_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.TOMATOTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3239,7 +3517,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.APPLE_ID,
+                Id = APPLE_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.APPLETOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3252,7 +3530,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_EGG_ID,
+                Id = ALIEN_EGG_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIENEGGTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3265,7 +3543,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.EGG_ID,
+                Id = EGG_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.EGGTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3278,7 +3556,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.SHRIMPMEAT_ID,
+                Id = SHRIMPMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.SHRIMPMEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3291,7 +3569,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.SHRIMPMEAT_ID,
+                Id = SHRIMPMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.SHRIMPMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3304,7 +3582,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.FISHMEAT_ID,
+                Id = FISHMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.FISHMEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3317,7 +3595,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.FISHMEAT_ID,
+                Id = FISHMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.FISHMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3330,7 +3608,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_MEAT_ID,
+                Id = ALIEN_MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3343,7 +3621,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_MEAT_ID,
+                Id = ALIEN_MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3356,7 +3634,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.MEAT_ID,
+                Id = MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.MEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3369,7 +3647,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.MEAT_ID,
+                Id = MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.MEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3382,7 +3660,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.CHICKENMEAT_ID,
+                Id = CHICKENMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENMEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3395,7 +3673,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.CHICKENMEAT_ID,
+                Id = CHICKENMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.CHICKENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3408,7 +3686,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.MILK_ID,
+                Id = MILK_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.MILKTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3421,7 +3699,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.MILK_ID,
+                Id = MILK_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.MILKTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3434,7 +3712,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.BACON_ID,
+                Id = BACON_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.BACONTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3447,7 +3725,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.BACON_ID,
+                Id = BACON_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.BACONTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3460,7 +3738,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.NOBLEFISHMEAT_ID,
+                Id = NOBLEFISHMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISHMEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3473,7 +3751,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.NOBLEFISHMEAT_ID,
+                Id = NOBLEFISHMEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEFISHMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3486,7 +3764,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+                Id = ALIEN_NOBLE_MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEALIENMEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3499,7 +3777,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.ALIEN_NOBLE_MEAT_ID,
+                Id = ALIEN_NOBLE_MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEALIENMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3512,7 +3790,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.NOBLE_MEAT_ID,
+                Id = NOBLE_MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEMEATTOCONCENTRATED_CONSTRUCTION_NAME),
@@ -3525,7 +3803,7 @@ namespace ExtendedSurvival.Stats
         {
             Ingredient = new FoodConcentratedExtractDefinition.RecipeItem()
             {
-                Id = ItensConstants.NOBLE_MEAT_ID,
+                Id = NOBLE_MEAT_ID,
                 Ammount = 1
             },
             Name = LanguageProvider.GetEntry(LanguageEntries.NOBLEMEATTOCONCENTRATEDFAT_CONSTRUCTION_NAME),
@@ -3537,7 +3815,7 @@ namespace ExtendedSurvival.Stats
         public static readonly Dictionary<UniqueEntityId, List<FoodConcentratedExtractDefinition>> FOOD_CONCENTRATED_EXTRACTORS = new Dictionary<UniqueEntityId, List<FoodConcentratedExtractDefinition>>()
         {
             { 
-                ItensConstants.CONCENTRATEDVITAMIN_ID,  
+                CONCENTRATEDVITAMIN_ID,  
                 new List<FoodConcentratedExtractDefinition>()
                 {
                     TOMATO_TO_CONCENTRATED_DEFINITION,
@@ -3545,7 +3823,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                ItensConstants.CONCENTRATEDPROTEIN_ID,
+                CONCENTRATEDPROTEIN_ID,
                 new List<FoodConcentratedExtractDefinition>()
                 {
                     ALIENEGG_TO_CONCENTRATED_DEFINITION,
@@ -3563,7 +3841,7 @@ namespace ExtendedSurvival.Stats
                 }
             },
             {
-                ItensConstants.CONCENTRATEDFAT_ID,
+                CONCENTRATEDFAT_ID,
                 new List<FoodConcentratedExtractDefinition>()
                 {
                     SHRIMPMEAT_TO_CONCENTRATED_FAT_DEFINITION,
@@ -3734,11 +4012,11 @@ namespace ExtendedSurvival.Stats
                                 }
                             };
                             float resultAmmount = 0;
-                            if (targetFood == ItensConstants.CONCENTRATEDVITAMIN_ID)
+                            if (targetFood == CONCENTRATEDVITAMIN_ID)
                                 resultAmmount = targetIngredientDef.Vitamins;
-                            if (targetFood == ItensConstants.CONCENTRATEDPROTEIN_ID)
+                            if (targetFood == CONCENTRATEDPROTEIN_ID)
                                 resultAmmount = targetIngredientDef.Protein;
-                            if (targetFood == ItensConstants.CONCENTRATEDFAT_ID)
+                            if (targetFood == CONCENTRATEDFAT_ID)
                                 resultAmmount = targetIngredientDef.Lipids;
                             recipeDef.Results = new MyBlueprintDefinitionBase.Item[] {
                                 new MyBlueprintDefinitionBase.Item()
@@ -3774,6 +4052,712 @@ namespace ExtendedSurvival.Stats
             {
                 ExtendedSurvivalStatsLogging.Instance.LogError(typeof(FoodConstants), ex);
             }
+        }
+
+        public static void RegisterShopItens()
+        {
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CONCENTRATEDFAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CONCENTRATEDPROTEIN_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CONCENTRATEDVITAMIN_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = WHEATSACK_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = COFFEESACK_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CEREAL_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = FATPORRIDGE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = VITAMINPILLS_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PROTEINBAR_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHRIMPMEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CHEESE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = VEGETABLEPASTA_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = VEGETABLEALIENPASTA_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MEATPASTA_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIENMEATPASTA_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = WATERBREAD_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CHICKENMEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = BACON_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTEDCHICKEN_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTEDBACON_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = APPLEPIE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_APPLEPIE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CHICKENPIE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_CHICKENPIE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = FISHMEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = NOBLEFISHMEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTEDSHRIMP_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTEDFISH_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTEDNOBLEFISH_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = FISHMUSHROOM_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = FISHSOUPBOWL_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHRIMPSOUPBOWL_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = APPLE_JUICE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MILK_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SODA_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = COFFEE_CAN_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTED_MEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTED_ALIEN_MEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CEREALBAR_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTED_SAUSAGE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROASTED_ALIEN_SAUSAGE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = FRIED_EGG_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = FRIED_ALIEN_EGG_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = STEW_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_STEW_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MEATLOAF_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIENMEATLOAF_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SALAD_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = BREAD_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_BREAD_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROAST_CHAMPIGNON_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ROAST_SHIITAKE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MEAT_VEGETABLES_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_MEAT_VEGETABLES_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MEAT_MUSHROOMS_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_MEAT_MUSHROOMS_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SANDWICH_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_SANDWICH_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CHAMPIGNONS_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHIITAKE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = AMANITAMUSCARIA_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = BEETROOT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = CAROOT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = BROCCOLI_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = TOMATO_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = NOBLE_MEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_MEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_NOBLE_MEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_EGG_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = EGG_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = RAW_SAUSAGE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = RAW_ALIEN_SAUSAGE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = VEGETABLE_SOUP_BOWL_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MEAT_SOUP_BOWL_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALIEN_MEAT_SOUP_BOWL_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MUSHROOMPATE_BOWL_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = MEAT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Livestock }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = APPLE_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Farming }
+            });
         }
 
     }
