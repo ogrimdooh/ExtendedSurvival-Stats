@@ -625,7 +625,7 @@ namespace ExtendedSurvival.Stats
             Name = LanguageProvider.GetEntry(LanguageEntries.CEREAL_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.CEREAL_DESCRIPTION),
             CanPlayerOrder = true,
-            MinimalPricePerUnit = 12,
+            MinimalPricePerUnit = 25,
             OfferAmount = new Vector2I(15000, 45000),
             OrderAmount = new Vector2I(5000, 15000),
             AcquisitionAmount = new Vector2I(10000, 30000)
@@ -1174,7 +1174,8 @@ namespace ExtendedSurvival.Stats
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
             Name = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDFAT_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDFAT_DESCRIPTION),
-            SimpleDescription = true
+            SimpleDescription = true,
+            MinimalPricePerUnit = 5
         };
 
         public static readonly FoodDefinition CONCENTRATEDPROTEIN_DEFINITION = new FoodDefinition()
@@ -1192,7 +1193,8 @@ namespace ExtendedSurvival.Stats
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
             Name = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDPROTEIN_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDPROTEIN_DESCRIPTION),
-            SimpleDescription = true
+            SimpleDescription = true,
+            MinimalPricePerUnit = 5
         };
 
         public static readonly FoodDefinition CONCENTRATEDVITAMIN_DEFINITION = new FoodDefinition()
@@ -1210,7 +1212,8 @@ namespace ExtendedSurvival.Stats
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
             Name = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDVITAMIN_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.CONCENTRATEDVITAMIN_DESCRIPTION),
-            SimpleDescription = true
+            SimpleDescription = true,
+            MinimalPricePerUnit = 5
         };
 
         public static Dictionary<UniqueEntityId, FoodDefinition> FOOD_DEFINITIONS = new Dictionary<UniqueEntityId, FoodDefinition>()
@@ -4063,6 +4066,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Market }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4072,6 +4076,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Market }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4081,6 +4086,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Market }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4108,6 +4114,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4207,6 +4214,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4216,6 +4224,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4360,6 +4369,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4585,6 +4595,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4594,6 +4605,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4603,6 +4615,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4612,6 +4625,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4621,6 +4635,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4630,6 +4645,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4639,6 +4655,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4648,6 +4665,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4657,6 +4675,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4666,6 +4685,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4675,6 +4695,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4684,6 +4705,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4747,6 +4769,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Livestock }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -4756,6 +4779,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
         }

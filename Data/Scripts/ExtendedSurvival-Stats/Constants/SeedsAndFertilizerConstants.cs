@@ -578,6 +578,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -587,6 +588,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -596,6 +598,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -605,6 +608,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -614,6 +618,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -623,6 +628,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -632,6 +638,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -641,6 +648,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -650,6 +658,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -659,6 +668,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -668,6 +678,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -704,6 +715,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
         }

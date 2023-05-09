@@ -95,6 +95,7 @@ namespace ExtendedSurvival.Stats
             CanPlayerOrder = false,
             Mass = 1f,
             Volume = 0.05f,
+            MinimalPricePerUnit = 20,
             RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
             {
                 new SimpleIngredientRecipeDefinition()
@@ -122,6 +123,7 @@ namespace ExtendedSurvival.Stats
             CanPlayerOrder = false,
             Mass = 1f,
             Volume = 0.05f,
+            MinimalPricePerUnit = 30,
             RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
             {
                 new SimpleIngredientRecipeDefinition()
@@ -164,6 +166,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
@@ -173,6 +176,7 @@ namespace ExtendedSurvival.Stats
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
+                ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
             });
         }
