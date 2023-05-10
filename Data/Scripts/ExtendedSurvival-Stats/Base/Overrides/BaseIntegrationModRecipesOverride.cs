@@ -86,6 +86,11 @@ namespace ExtendedSurvival.Stats
         protected abstract List<UniqueEntityId> GetBlocks();
         protected abstract List<ComponentCost> GetBlockCost(UniqueEntityId item);
 
+        protected virtual bool IgnoreBlockCost(UniqueEntityId item)
+        {
+            return false;
+        }
+
         protected override void OnSetDefinitions()
         {
             foreach (var block in GetBlocks())
@@ -185,38 +190,41 @@ namespace ExtendedSurvival.Stats
 
         private void SetComponents(MyCubeBlockDefinition blockDefinition, UniqueEntityId block)
         {
-            var newCompsList = GetBlockCost(block);
-            if (newCompsList.Count > 0)
+            if (!IgnoreBlockCost(block))
             {
-                var mass = 0f;
-                var maxIntegrity = 0;
-                var criticalRatio = 0f;
-                var ownershipRatio = 0f;
-                var newComps = new List<MyCubeBlockDefinition.Component>();
-                foreach (var item in newCompsList)
+                var newCompsList = GetBlockCost(block);
+                if (newCompsList.Count > 0)
                 {
-                    var compDef = GetComponentDefinition(item.subtype);
-                    var deconstructDef = GetComponentDefinition(item.deconstructId);
-                    var newComp = new MyCubeBlockDefinition.Component
+                    var mass = 0f;
+                    var maxIntegrity = 0;
+                    var criticalRatio = 0f;
+                    var ownershipRatio = 0f;
+                    var newComps = new List<MyCubeBlockDefinition.Component>();
+                    foreach (var item in newCompsList)
                     {
-                        Definition = compDef,
-                        Count = item.count,
-                        DeconstructItem = deconstructDef != null ? deconstructDef : compDef
-                    };
-                    newComps.Add(newComp);
-                    mass += newComp.Definition.Mass * newComp.Count;
-                    ownershipRatio = item.subtype.Equals("Computer") ? maxIntegrity : ownershipRatio;
-                    maxIntegrity += newComp.Definition.MaxIntegrity * newComp.Count;
-                    criticalRatio = item.critical ? maxIntegrity : criticalRatio;
+                        var compDef = GetComponentDefinition(item.subtype);
+                        var deconstructDef = GetComponentDefinition(item.deconstructId);
+                        var newComp = new MyCubeBlockDefinition.Component
+                        {
+                            Definition = compDef,
+                            Count = item.count,
+                            DeconstructItem = deconstructDef != null ? deconstructDef : compDef
+                        };
+                        newComps.Add(newComp);
+                        mass += newComp.Definition.Mass * newComp.Count;
+                        ownershipRatio = item.subtype.Equals("Computer") ? maxIntegrity : ownershipRatio;
+                        maxIntegrity += newComp.Definition.MaxIntegrity * newComp.Count;
+                        criticalRatio = item.critical ? maxIntegrity : criticalRatio;
+                    }
+                    blockDefinition.Mass = mass;
+                    blockDefinition.MaxIntegrity = maxIntegrity;
+                    blockDefinition.Components = newComps.ToArray();
+                    blockDefinition.CriticalIntegrityRatio = criticalRatio / maxIntegrity;
+                    blockDefinition.OwnershipIntegrityRatio = ownershipRatio / maxIntegrity;
                 }
-                blockDefinition.Mass = mass;
-                blockDefinition.MaxIntegrity = maxIntegrity;
-                blockDefinition.Components = newComps.ToArray();
-                blockDefinition.CriticalIntegrityRatio = criticalRatio / maxIntegrity;
-                blockDefinition.OwnershipIntegrityRatio = ownershipRatio / maxIntegrity;
+                else
+                    ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"Override block no components to set. ID=[{block}]");
             }
-            else
-                ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"Override block no components to set. ID=[{block}]");
             OnAfterSetComponents(blockDefinition, block);
         }
 

@@ -56,6 +56,11 @@ namespace ExtendedSurvival.Stats
             return new List<ComponentCost>();
         }
 
+        protected override bool IgnoreBlockCost(UniqueEntityId item)
+        {
+            return true;
+        }
+
         protected override List<UniqueEntityId> GetBlocks()
         {
             var retorno = new List<UniqueEntityId>();
