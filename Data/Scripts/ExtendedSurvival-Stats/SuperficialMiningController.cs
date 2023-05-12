@@ -9,6 +9,7 @@ using VRage.Game.Entity;
 using VRageMath;
 using Sandbox.Game;
 using Sandbox.ModAPI;
+using VRage.Game.ModAPI;
 
 namespace ExtendedSurvival.Stats
 {
@@ -132,10 +133,19 @@ namespace ExtendedSurvival.Stats
                                 }
                                 else
                                 {
-                                    var target = grid.Inventories.FirstOrDefault(x => inventory.CanTransferItemTo(x.GetInventory(), i.DefinitionId));
-                                    if (target != null)
+                                    var targets = grid.Inventories.Where(x => 
+                                        x.GetInventory().CanItemsBeAdded((MyFixedPoint)amountfinal, i.DefinitionId) &&
+                                        inventory.CanTransferItemTo(x.GetInventory(), i.DefinitionId)
+                                    ).ToArray();
+                                    if (targets.Any())
                                     {
-                                        target.GetInventory().AddMaxItems(amountfinal, ItensConstants.GetPhysicalObjectBuilder(i));
+                                        foreach (var target in targets)
+                                        {
+                                            var addedAmount = target.GetInventory().AddMaxItems(amountfinal, ItensConstants.GetPhysicalObjectBuilder(i));
+                                            amountfinal -= addedAmount;
+                                            if (amountfinal <= 0)
+                                                break;
+                                        }
                                     }
                                 }
                             }
