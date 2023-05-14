@@ -24,19 +24,10 @@ namespace ExtendedSurvival.Stats
         public float ToolsDrainMultiplier { get; set; } = 1.0f;
 
         [XmlElement]
+        public float JumpDrainMultiplier { get; set; } = 1.0f;
+
+        [XmlElement]
         public float DamageMultiplier { get; set; } = 1.0f;
-
-        [XmlElement]
-        public bool LostMaxStaminaWhenGotSick { get; set; } = true;
-
-        [XmlElement]
-        public bool IncriseStaminaDrainWithTemperature { get; set; } = true;
-
-        [XmlElement]
-        public bool IncriseStaminaDrainWithBodyFat { get; set; } = true;
-
-        [XmlElement]
-        public bool DecreaseStaminaGainWithDamage { get; set; } = true;
 
     }
 

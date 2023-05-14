@@ -13,11 +13,24 @@ namespace ExtendedSurvival.Stats
     public static class StaminaController
     {
 
+        public enum StaminaValueModifier
+        {
+
+            HigherStaminaExpenditure = 0,
+            MaximumStaminaReduction = 1,
+            LongerStaminaRechargeTime = 2,
+            StaminaRegeneration = 3
+
+        }
+
         private static ConcurrentDictionary<long, long> staminSpendTime = new ConcurrentDictionary<long, long>();
+        private static ConcurrentDictionary<long, long> staminRegenTime = new ConcurrentDictionary<long, long>();
         private static ConcurrentDictionary<long, float> spendedStamina = new ConcurrentDictionary<long, float>();
 
         public static void DoCycle(long playerId, long spendTime, long updateTime, IMyCharacter character, MyCharacterStatComponent statComponent, MyEntityStat statEntity)
         {
+            PlayerActionsController.RefreshPlayerStatComponent(playerId, statComponent);
+
             if (!staminSpendTime.ContainsKey(playerId))
                 staminSpendTime[playerId] = 0;
             staminSpendTime[playerId] += updateTime;
@@ -29,33 +42,29 @@ namespace ExtendedSurvival.Stats
 
                 PlayerActionsController.ProcessUnderwater(playerId, character, WeatherConstants.GetWeatherInfo(character).CurrentEnvironmentType);
 
-                MyEntityStat Fatigue;
-                statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.ValidStats.Fatigue.ToString()), out Fatigue);
-                MyEntityStat StatsGroup04; /* Disease Effects */
-                statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.FixedStats.StatsGroup04.ToString()), out StatsGroup04);
-                MyEntityStat StatsGroup03; /* Temperature Effects */
-                statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.FixedStats.StatsGroup03.ToString()), out StatsGroup03);
-                MyEntityStat StatsGroup02; /* Damage Effects */
-                statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.FixedStats.StatsGroup02.ToString()), out StatsGroup02);
-                MyEntityStat StatsGroup01; /* Survival Effects */
-                statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.FixedStats.StatsGroup01.ToString()), out StatsGroup01);
-
-                ProcessStamina(
-                    playerId,
-                    character,
-                    statEntity,
-                    Fatigue,
-                    (StatsConstants.DamageEffects)((int)StatsGroup02.Value),
-                    (StatsConstants.DiseaseEffects)((int)StatsGroup04.Value),
-                    (StatsConstants.SurvivalEffects)((int)StatsGroup01.Value),
-                    (StatsConstants.TemperatureEffects)((int)StatsGroup03.Value)
-                );
+                ProcessStamina(playerId, character);
 
                 PlayerActionsController.ProcessCargoMax(character);
                 PlayerActionsController.CheckHealthValue(playerId, statComponent);
-                PlayerActionsController.CheckValuesToDoDamage(character, statComponent);
+                PlayerActionsController.CheckValuesToDoDamage(playerId, character, statComponent);
 
             }
+
+            if (!staminRegenTime.ContainsKey(playerId))
+                staminRegenTime[playerId] = 0;
+            staminRegenTime[playerId] += updateTime;
+            long cicleRegenType = 250; /* default cycle time 250ms */
+            float rechargeTime = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.LongerStaminaRechargeTime);
+            cicleRegenType = (long)((float)cicleRegenType * rechargeTime);
+            if (staminRegenTime[playerId] >= cicleRegenType)
+            {
+
+                staminRegenTime[playerId] -= cicleRegenType;
+
+                ProcessStaminaRegen(playerId, character);
+
+            }
+
         }
 
         private static float GetStaminaRuningMultiplier()
@@ -80,25 +89,10 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        private static float CurrentBodyFatMultiplier(IMyCharacter character)
-        {
-            return 1;
-        }
-
-        private static float GetStaminaToDecrese(IMyCharacter character, StatsConstants.TemperatureEffects CurrentTemperatureEffects)
+        private static float GetStaminaToDecrese(long playerId, IMyCharacter character)
         {
             var finalValue = GetBaseStaminaToDecrease(character);
-            if (ExtendedSurvivalSettings.Instance.StaminaSettings.IncriseStaminaDrainWithTemperature)
-            {
-                var maxTemperatureEffect = CurrentTemperatureEffects;
-                maxTemperatureEffect &= ~StatsConstants.TemperatureEffects.Wet;
-                if (StatsConstants.TEMPERATURE_STAMINA_CONSUME_FACTOR.ContainsKey(maxTemperatureEffect))
-                    finalValue *= StatsConstants.TEMPERATURE_STAMINA_CONSUME_FACTOR[maxTemperatureEffect];
-            }
-            if (ExtendedSurvivalSettings.Instance.StaminaSettings.IncriseStaminaDrainWithBodyFat && CurrentBodyFatMultiplier(character) > 0)
-            {
-
-            }
+            finalValue *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, option: (int)StaminaValueModifier.HigherStaminaExpenditure);
             if (character.IsCharacterSprinting())
             {
                 finalValue *= GetStaminaRuningMultiplier();
@@ -110,53 +104,17 @@ namespace ExtendedSurvival.Stats
             return finalValue;
         }
 
-        private static int GetTotalDiseaseMultiplier(StatsConstants.DiseaseEffects CurrentDiseaseEffects, StatsConstants.SurvivalEffects CurrentSurvivalEffects)
+        private static float GetMaxStamina(long playerId)
         {
-            int totalMultiplier = 0;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dysentery))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypothermia))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hyperthermia))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Infected))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Pneumonia))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Poison))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereDehydration))
-                totalMultiplier += 2;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereStarvation))
-                totalMultiplier += 2;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypolipidemia))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Obesity))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereObesity))
-                totalMultiplier += 2;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Rickets))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereRickets))
-                totalMultiplier += 2;
-            if (StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Disoriented))
-                totalMultiplier++;
-            if (StatsConstants.IsFlagSet(CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Suffocation))
-                totalMultiplier += 2;
-            return totalMultiplier;
-        }
-
-        private static float GetMaxStamina(MyEntityStat Stamina, StatsConstants.DiseaseEffects CurrentDiseaseEffects, StatsConstants.SurvivalEffects CurrentSurvivalEffects)
-        {
-            var maxStamina = Stamina.MaxValue;
-            float totalStaminaToRemove = StatsConstants.BASE_TOTAL_STAMINA_REMOVE_PER_STACK * GetTotalDiseaseMultiplier(CurrentDiseaseEffects, CurrentSurvivalEffects);
-            if (totalStaminaToRemove > 0)
-                maxStamina *= 1 - (Math.Min(totalStaminaToRemove, StatsConstants.MAX_STAMINA_REMOVE_WHEN_STACK));
-            return maxStamina;
+            var access = PlayerActionsController.GetStatsEasyAcess(playerId);
+            if (access != null)
+            {
+                var maxStamina = access.Stamina.MaxValue;
+                float reduction = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.MaximumStaminaReduction);
+                maxStamina *= reduction;
+                return Math.Max(maxStamina, StatsConstants.MIN_STAMINA_TO_USE);
+            }
+            return 0;
         }
 
         public static void AddSpendedStamina(long playerId, float value)
@@ -178,34 +136,44 @@ namespace ExtendedSurvival.Stats
             spendedStamina[playerId] = 0;
         }
 
-        private static float GetStaminaToIncrease(StatsConstants.DamageEffects CurrentDamageEffects, StatsConstants.SurvivalEffects CurrentSurvivalEffects)
+        private static float GetStaminaToIncrease(long playerId)
         {
             var finalValue = StatsConstants.BASE_STAMINA_INCREASE_FACTOR * ExtendedSurvivalSettings.Instance.StaminaSettings.GainMultiplier;
-            if (ExtendedSurvivalSettings.Instance.StaminaSettings.DecreaseStaminaGainWithDamage)
-            {
-                var maxDamageEffect = (StatsConstants.DamageEffects)StatsConstants.GetMaxSetFlagValue(CurrentDamageEffects);
-                if (StatsConstants.DAMAGE_STAMINA_REGEN_FACTOR.ContainsKey(maxDamageEffect))
-                    finalValue *= StatsConstants.DAMAGE_STAMINA_REGEN_FACTOR[maxDamageEffect];
-            }
-            var activeSurvivalEffects = CurrentSurvivalEffects.GetFlags();
-            if (activeSurvivalEffects.Any())
-            {
-                var effectWeight = activeSurvivalEffects.Sum(x => StatsConstants.GetSurvivalEffectFeelingLevel(x));
-                finalValue *= Math.Max(1 - (0.1f * effectWeight), 0.3f);
-            }
+            float regeneration = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.StaminaRegeneration);
+            finalValue *= regeneration;
             return finalValue;
         }
 
-        private static void ProcessStamina(long playerId, IMyCharacter character, MyEntityStat Stamina, MyEntityStat Fatigue, StatsConstants.DamageEffects CurrentDamageEffects, StatsConstants.DiseaseEffects CurrentDiseaseEffects, StatsConstants.SurvivalEffects CurrentSurvivalEffects, StatsConstants.TemperatureEffects CurrentTemperatureEffects)
+        private static void ProcessStaminaRegen(long playerId, IMyCharacter character)
         {
-            var value = GetStaminaToDecrese(character, CurrentTemperatureEffects);
-            var maxStamina = GetMaxStamina(Stamina, CurrentDiseaseEffects, CurrentSurvivalEffects);
-            if (character.IsCharacterMoving() || character.IsCharacterUsingTool() || character.IsOnTreadmill())
+            var access = PlayerActionsController.GetStatsEasyAcess(playerId);
+            if (access != null)
             {
-                AddSpendedStamina(playerId, value);
-                if (Stamina.Value > 0)
+                var maxStamina = GetMaxStamina(playerId);
+                if (!character.IsCharacterMoving() && !character.IsCharacterUsingTool() && !character.IsOnTreadmill())
                 {
-                    Stamina.Decrease(value, character.GetPlayer()?.IdentityId);
+                    if (access.Stamina.Value < maxStamina)
+                    {
+                        access.Stamina.Increase(GetStaminaToIncrease(playerId), character.GetPlayer()?.IdentityId);
+                    }
+                }
+                if (access.Stamina.Value > maxStamina)
+                    access.Stamina.Value = maxStamina;
+            }
+        }
+
+        public static void ProcessJump(long playerId, IMyCharacter character)
+        {
+            var access = PlayerActionsController.GetStatsEasyAcess(playerId);
+            if (access != null)
+            {
+                var value = GetStaminaToDecrese(playerId, character) * StatsConstants.JUMP_COST_MULTIPLIER * ExtendedSurvivalSettings.Instance.StaminaSettings.JumpDrainMultiplier;
+                float expenditure = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.HigherStaminaExpenditure);
+                value *= expenditure;
+                AddSpendedStamina(playerId, value);
+                if (access.Stamina.Value > 0)
+                {
+                    access.Stamina.Decrease(value, character.GetPlayer()?.IdentityId);
                 }
                 else
                 {
@@ -213,22 +181,44 @@ namespace ExtendedSurvival.Stats
                     if (staminaDamage > 0 && character.CanTakeDamage())
                         character.DoDamage(staminaDamage, MyDamageType.Environment, true);
                 }
-                if (Fatigue.Value < Fatigue.MaxValue)
+                if (access.Fatigue.Value < access.Fatigue.MaxValue)
                 {
                     if (character.IsOnTreadmill())
                         value *= StatsConstants.BASE_FATIGUE_INCREASE_MULTIPLIER;
-                    Fatigue.Increase(value, character.GetPlayer()?.IdentityId);
+                    access.Fatigue.Increase(value, character.GetPlayer()?.IdentityId);
                 }
             }
-            else
+        }
+
+        private static void ProcessStamina(long playerId, IMyCharacter character)
+        {
+            var access = PlayerActionsController.GetStatsEasyAcess(playerId);
+            if (access != null)
             {
-                if (Stamina.Value < maxStamina)
+                if (character.IsCharacterMoving() || character.IsCharacterUsingTool() || character.IsOnTreadmill())
                 {
-                    Stamina.Increase(GetStaminaToIncrease(CurrentDamageEffects, CurrentSurvivalEffects), character.GetPlayer()?.IdentityId);
+                    var value = GetStaminaToDecrese(playerId, character);
+                    float expenditure = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.HigherStaminaExpenditure);
+                    value *= expenditure;
+                    AddSpendedStamina(playerId, value);
+                    if (access.Stamina.Value > 0)
+                    {
+                        access.Stamina.Decrease(value, character.GetPlayer()?.IdentityId);
+                    }
+                    else
+                    {
+                        var staminaDamage = StatsConstants.BASE_STAMINA_DAMAGE_FACTOR * ExtendedSurvivalSettings.Instance.StaminaSettings.DamageMultiplier;
+                        if (staminaDamage > 0 && character.CanTakeDamage())
+                            character.DoDamage(staminaDamage, MyDamageType.Environment, true);
+                    }
+                    if (access.Fatigue.Value < access.Fatigue.MaxValue)
+                    {
+                        if (character.IsOnTreadmill())
+                            value *= StatsConstants.BASE_FATIGUE_INCREASE_MULTIPLIER;
+                        access.Fatigue.Increase(value, character.GetPlayer()?.IdentityId);
+                    }
                 }
             }
-            if (Stamina.Value > maxStamina)
-                Stamina.Value = maxStamina;
         }
 
     }

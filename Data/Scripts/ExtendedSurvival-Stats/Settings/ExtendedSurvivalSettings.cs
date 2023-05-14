@@ -182,43 +182,19 @@ namespace ExtendedSurvival.Stats
                         return true;
                     }
                     break;
+                case "staminasettings.jumpdrainmultiplier":
+                    float staminasettingsjumpdrainmultiplier;
+                    if (float.TryParse(value, out staminasettingsjumpdrainmultiplier))
+                    {
+                        StaminaSettings.JumpDrainMultiplier = staminasettingsjumpdrainmultiplier;
+                        return true;
+                    }
+                    break;
                 case "staminasettings.damagemultiplier":
                     float staminasettingsdamagemultiplier;
                     if (float.TryParse(value, out staminasettingsdamagemultiplier))
                     {
                         StaminaSettings.DamageMultiplier = staminasettingsdamagemultiplier;
-                        return true;
-                    }
-                    break;
-                case "staminasettings.lostmaxstaminawhengotsick":
-                    bool staminasettingslostmaxstaminawhengotsick;
-                    if (bool.TryParse(value, out staminasettingslostmaxstaminawhengotsick))
-                    {
-                        StaminaSettings.LostMaxStaminaWhenGotSick = staminasettingslostmaxstaminawhengotsick;
-                        return true;
-                    }
-                    break;
-                case "staminasettings.incrisestaminadrainwithtemperature":
-                    bool staminasettingsincrisestaminadrainwithtemperature;
-                    if (bool.TryParse(value, out staminasettingsincrisestaminadrainwithtemperature))
-                    {
-                        StaminaSettings.IncriseStaminaDrainWithTemperature = staminasettingsincrisestaminadrainwithtemperature;
-                        return true;
-                    }
-                    break;
-                case "staminasettings.decreasestaminagainwithdamage":
-                    bool staminasettingsdecreasestaminagainwithdamage;
-                    if (bool.TryParse(value, out staminasettingsdecreasestaminagainwithdamage))
-                    {
-                        StaminaSettings.DecreaseStaminaGainWithDamage = staminasettingsdecreasestaminagainwithdamage;
-                        return true;
-                    }
-                    break;
-                case "staminasettings.incrisestaminadrainwithbodyfat":
-                    bool staminasettingsincrisestaminadrainwithbodyfat;
-                    if (bool.TryParse(value, out staminasettingsincrisestaminadrainwithbodyfat))
-                    {
-                        StaminaSettings.IncriseStaminaDrainWithBodyFat = staminasettingsincrisestaminadrainwithbodyfat;
                         return true;
                     }
                     break;

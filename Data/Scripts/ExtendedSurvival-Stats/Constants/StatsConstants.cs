@@ -12,6 +12,7 @@ namespace ExtendedSurvival.Stats
     {
 
         public const int POISON_DAMAGE = 5;
+        public const int TEMPERATURE_DAMAGE = 1;
 
         public static readonly Vector3 BODY_MUSCLE_MOVE_GAIN = new Vector3(0.01f, 0.03f, 0.26f);
         public const float BODY_MUSCLE_NOMOVE_DRAIN = 0.005f;
@@ -48,6 +49,9 @@ namespace ExtendedSurvival.Stats
         public const float BASE_TREADMILL_MULTIPLIER = 0.5f;
         public const float BASE_TOTAL_STAMINA_REMOVE_PER_STACK = 0.1f; /* DISEASE AND OUT O2 */
         public const float MAX_STAMINA_REMOVE_WHEN_STACK = 0.85f;
+
+        public const float MIN_STAMINA_TO_USE = 5;
+        public const float JUMP_COST_MULTIPLIER = 2.75f;
 
         public const float BASE_WATER_METABOLISM = 0.24f;
         public const float BASE_FOOD_METABOLISM = 0.20f;
@@ -277,8 +281,9 @@ namespace ExtendedSurvival.Stats
             Rickets = 1 << 13,
             SevereRickets = 1 << 14,
             Hypolipidemia = 1 << 15,
-            Queasy = 1 << 16
-
+            Queasy = 1 << 16,
+            Flu = 1 << 17
+            
         }
 
         [Flags]
@@ -298,6 +303,7 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Poison:
                 case DiseaseEffects.Queasy:
+                case DiseaseEffects.Flu:
                     return 1;
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
@@ -325,6 +331,7 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Poison:
                 case DiseaseEffects.Queasy:
+                case DiseaseEffects.Flu:
                     return 0;
                 case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Infected:
@@ -432,6 +439,8 @@ namespace ExtendedSurvival.Stats
         {
             switch (effect)
             {
+                case DiseaseEffects.Flu:
+                    return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_FLU_NAME);
                 case DiseaseEffects.Pneumonia:
                     return LanguageProvider.GetEntry(LanguageEntries.DISEASEEFFECTS_PNEUMONIA_NAME);
                 case DiseaseEffects.Dysentery:
@@ -493,6 +502,7 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Queasy:
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Infected:
+                case DiseaseEffects.Flu:
                     return true;
                 default:
                     return false;
@@ -506,6 +516,7 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Poison:
                     return 30 * 1000; /* 30 segundos */
                 case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Flu:
                 case DiseaseEffects.Infected:
                     return 10 * 60 * 1000; /* 10 minutos */
                 case DiseaseEffects.Dysentery:
@@ -521,6 +532,7 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Flu:
                 case DiseaseEffects.Queasy:
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Infected:
@@ -639,10 +651,9 @@ namespace ExtendedSurvival.Stats
             {
                 case DamageEffects.Contusion:
                 case DamageEffects.Wounded:
-                    return 1;
                 case DamageEffects.DeepWounded:
                 case DamageEffects.BrokenBones:
-                    return 2;
+                    return 1;
             }
             return 0;
         }

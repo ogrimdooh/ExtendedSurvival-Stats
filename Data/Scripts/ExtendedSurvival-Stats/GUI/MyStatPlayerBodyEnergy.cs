@@ -6,8 +6,6 @@ namespace ExtendedSurvival.Stats
     public class MyStatPlayerBodyEnergy : MyStatSimpleProgressBase
     {
 
-        private MyEntityStat BodyCalories;
-
         protected override string GetStatName()
         {
             return "BodyEnergy";
@@ -20,26 +18,10 @@ namespace ExtendedSurvival.Stats
 
         protected override bool IsActive()
         {
-            return IsWithHelmet() && GetBodyTrackerLevel() >= 2;
+            return IsWithHelmet() && GetBodyTrackerLevel() >= 1;
         }
 
-        private MyEntityStat GetPlayerStat(string statName)
-        {
-            MyEntityStat stat = null;
-            if (StatComp != null)
-            {
-                StatComp.TryGetStat(MyStringHash.GetOrCompute(statName), out stat);
-            }
-            return stat;
-        }
-
-        public override void Update()
-        {
-            base.Update();
-            BodyCalories = GetPlayerStat(StatsConstants.ValidStats.BodyCalories.ToString());
-        }
-
-        public override string ToString() => BodyCalories != null ? BodyCalories.Value.ToString("#0.0") : "-";
+        public override string ToString() => string.Format("{0:0}%", (float)(CurrentValue * 100.0));
 
     }
 }

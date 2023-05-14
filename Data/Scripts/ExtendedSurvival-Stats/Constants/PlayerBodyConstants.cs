@@ -54,37 +54,37 @@ namespace ExtendedSurvival.Stats
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 CaloriesConsumption = new SerializableVector2(0.01f, 0.05f);
+        public static readonly SerializableVector2 CaloriesConsumption = new SerializableVector2(0.1f, 0.5f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 WaterConsumption = new SerializableVector2(0.00005f, 0.0001f);
+        public static readonly SerializableVector2 WaterConsumption = new SerializableVector2(0.0005f, 0.001f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 ProteinConsumption = new SerializableVector2(0.005f, 0.01f);
+        public static readonly SerializableVector2 ProteinConsumption = new SerializableVector2(0.05f, 0.1f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 LipidConsumption = new SerializableVector2(0.005f, 0.01f);
+        public static readonly SerializableVector2 LipidConsumption = new SerializableVector2(0.05f, 0.1f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 CarbohydrateConsumption = new SerializableVector2(0.005f, 0.01f);
+        public static readonly SerializableVector2 CarbohydrateConsumption = new SerializableVector2(0.05f, 0.1f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 VitaminsConsumption = new SerializableVector2(0.0005f, 0.001f);
+        public static readonly SerializableVector2 VitaminsConsumption = new SerializableVector2(0.005f, 0.01f);
 
         /// <summary>
         /// X: Stopped, Y: Stamina Spended
         /// </summary>
-        public static readonly SerializableVector2 MineralsConsumption = new SerializableVector2(0.0005f, 0.001f);
+        public static readonly SerializableVector2 MineralsConsumption = new SerializableVector2(0.005f, 0.01f);
         
         /// <summary>
         /// X: Loss amount, Y: Gain amount

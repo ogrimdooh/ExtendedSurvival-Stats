@@ -38,6 +38,7 @@ namespace ExtendedSurvival.Stats
             return isUsingTechnology.Value;
         }
 
+        public EasyInventoryAPI EasyInventoryAPI;
         public HudAPIv2 TextAPI;
         public ExtendedSurvivalCoreAPI ESCoreAPI;
         public AdvancedStatsAndEffectsAPI ASECoreAPI;
@@ -389,6 +390,18 @@ namespace ExtendedSurvival.Stats
             }
 
             TextAPI = new HudAPIv2();
+            EasyInventoryAPI = new EasyInventoryAPI(() => {
+                EasyInventoryAPI.RegisterEasyFilter("ExtendedSurvival-Stats", (item) => {
+                    var id = new UniqueEntityId(item);
+                    if (EquipmentConstants.EQUIPMENTS_DEFINITIONS.ContainsKey(id))
+                        return true;
+                    if (WeaponsConstants.WEAPONS_DEFINITIONS.ContainsKey(id))
+                        return true;
+                    if (WeaponsConstants.WEAPONMAGZINES_DEFINITIONS.ContainsKey(id))
+                        return true;
+                    return false;
+                });
+            });
             ESCoreAPI = new ExtendedSurvivalCoreAPI(()=> {
                 if (IsServer)
                 {
@@ -572,6 +585,30 @@ namespace ExtendedSurvival.Stats
                             },
                             int.MaxValue
                         );
+                        // Add Hypothermia cycle
+                        AdvancedStatsAndEffectsAPI.AddFixedStatCycleCallback(
+                            StatsConstants.DiseaseEffects.Hypothermia.ToString(),
+                            (fixedStat, stack, remainTime, playerId, character, statComponent) =>
+                            {
+                                if (stack > 0)
+                                {
+                                    statComponent.Health.Decrease(stack * StatsConstants.TEMPERATURE_DAMAGE, playerId);
+                                }
+                            },
+                            int.MaxValue
+                        );
+                        // Add Hyperthermia cycle
+                        AdvancedStatsAndEffectsAPI.AddFixedStatCycleCallback(
+                            StatsConstants.DiseaseEffects.Hyperthermia.ToString(),
+                            (fixedStat, stack, remainTime, playerId, character, statComponent) =>
+                            {
+                                if (stack > 0)
+                                {
+                                    statComponent.Health.Decrease(stack * StatsConstants.TEMPERATURE_DAMAGE, playerId);
+                                }
+                            },
+                            int.MaxValue
+                        );
                         // Other Effects : Group 05
                         var otherStats = ((StatsConstants.OtherEffects[])Enum.GetValues(typeof(StatsConstants.OtherEffects))).ToList();
                         foreach (StatsConstants.OtherEffects item in otherStats)
@@ -623,7 +660,7 @@ namespace ExtendedSurvival.Stats
                                 if (character.IsOnValidBathroom())
                                 {
                                     PlayerActionsController.DoCleanYourself(playerId);
-                                    PlayerActionsController.DoBodyNeeds(statComponent);
+                                    PlayerActionsController.DoBodyNeeds(playerId, statComponent);
                                 }
                                 PlayerActionsController.ProcessEffectsTimers(playerId, character, statComponent, 1000);
                                 FatigueController.DoCycle(playerId, character, statComponent);
@@ -637,13 +674,45 @@ namespace ExtendedSurvival.Stats
                             if (playerId != 0 && character.IsValidPlayer())
                             {
                                 PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
-                                PlayerActionsController.ProcessHealth(statComponent);
+                                PlayerActionsController.ProcessHealth(playerId, statComponent);
                             }
                         }, int.MaxValue);
                         // Set Stamina before cycle
                         AdvancedStatsAndEffectsAPI.AddBeforeCycleStatCallback(
                             StatsConstants.ValidStats.Stamina.ToString(),
                             StaminaController.DoCycle,
+                            int.MaxValue
+                        );
+                        // Set after moviment change event
+                        AdvancedStatsAndEffectsAPI.AddOnMovementStateChanged(
+                            (playerId, character, statComponent, oldValue, newValue) =>
+                            {
+                                if (newValue == MyCharacterMovementEnum.Jump)
+                                {
+                                    if (playerId != 0 && character.IsValidPlayer())
+                                    {
+                                        StaminaController.ProcessJump(playerId, character);
+                                    }
+                                }
+                            },
+                            int.MaxValue
+                        );
+                        // Set after health change
+                        AdvancedStatsAndEffectsAPI.AddOnHealthChanged(
+                            (playerId, character, statComponent, newValue, oldValue, statChangeData) =>
+                            {
+                                if (playerId != 0 && character.IsValidPlayer())
+                                {
+                                    if (newValue < oldValue)
+                                    {
+                                        PlayerActionsController.CheckHealthDamage(playerId, statComponent, oldValue - newValue);
+                                    }
+                                    else
+                                    {
+                                        PlayerActionsController.CheckHealthValue(playerId, statComponent);
+                                    }
+                                }
+                            },
                             int.MaxValue
                         );
                         // Set on player on reset

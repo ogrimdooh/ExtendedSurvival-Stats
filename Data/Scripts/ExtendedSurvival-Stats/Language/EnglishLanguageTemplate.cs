@@ -2186,6 +2186,10 @@ namespace ExtendedSurvival.Stats
 			#endregion
 			#region STATS
 			AddEntry(
+				LanguageEntries.DISEASEEFFECTS_FLU_NAME,
+				"Flu"
+			);
+			AddEntry(
 				LanguageEntries.DISEASEEFFECTS_PNEUMONIA_NAME,
 				"Pneumonia"
 			);

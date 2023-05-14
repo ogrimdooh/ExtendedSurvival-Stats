@@ -15,7 +15,7 @@
 
         protected override bool IsActive()
         {
-            return IsWithHelmet() && GetBodyTrackerLevel() >= 2;
+            return IsWithHelmet() && GetBodyTrackerLevel() >= 1;
         }
 
         public override string ToString() => StatsConstants.GetValidStatsDescription(StatsConstants.ValidStats.BodyEnergy);

@@ -15,7 +15,7 @@
 
         protected override bool IsActive()
         {
-            return IsWithHelmet() && GetBodyTrackerLevel() >= 2;
+            return IsWithHelmet() && GetBodyTrackerLevel() >= 1;
         }
 
         public override string ToString() => string.Format("{0:0}%", (float)(CurrentValue * 100.0));
