@@ -264,7 +264,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = OreConstants.BONES_ID,
+                            Id = IngotsConstants.BONEMEAL_ID,
                             Ammount = 7.5f
                         }
                     }
