@@ -96,6 +96,7 @@
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>10</PCU>
+      <IsAirTight>true</IsAirTight>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
       <Id>

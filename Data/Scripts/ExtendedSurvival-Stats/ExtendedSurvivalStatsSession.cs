@@ -486,6 +486,14 @@ namespace ExtendedSurvival.Stats
                         }
                     }
                 }
+                else
+                {
+                    if (definitionsCheckedToTheEnd)
+                    {
+                        ExtendedSurvivalCoreAPI.MarkAsAllItensLoaded(ES_STATS_EFFECTS_MODID);
+                        markAsAllItensLoadedCalled = true;
+                    }
+                }
             });
             if (IsServer)
             {
