@@ -10,10 +10,10 @@ namespace ExtendedSurvival.Stats
     {
 
         public const string PROPOFOLDART_SUBTYPEID = "PropofolDart";
-        public static readonly UniqueEntityId PROPOFOLDART_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), PROPOFOLDART_SUBTYPEID);
+        public static readonly UniqueEntityId PROPOFOLDART_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROPOFOLDART_SUBTYPEID);
 
         public const string LIDOCAINDART_SUBTYPEID = "LidocainDart";
-        public static readonly UniqueEntityId LIDOCAINDART_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), LIDOCAINDART_SUBTYPEID);
+        public static readonly UniqueEntityId LIDOCAINDART_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), LIDOCAINDART_SUBTYPEID);
 
         public static readonly WeaponComponentDefinition PROPOFOLDART_DEFINITION = new WeaponComponentDefinition()
         {

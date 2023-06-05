@@ -17,7 +17,7 @@
         <Item Amount="0.2" TypeId="Ingot" SubtypeId="Silicon" />
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Lidocaine" />
       </Prerequisites>
-      <Result Amount="2" TypeId="Component" SubtypeId="LidocainDart" />
+      <Result Amount="2" TypeId="PhysicalObject" SubtypeId="LidocainDart" />
       <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
     </Blueprint>
 
@@ -34,7 +34,7 @@
         <Item Amount="0.2" TypeId="Ingot" SubtypeId="Silicon" />
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Propofol" />
       </Prerequisites>
-      <Result Amount="2" TypeId="Component" SubtypeId="PropofolDart" />
+      <Result Amount="2" TypeId="PhysicalObject" SubtypeId="PropofolDart" />
       <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
     </Blueprint>
 
@@ -48,8 +48,8 @@
       <DisplayName>Pistol DRT-Lidocain Magzine</DisplayName>
       <Icon>Textures\GUI\Icons\pistol_magzine_lidocaine_dart.dds</Icon>
       <Prerequisites>
-        <Item Amount="1" TypeId="Component" SubtypeId="EmptyPistolMagazine" />
-        <Item Amount="5" TypeId="Component" SubtypeId="LidocainDart" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="EmptyPistolMagazine" />
+        <Item Amount="5" TypeId="PhysicalObject" SubtypeId="LidocainDart" />
       </Prerequisites>
       <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="LidocainPistolMagazine" />
       <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
@@ -63,8 +63,8 @@
       <DisplayName>Pistol DRT-Propofol Magzine</DisplayName>
       <Icon>Textures\GUI\Icons\pistol_magzine_propofol_dart.dds</Icon>
       <Prerequisites>
-        <Item Amount="1" TypeId="Component" SubtypeId="EmptyPistolMagazine" />
-        <Item Amount="5" TypeId="Component" SubtypeId="PropofolDart" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="EmptyPistolMagazine" />
+        <Item Amount="5" TypeId="PhysicalObject" SubtypeId="PropofolDart" />
       </Prerequisites>
       <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="PropofolPistolMagazine" />
       <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>

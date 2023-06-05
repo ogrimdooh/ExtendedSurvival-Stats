@@ -86,7 +86,7 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId ENHANCEDCHIP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), ENHANCEDCHIP_SUBTYPEID);
 
         public const string EMPTYPISTOLMAGAZINE_SUBTYPEID = "EmptyPistolMagazine";
-        public static readonly UniqueEntityId EMPTYPISTOLMAGAZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), EMPTYPISTOLMAGAZINE_SUBTYPEID);
+        public static readonly UniqueEntityId EMPTYPISTOLMAGAZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), EMPTYPISTOLMAGAZINE_SUBTYPEID);
 
         public const string IRONSCREW_SUBTYPEID = "IronScrew";
         public static readonly UniqueEntityId IRONSCREW_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), IRONSCREW_SUBTYPEID);
