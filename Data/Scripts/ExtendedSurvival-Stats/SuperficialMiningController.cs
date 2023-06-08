@@ -34,7 +34,9 @@ namespace ExtendedSurvival.Stats
                 "Pertam",
                 "Dover",
                 "Enitor",
-                "Eremus Nubis"
+                "Eremus Nubis",
+                "HeliosTerraformed",
+                "HeliosTerraformedWM"
             };
 
             public MiningDropLoot(UniqueEntityId itemId, Vector2 ammount, float chance, bool alowFrac = false)
