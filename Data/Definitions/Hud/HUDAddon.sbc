@@ -2042,13 +2042,13 @@
       </StatControl>
       
       
-      <!-- player_temperature_time -->
+      <!-- player_timer00 -->
       <StatControl>
         <VisibleCondition xsi:type="Condition">
           <Operator>And</Operator>
           <Terms>
             <Term xsi:type="StatCondition">
-              <StatId>player_temperature_time</StatId>
+              <StatId>player_timer00</StatId>
               <Value>-1</Value>
               <Operator>NotEqual</Operator>
             </Term>
@@ -2072,7 +2072,7 @@
         <OriginAlign>HORISONTAL_LEFT_AND_VERTICAL_TOP</OriginAlign>
         <StatStyles>
           <StatStyle xsi:type="MyObjectBuilder_ProgressBarStatVisualStyle">
-            <StatId>player_temperature_time</StatId>
+            <StatId>player_timer00</StatId>
             <OffsetPx>
               <X>10</X>
               <Y>0</Y>
@@ -2109,7 +2109,7 @@
               <MaxAlpha>1</MaxAlpha>
             </Blink>
             <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_temperature_time</StatId>
+              <StatId>player_timer00</StatId>
               <Value>0.75</Value>
               <Operator>Above</Operator>
               <ProgressColorMask>
@@ -2157,7 +2157,7 @@
             </SimpleStyle>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
-            <StatId>player_temperature_time</StatId>
+            <StatId>player_timer00</StatId>
             <OffsetPx>
               <X>75</X>
               <Y>-17.5</Y>
@@ -2192,7 +2192,7 @@
             <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_CENTER</TextAlign>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
-            <StatId>player_temperature_time_desc</StatId>
+            <StatId>player_timerdesc00</StatId>
             <OffsetPx>
               <X>80</X>
               <Y>15</Y>
@@ -2205,7 +2205,6 @@
         </StatStyles>        
       </StatControl>
 
-      
       <!-- player_timer01 -->
       <StatControl>
         <VisibleCondition xsi:type="Condition">

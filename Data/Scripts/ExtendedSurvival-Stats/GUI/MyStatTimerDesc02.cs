@@ -10,7 +10,7 @@
 
         protected override int GetTargetIndex()
         {
-            return 1;
+            return 2;
         }
 
     }

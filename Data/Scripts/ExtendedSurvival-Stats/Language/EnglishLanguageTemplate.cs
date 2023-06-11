@@ -2282,6 +2282,26 @@ namespace ExtendedSurvival.Stats
 				"Wet"
 			);
 			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOCOLD_NAME,
+				"Exposed to Cold"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOFREEZE_NAME,
+				"Exposed to Freeze"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOHOT_NAME,
+				"Exposed to Hot"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOBOILING_NAME,
+				"Exposed to Boiling"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_RECOVERINGFROMEXPOSURE_NAME,
+				"Recovering from Exposure"
+			);
+			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
 				"Contusion"
 			);

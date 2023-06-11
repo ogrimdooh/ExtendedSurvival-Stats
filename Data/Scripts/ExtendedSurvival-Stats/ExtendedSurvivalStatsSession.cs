@@ -556,7 +556,16 @@ namespace ExtendedSurvival.Stats
                                     Group = 3,
                                     Index = temperatureStats.IndexOf(item),
                                     Id = item.ToString(),
-                                    Name = StatsConstants.GetTemperatureEffectDescription(item)
+                                    Name = StatsConstants.TEMPERATURE_EFFECTS[item].Name,
+                                    CanSelfRemove = StatsConstants.TEMPERATURE_EFFECTS[item].CanSelfRemove,
+                                    TimeToSelfRemove = StatsConstants.TEMPERATURE_EFFECTS[item].TimeToSelfRemove,
+                                    CompleteRemove = StatsConstants.TEMPERATURE_EFFECTS[item].CompleteRemove,
+                                    StacksWhenRemove = StatsConstants.TEMPERATURE_EFFECTS[item].StacksWhenRemove,
+                                    IsInverseTime = StatsConstants.TEMPERATURE_EFFECTS[item].IsInverseTime,
+                                    MaxInverseTime = StatsConstants.TEMPERATURE_EFFECTS[item].MaxInverseTime,
+                                    SelfRemoveWhenMaxInverse = StatsConstants.TEMPERATURE_EFFECTS[item].SelfRemoveWhenMaxInverse,
+                                    CanStack = StatsConstants.TEMPERATURE_EFFECTS[item].CanStack,
+                                    MaxStacks = StatsConstants.TEMPERATURE_EFFECTS[item].MaxStacks
                                 });
                             }
                         }

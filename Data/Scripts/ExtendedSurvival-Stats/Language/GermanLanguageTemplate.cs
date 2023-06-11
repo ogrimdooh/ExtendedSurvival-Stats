@@ -2314,6 +2314,26 @@ namespace ExtendedSurvival.Stats
 				"Nass"
 			);
 			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOCOLD_NAME,
+				"Kalt ausgesetzt"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOFREEZE_NAME,
+				"Frost ausgesetzt"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOHOT_NAME,
+				"Hitze ausgesetzt"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOBOILING_NAME,
+				"Sieden ausgesetzt"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_RECOVERINGFROMEXPOSURE_NAME,
+				"Erholung von der Exposition"
+			);
+			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
 				"Prellung"
 			);

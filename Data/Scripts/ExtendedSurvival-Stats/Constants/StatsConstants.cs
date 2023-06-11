@@ -11,6 +11,22 @@ namespace ExtendedSurvival.Stats
     public static class StatsConstants
     {
 
+        public class FixedStatDataInfo
+        {
+
+            public string Name { get; set; }
+            public bool CanStack { get; set; }
+            public byte MaxStacks { get; set; }
+            public bool CanSelfRemove { get; set; }
+            public int TimeToSelfRemove { get; set; }
+            public bool CompleteRemove { get; set; }
+            public byte StacksWhenRemove { get; set; }
+            public bool IsInverseTime { get; set; }
+            public int MaxInverseTime { get; set; }
+            public bool SelfRemoveWhenMaxInverse { get; set; }
+
+        }
+
         public const int POISON_DAMAGE = 5;
         public const int TEMPERATURE_DAMAGE = 1;
 
@@ -66,52 +82,11 @@ namespace ExtendedSurvival.Stats
         public static readonly Vector4 BASE_USE_ENERGY_TEMPERATURE_MULTIPLIER = new Vector4(1.5f, 1.25f, 1.0f, 1.0f);
         public static readonly Vector2 BASE_USE_ENERGY_HUNGER_MULTIPLIER = new Vector2(1.25f, 1.5f);
 
-        public static readonly Dictionary<TemperatureEffects, float> TEMPERATURE_STAMINA_CONSUME_FACTOR = new Dictionary<TemperatureEffects, float>()
-        {
-            { TemperatureEffects.Cold, 1.15f },
-            { TemperatureEffects.Overheating, 1.15f },
-            { TemperatureEffects.Frosty, 1.30f },
-            { TemperatureEffects.OnFire, 1.30f }
-        };
-
-        public static readonly Dictionary<DamageEffects, float> DAMAGE_STAMINA_REGEN_FACTOR = new Dictionary<DamageEffects, float>()
-        {
-            { DamageEffects.Contusion, 0.9f },
-            { DamageEffects.Wounded, 0.8f },
-            { DamageEffects.DeepWounded, 0.7f },
-            { DamageEffects.BrokenBones, 0.6f }
-        };
-
-        public static readonly Dictionary<DamageEffects, Vector2> DAMAGE_HEALTH_REGEN_FACTOR = new Dictionary<DamageEffects, Vector2>()
-        {
-            { DamageEffects.Contusion, new Vector2(0.9f, 0.8f) },
-            { DamageEffects.Wounded, new Vector2(0.7f, 0.6f) },
-            { DamageEffects.DeepWounded, new Vector2(0.5f, 0.4f) },
-            { DamageEffects.BrokenBones, new Vector2(0.3f, 0.2f) }
-        };
-
-        public static readonly Dictionary<DamageEffects, float> DAMAGE_HEALTH_START_VALUE = new Dictionary<DamageEffects, float>()
-        {
-            { DamageEffects.Contusion, 0.75f },
-            { DamageEffects.Wounded, 0.55f },
-            { DamageEffects.DeepWounded, 0.35f },
-            { DamageEffects.BrokenBones, 0.15f }
-        };
-
         public static readonly Dictionary<DamageEffects, float> TIME_MULTIPLIER_FACTOR = new Dictionary<DamageEffects, float>()
         {
             { DamageEffects.Wounded, 1f },
             { DamageEffects.DeepWounded, 1.25f },
             { DamageEffects.BrokenBones, 1.50f }
-        };
-
-        public static readonly Dictionary<string, float> STATS_MIN_VALUE = new Dictionary<string, float>()
-        {
-            { ValidStats.Hunger.ToString(), HungerConstants.MIN_HUNGER_AT_START },
-            { ValidStats.Thirst.ToString(), HungerConstants.MIN_THIRST_AT_START },
-            { ValidStats.Stamina.ToString(), HungerConstants.MIN_STAMINA_AT_START },
-            { ValidStats.BodyEnergy.ToString(), HungerConstants.MIN_BODYENERGY_AT_START },
-            { ValidStats.BodyWater.ToString(), HungerConstants.MIN_BODYWATER_AT_START }
         };
 
         public const DamageEffects ON_DEATH_NO_CHANGE_IF = DamageEffects.BrokenBones;
@@ -184,8 +159,6 @@ namespace ExtendedSurvival.Stats
             Stamina,
             Fatigue,
             WoundedTime,
-            TemperatureTime,
-            WetTime,
             BodyEnergy,
             BodyWater,
             BodyPerformance,
@@ -253,13 +226,118 @@ namespace ExtendedSurvival.Stats
         {
 
             None = 0,
-            Overheating = 1 << 1, /* Stay in a hot place more than 6 minutes, or burning more than 3 minutes */
-            OnFire = 1 << 2, /* Stay in a burning more than 6 minutes, replace Overheating */
-            Cold = 1 << 3, /* Stay in a cold place more than 6 minutes, or freezing more than 3 minutes */
-            Frosty = 1 << 4, /* Stay in a freezing more than 6 minutes, replace Cold */
-            Wet = 1 << 5 /* Stay in the rain or enter under water (Water Mod)  */
+            Overheating = 1 << 1, 
+            OnFire = 1 << 2, 
+            Cold = 1 << 3, 
+            Frosty = 1 << 4, 
+            Wet = 1 << 5,
+            ExposedToCold = 1 << 6,
+            ExposedToFreeze = 1 << 7,
+            ExposedToHot = 1 << 8,
+            ExposedToBoiling = 1 << 9,
+            RecoveringFromExposure = 1 << 10
 
         }
+
+        public static Dictionary<TemperatureEffects, FixedStatDataInfo> TEMPERATURE_EFFECTS = new Dictionary<TemperatureEffects, FixedStatDataInfo>()
+        {
+            {
+                TemperatureEffects.Overheating,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.Overheating),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true                    
+                }
+            },
+            {
+                TemperatureEffects.OnFire,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.OnFire),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.Cold,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.Cold),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.Frosty,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.Frosty),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.Wet,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.Wet),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = (int)(2.5f * 60 * 1000),
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.ExposedToCold,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToCold),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.ExposedToFreeze,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToCold),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.ExposedToHot,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToCold),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.ExposedToBoiling,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToCold),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.RecoveringFromExposure,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.RecoveringFromExposure),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = (int)(2.5f * 60 * 1000),
+                    CompleteRemove = true
+                }
+            }
+        };
 
         [Flags]
         public enum DiseaseEffects
@@ -391,10 +469,6 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.FATIGUE_NAME); 
                 case ValidStats.WoundedTime:
                     return LanguageProvider.GetEntry(LanguageEntries.WOUNDEDTIME_NAME);
-                case ValidStats.TemperatureTime:
-                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATURETIME_NAME);
-                case ValidStats.WetTime:
-                    return LanguageProvider.GetEntry(LanguageEntries.WETTIME_NAME);
                 case ValidStats.BodyEnergy:
                     return LanguageProvider.GetEntry(LanguageEntries.BODYENERGY_NAME);
                 case ValidStats.BodyWater:
@@ -503,6 +577,8 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Infected:
                 case DiseaseEffects.Flu:
+                case DiseaseEffects.Hyperthermia:
+                case DiseaseEffects.Hypothermia:
                     return true;
                 default:
                     return false;
@@ -515,13 +591,15 @@ namespace ExtendedSurvival.Stats
             {
                 case DiseaseEffects.Poison:
                     return 30 * 1000; /* 30 segundos */
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Queasy:
+                    return 5 * 60 * 1000; /* 5 minutos */
                 case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Flu:
                 case DiseaseEffects.Infected:
                     return 10 * 60 * 1000; /* 10 minutos */
-                case DiseaseEffects.Dysentery:
-                case DiseaseEffects.Queasy:
-                    return 5 * 60 * 1000; /* 5 minutos */
                 default:
                     return 0;
             }
@@ -536,6 +614,8 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Queasy:
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Infected:
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
                     return true;
                 default:
                     return false;
@@ -595,10 +675,20 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_FROSTY_NAME);
                 case TemperatureEffects.Wet:
                     return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_WET_NAME);
+                case TemperatureEffects.ExposedToCold:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOCOLD_NAME);
+                case TemperatureEffects.ExposedToFreeze:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOFREEZE_NAME);
+                case TemperatureEffects.ExposedToHot:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOHOT_NAME);
+                case TemperatureEffects.ExposedToBoiling:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOBOILING_NAME);
+                case TemperatureEffects.RecoveringFromExposure:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RECOVERINGFROMEXPOSURE_NAME);                    
             }
             return "";
         }
-
+        
         public static int GetTemperatureEffectTrackLevel(TemperatureEffects effect)
         {
             switch (effect)
@@ -609,6 +699,10 @@ namespace ExtendedSurvival.Stats
                 case TemperatureEffects.Frosty:
                     return 1;
                 case TemperatureEffects.Wet:
+                case TemperatureEffects.ExposedToCold:
+                case TemperatureEffects.ExposedToFreeze:
+                case TemperatureEffects.ExposedToHot:
+                case TemperatureEffects.ExposedToBoiling:
                     return 0;
             }
             return 0;
@@ -621,6 +715,10 @@ namespace ExtendedSurvival.Stats
                 case TemperatureEffects.Overheating:
                 case TemperatureEffects.Cold:
                 case TemperatureEffects.Wet:
+                case TemperatureEffects.ExposedToCold:
+                case TemperatureEffects.ExposedToFreeze:
+                case TemperatureEffects.ExposedToHot:
+                case TemperatureEffects.ExposedToBoiling:
                     return 1;
                 case TemperatureEffects.OnFire:
                 case TemperatureEffects.Frosty:

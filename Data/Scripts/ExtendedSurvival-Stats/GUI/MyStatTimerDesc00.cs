@@ -1,16 +1,16 @@
 ﻿namespace ExtendedSurvival.Stats
 {
-    public class MyStatTimer07 : MyStatTimersProgressBase
+    public class MyStatTimerDesc00 : MyStatTimersDescProgressBase
     {
 
         protected override string GetId()
         {
-            return "player_timer07";
+            return "player_timerdesc00";
         }
 
         protected override int GetTargetIndex()
         {
-            return 7;
+            return 0;
         }
 
     }

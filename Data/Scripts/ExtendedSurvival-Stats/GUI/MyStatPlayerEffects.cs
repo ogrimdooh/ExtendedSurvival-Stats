@@ -138,7 +138,13 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetTemperatureEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetTemperatureEffectTrackLevel(effect))
                         {
-                            sbEffects.AppendLine(StatsConstants.GetTemperatureEffectDescription(effect));
+                            var text = StatsConstants.GetTemperatureEffectDescription(effect);
+                            if (StatsConstants.TEMPERATURE_EFFECTS[effect].CanSelfRemove || StatsConstants.TEMPERATURE_EFFECTS[effect].IsInverseTime)
+                            {
+                                var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
+                                text += " [" + TimeSpan.FromMilliseconds(timeToRemove).ToString(@"mm\:ss") + "]";
+                            }
+                            sbEffects.AppendLine(text);
                         }
                     }
                 }
