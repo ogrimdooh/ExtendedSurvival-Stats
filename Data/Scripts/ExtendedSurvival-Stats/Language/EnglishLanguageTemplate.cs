@@ -2589,6 +2589,48 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.RADIATIONTIME_NAME,
 				"Radioactivity Level"
 			);
+            #endregion
+            #region Weather
+            AddEntry(
+				LanguageEntries.WEATHEREFFECTSLEVEL_LIGHT_NAME,
+				"Light"
+			);
+			AddEntry(
+				LanguageEntries.WEATHEREFFECTSLEVEL_HEAVY_NAME,
+				"Heavy"
+			);
+			AddEntry(
+				LanguageEntries.WEATHEREFFECTS_RAIN_NAME,
+				"Rain"
+			);
+			AddEntry(
+				LanguageEntries.WEATHEREFFECTS_THUNDERSTORM_NAME,
+				"Storm"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_ATMOSPHERE_NAME,
+				"Atmosphere"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_SHIPORSTATION_NAME,
+				"Pressurized"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_SPACE_NAME,
+				"Space"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_UNDERWATER_NAME,
+				"Underwater"
+			);
+			AddEntry(
+				LanguageEntries.UI_ENVIROMENT_DISPLAY,
+				"Environment: "
+			);
+			AddEntry(
+				LanguageEntries.UI_WEATHER_DISPLAY,
+				"Weather: "
+			);
 			#endregion
 		}
 

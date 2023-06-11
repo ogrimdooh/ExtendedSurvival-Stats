@@ -48,6 +48,7 @@ namespace ExtendedSurvival.Stats
         public const ushort NETWORK_ID_COMMANDS = 40523;
         public const ushort NETWORK_ID_DEFINITIONS = 40524;
         public const ushort NETWORK_ID_ENTITYCALLS = 40525;
+        public const ushort NETWORK_ID_APICALLS = 40526;
         public const string CALL_FOR_DEFS = "NEEDDEFS";
 
         public int GetPlayerFixedStatUpdateHash()

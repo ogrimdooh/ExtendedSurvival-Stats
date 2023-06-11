@@ -98,13 +98,17 @@ namespace ExtendedSurvival.Stats
             OtherEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup05.ToString());
             if (IsValid)
             { 
-                CurrentValue = SurvivalEffects.Value +
+                var newValue = SurvivalEffects.Value +
                     DamageEffects.Value +
                     TemperatureEffects.Value +
                     DiseaseEffects.Value +
                     OtherEffects.Value +
                     (IsWithHelmet() ? 1 + ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatUpdateHash() : 0) +
-                    GetBodyTrackerLevel();
+                    GetBodyTrackerLevel() +
+                    WeatherConstants.CurrentWeatherInfo.GetHashCode();
+                if (newValue < 0)
+                    newValue *= -1;
+                CurrentValue = newValue;
             }
             else
             {
@@ -191,13 +195,19 @@ namespace ExtendedSurvival.Stats
                         }
                     }
                 }
-                sbFeeling.AppendLine(StatsConstants.GetFeelingByTotalEffects(toalEffects));
-                if (sbEffects.Length > 0)
+                if (WeatherConstants.CurrentWeatherInfo != null)
                 {
-                    sbFeeling.AppendLine();
-                    sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.FEELING_INFO_NAME));
+                    sbFeeling.AppendLine(WeatherConstants.CurrentWeatherInfo.GetDisplayInfo(bodyTrackLevel >= 1));
                     sbFeeling.AppendLine();
                 }
+                var feeling = StatsConstants.GetFeelingByTotalEffects(toalEffects);
+                if (feeling.Length > 0)
+                {
+                    sbFeeling.AppendLine(feeling);
+                    sbFeeling.AppendLine();
+                }
+                sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.FEELING_INFO_NAME));
+                sbFeeling.AppendLine();
             }
             return IsWithHelmet() ? sbFeeling.ToString() + sbEffects.ToString() : "";
         }

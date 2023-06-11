@@ -2622,8 +2622,50 @@ namespace ExtendedSurvival.Stats
 				"Radioaktivitätsniveau"
 			);
 			#endregion
+			#region Weather
+			AddEntry(
+				LanguageEntries.WEATHEREFFECTSLEVEL_LIGHT_NAME,
+				"Leichte"
+			);
+			AddEntry(
+				LanguageEntries.WEATHEREFFECTSLEVEL_HEAVY_NAME,
+				"Starke"
+			);
+			AddEntry(
+				LanguageEntries.WEATHEREFFECTS_RAIN_NAME,
+				"Regen"
+			);
+			AddEntry(
+				LanguageEntries.WEATHEREFFECTS_THUNDERSTORM_NAME,
+				"Sturm"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_ATMOSPHERE_NAME,
+				"Atmosphäre"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_SHIPORSTATION_NAME,
+				"Druck"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_SPACE_NAME,
+				"Raum"
+			);
+			AddEntry(
+				LanguageEntries.ENVIRONMENTDETECTOR_UNDERWATER_NAME,
+				"Unterwasser"
+			);
+			AddEntry(
+				LanguageEntries.UI_ENVIROMENT_DISPLAY,
+				"Umfeld: "
+			);
+			AddEntry(
+				LanguageEntries.UI_WEATHER_DISPLAY,
+				"Wetter: "
+			);
+			#endregion
 		}
 
-    }
+	}
 
 }

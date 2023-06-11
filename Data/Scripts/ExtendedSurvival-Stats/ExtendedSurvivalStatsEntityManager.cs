@@ -55,17 +55,90 @@ namespace ExtendedSurvival.Stats
                     RegisterWatcher();
                     SuperficialMiningController.InitShipDrillCollec();
                 }
-                else
-                {
-                    ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), $"RegisterSecureMessageHandler EntityCallsMsgHandler");
-                    MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS, EntityCallsMsgHandler);
-                }
+                ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), $"RegisterSecureMessageHandler EntityCallsMsgHandler");
+                MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS, EntityCallsMsgHandler);
+                MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_APICALLS, ApiCallsMsgHandler);
             }
             catch (Exception ex)
             {
                 ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
             base.BeforeStart();
+        }
+
+        public void SendCallClient(ulong caller, string method, Dictionary<string, string> extraParams)
+        {
+            var cmd = new Command(caller, method);
+            var extraData = new CommandExtraParams() { extraParams = extraParams.Select(x => new CommandExtraParam() { id = x.Key, data = x.Value }).ToArray() };
+            string extraDataToSend = MyAPIGateway.Utilities.SerializeToXML<CommandExtraParams>(extraData);
+            cmd.data = Encoding.Unicode.GetBytes(extraDataToSend);
+            string messageToSend = MyAPIGateway.Utilities.SerializeToXML<Command>(cmd);
+            MyAPIGateway.Multiplayer.SendMessageToServer(
+                ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS,
+                Encoding.Unicode.GetBytes(messageToSend)
+            );
+        }
+
+        public void SendCallServer(ulong[] target, string method, Dictionary<string, string> extraParams)
+        {
+            if (IsDedicated && !target.Any())
+            {
+                var players = new List<IMyPlayer>();
+                MyAPIGateway.Players.GetPlayers(players);
+                if (players.Any())
+                    target = players.Select(x => x.SteamUserId).ToArray();
+                else
+                    return;
+            }
+            var cmd = new Command(0, method);
+            var extraData = new CommandExtraParams() { extraParams = extraParams.Select(x => new CommandExtraParam() { id = x.Key, data = x.Value }).ToArray() };
+            string extraDataToSend = MyAPIGateway.Utilities.SerializeToXML<CommandExtraParams>(extraData);
+            cmd.data = Encoding.Unicode.GetBytes(extraDataToSend);
+            string messageToSend = MyAPIGateway.Utilities.SerializeToXML<Command>(cmd);
+            if (!target.Any())
+            {
+                MyAPIGateway.Multiplayer.SendMessageToOthers(
+                    ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS,
+                    Encoding.Unicode.GetBytes(messageToSend)
+                );
+            }
+            else
+            {
+                foreach (var item in target)
+                {
+                    MyAPIGateway.Multiplayer.SendMessageTo(
+                        ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS,
+                        Encoding.Unicode.GetBytes(messageToSend),
+                        item
+                    );
+                }
+            }
+        }
+
+        private void ApiCallsMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
+        {
+            try
+            {
+                if (netId != ExtendedSurvivalStatsSession.NETWORK_ID_APICALLS)
+                    return;
+                var message = Encoding.Unicode.GetString(data);
+                var mCommandData = MyAPIGateway.Utilities.SerializeFromXML<Command>(message);
+                var componentParamData = Encoding.Unicode.GetString(mCommandData.data);
+                var componentParams = MyAPIGateway.Utilities.SerializeFromXML<CommandExtraParams>(componentParamData);
+                switch (mCommandData.content[0])
+                {
+                    case "WeatherConstants":
+                        if (fromServer)
+                        {
+                            WeatherConstants.CurrentWeatherInfo.LoadData(componentParams.extraParams.ToDictionary(x => x.id, x => x.data));
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+            }
         }
 
         private void EntityCallsMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
@@ -95,7 +168,10 @@ namespace ExtendedSurvival.Stats
                             {
                                 var componentParamData = Encoding.Unicode.GetString(mCommandData.data);
                                 var componentParams = MyAPIGateway.Utilities.SerializeFromXML<CommandExtraParams>(componentParamData);
-                                syncComponent.CallFromServer(mCommandData.content[2], componentParams);
+                                if (fromServer)
+                                    syncComponent.CallFromServer(mCommandData.content[2], componentParams);
+                                else
+                                    syncComponent.CallFromClient(steamId, mCommandData.content[2], componentParams);
                             }
                         }
                     }
@@ -109,14 +185,23 @@ namespace ExtendedSurvival.Stats
 
         protected override void UnloadData()
         {
-            if (MyAPIGateway.Session.IsServer)
+            try
             {
-                Players?.Clear();
-                Players = null;
-                MyVisualScriptLogicProvider.PlayerConnected -= Players_PlayerConnected;
-                MyVisualScriptLogicProvider.PlayerDisconnected -= Players_PlayerDisconnected;
-                MyEntities.OnEntityAdd -= Entities_OnEntityAdd;
-                MyEntities.OnEntityRemove -= Entities_OnEntityRemove;
+                if (IsServer)
+                {
+                    Players?.Clear();
+                    Players = null;
+                    MyVisualScriptLogicProvider.PlayerConnected -= Players_PlayerConnected;
+                    MyVisualScriptLogicProvider.PlayerDisconnected -= Players_PlayerDisconnected;
+                    MyEntities.OnEntityAdd -= Entities_OnEntityAdd;
+                    MyEntities.OnEntityRemove -= Entities_OnEntityRemove;
+                }
+                MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS, EntityCallsMsgHandler);
+                MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_APICALLS, ApiCallsMsgHandler);
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
             base.UnloadData();
         }
