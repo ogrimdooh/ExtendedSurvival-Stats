@@ -36,6 +36,7 @@ namespace ExtendedSurvival.Stats
         public List<ConsumibleEffect> Effects { get; set; } = new List<ConsumibleEffect>();
         public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; } = new Dictionary<StatsConstants.DiseaseEffects, float>();
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; } = new List<StatsConstants.DiseaseEffects>();
+        public Dictionary<StatsConstants.TemperatureEffects, int> TemperatureEffects { get; set; } = new Dictionary<StatsConstants.TemperatureEffects, int>();
 
         public bool NeedConservation { get; set; } = false;
         public long StartConservationTime { get; set; } = 0;
@@ -88,27 +89,64 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             }
-            if (DiseaseChance != null && DiseaseChance.Any())
+            var hadDiseaseChance = DiseaseChance != null && DiseaseChance.Any();
+            var hadTemperatureEffectsToAdd = TemperatureEffects != null && TemperatureEffects.Any(x => x.Value <= 0);
+            if (hadDiseaseChance || hadTemperatureEffectsToAdd)
             {
                 values.AppendLine(" ");
-                foreach (var disease in DiseaseChance.Keys)
+                if (hadDiseaseChance)
                 {
-                    values.AppendLine(string.Format(
-                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION), 
-                        DiseaseChance[disease].ToString("P1"), 
-                        StatsConstants.GetDiseaseEffectDescription(disease)
-                    ));
+                    foreach (var disease in DiseaseChance.Keys)
+                    {
+                        values.AppendLine(string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
+                            DiseaseChance[disease].ToString("P1"),
+                            StatsConstants.GetDiseaseEffectDescription(disease)
+                        ));
+                    }
+                }
+                if (hadTemperatureEffectsToAdd)
+                {
+                    foreach (var temperatureEffects in TemperatureEffects.Keys)
+                    {
+                        if (TemperatureEffects[temperatureEffects] > 0)
+                        {
+                            values.AppendLine(string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
+                                (1).ToString("P1"),
+                                StatsConstants.GetTemperatureEffectDescription(temperatureEffects)
+                            ));
+                        }
+                    }
                 }
             }
-            if (CureDisease != null && CureDisease.Any())
+            var hadCureDisease = CureDisease != null && CureDisease.Any();
+            var hadTemperatureEffectsToCure = TemperatureEffects != null && TemperatureEffects.Any(x => x.Value <= 0);
+            if (hadCureDisease || hadTemperatureEffectsToCure)
             {
                 values.AppendLine(" ");
-                foreach (var disease in CureDisease)
+                if (hadCureDisease)
                 {
-                    values.AppendLine(string.Format(
-                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION), 
-                        StatsConstants.GetDiseaseEffectDescription(disease)
-                    ));
+                    foreach (var disease in CureDisease)
+                    {
+                        values.AppendLine(string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION),
+                            StatsConstants.GetDiseaseEffectDescription(disease)
+                        ));
+                    }
+                }
+                if (hadTemperatureEffectsToCure)
+                {
+                    foreach (var temperatureEffects in TemperatureEffects.Keys)
+                    {
+                        if (TemperatureEffects[temperatureEffects] <= 0)
+                        {
+                            values.AppendLine(string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION),
+                                StatsConstants.GetTemperatureEffectDescription(temperatureEffects)
+                            ));
+                        }
+                    }
                 }
             }
             if (FarmConstants.DEFINITIONS.ContainsKey(Id))
@@ -213,7 +251,6 @@ namespace ExtendedSurvival.Stats
                     StartConservationTime = maxTime * 3;
                     NoNegativeHealth();
                     NoDiseaseChance();
-                    NoNegativeTemperature();
                     ChangeLipids(0.9f);
                     ChangeWater(0.75f);
                     break;
@@ -221,7 +258,6 @@ namespace ExtendedSurvival.Stats
                     StartConservationTime = maxTime * 2;
                     NoNegativeHealth();
                     NoDiseaseChance();
-                    NoTemperatureChange();
                     ChangeLipids(1.25f);
                     ChangeWater(0.25f);
                     break;
@@ -229,7 +265,6 @@ namespace ExtendedSurvival.Stats
                     StartConservationTime = maxTime * 4;
                     NoNegativeHealth();
                     NoDiseaseChance();
-                    NoTemperatureChange();
                     ChangeLipids(0.8f);
                     ChangeWater(0.5f);
                     break;
@@ -237,18 +272,11 @@ namespace ExtendedSurvival.Stats
                     StartConservationTime = maxTime * 5;
                     NoNegativeHealth();
                     NoDiseaseChance();
-                    NoTemperatureChange();
                     var removedWater = ChangeWater(0.1f);
                     Solid += removedWater * -1;
                     ChangeSolid(0.5f);
                     break;
             }
-        }
-
-        private void NoTemperatureChange()
-        {
-            if (Effects != null)
-                Effects.RemoveAll(x => x.EffectTarget == FoodEffectTarget.TemperatureTime);
         }
 
         private void NoDiseaseChance()
@@ -262,17 +290,6 @@ namespace ExtendedSurvival.Stats
             if (Effects != null && Effects.Any(x => x.EffectTarget == FoodEffectTarget.Health && x.Ammount < 0))
             {
                 foreach (var effect in Effects.Where(x => x.EffectTarget == FoodEffectTarget.Health && x.Ammount < 0))
-                {
-                    effect.Ammount *= -1;
-                }
-            }
-        }
-
-        private void NoNegativeTemperature()
-        {
-            if (Effects != null && Effects.Any(x => x.EffectTarget == FoodEffectTarget.TemperatureTime && x.Ammount < 0))
-            {
-                foreach (var effect in Effects.Where(x => x.EffectTarget == FoodEffectTarget.TemperatureTime && x.Ammount < 0))
                 {
                     effect.Ammount *= -1;
                 }
@@ -490,6 +507,19 @@ namespace ExtendedSurvival.Stats
                     });
                 }
             }
+            if (TemperatureEffects != null)
+            {
+                foreach (var effect in TemperatureEffects.Keys)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = TemperatureEffects[effect] > 0 ? FixedEffectInConsumableType.Add : FixedEffectInConsumableType.Remove,
+                        Target = effect.ToString(),
+                        Stacks = (byte)Math.Max(TemperatureEffects[effect], 0),
+                        MaxStacks = TemperatureEffects[effect] <= 0
+                    });
+                }
+            }            
             return info;
         }
 

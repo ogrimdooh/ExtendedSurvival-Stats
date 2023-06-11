@@ -672,17 +672,7 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 22,
             OfferAmount = new Vector2I(15000, 45000),
             OrderAmount = new Vector2I(5000, 15000),
-            AcquisitionAmount = new Vector2I(10000, 30000),
-            Effects = new List<ConsumibleEffect>()
-            {
-                new ConsumibleEffect()
-                {
-                    EffectTarget = FoodEffectTarget.TemperatureTime,
-                    EffectType = FoodEffectType.OverTime,
-                    Ammount = 6000,
-                    TimeToEffect = 600
-                }
-            }
+            AcquisitionAmount = new Vector2I(10000, 30000)
         };
 
         public static readonly FoodDefinition ICE_DEFINITION = new FoodDefinition()
@@ -692,17 +682,7 @@ namespace ExtendedSurvival.Stats
             Liquid = 1.0f,
             TimeToConsume = 600f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
-            IgnoreDefinition = true,
-            Effects = new List<ConsumibleEffect>()
-            {
-                new ConsumibleEffect()
-                {
-                    EffectTarget = FoodEffectTarget.TemperatureTime,
-                    EffectType = FoodEffectType.OverTime,
-                    Ammount = -3000,
-                    TimeToEffect = 600
-                }
-            }
+            IgnoreDefinition = true
         };
 
         public static readonly FoodDefinition MILK_DEFINITION = new FoodDefinition()
@@ -728,13 +708,6 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(100, 300),
             Effects = new List<ConsumibleEffect>()
             {
-                new ConsumibleEffect()
-                {
-                    EffectTarget = FoodEffectTarget.TemperatureTime,
-                    EffectType = FoodEffectType.OverTime,
-                    Ammount = -300,
-                    TimeToEffect = 60
-                },
                 new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Stamina,
@@ -1280,6 +1253,11 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Overheating, -1 },
+                { StatsConstants.TemperatureEffects.LesserResistenceToHot, 1 }
             }
         };
 
@@ -1316,6 +1294,11 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Overheating, -1 },
+                { StatsConstants.TemperatureEffects.ResistenceToHot, 1 }
             }
         };
 
@@ -1352,6 +1335,12 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Overheating, -1 },
+                { StatsConstants.TemperatureEffects.OnFire, -1 },
+                { StatsConstants.TemperatureEffects.GreaterResistenceToHot, 1 }
             }
         };
 
@@ -1393,6 +1382,11 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Overheating, -1 },
+                { StatsConstants.TemperatureEffects.ResistenceToHot, 1 }
             }
         };
 
@@ -1429,6 +1423,11 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hyperthermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Overheating, -1 },
+                { StatsConstants.TemperatureEffects.LesserResistenceToHot, 1 }
             }
         };
 
@@ -1470,6 +1469,12 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.Frosty, -1 },
+                { StatsConstants.TemperatureEffects.ResistenceToCold, 1 }
             }
         };
 
@@ -2510,6 +2515,12 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.Frosty, -1 },
+                { StatsConstants.TemperatureEffects.ResistenceToCold, 1 }
             }
         };
 
@@ -2537,7 +2548,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.STEW_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.STEW_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.STEW_DESCRIPTION),
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.LesserResistenceToCold, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_STEW_DEFINITION = new FoodRecipeDefinition()
@@ -2564,7 +2580,12 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_STEW_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_STEW_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_STEW_DESCRIPTION),
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.LesserResistenceToCold, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition MEAT_VEGETABLES_DEFINITION = new FoodRecipeDefinition()
@@ -2743,6 +2764,12 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.Frosty, -1 },
+                { StatsConstants.TemperatureEffects.GreaterResistenceToCold, 1 }
             }
         };
 
@@ -2784,6 +2811,12 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.Frosty, -1 },
+                { StatsConstants.TemperatureEffects.GreaterResistenceToCold, 1 }
             }
         };
 
@@ -2825,6 +2858,11 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.LesserResistenceToCold, 1 }
             }
         };
 
@@ -3132,6 +3170,12 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.Frosty, -1 },
+                { StatsConstants.TemperatureEffects.GreaterResistenceToCold, 1 }
             }
         };
 
@@ -3178,6 +3222,12 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Hypothermia
+            },
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.Cold, -1 },
+                { StatsConstants.TemperatureEffects.Frosty, -1 },
+                { StatsConstants.TemperatureEffects.ResistenceToCold, 1 }
             }
         };
 
@@ -3907,7 +3957,8 @@ namespace ExtendedSurvival.Stats
                             OfferAmount = preparationDef.OfferAmount,
                             MinimalPricePerUnit = preparationDef.MinimalPricePerUnit,
                             CanPlayerOrder = preparationDef.CanPlayerOrder,
-                            CureDisease = preparationDef.CureDisease
+                            CureDisease = preparationDef.CureDisease,
+                            TemperatureEffects = preparationDef.TemperatureEffects
                         };
                         bool needConservation = false;
                         long maxTime = 0;

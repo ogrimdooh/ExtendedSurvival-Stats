@@ -2302,6 +2302,30 @@ namespace ExtendedSurvival.Stats
 				"Recovering from Exposure"
 			);
 			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOCOLD_NAME,
+				"Lesser Resistance To Cold"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOCOLD_NAME,
+				"Resistance To Cold"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOCOLD_NAME,
+				"Greater Resistance To Cold"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOHOT_NAME,
+				"Lesser Resistance To Hot"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOHOT_NAME,
+				"Resistance To Hot"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOHOT_NAME,
+				"Greater Resistance To Hot"
+			);
+			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
 				"Contusion"
 			);

@@ -233,7 +233,8 @@ namespace ExtendedSurvival.Stats
             },
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
-                StatsConstants.DiseaseEffects.Poison
+                StatsConstants.DiseaseEffects.Poison,
+                StatsConstants.DiseaseEffects.Flu
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -361,6 +362,7 @@ namespace ExtendedSurvival.Stats
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             { 
                 StatsConstants.DiseaseEffects.Infected,
+                StatsConstants.DiseaseEffects.Flu,
                 StatsConstants.DiseaseEffects.Pneumonia
             },
             Effects = new List<ConsumibleEffect>()

@@ -5,8 +5,7 @@
 
         Health = 0,
         Stamina = 1,
-        Fatigue = 2,
-        TemperatureTime = 3
+        Fatigue = 2
 
     }
 

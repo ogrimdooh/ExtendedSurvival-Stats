@@ -32,6 +32,7 @@ namespace ExtendedSurvival.Stats
         public int MinimalPricePerUnit { get; set; }
         public bool CanPlayerOrder { get; set; } = false;
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
+        public Dictionary<StatsConstants.TemperatureEffects, int> TemperatureEffects { get; set; }
 
         public string GetFullDescription()
         {

@@ -235,9 +235,29 @@ namespace ExtendedSurvival.Stats
             ExposedToFreeze = 1 << 7,
             ExposedToHot = 1 << 8,
             ExposedToBoiling = 1 << 9,
-            RecoveringFromExposure = 1 << 10
+            RecoveringFromExposure = 1 << 10,
+            LesserResistenceToCold = 1 << 11,
+            ResistenceToCold = 1 << 12,
+            GreaterResistenceToCold = 1 << 13,
+            LesserResistenceToHot = 1 << 14,
+            ResistenceToHot = 1 << 15,
+            GreaterResistenceToHot = 1 << 16
 
         }
+
+        public static readonly TemperatureEffects[] COLD_RESISTENCES = new TemperatureEffects[]
+        {
+            TemperatureEffects.LesserResistenceToCold,
+            TemperatureEffects.ResistenceToCold,
+            TemperatureEffects.GreaterResistenceToCold
+        };
+
+        public static readonly TemperatureEffects[] HOT_RESISTENCES = new TemperatureEffects[]
+        {
+            TemperatureEffects.LesserResistenceToHot,
+            TemperatureEffects.ResistenceToHot,
+            TemperatureEffects.GreaterResistenceToHot
+        };
 
         public static Dictionary<TemperatureEffects, FixedStatDataInfo> TEMPERATURE_EFFECTS = new Dictionary<TemperatureEffects, FixedStatDataInfo>()
         {
@@ -334,6 +354,66 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.RecoveringFromExposure),
                     CanSelfRemove = true,
                     TimeToSelfRemove = (int)(2.5f * 60 * 1000),
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.LesserResistenceToCold,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.LesserResistenceToCold),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.ResistenceToCold,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ResistenceToCold),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.GreaterResistenceToCold,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.GreaterResistenceToCold),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 15 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.LesserResistenceToHot,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.LesserResistenceToHot),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.ResistenceToHot,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ResistenceToHot),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.GreaterResistenceToHot,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.GreaterResistenceToHot),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 15 * 60 * 1000,
                     CompleteRemove = true
                 }
             }
@@ -684,7 +764,19 @@ namespace ExtendedSurvival.Stats
                 case TemperatureEffects.ExposedToBoiling:
                     return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOBOILING_NAME);
                 case TemperatureEffects.RecoveringFromExposure:
-                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RECOVERINGFROMEXPOSURE_NAME);                    
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RECOVERINGFROMEXPOSURE_NAME);
+                case TemperatureEffects.LesserResistenceToCold:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOCOLD_NAME);
+                case TemperatureEffects.ResistenceToCold:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOCOLD_NAME);
+                case TemperatureEffects.GreaterResistenceToCold:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOCOLD_NAME);
+                case TemperatureEffects.LesserResistenceToHot:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOHOT_NAME);
+                case TemperatureEffects.ResistenceToHot:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOHOT_NAME);
+                case TemperatureEffects.GreaterResistenceToHot:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOHOT_NAME);
             }
             return "";
         }
@@ -697,6 +789,12 @@ namespace ExtendedSurvival.Stats
                 case TemperatureEffects.OnFire:
                 case TemperatureEffects.Cold:
                 case TemperatureEffects.Frosty:
+                case TemperatureEffects.LesserResistenceToCold:
+                case TemperatureEffects.ResistenceToCold:
+                case TemperatureEffects.GreaterResistenceToCold:
+                case TemperatureEffects.LesserResistenceToHot:
+                case TemperatureEffects.ResistenceToHot:
+                case TemperatureEffects.GreaterResistenceToHot:
                     return 1;
                 case TemperatureEffects.Wet:
                 case TemperatureEffects.ExposedToCold:
@@ -867,57 +965,6 @@ namespace ExtendedSurvival.Stats
                 return LanguageProvider.GetEntry(LanguageEntries.FEELING_LEVEL3_NAME);
             return LanguageProvider.GetEntry(LanguageEntries.FEELING_LEVEL4_NAME);
         }
-
-        public static readonly Dictionary<SurvivalEffects, MyStringId> SurvivalEffectsIcons = new Dictionary<SurvivalEffects, MyStringId>()
-        {
-            { SurvivalEffects.Hungry, MyStringId.GetOrCompute("Hungry_White") },
-            { SurvivalEffects.Famished, MyStringId.GetOrCompute("Famished_White") },
-            { SurvivalEffects.Thirsty, MyStringId.GetOrCompute("Thirsty_White") },
-            { SurvivalEffects.Dehydrating, MyStringId.GetOrCompute("Dehydrating_White") },
-            { SurvivalEffects.Disoriented, MyStringId.GetOrCompute("Disoriented_White") },
-            { SurvivalEffects.Suffocation, MyStringId.GetOrCompute("Suffocation_White") }
-        };
-
-        public static readonly Dictionary<DamageEffects, MyStringId> DamageEffectsIcons = new Dictionary<DamageEffects, MyStringId>()
-        {
-            { DamageEffects.Contusion, MyStringId.GetOrCompute("Contusion_White") },
-            { DamageEffects.Wounded, MyStringId.GetOrCompute("Wounded_White") },
-            { DamageEffects.DeepWounded, MyStringId.GetOrCompute("DeepWounded_White") },
-            { DamageEffects.BrokenBones, MyStringId.GetOrCompute("BrokenBones_White") }
-        };
-
-        public static readonly Dictionary<TemperatureEffects, MyStringId> TemperatureEffectsIcons = new Dictionary<TemperatureEffects, MyStringId>()
-        {
-            { TemperatureEffects.Overheating, MyStringId.GetOrCompute("Overheating_White") },
-            { TemperatureEffects.OnFire, MyStringId.GetOrCompute("OnFire_White") },
-            { TemperatureEffects.Cold, MyStringId.GetOrCompute("Cold_White") },
-            { TemperatureEffects.Frosty, MyStringId.GetOrCompute("Frosty_White") },
-            { TemperatureEffects.Wet, MyStringId.GetOrCompute("Wet_White") }
-        };
-
-        public static readonly Dictionary<DiseaseEffects, MyStringId> DiseaseEffectsIcons = new Dictionary<DiseaseEffects, MyStringId>()
-        {
-            { DiseaseEffects.Pneumonia, MyStringId.GetOrCompute("Pneumonia_White") },
-            { DiseaseEffects.Dysentery, MyStringId.GetOrCompute("Dysentery_White") },
-            { DiseaseEffects.Poison, MyStringId.GetOrCompute("Poison_White") },
-            { DiseaseEffects.Infected, MyStringId.GetOrCompute("Infected_White") },
-            { DiseaseEffects.Hypothermia, MyStringId.GetOrCompute("Hypothermia_White") },
-            { DiseaseEffects.Hyperthermia, MyStringId.GetOrCompute("Hyperthermia_White") },
-            { DiseaseEffects.Starvation, MyStringId.GetOrCompute("Starvation_White") },
-            { DiseaseEffects.SevereStarvation, MyStringId.GetOrCompute("SevereStarvation_White") },
-            { DiseaseEffects.Dehydration, MyStringId.GetOrCompute("Dehydration_White") },
-            { DiseaseEffects.SevereDehydration, MyStringId.GetOrCompute("SevereDehydration_White") },
-            { DiseaseEffects.Obesity, MyStringId.GetOrCompute("Obesity_White") },
-            { DiseaseEffects.SevereObesity, MyStringId.GetOrCompute("SevereObesity_White") },
-            { DiseaseEffects.Rickets, MyStringId.GetOrCompute("Rickets_White") },
-            { DiseaseEffects.SevereRickets, MyStringId.GetOrCompute("SevereRickets_White") },
-            { DiseaseEffects.Hypolipidemia, MyStringId.GetOrCompute("Hypolipidemia_White") }
-        };
-
-        public static readonly Dictionary<OtherEffects, MyStringId> OtherEffectsIcons = new Dictionary<OtherEffects, MyStringId>()
-        {
-
-        };
 
         public static IEnumerable<T> GetFlags<T>(this T value) where T : struct
         {

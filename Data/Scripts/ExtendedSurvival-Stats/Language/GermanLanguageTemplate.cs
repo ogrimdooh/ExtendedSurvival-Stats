@@ -2334,6 +2334,30 @@ namespace ExtendedSurvival.Stats
 				"Erholung von der Exposition"
 			);
 			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOCOLD_NAME,
+				"Geringere Kältebeständigkeit"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOCOLD_NAME,
+				"Kältebeständigkeit"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOCOLD_NAME,
+				"Höhere Kältebeständigkeit"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOHOT_NAME,
+				"Geringere Hitzebeständigkeit"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOHOT_NAME,
+				"Hitzebeständigkeit"
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOHOT_NAME,
+				"Höhere Hitzebeständigkeit"
+			);
+			AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
 				"Prellung"
 			);

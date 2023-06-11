@@ -377,11 +377,32 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        private static bool HasResistenceToHot(long playerId)
+        {
+            foreach (var stat in StatsConstants.HOT_RESISTENCES)
+            {
+                if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, stat))
+                    return true;
+            }
+            return false;
+        }
+
+        private static bool HasResistenceToCold(long playerId)
+        {
+            foreach (var stat in StatsConstants.COLD_RESISTENCES)
+            {
+                if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, stat))
+                    return true;
+            }
+            return false;
+        }
+
         public static readonly Vector2 TEMPERATURE_RANGE = new Vector2(10f, 40f);
         public static readonly Vector2 TEMPERATURE_HARD_RANGE = new Vector2(0f, 50f);
         public static readonly ConcurrentDictionary<StatsConstants.TemperatureEffects, long> LAST_TEMP_TIME = new ConcurrentDictionary<StatsConstants.TemperatureEffects, long>();
         private static void IncDevTemperatureTimer(long playerId, long timePassed, WeatherConstants.WeatherInfo weatherInfo)
         {
+            var needToRemove = true;
             var temperature = weatherInfo.CurrentTemperature.Y;            
             if (temperature > TEMPERATURE_RANGE.Y)
             {
@@ -406,28 +427,33 @@ namespace ExtendedSurvival.Stats
                         AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString(), 0, true);
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToCold))
                         AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), 0, true);
+                    needToRemove = false;
                 }
                 else
                 {
-                    AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), 0, true);
-                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToBoiling))
+                    if (!HasResistenceToHot(playerId))
                     {
-                        LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToBoiling] = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString());
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString(), 0, true);
-                        AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToBoiling]);
-                    }
-                    else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.RecoveringFromExposure))
-                    {
-                        if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToHot))
-                            AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToHot]);
-                        else if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToBoiling))
+                        AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), 0, true);
+                        if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToBoiling))
+                        {
+                            LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToBoiling] = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString());
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString(), 0, true);
                             AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToBoiling]);
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.RecoveringFromExposure.ToString(), 0, true);
+                        }
+                        else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.RecoveringFromExposure))
+                        {
+                            if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToHot))
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToHot]);
+                            else if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToBoiling))
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToBoiling]);
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.RecoveringFromExposure.ToString(), 0, true);
+                        }
+                        if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToFreeze))
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString(), 0, true);
+                        if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToCold))
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), 0, true);
+                        needToRemove = false;
                     }
-                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToFreeze))
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString(), 0, true);
-                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToCold))
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), 0, true);
                 }
             }
             else if (temperature < TEMPERATURE_RANGE.X)
@@ -453,31 +479,36 @@ namespace ExtendedSurvival.Stats
                         AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString(), 0, true);
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToHot))
                         AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), 0, true);
+                    needToRemove = false;
                 }
                 else
                 {
-                    AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), 0, true);
-                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToFreeze))
+                    if (!HasResistenceToCold(playerId))
                     {
-                        LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToFreeze] = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString());
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString(), 0, true);
-                        AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToFreeze]);
-                    }
-                    else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.RecoveringFromExposure))
-                    {
-                        if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToCold))
-                            AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToCold]);
-                        else if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToFreeze))
+                        AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), 0, true);
+                        if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToFreeze))
+                        {
+                            LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToFreeze] = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString());
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString(), 0, true);
                             AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToFreeze]);
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.RecoveringFromExposure.ToString(), 0, true);
+                        }
+                        else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.RecoveringFromExposure))
+                        {
+                            if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToCold))
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToCold]);
+                            else if (LAST_TEMP_TIME.ContainsKey(StatsConstants.TemperatureEffects.ExposedToFreeze))
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString(), LAST_TEMP_TIME[StatsConstants.TemperatureEffects.ExposedToFreeze]);
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.RecoveringFromExposure.ToString(), 0, true);
+                        }
+                        if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToBoiling))
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString(), 0, true);
+                        if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToHot))
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), 0, true);
+                        needToRemove = false;
                     }
-                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToBoiling))
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString(), 0, true);
-                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToHot))
-                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString(), 0, true);
                 }
             }
-            else
+            if (needToRemove)
             {
                 if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToBoiling))
                 {
