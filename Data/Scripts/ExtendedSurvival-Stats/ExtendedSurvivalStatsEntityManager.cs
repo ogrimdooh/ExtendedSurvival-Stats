@@ -267,8 +267,12 @@ namespace ExtendedSurvival.Stats
         {
             if (inicialLoadComplete)
             {
-                if (SuperficialMiningController.CheckEntityIsAFloatingObject(entity))
-                    return;
+                var floatingObj = entity as MyFloatingObject;
+                if (floatingObj != null)
+                {
+                    SuperficialMiningController.CheckEntityIsAFloatingObject(floatingObj);
+                    BonusGatheringController.DoExecuteBonusGathering(floatingObj);
+                }
             }
         }
 

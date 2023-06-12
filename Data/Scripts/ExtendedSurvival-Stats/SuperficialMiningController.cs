@@ -9,11 +9,9 @@ using VRage.Game.Entity;
 using VRageMath;
 using Sandbox.Game;
 using Sandbox.ModAPI;
-using VRage.Game.ModAPI;
 
 namespace ExtendedSurvival.Stats
 {
-
     public static class SuperficialMiningController
     {
 
@@ -112,7 +110,7 @@ namespace ExtendedSurvival.Stats
         public static void InitShipDrillCollec()
         {
             // Add event to ship drill
-            MyVisualScriptLogicProvider.ShipDrillCollected = (string entityName, long entityId, string gridName, long gridId, string typeId, string subtypeId, float amount) =>
+            MyVisualScriptLogicProvider.ShipDrillCollected += (string entityName, long entityId, string gridName, long gridId, string typeId, string subtypeId, float amount) =>
             {
                 try
                 {
@@ -161,18 +159,17 @@ namespace ExtendedSurvival.Stats
             };
         }
 
-        public static bool CheckEntityIsAFloatingObject(MyEntity obj)
+        public static bool CheckEntityIsAFloatingObject(MyFloatingObject floatingObj)
         {
             try
             {
-                var floatingObj = obj as MyFloatingObject;
                 if (floatingObj != null)
                 {
-                    Vector3D upp = obj.WorldMatrix.Up;
-                    Vector3D fww = obj.WorldMatrix.Forward;
+                    Vector3D upp = floatingObj.WorldMatrix.Up;
+                    Vector3D fww = floatingObj.WorldMatrix.Forward;
                     var typeId = floatingObj.Item.Content.TypeId.ToString();
                     var subtypeId = floatingObj.Item.Content.SubtypeId.ToString();
-                    Vector3D pos = (obj as IMyEntity).GetPosition();
+                    Vector3D pos = (floatingObj as IMyEntity).GetPosition();
                     var lootAmmount = DoInternalDrill(typeId, subtypeId, pos, MAX_DISTANCE_TO_GENERATE_LOOT);
                     if (lootAmmount.Any())
                     {
