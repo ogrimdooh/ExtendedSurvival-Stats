@@ -398,16 +398,33 @@ namespace ExtendedSurvival.Stats
             return false;
         }
 
+        private static Vector4 GetTemperatureRange(long playerId)
+        {
+            var baseRange = new Vector4(TEMPERATURE_HARD_RANGE.X, TEMPERATURE_RANGE.X, TEMPERATURE_RANGE.Y, TEMPERATURE_HARD_RANGE.Y);
+            var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
+            if (armorInfo != null)
+            {
+                baseRange = new Vector4(
+                    baseRange.X,
+                    baseRange.Y - armorInfo.Value.Definition.ColdResistence,
+                    baseRange.Z + armorInfo.Value.Definition.HotResistence, 
+                    baseRange.W
+                );                
+            }
+            return baseRange;
+        }
+
         public static readonly Vector2 TEMPERATURE_RANGE = new Vector2(10f, 40f);
         public static readonly Vector2 TEMPERATURE_HARD_RANGE = new Vector2(0f, 50f);
         public static readonly ConcurrentDictionary<StatsConstants.TemperatureEffects, long> LAST_TEMP_TIME = new ConcurrentDictionary<StatsConstants.TemperatureEffects, long>();
         private static void IncDevTemperatureTimer(long playerId, long timePassed, WeatherConstants.WeatherInfo weatherInfo)
         {
             var needToRemove = true;
-            var temperature = weatherInfo.CurrentTemperature.Y;            
-            if (temperature > TEMPERATURE_RANGE.Y)
+            var temperature = weatherInfo.CurrentTemperature.Y;
+            var range = GetTemperatureRange(playerId);
+            if (temperature > range.Z)
             {
-                if (temperature >= TEMPERATURE_HARD_RANGE.Y)
+                if (temperature >= range.W)
                 {
                     AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString(), 0, true);
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToHot))
@@ -457,9 +474,9 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             }
-            else if (temperature < TEMPERATURE_RANGE.X)
+            else if (temperature < range.Y)
             {
-                if (temperature <= TEMPERATURE_HARD_RANGE.X)
+                if (temperature <= range.X)
                 {
                     AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString(), 0, true);
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.ExposedToCold))
