@@ -2737,6 +2737,10 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ARMOREFFECT_MOVEMENTSPEED_NAME,
 				"Movement Speed"
 			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_UI_EQUIPED,
+				"Armor Equipped: {0}."
+			);
 			#endregion
 			#region Damage Types
 			AddEntry(
