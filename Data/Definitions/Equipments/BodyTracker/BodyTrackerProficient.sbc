@@ -57,7 +57,7 @@
         <SubtypeId>ProficientBodyTracker_VanilaConstruction</SubtypeId>
       </Id>
       <DisplayName>Enhanced Body Tracker</DisplayName>
-      <Icon>Textures\GUI\Icons\body_tracker_lv1.dds</Icon>
+      <Icon>Textures\GUI\Icons\body_tracker_lv2.dds</Icon>
       <Prerequisites>
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="EnhancedBodyTracker" />
         <Item Amount="3.75" TypeId="Ingot" SubtypeId="Iron" />

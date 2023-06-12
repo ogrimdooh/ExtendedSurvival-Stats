@@ -120,10 +120,42 @@ namespace ExtendedSurvival.Stats
         public static void SetUpSurvivalKit(MySurvivalKitDefinition survivalKitDefinition)
         {
             if (survivalKitDefinition != null)
-            {                
+            {
+                var refineClass = MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_REFINE_BLUEPRINTS);
+                if (!survivalKitDefinition.BlueprintClasses.Contains(refineClass))
+                    survivalKitDefinition.BlueprintClasses.Add(refineClass);
+                var bottlesClass = MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_BOTTLES_BLUEPRINTS);
+                if (!survivalKitDefinition.BlueprintClasses.Contains(bottlesClass))
+                    survivalKitDefinition.BlueprintClasses.Add(bottlesClass);
+                var alchemyClass = MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_ALCHEMY_BLUEPRINTS);
+                if (!survivalKitDefinition.BlueprintClasses.Contains(alchemyClass))
+                    survivalKitDefinition.BlueprintClasses.Add(alchemyClass);
                 survivalKitDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_SURVIVAL_BLUEPRINTS));
                 survivalKitDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_MEDICAL_BLUEPRINTS));
+                survivalKitDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_ARMORS_VANILLA_BLUEPRINTS));
                 survivalKitDefinition.LoadPostProcess();
+            }
+        }
+
+        public static void SetUpBasicAssembler(MyAssemblerDefinition assemblerDefinition)
+        {
+            if (assemblerDefinition != null)
+            {
+                var bottlesClass = MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS);
+                if (!assemblerDefinition.BlueprintClasses.Contains(bottlesClass))
+                    assemblerDefinition.BlueprintClasses.Add(bottlesClass);
+                assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICASSEMBLER_ARMORS_VANILLA_BLUEPRINTS));
+            }
+        }
+
+        public static void SetUpAssembler(MyAssemblerDefinition assemblerDefinition)
+        {
+            if (assemblerDefinition != null)
+            {
+                var bottlesClass = MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS);
+                if (!assemblerDefinition.BlueprintClasses.Contains(bottlesClass))
+                    assemblerDefinition.BlueprintClasses.Add(bottlesClass);
+                assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.ASSEMBLER_ARMORS_VANILLA_BLUEPRINTS));
             }
         }
 
@@ -165,13 +197,28 @@ namespace ExtendedSurvival.Stats
                     case BasicAlchemyBench:
                         SetUpBasicAlchemyBench(assemblerDefinition);
                         break;
+                    case LargeAssembler:
+                    case LargeAssemblerIndustrial:
+                        if (!ExtendedSurvivalStatsSession.IsUsingTechnology())
+                        {
+                            SetUpAssembler(assemblerDefinition);
+                        }
+                        break;
+                    case BasicAssembler:
+                        if (!ExtendedSurvivalStatsSession.IsUsingTechnology())
+                        {
+                            SetUpBasicAssembler(assemblerDefinition);
+                        }
+                        break;
                 }
                 assemblerDefinition.LoadPostProcess();
             }
             else
             {
                 if (!ExtendedSurvivalStatsSession.IsUsingTechnology())
+                {
                     SetUpSurvivalKit(blockDefinition as MySurvivalKitDefinition);
+                }
             }
         }
 

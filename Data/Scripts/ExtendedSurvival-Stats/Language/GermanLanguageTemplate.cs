@@ -2688,6 +2688,126 @@ namespace ExtendedSurvival.Stats
 				"Wetter: "
 			);
 			#endregion
+			#region Armors
+			AddEntry(
+				LanguageEntries.SCAVENGERARMOR_NAME,
+				"Plündererrüstung"
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMOR_DESCRIPTION,
+				"Ein sehr verbreitetes Rüstungsmodell für diejenigen, die" + Environment.NewLine +
+				"nicht über viele Ressourcen verfügen und zusätzlichen Schutz" + Environment.NewLine +
+				"benötigen."
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMORLIGHT_NAME,
+				"Plündererrüstung [Leicht]"
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMORHEAVY_NAME,
+				"Plündererrüstung [Verstärkt]"
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMOREXPANDED_NAME,
+				"Plündererrüstung [Erweitert]"
+			);
+			AddEntry(
+				LanguageEntries.ARMOR_DESCRIPTION,
+				"Hinweis: Rüstungen müssen im Inventar des Spielers vorhanden" + Environment.NewLine +
+				"sein, damit sie funktionieren."
+			);
+			AddEntry(
+				LanguageEntries.ARMORLIGHT_DESCRIPTION,
+				"Leichte Rüstungen haben weniger Verteidigungspunkte, dafür" + Environment.NewLine +
+				"aber weniger Volumen und einen geringeren Ausdaueraufwand."
+			);
+			AddEntry(
+				LanguageEntries.ARMORHEAVY_DESCRIPTION,
+				"Verstärkte Rüstungen verfügen über mehr Verteidigungspunkte," + Environment.NewLine +
+				"haben aber ein größeres Volumen und einen höheren " + Environment.NewLine +
+				"Ausdaueraufwand."
+			);
+			AddEntry(
+				LanguageEntries.ARMOREXPANDED_DESCRIPTION,
+				"Erweiterte Panzerung verfügt über mehr Modulsteckplätze, hat" + Environment.NewLine +
+				"aber ein höheres Volumen, eine geringere Verteidigung und einen" + Environment.NewLine +
+				"höheren Ausdaueraufwand."
+			);
+			AddEntry(
+				LanguageEntries.ARMORCATEGORY_WORK_NAME,
+				"Arbeiten"
+			);
+			AddEntry(
+				LanguageEntries.ARMORCATEGORY_COMBAT_NAME,
+				"Kampf"
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_CATEGORY_ENTRY,
+				"Kategorie:"
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_MODULES_ENTRY,
+				"Gesamtzahl der Module: {0}."
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_STAMINA_ENTRY,
+				"Ausdauerkosten: {0}."
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_RESISTENCE_ENTRY,
+				"{0} {1} resistenz."
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_EFFECT_ENTRY,
+				"{0} bei {1}."
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_GATHERING_NAME,
+				"Sammeln"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_CARGOLOAD_NAME,
+				"Frachtladung"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_MOVEMENTSPEED_NAME,
+				"Bewegungsgeschwindigkeit"
+			);
+			#endregion
+			#region Damage Types
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_CREATURE_NAME,
+				"Kreatur"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_BULLET_NAME,
+				"Kugeln"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_EXPLOSION_NAME,
+				"Explosion"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_RADIOACTIVITY_NAME,
+				"Radioaktivität"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_FIRE_NAME,
+				"Feuer"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_TOXICITY_NAME,
+				"Toxizität"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_FALL_NAME,
+				"Fallen"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_TOOL_NAME,
+				"Werkzeug"
+			);
+			#endregion
 		}
 
 	}

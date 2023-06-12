@@ -2656,6 +2656,122 @@ namespace ExtendedSurvival.Stats
 				"Weather: "
 			);
 			#endregion
+			#region Armors
+			AddEntry(
+				LanguageEntries.SCAVENGERARMOR_NAME,
+				"Scavenger Armor"
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMOR_DESCRIPTION,
+				"A very common armor model for those who don't have many" + Environment.NewLine +
+				"resources and need extra protection."
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMORLIGHT_NAME,
+				"Scavenger Armor [Light]"
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMORHEAVY_NAME,
+				"Scavenger Armor [Reinforced]"
+			);
+			AddEntry(
+				LanguageEntries.SCAVENGERARMOREXPANDED_NAME,
+				"Scavenger Armor [Expanded]"
+			);
+			AddEntry(
+				LanguageEntries.ARMOR_DESCRIPTION,
+				"Note: Armors need to be in the player's inventory to work."
+			);
+			AddEntry(
+				LanguageEntries.ARMORLIGHT_DESCRIPTION,
+				"Light armor has less defense points, but has less volume" + Environment.NewLine +
+				"and lower stamina expenditure."
+			);
+			AddEntry(
+				LanguageEntries.ARMORHEAVY_DESCRIPTION,
+				"Reinforced armor has more defense points, but has greater" + Environment.NewLine +
+				"volume and higher stamina expenditure."
+			);
+			AddEntry(
+				LanguageEntries.ARMOREXPANDED_DESCRIPTION,
+				"Expanded armor has more module slots, but has higher volume," + Environment.NewLine +
+				"lower defense and higher stamina expenditure."
+			);
+			AddEntry(
+				LanguageEntries.ARMORCATEGORY_WORK_NAME,
+				"Work"
+			);
+			AddEntry(
+				LanguageEntries.ARMORCATEGORY_COMBAT_NAME,
+				"Combat"
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_CATEGORY_ENTRY,
+				"Category: {0}."
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_MODULES_ENTRY,
+				"Total Modules: {0}."
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_STAMINA_ENTRY,
+				"Stamina Cost: {0}."
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_RESISTENCE_ENTRY,
+				"{0} {1} resistance."
+			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_EFFECT_ENTRY,
+				"{0} of {1}."
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_GATHERING_NAME,
+				"Gathering"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_CARGOLOAD_NAME,
+				"Cargo Load"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_MOVEMENTSPEED_NAME,
+				"Movement Speed"
+			);
+			#endregion
+			#region Damage Types
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_CREATURE_NAME,
+				"Creature"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_BULLET_NAME,
+				"Bullet"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_EXPLOSION_NAME,
+				"Explosion"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_RADIOACTIVITY_NAME,
+				"Radioactivity"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_FIRE_NAME,
+				"Fire"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_TOXICITY_NAME,
+				"Toxicity"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_FALL_NAME,
+				"Fall"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_TOOL_NAME,
+				"Tool"
+			);
+			#endregion
 		}
 
     }

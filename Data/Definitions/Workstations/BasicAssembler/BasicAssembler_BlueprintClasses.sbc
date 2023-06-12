@@ -1,17 +1,53 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    
+  <BlueprintClasses>
+
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicAssembler_Armors_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Armors</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Helmet.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Helmet.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\HelmetFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>BasicAssembler_Armors_Vanilla_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Armors</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Helmet.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Helmet.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\HelmetFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+
+  </BlueprintClasses>
   <BlueprintClassEntries>
     
     <Entry Class="BasicAssembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfWood_Construction" />
 
-    <Entry Class="BasicAssembler_Tools_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
-    <Entry Class="BasicAssembler_Tools_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmor_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorLight_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
+
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmor_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorLight_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
 
     <Entry Class="Tools" BlueprintSubtypeId="LidocainPistolVanila" />
-
-    <Entry Class="Tools" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
-    <Entry Class="Tools" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
 
     <Entry Class="Consumables" BlueprintSubtypeId="LidocainDart_Construction" />
     <Entry Class="Consumables" BlueprintSubtypeId="EmptyPistolMagazine_Construction" />

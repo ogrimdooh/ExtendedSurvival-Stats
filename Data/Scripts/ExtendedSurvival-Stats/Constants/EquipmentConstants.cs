@@ -415,9 +415,458 @@ namespace ExtendedSurvival.Stats
             { ELITEBODYTRACKER_ID, ELITEBODYTRACKER_DEFINITION }
         };
 
+        public const string SCAVENGERARMOR_SUBTYPEID = "ScavengerArmor";
+        public static readonly UniqueEntityId SCAVENGERARMOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SCAVENGERARMOR_SUBTYPEID);
+
+        public const string SCAVENGERARMOREXPANDED_SUBTYPEID = "ScavengerArmorExpanded";
+        public static readonly UniqueEntityId SCAVENGERARMOREXPANDED_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SCAVENGERARMOREXPANDED_SUBTYPEID);
+
+        public const string SCAVENGERARMORHEAVY_SUBTYPEID = "ScavengerArmorHeavy";
+        public static readonly UniqueEntityId SCAVENGERARMORHEAVY_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SCAVENGERARMORHEAVY_SUBTYPEID);
+
+        public const string SCAVENGERARMORLIGHT_SUBTYPEID = "ScavengerArmorLight";
+        public static readonly UniqueEntityId SCAVENGERARMORLIGHT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SCAVENGERARMORLIGHT_SUBTYPEID);
+
+        public static readonly ArmorDefinition SCAVENGERARMOR_DEFINITION = new ArmorDefinition()
+        {
+            Id = SCAVENGERARMOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Normal,
+            Category = ArmorSystemConstants.ArmorCategory.Work,
+            ModuleSlots = 2,
+            StaminaCost = 0.1f,
+            HotResistence = 0.75f,
+            ColdResistence = 1.25f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Creature, 0.05f },
+                { ArmorSystemConstants.DamageType.Bullet, 0.08f },
+                { ArmorSystemConstants.DamageType.Fall, 0.07f },
+                { ArmorSystemConstants.DamageType.Tool, 0.05f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.Gathering, 0.05f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 30f,
+            Volume = 20f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 12.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 7.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 6.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 3.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 125
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 50
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 25
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 5
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 10f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorDefinition SCAVENGERARMORLIGHT_DEFINITION = new ArmorDefinition()
+        {
+            Id = SCAVENGERARMORLIGHT_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMORLIGHT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Light,
+            Category = ArmorSystemConstants.ArmorCategory.Work,
+            ModuleSlots = 2,
+            StaminaCost = 0.05f,
+            HotResistence = 0.75f,
+            ColdResistence = 1.25f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Creature, 0.025f },
+                { ArmorSystemConstants.DamageType.Bullet, 0.04f },
+                { ArmorSystemConstants.DamageType.Fall, 0.035f },
+                { ArmorSystemConstants.DamageType.Tool, 0.025f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.Gathering, 0.05f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 2250,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 20f,
+            Volume = 15f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmorLight_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 7.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 5.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 4.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 125
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 50
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 25
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 5
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmorLight_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 10f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorDefinition SCAVENGERARMORHEAVY_DEFINITION = new ArmorDefinition()
+        {
+            Id = SCAVENGERARMORHEAVY_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMORHEAVY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Heavy,
+            Category = ArmorSystemConstants.ArmorCategory.Work,
+            ModuleSlots = 2,
+            StaminaCost = 0.15f,
+            HotResistence = 0.75f,
+            ColdResistence = 1.25f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Creature, 0.075f },
+                { ArmorSystemConstants.DamageType.Bullet, 0.12f },
+                { ArmorSystemConstants.DamageType.Fall, 0.105f },
+                { ArmorSystemConstants.DamageType.Tool, 0.075f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.Gathering, 0.05f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 3500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 40f,
+            Volume = 25f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmorHeavy_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 17.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 9.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 8.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 4.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 125
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 50
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 25
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 5
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmorHeavy_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 22.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 12.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorDefinition SCAVENGERARMOREXPANDED_DEFINITION = new ArmorDefinition()
+        {
+            Id = SCAVENGERARMOREXPANDED_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMOREXPANDED_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SCAVENGERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Expanded,
+            Category = ArmorSystemConstants.ArmorCategory.Work,
+            ModuleSlots = 3,
+            StaminaCost = 0.125f,
+            HotResistence = 0.75f,
+            ColdResistence = 1.25f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Creature, 0.025f },
+                { ArmorSystemConstants.DamageType.Bullet, 0.04f },
+                { ArmorSystemConstants.DamageType.Fall, 0.035f },
+                { ArmorSystemConstants.DamageType.Tool, 0.025f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.Gathering, 0.05f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 3250,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 40f,
+            Volume = 25f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmorExpanded_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 15.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 9.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 8.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 7.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 200
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 80
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 8
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ScavengerArmorExpanded_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 20f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly Dictionary<UniqueEntityId, ArmorDefinition> ARMORS_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorDefinition>()
+        {
+            { SCAVENGERARMOR_ID, SCAVENGERARMOR_DEFINITION },
+            { SCAVENGERARMORLIGHT_ID, SCAVENGERARMORLIGHT_DEFINITION },
+            { SCAVENGERARMORHEAVY_ID, SCAVENGERARMORHEAVY_DEFINITION },
+            { SCAVENGERARMOREXPANDED_ID, SCAVENGERARMOREXPANDED_DEFINITION }
+        };
+
         public static void TryOverrideDefinitions()
         {
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<EquipmentDefinition, MyPhysicalItemDefinition>(EQUIPMENTS_DEFINITIONS);
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<ArmorDefinition, MyPhysicalItemDefinition>(ARMORS_DEFINITIONS);
         }
 
         public static void RegisterShopItens()
@@ -453,6 +902,43 @@ namespace ExtendedSurvival.Stats
             {
                 Id = ELITEBODYTRACKER_ID.DefinitionId,
                 Rarity = ItemRarity.Epic,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            /* Armors */
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SCAVENGERARMOR_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SCAVENGERARMORLIGHT_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SCAVENGERARMORHEAVY_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SCAVENGERARMOREXPANDED_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,
