@@ -740,6 +740,8 @@
         public const string DAMAGETYPE_TOXICITY_NAME = "DAMAGETYPE_TOXICITY_NAME";
         public const string DAMAGETYPE_FALL_NAME = "DAMAGETYPE_FALL_NAME";
         public const string DAMAGETYPE_TOOL_NAME = "DAMAGETYPE_TOOL_NAME";
+        public const string DAMAGETYPE_ENVIRONMENT_NAME = "DAMAGETYPE_ENVIRONMENT_NAME";
+        public const string DAMAGETYPE_OTHER_NAME = "DAMAGETYPE_OTHER_NAME";
 
     }
 

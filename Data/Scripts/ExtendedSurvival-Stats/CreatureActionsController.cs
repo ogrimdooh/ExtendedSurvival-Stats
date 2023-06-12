@@ -13,7 +13,7 @@ namespace ExtendedSurvival.Stats
     public static class CreatureActionsController
     {
 
-        public static void DoReciveDamage(IMyCharacter character, MyDamageInformation damage)
+        public static void DoReciveDamage(IMyCharacter character, ref MyDamageInformation damage)
         {
             var statComponent = character.Components.Get<MyEntityStatComponent>() as MyCharacterStatComponent;
             MyEntityStat Torpor;
@@ -35,7 +35,8 @@ namespace ExtendedSurvival.Stats
                     else
                     {
                         // Animals take more damage from bulets
-                        character.DoDamage(damage.Amount * 10, MyDamageType.Environment, true);
+                        damage.Amount *= 10;
+                        //character.DoDamage(damage.Amount * 10, MyDamageType.Environment, true);
                     }
                     if (Torpor.Value >= Torpor.MaxValue)
                         PassOut(character);

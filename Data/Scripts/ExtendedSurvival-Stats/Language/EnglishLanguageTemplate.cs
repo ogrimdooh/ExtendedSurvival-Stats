@@ -2775,6 +2775,14 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.DAMAGETYPE_TOOL_NAME,
 				"Tool"
 			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_ENVIRONMENT_NAME,
+				"Enviroment"
+			);
+			AddEntry(
+				LanguageEntries.DAMAGETYPE_OTHER_NAME,
+				"Other"
+			);
 			#endregion
 		}
 

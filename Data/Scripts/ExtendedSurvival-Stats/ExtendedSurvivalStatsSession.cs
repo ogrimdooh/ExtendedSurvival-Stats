@@ -100,7 +100,11 @@ namespace ExtendedSurvival.Stats
                         {
                             if (!character.IsValidPlayer())
                             {
-                                CreatureActionsController.DoReciveDamage(character, damage);
+                                CreatureActionsController.DoReciveDamage(character, ref damage);
+                            }
+                            else
+                            {
+                                PlayerActionsController.DoReciveDamage(character, ref damage);
                             }
                         }
                     }

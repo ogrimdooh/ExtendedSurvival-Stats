@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using VRage.Game;
+using VRage.Utils;
 
 namespace ExtendedSurvival.Stats
 {
@@ -35,7 +39,9 @@ namespace ExtendedSurvival.Stats
             Fire = 1 << 5,
             Toxicity = 1 << 6,
             Fall = 1 << 7,
-            Tool = 1 << 8
+            Tool = 1 << 8,
+            Environment = 1 << 9,
+            Other = 1 << 10
 
         }
 
@@ -46,6 +52,28 @@ namespace ExtendedSurvival.Stats
             CargoLoad = 1,
             MovementSpeed = 2
 
+        }
+
+        public static readonly Dictionary<DamageType, MyStringHash[]> DAMAGE_TYPES_EQUIVALENCE = new Dictionary<DamageType, MyStringHash[]>()
+        {
+            { DamageType.Creature, new MyStringHash[] { MyDamageType.Wolf, MyDamageType.Spider } },
+            { DamageType.Bullet, new MyStringHash[] { MyDamageType.Bolt, MyDamageType.Bullet, MyDamageType.Rocket, MyDamageType.Weapon } },
+            { DamageType.Explosion, new MyStringHash[] { MyDamageType.Explosion, MyDamageType.Mine, MyDamageType.Rocket } },
+            { DamageType.Radioactivity, new MyStringHash[] { MyDamageType.Radioactivity } },
+            { DamageType.Fire, new MyStringHash[] { MyDamageType.Fire } },
+            { DamageType.Toxicity, new MyStringHash[] { MyDamageType.Debug } },
+            { DamageType.Fall, new MyStringHash[] { MyDamageType.Environment, MyDamageType.Deformation, MyDamageType.Fall, MyDamageType.Squeez, MyDamageType.Destruction } },
+            { DamageType.Tool, new MyStringHash[] { MyDamageType.Weld, MyDamageType.Grind, MyDamageType.Drill } },
+            { DamageType.Environment, new MyStringHash[] { MyDamageType.Temperature } },
+            { DamageType.Other, new MyStringHash[] { MyDamageType.Suicide, MyDamageType.Asphyxia, MyDamageType.LowPressure } }
+        };
+
+        public static DamageType GetDamageType(MyStringHash source)
+        {
+            var query = DAMAGE_TYPES_EQUIVALENCE.Where(x => x.Value.Contains(source));
+            if (query.Any())
+                return query.FirstOrDefault().Key;
+            return DamageType.None;
         }
 
         public static string FormatArmorEffectValue(ArmorEffect type, float value)
@@ -94,6 +122,10 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_FALL_NAME);
                 case DamageType.Tool:
                     return LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_TOOL_NAME);
+                case DamageType.Environment:
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_ENVIRONMENT_NAME);
+                case DamageType.Other:
+                    return LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_OTHER_NAME);
             }
             return "";
         }

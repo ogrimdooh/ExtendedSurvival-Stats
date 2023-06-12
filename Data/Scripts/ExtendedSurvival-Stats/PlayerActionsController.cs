@@ -1959,6 +1959,24 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public static void DoReciveDamage(IMyCharacter character, ref MyDamageInformation damage)
+        {
+            var playerId = character.GetPlayerId();
+            var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
+            if (armorInfo != null)
+            {
+                var damageType = ArmorSystemConstants.GetDamageType(damage.Type);
+                if (damageType != ArmorSystemConstants.DamageType.None)
+                {
+                    if (armorInfo.Value.Definition.Resistences.ContainsKey(damageType))
+                    {
+                        var amountToChange = damage.Amount * armorInfo.Value.Definition.Resistences[damageType];
+                        damage.Amount -= amountToChange;
+                    }
+                }
+            }
+        }
+
     }
 
 }
