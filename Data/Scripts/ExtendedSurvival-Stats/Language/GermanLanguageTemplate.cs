@@ -211,9 +211,27 @@ namespace ExtendedSurvival.Stats
 				"- Alles negative Auswirkungen;" + Environment.NewLine + Environment.NewLine +
 				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
 			);
-            #endregion
-            #region FISHING
-            AddEntry(
+			AddEntry(
+				LanguageEntries.COLDTHERMALBOTTLE_NAME,
+				"Kalte Thermoflasche"
+			);
+			AddEntry(
+				LanguageEntries.COLDTHERMALBOTTLE_DESCRIPTION,
+				"Wird von Kühlmodulen verwendet, um die Anzugtemperatur in extrem kalten" + Environment.NewLine +
+				"Umgebungen aufrechtzuerhalten."
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALBOTTLE_NAME,
+				"Heiße Thermoflasche"
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALBOTTLE_DESCRIPTION,
+				"Wird von Kühlmodulen verwendet, um die Anzugtemperatur in extrem heißen" + Environment.NewLine +
+				"Umgebungen aufrechtzuerhalten."
+			);
+			#endregion
+			#region FISHING
+			AddEntry(
                 LanguageEntries.FISH_NAME,
 				"Fisch"
 			);
@@ -1795,6 +1813,15 @@ namespace ExtendedSurvival.Stats
 				"Kaffee ist ein Stimulans, da er Koffein enthält, kann er eine Alternative sein, " + Environment.NewLine +
 				"um die Körperwärme an kalten Orten aufrechtzuerhalten."
 			);
+			AddEntry(
+				LanguageEntries.THERMALFLUID_NAME,
+				"Thermoflüssigkeit"
+			);
+			AddEntry(
+				LanguageEntries.THERMALFLUID_DESCRIPTION,
+				"Thermoflüssigkeit ist eine Chemikalie, die in einem Wärmekreislauf in" + Environment.NewLine +
+				"Kühl- und Klimaanlagen verwendet wird."
+			);
 			#endregion
 			#region QUIMICALS
 			AddEntry(
@@ -1959,6 +1986,15 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.BOWLOFGLASS_CONSTRUCTION_NAME,
 				"Schüssel Glas"
+			);
+			AddEntry(
+				 LanguageEntries.SMALLALUMINUMCANISTER_NAME,
+				 "Kleiner Aluminiumkanister"
+			 );
+			AddEntry(
+				LanguageEntries.SMALLALUMINUMCANISTER_DESCRIPTION,
+				"Zur sicheren Aufbewahrung von Flüssigkeiten werden kleine" + Environment.NewLine +
+				"Aluminiumkanister verwendet."
 			);
 			#endregion
 			#region SEEDS

@@ -22,6 +22,9 @@ namespace ExtendedSurvival.Stats
         public const string COFFEE_SUBTYPEID = "Coffee";
         public static readonly UniqueEntityId COFFEE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), COFFEE_SUBTYPEID);
 
+        public const string THERMALFLUID_SUBTYPEID = "ThermalFluid";
+        public static readonly UniqueEntityId THERMALFLUID_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), THERMALFLUID_SUBTYPEID);
+
         public static readonly OreDefinition POOP_DEFINITION = new OreDefinition()
         {
             Id = POOP_ID,
@@ -143,6 +146,78 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly OreDefinition THERMALFLUID_DEFINITION = new OreDefinition()
+        {
+            Id = THERMALFLUID_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.THERMALFLUID_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.THERMALFLUID_DESCRIPTION),
+            CanPlayerOrder = false,
+            Mass = 1f,
+            Volume = 1f,
+            MinimalPricePerUnit = 375,
+            RecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
+            {
+                new SimpleIngredientRecipeDefinition()
+                {
+                    RecipeName = "ThermalFluid_Construction",
+                    IngredientAmmount = 2.5f,
+                    ProductionTime = 2.56f,
+                    Results = new SimpleIngredientRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = RecipientConstants.SMALLALUMINUMCANISTER_ID,
+                            Ammount = 1f
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CARBON_INGOT_ID,
+                            Ammount = 2.25f
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ICE_ID,
+                            Ammount = 1.5f
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SULFUR_INGOT_ID,
+                            Ammount = 1.25f
+                        }
+                    }
+                },
+                new SimpleIngredientRecipeDefinition()
+                {
+                    RecipeName = "ThermalFluid_Vanila_Construction",
+                    IngredientAmmount = 2.5f,
+                    ProductionTime = 2.56f,
+                    Results = new SimpleIngredientRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = RecipientConstants.SMALLALUMINUMCANISTER_ID,
+                            Ammount = 1f
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CARBON_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ICE_ID,
+                            Ammount = 1.5f
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 2.75f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, OreDefinition> ORES_DEFINITIONS = new Dictionary<UniqueEntityId, OreDefinition>()
         {
             { BONES_ID, BONES_DEFINITION },
@@ -178,6 +253,16 @@ namespace ExtendedSurvival.Stats
                 CanOrder = true,
                 ForceMinimalPrice = true,
                 TargetFactions = new FactionType[] { FactionType.Farming }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = THERMALFLUID_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                ForceMinimalPrice = true,
+                TargetFactions = new FactionType[] { FactionType.Trader }
             });
         }
 

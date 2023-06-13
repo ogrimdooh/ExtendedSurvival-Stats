@@ -250,6 +250,9 @@ namespace ExtendedSurvival.Stats
         public const string FLASK_BIG_SUBTYPEID = "Flask_Big";
         public static readonly UniqueEntityId FLASK_BIG_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FLASK_BIG_SUBTYPEID);
 
+        public const string PRESSUREREGULATOR_SUBTYPEID = "PressureRegulator";
+        public static readonly UniqueEntityId PRESSUREREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), PRESSUREREGULATOR_SUBTYPEID);
+
         public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;
         public static readonly long BASE_RAW_VEGETABLE_SPOIL_TIME = (long)(7.5f * 60 * 1000);
         public static readonly long BASE_MEAT_SPOIL_TIME = 10 * 60 * 1000;

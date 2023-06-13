@@ -210,9 +210,27 @@ namespace ExtendedSurvival.Stats
                 "- All negative effects;" + Environment.NewLine + Environment.NewLine +
                 "Note: Accessories need to be in the player's inventory to work."
             );
-            #endregion
-            #region FISHING
-            AddEntry(
+			AddEntry(
+				LanguageEntries.COLDTHERMALBOTTLE_NAME,
+				"Cold Thermal Bottle"
+			);
+			AddEntry(
+				LanguageEntries.COLDTHERMALBOTTLE_DESCRIPTION,
+				"Used by cooling modules to maintain suit temperature when in" + Environment.NewLine +
+				"extremely cold environments."
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALBOTTLE_NAME,
+				"Hot Thermal Bottle"
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALBOTTLE_DESCRIPTION,
+				"Used by cooling modules to maintain suit temperature when in" + Environment.NewLine +
+				"extremely hot environments."
+			);
+			#endregion
+			#region FISHING
+			AddEntry(
                 LanguageEntries.FISH_NAME,
                 "Fish"
             );
@@ -1766,6 +1784,15 @@ namespace ExtendedSurvival.Stats
 				"Coffee is a stimulant, because it has caffeine, it can be an" + Environment.NewLine +
 				"alternative to maintain body heat in cold places."
 			);
+			AddEntry(
+				LanguageEntries.THERMALFLUID_NAME,
+				"Thermal Fluid"
+			);
+			AddEntry(
+				LanguageEntries.THERMALFLUID_DESCRIPTION,
+				"Thermal fluid is a chemical used in a thermal cycle in" + Environment.NewLine +
+				"refrigeration and air conditioning systems."
+			);
 			#endregion
 			#region QUIMICALS
 			AddEntry(
@@ -1927,6 +1954,14 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.BOWLOFGLASS_CONSTRUCTION_NAME,
 				"Bowl Of Glass"
+			);
+			AddEntry(
+				 LanguageEntries.SMALLALUMINUMCANISTER_NAME,
+				 "Small Aluminum Canister"
+			 );
+			AddEntry(
+				LanguageEntries.SMALLALUMINUMCANISTER_DESCRIPTION,
+				"Small aluminum canisters are used to safe store fluids."
 			);
 			#endregion
 			#region SEEDS

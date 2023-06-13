@@ -39,7 +39,7 @@
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorLight_Construction" />
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_Construction" />
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
-
+    
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
 

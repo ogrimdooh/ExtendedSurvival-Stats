@@ -1,4 +1,5 @@
-﻿using Sandbox.Definitions;
+﻿using Sandbox.Common.ObjectBuilders.Definitions;
+using Sandbox.Definitions;
 using System;
 using System.Collections.Generic;
 using VRage.Game;
@@ -21,6 +22,12 @@ namespace ExtendedSurvival.Stats
 
         public const string ELITEBODYTRACKER_SUBTYPEID = "EliteBodyTracker";
         public static readonly UniqueEntityId ELITEBODYTRACKER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITEBODYTRACKER_SUBTYPEID);
+
+        public const string COLDTHERMALBOTTLE_SUBTYPEID = "ColdThermalBottle";
+        public static readonly UniqueEntityId COLDTHERMALBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), COLDTHERMALBOTTLE_SUBTYPEID);
+
+        public const string HOTTHERMALBOTTLE_SUBTYPEID = "HotThermalBottle";
+        public static readonly UniqueEntityId HOTTHERMALBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), HOTTHERMALBOTTLE_SUBTYPEID);
 
         public static readonly EquipmentDefinition BODYTRACKER_DEFINITION = new EquipmentDefinition()
         {
@@ -407,12 +414,164 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly EquipmentDefinition COLDTHERMALBOTTLE_DEFINITION = new EquipmentDefinition()
+        {
+            Id = COLDTHERMALBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALBOTTLE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1250,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ColdThermalBottle_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPER_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PRESSUREREGULATOR_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ColdThermalBottle_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly EquipmentDefinition HOTTHERMALBOTTLE_DEFINITION = new EquipmentDefinition()
+        {
+            Id = HOTTHERMALBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALBOTTLE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1250,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HotThermalBottle_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPER_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PRESSUREREGULATOR_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HotThermalBottle_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, EquipmentDefinition> EQUIPMENTS_DEFINITIONS = new Dictionary<UniqueEntityId, EquipmentDefinition>()
         {
             { BODYTRACKER_ID, BODYTRACKER_DEFINITION },
             { ENHANCEDBODYTRACKER_ID, ENHANCEDBODYTRACKER_DEFINITION },
             { PROFICIENTBODYTRACKER_ID, PROFICIENTBODYTRACKER_DEFINITION },
-            { ELITEBODYTRACKER_ID, ELITEBODYTRACKER_DEFINITION }
+            { ELITEBODYTRACKER_ID, ELITEBODYTRACKER_DEFINITION },
+            { COLDTHERMALBOTTLE_ID, COLDTHERMALBOTTLE_DEFINITION },
+            { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION }
         };
 
         public const string SCAVENGERARMOR_SUBTYPEID = "ScavengerArmor";
@@ -943,6 +1102,24 @@ namespace ExtendedSurvival.Stats
                 CanSell = true,
                 CanOrder = true,
                 TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = HOTTHERMALBOTTLE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Trader }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = COLDTHERMALBOTTLE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Trader }
             });
         }
 

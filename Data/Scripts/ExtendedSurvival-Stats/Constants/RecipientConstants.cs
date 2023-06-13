@@ -14,6 +14,9 @@ namespace ExtendedSurvival.Stats
         public const string ALUMINUMCAN_SUBTYPEID = "AluminumCan";
         public static readonly UniqueEntityId ALUMINUMCAN_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ALUMINUMCAN_SUBTYPEID);
 
+        public const string SMALLALUMINUMCANISTER_SUBTYPEID = "SmallAluminumCanister";
+        public static readonly UniqueEntityId SMALLALUMINUMCANISTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SMALLALUMINUMCANISTER_SUBTYPEID);
+
         public static readonly RecipientDefinition BOWL_DEFINITION = new RecipientDefinition()
         {
             Id = BOWL_ID,
@@ -111,10 +114,56 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly RecipientDefinition SMALLALUMINUMCANISTER_DEFINITION = new RecipientDefinition()
+        {
+            Id = SMALLALUMINUMCANISTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SMALLALUMINUMCANISTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SMALLALUMINUMCANISTER_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 10,
+            OfferAmount = new Vector2I(1000, 3000),
+            OrderAmount = new Vector2I(250, 750),
+            AcquisitionAmount = new Vector2I(500, 1500),
+            Mass = 0.5f,
+            Volume = 0.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SmallAluminumCanister_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 1f
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SmallAluminumCanister_Vanila_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, RecipientDefinition> RECIPIENTS_DEFINITIONS = new Dictionary<UniqueEntityId, RecipientDefinition>()
         {
             { BOWL_ID, BOWL_DEFINITION },
-            { ALUMINUMCAN_ID, ALUMINUMCAN_DEFINITION }
+            { ALUMINUMCAN_ID, ALUMINUMCAN_DEFINITION },
+            { SMALLALUMINUMCANISTER_ID, SMALLALUMINUMCANISTER_DEFINITION }
         };
 
         public static void TryOverrideDefinitions()
@@ -127,6 +176,24 @@ namespace ExtendedSurvival.Stats
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
             {
                 Id = BOWL_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ALUMINUMCAN_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SMALLALUMINUMCANISTER_ID.DefinitionId,
                 Rarity = ItemRarity.Normal,
                 CanBuy = true,
                 CanSell = true,

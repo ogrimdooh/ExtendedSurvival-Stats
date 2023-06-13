@@ -76,7 +76,7 @@
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
-        <SubtypeId>HydrogenBottle_Disassembly</SubtypeId>
+        <SubtypeId>HotThermalBottle_Disassembly</SubtypeId>
       </Id>
       <DisplayName>Hot Thermal Bottle</DisplayName>
       <Icon>Textures\GUI\Icons\hot_thermal_fluid.dds</Icon>
