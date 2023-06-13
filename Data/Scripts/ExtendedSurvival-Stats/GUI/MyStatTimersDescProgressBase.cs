@@ -8,9 +8,9 @@
             switch (index)
             {
                 case 0:
-                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_WETLEVEL_NAME);
+                    return LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALFLUID_NAME);
                 case 1:
-                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_UNTREATEDWOUND_NAME);
+                    return LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALFLUID_NAME);
                 case 2:
                     return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_RADIOACTIVEEXPOSURE_NAME);
                 case 3:

@@ -180,7 +180,9 @@ namespace ExtendedSurvival.Stats
             BodyMinerals,
             BodyVitamins,
             IntoxicationTime,
-            RadiationTime
+            RadiationTime,
+            HotThermalFluid,
+            ColdThermalFluid
 
         }
 

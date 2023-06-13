@@ -1224,6 +1224,16 @@ namespace ExtendedSurvival.Stats
             { HOTTHERMALREGULATOR_ID, HOTTHERMALREGULATOR_DEFINITION }
         };
 
+        public static readonly UniqueEntityId[] COLDTHERMALREGULATORS_MODULES = new UniqueEntityId[] 
+        {
+            COLDTHERMALREGULATOR_ID
+        };
+
+        public static readonly UniqueEntityId[] HOTTHERMALREGULATORS_MODULES = new UniqueEntityId[]
+        {
+            HOTTHERMALREGULATOR_ID
+        };
+
         public static void TryOverrideDefinitions()
         {
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<EquipmentDefinition, MyPhysicalItemDefinition>(EQUIPMENTS_DEFINITIONS);

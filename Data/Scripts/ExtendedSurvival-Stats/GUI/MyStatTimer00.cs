@@ -5,7 +5,7 @@
 
         protected override string GetId()
         {
-            return "player_timer01";
+            return "player_timer00";
         }
 
         protected override int GetTargetIndex()

@@ -2648,9 +2648,17 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.RADIATIONTIME_NAME,
 				"Radioactivity Level"
 			);
-            #endregion
-            #region Weather
-            AddEntry(
+			AddEntry(
+				LanguageEntries.COLDTHERMALFLUID_NAME,
+				"Cold Thermal Fluid"
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALFLUID_NAME,
+				"Hot Thermal Fluid"
+			);
+			#endregion
+			#region Weather
+			AddEntry(
 				LanguageEntries.WEATHEREFFECTSLEVEL_LIGHT_NAME,
 				"Light"
 			);
@@ -2774,7 +2782,7 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
-				"Armor Equipped: {0}."
+				"Armor Equipped: {0} [{1} Empty Modules]."
 			);
 			#endregion
 			#region Armor Modules

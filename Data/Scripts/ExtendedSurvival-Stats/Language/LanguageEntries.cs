@@ -699,6 +699,8 @@
         public const string BODYVITAMINS_NAME = "BODYVITAMINS_NAME";
         public const string INTOXICATIONTIME_NAME = "INTOXICATIONTIME_NAME";
         public const string RADIATIONTIME_NAME = "RADIATIONTIME_NAME";
+        public const string COLDTHERMALFLUID_NAME = "COLDTHERMALFLUID_NAME";
+        public const string HOTTHERMALFLUID_NAME = "HOTTHERMALFLUID_NAME";
 
         /* Weather */
 

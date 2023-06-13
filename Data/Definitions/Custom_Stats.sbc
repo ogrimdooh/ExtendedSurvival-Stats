@@ -66,25 +66,25 @@
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>TemperatureTime</SubtypeId>
+        <SubtypeId>ColdThermalFluid</SubtypeId>
       </Id>
-      <Name>TemperatureTime</Name>
+      <Name>ColdThermalFluid</Name>
       <Description>#ASE#</Description>
-      <MinValue>-360000</MinValue>
+      <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>360000</MaxValue>
+      <MaxValue>1</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
-        <SubtypeId>WetTime</SubtypeId>
+        <SubtypeId>HotThermalFluid</SubtypeId>
       </Id>
-      <Name>WetTime</Name>
+      <Name>HotThermalFluid</Name>
       <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>200</MaxValue>
+      <MaxValue>1</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">

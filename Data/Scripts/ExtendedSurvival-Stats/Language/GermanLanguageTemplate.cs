@@ -2681,6 +2681,14 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.RADIATIONTIME_NAME,
 				"Radioaktivitätsniveau"
 			);
+			AddEntry(
+				LanguageEntries.COLDTHERMALFLUID_NAME,
+				"Kalte Thermoflüssigkeit"
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALFLUID_NAME,
+				"Heiße Thermoflüssigkeit"
+			);
 			#endregion
 			#region Weather
 			AddEntry(
@@ -2811,7 +2819,7 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
-				"Rüstung ausgerüstet: {0}."
+				"Rüstung ausgerüstet: {0} [{1} Leere Module]."
 			);
 			#endregion
 			#region Armor Modules

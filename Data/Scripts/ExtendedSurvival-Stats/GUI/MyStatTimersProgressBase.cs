@@ -9,26 +9,28 @@ namespace ExtendedSurvival.Stats
         {
             return new string[] 
             { 
-                "WetTime", 
-                "WoundedTime", 
+                "ColdThermalFluid",
+                "HotThermalFluid", 
                 "RadiationTime", 
                 "IntoxicationTime",
                 "BodyProtein",
                 "BodyCarbohydrate",
                 "BodyLipids",
                 "BodyVitamins",
+                "BodyMinerals",
                 "BodyMinerals"
             };
         }
 
         protected override bool IsActive(int index)
         {
+            var armor = PlayerArmorController.GetEquipedArmor(MyAPIGateway.Session.Player.IdentityId, useCache: true);
             switch (index)
             {
                 case 0:
-                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 1;
+                    return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.COLDTHERMALREGULATORS_MODULES);
                 case 1:
-                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 2;
+                    return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
                 case 2:
                 case 3:
                     return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
@@ -47,20 +49,8 @@ namespace ExtendedSurvival.Stats
             switch (index)
             {
                 case 0:
-                    return CurrentValue == 1 ? 
-                        LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_COMPLETELYWET_NAME) : 
-                        (
-                            CurrentValue > 0 ? string.Format("{0:0}%", (float)(CurrentValue * 100.0)) : 
-                            LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_COMPLETELYDRY_NAME)
-                        );
                 case 1:
-                    return CurrentValue == 1 ? 
-                        LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_INFECTED_NAME) : 
-                        (
-                            CurrentValue > 0 ? 
-                            string.Format("{0:0}%", (float)(CurrentValue * 100.0)) : 
-                            LanguageProvider.GetEntry(LanguageEntries.STATTIMERSPROGRESS_NOINJURIES_NAME)
-                        );
+                    return CurrentValue.ToString("P2");
                 case 2:
                 case 3:
                 case 4:

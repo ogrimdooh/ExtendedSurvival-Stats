@@ -84,6 +84,9 @@ namespace ExtendedSurvival.Stats
             public MyEntityStat RadiationTime { get { return Stats[StatsConstants.ValidStats.RadiationTime]; } }
             public MyEntityStat IntoxicationTime { get { return Stats[StatsConstants.ValidStats.IntoxicationTime]; } }
 
+            public MyEntityStat HotThermalFluid { get { return Stats[StatsConstants.ValidStats.HotThermalFluid]; } }
+            public MyEntityStat ColdThermalFluid { get { return Stats[StatsConstants.ValidStats.ColdThermalFluid]; } }
+
             public StatsConstants.SurvivalEffects CurrentSurvivalEffects
             {
                 get
