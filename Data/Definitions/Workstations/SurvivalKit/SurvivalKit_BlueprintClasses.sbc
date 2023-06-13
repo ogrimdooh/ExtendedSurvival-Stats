@@ -69,5 +69,8 @@
     <Entry Class="SurvivalKit_Armors_Vanilla_Blueprints" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
     <Entry Class="SurvivalKit_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmor_VanilaConstruction" />
 
+    <Entry Class="BasicTools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
+    <Entry Class="BasicTools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
+    
   </BlueprintClassEntries>
 </Definitions>

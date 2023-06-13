@@ -21,6 +21,7 @@
     <Entry Class="AdvancedAssembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfWood_Construction" />
     <Entry Class="AdvancedAssembler_Bottles_Blueprints" BlueprintSubtypeId="BowlOfGlass_Construction" />
     <Entry Class="AdvancedAssembler_Bottles_Blueprints" BlueprintSubtypeId="AluminumCan_Construction" />
+    <Entry Class="AdvancedAssembler_Bottles_Blueprints" BlueprintSubtypeId="SmallAluminumCanister_Construction" />
 
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_Construction" />
@@ -31,6 +32,12 @@
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
 
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
+
+    <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
+    <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
+    
   </BlueprintClassEntries>
   
 </Definitions>

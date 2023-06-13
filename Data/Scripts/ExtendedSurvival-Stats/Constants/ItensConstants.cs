@@ -25,6 +25,10 @@ namespace ExtendedSurvival.Stats
         public const string ALCHEMYBENCH_MEDICAL_BLUEPRINTS = "AlchemyBench_Medical_Blueprints";
         public const string ALCHEMYBENCH_FERTILIZER_BLUEPRINTS = "AlchemyBench_Fertilizer_Blueprints";
 
+        public const string ALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS = "AlchemyBench_LiquidAlchemy_Blueprints";
+        public const string BASICALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS = "BasicAlchemyBench_LiquidAlchemy_Blueprints";
+        public const string SMALLBASICALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS = "SmallBasicAlchemyBench_LiquidAlchemy_Blueprints";
+
         public const string BASICALCHEMYBENCH_CONCENTRATE_BLUEPRINTS = "BasicAlchemyBench_Concentrate_Blueprints";
         public const string BASICALCHEMYBENCH_MEDICAL_BLUEPRINTS = "BasicAlchemyBench_Medical_Blueprints";
         public const string BASICALCHEMYBENCH_FERTILIZER_BLUEPRINTS = "BasicAlchemyBench_Fertilizer_Blueprints";

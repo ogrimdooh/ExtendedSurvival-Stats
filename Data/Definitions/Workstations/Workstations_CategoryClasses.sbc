@@ -22,6 +22,8 @@
         <string>Assembler/BasicSlaughterhouse</string>
         <string>Assembler/Slaughterhouse</string>
         <string>Assembler/SlaughterhouseIndustrial</string>
+        <string>OxygenGenerator/ThermalFluidGenerator</string>
+        <string>OxygenGenerator/ThermalFluidGeneratorSmall</string>
       </ItemIds>
     </Category>
     

@@ -38,6 +38,12 @@ namespace ExtendedSurvival.Stats
         public const string AluminumCan_Vanila_Construction = "AluminumCan_Vanila_Construction";
         public const string AluminumCan_Construction = "AluminumCan_Vanila_Construction";
 
+        public const string SmallAluminumCanister_Construction = "SmallAluminumCanister_Construction";
+        public const string SmallAluminumCanister_Vanila_Construction = "SmallAluminumCanister_Vanila_Construction";
+
+        public const string ThermalFluid_Construction = "ThermalFluid_Construction";
+        public const string ThermalFluid_Vanila_Construction = "ThermalFluid_Vanila_Construction";
+
         public const string BasicFoodProcessor = "BasicFoodProcessor";
         public const string FoodProcessor = "FoodProcessor";
         public const string FoodProcessorIndustrial = "FoodProcessorIndustrial";
@@ -172,13 +178,20 @@ namespace ExtendedSurvival.Stats
             }
             if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Aluminum") != null)
             {
-                AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction);
-                AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction);
+                AddBluePrintToClass(ItensConstants.SURVIVALKIT_BOTTLES_BLUEPRINTS, SmallAluminumCanister_Construction);
+                AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction, SmallAluminumCanister_Construction);
+                AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction, SmallAluminumCanister_Construction);
+                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS, ThermalFluid_Construction);
+                AddBluePrintToClass(ItensConstants.BASICALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS, ThermalFluid_Construction);
+                AddBluePrintToClass(ItensConstants.SMALLBASICALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS, ThermalFluid_Construction);
             }
             else
             {
-                AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction);
-                AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction);
+                AddBluePrintToClass(ItensConstants.SURVIVALKIT_BOTTLES_BLUEPRINTS, SmallAluminumCanister_Vanila_Construction);
+                AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction, SmallAluminumCanister_Vanila_Construction);
+                AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction, SmallAluminumCanister_Vanila_Construction);
+                AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS, ThermalFluid_Vanila_Construction);
+                AddBluePrintToClass(ItensConstants.BASICALCHEMYBENCH_LIQUIDALCHEMY_BLUEPRINTS, ThermalFluid_Vanila_Construction);
             }
         }
 

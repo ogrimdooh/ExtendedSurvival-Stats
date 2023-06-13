@@ -40,6 +40,9 @@
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_Construction" />
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
 
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
+
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmor_VanilaConstruction" />
@@ -47,7 +50,15 @@
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_VanilaConstruction" />
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
 
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanillaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_VanillaConstruction" />
+
+    <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
+    <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
+
     <Entry Class="Tools" BlueprintSubtypeId="LidocainPistolVanila" />
+    <Entry Class="Tools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
+    <Entry Class="Tools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
 
     <Entry Class="Consumables" BlueprintSubtypeId="LidocainDart_Construction" />
     <Entry Class="Consumables" BlueprintSubtypeId="EmptyPistolMagazine_Construction" />

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BlueprintClasses>
+
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>ThermalFluid</SubtypeId>
+      </Id>
+      <DisplayName>Thermal Fluid</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\ore_H2O_ice.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\large_block.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\large_block_focus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ore.dds</InputConstraintIcon>
+      <OutputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</OutputConstraintIcon>
+    </Class>
+
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>HotThermalBottle</SubtypeId>
+      </Id>
+      <DisplayName>Hot Thermal Bottle</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\ore_H2O_ice.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\large_block.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\large_block_focus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ore.dds</InputConstraintIcon>
+      <OutputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</OutputConstraintIcon>
+    </Class>
+
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>ColdThermalBottle</SubtypeId>
+      </Id>
+      <DisplayName>Cold Thermal Bottle</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\ore_H2O_ice.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\large_block.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\large_block_focus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ore.dds</InputConstraintIcon>
+      <OutputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</OutputConstraintIcon>
+    </Class>
+
+  </BlueprintClasses>
+  <BlueprintClassEntries>
+
+    <Entry Class="ThermalFluid" BlueprintSubtypeId="ThermalFluidToGas" />
+    <Entry Class="HotThermalBottle" BlueprintSubtypeId="HotThermalBottleRefill" />
+    <Entry Class="ColdThermalBottle" BlueprintSubtypeId="ColdThermalBottleRefill" />
+
+  </BlueprintClassEntries>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ThermalFluidToGas</SubtypeId>
+      </Id>
+      <DisplayName>Thermal Fluid To Gas</DisplayName>
+      <Icon>Textures\GUI\Icons\ingot\gravel_ingot.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ore" SubtypeId="ThermalFluid" />
+      </Prerequisites>
+      <Result Amount="0.9" TypeId="Ingot" SubtypeId="Stone" />
+      <BaseProductionTimeInSeconds>0.1</BaseProductionTimeInSeconds>
+    </Blueprint>
+    
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>HotThermalBottleRefill</SubtypeId>
+      </Id>
+      <DisplayName>Hot Thermal Bottle Refill</DisplayName>
+      <Icon>Textures\GUI\Icons\ingot\gravel_ingot.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="GasContainerObject" SubtypeId="HotThermalBottle" />
+      </Prerequisites>
+      <Results />
+      <Result Amount="0.9" TypeId="Ingot" SubtypeId="Stone" />
+      <BaseProductionTimeInSeconds>0.1</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ColdThermalBottleRefill</SubtypeId>
+      </Id>
+      <DisplayName>Cold Thermal Bottle Refill</DisplayName>
+      <Icon>Textures\GUI\Icons\ingot\gravel_ingot.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="GasContainerObject" SubtypeId="ColdThermalBottle" />
+      </Prerequisites>
+      <Result Amount="0.9" TypeId="Ingot" SubtypeId="Stone" />
+      <BaseProductionTimeInSeconds>0.1</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

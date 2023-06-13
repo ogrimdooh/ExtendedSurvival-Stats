@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+    
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>ColdThermalBottle</SubtypeId>
+      </Id>
+      <DisplayName>Cold Thermal Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\cold_thermal_fluid.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>5</Mass>
+      <Volume>2.5</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>ColdThermalFluid</SubtypeId>
+      </StoredGasId>
+      <Capacity>250</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+    
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ColdThermalBottle_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Cold Thermal Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\cold_thermal_fluid.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="7.5" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Aluminum" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Copper" />
+        <Item Amount="1" TypeId="Component" SubtypeId="PressureRegulator" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="GasContainerObject" SubtypeId="ColdThermalBottle" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ColdThermalBottle_VanilaConstruction</SubtypeId>
+      </Id>
+      <DisplayName>Cold Thermal Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\cold_thermal_fluid.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="7.5" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Aluminum" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Copper" />
+        <Item Amount="1" TypeId="Component" SubtypeId="PressureRegulator" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="GasContainerObject" SubtypeId="ColdThermalBottle" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>HydrogenBottle_Disassembly</SubtypeId>
+      </Id>
+      <DisplayName>Cold Thermal Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\cold_thermal_fluid.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="OxygenContainerObject" SubtypeId="ColdThermalBottle" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="15" TypeId="Ore" SubtypeId="Scrap" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>
