@@ -45,6 +45,16 @@ namespace ExtendedSurvival.Stats
                 return false;
             }
 
+            public ArmorModuleInfo? GetFirstModule(params UniqueEntityId[] ids)
+            {
+                foreach (var id in ids)
+                {
+                    if (Modules.Any(x => x.Definition.Id == id))
+                        return Modules.FirstOrDefault(x => x.Definition.Id == id);
+                }
+                return null;
+            }
+
         }
 
         private static ConcurrentDictionary<long, PlayerArmorInfo> cache = new ConcurrentDictionary<long, PlayerArmorInfo>();

@@ -574,6 +574,16 @@ namespace ExtendedSurvival.Stats
             { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION }
         };
 
+        public static readonly UniqueEntityId[] COLDTHERMALBOTTLES = new UniqueEntityId[]
+        {
+            COLDTHERMALBOTTLE_ID
+        };
+
+        public static readonly UniqueEntityId[] HOTTHERMALBOTTLES = new UniqueEntityId[]
+        {
+            HOTTHERMALBOTTLE_ID
+        };
+
         public const string SCAVENGERARMOR_SUBTYPEID = "ScavengerArmor";
         public static readonly UniqueEntityId SCAVENGERARMOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SCAVENGERARMOR_SUBTYPEID);
 

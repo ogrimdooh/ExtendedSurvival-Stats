@@ -106,9 +106,11 @@ namespace ExtendedSurvival.Stats
                 CurrentValue = GetCurrentValue();
             else
                 CurrentValue = -1;
+            displayData = GetDescription(CurrentIndex);
         }
 
-        public override string ToString() => GetDescription(CurrentIndex);
+        private string displayData = "";
+        public override string ToString() => !string.IsNullOrWhiteSpace(displayData) ? displayData : GetDescription(CurrentIndex);
 
     }
 

@@ -2082,18 +2082,18 @@
               <Y>9</Y>
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_temperature_time</StatId>
+              <StatId>player_timer00</StatId>
               <Value>0.25</Value>
               <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
-                <Y>0</Y>
+                <Y>1</Y>
                 <Z>0</Z>
                 <W>1</W>
               </ProgressColorMask>
               <BackgroundColorMask>
                 <X>1</X>
-                <Y>0</Y>
+                <Y>1</Y>
                 <Z>0</Z>
                 <W>1</W>
               </BackgroundColorMask>
@@ -2101,34 +2101,7 @@
             <Blink>
               <ColorMask>
                 <X>1</X>
-                <Y>0</Y>
-                <Z>0</Z>
-                <W>1</W>
-              </ColorMask>
-              <MinAlpha>0.6</MinAlpha>
-              <MaxAlpha>1</MaxAlpha>
-            </Blink>
-            <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_timer00</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
-              <ProgressColorMask>
-                <X>1</X>
-                <Y>0</Y>
-                <Z>0</Z>
-                <W>1</W>
-              </ProgressColorMask>
-              <BackgroundColorMask>
-                <X>1</X>
-                <Y>0</Y>
-                <Z>0</Z>
-                <W>1</W>
-              </BackgroundColorMask>
-            </BlinkCondition>
-            <Blink>
-              <ColorMask>
-                <X>1</X>
-                <Y>0</Y>
+                <Y>1</Y>
                 <Z>0</Z>
                 <W>1</W>
               </ColorMask>
@@ -2167,19 +2140,14 @@
               <Y>16</Y>
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_temperature_time</StatId>
+              <StatId>player_timer00</StatId>
               <Value>0.25</Value>
               <Operator>Below</Operator>
-            </BlinkCondition>
-            <BlinkCondition xsi:type="StatCondition">
-              <StatId>player_temperature_time</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
                 <X>1</X>
-                <Y>0</Y>
+                <Y>1</Y>
                 <Z>0</Z>
                 <W>1</W>
               </ColorMask>
@@ -2246,8 +2214,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer01</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -2304,8 +2272,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer01</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -2377,8 +2345,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer02</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -2435,8 +2403,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer02</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -2508,8 +2476,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer03</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -2566,8 +2534,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer03</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -2639,8 +2607,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer04</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -2697,8 +2665,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer04</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -2770,8 +2738,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer05</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -2828,8 +2796,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer05</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -2901,8 +2869,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer06</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -2959,8 +2927,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer06</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -3032,8 +3000,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer07</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -3090,8 +3058,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer07</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -3163,8 +3131,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer08</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -3221,8 +3189,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer08</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>
@@ -3294,8 +3262,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer09</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
               <ProgressColorMask>
                 <X>1</X>
                 <Y>1</Y>
@@ -3352,8 +3320,8 @@
             </SizePx>
             <BlinkCondition xsi:type="StatCondition">
               <StatId>player_timer09</StatId>
-              <Value>0.75</Value>
-              <Operator>Above</Operator>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
             </BlinkCondition>
             <Blink>
               <ColorMask>

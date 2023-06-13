@@ -214,8 +214,11 @@ namespace ExtendedSurvival.Stats
                     sbFeeling.AppendLine(feeling);
                     sbFeeling.AppendLine();
                 }
-                sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.FEELING_INFO_NAME));
-                sbFeeling.AppendLine();
+                if (sbEffects.Length > 0)
+                {
+                    sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.FEELING_INFO_NAME));
+                    sbFeeling.AppendLine();
+                }
             }
             return IsWithHelmet() ? sbFeeling.ToString() + sbEffects.ToString() : "";
         }
