@@ -2814,6 +2814,37 @@ namespace ExtendedSurvival.Stats
 				"Rüstung ausgerüstet: {0}."
 			);
 			#endregion
+			#region Armor Modules
+			AddEntry(
+				LanguageEntries.COLDTHERMALREGULATOR_NAME,
+				"Kalter Thermoregler"
+			);
+			AddEntry(
+				LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION,
+				"Wird verwendet, um die Temperatur des Anzugs in extrem kalten" + Environment.NewLine +
+				"Umgebungen aufrechtzuerhalten und verbraucht dabei" + Environment.NewLine +
+				"Thermoflüssigkeit."
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALREGULATOR_NAME,
+				"Heißer Thermoregler"
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION,
+				"Wird verwendet, um die Temperatur des Anzugs in extrem heißer" + Environment.NewLine +
+				"Umgebungen aufrechtzuerhalten und verbraucht dabei" + Environment.NewLine +
+				"Thermoflüssigkeit."
+			);
+			AddEntry(
+				LanguageEntries.ARMORMODULE_DESCRIPTION,
+				"Hinweis: Rüstungsmodule müssen sich im Inventar des Spielers" + Environment.NewLine +
+				"befinden, damit sie funktionieren."
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME,
+				"Effizienz"
+			);
+			#endregion
 			#region Damage Types
 			AddEntry(
 				LanguageEntries.DAMAGETYPE_CREATURE_NAME,

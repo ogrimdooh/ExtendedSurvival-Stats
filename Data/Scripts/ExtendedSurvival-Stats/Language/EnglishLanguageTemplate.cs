@@ -2777,6 +2777,34 @@ namespace ExtendedSurvival.Stats
 				"Armor Equipped: {0}."
 			);
 			#endregion
+			#region Armor Modules
+			AddEntry(
+				LanguageEntries.COLDTHERMALREGULATOR_NAME,
+				"Cold Thermal Regulator"
+			);
+			AddEntry(
+				LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION,
+				"Used to maintain the suit's temperature when in extremely cold" + Environment.NewLine +
+				"environments and consumes thermal fluid in the process."
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALREGULATOR_NAME,
+				"Hot Thermal Regulator"
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION,
+				"Used to maintain the suit's temperature when in extremely hot" + Environment.NewLine +
+				"environments and consumes thermal fluid in the process."
+			);
+			AddEntry(
+				LanguageEntries.ARMORMODULE_DESCRIPTION,
+				"Note: Armor modules need to be in the player's inventory to work."
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME,
+				"Efficiency"
+			);
+			#endregion
 			#region Damage Types
 			AddEntry(
 				LanguageEntries.DAMAGETYPE_CREATURE_NAME,

@@ -54,8 +54,8 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
 
-    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanillaConstruction" />
-    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_VanillaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_VanilaConstruction" />
 
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />

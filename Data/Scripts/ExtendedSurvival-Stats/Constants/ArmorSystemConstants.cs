@@ -19,11 +19,13 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        [Flags]
         public enum ArmorCategory
         {
 
-            Work = 0,
-            Combat = 1
+            None = 0,
+            Work = 1 << 1,
+            Combat = 1 << 2
 
         }
 
@@ -51,6 +53,13 @@ namespace ExtendedSurvival.Stats
             Gathering = 0,
             CargoLoad = 1,
             MovementSpeed = 2
+
+        }
+
+        public enum ModuleAttribute
+        {
+
+            Efficiency = 0
 
         }
 
@@ -86,6 +95,26 @@ namespace ExtendedSurvival.Stats
                     return value.ToString("P2");
             }
             return value.ToString("#0.00");
+        }
+
+        public static string FormatModuleAttributeValue(ModuleAttribute type, float value)
+        {
+            switch (type)
+            {
+                case ModuleAttribute.Efficiency:
+                    return value.ToString("P2");
+            }
+            return value.ToString("#0.00");
+        }
+
+        public static string GetModuleAttributeName(ModuleAttribute type)
+        {
+            switch (type)
+            {
+                case ModuleAttribute.Efficiency:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME);
+            }
+            return "";
         }
 
         public static string GetArmorEffectName(ArmorEffect type)
