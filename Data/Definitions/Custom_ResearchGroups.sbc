@@ -3,7 +3,7 @@
   <ResearchGroups>
 
     <ResearchGroup xsi:type="ResearchGroup">
-      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12011" />
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="13001" />
       <Members>
         <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockRefrigerator" />
         <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallBlockRefrigerator" />
@@ -11,7 +11,7 @@
     </ResearchGroup>
 
     <ResearchGroup xsi:type="ResearchGroup">
-      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12007" />
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="13002" />
       <Members>
         <BlockId Type="MyObjectBuilder_CargoContainer" Subtype="LargeBlockSmallCage" />
         <BlockId Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockSmallCage" />
@@ -19,30 +19,38 @@
     </ResearchGroup>
 
     <ResearchGroup xsi:type="ResearchGroup">
-      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12004" />
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="13003" />
       <Members>
         <BlockId Type="MyObjectBuilder_Assembler" Subtype="BasicFoodProcessor" />
       </Members>
     </ResearchGroup>
 
     <ResearchGroup xsi:type="ResearchGroup">
-      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12005" />
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="13004" />
       <Members>
         <BlockId Type="MyObjectBuilder_Assembler" Subtype="BasicSlaughterhouse" />
       </Members>
     </ResearchGroup>
 
     <ResearchGroup xsi:type="ResearchGroup">
-      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12008" />
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="13005" />
       <Members>
         <BlockId Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockFarm" />
       </Members>
     </ResearchGroup>
 
     <ResearchGroup xsi:type="ResearchGroup">
-      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="12012" />
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="13006" />
       <Members>
         <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockComposter" />
+      </Members>
+    </ResearchGroup>
+
+    <ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="13007" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="ThermalFluidGenerator" />
+        <BlockId Type="MyObjectBuilder_OxygenGenerator" Subtype="ThermalFluidGeneratorSmall" />
       </Members>
     </ResearchGroup>
 

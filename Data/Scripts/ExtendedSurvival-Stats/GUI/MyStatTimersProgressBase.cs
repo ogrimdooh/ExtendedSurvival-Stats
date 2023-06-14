@@ -1,4 +1,5 @@
 ﻿using Sandbox.ModAPI;
+using System;
 
 namespace ExtendedSurvival.Stats
 {
@@ -24,22 +25,32 @@ namespace ExtendedSurvival.Stats
 
         protected override bool IsActive(int index)
         {
-            var armor = PlayerArmorController.GetEquipedArmor(MyAPIGateway.Session.Player.IdentityId, useCache: true);
-            switch (index)
+            try
             {
-                case 0:
-                    return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.COLDTHERMALREGULATORS_MODULES);
-                case 1:
-                    return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
-                case 2:
-                case 3:
-                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                    return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 4;
+                var armor = PlayerArmorController.GetEquipedArmor(MyAPIGateway.Session.Player.IdentityId, useCache: true);
+                if (Stats != null)
+                {
+                    switch (index)
+                    {
+                        case 0:
+                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.COLDTHERMALREGULATORS_MODULES);
+                        case 1:
+                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
+                        case 2:
+                        case 3:
+                            return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                            return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 4;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
             return false;
         }

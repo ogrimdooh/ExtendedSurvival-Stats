@@ -3,6 +3,20 @@
   <ResearchBlocks>
 
     <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="ThermalFluidGenerator" />
+      <UnlockedByGroups>
+        <GroupSubtype>0</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="ThermalFluidGeneratorSmall" />
+      <UnlockedByGroups>
+        <GroupSubtype>0</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockRefrigerator" />
       <UnlockedByGroups>
         <GroupSubtype>0</GroupSubtype>
@@ -19,14 +33,14 @@
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockComposter" />
       <UnlockedByGroups>
-        <GroupSubtype>12011</GroupSubtype>
+        <GroupSubtype>13001</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="FishTrap" />
       <UnlockedByGroups>
-        <GroupSubtype>12012</GroupSubtype>
+        <GroupSubtype>13006</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
@@ -40,14 +54,14 @@
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_Assembler" Subtype="FoodProcessor" />
       <UnlockedByGroups>
-        <GroupSubtype>12004</GroupSubtype>
+        <GroupSubtype>13003</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_Assembler" Subtype="FoodProcessorIndustrial" />
       <UnlockedByGroups>
-        <GroupSubtype>12004</GroupSubtype>
+        <GroupSubtype>13003</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
@@ -61,7 +75,7 @@
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_OxygenFarm" Subtype="LargeBlockTreeFarm" />
       <UnlockedByGroups>
-        <GroupSubtype>12008</GroupSubtype>
+        <GroupSubtype>13005</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
@@ -82,21 +96,21 @@
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_Assembler" Subtype="BasicSlaughterhouse" />
       <UnlockedByGroups>
-        <GroupSubtype>12007</GroupSubtype>
+        <GroupSubtype>13002</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_Assembler" Subtype="Slaughterhouse" />
       <UnlockedByGroups>
-        <GroupSubtype>12005</GroupSubtype>
+        <GroupSubtype>13004</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
     <ResearchBlock xsi:type="ResearchBlock">
       <Id Type="MyObjectBuilder_Assembler" Subtype="SlaughterhouseIndustrial" />
       <UnlockedByGroups>
-        <GroupSubtype>12005</GroupSubtype>
+        <GroupSubtype>13004</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
