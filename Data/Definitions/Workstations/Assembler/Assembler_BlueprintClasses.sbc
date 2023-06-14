@@ -43,7 +43,11 @@
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
 
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ProficientHotThermalRegulator_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedColdThermalRegulator_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ProficientColdThermalRegulator_Construction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
@@ -55,7 +59,13 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientHotThermalRegulator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteHotThermalRegulator_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedColdThermalRegulator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientColdThermalRegulator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteColdThermalRegulator_VanilaConstruction" />
 
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />

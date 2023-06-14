@@ -33,7 +33,13 @@
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
 
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientHotThermalRegulator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteHotThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedColdThermalRegulator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientColdThermalRegulator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteColdThermalRegulator_Construction" />
 
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />

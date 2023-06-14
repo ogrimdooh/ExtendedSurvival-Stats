@@ -144,6 +144,10 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId SILVER_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), SILVER_SUBTYPEID);
         public static readonly UniqueEntityId SILVER_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SILVER_SUBTYPEID);
 
+        public const string GOLD_SUBTYPEID = "Gold";
+        public static readonly UniqueEntityId GOLD_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), GOLD_SUBTYPEID);
+        public static readonly UniqueEntityId GOLD_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), GOLD_SUBTYPEID);
+
         public const string PLATINUM_SUBTYPEID = "Platinum";
         public static readonly UniqueEntityId PLATINUM_INGOT_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), PLATINUM_SUBTYPEID);
         public static readonly UniqueEntityId PLATINUM_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), PLATINUM_SUBTYPEID);
@@ -218,8 +222,17 @@ namespace ExtendedSurvival.Stats
         public const string SILVERCONNECTOR_SUBTYPEID = "SilverConnector";
         public static readonly UniqueEntityId SILVERCONNECTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), SILVERCONNECTOR_SUBTYPEID);
 
+        public const string SUPERCONDUCTOR_SUBTYPEID = "Superconductor";
+        public static readonly UniqueEntityId SUPERCONDUCTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), SUPERCONDUCTOR_SUBTYPEID);
+
+        public const string BERYLLIUMCOPPERWIRE_SUBTYPEID = "BerylliumCopperWire";
+        public static readonly UniqueEntityId BERYLLIUMCOPPERWIRE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), BERYLLIUMCOPPERWIRE_SUBTYPEID);
+
         public const string ELITECHIP_SUBTYPEID = "EliteChip";
         public static readonly UniqueEntityId ELITECHIP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), ELITECHIP_SUBTYPEID);
+
+        public const string PROFICIENTCHIP_SUBTYPEID = "ProficientChip";
+        public static readonly UniqueEntityId PROFICIENTCHIP_ID = new UniqueEntityId(typeof(MyObjectBuilder_Component), PROFICIENTCHIP_SUBTYPEID);
 
         public const string ICE_SUBTYPEID = "Ice";
         public static readonly UniqueEntityId ICE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ICE_SUBTYPEID);

@@ -2815,6 +2815,18 @@ namespace ExtendedSurvival.Stats
 				"Cold Thermal Regulator"
 			);
 			AddEntry(
+				LanguageEntries.ENHANCEDCOLDTHERMALREGULATOR_NAME,
+				"Enhanced Cold Thermal Regulator"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTCOLDTHERMALREGULATOR_NAME,
+				"Proficient Cold Thermal Regulator"
+			);
+			AddEntry(
+				LanguageEntries.ELITECOLDTHERMALREGULATOR_NAME,
+				"Elite Cold Thermal Regulator"
+			);
+			AddEntry(
 				LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION,
 				"Used to maintain the suit's temperature when in extremely cold" + Environment.NewLine +
 				"environments and consumes thermal fluid in the process."
@@ -2822,6 +2834,18 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.HOTTHERMALREGULATOR_NAME,
 				"Hot Thermal Regulator"
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDHOTTHERMALREGULATOR_NAME,
+				"Enhanced Hot Thermal Regulator"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTHOTTHERMALREGULATOR_NAME,
+				"Proficient Hot Thermal Regulator"
+			);
+			AddEntry(
+				LanguageEntries.ELITEHOTTHERMALREGULATOR_NAME,
+				"Elite Hot Thermal Regulator"
 			);
 			AddEntry(
 				LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION,

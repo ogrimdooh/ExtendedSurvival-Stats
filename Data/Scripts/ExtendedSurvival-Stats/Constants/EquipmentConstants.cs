@@ -1035,8 +1035,26 @@ namespace ExtendedSurvival.Stats
         public const string COLDTHERMALREGULATOR_SUBTYPEID = "ColdThermalRegulator";
         public static readonly UniqueEntityId COLDTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), COLDTHERMALREGULATOR_SUBTYPEID);
 
+        public const string ENHANCEDCOLDTHERMALREGULATOR_SUBTYPEID = "EnhancedColdThermalRegulator";
+        public static readonly UniqueEntityId ENHANCEDCOLDTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDCOLDTHERMALREGULATOR_SUBTYPEID);
+
+        public const string PROFICIENTCOLDTHERMALREGULATOR_SUBTYPEID = "ProficientColdThermalRegulator";
+        public static readonly UniqueEntityId PROFICIENTCOLDTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTCOLDTHERMALREGULATOR_SUBTYPEID);
+
+        public const string ELITECOLDTHERMALREGULATOR_SUBTYPEID = "EliteColdThermalRegulator";
+        public static readonly UniqueEntityId ELITECOLDTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITECOLDTHERMALREGULATOR_SUBTYPEID);
+
         public const string HOTTHERMALREGULATOR_SUBTYPEID = "HotThermalRegulator";
         public static readonly UniqueEntityId HOTTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), HOTTHERMALREGULATOR_SUBTYPEID);
+
+        public const string ENHANCEDHOTTHERMALREGULATOR_SUBTYPEID = "EnhancedHotThermalRegulator";
+        public static readonly UniqueEntityId ENHANCEDHOTTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDHOTTHERMALREGULATOR_SUBTYPEID);
+
+        public const string PROFICIENTHOTTHERMALREGULATOR_SUBTYPEID = "ProficientHotThermalRegulator";
+        public static readonly UniqueEntityId PROFICIENTHOTTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTHOTTHERMALREGULATOR_SUBTYPEID);
+
+        public const string ELITEHOTTHERMALREGULATOR_SUBTYPEID = "EliteHotThermalRegulator";
+        public static readonly UniqueEntityId ELITEHOTTHERMALREGULATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITEHOTTHERMALREGULATOR_SUBTYPEID);
 
         public static readonly ArmorModuleDefinition COLDTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
         {
@@ -1127,6 +1145,351 @@ namespace ExtendedSurvival.Stats
                         {
                             Id = ItensConstants.SILICON_INGOT_ID,
                             Ammount = 1.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ENHANCEDCOLDTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDCOLDTHERMALREGULATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDCOLDTHERMALREGULATOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedColdThermalRegulator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedColdThermalRegulator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition PROFICIENTCOLDTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTCOLDTHERMALREGULATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTCOLDTHERMALREGULATOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.35f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientColdThermalRegulator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientColdThermalRegulator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ELITECOLDTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITECOLDTHERMALREGULATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITECOLDTHERMALREGULATOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.45f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteColdThermalRegulator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteColdThermalRegulator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
                         }
                     }
                 }
@@ -1228,20 +1591,371 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly ArmorModuleDefinition ENHANCEDHOTTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDHOTTHERMALREGULATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDHOTTHERMALREGULATOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedHotThermalRegulator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedHotThermalRegulator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition PROFICIENTHOTTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTHOTTHERMALREGULATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTHOTTHERMALREGULATOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.35f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientHotThermalRegulator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientHotThermalRegulator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ELITEHOTTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITEHOTTHERMALREGULATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITEHOTTHERMALREGULATOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.45f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteHotThermalRegulator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteHotThermalRegulator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, ArmorModuleDefinition> ARMOR_MODULES_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorModuleDefinition>()
         {
             { COLDTHERMALREGULATOR_ID, COLDTHERMALREGULATOR_DEFINITION },
-            { HOTTHERMALREGULATOR_ID, HOTTHERMALREGULATOR_DEFINITION }
+            { ENHANCEDCOLDTHERMALREGULATOR_ID, ENHANCEDCOLDTHERMALREGULATOR_DEFINITION },
+            { PROFICIENTCOLDTHERMALREGULATOR_ID, PROFICIENTCOLDTHERMALREGULATOR_DEFINITION },
+            { ELITECOLDTHERMALREGULATOR_ID, ELITECOLDTHERMALREGULATOR_DEFINITION },
+            { HOTTHERMALREGULATOR_ID, HOTTHERMALREGULATOR_DEFINITION },
+            { ENHANCEDHOTTHERMALREGULATOR_ID, ENHANCEDHOTTHERMALREGULATOR_DEFINITION },
+            { PROFICIENTHOTTHERMALREGULATOR_ID, PROFICIENTHOTTHERMALREGULATOR_DEFINITION },
+            { ELITEHOTTHERMALREGULATOR_ID, ELITEHOTTHERMALREGULATOR_DEFINITION }
         };
 
         public static readonly UniqueEntityId[] COLDTHERMALREGULATORS_MODULES = new UniqueEntityId[] 
         {
-            COLDTHERMALREGULATOR_ID
+            COLDTHERMALREGULATOR_ID, ENHANCEDCOLDTHERMALREGULATOR_ID, PROFICIENTCOLDTHERMALREGULATOR_ID, ELITECOLDTHERMALREGULATOR_ID
         };
 
         public static readonly UniqueEntityId[] HOTTHERMALREGULATORS_MODULES = new UniqueEntityId[]
         {
-            HOTTHERMALREGULATOR_ID
+            HOTTHERMALREGULATOR_ID, ENHANCEDHOTTHERMALREGULATOR_ID, PROFICIENTHOTTHERMALREGULATOR_ID, ELITEHOTTHERMALREGULATOR_ID
         };
 
         public static void TryOverrideDefinitions()
@@ -1356,8 +2070,62 @@ namespace ExtendedSurvival.Stats
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
             {
+                Id = ENHANCEDCOLDTHERMALREGULATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PROFICIENTCOLDTHERMALREGULATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ELITECOLDTHERMALREGULATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Epic,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
                 Id = HOTTHERMALREGULATOR_ID.DefinitionId,
                 Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ENHANCEDHOTTHERMALREGULATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PROFICIENTHOTTHERMALREGULATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ELITEHOTTHERMALREGULATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Epic,
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,

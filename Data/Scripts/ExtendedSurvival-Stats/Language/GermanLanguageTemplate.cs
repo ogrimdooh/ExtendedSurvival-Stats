@@ -2852,6 +2852,18 @@ namespace ExtendedSurvival.Stats
 				"Kalter Thermoregler"
 			);
 			AddEntry(
+				LanguageEntries.ENHANCEDCOLDTHERMALREGULATOR_NAME,
+				"Verbesserter Kalter Thermoregler"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTCOLDTHERMALREGULATOR_NAME,
+				"Kompetenter Kalter Thermoregler"
+			);
+			AddEntry(
+				LanguageEntries.ELITECOLDTHERMALREGULATOR_NAME,
+				"Elite Kalter Thermoregler"
+			);
+			AddEntry(
 				LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION,
 				"Wird verwendet, um die Temperatur des Anzugs in extrem kalten" + Environment.NewLine +
 				"Umgebungen aufrechtzuerhalten und verbraucht dabei" + Environment.NewLine +
@@ -2860,6 +2872,18 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.HOTTHERMALREGULATOR_NAME,
 				"Heißer Thermoregler"
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDHOTTHERMALREGULATOR_NAME,
+				"Verbesserter Heißer Thermoregler"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTHOTTHERMALREGULATOR_NAME,
+				"Kompetenter Heißer Thermoregler"
+			);
+			AddEntry(
+				LanguageEntries.ELITEHOTTHERMALREGULATOR_NAME,
+				"Elite Heißer Thermoregler"
 			);
 			AddEntry(
 				LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION,
