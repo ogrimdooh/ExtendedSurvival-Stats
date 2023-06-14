@@ -139,6 +139,7 @@
         <string>AdvancedHandHeldLauncherItem</string>
         <string>LidocainPistolItem</string>
         <string>PropofolPistolItem</string>
+        <string>BBPistolItem</string>
       </ItemIds>
     </Category>
     

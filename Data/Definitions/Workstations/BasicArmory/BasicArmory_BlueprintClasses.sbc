@@ -4,10 +4,13 @@
   <BlueprintClassEntries>
     
     <Entry Class="BasicArmory_Weapons_Blueprints" BlueprintSubtypeId="LidocainPistol" />
+    <Entry Class="BasicArmory_Weapons_Blueprints" BlueprintSubtypeId="BBPistol_Construction" />
 
     <Entry Class="BasicArmory_Bullets_Blueprints" BlueprintSubtypeId="LidocainDart_Construction" />
+    <Entry Class="BasicArmory_Bullets_Blueprints" BlueprintSubtypeId="BBBullet_Construction" />
 
     <Entry Class="BasicArmory_Magazine_Blueprints" BlueprintSubtypeId="LidocainPistolMagazine" />
+    <Entry Class="BasicArmory_Magazine_Blueprints" BlueprintSubtypeId="BBPistolMagazine_Construction" />
 
   </BlueprintClassEntries>
   

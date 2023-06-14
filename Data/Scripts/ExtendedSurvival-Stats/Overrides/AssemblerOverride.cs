@@ -44,6 +44,9 @@ namespace ExtendedSurvival.Stats
         public const string ThermalFluid_Construction = "ThermalFluid_Construction";
         public const string ThermalFluid_Vanila_Construction = "ThermalFluid_Vanila_Construction";
 
+        public const string EmptyPistolMagazine_Construction = "EmptyPistolMagazine_Construction";
+        public const string EmptyPistolMagazine_VanilaConstruction = "EmptyPistolMagazine_VanilaConstruction";
+
         public const string BasicFoodProcessor = "BasicFoodProcessor";
         public const string FoodProcessor = "FoodProcessor";
         public const string FoodProcessorIndustrial = "FoodProcessorIndustrial";
@@ -127,6 +130,10 @@ namespace ExtendedSurvival.Stats
         {
             if (survivalKitDefinition != null)
             {
+                
+                var consumablesClass = MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_CONSUMABLES_BLUEPRINTS);
+                if (!survivalKitDefinition.BlueprintClasses.Contains(consumablesClass))
+                    survivalKitDefinition.BlueprintClasses.Add(consumablesClass);
                 var refineClass = MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.SURVIVALKIT_REFINE_BLUEPRINTS);
                 if (!survivalKitDefinition.BlueprintClasses.Contains(refineClass))
                     survivalKitDefinition.BlueprintClasses.Add(refineClass);
@@ -165,9 +172,9 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        protected override void OnAfterSetDefinitions()
+        protected override void OnBeforeSetDefinitions()
         {
-            base.OnAfterSetDefinitions();
+            base.OnBeforeSetDefinitions();
             if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Sulfur") != null)
             {
                 AddBluePrintToClass(ItensConstants.ALCHEMYBENCH_FERTILIZER_BLUEPRINTS, Fertilizer_Construction);
@@ -178,6 +185,7 @@ namespace ExtendedSurvival.Stats
             }
             if (DefinitionUtils.TryGetDefinition<MyPhysicalItemDefinition>("Aluminum") != null)
             {
+                AddBluePrintToClass(ItensConstants.SURVIVALKIT_CONSUMABLES_BLUEPRINTS, EmptyPistolMagazine_Construction);
                 AddBluePrintToClass(ItensConstants.SURVIVALKIT_BOTTLES_BLUEPRINTS, SmallAluminumCanister_Construction);
                 AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction, SmallAluminumCanister_Construction);
                 AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Construction, SmallAluminumCanister_Construction);
@@ -187,6 +195,7 @@ namespace ExtendedSurvival.Stats
             }
             else
             {
+                AddBluePrintToClass(ItensConstants.SURVIVALKIT_CONSUMABLES_BLUEPRINTS, EmptyPistolMagazine_VanilaConstruction);
                 AddBluePrintToClass(ItensConstants.SURVIVALKIT_BOTTLES_BLUEPRINTS, SmallAluminumCanister_Vanila_Construction);
                 AddBluePrintToClass(ItensConstants.ASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction, SmallAluminumCanister_Vanila_Construction);
                 AddBluePrintToClass(ItensConstants.BASICASSEMBLER_BOTTLES_BLUEPRINTS, AluminumCan_Vanila_Construction, SmallAluminumCanister_Vanila_Construction);

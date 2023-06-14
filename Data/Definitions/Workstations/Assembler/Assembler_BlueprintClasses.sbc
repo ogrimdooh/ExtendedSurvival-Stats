@@ -64,12 +64,15 @@
     <Entry Class="EliteTools" BlueprintSubtypeId="PropofolPistolVanila" />
     <Entry Class="EliteTools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
     <Entry Class="EliteTools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="BBPistolVanila_Construction" />
 
     <Entry Class="EliteConsumables" BlueprintSubtypeId="LidocainDart_Construction" />
     <Entry Class="EliteConsumables" BlueprintSubtypeId="PropofolDart_Construction" />
-    <Entry Class="EliteConsumables" BlueprintSubtypeId="EmptyPistolMagazine_Construction" />
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="EmptyPistolMagazine_VanilaConstruction" />
     <Entry Class="EliteConsumables" BlueprintSubtypeId="LidocainPistolMagazine" />
     <Entry Class="EliteConsumables" BlueprintSubtypeId="PropofolPistolMagazine" />
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="BBBullet_Construction" />
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="BBPistolMagazine_Construction" />
 
   </BlueprintClassEntries>
   

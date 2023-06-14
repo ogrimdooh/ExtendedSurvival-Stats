@@ -5,31 +5,6 @@
     <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
       <Id>
         <TypeId>PhysicalObject</TypeId>
-        <SubtypeId>PropofolDart</SubtypeId>
-      </Id>
-      <DisplayName>Propofol Dart</DisplayName>
-      <Icon>Textures\GUI\Icons\propofol_dart.dds</Icon>
-      <Size>
-        <X>0.2</X>
-        <Y>0.1</Y>
-        <Z>0.1</Z>
-      </Size>
-      <Mass>0.01</Mass>
-      <Volume>0.01</Volume>
-      <Model>Models\Components\construction_components_component.mwm</Model>
-      <PhysicalMaterial>Metal</PhysicalMaterial>
-      <MinimumOfferAmount>1000</MinimumOfferAmount>
-      <MaximumOfferAmount>5000</MaximumOfferAmount>
-      <MinimumOrderAmount>100</MinimumOrderAmount>
-      <MaximumOrderAmount>1000</MaximumOrderAmount>
-      <CanPlayerOrder>true</CanPlayerOrder>
-      <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
-      <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
-    </PhysicalItem>
-
-    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
-      <Id>
-        <TypeId>PhysicalObject</TypeId>
         <SubtypeId>LidocainDart</SubtypeId>
       </Id>
       <DisplayName>Lidocain Dart</DisplayName>
@@ -53,5 +28,24 @@
     </PhysicalItem>
 
   </PhysicalItems>
+  <Blueprints>
 
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>LidocainDart_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Lidocain Dart</DisplayName>
+      <Icon>Textures\GUI\Icons\lidocain_dart.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="0.3" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="0.2" TypeId="Ingot" SubtypeId="Silicon" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Lidocaine" />
+      </Prerequisites>
+      <Result Amount="2" TypeId="PhysicalObject" SubtypeId="LidocainDart" />
+      <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
 </Definitions>

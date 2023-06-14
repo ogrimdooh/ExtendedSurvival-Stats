@@ -5,12 +5,15 @@
     
     <Entry Class="Armory_Weapons_Blueprints" BlueprintSubtypeId="LidocainPistol" />
     <Entry Class="Armory_Weapons_Blueprints" BlueprintSubtypeId="PropofolPistol" />
+    <Entry Class="Armory_Weapons_Blueprints" BlueprintSubtypeId="BBPistol_Construction" />
     
     <Entry Class="Armory_Bullets_Blueprints" BlueprintSubtypeId="LidocainDart_Construction" />
     <Entry Class="Armory_Bullets_Blueprints" BlueprintSubtypeId="PropofolDart_Construction" />
+    <Entry Class="Armory_Bullets_Blueprints" BlueprintSubtypeId="BBBullet_Construction" />
     
     <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="LidocainPistolMagazine" />
     <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="PropofolPistolMagazine" />
+    <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="BBPistolMagazine_Construction" />
     
   </BlueprintClassEntries>
   

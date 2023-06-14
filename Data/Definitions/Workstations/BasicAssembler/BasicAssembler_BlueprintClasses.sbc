@@ -59,10 +59,13 @@
     <Entry Class="Tools" BlueprintSubtypeId="LidocainPistolVanila" />
     <Entry Class="Tools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
     <Entry Class="Tools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
+    <Entry Class="Tools" BlueprintSubtypeId="BBPistolVanila_Construction" />
 
     <Entry Class="Consumables" BlueprintSubtypeId="LidocainDart_Construction" />
-    <Entry Class="Consumables" BlueprintSubtypeId="EmptyPistolMagazine_Construction" />
+    <Entry Class="Consumables" BlueprintSubtypeId="EmptyPistolMagazine_VanilaConstruction" />
     <Entry Class="Consumables" BlueprintSubtypeId="LidocainPistolMagazine" />
+    <Entry Class="Consumables" BlueprintSubtypeId="BBBullet_Construction" />
+    <Entry Class="Consumables" BlueprintSubtypeId="BBPistolMagazine_Construction" />
 
   </BlueprintClassEntries>
   

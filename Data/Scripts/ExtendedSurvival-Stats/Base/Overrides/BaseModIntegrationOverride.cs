@@ -20,6 +20,7 @@ namespace ExtendedSurvival.Stats
             var ids = GetModId();
             if (ids.Length == 0 || MyAPIGateway.Session.Mods.Any(x => ids.Contains(x.PublishedFileId)) || IsCustomCheckOk())
             {
+                OnBeforeSetDefinitions();
                 OnSetDefinitions();
                 OnAfterSetDefinitions();
             }
@@ -37,6 +38,11 @@ namespace ExtendedSurvival.Stats
                 sb.Append(item.ToString());
             }
             return sb.ToString();
+        }
+
+        protected virtual void OnBeforeSetDefinitions()
+        {
+
         }
 
         protected virtual void OnAfterSetDefinitions()
