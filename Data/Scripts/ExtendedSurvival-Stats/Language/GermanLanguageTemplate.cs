@@ -2220,6 +2220,14 @@ namespace ExtendedSurvival.Stats
 				"Ein auf Lidocain basierender Beruhigungspfeil."
 			);
 			AddEntry(
+				LanguageEntries.BBBULLET_NAME,
+				"BB-6mm Patrone"
+			);
+			AddEntry(
+				LanguageEntries.BBBULLET_DESCRIPTION,
+				"Eine 6-mm-Eisen-Pellet-Kugel."
+			);
+			AddEntry(
 				LanguageEntries.PISTOL_PROPOFOL_MAGZINE_NAME,
 				"Pistole DRT-Propofol Magazin"
 			);
@@ -2229,11 +2237,19 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.PISTOL_LIDOCAIN_MAGZINE_NAME,
-				"Pistole DRT-Lidocain Magzine"
+				"Pistole DRT-Lidocain Magazin"
 			);
 			AddEntry(
 				LanguageEntries.PISTOL_LIDOCAIN_MAGZINE_DESCRIPTION,
 				"Ein Pistolenclip mit Lidocain-Beruhigungspfeilen."
+			);
+			AddEntry(
+				LanguageEntries.PISTOL_BB_MAGZINE_NAME,
+				"Pistole BB-6mm Magazin"
+			);
+			AddEntry(
+				LanguageEntries.PISTOL_BB_MAGZINE_DESCRIPTION,
+				"Ein Pistolenclip mit 6-mm-Eisen-Pelletgeschossen."
 			);
 			AddEntry(
 				LanguageEntries.LIDOCAINPISTOLITEM_NAME,
@@ -2250,6 +2266,14 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.PROPOFOLPISTOLITEM_DESCRIPTION,
 				"Eine Waffe für die Jagd auf Tiere mit Propofol-Betäubungspfeilen."
+			);
+			AddEntry(
+				LanguageEntries.BBPISTOLITEM_NAME,
+				"Pistole BB-6mm"
+			);
+			AddEntry(
+				LanguageEntries.BBPISTOLITEM_DESCRIPTION,
+				"Eine Waffe für die Jagd auf Tiere mit 6-mm-Eisen-Pelletgeschossen."
 			);
 			#endregion
 			#region STATS

@@ -2187,6 +2187,14 @@ namespace ExtendedSurvival.Stats
 				"A Lidocain-based tranquilizer dart."
 			);
 			AddEntry(
+				LanguageEntries.BBBULLET_NAME,
+				"BB-6mm Bullet"
+			);
+			AddEntry(
+				LanguageEntries.BBBULLET_DESCRIPTION,
+				"A 6mm iron pellet bullet."
+			);
+			AddEntry(
 				LanguageEntries.PISTOL_PROPOFOL_MAGZINE_NAME,
 				"Pistol DRT-Propofol Magzine"
 			);
@@ -2203,6 +2211,14 @@ namespace ExtendedSurvival.Stats
 				"A pistol clip with Lidocain tranquilizer darts."
 			);
 			AddEntry(
+				LanguageEntries.PISTOL_BB_MAGZINE_NAME,
+				"Pistol BB-6mm Magzine"
+			);
+			AddEntry(
+				LanguageEntries.PISTOL_BB_MAGZINE_DESCRIPTION,
+				"A pistol clip with 6mm iron pellet bullets."
+			);
+			AddEntry(
 				LanguageEntries.LIDOCAINPISTOLITEM_NAME,
 				"Pistol DRT-Lidocain"
 			);
@@ -2217,6 +2233,14 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.PROPOFOLPISTOLITEM_DESCRIPTION,
 				"A gun for hunting animals with Propofol tranquilizer darts."
+			);
+			AddEntry(
+				LanguageEntries.BBPISTOLITEM_NAME,
+				"Pistol BB-6mm"
+			);
+			AddEntry(
+				LanguageEntries.BBPISTOLITEM_DESCRIPTION,
+				"A gun for hunting animals with 6mm iron pellet bullets."
 			);
 			#endregion
 			#region STATS

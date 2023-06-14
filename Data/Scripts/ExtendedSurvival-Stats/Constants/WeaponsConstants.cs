@@ -15,6 +15,9 @@ namespace ExtendedSurvival.Stats
         public const string LIDOCAINDART_SUBTYPEID = "LidocainDart";
         public static readonly UniqueEntityId LIDOCAINDART_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), LIDOCAINDART_SUBTYPEID);
 
+        public const string BBBULLET_SUBTYPEID = "BBBullet";
+        public static readonly UniqueEntityId BBBULLET_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), BBBULLET_SUBTYPEID);
+
         public static readonly WeaponComponentDefinition PROPOFOLDART_DEFINITION = new WeaponComponentDefinition()
         {
             Id = PROPOFOLDART_ID,
@@ -107,10 +110,42 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly WeaponComponentDefinition BBBULLET_DEFINITION = new WeaponComponentDefinition()
+        {
+            Id = BBBULLET_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.BBBULLET_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BBBULLET_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 25,
+            OfferAmount = new Vector2I(1000, 3000),
+            OrderAmount = new Vector2I(250, 750),
+            AcquisitionAmount = new Vector2I(500, 1500),
+            Mass = 0.0125f,
+            Volume = 0.00625f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "BBBullet_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 0.32f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 0.0125f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, WeaponComponentDefinition> WEAPONCOMPONENTS_DEFINITIONS = new Dictionary<UniqueEntityId, WeaponComponentDefinition>()
         {
             { PROPOFOLDART_ID, PROPOFOLDART_DEFINITION },
-            { LIDOCAINDART_ID, LIDOCAINDART_DEFINITION }
+            { LIDOCAINDART_ID, LIDOCAINDART_DEFINITION },
+            { BBBULLET_ID, BBBULLET_DEFINITION }
         };
 
         public const string PISTOL_PROPOFOL_MAGZINE_SUBTYPEID = "PropofolPistolMagazine";
@@ -118,6 +153,9 @@ namespace ExtendedSurvival.Stats
 
         public const string PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID = "LidocainPistolMagazine";
         public static readonly UniqueEntityId PISTOL_LIDOCAIN_MAGZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_AmmoMagazine), PISTOL_LIDOCAIN_MAGZINE_SUBTYPEID);
+
+        public const string PISTOL_BB_MAGZINE_SUBTYPEID = "BBPistolMagazine";
+        public static readonly UniqueEntityId PISTOL_BB_MAGZINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_AmmoMagazine), PISTOL_BB_MAGZINE_SUBTYPEID);
 
         public static readonly WeaponMagzineDefinition PISTOL_PROPOFOL_MAGZINE_DEFINITION = new WeaponMagzineDefinition()
         {
@@ -191,10 +229,47 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly WeaponMagzineDefinition PISTOL_BB_MAGZINE_DEFINITION = new WeaponMagzineDefinition()
+        {
+            Id = PISTOL_BB_MAGZINE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PISTOL_BB_MAGZINE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.PISTOL_BB_MAGZINE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 2750,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 0.15f,
+            Volume = 0.1f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "BBPistolMagazine_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 1.28f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.EMPTYPISTOLMAGAZINE_ID,
+                            Ammount = 1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = BBBULLET_ID,
+                            Ammount = 25f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, WeaponMagzineDefinition> WEAPONMAGZINES_DEFINITIONS = new Dictionary<UniqueEntityId, WeaponMagzineDefinition>()
         {
             { PISTOL_PROPOFOL_MAGZINE_ID, PISTOL_PROPOFOL_MAGZINE_DEFINITION },
-            { PISTOL_LIDOCAIN_MAGZINE_ID, PISTOL_LIDOCAIN_MAGZINE_DEFINITION }
+            { PISTOL_LIDOCAIN_MAGZINE_ID, PISTOL_LIDOCAIN_MAGZINE_DEFINITION },
+            { PISTOL_BB_MAGZINE_ID, PISTOL_BB_MAGZINE_DEFINITION }
         };
 
         public const string LIDOCAINPISTOLITEM_SUBTYPEID = "LidocainPistolItem";
@@ -202,6 +277,9 @@ namespace ExtendedSurvival.Stats
 
         public const string PROPOFOLPISTOLITEM_SUBTYPEID = "PropofolPistolItem";
         public static readonly UniqueEntityId PROPOFOLPISTOLITEM_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalGunObject), PROPOFOLPISTOLITEM_SUBTYPEID);
+
+        public const string BBPISTOLITEM_SUBTYPEID = "BBPistolItem";
+        public static readonly UniqueEntityId BBPISTOLITEM_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalGunObject), BBPISTOLITEM_SUBTYPEID);
 
         public static readonly WeaponDefinition PROPOFOLPISTOLITEM_DEFINITION = new WeaponDefinition()
         {
@@ -348,10 +426,76 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly WeaponDefinition BBPISTOLITEM_DEFINITION = new WeaponDefinition()
+        {
+            Id = BBPISTOLITEM_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.BBPISTOLITEM_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.BBPISTOLITEM_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 7650,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(5, 10),
+            AcquisitionAmount = new Vector2I(30, 60),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "BBPistol_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRONSCREW_ID,
+                            Ammount = 25f
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "BBPistolVanila_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 3f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 2f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, WeaponDefinition> WEAPONS_DEFINITIONS = new Dictionary<UniqueEntityId, WeaponDefinition>()
         {
             { LIDOCAINPISTOLITEM_ID, LIDOCAINPISTOLITEM_DEFINITION },
-            { PROPOFOLPISTOLITEM_ID, PROPOFOLPISTOLITEM_DEFINITION }
+            { PROPOFOLPISTOLITEM_ID, PROPOFOLPISTOLITEM_DEFINITION },
+            { BBPISTOLITEM_ID, BBPISTOLITEM_DEFINITION }
         };
 
         public static void TryOverrideDefinitions()
@@ -383,6 +527,15 @@ namespace ExtendedSurvival.Stats
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
             {
+                Id = BBBULLET_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Armory }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
                 Id = PISTOL_PROPOFOL_MAGZINE_ID.DefinitionId,
                 Rarity = ItemRarity.Rare,
                 CanBuy = true,
@@ -401,6 +554,15 @@ namespace ExtendedSurvival.Stats
             });
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
             {
+                Id = PISTOL_BB_MAGZINE_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Armory }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
                 Id = LIDOCAINPISTOLITEM_ID.DefinitionId,
                 Rarity = ItemRarity.Rare,
                 CanBuy = true,
@@ -411,6 +573,15 @@ namespace ExtendedSurvival.Stats
             ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
             {
                 Id = PROPOFOLPISTOLITEM_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Armory }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = BBPISTOLITEM_ID.DefinitionId,
                 Rarity = ItemRarity.Normal,
                 CanBuy = true,
                 CanSell = true,
