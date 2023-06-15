@@ -74,7 +74,7 @@ namespace ExtendedSurvival.Stats
             cmd.data = Encoding.Unicode.GetBytes(extraDataToSend);
             string messageToSend = MyAPIGateway.Utilities.SerializeToXML<Command>(cmd);
             MyAPIGateway.Multiplayer.SendMessageToServer(
-                ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS,
+                ExtendedSurvivalStatsSession.NETWORK_ID_APICALLS,
                 Encoding.Unicode.GetBytes(messageToSend)
             );
         }
@@ -98,7 +98,7 @@ namespace ExtendedSurvival.Stats
             if (!target.Any())
             {
                 MyAPIGateway.Multiplayer.SendMessageToOthers(
-                    ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS,
+                    ExtendedSurvivalStatsSession.NETWORK_ID_APICALLS,
                     Encoding.Unicode.GetBytes(messageToSend)
                 );
             }
@@ -107,7 +107,7 @@ namespace ExtendedSurvival.Stats
                 foreach (var item in target)
                 {
                     MyAPIGateway.Multiplayer.SendMessageTo(
-                        ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS,
+                        ExtendedSurvivalStatsSession.NETWORK_ID_APICALLS,
                         Encoding.Unicode.GetBytes(messageToSend),
                         item
                     );

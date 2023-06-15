@@ -27,7 +27,7 @@ namespace ExtendedSurvival.Stats
         {
             try
             {
-                var armor = PlayerArmorController.GetEquipedArmor(MyAPIGateway.Session.Player.IdentityId, useCache: true);
+                var armor = PlayerArmorController.GetEquipedArmor(0, useCache: true);
                 if (Stats != null)
                 {
                     switch (index)

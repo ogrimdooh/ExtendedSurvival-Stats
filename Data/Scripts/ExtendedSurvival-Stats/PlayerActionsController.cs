@@ -495,6 +495,7 @@ namespace ExtendedSurvival.Stats
                 var baseCost = Math.Min(THERMAL_GAS_CICLE_BASE * overTemperature, THERMAL_GAS_CICLE_BASE);
                 var efficiency = module.Value.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.Efficiency];
                 var gasLevelNeeded = (baseCost - (baseCost * efficiency)) / THERMAL_BOTTLE_CAPACITY;
+                var inv = armor.Value.Inventory as MyInventory;
                 foreach (var bottle in bottles)
                 {
                     var bottleContent = bottle.Content as MyObjectBuilder_GasContainerObject;
@@ -513,6 +514,27 @@ namespace ExtendedSurvival.Stats
                 }
             }
             return needToContinue;
+        }
+
+        private static void InvokeOnGameThread(Action action, bool wait = true)
+        {
+            bool isExecuting = true;
+            MyAPIGateway.Utilities.InvokeOnGameThread(() =>
+            {
+                try
+                {
+                    action.Invoke();
+                }
+                finally
+                {
+                    isExecuting = false;
+                }
+            });
+            while (wait && isExecuting)
+            {
+                if (MyAPIGateway.Parallel != null)
+                    MyAPIGateway.Parallel.Sleep(25);
+            }
         }
 
         public static readonly Vector2 TEMPERATURE_RANGE = new Vector2(10f, 40f);
