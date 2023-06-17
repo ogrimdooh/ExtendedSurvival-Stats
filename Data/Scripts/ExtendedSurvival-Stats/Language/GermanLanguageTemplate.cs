@@ -23,6 +23,14 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.TERMS_NO_NAME,
 				"Nein"
 			);
+			AddEntry(
+				LanguageEntries.TERMS_FULL_NAME,
+				"Voll"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_EMPTY_NAME,
+				"Leer"
+			);
 			#endregion
 			#region CUBE_BLOCKS
 			AddEntry(
@@ -135,9 +143,18 @@ namespace ExtendedSurvival.Stats
 				"Die Energiekosten variieren je nach Bestandsvolumen, " +
 				"von {0}kW/h bis zu {1}kW/h."
 			);
-            #endregion
-            #region EQUIPMENTS
-            AddEntry(
+			AddEntry(
+				LanguageEntries.CUBEBLOCK_THERMALFLUIDGENERATOR,
+				"Thermoflüssigkeitsgenerator"
+			);
+			AddEntry(
+				LanguageEntries.CUBEBLOCK_THERMALFLUIDGENERATOR_DESCRIPTION,
+				"Thermoflüssigkeitsgeneratoren sind Blöcke, die für das Nachfüllen von " +
+				"Thermogasflaschen verantwortlich sind, die Thermoflüssigkeit verbrauchen."
+			);
+			#endregion
+			#region EQUIPMENTS
+			AddEntry(
                 LanguageEntries.BODYTRACKER_NAME,
 				"Bodytracker"
 			);
@@ -2713,6 +2730,10 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.HOTTHERMALFLUID_NAME,
 				"Heiße Thermoflüssigkeit"
 			);
+			AddEntry(
+				LanguageEntries.ENERGYSHIELD_NAME,
+				"Energieschild"
+			);
 			#endregion
 			#region Weather
 			AddEntry(
@@ -2892,6 +2913,19 @@ namespace ExtendedSurvival.Stats
 				"Thermoflüssigkeit."
 			);
 			AddEntry(
+				LanguageEntries.SHIELDGENERATOR_NAME,
+				"Schildgenerator"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDGENERATOR_DESCRIPTION,
+				"Die Verwendung zur Absorption von Stößen, Angriffen und" + Environment.NewLine +
+				"Projektilen kann den Unterschied im Überleben ausmachen." + Environment.NewLine +
+				"Eine Rüstung kann nur einen Schildgenerator haben, es gibt" + Environment.NewLine +
+				"jedoch Schilderweiterungsmodule." + Environment.NewLine +
+				"Es dauert eine Verzögerung von {0} Sekunden, bis der Schild " + Environment.NewLine +
+				"wieder aufgeladen wird, ohne dass er Schaden erleidet."
+			);
+			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
 				"Hinweis: Rüstungsmodule müssen sich im Inventar des Spielers" + Environment.NewLine +
 				"befinden, damit sie funktionieren."
@@ -2899,6 +2933,18 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME,
 				"Effizienz"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_CAPACITY_NAME,
+				"Kapazität"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_RECHARGESPEED_NAME,
+				"Aufladegeschwindigkeit"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTION_NAME,
+				"Energieverbrauch"
 			);
 			#endregion
 			#region Damage Types

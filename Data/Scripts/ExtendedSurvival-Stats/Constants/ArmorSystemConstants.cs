@@ -59,7 +59,10 @@ namespace ExtendedSurvival.Stats
         public enum ModuleAttribute
         {
 
-            Efficiency = 0
+            Efficiency = 0,
+            Capacity = 1,
+            RechargeSpeed = 2,
+            EnergyConsumption = 3
 
         }
 
@@ -103,6 +106,10 @@ namespace ExtendedSurvival.Stats
             {
                 case ModuleAttribute.Efficiency:
                     return value.ToString("P2");
+                case ModuleAttribute.RechargeSpeed:
+                    return value.ToString("#0.00") + " P\\S";
+                case ModuleAttribute.EnergyConsumption:
+                    return value.ToString("#0.00") + " W\\S";
             }
             return value.ToString("#0.00");
         }
@@ -113,6 +120,12 @@ namespace ExtendedSurvival.Stats
             {
                 case ModuleAttribute.Efficiency:
                     return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME);
+                case ModuleAttribute.RechargeSpeed:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_RECHARGESPEED_NAME);
+                case ModuleAttribute.EnergyConsumption:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTION_NAME);
+                case ModuleAttribute.Capacity:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_CAPACITY_NAME);
             }
             return "";
         }

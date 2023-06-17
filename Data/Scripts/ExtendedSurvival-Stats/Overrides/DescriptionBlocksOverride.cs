@@ -36,6 +36,8 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId SB_SMALL_CAGE_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_CargoContainer), "SmallBlockSmallCage");
         public static readonly UniqueEntityId LB_SMALL_CAGE_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_CargoContainer), "LargeBlockSmallCage");
         public static readonly UniqueEntityId LB_LARGE_CAGE_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_CargoContainer), "LargeBlockLargeCage");
+        public static readonly UniqueEntityId SMALL_THERMALGENERATOR_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenGenerator), "ThermalFluidGenerator");
+        public static readonly UniqueEntityId LARGE_THERMALGENERATOR_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenGenerator), "ThermalFluidGeneratorSmall");
 
         public static readonly Dictionary<UniqueEntityId, BlockDescriptionInfo> BLOCKS_DESCRIPTIONS = new Dictionary<UniqueEntityId, BlockDescriptionInfo>()
         {
@@ -157,6 +159,22 @@ namespace ExtendedSurvival.Stats
                 {
                     Name = CageBlock.LARGE_BLOCK_NAME,
                     Description = CageBlock.GetFullDescription()
+                }
+            },
+            {
+                SMALL_THERMALGENERATOR_BLOCK,
+                new BlockDescriptionInfo()
+                {
+                    Name = ThermalFluidGeneratorBlock.BLOCK_NAME,
+                    Description = ThermalFluidGeneratorBlock.GetFullDescription()
+                }
+            },
+            {
+                LARGE_THERMALGENERATOR_BLOCK,
+                new BlockDescriptionInfo()
+                {
+                    Name = ThermalFluidGeneratorBlock.BLOCK_NAME,
+                    Description = ThermalFluidGeneratorBlock.GetFullDescription()
                 }
             }
         };

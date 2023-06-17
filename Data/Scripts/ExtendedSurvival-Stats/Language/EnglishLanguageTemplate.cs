@@ -23,6 +23,14 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.TERMS_NO_NAME,
 				"No"
 			);
+			AddEntry(
+				LanguageEntries.TERMS_FULL_NAME,
+				"Full"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_EMPTY_NAME,
+				"Empty"
+			);
 			#endregion
 			#region CUBE_BLOCKS
 			AddEntry(
@@ -134,9 +142,18 @@ namespace ExtendedSurvival.Stats
                 "The energy cost varies based in inventory volume, " +
                 "from {0}kW/h up to {1}kW/h."
             );
-            #endregion
-            #region EQUIPMENTS
-            AddEntry(
+			AddEntry(
+				LanguageEntries.CUBEBLOCK_THERMALFLUIDGENERATOR,
+				"Thermal Fluid Generator"
+			);
+			AddEntry(
+				LanguageEntries.CUBEBLOCK_THERMALFLUIDGENERATOR_DESCRIPTION,
+				"Thermal Fluid Generators are blocks responsible for refill " +
+				"bottles of thermal gas consuming thermal fluid."
+			);
+			#endregion
+			#region EQUIPMENTS
+			AddEntry(
                 LanguageEntries.BODYTRACKER_NAME,
                 "Body Tracker"
             );
@@ -2679,6 +2696,10 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.HOTTHERMALFLUID_NAME,
 				"Hot Thermal Fluid"
+			); 
+			AddEntry(
+				LanguageEntries.ENERGYSHIELD_NAME,
+				"Energy Shield"
 			);
 			#endregion
 			#region Weather
@@ -2853,12 +2874,36 @@ namespace ExtendedSurvival.Stats
 				"environments and consumes thermal fluid in the process."
 			);
 			AddEntry(
+				LanguageEntries.SHIELDGENERATOR_NAME,
+				"Shield Generator"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDGENERATOR_DESCRIPTION,
+				"Used to absorb impacts, attacks and projectiles can be the" + Environment.NewLine +
+				"difference in survival. An armor can only have one shield" + Environment.NewLine +
+				"generator, but there are shield expansion modules." + Environment.NewLine +
+				"It takes a delay of {0} seconds without taking any damage " + Environment.NewLine +
+				"for the shield to start recharging."
+			);
+			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
 				"Note: Armor modules need to be in the player's inventory to work."
 			);
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME,
 				"Efficiency"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_CAPACITY_NAME,
+				"Capacity"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_RECHARGESPEED_NAME,
+				"Recharge Speed"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTION_NAME,
+				"Energy Consumption"
 			);
 			#endregion
 			#region Damage Types

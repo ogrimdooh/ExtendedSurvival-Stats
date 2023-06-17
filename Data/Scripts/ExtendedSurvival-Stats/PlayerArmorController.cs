@@ -18,6 +18,18 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public struct ShieldInfo
+        {
+
+            public bool HasShield;
+            public long MaxShield;
+            public float RechargeRate;
+            public float PowerCost;
+            public bool HasSpike;
+            public bool HasNova;
+
+        }
+
         public struct PlayerArmorInfo
         {
 
@@ -26,6 +38,7 @@ namespace ExtendedSurvival.Stats
             public ArmorDefinition Definition;
             public ArmorModuleInfo[] Modules;
             public int LastModuleCount;
+            public ShieldInfo Shield;
 
             public string GetDisplayInfo()
             {
@@ -87,7 +100,7 @@ namespace ExtendedSurvival.Stats
                                         foreach (var module in cache[playerId].Modules)
                                         {
                                             var moduleItem = cache[playerId].Inventory.GetItemByID(module.ItemUid);
-                                            if (moduleItem.Content.GetUniqueId() != module.Definition.Id)
+                                            if (moduleItem == null || moduleItem.Content.GetUniqueId() != module.Definition.Id)
                                             {
                                                 canUse = false;
                                                 break;
@@ -130,22 +143,39 @@ namespace ExtendedSurvival.Stats
                                     var moduleDef = EquipmentConstants.ARMOR_MODULES_DEFINITIONS[new UniqueEntityId(module.Type)];
                                     if (moduleDef.UseCategory.IsFlagSet(idemDef.Category))
                                     {
+                                        if (EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(moduleDef.Id) &&
+                                            validModules.Any(x => EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(x.Definition.Id)))
+                                            continue;
                                         validModules.Add(new ArmorModuleInfo()
                                         {
                                             ItemUid = module.ItemId,
                                             Definition = moduleDef
                                         });
                                     }
+                                    if (validModules.Count >= idemDef.ModuleSlots)
+                                        break;
                                 }
                             }
-
+                            ShieldInfo? shield = null;
+                            if (validModules.Any(x => EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(x.Definition.Id)))
+                            {
+                                var shieldModule = validModules.FirstOrDefault(x => EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(x.Definition.Id));
+                                shield = new ShieldInfo()
+                                {
+                                    HasShield = true,
+                                    MaxShield = (long)shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.Capacity],
+                                    PowerCost = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumption],
+                                    RechargeRate = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeed]
+                                };                                
+                            }
                             cache[playerId] = new PlayerArmorInfo()
                             {
                                 Definition = idemDef,
                                 Inventory = playerInventory,
                                 ItemUid = item.ItemId,
                                 Modules = validModules.ToArray(),
-                                LastModuleCount = modules.Count
+                                LastModuleCount = modules.Count,
+                                Shield = shield.HasValue ? shield.Value : new ShieldInfo() { HasShield = false }
                             };
                             return cache[playerId];
                         }

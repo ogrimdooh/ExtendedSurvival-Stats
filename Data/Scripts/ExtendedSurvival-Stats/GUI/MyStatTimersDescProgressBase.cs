@@ -12,7 +12,7 @@
                 case 1:
                     return LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALFLUID_NAME);
                 case 2:
-                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_RADIOACTIVEEXPOSURE_NAME);
+                    return LanguageProvider.GetEntry(LanguageEntries.ENERGYSHIELD_NAME);
                 case 3:
                     return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_TOXICEXPOSURE_NAME);
                 case 4:

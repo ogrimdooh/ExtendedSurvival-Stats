@@ -41,6 +41,8 @@
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientColdThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteColdThermalRegulator_Construction" />
 
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ShieldGenerator_Construction" />
+    
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
     

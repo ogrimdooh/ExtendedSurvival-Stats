@@ -182,7 +182,8 @@ namespace ExtendedSurvival.Stats
             IntoxicationTime,
             RadiationTime,
             HotThermalFluid,
-            ColdThermalFluid
+            ColdThermalFluid,
+            EnergyShield
 
         }
 

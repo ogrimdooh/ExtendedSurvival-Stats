@@ -11,8 +11,8 @@ namespace ExtendedSurvival.Stats
             return new string[] 
             { 
                 "ColdThermalFluid",
-                "HotThermalFluid", 
-                "RadiationTime", 
+                "HotThermalFluid",
+                "EnergyShield", 
                 "IntoxicationTime",
                 "BodyProtein",
                 "BodyCarbohydrate",
@@ -37,6 +37,7 @@ namespace ExtendedSurvival.Stats
                         case 1:
                             return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
                         case 2:
+                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.SHIELDGENERATORS_MODULES);
                         case 3:
                             return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
                         case 4:
@@ -61,7 +62,6 @@ namespace ExtendedSurvival.Stats
             {
                 case 0:
                 case 1:
-                    return CurrentValue.ToString("P2");
                 case 2:
                 case 3:
                 case 4:
@@ -69,7 +69,13 @@ namespace ExtendedSurvival.Stats
                 case 6:
                 case 7:
                 case 8:
-                    return CurrentValue == 1 ? "Full" : (CurrentValue > 0 ? string.Format("{0:0}%", (float)(CurrentValue * 100.0)) : "Empty");
+                    return CurrentValue == 1 ?
+                        LanguageProvider.GetEntry(LanguageEntries.TERMS_FULL_NAME) : 
+                        (
+                        CurrentValue > 0 ? 
+                            CurrentValue.ToString("P2") :
+                            LanguageProvider.GetEntry(LanguageEntries.TERMS_EMPTY_NAME)
+                        );
             }
             return base.GetDescription(index);
         }

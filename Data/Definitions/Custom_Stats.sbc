@@ -90,6 +90,18 @@
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
       <Id>
         <TypeId>MyObjectBuilder_EntityStat</TypeId>
+        <SubtypeId>EnergyShield</SubtypeId>
+      </Id>
+      <Name>EnergyShield</Name>
+      <Description>#ASE#</Description>
+      <MinValue>0</MinValue>
+      <DefaultValue>0</DefaultValue>
+      <MaxValue>1</MaxValue>
+      <EnabledInCreative>false</EnabledInCreative>
+    </Stat>    
+    <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
+      <Id>
+        <TypeId>MyObjectBuilder_EntityStat</TypeId>
         <SubtypeId>RadiationTime</SubtypeId>
       </Id>
       <Name>RadiationTime</Name>
