@@ -62,7 +62,10 @@ namespace ExtendedSurvival.Stats
             Efficiency = 0,
             Capacity = 1,
             RechargeSpeed = 2,
-            EnergyConsumption = 3
+            EnergyConsumption = 3,
+            CapacityBonus = 4,
+            RechargeSpeedBonus = 5,
+            EnergyConsumptionBonus = 6
 
         }
 
@@ -105,6 +108,9 @@ namespace ExtendedSurvival.Stats
             switch (type)
             {
                 case ModuleAttribute.Efficiency:
+                case ModuleAttribute.RechargeSpeedBonus:
+                case ModuleAttribute.EnergyConsumptionBonus:
+                case ModuleAttribute.CapacityBonus:
                     return value.ToString("P2");
                 case ModuleAttribute.RechargeSpeed:
                     return value.ToString("#0.00") + " P\\S";
@@ -126,6 +132,12 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTION_NAME);
                 case ModuleAttribute.Capacity:
                     return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_CAPACITY_NAME);
+                case ModuleAttribute.RechargeSpeedBonus:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_RECHARGESPEEDBONUS_NAME);
+                case ModuleAttribute.EnergyConsumptionBonus:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTIONBONUS_NAME);
+                case ModuleAttribute.CapacityBonus:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_CAPACITYBONUS_NAME);
             }
             return "";
         }

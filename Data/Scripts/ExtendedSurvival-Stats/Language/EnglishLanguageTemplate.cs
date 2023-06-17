@@ -2829,6 +2829,10 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
 				"Armor Equipped: {0} [{1} Empty Modules]."
 			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
+				"Shield Equipped [{0} Max Points]."
+			);			
 			#endregion
 			#region Armor Modules
 			AddEntry(
@@ -2882,8 +2886,17 @@ namespace ExtendedSurvival.Stats
 				"Used to absorb impacts, attacks and projectiles can be the" + Environment.NewLine +
 				"difference in survival. An armor can only have one shield" + Environment.NewLine +
 				"generator, but there are shield expansion modules." + Environment.NewLine +
-				"It takes a delay of {0} seconds without taking any damage " + Environment.NewLine +
+				"It takes a delay of {0} seconds without taking any damage" + Environment.NewLine +
 				"for the shield to start recharging."
+			);
+			AddEntry(
+				LanguageEntries.SHIELDCAPACITOR_NAME,
+				"Shield Capacitor"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDCAPACITOR_DESCRIPTION,
+				"Used to increase a shield's maximum capacity and reload" + Environment.NewLine +
+				"speed, but increases energy cost."
 			);
 			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
@@ -2904,6 +2917,18 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTION_NAME,
 				"Energy Consumption"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_CAPACITYBONUS_NAME,
+				"Capacity Bonus"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_RECHARGESPEEDBONUS_NAME,
+				"Recharge Speed Bonus"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTIONBONUS_NAME,
+				"Energy Consumption Bonus"
 			);
 			#endregion
 			#region Damage Types

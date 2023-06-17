@@ -460,7 +460,7 @@ namespace ExtendedSurvival.Stats
                 {
                     var shieldInfo = GetPlayerShieldInfo(playerId); 
                     var energy = MyVisualScriptLogicProvider.GetPlayersEnergyLevel(playerId);
-                    var drainEnergy = armor.Value.Shield.RechargeRate / 1000;
+                    var drainEnergy = armor.Value.Shield.PowerCost / 10;
                     if (playerStats.EnergyShield.Value < 1 && energy >= drainEnergy && shieldInfo.CanRegenerate)
                     {
                         var currentAmount = armor.Value.Shield.MaxShield * playerStats.EnergyShield.Value;

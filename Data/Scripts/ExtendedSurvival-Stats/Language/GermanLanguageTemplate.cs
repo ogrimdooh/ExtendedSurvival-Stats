@@ -2866,6 +2866,10 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
 				"Rüstung ausgerüstet: {0} [{1} Leere Module]."
 			);
+			AddEntry(
+				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
+				"Schild ausgerüstet [{0} Max. Punkte]."
+			);
 			#endregion
 			#region Armor Modules
 			AddEntry(
@@ -2922,8 +2926,18 @@ namespace ExtendedSurvival.Stats
 				"Projektilen kann den Unterschied im Überleben ausmachen." + Environment.NewLine +
 				"Eine Rüstung kann nur einen Schildgenerator haben, es gibt" + Environment.NewLine +
 				"jedoch Schilderweiterungsmodule." + Environment.NewLine +
-				"Es dauert eine Verzögerung von {0} Sekunden, bis der Schild " + Environment.NewLine +
+				"Es dauert eine Verzögerung von {0} Sekunden, bis der Schild" + Environment.NewLine +
 				"wieder aufgeladen wird, ohne dass er Schaden erleidet."
+			);
+			AddEntry(
+				LanguageEntries.SHIELDCAPACITOR_NAME,
+				"Schirmkondensator"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDCAPACITOR_DESCRIPTION,
+				"Wird verwendet, um die maximale Kapazität und" + Environment.NewLine +
+				"Nachladegeschwindigkeit eines Schildes zu erhöhen, erhöht" + Environment.NewLine +
+				"jedoch die Energiekosten."
 			);
 			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
@@ -2945,6 +2959,18 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTION_NAME,
 				"Energieverbrauch"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_CAPACITYBONUS_NAME,
+				"Kapazität Bonus"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_RECHARGESPEEDBONUS_NAME,
+				"Aufladegeschwindigkeit Bonus"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTIONBONUS_NAME,
+				"Energieverbrauch Bonus"
 			);
 			#endregion
 			#region Damage Types

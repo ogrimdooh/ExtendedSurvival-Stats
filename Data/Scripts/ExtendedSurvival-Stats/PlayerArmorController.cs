@@ -3,6 +3,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using VRage.Game.ModAPI;
 
 namespace ExtendedSurvival.Stats
@@ -42,11 +43,20 @@ namespace ExtendedSurvival.Stats
 
             public string GetDisplayInfo()
             {
-                return string.Format(
-                    LanguageProvider.GetEntry(LanguageEntries.ARMORDESC_UI_EQUIPED), 
+                StringBuilder sb = new StringBuilder();
+                sb.Append(string.Format(
+                    LanguageProvider.GetEntry(LanguageEntries.ARMORDESC_UI_EQUIPED),
                     Definition.Name,
                     Definition.ModuleSlots - Modules.Length
-                );
+                ));
+                if (Shield.HasShield)
+                {
+                    sb.Append(Environment.NewLine + string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED),
+                        Shield.MaxShield
+                    ));
+                }
+                return sb.ToString();
             }
 
             public bool HasAnyModule(params UniqueEntityId[] ids)
@@ -138,6 +148,22 @@ namespace ExtendedSurvival.Stats
                             var validModules = new List<ArmorModuleInfo>();
                             if (modules.Any())
                             {
+                                modules.Sort((x, y) => 
+                                {
+                                    if (x.Type != y.Type)
+                                    {
+                                        var isX = EquipmentConstants.SHIELDEXPAND_MODULES.Contains(new UniqueEntityId(x.Type));
+                                        var isY = EquipmentConstants.SHIELDEXPAND_MODULES.Contains(new UniqueEntityId(y.Type));
+                                        if (isX != isY)
+                                        {
+                                            if (isX)
+                                                return 1;
+                                            else
+                                                return -1;
+                                        }
+                                    }
+                                    return 0;
+                                });
                                 foreach (var module in modules)
                                 {
                                     var moduleDef = EquipmentConstants.ARMOR_MODULES_DEFINITIONS[new UniqueEntityId(module.Type)];
@@ -145,6 +171,9 @@ namespace ExtendedSurvival.Stats
                                     {
                                         if (EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(moduleDef.Id) &&
                                             validModules.Any(x => EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(x.Definition.Id)))
+                                            continue;
+                                        if (EquipmentConstants.SHIELDEXPAND_MODULES.Contains(moduleDef.Id) &&
+                                            !validModules.Any(x => EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(x.Definition.Id)))
                                             continue;
                                         validModules.Add(new ArmorModuleInfo()
                                         {
@@ -160,12 +189,29 @@ namespace ExtendedSurvival.Stats
                             if (validModules.Any(x => EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(x.Definition.Id)))
                             {
                                 var shieldModule = validModules.FirstOrDefault(x => EquipmentConstants.SHIELDGENERATORS_MODULES.Contains(x.Definition.Id));
+
+                                float maxShieldFactor = 1;
+                                float powerCostFactor = 1;
+                                float rechargeRateFactor = 1;
+                                if (validModules.Any(x => EquipmentConstants.SHIELDEXPAND_MODULES.Contains(x.Definition.Id)))
+                                {
+                                    foreach (var module in validModules.Where(x => EquipmentConstants.SHIELDEXPAND_MODULES.Contains(x.Definition.Id)))
+                                    {
+                                        if (EquipmentConstants.SHIELDCAPACITORS_MODULES.Contains(module.Definition.Id))
+                                        {
+                                            maxShieldFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.CapacityBonus];
+                                            powerCostFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus];
+                                            rechargeRateFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus];
+                                        }
+                                    }
+                                }
+                                
                                 shield = new ShieldInfo()
                                 {
                                     HasShield = true,
-                                    MaxShield = (long)shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.Capacity],
-                                    PowerCost = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumption],
-                                    RechargeRate = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeed]
+                                    MaxShield = (long)(shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.Capacity] * maxShieldFactor),
+                                    PowerCost = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumption] * powerCostFactor,
+                                    RechargeRate = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeed] * rechargeRateFactor
                                 };                                
                             }
                             cache[playerId] = new PlayerArmorInfo()

@@ -1059,6 +1059,9 @@ namespace ExtendedSurvival.Stats
         public const string SHIELDGENERATOR_SUBTYPEID = "ShieldGenerator";
         public static readonly UniqueEntityId SHIELDGENERATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHIELDGENERATOR_SUBTYPEID);
 
+        public const string SHIELDCAPACITOR_SUBTYPEID = "ShieldCapacitor";
+        public static readonly UniqueEntityId SHIELDCAPACITOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHIELDCAPACITOR_SUBTYPEID);
+
         public static readonly ArmorModuleDefinition COLDTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
         {
             Id = COLDTHERMALREGULATOR_ID,
@@ -2042,7 +2045,109 @@ namespace ExtendedSurvival.Stats
         };
 
 
-        
+        /* Shield Capacitor */
+
+        public static readonly ArmorModuleDefinition SHIELDCAPACITOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = SHIELDCAPACITOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.1f },
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, 0.1f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ShieldGenerator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ShieldGenerator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        }
+                    }
+                }
+            }
+        };
 
         public static readonly Dictionary<UniqueEntityId, ArmorModuleDefinition> ARMOR_MODULES_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorModuleDefinition>()
         {
@@ -2056,7 +2161,9 @@ namespace ExtendedSurvival.Stats
             { PROFICIENTHOTTHERMALREGULATOR_ID, PROFICIENTHOTTHERMALREGULATOR_DEFINITION },
             { ELITEHOTTHERMALREGULATOR_ID, ELITEHOTTHERMALREGULATOR_DEFINITION },
             /* Shield Generator */
-            { SHIELDGENERATOR_ID, SHIELDGENERATOR_DEFINITION }
+            { SHIELDGENERATOR_ID, SHIELDGENERATOR_DEFINITION },
+            /* Shield Capacitor */
+            { SHIELDCAPACITOR_ID, SHIELDCAPACITOR_DEFINITION }
         };
 
         public static readonly UniqueEntityId[] COLDTHERMALREGULATORS_MODULES = new UniqueEntityId[] 
@@ -2072,6 +2179,16 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId[] SHIELDGENERATORS_MODULES = new UniqueEntityId[]
         {
             SHIELDGENERATOR_ID
+        };
+
+        public static readonly UniqueEntityId[] SHIELDCAPACITORS_MODULES = new UniqueEntityId[]
+        {
+            SHIELDCAPACITOR_ID
+        };
+
+        public static readonly UniqueEntityId[] SHIELDEXPAND_MODULES = new UniqueEntityId[]
+        {
+            SHIELDCAPACITOR_ID
         };
 
         public static void TryOverrideDefinitions()
