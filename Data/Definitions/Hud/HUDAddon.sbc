@@ -6,7 +6,278 @@
       <SubtypeId>ExtendedSurvival</SubtypeId>
     </Id>
     <StatControls>
-      
+
+      <!-- target_health -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>target_health</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0</X>
+          <Y>0.04</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_CENTER_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ProgressBarStatVisualStyle">
+            <StatId>target_health</StatId>
+            <OffsetPx>
+              <X>-225</X>
+              <Y>12</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>450</X>
+              <Y>9</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>target_health</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+              <ProgressColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ProgressColorMask>
+              <BackgroundColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </BackgroundColorMask>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <SimpleStyle>
+              <BackgroundTexture>ProgressBar_Background</BackgroundTexture>
+              <ProgressTexture>ProgressBar_Bar</ProgressTexture>
+              <ProgressTextureOffsetPx>
+                <X>0</X>
+                <Y>0</Y>
+              </ProgressTextureOffsetPx>
+              <ProgressColorMask>
+                <X>0.81</X>
+                <Y>0.89</Y>
+                <Z>0.9</Z>
+                <W>1</W>
+              </ProgressColorMask>
+              <BackgroundColorMask>
+                <X>0.81</X>
+                <Y>0.89</Y>
+                <Z>0.9</Z>
+                <W>0.1</W>
+              </BackgroundColorMask>
+            </SimpleStyle>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>target_health</StatId>
+            <OffsetPx>
+              <X>225</X>
+              <Y>-5</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>16</X>
+              <Y>16</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>target_health</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.7</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_TOP</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>target_health_desc</StatId>
+            <OffsetPx>
+              <X>-75</X>
+              <Y>-10</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>150</X>
+              <Y>16</Y>
+            </SizePx>
+            <Text>{STAT}</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_TOP</TextAlign>
+          </StatStyle>
+        </StatStyles>
+      </StatControl>
+
+      <!-- target_torpor -->
+      <StatControl>
+        <VisibleCondition xsi:type="Condition">
+          <Operator>And</Operator>
+          <Terms>
+            <Term xsi:type="StatCondition">
+              <StatId>target_torpor</StatId>
+              <Value>-1</Value>
+              <Operator>NotEqual</Operator>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>controlled_is_turret</StatId>
+              <Operator>Below</Operator>
+              <Value>1</Value>
+            </Term>
+            <Term xsi:type="StatCondition">
+              <StatId>hud_mode</StatId>
+              <Operator>Above</Operator>
+              <Value>0</Value>
+            </Term>
+          </Terms>
+        </VisibleCondition>
+        <ApplyHudScale>false</ApplyHudScale>
+        <Position>
+          <X>0</X>
+          <Y>0.06</Y>
+        </Position>
+        <OriginAlign>HORISONTAL_CENTER_AND_VERTICAL_TOP</OriginAlign>
+        <StatStyles>
+          <StatStyle xsi:type="MyObjectBuilder_ProgressBarStatVisualStyle">
+            <StatId>target_torpor</StatId>
+            <OffsetPx>
+              <X>-225</X>
+              <Y>12</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>450</X>
+              <Y>9</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>target_torpor</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+              <ProgressColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ProgressColorMask>
+              <BackgroundColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </BackgroundColorMask>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+              <MinAlpha>0.6</MinAlpha>
+              <MaxAlpha>1</MaxAlpha>
+            </Blink>
+            <SimpleStyle>
+              <BackgroundTexture>ProgressBar_Background</BackgroundTexture>
+              <ProgressTexture>ProgressBar_Bar</ProgressTexture>
+              <ProgressTextureOffsetPx>
+                <X>0</X>
+                <Y>0</Y>
+              </ProgressTextureOffsetPx>
+              <ProgressColorMask>
+                <X>0.81</X>
+                <Y>0.89</Y>
+                <Z>0.9</Z>
+                <W>1</W>
+              </ProgressColorMask>
+              <BackgroundColorMask>
+                <X>0.81</X>
+                <Y>0.89</Y>
+                <Z>0.9</Z>
+                <W>0.1</W>
+              </BackgroundColorMask>
+            </SimpleStyle>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>target_torpor</StatId>
+            <OffsetPx>
+              <X>225</X>
+              <Y>-5</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>16</X>
+              <Y>16</Y>
+            </SizePx>
+            <BlinkCondition xsi:type="StatCondition">
+              <StatId>target_torpor</StatId>
+              <Value>0.25</Value>
+              <Operator>Below</Operator>
+            </BlinkCondition>
+            <Blink>
+              <ColorMask>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>0</Z>
+                <W>1</W>
+              </ColorMask>
+            </Blink>
+            <Percentage>true</Percentage>
+            <Precision>0</Precision>
+            <Text>{STAT}</Text>
+            <Font>White</Font>
+            <Scale>0.7</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_TOP</TextAlign>
+          </StatStyle>
+          <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
+            <StatId>target_torpor_desc</StatId>
+            <OffsetPx>
+              <X>-75</X>
+              <Y>-10</Y>
+            </OffsetPx>
+            <SizePx>
+              <X>150</X>
+              <Y>16</Y>
+            </SizePx>
+            <Text>{STAT}</Text>
+            <Font>Blue</Font>
+            <Scale>0.5</Scale>
+            <TextAlign>HORISONTAL_CENTER_AND_VERTICAL_TOP</TextAlign>
+          </StatStyle>
+        </StatStyles>
+      </StatControl>
+
+
       <!-- player_hunger -->
       <StatControl>
         <VisibleCondition xsi:type="Condition">

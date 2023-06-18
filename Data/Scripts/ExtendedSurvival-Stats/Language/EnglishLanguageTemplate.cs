@@ -2700,7 +2700,7 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.ENERGYSHIELD_NAME,
 				"Energy Shield"
-			);
+			);		
 			#endregion
 			#region Weather
 			AddEntry(

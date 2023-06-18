@@ -1,5 +1,6 @@
 ﻿using Sandbox.Definitions;
 using Sandbox.Game;
+using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
 using Sandbox.Game.Entities.Character.Components;
 using Sandbox.Game.EntityComponents;
@@ -1044,58 +1045,105 @@ namespace ExtendedSurvival.Stats
         protected override void DoUpdate()
         {
             base.DoUpdate();
-
             try
             {
-
                 if (IsServer)
                 {
-
                     ForceWolfAndSpiders();
-                    /*
-                    foreach (var item in ExtendedSurvivalStatsEntityManager.Instance.PlayerCharacters.Where(x => x.Value.PlayerId > 0 && x.Value.Entity != null && !x.Value.Entity.IsDead))
-                    {
-                        var player = item.Value;
-                        player.ProcessUnderwater(RunCount);
-                        if (ExtendedSurvivalStatsEntityManager.Instance.Players.ContainsKey(player.PlayerId))
-                        {
-                            try
-                            {
-                                var data = player.GetData();
-                                if (data != null)
-                                {
-                                    string message = MyAPIGateway.Utilities.SerializeToXML<PlayerSendData>(data);
-                                    MyAPIGateway.Multiplayer.SendMessageTo(
-                                        NETWORK_ID_STATSSYSTEM,
-                                        Encoding.Unicode.GetBytes(message),
-                                        ExtendedSurvivalStatsEntityManager.Instance.Players[player.PlayerId].SteamUserId
-                                    );
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
-                                if (ex.Message.Contains("There was an error generating the XML document"))
-                                {
-                                    // To prevent server crash is better to kill this player
-                                    if (player != null && player.Entity != null)
-                                    {
-                                        player.Entity.Kill();
-                                        player.RemoveDiedRoutine();
-                                    }
-                                }
-                            }
-                        }
-                    }*/
-
                 }
-
             }
             catch (Exception ex)
             {
                 ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
+        }
 
+        public IMyCharacter TargetCharacter { get; private set; }
+        private MyEntityStatComponent targetStatsComp;
+        public MyEntityStatComponent TargetStatsComp
+        { 
+            get
+            {
+                if (TargetCharacter != null)
+                {
+                    if (targetStatsComp == null || targetStatsComp.Entity.EntityId != TargetCharacter.EntityId)
+                    {
+                        targetName = null;
+                        targetStatsComp = TargetCharacter.Components.Get<MyEntityStatComponent>();
+                    }
+                    return targetStatsComp;
+                }
+                return null;
+            }
+        }
+        private string targetName;
+        public string TargetName
+        {
+            get
+            {
+                if (TargetCharacter != null && TargetStatsComp != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(targetName))
+                        return targetName;
+                    if (TargetCharacter.IsValidPlayer())
+                    {
+                        targetName = TargetCharacter.GetPlayer().DisplayName;
+                    }
+                    else
+                    {
+                        var baseName = TargetCharacter.Definition.Id.SubtypeName.ToLower().Replace("_bot", "").Split('_');
+                        for (int i = 0; i < baseName.Length; i++)
+                        {
+                            baseName[i] = (baseName[i][0].ToString().ToUpper() + baseName[i].Substring(1)).Trim();
+                        }
+                        targetName = string.Join(" ", baseName);
+                    }
+                    return targetName;
+                }
+                return null;
+            }
+        }
+        private long LastHitTime = 0;
+
+        public const long TIME_SAVE_TARGET = 10000;
+        public const float DEFAULT_CAMERA_SEARCH_TARGET = 100;
+        protected override void DoUpdate60()
+        {
+            base.DoUpdate60();
+            try
+            {
+                if (!IsDedicated)
+                {
+                    var character = MyAPIGateway.Session.Player.Character;
+                    if (character != null)
+                    {
+                        var time = ExtendedSurvivalCoreAPI.GetGameTime();
+                        var pos = character.GetPosition() + (character.WorldMatrix.Up * 0.75f);
+                        var targetPos = pos + (MyAPIGateway.Session.Camera.WorldMatrix.Forward * DEFAULT_CAMERA_SEARCH_TARGET);
+                        List<IHitInfo> hitInfos = new List<IHitInfo>();
+                        MyAPIGateway.Physics.CastRay(pos, targetPos, hitInfos);
+                        if (hitInfos.Any(x => x.HitEntity as IMyCharacter != null && x.HitEntity?.EntityId != character.EntityId))
+                        {
+                            var hitInfo = hitInfos.FirstOrDefault(x => x.HitEntity?.EntityId != character.EntityId);
+                            var targetCharacter = hitInfo.HitEntity as IMyCharacter;
+                            if (targetCharacter != null)
+                            {
+                                TargetCharacter = targetCharacter;
+                                if (ExtendedSurvivalCoreAPI.Registered)
+                                    LastHitTime = time;
+                            }
+                        }
+                        else if (LastHitTime == 0 || (time - LastHitTime) > TIME_SAVE_TARGET)
+                        {
+                            TargetCharacter = null;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+            }
         }
 
     }

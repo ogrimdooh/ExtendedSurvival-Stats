@@ -714,7 +714,7 @@
         public const string RADIATIONTIME_NAME = "RADIATIONTIME_NAME";
         public const string COLDTHERMALFLUID_NAME = "COLDTHERMALFLUID_NAME";
         public const string HOTTHERMALFLUID_NAME = "HOTTHERMALFLUID_NAME";
-        public const string ENERGYSHIELD_NAME = "ENERGYSHIELD_NAME";        
+        public const string ENERGYSHIELD_NAME = "ENERGYSHIELD_NAME";
 
         /* Weather */
 

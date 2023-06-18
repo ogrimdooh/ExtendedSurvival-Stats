@@ -1,4 +1,5 @@
-﻿namespace ExtendedSurvival.Stats
+﻿
+namespace ExtendedSurvival.Stats
 {
     public class MyStatPlayerThirst : MyStatSimpleProgressBase
     {
