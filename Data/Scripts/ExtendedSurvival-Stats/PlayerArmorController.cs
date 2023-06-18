@@ -203,6 +203,11 @@ namespace ExtendedSurvival.Stats
                                             powerCostFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus];
                                             rechargeRateFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus];
                                         }
+                                        else if (EquipmentConstants.SHIELDTRANSISTORS_MODULES.Contains(module.Definition.Id))
+                                        {
+                                            powerCostFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus];
+                                            rechargeRateFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus];
+                                        }
                                     }
                                 }
                                 

@@ -50,7 +50,13 @@
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ProficientColdThermalRegulator_Construction" />
 
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ShieldGenerator_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldGenerator_Construction" />
+    
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ShieldCapacitor_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldCapacitor_Construction" />
+    
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ShieldTransistor_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldTransistor_Construction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
@@ -71,7 +77,19 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteColdThermalRegulator_VanilaConstruction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ShieldGenerator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedShieldGenerator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientShieldGenerator_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteShieldGenerator_VanilaConstruction" />
+    
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ShieldCapacitor_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedShieldCapacitor_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientShieldCapacitor_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteShieldCapacitor_VanilaConstruction" />
+    
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ShieldTransistor_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedShieldTransistor_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientShieldTransistor_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteShieldTransistor_VanilaConstruction" />
 
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />

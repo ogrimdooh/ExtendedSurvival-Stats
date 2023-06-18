@@ -42,7 +42,19 @@
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteColdThermalRegulator_Construction" />
 
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ShieldGenerator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldGenerator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientShieldGenerator_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteShieldGenerator_Construction" />
+    
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ShieldCapacitor_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldCapacitor_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientShieldCapacitor_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteShieldCapacitor_Construction" />
+    
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ShieldTransistor_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldTransistor_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientShieldTransistor_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteShieldTransistor_Construction" />
     
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />

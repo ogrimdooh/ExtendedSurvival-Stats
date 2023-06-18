@@ -1059,8 +1059,40 @@ namespace ExtendedSurvival.Stats
         public const string SHIELDGENERATOR_SUBTYPEID = "ShieldGenerator";
         public static readonly UniqueEntityId SHIELDGENERATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHIELDGENERATOR_SUBTYPEID);
 
+        public const string ENHANCEDSHIELDGENERATOR_SUBTYPEID = "EnhancedShieldGenerator";
+        public static readonly UniqueEntityId ENHANCEDSHIELDGENERATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDSHIELDGENERATOR_SUBTYPEID);
+
+        public const string PROFICIENTSHIELDGENERATOR_SUBTYPEID = "ProficientShieldGenerator";
+        public static readonly UniqueEntityId PROFICIENTSHIELDGENERATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTSHIELDGENERATOR_SUBTYPEID);
+
+        public const string ELITESHIELDGENERATOR_SUBTYPEID = "EliteShieldGenerator";
+        public static readonly UniqueEntityId ELITESHIELDGENERATOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITESHIELDGENERATOR_SUBTYPEID);
+
         public const string SHIELDCAPACITOR_SUBTYPEID = "ShieldCapacitor";
         public static readonly UniqueEntityId SHIELDCAPACITOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHIELDCAPACITOR_SUBTYPEID);
+
+        public const string ENHANCEDSHIELDCAPACITOR_SUBTYPEID = "EnhancedShieldCapacitor";
+        public static readonly UniqueEntityId ENHANCEDSHIELDCAPACITOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDSHIELDCAPACITOR_SUBTYPEID);
+
+        public const string PROFICIENTSHIELDCAPACITOR_SUBTYPEID = "ProficientShieldCapacitor";
+        public static readonly UniqueEntityId PROFICIENTSHIELDCAPACITOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTSHIELDCAPACITOR_SUBTYPEID);
+
+        public const string ELITESHIELDCAPACITOR_SUBTYPEID = "EliteShieldCapacitor";
+        public static readonly UniqueEntityId ELITESHIELDCAPACITOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITESHIELDCAPACITOR_SUBTYPEID);
+
+        public const string SHIELDTRANSISTOR_SUBTYPEID = "ShieldTransistor";
+        public static readonly UniqueEntityId SHIELDTRANSISTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHIELDTRANSISTOR_SUBTYPEID);
+
+        public const string ENHANCEDSHIELDTRANSISTOR_SUBTYPEID = "EnhancedShieldTransistor";
+        public static readonly UniqueEntityId ENHANCEDSHIELDTRANSISTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDSHIELDTRANSISTOR_SUBTYPEID);
+
+        public const string PROFICIENTSHIELDTRANSISTOR_SUBTYPEID = "ProficientShieldTransistor";
+        public static readonly UniqueEntityId PROFICIENTSHIELDTRANSISTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTSHIELDTRANSISTOR_SUBTYPEID);
+
+        public const string ELITESHIELDTRANSISTOR_SUBTYPEID = "EliteShieldTransistor";
+        public static readonly UniqueEntityId ELITESHIELDTRANSISTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITESHIELDTRANSISTOR_SUBTYPEID);
+
+        /* Thermal Regulators */
 
         public static readonly ArmorModuleDefinition COLDTHERMALREGULATOR_DEFINITION = new ArmorModuleDefinition()
         {
@@ -1942,6 +1974,8 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        /* Shield Generators */
+
         public static readonly ArmorModuleDefinition SHIELDGENERATOR_DEFINITION = new ArmorModuleDefinition()
         {
             Id = SHIELDGENERATOR_ID,
@@ -1959,7 +1993,7 @@ namespace ExtendedSurvival.Stats
             OfferAmount = new Vector2I(20, 40),
             OrderAmount = new Vector2I(10, 20),
             AcquisitionAmount = new Vector2I(5, 10),
-            Mass = 5f,
+            Mass = 10f,
             Volume = 2.5f,
             RecipesDefinition = new List<SimpleRecipeDefinition>()
             {
@@ -1972,12 +2006,456 @@ namespace ExtendedSurvival.Stats
                     {
                         new SimpleRecipeDefinition.RecipeItem()
                         {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 4.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
                             Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 3.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 2
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ShieldGenerator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 3.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 3.75f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ENHANCEDSHIELDGENERATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDSHIELDGENERATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDGENERATOR_NAME),
+            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Capacity, 450f },
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeed, 12.5f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumption, 0.3f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 10f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldGenerator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 4.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 3.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 2
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldGenerator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
                             Ammount = 3.0f
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
                             Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 2.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 1.75f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition PROFICIENTSHIELDGENERATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTSHIELDGENERATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDGENERATOR_NAME),
+            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Capacity, 550f },
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeed, 15f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumption, 0.35f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 10f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldGenerator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 4.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMSTEEL_INGOT_ID,
+                            Ammount = 3.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 1.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 2
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldGenerator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 2.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ELITESHIELDGENERATOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITESHIELDGENERATOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDGENERATOR_NAME),
+            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Capacity, 650f },
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeed, 20f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumption, 0.4f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 10f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldGenerator_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 4.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 3.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 2
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldGenerator_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 2.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.URANIUM_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        /* Shield Transistors */
+
+        public static readonly ArmorModuleDefinition SHIELDTRANSISTOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = SHIELDTRANSISTOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.05f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, -0.1f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ShieldTransistor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
                             Ammount = 1.25f
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -2014,7 +2492,108 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    RecipeName = "ShieldGenerator_VanilaConstruction",
+                    RecipeName = "ShieldTransistor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ENHANCEDSHIELDTRANSISTOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDSHIELDTRANSISTOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDTRANSISTOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.1f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, -0.2f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldTransistor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.65f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldTransistor_VanilaConstruction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
                     Ingredients = new SimpleRecipeDefinition.RecipeItem[]
@@ -2044,8 +2623,244 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly ArmorModuleDefinition PROFICIENTSHIELDTRANSISTOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTSHIELDTRANSISTOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDTRANSISTOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.15f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, -0.3f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldTransistor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldTransistor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
 
-        /* Shield Capacitor */
+        public static readonly ArmorModuleDefinition ELITESHIELDTRANSISTOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITESHIELDTRANSISTOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDTRANSISTOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.2f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, -0.4f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldTransistor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.45f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.175f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 0.125f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldTransistor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.URANIUM_INGOT_ID,
+                            Ammount = 0.1f
+                        }
+                    }
+                }
+            }
+        };
+
+        /* Shield Capacitors */
 
         public static readonly ArmorModuleDefinition SHIELDCAPACITOR_DEFINITION = new ArmorModuleDefinition()
         {
@@ -2070,7 +2885,7 @@ namespace ExtendedSurvival.Stats
             {
                 new SimpleRecipeDefinition()
                 {
-                    RecipeName = "ShieldGenerator_Construction",
+                    RecipeName = "ShieldCapacitor_Construction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
                     Ingredients = new SimpleRecipeDefinition.RecipeItem[]
@@ -2082,7 +2897,7 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
                             Ammount = 1.25f
                         },
                         new SimpleRecipeDefinition.RecipeItem()
@@ -2119,7 +2934,109 @@ namespace ExtendedSurvival.Stats
                 },
                 new SimpleRecipeDefinition()
                 {
-                    RecipeName = "ShieldGenerator_VanilaConstruction",
+                    RecipeName = "ShieldCapacitor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ENHANCEDSHIELDCAPACITOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDSHIELDCAPACITOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDCAPACITOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.15f },
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, 0.15f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.35f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldCapacitor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.65f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldCapacitor_VanilaConstruction",
                     ProductAmmount = 1,
                     ProductionTime = 5.12f,
                     Ingredients = new SimpleRecipeDefinition.RecipeItem[]
@@ -2149,6 +3066,247 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly ArmorModuleDefinition PROFICIENTSHIELDCAPACITOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTSHIELDCAPACITOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDCAPACITOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.2f },
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, 0.2f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.45f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldCapacitor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldCapacitor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ELITESHIELDCAPACITOR_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITESHIELDCAPACITOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDCAPACITOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.25f },
+                { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, 0.25f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.55f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldCapacitor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.45f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.175f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 0.125f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldCapacitor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.URANIUM_INGOT_ID,
+                            Ammount = 0.1f
+                        }
+                    }
+                }
+            }
+        };
+
+        /* Definitions Dictionary */
+
         public static readonly Dictionary<UniqueEntityId, ArmorModuleDefinition> ARMOR_MODULES_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorModuleDefinition>()
         {
             /* Thermal Regulator */
@@ -2160,10 +3318,21 @@ namespace ExtendedSurvival.Stats
             { ENHANCEDHOTTHERMALREGULATOR_ID, ENHANCEDHOTTHERMALREGULATOR_DEFINITION },
             { PROFICIENTHOTTHERMALREGULATOR_ID, PROFICIENTHOTTHERMALREGULATOR_DEFINITION },
             { ELITEHOTTHERMALREGULATOR_ID, ELITEHOTTHERMALREGULATOR_DEFINITION },
-            /* Shield Generator */
+            /* Shield Generators */
             { SHIELDGENERATOR_ID, SHIELDGENERATOR_DEFINITION },
-            /* Shield Capacitor */
-            { SHIELDCAPACITOR_ID, SHIELDCAPACITOR_DEFINITION }
+            { ENHANCEDSHIELDGENERATOR_ID, ENHANCEDSHIELDGENERATOR_DEFINITION },
+            { PROFICIENTSHIELDGENERATOR_ID, PROFICIENTSHIELDGENERATOR_DEFINITION },
+            { ELITESHIELDGENERATOR_ID, ELITESHIELDGENERATOR_DEFINITION },
+            /* Shield Transistors */
+            { SHIELDTRANSISTOR_ID, SHIELDTRANSISTOR_DEFINITION },
+            { ENHANCEDSHIELDTRANSISTOR_ID, ENHANCEDSHIELDTRANSISTOR_DEFINITION },
+            { PROFICIENTSHIELDTRANSISTOR_ID, PROFICIENTSHIELDTRANSISTOR_DEFINITION },
+            { ELITESHIELDTRANSISTOR_ID, ELITESHIELDTRANSISTOR_DEFINITION },
+            /* Shield Capacitors */
+            { SHIELDCAPACITOR_ID, SHIELDCAPACITOR_DEFINITION },
+            { ENHANCEDSHIELDCAPACITOR_ID, ENHANCEDSHIELDCAPACITOR_DEFINITION },
+            { PROFICIENTSHIELDCAPACITOR_ID, PROFICIENTSHIELDCAPACITOR_DEFINITION },
+            { ELITESHIELDCAPACITOR_ID, ELITESHIELDCAPACITOR_DEFINITION }
         };
 
         public static readonly UniqueEntityId[] COLDTHERMALREGULATORS_MODULES = new UniqueEntityId[] 
@@ -2178,17 +3347,23 @@ namespace ExtendedSurvival.Stats
 
         public static readonly UniqueEntityId[] SHIELDGENERATORS_MODULES = new UniqueEntityId[]
         {
-            SHIELDGENERATOR_ID
+            SHIELDGENERATOR_ID, ENHANCEDSHIELDGENERATOR_ID, PROFICIENTSHIELDGENERATOR_ID, ELITESHIELDGENERATOR_ID
         };
 
         public static readonly UniqueEntityId[] SHIELDCAPACITORS_MODULES = new UniqueEntityId[]
         {
-            SHIELDCAPACITOR_ID
+            SHIELDCAPACITOR_ID, ENHANCEDSHIELDCAPACITOR_ID, PROFICIENTSHIELDCAPACITOR_ID, ELITESHIELDCAPACITOR_ID
+        };
+
+        public static readonly UniqueEntityId[] SHIELDTRANSISTORS_MODULES = new UniqueEntityId[]
+        {
+            SHIELDTRANSISTOR_ID, ENHANCEDSHIELDTRANSISTOR_ID, PROFICIENTSHIELDTRANSISTOR_ID, ELITESHIELDTRANSISTOR_ID
         };
 
         public static readonly UniqueEntityId[] SHIELDEXPAND_MODULES = new UniqueEntityId[]
         {
-            SHIELDCAPACITOR_ID
+            SHIELDCAPACITOR_ID, ENHANCEDSHIELDCAPACITOR_ID, PROFICIENTSHIELDCAPACITOR_ID, ELITESHIELDCAPACITOR_ID,
+            SHIELDTRANSISTOR_ID, ENHANCEDSHIELDTRANSISTOR_ID, PROFICIENTSHIELDTRANSISTOR_ID, ELITESHIELDTRANSISTOR_ID
         };
 
         public static void TryOverrideDefinitions()
@@ -2368,6 +3543,105 @@ namespace ExtendedSurvival.Stats
             {
                 Id = SHIELDGENERATOR_ID.DefinitionId,
                 Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ENHANCEDSHIELDGENERATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PROFICIENTSHIELDGENERATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ELITESHIELDGENERATOR_ID.DefinitionId,
+                Rarity = ItemRarity.Epic,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHIELDCAPACITOR_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ENHANCEDSHIELDCAPACITOR_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PROFICIENTSHIELDCAPACITOR_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ELITESHIELDCAPACITOR_ID.DefinitionId,
+                Rarity = ItemRarity.Epic,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = SHIELDTRANSISTOR_ID.DefinitionId,
+                Rarity = ItemRarity.Uncommon,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ENHANCEDSHIELDTRANSISTOR_ID.DefinitionId,
+                Rarity = ItemRarity.Normal,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = PROFICIENTSHIELDTRANSISTOR_ID.DefinitionId,
+                Rarity = ItemRarity.Rare,
+                CanBuy = true,
+                CanSell = true,
+                CanOrder = true,
+                TargetFactions = new FactionType[] { FactionType.Market }
+            });
+            ExtendedSurvivalCoreAPI.AddItemToShop(new StationShopItemInfo()
+            {
+                Id = ELITESHIELDTRANSISTOR_ID.DefinitionId,
+                Rarity = ItemRarity.Epic,
                 CanBuy = true,
                 CanSell = true,
                 CanOrder = true,

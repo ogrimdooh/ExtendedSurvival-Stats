@@ -2890,6 +2890,18 @@ namespace ExtendedSurvival.Stats
 				"for the shield to start recharging."
 			);
 			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDGENERATOR_NAME,
+				"Enhanced Shield Generator"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDGENERATOR_NAME,
+				"Proficient Shield Generator"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDGENERATOR_NAME,
+				"Elite Shield Generator"
+			);
+			AddEntry(
 				LanguageEntries.SHIELDCAPACITOR_NAME,
 				"Shield Capacitor"
 			);
@@ -2897,6 +2909,39 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.SHIELDCAPACITOR_DESCRIPTION,
 				"Used to increase a shield's maximum capacity and reload" + Environment.NewLine +
 				"speed, but increases energy cost."
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDCAPACITOR_NAME,
+				"Enhanced Shield Capacitor"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDCAPACITOR_NAME,
+				"Proficient Shield Capacitor"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDCAPACITOR_NAME,
+				"Elite Shield Capacitor"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDTRANSISTOR_NAME,
+				"Shield Transistor"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION,
+				"Used to lower the energy cost of a shield, but increase" + Environment.NewLine +
+				"the total cooldown."
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDTRANSISTOR_NAME,
+				"Enhanced Shield Transistor"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDTRANSISTOR_NAME,
+				"Proficient Shield Transistor"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDTRANSISTOR_NAME,
+				"Elite Shield Transistor"
 			);
 			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,

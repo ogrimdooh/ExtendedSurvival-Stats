@@ -2930,6 +2930,18 @@ namespace ExtendedSurvival.Stats
 				"wieder aufgeladen wird, ohne dass er Schaden erleidet."
 			);
 			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDGENERATOR_NAME,
+				"Verbesserter Schildgenerator"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDGENERATOR_NAME,
+				"Kompetenter Schildgenerator"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDGENERATOR_NAME,
+				"Elite-Schildgenerator"
+			);
+			AddEntry(
 				LanguageEntries.SHIELDCAPACITOR_NAME,
 				"Schirmkondensator"
 			);
@@ -2938,6 +2950,39 @@ namespace ExtendedSurvival.Stats
 				"Wird verwendet, um die maximale Kapazität und" + Environment.NewLine +
 				"Nachladegeschwindigkeit eines Schildes zu erhöhen, erhöht" + Environment.NewLine +
 				"jedoch die Energiekosten."
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDCAPACITOR_NAME,
+				"Verbesserter Abschirmkondensator"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDCAPACITOR_NAME,
+				"Kompetenter Abschirmkondensator"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDCAPACITOR_NAME,
+				"Elite-Schildkondensator"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDTRANSISTOR_NAME,
+				"Schirmtransistor"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION,
+				"Wird verwendet, um die Energiekosten eines Schildes zu" + Environment.NewLine +
+				"senken, aber die Gesamtabklingzeit zu erhöhen."
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDTRANSISTOR_NAME,
+				"Verbesserter Schirmtransistor"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDTRANSISTOR_NAME,
+				"Kompetenter Schirmtransistor"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDTRANSISTOR_NAME,
+				"Elite-Schirmtransistor"
 			);
 			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
