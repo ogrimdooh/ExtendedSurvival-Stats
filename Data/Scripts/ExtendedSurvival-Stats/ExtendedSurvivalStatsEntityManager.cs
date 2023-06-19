@@ -2,6 +2,7 @@
 using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
+using Sandbox.ModAPI.Weapons;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -206,10 +207,11 @@ namespace ExtendedSurvival.Stats
             base.UnloadData();
         }
 
-        public HandheldGunInfo GetHandheldGun(long id)
+        public HandheldGunInfo GetHandheldGun(long id, out IMyAutomaticRifleGun gun)
         {
+            gun = null;
             if (ExtendedSurvivalCoreAPI.Registered)
-                return ExtendedSurvivalCoreAPI.GetHandheldGunInfo(id);
+                return ExtendedSurvivalCoreAPI.GetHandheldGunInfo(id, out gun);
             return null;
         }
 

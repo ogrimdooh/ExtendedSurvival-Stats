@@ -1,6 +1,21 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  
+  <BlueprintClasses>
+
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>Armory_Armors_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Armors</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Helmet.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Helmet.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\HelmetFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+
+  </BlueprintClasses>
   <BlueprintClassEntries>
     
     <Entry Class="Armory_Weapons_Blueprints" BlueprintSubtypeId="LidocainPistol" />
@@ -14,7 +29,9 @@
     <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="LidocainPistolMagazine" />
     <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="PropofolPistolMagazine" />
     <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="BBPistolMagazine_Construction" />
-    
+
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="HunterArmor_Construction" />
+
   </BlueprintClassEntries>
   
 </Definitions>

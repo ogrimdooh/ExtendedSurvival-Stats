@@ -17,7 +17,7 @@ using System.Collections.Concurrent;
 
 namespace ExtendedSurvival.Stats
 {
-
+    /*
     public abstract class BaseCharacterEntity : EntityBase<IMyCharacter>
     {
 
@@ -501,5 +501,5 @@ namespace ExtendedSurvival.Stats
         }
 
     }
-
+    */
 }

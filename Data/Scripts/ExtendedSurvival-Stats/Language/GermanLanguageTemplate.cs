@@ -2801,6 +2801,26 @@ namespace ExtendedSurvival.Stats
 				"Plündererrüstung [Erweitert]"
 			);
 			AddEntry(
+				LanguageEntries.HUNTERARMOR_NAME,
+				"Jägerrüstung"
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMOR_DESCRIPTION,
+				"Eine sehr effektive Rüstung für erfahrene Jäger."
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMORLIGHT_NAME,
+				"Jägerrüstung [Leicht]"
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMORHEAVY_NAME,
+				"Jägerrüstung [Verstärkt]"
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMOREXPANDED_NAME,
+				"Jägerrüstung [Erweitert]"
+			);
+			AddEntry(
 				LanguageEntries.ARMOR_DESCRIPTION,
 				"Hinweis: Rüstungen müssen im Inventar des Spielers vorhanden" + Environment.NewLine +
 				"sein, damit sie funktionieren."
@@ -2861,6 +2881,14 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.ARMOREFFECT_MOVEMENTSPEED_NAME,
 				"Bewegungsgeschwindigkeit"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_CREATUREDAMAGE_NAME,
+				"Schaden an Kreaturen"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME,
+				"Erstarrungsbonus"
 			);
 			AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,

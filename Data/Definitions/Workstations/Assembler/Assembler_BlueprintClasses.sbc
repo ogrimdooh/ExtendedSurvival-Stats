@@ -62,10 +62,13 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientBodyTracker_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteBodyTracker_VanilaConstruction" />
+    
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmor_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorLight_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
+
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmor_VanilaConstruction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_VanilaConstruction" />

@@ -596,6 +596,9 @@ namespace ExtendedSurvival.Stats
         public const string SCAVENGERARMORLIGHT_SUBTYPEID = "ScavengerArmorLight";
         public static readonly UniqueEntityId SCAVENGERARMORLIGHT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SCAVENGERARMORLIGHT_SUBTYPEID);
 
+        public const string HUNTERARMOR_SUBTYPEID = "HunterArmor";
+        public static readonly UniqueEntityId HUNTERARMOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), HUNTERARMOR_SUBTYPEID);
+
         public static readonly ArmorDefinition SCAVENGERARMOR_DEFINITION = new ArmorDefinition()
         {
             Id = SCAVENGERARMOR_ID,
@@ -1024,12 +1027,128 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly ArmorDefinition HUNTERARMOR_DEFINITION = new ArmorDefinition()
+        {
+            Id = HUNTERARMOR_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMOR_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Normal,
+            Category = ArmorSystemConstants.ArmorCategory.Combat,
+            ModuleSlots = 4,
+            StaminaCost = 0.15f,
+            HotResistence = 1.25f,
+            ColdResistence = 1.75f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Bullet, 0.075f },
+                { ArmorSystemConstants.DamageType.Creature, 0.12f },
+                { ArmorSystemConstants.DamageType.Explosion, 0.025f },
+                { ArmorSystemConstants.DamageType.Fall, 0.08f },
+                { ArmorSystemConstants.DamageType.Tool, 0.05f },
+                { ArmorSystemConstants.DamageType.Toxicity, 0.05f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.CreatureDamage, 0.15f },
+                { ArmorSystemConstants.ArmorEffect.TorporBonus, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 45f,
+            Volume = 30f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmor_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 17.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 9.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 8.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 6.50f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 3.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 200
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 80
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 8
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmor_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 27.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 12.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 5f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, ArmorDefinition> ARMORS_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorDefinition>()
         {
             { SCAVENGERARMOR_ID, SCAVENGERARMOR_DEFINITION },
             { SCAVENGERARMORLIGHT_ID, SCAVENGERARMORLIGHT_DEFINITION },
             { SCAVENGERARMORHEAVY_ID, SCAVENGERARMORHEAVY_DEFINITION },
-            { SCAVENGERARMOREXPANDED_ID, SCAVENGERARMOREXPANDED_DEFINITION }
+            { SCAVENGERARMOREXPANDED_ID, SCAVENGERARMOREXPANDED_DEFINITION },
+            { HUNTERARMOR_ID, HUNTERARMOR_DEFINITION }
         };
 
         public const string COLDTHERMALREGULATOR_SUBTYPEID = "ColdThermalRegulator";

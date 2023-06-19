@@ -52,7 +52,9 @@ namespace ExtendedSurvival.Stats
 
             Gathering = 0,
             CargoLoad = 1,
-            MovementSpeed = 2
+            MovementSpeed = 2,
+            CreatureDamage = 3,
+            TorporBonus = 4
 
         }
 
@@ -98,6 +100,8 @@ namespace ExtendedSurvival.Stats
                 case ArmorEffect.Gathering:
                 case ArmorEffect.CargoLoad:
                 case ArmorEffect.MovementSpeed:
+                case ArmorEffect.CreatureDamage:
+                case ArmorEffect.TorporBonus:
                     return value.ToString("P2");
             }
             return value.ToString("#0.00");
@@ -152,6 +156,10 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_CARGOLOAD_NAME);
                 case ArmorEffect.MovementSpeed:
                     return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_MOVEMENTSPEED_NAME);
+                case ArmorEffect.CreatureDamage:
+                    return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_CREATUREDAMAGE_NAME);
+                case ArmorEffect.TorporBonus:
+                    return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME);
             }
             return "";
         }

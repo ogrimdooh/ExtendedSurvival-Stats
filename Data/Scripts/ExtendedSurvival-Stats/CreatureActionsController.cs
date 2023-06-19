@@ -1,5 +1,6 @@
 ﻿using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
+using Sandbox.ModAPI.Weapons;
 using System;
 using System.Linq;
 using VRage.Game;
@@ -21,25 +22,42 @@ namespace ExtendedSurvival.Stats
 
             if (Torpor != null && damage.Type == MyDamageType.Bullet && damage.AttackerId != 0)
             {
-                var gun = ExtendedSurvivalStatsEntityManager.Instance.GetHandheldGun(damage.AttackerId);
+                IMyAutomaticRifleGun gunObj;
+                var gun = ExtendedSurvivalStatsEntityManager.Instance.GetHandheldGun(damage.AttackerId, out gunObj);
                 if (gun != null)
                 {
+
+                    float torporRate = 1;
+                    float damageRate = 1;
+                    var armor = PlayerArmorController.GetEquipedArmor(gunObj.OwnerIdentityId, useCache: true); 
+                    if (armor.HasValue)
+                    {
+                        if (armor.Value.Definition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.CreatureDamage))
+                        {
+                            damageRate += armor.Value.Definition.Effects[ArmorSystemConstants.ArmorEffect.CreatureDamage];
+                        }
+                        if (armor.Value.Definition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.TorporBonus))
+                        {
+                            torporRate += armor.Value.Definition.Effects[ArmorSystemConstants.ArmorEffect.TorporBonus];
+                        }
+                    }
+
                     if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_LIDOCAIN_MAGZINE_ID.DefinitionId)
                     {
-                        Torpor.Increase(damage.Amount * TorporConstants.LIDOCAIN_MULTIPLIER, null);
+                        Torpor.Increase(damage.Amount * TorporConstants.LIDOCAIN_MULTIPLIER * torporRate, null);
                     }
                     else if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_PROPOFOL_MAGZINE_ID.DefinitionId)
                     {
-                        Torpor.Increase(damage.Amount * TorporConstants.PROPOFOL_MULTIPLIER, null);
+                        Torpor.Increase(damage.Amount * TorporConstants.PROPOFOL_MULTIPLIER * torporRate, null);
                     }
                     else
                     {
                         // Animals take more damage from bulets
-                        damage.Amount *= 10;
-                        //character.DoDamage(damage.Amount * 10, MyDamageType.Environment, true);
+                        damage.Amount *= 10 * damageRate;
                     }
                     if (Torpor.Value >= Torpor.MaxValue)
                         PassOut(character);
+
                 }
             }
         }

@@ -18,7 +18,7 @@ using VRageMath;
 
 namespace ExtendedSurvival.Stats
 {
-
+    /*
     public class BotCharacterEntity : BaseCharacterEntity
     {
 
@@ -226,5 +226,5 @@ namespace ExtendedSurvival.Stats
         }
 
     }
-
+    */
 }

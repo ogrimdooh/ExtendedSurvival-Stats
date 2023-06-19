@@ -2767,6 +2767,26 @@ namespace ExtendedSurvival.Stats
 				"Scavenger Armor [Expanded]"
 			);
 			AddEntry(
+				LanguageEntries.HUNTERARMOR_NAME,
+				"Hunter's Armor"
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMOR_DESCRIPTION,
+				"A very effective armor for experienced hunters."
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMORLIGHT_NAME,
+				"Hunter's Armor [Light]"
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMORHEAVY_NAME,
+				"Hunter's Armor [Reinforced]"
+			);
+			AddEntry(
+				LanguageEntries.HUNTERARMOREXPANDED_NAME,
+				"Hunter's Armor [Expanded]"
+			);
+			AddEntry(
 				LanguageEntries.ARMOR_DESCRIPTION,
 				"Note: Armors need to be in the player's inventory to work."
 			);
@@ -2824,6 +2844,14 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.ARMOREFFECT_MOVEMENTSPEED_NAME,
 				"Movement Speed"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_CREATUREDAMAGE_NAME,
+				"Damage To Creatures"
+			);
+			AddEntry(
+				LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME,
+				"Torpor Bonus"
 			);
 			AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
