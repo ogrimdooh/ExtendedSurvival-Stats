@@ -599,6 +599,15 @@ namespace ExtendedSurvival.Stats
         public const string HUNTERARMOR_SUBTYPEID = "HunterArmor";
         public static readonly UniqueEntityId HUNTERARMOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), HUNTERARMOR_SUBTYPEID);
 
+        public const string HUNTERARMOREXPANDED_SUBTYPEID = "HunterArmorExpanded";
+        public static readonly UniqueEntityId HUNTERARMOREXPANDED_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), HUNTERARMOREXPANDED_SUBTYPEID);
+
+        public const string HUNTERARMORHEAVY_SUBTYPEID = "HunterArmorHeavy";
+        public static readonly UniqueEntityId HUNTERARMORHEAVY_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), HUNTERARMORHEAVY_SUBTYPEID);
+
+        public const string HUNTERARMORLIGHT_SUBTYPEID = "HunterArmorLight";
+        public static readonly UniqueEntityId HUNTERARMORLIGHT_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), HUNTERARMORLIGHT_SUBTYPEID);
+
         public static readonly ArmorDefinition SCAVENGERARMOR_DEFINITION = new ArmorDefinition()
         {
             Id = SCAVENGERARMOR_ID,
@@ -1142,13 +1151,361 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly ArmorDefinition HUNTERARMORLIGHT_DEFINITION = new ArmorDefinition()
+        {
+            Id = HUNTERARMORLIGHT_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMORLIGHT_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Light,
+            Category = ArmorSystemConstants.ArmorCategory.Combat,
+            ModuleSlots = 4,
+            StaminaCost = 0.075f,
+            HotResistence = 1.25f,
+            ColdResistence = 1.75f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Bullet, 0.0375f },
+                { ArmorSystemConstants.DamageType.Creature, 0.06f },
+                { ArmorSystemConstants.DamageType.Explosion, 0.0125f },
+                { ArmorSystemConstants.DamageType.Fall, 0.04f },
+                { ArmorSystemConstants.DamageType.Tool, 0.025f },
+                { ArmorSystemConstants.DamageType.Toxicity, 0.025f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.CreatureDamage, 0.15f },
+                { ArmorSystemConstants.ArmorEffect.TorporBonus, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 30f,
+            Volume = 20f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmorLight_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 11.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 7.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 5.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 3.50f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 2.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 200
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 80
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 8
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmorLight_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 10f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorDefinition HUNTERARMORHEAVY_DEFINITION = new ArmorDefinition()
+        {
+            Id = HUNTERARMORHEAVY_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMORHEAVY_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Heavy,
+            Category = ArmorSystemConstants.ArmorCategory.Combat,
+            ModuleSlots = 4,
+            StaminaCost = 0.225f,
+            HotResistence = 1.25f,
+            ColdResistence = 1.75f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Bullet, 0.1125f },
+                { ArmorSystemConstants.DamageType.Creature, 0.18f },
+                { ArmorSystemConstants.DamageType.Explosion, 0.0375f },
+                { ArmorSystemConstants.DamageType.Fall, 0.12f },
+                { ArmorSystemConstants.DamageType.Tool, 0.075f },
+                { ArmorSystemConstants.DamageType.Toxicity, 0.075f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.CreatureDamage, 0.15f },
+                { ArmorSystemConstants.ArmorEffect.TorporBonus, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 60f,
+            Volume = 40f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmorHeavy_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 17.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 9.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 8.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 6.50f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 3.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 200
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 80
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 40
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 8
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmorHeavy_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 32.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 17.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 10f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorDefinition HUNTERARMOREXPANDED_DEFINITION = new ArmorDefinition()
+        {
+            Id = HUNTERARMOREXPANDED_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMOREXPANDED_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.HUNTERARMOR_DESCRIPTION),
+            Type = ArmorSystemConstants.ArmorType.Heavy,
+            Category = ArmorSystemConstants.ArmorCategory.Combat,
+            ModuleSlots = 5,
+            StaminaCost = 0.1875f,
+            HotResistence = 1.25f,
+            ColdResistence = 1.75f,
+            Resistences = new Dictionary<ArmorSystemConstants.DamageType, float>()
+            {
+                { ArmorSystemConstants.DamageType.Bullet, 0.0375f },
+                { ArmorSystemConstants.DamageType.Creature, 0.06f },
+                { ArmorSystemConstants.DamageType.Explosion, 0.0125f },
+                { ArmorSystemConstants.DamageType.Fall, 0.04f },
+                { ArmorSystemConstants.DamageType.Tool, 0.025f },
+                { ArmorSystemConstants.DamageType.Toxicity, 0.025f }
+            },
+            Effects = new Dictionary<ArmorSystemConstants.ArmorEffect, float>()
+            {
+                { ArmorSystemConstants.ArmorEffect.CreatureDamage, 0.15f },
+                { ArmorSystemConstants.ArmorEffect.TorporBonus, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 60f,
+            Volume = 40f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmorExpanded_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 17.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 9.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 8.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 6.50f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 3.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 300
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 120
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 60
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 12
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "HunterArmorExpanded_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 32.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 17.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 10f
+                        }
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, ArmorDefinition> ARMORS_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorDefinition>()
         {
             { SCAVENGERARMOR_ID, SCAVENGERARMOR_DEFINITION },
             { SCAVENGERARMORLIGHT_ID, SCAVENGERARMORLIGHT_DEFINITION },
             { SCAVENGERARMORHEAVY_ID, SCAVENGERARMORHEAVY_DEFINITION },
             { SCAVENGERARMOREXPANDED_ID, SCAVENGERARMOREXPANDED_DEFINITION },
-            { HUNTERARMOR_ID, HUNTERARMOR_DEFINITION }
+            { HUNTERARMOR_ID, HUNTERARMOR_DEFINITION },
+            { HUNTERARMORLIGHT_ID, HUNTERARMORLIGHT_DEFINITION },
+            { HUNTERARMORHEAVY_ID, HUNTERARMORHEAVY_DEFINITION },
+            { HUNTERARMOREXPANDED_ID, HUNTERARMOREXPANDED_DEFINITION }
         };
 
         public const string COLDTHERMALREGULATOR_SUBTYPEID = "ColdThermalRegulator";
@@ -1210,6 +1567,18 @@ namespace ExtendedSurvival.Stats
 
         public const string ELITESHIELDTRANSISTOR_SUBTYPEID = "EliteShieldTransistor";
         public static readonly UniqueEntityId ELITESHIELDTRANSISTOR_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITESHIELDTRANSISTOR_SUBTYPEID);
+
+        public const string SHIELDSPIKE_SUBTYPEID = "ShieldSpike";
+        public static readonly UniqueEntityId SHIELDSPIKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), SHIELDSPIKE_SUBTYPEID);
+
+        public const string ENHANCEDSHIELDSPIKE_SUBTYPEID = "EnhancedShieldSpike";
+        public static readonly UniqueEntityId ENHANCEDSHIELDSPIKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDSHIELDSPIKE_SUBTYPEID);
+
+        public const string PROFICIENTSHIELDSPIKE_SUBTYPEID = "ProficientShieldSpike";
+        public static readonly UniqueEntityId PROFICIENTSHIELDSPIKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTSHIELDSPIKE_SUBTYPEID);
+
+        public const string ELITESHIELDSPIKE_SUBTYPEID = "EliteShieldSpike";
+        public static readonly UniqueEntityId ELITESHIELDSPIKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITESHIELDSPIKE_SUBTYPEID);
 
         /* Thermal Regulators */
 
@@ -3424,6 +3793,447 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        /* Shield Spike */
+
+        public static readonly ArmorModuleDefinition SHIELDSPIKE_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = SHIELDSPIKE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHIELDSPIKE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDSPIKE_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.SpikeDamage, 0.075f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.0375f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ShieldSpike_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ShieldSpike_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ENHANCEDSHIELDSPIKE_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDSHIELDSPIKE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDSPIKE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDSPIKE_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.SpikeDamage, 0.15f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.075f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldSpike_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.65f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedShieldSpike_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition PROFICIENTSHIELDSPIKE_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTSHIELDSPIKE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDSPIKE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDSPIKE_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.SpikeDamage, 0.225f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.1125f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldSpike_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.1f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientShieldSpike_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ELITESHIELDSPIKE_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITESHIELDSPIKE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDSPIKE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDSPIKE_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Combat,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.SpikeDamage, 0.3f },
+                { ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus, 0.15f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldSpike_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 3.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LITHIUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.45f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 0.175f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 0.125f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 20
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteShieldSpike_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.15f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.URANIUM_INGOT_ID,
+                            Ammount = 0.1f
+                        }
+                    }
+                }
+            }
+        };
+
         /* Definitions Dictionary */
 
         public static readonly Dictionary<UniqueEntityId, ArmorModuleDefinition> ARMOR_MODULES_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorModuleDefinition>()
@@ -3451,7 +4261,12 @@ namespace ExtendedSurvival.Stats
             { SHIELDCAPACITOR_ID, SHIELDCAPACITOR_DEFINITION },
             { ENHANCEDSHIELDCAPACITOR_ID, ENHANCEDSHIELDCAPACITOR_DEFINITION },
             { PROFICIENTSHIELDCAPACITOR_ID, PROFICIENTSHIELDCAPACITOR_DEFINITION },
-            { ELITESHIELDCAPACITOR_ID, ELITESHIELDCAPACITOR_DEFINITION }
+            { ELITESHIELDCAPACITOR_ID, ELITESHIELDCAPACITOR_DEFINITION },
+            /* Shield Spike */
+            { SHIELDSPIKE_ID, SHIELDSPIKE_DEFINITION },
+            { ENHANCEDSHIELDSPIKE_ID, ENHANCEDSHIELDSPIKE_DEFINITION },
+            { PROFICIENTSHIELDSPIKE_ID, PROFICIENTSHIELDSPIKE_DEFINITION },
+            { ELITESHIELDSPIKE_ID, ELITESHIELDSPIKE_DEFINITION }
         };
 
         public static readonly UniqueEntityId[] COLDTHERMALREGULATORS_MODULES = new UniqueEntityId[] 
@@ -3479,10 +4294,16 @@ namespace ExtendedSurvival.Stats
             SHIELDTRANSISTOR_ID, ENHANCEDSHIELDTRANSISTOR_ID, PROFICIENTSHIELDTRANSISTOR_ID, ELITESHIELDTRANSISTOR_ID
         };
 
+        public static readonly UniqueEntityId[] SHIELDSPIKES_MODULES = new UniqueEntityId[]
+        {
+            SHIELDSPIKE_ID
+        };
+
         public static readonly UniqueEntityId[] SHIELDEXPAND_MODULES = new UniqueEntityId[]
         {
             SHIELDCAPACITOR_ID, ENHANCEDSHIELDCAPACITOR_ID, PROFICIENTSHIELDCAPACITOR_ID, ELITESHIELDCAPACITOR_ID,
-            SHIELDTRANSISTOR_ID, ENHANCEDSHIELDTRANSISTOR_ID, PROFICIENTSHIELDTRANSISTOR_ID, ELITESHIELDTRANSISTOR_ID
+            SHIELDTRANSISTOR_ID, ENHANCEDSHIELDTRANSISTOR_ID, PROFICIENTSHIELDTRANSISTOR_ID, ELITESHIELDTRANSISTOR_ID,
+            SHIELDSPIKE_ID
         };
 
         public static void TryOverrideDefinitions()

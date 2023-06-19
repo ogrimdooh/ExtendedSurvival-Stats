@@ -2972,6 +2972,26 @@ namespace ExtendedSurvival.Stats
 				"Elite Shield Transistor"
 			);
 			AddEntry(
+				LanguageEntries.SHIELDSPIKE_NAME,
+				"Shield Spike"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDSPIKE_DESCRIPTION,
+				"Used to return part of the melee damage taken to the attacker."
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDSPIKE_NAME,
+				"Enhanced Shield Spike"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDSPIKE_NAME,
+				"Proficient Shield Spike"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDSPIKE_NAME,
+				"Elite Shield Spike"
+			);
+			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
 				"Note: Armor modules need to be in the player's inventory to work."
 			);
@@ -3002,6 +3022,10 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTIONBONUS_NAME,
 				"Energy Consumption Bonus"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_SPIKEDAMAGE_NAME,
+				"Spike Damage"
 			);
 			#endregion
 			#region Damage Types

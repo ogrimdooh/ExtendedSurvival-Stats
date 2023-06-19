@@ -2190,12 +2190,14 @@ namespace ExtendedSurvival.Stats
             var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
             if (armorInfo != null)
             {
+                var damageType = ArmorSystemConstants.GetDamageType(damage.Type);
                 if (armorInfo.Value.Shield.HasShield && ExtendedSurvivalCoreAPI.Registered)
                 {
                     var stats = GetStatsEasyAcess(playerId);
                     if (stats != null && stats.EnergyShield.Value > 0)
                     {
                         var currentShield = stats.EnergyShield.Value * armorInfo.Value.Shield.MaxShield;
+                        var baseDamage = damage.Amount;
                         if (currentShield > damage.Amount)
                         {
                             currentShield -= damage.Amount;
@@ -2204,16 +2206,64 @@ namespace ExtendedSurvival.Stats
                         else
                         {
                             damage.Amount -= currentShield;
+                            baseDamage = currentShield;
                             currentShield = 0;
                         }
                         stats.EnergyShield.Value = currentShield / armorInfo.Value.Shield.MaxShield;
                         var shieldInfo = GetPlayerShieldInfo(playerId);
                         shieldInfo.LastHit = ExtendedSurvivalCoreAPI.GetGameTime();
+                        if (armorInfo.Value.Shield.HasSpike)
+                        {
+                            var spikeDamage = baseDamage * armorInfo.Value.Shield.SpikeTurn;
+                            if (spikeDamage > 0)
+                            {
+                                IMyCharacter attackerCharacter = null;
+                                if (damageType == ArmorSystemConstants.DamageType.Creature)
+                                {
+                                    var attacker = MyAPIGateway.Entities.GetEntityById(damage.AttackerId);
+                                    if (attacker != null)
+                                    {
+                                        attackerCharacter = attacker as IMyCharacter;
+                                    }
+                                }
+                                else if (damageType == ArmorSystemConstants.DamageType.Tool)
+                                {
+                                    var attackerTool = MyAPIGateway.Entities.GetEntityById(damage.AttackerId);
+                                    if (attackerTool != null)
+                                    {
+                                        var handTool = attackerTool as Sandbox.ModAPI.Weapons.IMyEngineerToolBase;
+                                        if (handTool != null)
+                                        {
+                                            var attacker = MyAPIGateway.Entities.GetEntityById(handTool.OwnerId);
+                                            if (attacker != null)
+                                            {
+                                                attackerCharacter = attacker as IMyCharacter;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            var handDrill = attackerTool as Sandbox.ModAPI.Weapons.IMyHandDrill;
+                                            if (handDrill != null)
+                                            {
+                                                var attacker = MyAPIGateway.Entities.GetEntityById((handDrill as IMyGunBaseUser).OwnerId);
+                                                if (attacker != null)
+                                                {
+                                                    attackerCharacter = attacker as IMyCharacter;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (attackerCharacter != null)
+                                {
+                                    attackerCharacter.DoDamage(spikeDamage, MyDamageType.Radioactivity, true, attackerId: character.EntityId);
+                                }
+                            }
+                        }
                     }
                 }
                 if (damage.Amount > 0)
                 {
-                    var damageType = ArmorSystemConstants.GetDamageType(damage.Type);
                     if (damageType != ArmorSystemConstants.DamageType.None)
                     {
                         if (armorInfo.Value.Definition.Resistences.ContainsKey(damageType))

@@ -27,6 +27,7 @@ namespace ExtendedSurvival.Stats
             public float RechargeRate;
             public float PowerCost;
             public bool HasSpike;
+            public float SpikeTurn;
             public bool HasNova;
 
         }
@@ -193,6 +194,7 @@ namespace ExtendedSurvival.Stats
                                 float maxShieldFactor = 1;
                                 float powerCostFactor = 1;
                                 float rechargeRateFactor = 1;
+                                float spikeTurn = 0;
                                 if (validModules.Any(x => EquipmentConstants.SHIELDEXPAND_MODULES.Contains(x.Definition.Id)))
                                 {
                                     foreach (var module in validModules.Where(x => EquipmentConstants.SHIELDEXPAND_MODULES.Contains(x.Definition.Id)))
@@ -208,6 +210,11 @@ namespace ExtendedSurvival.Stats
                                             powerCostFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus];
                                             rechargeRateFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus];
                                         }
+                                        else if (EquipmentConstants.SHIELDSPIKES_MODULES.Contains(module.Definition.Id))
+                                        {
+                                            spikeTurn += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.SpikeDamage];
+                                            powerCostFactor += module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumptionBonus];
+                                        }
                                     }
                                 }
                                 
@@ -216,7 +223,9 @@ namespace ExtendedSurvival.Stats
                                     HasShield = true,
                                     MaxShield = (long)(shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.Capacity] * maxShieldFactor),
                                     PowerCost = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.EnergyConsumption] * powerCostFactor,
-                                    RechargeRate = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeed] * rechargeRateFactor
+                                    RechargeRate = shieldModule.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.RechargeSpeed] * rechargeRateFactor,
+                                    HasSpike = spikeTurn > 0,
+                                    SpikeTurn = spikeTurn
                                 };                                
                             }
                             cache[playerId] = new PlayerArmorInfo()

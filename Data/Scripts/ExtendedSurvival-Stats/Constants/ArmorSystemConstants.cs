@@ -67,7 +67,8 @@ namespace ExtendedSurvival.Stats
             EnergyConsumption = 3,
             CapacityBonus = 4,
             RechargeSpeedBonus = 5,
-            EnergyConsumptionBonus = 6
+            EnergyConsumptionBonus = 6,
+            SpikeDamage = 7
 
         }
 
@@ -115,6 +116,7 @@ namespace ExtendedSurvival.Stats
                 case ModuleAttribute.RechargeSpeedBonus:
                 case ModuleAttribute.EnergyConsumptionBonus:
                 case ModuleAttribute.CapacityBonus:
+                case ModuleAttribute.SpikeDamage:
                     return value.ToString("P2");
                 case ModuleAttribute.RechargeSpeed:
                     return value.ToString("#0.00") + " P\\S";
@@ -142,6 +144,8 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTIONBONUS_NAME);
                 case ModuleAttribute.CapacityBonus:
                     return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_CAPACITYBONUS_NAME);
+                case ModuleAttribute.SpikeDamage:
+                    return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_SPIKEDAMAGE_NAME);
             }
             return "";
         }

@@ -3013,6 +3013,27 @@ namespace ExtendedSurvival.Stats
 				"Elite-Schirmtransistor"
 			);
 			AddEntry(
+				LanguageEntries.SHIELDSPIKE_NAME,
+				"Schildspitze"
+			);
+			AddEntry(
+				LanguageEntries.SHIELDSPIKE_DESCRIPTION,
+				"Wird verwendet, um einen Teil des erlittenen Nahkampfschadens" + Environment.NewLine +
+				"an den Angreifer zurückzuerstatten."
+			);
+			AddEntry(
+				LanguageEntries.ENHANCEDSHIELDSPIKE_NAME,
+				"Verbesserter Schildspitze"
+			);
+			AddEntry(
+				LanguageEntries.PROFICIENTSHIELDSPIKE_NAME,
+				"Kompetenter Schildspitze"
+			);
+			AddEntry(
+				LanguageEntries.ELITESHIELDSPIKE_NAME,
+				"Elite-Schildspitze"
+			);
+			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
 				"Hinweis: Rüstungsmodule müssen sich im Inventar des Spielers" + Environment.NewLine +
 				"befinden, damit sie funktionieren."
@@ -3044,6 +3065,10 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_ENERGYCONSUMPTIONBONUS_NAME,
 				"Energieverbrauch Bonus"
+			);
+			AddEntry(
+				LanguageEntries.MODULEATTRIBUTE_SPIKEDAMAGE_NAME,
+				"Spike-Schaden"
 			);
 			#endregion
 			#region Damage Types

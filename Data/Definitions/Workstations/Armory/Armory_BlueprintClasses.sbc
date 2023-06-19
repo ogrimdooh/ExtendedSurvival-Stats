@@ -31,7 +31,15 @@
     <Entry Class="Armory_Magazine_Blueprints" BlueprintSubtypeId="BBPistolMagazine_Construction" />
 
     <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="HunterArmor_Construction" />
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="HunterArmorLight_Construction" />
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="HunterArmorHeavy_Construction" />
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="HunterArmorExpanded_Construction" />
 
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="ShieldSpike_Construction" />
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldSpike_Construction" />
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="ProficientShieldSpike_Construction" />
+    <Entry Class="Armory_Armors_Blueprints" BlueprintSubtypeId="EliteShieldSpike_Construction" />
+    
   </BlueprintClassEntries>
   
 </Definitions>

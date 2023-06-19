@@ -69,6 +69,9 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmor_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmorLight_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmorHeavy_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmorExpanded_VanilaConstruction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_VanilaConstruction" />
@@ -93,6 +96,11 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedShieldTransistor_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientShieldTransistor_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteShieldTransistor_VanilaConstruction" />
+
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ShieldSpike_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedShieldSpike_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientShieldSpike_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteShieldSpike_VanilaConstruction" />
 
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
