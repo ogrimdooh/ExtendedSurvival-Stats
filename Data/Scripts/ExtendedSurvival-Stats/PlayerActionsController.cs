@@ -33,11 +33,19 @@ namespace ExtendedSurvival.Stats
                 }
                 set
                 {
-                    if (statComponent == null || statComponent.Entity.EntityId != value.Entity.EntityId)
+                    if (statComponent == null || statComponent?.Entity?.EntityId != value?.Entity?.EntityId)
                     {
                         statComponent = value;
                         DoLoadStats();
                     }
+                }
+            }
+
+            public bool IsValid
+            {
+                get
+                {
+                    return statComponent != null;
                 }
             }
 
@@ -158,18 +166,21 @@ namespace ExtendedSurvival.Stats
             private void DoLoadStats()
             {
                 Stats.Clear();
-                foreach (StatsConstants.ValidStats stat in Enum.GetValues(typeof(StatsConstants.ValidStats)).Cast<StatsConstants.ValidStats>())
+                if (IsValid)
                 {
-                    MyEntityStat Stat;
-                    if (statComponent.TryGetStat(MyStringHash.GetOrCompute(stat.ToString()), out Stat))
-                        Stats[stat] = Stat;
-                }
-                FixedStats.Clear();
-                foreach (StatsConstants.FixedStats stat in Enum.GetValues(typeof(StatsConstants.FixedStats)).Cast<StatsConstants.FixedStats>())
-                {
-                    MyEntityStat Stat;
-                    if (statComponent.TryGetStat(MyStringHash.GetOrCompute(stat.ToString()), out Stat))
-                        FixedStats[stat] = Stat;
+                    foreach (StatsConstants.ValidStats stat in Enum.GetValues(typeof(StatsConstants.ValidStats)).Cast<StatsConstants.ValidStats>())
+                    {
+                        MyEntityStat Stat;
+                        if (statComponent.TryGetStat(MyStringHash.GetOrCompute(stat.ToString()), out Stat))
+                            Stats[stat] = Stat;
+                    }
+                    FixedStats.Clear();
+                    foreach (StatsConstants.FixedStats stat in Enum.GetValues(typeof(StatsConstants.FixedStats)).Cast<StatsConstants.FixedStats>())
+                    {
+                        MyEntityStat Stat;
+                        if (statComponent.TryGetStat(MyStringHash.GetOrCompute(stat.ToString()), out Stat))
+                            FixedStats[stat] = Stat;
+                    }
                 }
             }
 
@@ -249,6 +260,8 @@ namespace ExtendedSurvival.Stats
             if (timePassed > 0)
             {
                 var playerStats = GetStatsEasyAcess(playerId);
+                if (playerStats == null)
+                    return;
                 var armor = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
                 IncDecWoundedTimer(playerId, timePassed);
                 CheckWoundedEffect(playerId);
@@ -1414,7 +1427,7 @@ namespace ExtendedSurvival.Stats
 
         public static PlayerStatsEasyAcess GetStatsEasyAcess(long playerId)
         {
-            if (statsEasyAcess.ContainsKey(playerId))
+            if (statsEasyAcess.ContainsKey(playerId) && statsEasyAcess[playerId].IsValid)
                 return statsEasyAcess[playerId];
             return null;
         }

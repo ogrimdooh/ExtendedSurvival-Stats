@@ -574,6 +574,14 @@ namespace ExtendedSurvival.Stats
             { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION }
         };
 
+        public static readonly Dictionary<UniqueEntityId, int> BODYTRACKERS = new Dictionary<UniqueEntityId, int>
+        {
+            { BODYTRACKER_ID, 1 },
+            { ENHANCEDBODYTRACKER_ID, 2 },
+            { PROFICIENTBODYTRACKER_ID, 3 },
+            { ELITEBODYTRACKER_ID, 4 }
+        };
+
         public static readonly UniqueEntityId[] COLDTHERMALBOTTLES = new UniqueEntityId[]
         {
             COLDTHERMALBOTTLE_ID

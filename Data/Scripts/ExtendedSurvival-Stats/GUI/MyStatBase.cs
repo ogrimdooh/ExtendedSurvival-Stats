@@ -8,26 +8,11 @@ namespace ExtendedSurvival.Stats
     public abstract class MyStatBase : IMyHudStat
     {
 
-        protected MyInventory GetInventory()
-        {
-            return MyAPIGateway.Session.Player?.Character?.GetInventory() as MyInventory;
-        }
-
-        protected bool HasItem(UniqueEntityId itemId)
-        {
-            return (GetInventory()?.GetItemAmount(itemId.DefinitionId) ?? 0) > 0;
-        }
-
         protected int GetBodyTrackerLevel()
         {
-            if (HasItem(ItensConstants.ELITEBODYTRACKER_ID))
-                return 4;
-            if (HasItem(ItensConstants.PROFICIENTBODYTRACKER_ID))
-                return 3;
-            if (HasItem(ItensConstants.ENHANCEDBODYTRACKER_ID))
-                return 2;
-            if (HasItem(ItensConstants.BODYTRACKER_ID))
-                return 1;
+            var bodyTracker = PlayerBodyTrackerController.GetEquipedBodyTracker(useCache: true);
+            if (bodyTracker.HasValue)
+                return bodyTracker.Value.Level;
             return 0;
         }
 

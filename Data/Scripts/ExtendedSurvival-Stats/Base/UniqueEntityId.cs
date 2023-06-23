@@ -16,15 +16,11 @@ namespace ExtendedSurvival.Stats
 
         private static MyStringHash GetStringHash(string subtypeId)
         {
-            try
-            {
-                return MyStringHash.Get(subtypeId);
-            }
-            catch (Exception)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(UniqueEntityId), $"SubtypeId : {subtypeId} : Not Found");
-                return MyStringHash.GetOrCompute(subtypeId);
-            }
+            MyStringHash output;
+            if (MyStringHash.TryGet(subtypeId, out output))
+                return output;
+            ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(UniqueEntityId), $"SubtypeId : {subtypeId} : Not Found");
+            return MyStringHash.GetOrCompute(subtypeId);
         }
 
         public static UniqueEntityId Parse(string id)

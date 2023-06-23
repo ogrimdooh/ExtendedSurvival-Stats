@@ -107,6 +107,7 @@ namespace ExtendedSurvival.Stats
                             {
                                 PlayerActionsController.DoReciveDamage(character, ref damage);
                             }
+                            damage.AttackerId = 0; /* Set Attacker to 0 */
                         }
                     }
                 });
@@ -1064,12 +1065,12 @@ namespace ExtendedSurvival.Stats
         { 
             get
             {
-                if (TargetCharacter != null)
+                if (TargetCharacter != null && TargetCharacter?.Components != null)
                 {
-                    if (targetStatsComp == null || targetStatsComp.Entity.EntityId != TargetCharacter.EntityId)
+                    if (targetStatsComp == null || targetStatsComp.Entity?.EntityId != TargetCharacter.EntityId)
                     {
                         targetName = null;
-                        targetStatsComp = TargetCharacter.Components.Get<MyEntityStatComponent>();
+                        targetStatsComp = TargetCharacter?.Components?.Get<MyEntityStatComponent>();
                     }
                     return targetStatsComp;
                 }
@@ -1106,18 +1107,19 @@ namespace ExtendedSurvival.Stats
         private long LastHitTime = 0;
 
         public const long TIME_SAVE_TARGET = 10000;
+        public readonly DateTime TIME_START = DateTime.Now;
         public const float DEFAULT_CAMERA_SEARCH_TARGET = 100;
         protected override void DoUpdate60()
         {
             base.DoUpdate60();
             try
             {
-                if (!IsDedicated)
+                if (!IsDedicated && (IsClient || ExtendedSurvivalCoreAPI.Registered))
                 {
-                    var character = MyAPIGateway.Session.Player.Character;
+                    var character = MyAPIGateway.Session.Player?.Character;
                     if (character != null)
                     {
-                        var time = ExtendedSurvivalCoreAPI.GetGameTime();
+                        var time = IsServer ? ExtendedSurvivalCoreAPI.GetGameTime() : (long)(TIME_START - DateTime.Now).TotalMilliseconds;
                         var pos = character.GetPosition() + (character.WorldMatrix.Up * 0.75f);
                         var targetPos = pos + (MyAPIGateway.Session.Camera.WorldMatrix.Forward * DEFAULT_CAMERA_SEARCH_TARGET);
                         List<IHitInfo> hitInfos = new List<IHitInfo>();
@@ -1129,8 +1131,7 @@ namespace ExtendedSurvival.Stats
                             if (targetCharacter != null)
                             {
                                 TargetCharacter = targetCharacter;
-                                if (ExtendedSurvivalCoreAPI.Registered)
-                                    LastHitTime = time;
+                                LastHitTime = time;
                             }
                         }
                         else if (LastHitTime == 0 || (time - LastHitTime) > TIME_SAVE_TARGET)
