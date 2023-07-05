@@ -1017,16 +1017,23 @@ namespace ExtendedSurvival.Stats
 
         protected override void UnloadData()
         {
-            TextAPI.Close();
-            ESCoreAPI.Unregister();
-            ASECoreAPI.Unregister();
+            try
+            {
+                TextAPI.Close();
+                ESCoreAPI.Unregister();
+                ASECoreAPI.Unregister();
 
-            if (!IsDedicated)
-                MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(NETWORK_ID_STATSSYSTEM, ClientUpdateMsgHandler);
+                if (!IsDedicated)
+                    MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(NETWORK_ID_STATSSYSTEM, ClientUpdateMsgHandler);
 
-            if (IsServer)
-                MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(NETWORK_ID_COMMANDS, CommandsMsgHandler);
+                if (IsServer)
+                    MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(NETWORK_ID_COMMANDS, CommandsMsgHandler);
 
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
+            }
             base.UnloadData();
         }
 
