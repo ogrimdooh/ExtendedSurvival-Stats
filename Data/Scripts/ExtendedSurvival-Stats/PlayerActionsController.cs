@@ -554,8 +554,8 @@ namespace ExtendedSurvival.Stats
             hotBottles = listaHotBottles.ToArray();
         }
 
-        public const float THERMAL_BOTTLE_CAPACITY = 250;
-        public const float THERMAL_GAS_CICLE_BASE = 2.5f;
+        public const float THERMAL_BOTTLE_CAPACITY = 500;
+        public const float THERMAL_GAS_CICLE_BASE = 1.25f;
         public static bool DoGetGasToCool(float overTemperature, PlayerArmorController.PlayerArmorInfo? armor, IMyInventoryItem[] bottles, params UniqueEntityId[] ids)
         {
             var needToContinue = true;

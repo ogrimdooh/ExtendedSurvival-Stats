@@ -54,7 +54,6 @@ namespace ExtendedSurvival.Stats
                 if (IsServer)
                 {
                     RegisterWatcher();
-                    SuperficialMiningController.InitShipDrillCollec();
                 }
                 ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), $"RegisterSecureMessageHandler EntityCallsMsgHandler");
                 MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS, EntityCallsMsgHandler);
@@ -272,7 +271,6 @@ namespace ExtendedSurvival.Stats
                 var floatingObj = entity as MyFloatingObject;
                 if (floatingObj != null)
                 {
-                    SuperficialMiningController.CheckEntityIsAFloatingObject(floatingObj);
                     BonusGatheringController.DoExecuteBonusGathering(floatingObj);
                 }
             }

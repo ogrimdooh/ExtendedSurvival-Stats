@@ -22,7 +22,7 @@
         <TypeId>GasProperties</TypeId>
         <SubtypeId>ColdThermalFluid</SubtypeId>
       </StoredGasId>
-      <Capacity>250</Capacity>
+      <Capacity>500</Capacity>
       <MinimumOfferAmount>5</MinimumOfferAmount>
       <MaximumOfferAmount>10</MaximumOfferAmount>
       <MinimumOrderAmount>20</MinimumOrderAmount>
