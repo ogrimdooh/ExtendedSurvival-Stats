@@ -109,6 +109,8 @@
     <Entry Class="BasicFoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="RoastedChicken_Construction" />
 
     <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="CerealBar_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Tofu_Construction" />
+    <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Mre_Construction" />
     <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="VegetableSoupBowl_Construction" />
     <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Salad_Construction" />
     <Entry Class="BasicFoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="MushroomPate_Construction" />

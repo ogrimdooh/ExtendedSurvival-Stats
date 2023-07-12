@@ -283,6 +283,10 @@
         public const string PROTEINBAR_DESCRIPTION = "PROTEINBAR_DESCRIPTION";
         public const string VITAMINPILLS_NAME = "VITAMINPILLS_NAME";
         public const string VITAMINPILLS_DESCRIPTION = "VITAMINPILLS_DESCRIPTION";
+        public const string TOFU_NAME = "TOFU_NAME";
+        public const string TOFU_DESCRIPTION = "TOFU_DESCRIPTION";
+        public const string MRE_NAME = "MRE_NAME";
+        public const string MRE_DESCRIPTION = "MRE_DESCRIPTION";
 
         public const string TOMATOTOCONCENTRATED_CONSTRUCTION_NAME = "TOMATOTOCONCENTRATED_CONSTRUCTION_NAME";
         public const string APPLETOCONCENTRATED_CONSTRUCTION_NAME = "APPLETOCONCENTRATED_CONSTRUCTION_NAME";

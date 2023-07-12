@@ -129,6 +129,8 @@
     <Entry Class="FoodProcessor_MeatRecipes_Blueprints" BlueprintSubtypeId="AlienMeatPasta_Construction" />    
 
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="CerealBar_Construction" />
+    <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Tofu_Construction" />
+    <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Mre_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="VegetableSoupBowl_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="Salad_Construction" />
     <Entry Class="FoodProcessor_VegetableRecipes_Blueprints" BlueprintSubtypeId="MushroomPate_Construction" />

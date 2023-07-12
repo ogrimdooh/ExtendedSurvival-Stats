@@ -288,6 +288,12 @@ namespace ExtendedSurvival.Stats
         public const string APPLE_SUBTYPEID = "Apple";
         public static readonly UniqueEntityId APPLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), APPLE_SUBTYPEID);
 
+        public const string TOFU_SUBTYPEID = "Tofu";
+        public static readonly UniqueEntityId TOFU_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), TOFU_SUBTYPEID);
+
+        public const string MRE_SUBTYPEID = "Mre";
+        public static readonly UniqueEntityId MRE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MRE_SUBTYPEID);
+
         public static readonly long BASE_RAW_MEAT_SPOIL_TIME = 5 * 60 * 1000;
         public static readonly long BASE_RAW_VEGETABLE_SPOIL_TIME = (long)(7.5f * 60 * 1000);
         public static readonly long BASE_RAW_FRUIT_SPOIL_TIME = 10 * 60 * 1000;
@@ -681,6 +687,38 @@ namespace ExtendedSurvival.Stats
             Solid = 0.0f,
             Liquid = 1.0f,
             TimeToConsume = 600f,
+            DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
+            IgnoreDefinition = true
+        };
+
+        public static readonly FoodDefinition ORGANIC_DEFINITION = new FoodDefinition()
+        {
+            Id = ItensConstants.SPOILED_MATERIAL_ID,
+            Solid = 0.375f,
+            Liquid = 0.125f,
+            Protein = 6.25f,
+            Carbohydrate = 27.5f,
+            Lipids = 3.75f,
+            Vitamins = 0,
+            Minerals = 0f,
+            Calories = 250.0f,
+            TimeToConsume = 1200f,
+            DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
+            IgnoreDefinition = true
+        };
+
+        public static readonly FoodDefinition CARBON_DEFINITION = new FoodDefinition()
+        {
+            Id = ItensConstants.CARBON_INGOT_ID,
+            Solid = 0.5f,
+            Liquid = 0f,
+            Protein = 12.5f,
+            Carbohydrate = 13.75f,
+            Lipids = 7.5f,
+            Vitamins = 0,
+            Minerals = 0f,
+            Calories = 375.0f,
+            TimeToConsume = 800f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
             IgnoreDefinition = true
         };
@@ -1203,6 +1241,8 @@ namespace ExtendedSurvival.Stats
             { WHEATSACK_ID, WHEATSACK_DEFINITION },
             { COFFEESACK_ID, COFFEESACK_DEFINITION },
             { ItensConstants.ICE_ID, ICE_DEFINITION },
+            { ItensConstants.SPOILED_MATERIAL_ID, ORGANIC_DEFINITION },
+            { ItensConstants.CARBON_INGOT_ID, CARBON_DEFINITION },
             { MILK_ID, MILK_DEFINITION },
             { MEAT_ID, MEAT_DEFINITION },
             { ALIEN_MEAT_ID, ALIENMEAT_DEFINITION },
@@ -3465,12 +3505,73 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(100, 300)
         };
 
+        public static readonly FoodRecipeDefinition TOFU_DEFINITION = new FoodRecipeDefinition()
+        {
+            Product = new FullRecipeDefinition.RecipeItem()
+            {
+                Id = TOFU_ID,
+                Ammount = 1
+            },
+            RecipeName = "Tofu_Construction",
+            Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
+            {
+                new FullRecipeDefinition.RecipeItem()
+                {
+                    Id = ItensConstants.SPOILED_MATERIAL_ID,
+                    Ammount = 0.4f
+                }
+            },
+            ProductionTime = 2.56f,
+            Name = LanguageProvider.GetEntry(LanguageEntries.TOFU_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOFU_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 50,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
+        };
+
+        public static readonly FoodRecipeDefinition MRE_DEFINITION = new FoodRecipeDefinition()
+        {
+            Product = new FullRecipeDefinition.RecipeItem()
+            {
+                Id = MRE_ID,
+                Ammount = 1
+            },
+            RecipeName = "Mre_Construction",
+            Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
+            Ingredients = new FullRecipeDefinition.RecipeItem[]
+            {
+                new FullRecipeDefinition.RecipeItem()
+                {
+                    Id = ItensConstants.SPOILED_MATERIAL_ID,
+                    Ammount = 0.25f
+                },
+                new FullRecipeDefinition.RecipeItem()
+                {
+                    Id = ItensConstants.CARBON_INGOT_ID,
+                    Ammount = 0.15f
+                }
+            },
+            ProductionTime = 2.56f,
+            Name = LanguageProvider.GetEntry(LanguageEntries.MRE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.MRE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 50,
+            OfferAmount = new Vector2I(150, 450),
+            OrderAmount = new Vector2I(50, 150),
+            AcquisitionAmount = new Vector2I(100, 300)
+        };
+
         public static readonly Dictionary<UniqueEntityId, FoodRecipeDefinition> FOOD_RECIPES = new Dictionary<UniqueEntityId, FoodRecipeDefinition>()
         {
             { ItensConstants.WATER_FLASK_SMALL_ID, WATER_FLASK_SMALL_DEFINITION },
             { ItensConstants.WATER_FLASK_MEDIUM_ID, WATER_FLASK_MEDIUM_DEFINITION },
             { ItensConstants.WATER_FLASK_BIG_ID, WATER_FLASK_BIG_DEFINITION },
             { APPLE_JUICE_ID, APPLE_JUICE_DEFINITION },
+            { TOFU_ID, TOFU_DEFINITION },
+            { MRE_ID, MRE_DEFINITION },
             { SODA_ID, SODA_DEFINITION },
             { COFFEE_CAN_ID, COFFEE_CAN_DEFINITION },
             { DOUGH_ID, DOUGH_DEFINITION },

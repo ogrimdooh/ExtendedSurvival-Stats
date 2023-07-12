@@ -1129,6 +1129,22 @@ namespace ExtendedSurvival.Stats
 				"Vitamin replacement pills."
 			);
 			AddEntry(
+				LanguageEntries.TOFU_NAME,
+				"Tofu"
+			);
+			AddEntry(
+				LanguageEntries.TOFU_DESCRIPTION,
+				"A heap of organic matter purified and processed into a kind of cheese."
+			);
+			AddEntry(
+				LanguageEntries.MRE_NAME,
+				"MRE - Emergency Ration"
+			);
+			AddEntry(
+				LanguageEntries.MRE_DESCRIPTION,
+				"A food source that can save your life, but strips you of your dignity."
+			);
+			AddEntry(
 				LanguageEntries.TOMATOTOCONCENTRATED_CONSTRUCTION_NAME,
 				"Concentrated Vitamin From Tomato"
 			);

@@ -72,6 +72,7 @@
     <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="RoastedMeat_Construction" />
     <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="RoastedAlienMeat_Construction" />
     <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="CerealBar_Construction" />
+    <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="Tofu_Construction" />
 
     <Entry Class="SurvivalKit_Medical_Blueprints" BlueprintSubtypeId="Bandages_Construction" />
 
