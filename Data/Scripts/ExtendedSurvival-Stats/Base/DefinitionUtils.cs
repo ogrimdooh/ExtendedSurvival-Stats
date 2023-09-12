@@ -214,6 +214,7 @@ namespace ExtendedSurvival.Stats
                     statDef.MinValue = values.X;
                     statDef.MaxValue = values.Y;
                     statDef.DefaultValue = values.Z;
+                    statDef.Postprocess();
                 }
                 else
                     ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(DefinitionUtils), $"ChangeStatValue: {statname} Not Found");
