@@ -29,6 +29,9 @@ namespace ExtendedSurvival.Stats
         }
 
         [XmlElement]
+        public bool Debug { get; set; } = false;
+
+        [XmlElement]
         public bool HardModeEnabled { get; set; } = false;
 
         [XmlElement]

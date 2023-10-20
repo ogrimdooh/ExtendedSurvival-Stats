@@ -259,11 +259,6 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.CARBON_INGOT_ID,
-                            Ammount = 5f
-                        },
-                        new SimpleRecipeDefinition.RecipeItem()
-                        {
                             Id = IngotsConstants.BONEMEAL_ID,
                             Ammount = 7.5f
                         }
@@ -284,11 +279,6 @@ namespace ExtendedSurvival.Stats
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {
-                            Id = ItensConstants.CARBON_INGOT_ID,
-                            Ammount = 5f
-                        },
-                        new SimpleRecipeDefinition.RecipeItem()
-                        {
                             Id = OreConstants.POOP_ID,
                             Ammount = 7.5f
                         }
@@ -306,11 +296,6 @@ namespace ExtendedSurvival.Stats
                         {
                             Id = ItensConstants.SOILPOWDER_ID,
                             Ammount = 15f
-                        },
-                        new SimpleRecipeDefinition.RecipeItem()
-                        {
-                            Id = ItensConstants.CARBON_INGOT_ID,
-                            Ammount = 5f
                         },
                         new SimpleRecipeDefinition.RecipeItem()
                         {

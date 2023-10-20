@@ -15,7 +15,7 @@ namespace ExtendedSurvival.Stats
     public static class WeatherConstants
     {
 
-        public static WeatherInfo CurrentWeatherInfo = new WeatherInfo();
+        public static WeatherInfo CurrentWeatherInfo { get; set; } = new WeatherInfo();
 
         public const float SPACE_TEMPERATURE = -270;
         public const float PRESURIZED_TEMPERATURE = 25;
@@ -198,6 +198,8 @@ namespace ExtendedSurvival.Stats
 
         private static void DoSyncWeatherInfo(IMyCharacter entity)
         {
+            if (ExtendedSurvivalSettings.Instance.Debug)
+                ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(WeatherConstants), $"DoSyncWeatherInfo called for Id: {entity?.EntityId}");
             if (entity.IsValidPlayer())
             {
                 var playerId = entity.GetPlayerId();
@@ -211,12 +213,28 @@ namespace ExtendedSurvival.Stats
                             weatherInfoSyncHash[entity.EntityId] = weatherInfo[entity.EntityId].GetHashCode();
                             ExtendedSurvivalStatsEntityManager.Instance.SendCallServer(new ulong[] { player.SteamUserId }, "WeatherConstants", weatherInfo[entity.EntityId].GetData());
                         }
+                        else
+                        {
+                            if (ExtendedSurvivalSettings.Instance.Debug)
+                                ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(WeatherConstants), $"{entity?.EntityId} for PlayerId: {playerId} Has no info to sync!");
+                        }
                     }
                     else
                     {
                         CurrentWeatherInfo = weatherInfo[entity.EntityId];
                     }
                 }
+                else
+                {
+                    ExtendedSurvivalStatsEntityManager.Instance.UpdatePlayerList();
+                    if (ExtendedSurvivalSettings.Instance.Debug)
+                        ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(WeatherConstants), $"{entity?.EntityId} for PlayerId: {playerId} Is not found!");
+                }
+            }
+            else
+            {
+                if (ExtendedSurvivalSettings.Instance.Debug)
+                    ExtendedSurvivalStatsLogging.Instance.LogWarning(typeof(WeatherConstants), $"{entity?.EntityId} Is not a valid player!");
             }
         }
 
