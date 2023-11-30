@@ -46,7 +46,7 @@ namespace ExtendedSurvival.Stats
             NeedsUpdate |= MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
 
-        private PlayerArmorController.PlayerArmorInfo? armorInfo;
+        private PlayerArmorController.PlayerEquipInfo armorInfo;
         protected override void OnUpdateAfterSimulation100()
         {
             base.OnUpdateAfterSimulation100();
@@ -63,7 +63,7 @@ namespace ExtendedSurvival.Stats
                     {
                         var playerId = cockpit.ControllerInfo.ControllingIdentityId;
                         var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
-                        if (armorInfo.HasValue)
+                        if (armorInfo != null && armorInfo.HasArmor)
                         {
                             this.armorInfo = armorInfo;
                             break;
@@ -81,9 +81,9 @@ namespace ExtendedSurvival.Stats
                 {
                     if (item.Content.TypeId == typeof(MyObjectBuilder_Ore))
                     {
-                        if (armorInfo.HasValue && armorInfo.Value.Definition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.Gathering))
+                        if (armorInfo != null && armorInfo.HasArmor && armorInfo.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.Gathering))
                         {
-                            var getBonus = armorInfo.Value.Definition.Effects[ArmorSystemConstants.ArmorEffect.Gathering];
+                            var getBonus = armorInfo.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.Gathering];
                             var finalamount = (MyFixedPoint)(amount * getBonus);
                             item.Amount += finalamount;
                         }

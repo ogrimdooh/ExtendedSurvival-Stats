@@ -52,7 +52,7 @@ namespace ExtendedSurvival.Stats
 
         [ProtoMember(3)]
         public List<ValidCategoryData> ValidCategories { get; set; } = new List<ValidCategoryData>();
-        
+
     }
 
     [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
@@ -106,6 +106,48 @@ namespace ExtendedSurvival.Stats
 
     }
 
+    [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
+    public class StoredPlayerSocketData
+    {
+
+        [ProtoMember(1)]
+        public int Order { get; set; }
+
+        [ProtoMember(2)]
+        public SerializableDefinitionId ItemId { get; set; }
+
+    }
+
+    [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
+    public class StoredPlayerSlotData
+    {
+
+        [ProtoMember(1)]
+        public string Id { get; set; }
+
+        [ProtoMember(2)]
+        public SerializableDefinitionId ItemId { get; set; }
+
+        [ProtoMember(3)]
+        public List<StoredPlayerSocketData> Sockets { get; set; } = new List<StoredPlayerSocketData>();
+
+    }
+
+    [ProtoContract(SkipConstructor = true, UseProtoMembersOnly = true)]
+    public class StoredPlayerData
+    {
+
+        [ProtoMember(1)]
+        public long PlayerId { get; set; }
+
+        [ProtoMember(2)]
+        public ulong SteamPlayerId { get; set; }
+
+        [ProtoMember(3)]
+        public List<StoredPlayerSlotData> Slots { get; set; } = new List<StoredPlayerSlotData>();
+
+    }
+
     public class AdvancedPlayerEquipCoreAPI
     {
 
@@ -124,7 +166,9 @@ namespace ExtendedSurvival.Stats
         private static Func<string, bool> _ConfigurePlayerSlot;
         private static Func<string, bool> _ConfigureEquipableItem;
         private static Func<string, bool> _ConfigureSocketItem;
-        
+        private static Func<long, string> _GetStoredData;
+        private static Action<string, Action<long>> _RegisterOnStoredDataChange;
+
         public static void BeforeStart()
         {
             MyAPIGateway.Utilities.SendModMessage(ModHandlerID, ModAPIMethods);
@@ -136,6 +180,25 @@ namespace ExtendedSurvival.Stats
         public static bool VerifyVersion(int Version, string ModName)
         {
             return _VerifyVersion?.Invoke(Version, ModName) ?? false;
+        }
+
+        /// <summary>
+        /// Register a callback to when store data has change
+        /// </summary>
+        public static void RegisterOnStoredDataChange(string key, Action<long> callback)
+        {
+            _RegisterOnStoredDataChange?.Invoke(key, callback);
+        }
+
+        /// <summary>
+        /// Return a stored data from the current player
+        /// </summary>
+        public static StoredPlayerData GetStoredData(long playerId)
+        {
+            var msg = _GetStoredData?.Invoke(playerId);
+            if (!string.IsNullOrWhiteSpace(msg))
+                return MyAPIGateway.Utilities.SerializeFromXML<StoredPlayerData>(msg);
+            return null;
         }
 
         /// <summary>
@@ -247,7 +310,8 @@ namespace ExtendedSurvival.Stats
                         _ConfigurePlayerSlot = (Func<string, bool>)ModAPIMethods["ConfigurePlayerSlot"];
                         _ConfigureEquipableItem = (Func<string, bool>)ModAPIMethods["ConfigureEquipableItem"];
                         _ConfigureSocketItem = (Func<string, bool>)ModAPIMethods["ConfigureSocketItem"];
-
+                        _GetStoredData = (Func<long, string>)ModAPIMethods["GetStoredData"];
+                        _RegisterOnStoredDataChange = (Action<string, Action<long>>)ModAPIMethods["RegisterOnStoredDataChange"];
 
                         if (m_onRegisteredAction != null)
                             m_onRegisteredAction();
@@ -277,6 +341,8 @@ namespace ExtendedSurvival.Stats
         private static Dictionary<string, Delegate> ModAPIMethods;
 
         private static Func<int, string, bool> _VerifyVersion;
+        private static Func<string> _GetStoredData;
+        private static Action<string, Action> _RegisterOnStoredDataChange;
 
         public static void BeforeStart()
         {
@@ -291,7 +357,24 @@ namespace ExtendedSurvival.Stats
             return _VerifyVersion?.Invoke(Version, ModName) ?? false;
         }
 
+        /// <summary>
+        /// Register a callback to when store data has change
+        /// </summary>
+        public static void RegisterOnStoredDataChange(string key, Action callback)
+        {
+            _RegisterOnStoredDataChange?.Invoke(key, callback);
+        }
 
+        /// <summary>
+        /// Return a stored data from the current player
+        /// </summary>
+        public static StoredPlayerData GetStoredData()
+        {
+            var msg = _GetStoredData?.Invoke();
+            if (!string.IsNullOrWhiteSpace(msg))
+                return MyAPIGateway.Utilities.SerializeFromXML<StoredPlayerData>(msg);
+            return null;
+        }
 
         /// <summary>
         /// Unregisters the mod
@@ -359,7 +442,8 @@ namespace ExtendedSurvival.Stats
                 {
                     try
                     {
-
+                        _GetStoredData = (Func<string>)ModAPIMethods["GetStoredData"];
+                        _RegisterOnStoredDataChange = (Action<string, Action>)ModAPIMethods["RegisterOnStoredDataChange"];
 
                         if (m_onRegisteredAction != null)
                             m_onRegisteredAction();

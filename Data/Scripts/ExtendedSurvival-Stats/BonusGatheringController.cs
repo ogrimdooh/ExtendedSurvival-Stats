@@ -37,9 +37,9 @@ namespace ExtendedSurvival.Stats
                                 {
                                     var playerId = character.GetPlayerId();
                                     var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
-                                    if (armorInfo.HasValue && armorInfo.Value.Definition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.Gathering))
+                                    if (armorInfo != null && armorInfo.HasArmor && armorInfo.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.Gathering))
                                     {
-                                        var getBonus = armorInfo.Value.Definition.Effects[ArmorSystemConstants.ArmorEffect.Gathering];
+                                        var getBonus = armorInfo.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.Gathering];
                                         var baseValue = (float)floatingObj.Item.Amount;
                                         floatingObj.Item.Amount = (MyFixedPoint)(baseValue + (baseValue * getBonus));
                                         break;

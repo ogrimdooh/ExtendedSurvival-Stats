@@ -33,11 +33,11 @@ namespace ExtendedSurvival.Stats
                     switch (index)
                     {
                         case 0:
-                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.COLDTHERMALREGULATORS_MODULES);
+                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyModule(EquipmentConstants.COLDTHERMALREGULATORS_MODULES);
                         case 1:
-                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
+                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
                         case 2:
-                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor.HasValue && armor.Value.HasAnyModule(EquipmentConstants.SHIELDGENERATORS_MODULES);
+                            return IsWithHelmet() && Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyModule(EquipmentConstants.SHIELDGENERATORS_MODULES);
                         case 3:
                             return IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
                         case 4:

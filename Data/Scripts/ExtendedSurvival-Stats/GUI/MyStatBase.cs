@@ -10,9 +10,9 @@ namespace ExtendedSurvival.Stats
 
         protected int GetBodyTrackerLevel()
         {
-            var bodyTracker = PlayerBodyTrackerController.GetEquipedBodyTracker(useCache: true);
-            if (bodyTracker.HasValue)
-                return bodyTracker.Value.Level;
+            var equips = PlayerArmorController.GetEquipedArmor(0, useCache: true);
+            if (equips != null && equips.HasBodyTracker)
+                return equips.BodyTracker.Level;
             return 0;
         }
 

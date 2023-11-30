@@ -423,12 +423,12 @@ namespace ExtendedSurvival.Stats
         {
             var baseRange = new Vector4(TEMPERATURE_HARD_RANGE.X, TEMPERATURE_RANGE.X, TEMPERATURE_RANGE.Y, TEMPERATURE_HARD_RANGE.Y);
             var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
-            if (armorInfo != null)
+            if (armorInfo != null && armorInfo.HasArmor)
             {
                 baseRange = new Vector4(
                     baseRange.X,
-                    baseRange.Y - armorInfo.Value.Definition.ColdResistence,
-                    baseRange.Z + armorInfo.Value.Definition.HotResistence, 
+                    baseRange.Y - armorInfo.ArmorDefinition.ColdResistence,
+                    baseRange.Z + armorInfo.ArmorDefinition.HotResistence, 
                     baseRange.W
                 );                
             }
@@ -465,20 +465,20 @@ namespace ExtendedSurvival.Stats
             return player_shield_status[playerId];
         }
         
-        private static void UpdateShieldStats(PlayerStatsEasyAcess playerStats, PlayerArmorController.PlayerArmorInfo? armor, long playerId)
+        private static void UpdateShieldStats(PlayerStatsEasyAcess playerStats, PlayerArmorController.PlayerEquipInfo armor, long playerId)
         {
             if (playerStats != null)
             {
-                if (armor.HasValue && armor.Value.Shield.HasShield)
+                if (armor != null && armor.HasArmor && armor.Shield.HasShield)
                 {
                     var shieldInfo = GetPlayerShieldInfo(playerId); 
                     var energy = MyVisualScriptLogicProvider.GetPlayersEnergyLevel(playerId);
-                    var drainEnergy = armor.Value.Shield.PowerCost / 10;
+                    var drainEnergy = armor.Shield.PowerCost / 10;
                     if (playerStats.EnergyShield.Value < 1 && energy >= drainEnergy && shieldInfo.CanRegenerate)
                     {
-                        var currentAmount = armor.Value.Shield.MaxShield * playerStats.EnergyShield.Value;
-                        currentAmount += armor.Value.Shield.RechargeRate;
-                        playerStats.EnergyShield.Value = currentAmount / armor.Value.Shield.MaxShield;
+                        var currentAmount = armor.Shield.MaxShield * playerStats.EnergyShield.Value;
+                        currentAmount += armor.Shield.RechargeRate;
+                        playerStats.EnergyShield.Value = currentAmount / armor.Shield.MaxShield;
                         if (playerStats.EnergyShield.Value > 1)
                             playerStats.EnergyShield.Value = 1;
                         shieldInfo.LastRegen = ExtendedSurvivalCoreAPI.GetGameTime();
@@ -493,7 +493,7 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        private static void UpdateFluidStats(PlayerStatsEasyAcess playerStats, PlayerArmorController.PlayerArmorInfo? armor, long playerId, out bool hasCold, out bool hasHot, out IMyInventoryItem[] coldBottles, out IMyInventoryItem[] hotBottles)
+        private static void UpdateFluidStats(PlayerStatsEasyAcess playerStats, PlayerArmorController.PlayerEquipInfo armor, long playerId, out bool hasCold, out bool hasHot, out IMyInventoryItem[] coldBottles, out IMyInventoryItem[] hotBottles)
         {
             hasCold = false;
             hasHot = false;
@@ -501,10 +501,10 @@ namespace ExtendedSurvival.Stats
             var listaHotBottles = new List<IMyInventoryItem>();
             if (playerStats != null)
             {
-                if (armor.HasValue)
+                if (armor != null && armor.HasArmor)
                 {
-                    hasCold = armor.Value.HasAnyModule(EquipmentConstants.COLDTHERMALREGULATORS_MODULES);
-                    hasHot = armor.Value.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
+                    hasCold = armor.HasAnyModule(EquipmentConstants.COLDTHERMALREGULATORS_MODULES);
+                    hasHot = armor.HasAnyModule(EquipmentConstants.HOTTHERMALREGULATORS_MODULES);
                     if (hasCold || hasHot)
                     {
                         var inventory = playerStats.StatComponent.Entity.GetInventory();
@@ -556,10 +556,10 @@ namespace ExtendedSurvival.Stats
 
         public const float THERMAL_BOTTLE_CAPACITY = 500;
         public const float THERMAL_GAS_CICLE_BASE = 1.25f;
-        public static bool DoGetGasToCool(float overTemperature, PlayerArmorController.PlayerArmorInfo? armor, IMyInventoryItem[] bottles, params UniqueEntityId[] ids)
+        public static bool DoGetGasToCool(float overTemperature, PlayerArmorController.PlayerEquipInfo armor, IMyInventoryItem[] bottles, params UniqueEntityId[] ids)
         {
             var needToContinue = true;
-            var module = armor.Value.GetFirstModule(ids);
+            var module = armor.GetFirstModule(ids);
             if (module != null)
             {
                 if (overTemperature < 0)
@@ -568,9 +568,9 @@ namespace ExtendedSurvival.Stats
                     overTemperature = 0.1f;
                 overTemperature = overTemperature / 30;
                 var baseCost = Math.Min(THERMAL_GAS_CICLE_BASE * overTemperature, THERMAL_GAS_CICLE_BASE);
-                var efficiency = module.Value.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.Efficiency];
+                var efficiency = module.Definition.Attributes[ArmorSystemConstants.ModuleAttribute.Efficiency];
                 var gasLevelNeeded = (baseCost - (baseCost * efficiency)) / THERMAL_BOTTLE_CAPACITY;
-                var inv = armor.Value.Inventory as MyInventory;
+                var inv = armor.Inventory as MyInventory;
                 foreach (var bottle in bottles)
                 {
                     var bottleContent = bottle.Content as MyObjectBuilder_GasContainerObject;
@@ -615,7 +615,7 @@ namespace ExtendedSurvival.Stats
         public static readonly Vector2 TEMPERATURE_RANGE = new Vector2(10f, 40f);
         public static readonly Vector2 TEMPERATURE_HARD_RANGE = new Vector2(0f, 50f);
         public static readonly ConcurrentDictionary<StatsConstants.TemperatureEffects, long> LAST_TEMP_TIME = new ConcurrentDictionary<StatsConstants.TemperatureEffects, long>();
-        private static void IncDevTemperatureTimer(PlayerStatsEasyAcess playerStats, long playerId, long timePassed, WeatherConstants.WeatherInfo weatherInfo, PlayerArmorController.PlayerArmorInfo? armor)
+        private static void IncDevTemperatureTimer(PlayerStatsEasyAcess playerStats, long playerId, long timePassed, WeatherConstants.WeatherInfo weatherInfo, PlayerArmorController.PlayerEquipInfo armor)
         {
             if (playerStats != null)
             {
@@ -2201,15 +2201,15 @@ namespace ExtendedSurvival.Stats
         {
             var playerId = character.GetPlayerId();
             var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
-            if (armorInfo != null)
+            if (armorInfo != null && armorInfo.HasArmor)
             {
                 var damageType = ArmorSystemConstants.GetDamageType(damage.Type);
-                if (armorInfo.Value.Shield.HasShield && ExtendedSurvivalCoreAPI.Registered)
+                if (armorInfo.Shield.HasShield && ExtendedSurvivalCoreAPI.Registered)
                 {
                     var stats = GetStatsEasyAcess(playerId);
                     if (stats != null && stats.EnergyShield.Value > 0)
                     {
-                        var currentShield = stats.EnergyShield.Value * armorInfo.Value.Shield.MaxShield;
+                        var currentShield = stats.EnergyShield.Value * armorInfo.Shield.MaxShield;
                         var baseDamage = damage.Amount;
                         if (currentShield > damage.Amount)
                         {
@@ -2222,12 +2222,12 @@ namespace ExtendedSurvival.Stats
                             baseDamage = currentShield;
                             currentShield = 0;
                         }
-                        stats.EnergyShield.Value = currentShield / armorInfo.Value.Shield.MaxShield;
+                        stats.EnergyShield.Value = currentShield / armorInfo.Shield.MaxShield;
                         var shieldInfo = GetPlayerShieldInfo(playerId);
                         shieldInfo.LastHit = ExtendedSurvivalCoreAPI.GetGameTime();
-                        if (armorInfo.Value.Shield.HasSpike)
+                        if (armorInfo.Shield.HasSpike)
                         {
-                            var spikeDamage = baseDamage * armorInfo.Value.Shield.SpikeTurn;
+                            var spikeDamage = baseDamage * armorInfo.Shield.SpikeTurn;
                             if (spikeDamage > 0)
                             {
                                 IMyCharacter attackerCharacter = null;
@@ -2279,9 +2279,9 @@ namespace ExtendedSurvival.Stats
                 {
                     if (damageType != ArmorSystemConstants.DamageType.None)
                     {
-                        if (armorInfo.Value.Definition.Resistences.ContainsKey(damageType))
+                        if (armorInfo.ArmorDefinition.Resistences.ContainsKey(damageType))
                         {
-                            var amountToChange = damage.Amount * armorInfo.Value.Definition.Resistences[damageType];
+                            var amountToChange = damage.Amount * armorInfo.ArmorDefinition.Resistences[damageType];
                             damage.Amount -= amountToChange;
                         }
                     }

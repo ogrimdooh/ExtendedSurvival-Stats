@@ -30,15 +30,15 @@ namespace ExtendedSurvival.Stats
                     float torporRate = 1;
                     float damageRate = 1;
                     var armor = PlayerArmorController.GetEquipedArmor(gunObj.OwnerIdentityId, useCache: true); 
-                    if (armor.HasValue)
+                    if (armor != null && armor.HasArmor)
                     {
-                        if (armor.Value.Definition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.CreatureDamage))
+                        if (armor.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.CreatureDamage))
                         {
-                            damageRate += armor.Value.Definition.Effects[ArmorSystemConstants.ArmorEffect.CreatureDamage];
+                            damageRate += armor.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.CreatureDamage];
                         }
-                        if (armor.Value.Definition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.TorporBonus))
+                        if (armor.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.TorporBonus))
                         {
-                            torporRate += armor.Value.Definition.Effects[ArmorSystemConstants.ArmorEffect.TorporBonus];
+                            torporRate += armor.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.TorporBonus];
                         }
                     }
 

@@ -7,6 +7,7 @@ using VRage.Game.ModAPI;
 
 namespace ExtendedSurvival.Stats
 {
+    /*
     public static class PlayerBodyTrackerController
     {
 
@@ -78,5 +79,5 @@ namespace ExtendedSurvival.Stats
         }
 
     }
-
+    */
 }

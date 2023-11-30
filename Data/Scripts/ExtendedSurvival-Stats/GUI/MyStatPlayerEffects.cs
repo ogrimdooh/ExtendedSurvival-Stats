@@ -21,7 +21,7 @@ namespace ExtendedSurvival.Stats
         MyEntityStat DiseaseEffects;
         MyEntityStat OtherEffects;
         MyEntityStatComponent StatComponent;
-        private PlayerArmorController.PlayerArmorInfo? ArmorInfo;
+        private PlayerArmorController.PlayerEquipInfo ArmorInfo;
 
         public StatsConstants.SurvivalEffects CurrentSurvivalEffects
         {
@@ -108,7 +108,7 @@ namespace ExtendedSurvival.Stats
                     (IsWithHelmet() ? 1 + ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatUpdateHash() : 0) +
                     GetBodyTrackerLevel() +
                     WeatherConstants.CurrentWeatherInfo.GetHashCode() +
-                    (ArmorInfo?.Definition?.Id?.GetHashCode() ?? 0);
+                    (ArmorInfo?.ArmorDefinition?.Id?.GetHashCode() ?? 0);
                 if (newValue < 0)
                     newValue *= -1;
                 CurrentValue = newValue;
@@ -198,9 +198,9 @@ namespace ExtendedSurvival.Stats
                         }
                     }
                 }
-                if (ArmorInfo.HasValue)
+                if (ArmorInfo != null && ArmorInfo.HasArmor)
                 {
-                    sbFeeling.AppendLine(ArmorInfo.Value.GetDisplayInfo());
+                    sbFeeling.AppendLine(ArmorInfo.GetDisplayInfo());
                     sbFeeling.AppendLine();
                 }
                 if (WeatherConstants.CurrentWeatherInfo != null)

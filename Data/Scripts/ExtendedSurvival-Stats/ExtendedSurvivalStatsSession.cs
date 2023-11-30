@@ -847,6 +847,11 @@ namespace ExtendedSurvival.Stats
                                 ItemCategory = EquipmentConstants.GetUseCategory(EquipmentConstants.ARMOR_MODULES_DEFINITIONS[key].UseCategory)
                             });
                         }
+                        /* Register a Callback */
+                        AdvancedPlayerEquipCoreAPI.RegisterOnStoredDataChange("ESSS", (playerId) =>
+                        {
+                            PlayerArmorController.GetEquipedArmor(playerId, false); /* Force Armor Info Refresh */
+                        });
                     }
                 });
             }
@@ -863,7 +868,10 @@ namespace ExtendedSurvival.Stats
                 {
                     if (AdvancedPlayerEquipCoreClientAPI.Registered)
                     {
-
+                        AdvancedPlayerEquipCoreClientAPI.RegisterOnStoredDataChange("ESSS", () =>
+                        {
+                            PlayerArmorController.GetEquipedArmor(0, false); /* Force Armor Info Refresh */
+                        });
                     }
                 });
             }
