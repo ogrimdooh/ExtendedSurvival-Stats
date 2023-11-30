@@ -166,7 +166,8 @@ namespace ExtendedSurvival.Stats
 				"- Уровень влажности;" + Environment.NewLine +
 				"- Температуру тела;" + Environment.NewLine +
 				"- Базовые негативные эффекты;" + Environment.NewLine + Environment.NewLine +
-				"Внимание! Для работы устройство должно быть в инвентаре игрока."
+				"Примечание. Чтобы получать дополнительные бонусы, вам необходимо " + Environment.NewLine +
+				"экипировать их через интерфейс оборудования."
 			);
 			AddEntry(
 				LanguageEntries.ENHANCEDBODYTRACKER_NAME,
@@ -183,7 +184,8 @@ namespace ExtendedSurvival.Stats
 				"- Водный баланс пользователя;" + Environment.NewLine +
 				"- Ранения;" + Environment.NewLine +
 				"- Отрицательные эффекты среднего уровня и ниже;" + Environment.NewLine + Environment.NewLine +
-				"Внимание! Для работы устройство должно быть в инвентаре игрока."
+				"Примечание. Чтобы получать дополнительные бонусы, вам необходимо " + Environment.NewLine +
+				"экипировать их через интерфейс оборудования."
 			);
 			AddEntry(
 				LanguageEntries.PROFICIENTBODYTRACKER_NAME,
@@ -203,7 +205,8 @@ namespace ExtendedSurvival.Stats
 				"- Выносливость;" + Environment.NewLine +
 				"- Ранения;" + Environment.NewLine +
 				"- Отрицательные эффекты высокого уровня и ниже;" + Environment.NewLine + Environment.NewLine +
-				"Внимание! Для работы устройство должно быть в инвентаре игрока."
+				"Примечание. Чтобы получать дополнительные бонусы, вам необходимо " + Environment.NewLine +
+				"экипировать их через интерфейс оборудования."
 			);
 			AddEntry(
 				LanguageEntries.ELITEBODYTRACKER_NAME,
@@ -225,7 +228,8 @@ namespace ExtendedSurvival.Stats
 				"- Баланс жиров;" + Environment.NewLine +
 				"- Ранения;" + Environment.NewLine +
 				"- Все негативные эффекты;" + Environment.NewLine + Environment.NewLine +
-				"Внимание! Для работы устройство должно быть в инвентаре игрока."
+				"Примечание. Чтобы получать дополнительные бонусы, вам необходимо " + Environment.NewLine +
+				"экипировать их через интерфейс оборудования."
 			);
 			AddEntry(
 				LanguageEntries.COLDTHERMALBOTTLE_NAME,
@@ -2826,7 +2830,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMOR_DESCRIPTION,
-				"Примечание: Для работы брони она должна находиться в инвентаре игрока."
+				"Примечание. Чтобы получать бонусы к броне, вам необходимо экипировать " + Environment.NewLine +
+				"ее через интерфейс оборудования."
 			);
 			AddEntry(
 				LanguageEntries.ARMORLIGHT_DESCRIPTION,
@@ -3031,7 +3036,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
-				"Примечание: Модули брони должны находиться в инвентаре игрока, чтобы работать."
+				"Примечание. Для получения бонусов от модуля брони его необходимо " + Environment.NewLine +
+				"экипировать через интерфейс оборудования."
 			);
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME,
@@ -3106,6 +3112,24 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.DAMAGETYPE_OTHER_NAME,
 				"Прочее"
+			);
+			#endregion
+			#region Equip Slot - System
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_BODYTRACKER_NAME,
+				"Трекер тела"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_BODYARMOR_NAME,
+				"Костюм Броня"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORWORKMODULE_NAME,
+				"Рабочий модуль"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORCOMBATMODULE_NAME,
+				"Боевой модуль"
 			);
 			#endregion
 		}

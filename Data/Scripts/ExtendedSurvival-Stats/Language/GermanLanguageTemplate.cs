@@ -166,7 +166,8 @@ namespace ExtendedSurvival.Stats
 				"- Nasses Niveau;" + Environment.NewLine +
 				"- Körpertemperatur;" + Environment.NewLine +
 				"- Grundlegende negative Auswirkungen;" + Environment.NewLine + Environment.NewLine +
-				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+				"Hinweis: Um Zubehörboni zu erhalten, müssen Sie es über die " + Environment.NewLine +
+				"Ausrüstungsschnittstelle ausrüsten lassen."
 			);
             AddEntry(
                 LanguageEntries.ENHANCEDBODYTRACKER_NAME,
@@ -183,7 +184,8 @@ namespace ExtendedSurvival.Stats
 				"- Körperwasser;" + Environment.NewLine +
 				"- Unbehandelte Wunde;" + Environment.NewLine +
 				"- Mittlere negative Auswirkungen;" + Environment.NewLine + Environment.NewLine +
-				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+				"Hinweis: Um Zubehörboni zu erhalten, müssen Sie es über die " + Environment.NewLine +
+				"Ausrüstungsschnittstelle ausrüsten lassen."
 			);
             AddEntry(
                 LanguageEntries.PROFICIENTBODYTRACKER_NAME,
@@ -203,7 +205,8 @@ namespace ExtendedSurvival.Stats
 				"- Körperermüdung;" + Environment.NewLine +
 				"- Unbehandelte Wunde;" + Environment.NewLine +
 				"- Erweiterte negative Effekte;" + Environment.NewLine + Environment.NewLine +
-				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+				"Hinweis: Um Zubehörboni zu erhalten, müssen Sie es über die " + Environment.NewLine +
+				"Ausrüstungsschnittstelle ausrüsten lassen."
 			);
             AddEntry(
                 LanguageEntries.ELITEBODYTRACKER_NAME,
@@ -226,7 +229,8 @@ namespace ExtendedSurvival.Stats
 				"- Körperfett;" + Environment.NewLine +
 				"- Unbehandelte Wunde;" + Environment.NewLine +
 				"- Alles negative Auswirkungen;" + Environment.NewLine + Environment.NewLine +
-				"Hinweis: Zubehör muss sich im Inventar des Spielers befinden, um zu funktionieren."
+				"Hinweis: Um Zubehörboni zu erhalten, müssen Sie es über die " + Environment.NewLine +
+				"Ausrüstungsschnittstelle ausrüsten lassen."
 			);
 			AddEntry(
 				LanguageEntries.COLDTHERMALBOTTLE_NAME,
@@ -2838,8 +2842,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMOR_DESCRIPTION,
-				"Hinweis: Rüstungen müssen im Inventar des Spielers vorhanden" + Environment.NewLine +
-				"sein, damit sie funktionieren."
+				"Hinweis: Um Rüstungsboni zu erhalten, müssen Sie diese über " + Environment.NewLine +
+				"die Ausrüstungsschnittstelle ausrüsten lassen."
 			);
 			AddEntry(
 				LanguageEntries.ARMORLIGHT_DESCRIPTION,
@@ -3051,8 +3055,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
-				"Hinweis: Rüstungsmodule müssen sich im Inventar des Spielers" + Environment.NewLine +
-				"befinden, damit sie funktionieren."
+				"Hinweis: Um Boni vom Rüstungsmodul zu erhalten, muss es über die " + Environment.NewLine +
+				"Ausrüstungsschnittstelle ausgerüstet werden."
 			);
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME,
@@ -3127,6 +3131,24 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.DAMAGETYPE_OTHER_NAME,
 				"Andere"
+			);
+			#endregion
+			#region Equip Slot - System
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_BODYTRACKER_NAME,
+				"Bodytracker"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_BODYARMOR_NAME,
+				"Anzugrüstung"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORWORKMODULE_NAME,
+				"Arbeitsmodul"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORCOMBATMODULE_NAME,
+				"Kampfmodul"
 			);
 			#endregion
 		}

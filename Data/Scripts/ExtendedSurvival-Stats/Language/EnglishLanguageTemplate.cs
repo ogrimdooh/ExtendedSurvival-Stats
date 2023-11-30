@@ -165,8 +165,9 @@ namespace ExtendedSurvival.Stats
                 "- Wet level;" + Environment.NewLine +
                 "- Body temperature;" + Environment.NewLine +
                 "- Basic negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Note: To receive accessory bonuses, you need to have it equipped " + Environment.NewLine +
+				"through the equipment interface."
+			);
             AddEntry(
                 LanguageEntries.ENHANCEDBODYTRACKER_NAME,
                 "Enhanced Body Tracker"
@@ -182,8 +183,9 @@ namespace ExtendedSurvival.Stats
                 "- Body water;" + Environment.NewLine +
                 "- Untreated wound;" + Environment.NewLine +
                 "- Intermediate negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Note: To receive accessory bonuses, you need to have it equipped " + Environment.NewLine +
+				"through the equipment interface."
+			);
             AddEntry(
                 LanguageEntries.PROFICIENTBODYTRACKER_NAME,
                 "Proficient Body Tracker"
@@ -202,8 +204,9 @@ namespace ExtendedSurvival.Stats
                 "- Body fatigue;" + Environment.NewLine +
                 "- Untreated wound;" + Environment.NewLine +
                 "- Advanced negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Note: To receive accessory bonuses, you need to have it equipped " + Environment.NewLine +
+				"through the equipment interface."
+			);
             AddEntry(
                 LanguageEntries.ELITEBODYTRACKER_NAME,
                 "Elite Body Tracker"
@@ -225,8 +228,9 @@ namespace ExtendedSurvival.Stats
                 "- Body fat;" + Environment.NewLine +
                 "- Untreated wound;" + Environment.NewLine +
                 "- All negative effects;" + Environment.NewLine + Environment.NewLine +
-                "Note: Accessories need to be in the player's inventory to work."
-            );
+				"Note: To receive accessory bonuses, you need to have it equipped " + Environment.NewLine +
+				"through the equipment interface."
+			);
 			AddEntry(
 				LanguageEntries.COLDTHERMALBOTTLE_NAME,
 				"Cold Thermal Bottle"
@@ -2804,7 +2808,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMOR_DESCRIPTION,
-				"Note: Armors need to be in the player's inventory to work."
+				"Note: To receive armor bonuses, you need to have it equipped " + Environment.NewLine +
+				"through the equipment interface."
 			);
 			AddEntry(
 				LanguageEntries.ARMORLIGHT_DESCRIPTION,
@@ -3009,7 +3014,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
-				"Note: Armor modules need to be in the player's inventory to work."
+				"Note: To receive bonuses from the armor module, it must be equipped " + Environment.NewLine +
+				"through the equipment interface."
 			);
 			AddEntry(
 				LanguageEntries.MODULEATTRIBUTE_EFFICIENCY_NAME,
@@ -3086,7 +3092,6 @@ namespace ExtendedSurvival.Stats
 				"Other"
 			);
 			#endregion
-
 			#region Equip Slot - System
 			AddEntry(
 				LanguageEntries.EQUIPABLEITEMCATEGORY_BODYTRACKER_NAME,
@@ -3105,7 +3110,6 @@ namespace ExtendedSurvival.Stats
 				"Combat Module"
 			);
 			#endregion
-
 		}
 
 	}
