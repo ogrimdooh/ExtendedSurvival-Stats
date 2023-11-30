@@ -14,7 +14,7 @@ namespace ExtendedSurvival.Stats
         public string GetOperationalDescription()
         {
             var values = new StringBuilder();
-            string[] categoryText = UseCategory.GetFlags().Select(x => ArmorSystemConstants.GetArmorCategoryName(x)).ToArray();
+            string[] categoryText = new string[] { ArmorSystemConstants.GetArmorCategoryName(UseCategory) };
             values.AppendLine(string.Format(
                 LanguageProvider.GetEntry(LanguageEntries.ARMORDESC_CATEGORY_ENTRY),
                 string.Join(", ", categoryText)

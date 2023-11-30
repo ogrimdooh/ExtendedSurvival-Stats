@@ -19,13 +19,12 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        [Flags]
         public enum ArmorCategory
         {
 
             None = 0,
-            Work = 1 << 1,
-            Combat = 1 << 2
+            Work = 1,
+            Combat = 2
 
         }
 

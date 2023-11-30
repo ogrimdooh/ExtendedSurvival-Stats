@@ -3086,8 +3086,28 @@ namespace ExtendedSurvival.Stats
 				"Other"
 			);
 			#endregion
+
+			#region Equip Slot - System
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_BODYTRACKER_NAME,
+				"Body Tracker"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_BODYARMOR_NAME,
+				"Suit Armor"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORWORKMODULE_NAME,
+				"Work Module"
+			);
+			AddEntry(
+				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORCOMBATMODULE_NAME,
+				"Combat Module"
+			);
+			#endregion
+
 		}
 
-    }
+	}
 
 }

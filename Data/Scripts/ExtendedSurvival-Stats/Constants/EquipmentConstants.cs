@@ -11,6 +11,95 @@ namespace ExtendedSurvival.Stats
     public static class EquipmentConstants
     {
 
+        public enum EquipableSlot
+        {
+
+            BodyTracker = 0,
+            BodyArmor = 1
+
+        }
+
+        public enum EquipableItemCategory
+        {
+
+            BodyTracker = 0,
+            BodyArmor = 1,
+            ArmorWorkModule = 2,
+            ArmorCombatModule = 3
+
+        }
+
+        public static string GetEquipableItemCategoryName(EquipableItemCategory equipableItemCategory)
+        {
+            switch (equipableItemCategory)
+            {
+                case EquipableItemCategory.BodyTracker:
+                    return LanguageProvider.GetEntry(LanguageEntries.EQUIPABLEITEMCATEGORY_BODYTRACKER_NAME);
+                case EquipableItemCategory.BodyArmor:
+                    return LanguageProvider.GetEntry(LanguageEntries.EQUIPABLEITEMCATEGORY_BODYARMOR_NAME);
+                case EquipableItemCategory.ArmorWorkModule:
+                    return LanguageProvider.GetEntry(LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORWORKMODULE_NAME);
+                case EquipableItemCategory.ArmorCombatModule:
+                    return LanguageProvider.GetEntry(LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORCOMBATMODULE_NAME);
+                default:
+                    return "";
+            }
+        }
+
+        public static string GetEquipableSlotName(EquipableSlot equipableSlot)
+        {
+            switch (equipableSlot)
+            {
+                case EquipableSlot.BodyTracker:
+                    return LanguageProvider.GetEntry(LanguageEntries.EQUIPABLEITEMCATEGORY_BODYTRACKER_NAME);
+                case EquipableSlot.BodyArmor:
+                    return LanguageProvider.GetEntry(LanguageEntries.EQUIPABLEITEMCATEGORY_BODYARMOR_NAME);
+                default:
+                    return "";
+            }
+        }
+
+        public static EquipableItemCategory[] GetSlotCategories(EquipableSlot equipableSlot)
+        {
+            switch (equipableSlot)
+            {
+                case EquipableSlot.BodyTracker:
+                    return new EquipableItemCategory[] { EquipableItemCategory.BodyTracker };
+                case EquipableSlot.BodyArmor:
+                    return new EquipableItemCategory[] { EquipableItemCategory.BodyArmor };
+                default:
+                    return new EquipableItemCategory[] { };
+            }
+        }
+
+        public static EquipableItemCategory[] GetSlotCategories(ArmorSystemConstants.ArmorCategory armorCategory)
+        {
+            switch (armorCategory)
+            {
+                case ArmorSystemConstants.ArmorCategory.Work:
+                    return new EquipableItemCategory[] { EquipableItemCategory.ArmorWorkModule };
+                case ArmorSystemConstants.ArmorCategory.Combat:
+                    return new EquipableItemCategory[] { EquipableItemCategory.ArmorWorkModule, EquipableItemCategory.ArmorCombatModule };
+                case ArmorSystemConstants.ArmorCategory.None:
+                default:
+                    return new EquipableItemCategory[] { };
+            }
+        }
+
+        public static string GetUseCategory(ArmorSystemConstants.ArmorCategory armorCategory)
+        {
+            switch (armorCategory)
+            {
+                case ArmorSystemConstants.ArmorCategory.Work:
+                    return EquipableItemCategory.ArmorWorkModule.ToString();
+                case ArmorSystemConstants.ArmorCategory.Combat:
+                    return EquipableItemCategory.ArmorCombatModule.ToString();
+                case ArmorSystemConstants.ArmorCategory.None:
+                default:
+                    return "";
+            }
+        }
+
         public const string BODYTRACKER_SUBTYPEID = "BodyTracker";
         public static readonly UniqueEntityId BODYTRACKER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), BODYTRACKER_SUBTYPEID);
 
@@ -414,7 +503,7 @@ namespace ExtendedSurvival.Stats
             }
         };
 
-        public static readonly EquipmentDefinition COLDTHERMALBOTTLE_DEFINITION = new EquipmentDefinition()
+        public static readonly GasContainersDefinition COLDTHERMALBOTTLE_DEFINITION = new GasContainersDefinition()
         {
             Id = COLDTHERMALBOTTLE_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALBOTTLE_NAME),
@@ -489,7 +578,7 @@ namespace ExtendedSurvival.Stats
             }
         };
 
-        public static readonly EquipmentDefinition HOTTHERMALBOTTLE_DEFINITION = new EquipmentDefinition()
+        public static readonly GasContainersDefinition HOTTHERMALBOTTLE_DEFINITION = new GasContainersDefinition()
         {
             Id = HOTTHERMALBOTTLE_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALBOTTLE_NAME),
@@ -564,14 +653,18 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly Dictionary<UniqueEntityId, GasContainersDefinition> GASCONTAINERS_DEFINITIONS = new Dictionary<UniqueEntityId, GasContainersDefinition>()
+        {
+            { COLDTHERMALBOTTLE_ID, COLDTHERMALBOTTLE_DEFINITION },
+            { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION }
+        };
+
         public static readonly Dictionary<UniqueEntityId, EquipmentDefinition> EQUIPMENTS_DEFINITIONS = new Dictionary<UniqueEntityId, EquipmentDefinition>()
         {
             { BODYTRACKER_ID, BODYTRACKER_DEFINITION },
             { ENHANCEDBODYTRACKER_ID, ENHANCEDBODYTRACKER_DEFINITION },
             { PROFICIENTBODYTRACKER_ID, PROFICIENTBODYTRACKER_DEFINITION },
-            { ELITEBODYTRACKER_ID, ELITEBODYTRACKER_DEFINITION },
-            { COLDTHERMALBOTTLE_ID, COLDTHERMALBOTTLE_DEFINITION },
-            { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION }
+            { ELITEBODYTRACKER_ID, ELITEBODYTRACKER_DEFINITION }
         };
 
         public static readonly Dictionary<UniqueEntityId, int> BODYTRACKERS = new Dictionary<UniqueEntityId, int>
@@ -1595,7 +1688,7 @@ namespace ExtendedSurvival.Stats
             Id = COLDTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.15f }
@@ -1690,7 +1783,7 @@ namespace ExtendedSurvival.Stats
             Id = ENHANCEDCOLDTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDCOLDTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.25f }
@@ -1800,7 +1893,7 @@ namespace ExtendedSurvival.Stats
             Id = PROFICIENTCOLDTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTCOLDTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.35f }
@@ -1915,7 +2008,7 @@ namespace ExtendedSurvival.Stats
             Id = ELITECOLDTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ELITECOLDTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.45f }
@@ -2035,7 +2128,7 @@ namespace ExtendedSurvival.Stats
             Id = HOTTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.15f }
@@ -2130,7 +2223,7 @@ namespace ExtendedSurvival.Stats
             Id = ENHANCEDHOTTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDHOTTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.25f }
@@ -2240,7 +2333,7 @@ namespace ExtendedSurvival.Stats
             Id = PROFICIENTHOTTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTHOTTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.35f }
@@ -2355,7 +2448,7 @@ namespace ExtendedSurvival.Stats
             Id = ELITEHOTTHERMALREGULATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ELITEHOTTHERMALREGULATOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALREGULATOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.45f }
@@ -2477,7 +2570,7 @@ namespace ExtendedSurvival.Stats
             Id = SHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_NAME),
             Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Capacity, 350f },
@@ -2574,7 +2667,7 @@ namespace ExtendedSurvival.Stats
             Id = ENHANCEDSHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDGENERATOR_NAME),
             Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Capacity, 450f },
@@ -2681,7 +2774,7 @@ namespace ExtendedSurvival.Stats
             Id = PROFICIENTSHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDGENERATOR_NAME),
             Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Capacity, 550f },
@@ -2798,7 +2891,7 @@ namespace ExtendedSurvival.Stats
             Id = ELITESHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDGENERATOR_NAME),
             Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.Capacity, 650f },
@@ -2922,7 +3015,7 @@ namespace ExtendedSurvival.Stats
             Id = SHIELDTRANSISTOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.05f },
@@ -3018,7 +3111,7 @@ namespace ExtendedSurvival.Stats
             Id = ENHANCEDSHIELDTRANSISTOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDTRANSISTOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.1f },
@@ -3124,7 +3217,7 @@ namespace ExtendedSurvival.Stats
             Id = PROFICIENTSHIELDTRANSISTOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDTRANSISTOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.15f },
@@ -3240,7 +3333,7 @@ namespace ExtendedSurvival.Stats
             Id = ELITESHIELDTRANSISTOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDTRANSISTOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDTRANSISTOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.RechargeSpeedBonus, -0.2f },
@@ -3363,7 +3456,7 @@ namespace ExtendedSurvival.Stats
             Id = SHIELDCAPACITOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.1f },
@@ -3460,7 +3553,7 @@ namespace ExtendedSurvival.Stats
             Id = ENHANCEDSHIELDCAPACITOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDCAPACITOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.15f },
@@ -3567,7 +3660,7 @@ namespace ExtendedSurvival.Stats
             Id = PROFICIENTSHIELDCAPACITOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDCAPACITOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.2f },
@@ -3684,7 +3777,7 @@ namespace ExtendedSurvival.Stats
             Id = ELITESHIELDCAPACITOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDCAPACITOR_NAME),
             Description = LanguageProvider.GetEntry(LanguageEntries.SHIELDCAPACITOR_DESCRIPTION),
-            UseCategory = ArmorSystemConstants.ArmorCategory.Work | ArmorSystemConstants.ArmorCategory.Combat,
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
                 { ArmorSystemConstants.ModuleAttribute.CapacityBonus, 0.25f },
@@ -4316,6 +4409,7 @@ namespace ExtendedSurvival.Stats
 
         public static void TryOverrideDefinitions()
         {
+            PhysicalItemDefinitionOverride.TryOverrideDefinitions<GasContainersDefinition, MyPhysicalItemDefinition>(GASCONTAINERS_DEFINITIONS);
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<EquipmentDefinition, MyPhysicalItemDefinition>(EQUIPMENTS_DEFINITIONS);
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<ArmorDefinition, MyPhysicalItemDefinition>(ARMORS_DEFINITIONS);
             PhysicalItemDefinitionOverride.TryOverrideDefinitions<ArmorModuleDefinition, MyPhysicalItemDefinition>(ARMOR_MODULES_DEFINITIONS);

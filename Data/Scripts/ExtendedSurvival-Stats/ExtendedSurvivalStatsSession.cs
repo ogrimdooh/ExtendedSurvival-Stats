@@ -44,6 +44,9 @@ namespace ExtendedSurvival.Stats
         public ExtendedSurvivalCoreAPI ESCoreAPI;
         public AdvancedStatsAndEffectsAPI ASECoreAPI;
         public AdvancedStatsAndEffectsClientAPI ASECoreClientAPI;
+        public AdvancedPlayerUICoreAPI APUCoreAPI;
+        public AdvancedPlayerEquipCoreAPI APECoreAPI;
+        public AdvancedPlayerEquipCoreClientAPI APECoreClientAPI;
 
         public const ushort NETWORK_ID_STATSSYSTEM = 40522;
         public const ushort NETWORK_ID_COMMANDS = 40523;
@@ -768,10 +771,98 @@ namespace ExtendedSurvival.Stats
                         );
                     }
                 });
+                APUCoreAPI = new AdvancedPlayerUICoreAPI(() =>
+                {
+                    if (AdvancedPlayerUICoreAPI.Registered)
+                    {
+
+                    }
+                });
+                APECoreAPI = new AdvancedPlayerEquipCoreAPI(() =>
+                {
+                    if (AdvancedPlayerEquipCoreAPI.Registered)
+                    {
+                        /* Categories */
+                        var categories = ((EquipmentConstants.EquipableItemCategory[])Enum.GetValues(typeof(EquipmentConstants.EquipableItemCategory))).ToList();
+                        foreach (EquipmentConstants.EquipableItemCategory item in categories)
+                        {
+                            AdvancedPlayerEquipCoreAPI.ConfigureEquipableItemCategory(new EquipableItemCategoryData()
+                            {
+                                Id = item.ToString(),
+                                Name = EquipmentConstants.GetEquipableItemCategoryName(item)
+                            });
+                        }
+                        /* Slots */
+                        var slots = ((EquipmentConstants.EquipableSlot[])Enum.GetValues(typeof(EquipmentConstants.EquipableSlot))).ToList();
+                        foreach (EquipmentConstants.EquipableSlot item in slots)
+                        {
+                            AdvancedPlayerEquipCoreAPI.ConfigurePlayerSlot(new PlayerSlotData()
+                            {
+                                Id = item.ToString(),
+                                Name = EquipmentConstants.GetEquipableSlotName(item),
+                                ValidCategories = EquipmentConstants.GetSlotCategories(item).Select(x => new ValidCategoryData() 
+                                { 
+                                    Id = x.ToString()
+                                }).ToList()
+                            });
+                        }
+                        /* Equipments */
+                        foreach (var key in EquipmentConstants.BODYTRACKERS.Keys)
+                        {
+                            AdvancedPlayerEquipCoreAPI.ConfigureEquipableItem(new EquipableItemData()
+                            {
+                                Id = key.DefinitionId,
+                                ItemCategory = EquipmentConstants.EquipableItemCategory.BodyTracker.ToString()
+                            });
+                        }
+                        foreach (var key in EquipmentConstants.ARMORS_DEFINITIONS.Keys)
+                        {
+                            var info = new EquipableItemData()
+                            {
+                                Id = key.DefinitionId,
+                                ItemCategory = EquipmentConstants.EquipableItemCategory.BodyArmor.ToString()
+                            };
+                            for (int i = 0; i < EquipmentConstants.ARMORS_DEFINITIONS[key].ModuleSlots; i++)
+                            {
+                                info.Sockets.Add(new EquipableItemSocketData() 
+                                { 
+                                    Order = i,
+                                    ValidCategories = EquipmentConstants.GetSlotCategories(EquipmentConstants.ARMORS_DEFINITIONS[key].Category).Select(x => new ValidCategoryData()
+                                    {
+                                        Id = x.ToString()
+                                    }).ToList()
+                                });
+                            }
+                            AdvancedPlayerEquipCoreAPI.ConfigureEquipableItem(info);
+                        }
+                        /* Sockets */
+                        foreach (var key in EquipmentConstants.ARMOR_MODULES_DEFINITIONS.Keys)
+                        {
+                            AdvancedPlayerEquipCoreAPI.ConfigureSocketItem(new SocketItemData()
+                            {
+                                Id = key.DefinitionId,
+                                ItemCategory = EquipmentConstants.GetUseCategory(EquipmentConstants.ARMOR_MODULES_DEFINITIONS[key].UseCategory)
+                            });
+                        }
+                    }
+                });
             }
             else
             {
-                ASECoreClientAPI = new AdvancedStatsAndEffectsClientAPI(() => { });
+                ASECoreClientAPI = new AdvancedStatsAndEffectsClientAPI(() => 
+                {
+                    if (AdvancedStatsAndEffectsClientAPI.Registered)
+                    {
+
+                    }
+                });
+                APECoreClientAPI = new AdvancedPlayerEquipCoreClientAPI(() =>
+                {
+                    if (AdvancedPlayerEquipCoreClientAPI.Registered)
+                    {
+
+                    }
+                });
             }
             base.LoadData();
         }
