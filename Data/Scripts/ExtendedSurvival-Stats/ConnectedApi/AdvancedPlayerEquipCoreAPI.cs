@@ -81,6 +81,9 @@ namespace ExtendedSurvival.Stats
         public bool HasEquipConditions { get; set; } = false;
 
         [ProtoMember(5)]
+        public string TextureName { get; set; }
+
+        [ProtoMember(6)]
         public List<EquipableItemSocketData> Sockets { get; set; } = new List<EquipableItemSocketData>();
 
     }
@@ -97,6 +100,9 @@ namespace ExtendedSurvival.Stats
 
         [ProtoMember(3)]
         public bool HasEquipConditions { get; set; } = false;
+
+        [ProtoMember(4)]
+        public string TextureName { get; set; }
 
     }
 

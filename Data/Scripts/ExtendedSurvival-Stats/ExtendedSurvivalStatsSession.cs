@@ -812,6 +812,7 @@ namespace ExtendedSurvival.Stats
                             AdvancedPlayerEquipCoreAPI.ConfigureEquipableItem(new EquipableItemData()
                             {
                                 Id = key.DefinitionId,
+                                TextureName = key.subtypeId.String,
                                 ItemCategory = EquipmentConstants.EquipableItemCategory.BodyTracker.ToString()
                             });
                         }
@@ -820,6 +821,7 @@ namespace ExtendedSurvival.Stats
                             var info = new EquipableItemData()
                             {
                                 Id = key.DefinitionId,
+                                TextureName = key.subtypeId.String,
                                 ItemCategory = EquipmentConstants.EquipableItemCategory.BodyArmor.ToString()
                             };
                             for (int i = 0; i < EquipmentConstants.ARMORS_DEFINITIONS[key].ModuleSlots; i++)
@@ -841,6 +843,7 @@ namespace ExtendedSurvival.Stats
                             AdvancedPlayerEquipCoreAPI.ConfigureSocketItem(new SocketItemData()
                             {
                                 Id = key.DefinitionId,
+                                TextureName = key.subtypeId.String,
                                 ItemCategory = EquipmentConstants.GetUseCategory(EquipmentConstants.ARMOR_MODULES_DEFINITIONS[key].UseCategory)
                             });
                         }
