@@ -65,7 +65,7 @@ namespace ExtendedSurvival.Stats
             public bool HasArmor { get { return ArmorDefinition != null; } }
             public ArmorDefinition ArmorDefinition { get; set; }
             public List<ArmorModuleInfo> Modules { get; set; } = new List<ArmorModuleInfo>();
-            public ShieldInfo Shield { get; set; }
+            public ShieldInfo Shield { get; set; } = new ShieldInfo();
 
             public string GetDisplayInfo()
             {
@@ -113,6 +113,7 @@ namespace ExtendedSurvival.Stats
                 BodyTracker = null;
                 ArmorDefinition = null;
                 Modules.Clear();
+                Shield = new ShieldInfo();
                 foreach (var slot in dataToLoad.Slots)
                 {
                     var itemId = new UniqueEntityId(slot.ItemId);
@@ -188,7 +189,7 @@ namespace ExtendedSurvival.Stats
             try
             {
                 if (playerId == 0 && !MyAPIGateway.Utilities.IsDedicated)
-                    playerId = MyAPIGateway.Session.Player.IdentityId;
+                    playerId = MyAPIGateway.Session?.Player?.IdentityId ?? 0;
                 if (useCache && cache.ContainsKey(playerId))
                     return cache[playerId];
                 StoredPlayerData storeData;
