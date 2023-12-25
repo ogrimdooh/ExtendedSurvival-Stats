@@ -686,7 +686,7 @@ namespace ExtendedSurvival.Stats
             Id = ItensConstants.ICE_ID,
             Solid = 0.0f,
             Liquid = 1.0f,
-            TimeToConsume = 600f,
+            TimeToConsume = 240f,
             DefinitionType = FoodDefinition.FoodDefinitionType.Ore,
             IgnoreDefinition = true
         };
@@ -4026,7 +4026,7 @@ namespace ExtendedSurvival.Stats
                     foodDef.Minerals *= ExtendedSurvivalSettings.Instance.FoodSettings.MineralsMultiplier;
                     foodDef.Vitamins *= ExtendedSurvivalSettings.Instance.FoodSettings.VitaminsMultiplier;
                     foodDef.Calories *= ExtendedSurvivalSettings.Instance.FoodSettings.CaloriesMultiplier;
-                    foodDef.TimeToConsume *= ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+                    foodDef.TimeToConsume *= ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier * ExtendedSurvivalSettings.Instance.FoodSettings.DigestionTimeMultiplier;
                 }
                 // Override recipes and add food definition
                 var recipesToPostprocess = new List<MyBlueprintDefinitionBase>();

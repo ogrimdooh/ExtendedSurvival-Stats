@@ -38,6 +38,9 @@ namespace ExtendedSurvival.Stats
         public float MetabolismSpeedMultiplier { get; set; } = 4.0f;
 
         [XmlElement]
+        public MetabolismSettings MetabolismSettings { get; set; } = new MetabolismSettings();
+
+        [XmlElement]
         public StaminaAttributeSettings StaminaSettings { get; set; } = new StaminaAttributeSettings();
 
         [XmlElement]
@@ -144,7 +147,71 @@ namespace ExtendedSurvival.Stats
                         MetabolismSpeedMultiplier = Math.Max(0.01f, Math.Min(10, metabolismspeedmultiplier));
                         return true;
                     }
-                    break;                    
+                    break;
+                case "metabolismsettings.caloriesconsumemultiplier":
+                    float metabolismsettingscaloriesconsumemultiplier;
+                    if (float.TryParse(value, out metabolismsettingscaloriesconsumemultiplier))
+                    {
+                        MetabolismSettings.CaloriesConsumeMultiplier = metabolismsettingscaloriesconsumemultiplier;
+                        return true;
+                    }
+                    break;
+                case "metabolismsettings.waterconsumemultiplier":
+                    float metabolismsettingswaterconsumemultiplier;
+                    if (float.TryParse(value, out metabolismsettingswaterconsumemultiplier))
+                    {
+                        MetabolismSettings.WaterConsumeMultiplier = metabolismsettingswaterconsumemultiplier;
+                        return true;
+                    }
+                    break;
+                case "metabolismsettings.proteinconsumemultiplier":
+                    float metabolismsettingsproteinconsumemultiplier;
+                    if (float.TryParse(value, out metabolismsettingsproteinconsumemultiplier))
+                    {
+                        MetabolismSettings.ProteinConsumeMultiplier = metabolismsettingsproteinconsumemultiplier;
+                        return true;
+                    }
+                    break;
+                case "metabolismsettings.carbohydrateconsumemultiplier":
+                    float metabolismsettingscarbohydrateconsumemultiplier;
+                    if (float.TryParse(value, out metabolismsettingscarbohydrateconsumemultiplier))
+                    {
+                        MetabolismSettings.CarbohydrateConsumeMultiplier = metabolismsettingscarbohydrateconsumemultiplier;
+                        return true;
+                    }
+                    break;
+                case "metabolismsettings.lipidsconsumemultiplier":
+                    float metabolismsettingslipidsconsumemultiplier;
+                    if (float.TryParse(value, out metabolismsettingslipidsconsumemultiplier))
+                    {
+                        MetabolismSettings.LipidsConsumeMultiplier = metabolismsettingslipidsconsumemultiplier;
+                        return true;
+                    }
+                    break;
+                case "metabolismsettings.mineralsconsumemultiplier":
+                    float metabolismsettingsmineralsconsumemultiplier;
+                    if (float.TryParse(value, out metabolismsettingsmineralsconsumemultiplier))
+                    {
+                        MetabolismSettings.MineralsConsumeMultiplier = metabolismsettingsmineralsconsumemultiplier;
+                        return true;
+                    }
+                    break;
+                case "metabolismsettings.vitaminsconsumemultiplier":
+                    float metabolismsettingsvitaminsconsumemultiplier;
+                    if (float.TryParse(value, out metabolismsettingsvitaminsconsumemultiplier))
+                    {
+                        MetabolismSettings.VitaminsConsumeMultiplier = metabolismsettingsvitaminsconsumemultiplier;
+                        return true;
+                    }
+                    break;
+                case "metabolismsettings.staminaspendedmultiplier":
+                    float metabolismsettingsstaminaspendedmultiplier;
+                    if (float.TryParse(value, out metabolismsettingsstaminaspendedmultiplier))
+                    {
+                        MetabolismSettings.StaminaSpendedMultiplier = metabolismsettingsstaminaspendedmultiplier;
+                        return true;
+                    }
+                    break;
                 case "staminasettings.gainmultiplier":
                     float staminasettingsgainmultiplier;
                     if (float.TryParse(value, out staminasettingsgainmultiplier))
@@ -249,6 +316,14 @@ namespace ExtendedSurvival.Stats
                         return true;
                     }
                     break;
+                case "foodsettings.digestiontimemultiplier":
+                    float foodsettingsdigestiontimemultiplier;
+                    if (float.TryParse(value, out foodsettingsdigestiontimemultiplier))
+                    {
+                        FoodSettings.DigestionTimeMultiplier = foodsettingsdigestiontimemultiplier;
+                        return true;
+                    }
+                    break;                    
             }
             return false;
         }

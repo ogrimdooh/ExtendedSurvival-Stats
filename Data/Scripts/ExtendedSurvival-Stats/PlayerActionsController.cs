@@ -281,6 +281,7 @@ namespace ExtendedSurvival.Stats
             bool usingSuit = character.EnabledHelmet;
             if (currentEnvironmentType == WeatherConstants.EnvironmentDetector.Underwater)
             {
+                CheckIfO2ControllerIsReady(playerId);
                 percentValue = usingSuit ?
                     enterUnderWaterO2Level[playerId] :
                     0f;
@@ -1223,8 +1224,15 @@ namespace ExtendedSurvival.Stats
             return (character.Definition as MyCharacterDefinition).DamageAmountAtZeroPressure;
         }
 
+        private static void CheckIfO2ControllerIsReady(long playerId)
+        {
+            if (!enterUnderWaterO2Level.ContainsKey(playerId))
+                enterUnderWaterO2Level[playerId] = 0;
+        }
+
         public static void ProcessUnderwater(long playerId, IMyCharacter character, WeatherConstants.EnvironmentDetector currentEnvironmentType)
         {
+            CheckIfO2ControllerIsReady(playerId);
             if (currentEnvironmentType == WeatherConstants.EnvironmentDetector.Underwater && !character.IsDead)
             {
                 var OxygenComponent = character.Components.Get<MyCharacterOxygenComponent>();
@@ -1423,6 +1431,8 @@ namespace ExtendedSurvival.Stats
 
         private static ConcurrentDictionary<long, float> sedentaryTime = new ConcurrentDictionary<long, float>();
         private static ConcurrentDictionary<long, float> waterToConsume = new ConcurrentDictionary<long, float>();
+        private static ConcurrentDictionary<long, float> lastCaloriesValue = new ConcurrentDictionary<long, float>();
+        private static ConcurrentDictionary<long, float> lastCaloriesChange = new ConcurrentDictionary<long, float>();
         private static ConcurrentDictionary<long, PlayerStatsEasyAcess> statsEasyAcess = new ConcurrentDictionary<long, PlayerStatsEasyAcess>();
 
         public static PlayerStatsEasyAcess GetStatsEasyAcess(long playerId)
@@ -1459,10 +1469,15 @@ namespace ExtendedSurvival.Stats
             RefreshPlayerStatComponent(playerId, statComponent);
 
             DoConsumeCicle(playerId, staminaSpended);
+
+            var currentCaloriesValue = statsEasyAcess[playerId].BodyCalories.Value;
+            lastCaloriesChange[playerId] = !lastCaloriesValue.ContainsKey(playerId) ? 0 : currentCaloriesValue - lastCaloriesValue[playerId];
+            lastCaloriesValue[playerId] = currentCaloriesValue;
+
             DoBladderCicle(playerId);
             DoCheckBodyState(playerId);
             DoStomachCicle(playerId);
-            float weightChange = DoCheckBodyWeight(playerId);
+            float weightChange = DoCheckBodyWeight(playerId, lastCaloriesChange[playerId]);
             if (weightChange < 0)
             {
                 /* The body always consumes muscle first during body loss with no protein reserve and is sedentary */
@@ -1907,61 +1922,59 @@ namespace ExtendedSurvival.Stats
                     // Survival Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Thirsty))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Dehydrating))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     // Temperature Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Overheating))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.OnFire))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     // Disease Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
                     {
-                        baseValue += 0.3f;
+                        baseValue += 0.15f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereDehydration))
                     {
-                        baseValue += 0.6f;
+                        baseValue += 0.3f;
                     }
-
                     break;
                 case StatsConstants.ValidStats.BodyCalories:
                     // Survival Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Hungry))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Famished))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     // Temperature Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Cold))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Frosty))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     // Disease Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
                     {
-                        baseValue += 0.3f;
+                        baseValue += 0.15f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereStarvation))
                     {
-                        baseValue += 0.6f;
+                        baseValue += 0.3f;
                     }
-
                     break;
                 case StatsConstants.ValidStats.BodyProtein:
                 case StatsConstants.ValidStats.BodyCarbohydrate:
@@ -1971,53 +1984,53 @@ namespace ExtendedSurvival.Stats
                     // Survival Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Hungry))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Famished))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Thirsty))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.Dehydrating))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     // Temperature Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Overheating))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.OnFire))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Cold))
                     {
-                        baseValue += 0.25f;
+                        baseValue += 0.125f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Frosty))
                     {
-                        baseValue += 0.5f;
+                        baseValue += 0.25f;
                     }
                     // Disease Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
                     {
-                        baseValue += 0.3f;
+                        baseValue += 0.16f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereStarvation))
                     {
-                        baseValue += 0.6f;
+                        baseValue += 0.30f;
                     }
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
                     {
-                        baseValue += 0.3f;
+                        baseValue += 0.15f;
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereDehydration))
                     {
-                        baseValue += 0.6f;
+                        baseValue += 0.30f;
                     }
                     break;
             }
@@ -2035,6 +2048,7 @@ namespace ExtendedSurvival.Stats
             var _vitaminsToConsume = PlayerBodyConstants.VitaminsConsumption.X;
             if (staminaSpended > 0)
             {
+                staminaSpended *= ExtendedSurvivalSettings.Instance.MetabolismSettings.StaminaSpendedMultiplier;
                 _caloriesToConsume += PlayerBodyConstants.CaloriesConsumption.Y * staminaSpended;
                 waterToConsume[playerId] += PlayerBodyConstants.WaterConsumption.Y * staminaSpended;
                 _proteinToConsume += PlayerBodyConstants.ProteinConsumption.Y * staminaSpended;
@@ -2050,13 +2064,14 @@ namespace ExtendedSurvival.Stats
             _lipidsToConsume *= NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyLipids);
             _mineralsToConsume *= NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyMinerals);
             _vitaminsToConsume *= NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyVitamins);
-            statsEasyAcess[playerId].BodyCalories.Value -= _caloriesToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
-            statsEasyAcess[playerId].BodyWater.Value -= waterToConsume[playerId] / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
-            statsEasyAcess[playerId].BodyProtein.Value -= _proteinToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
-            statsEasyAcess[playerId].BodyCarbohydrate.Value -= _carbohydrateToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
-            statsEasyAcess[playerId].BodyLipids.Value -= _lipidsToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
-            statsEasyAcess[playerId].BodyMinerals.Value -= _mineralsToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
-            statsEasyAcess[playerId].BodyVitamins.Value -= _vitaminsToConsume / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            var mSpeed = ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
+            statsEasyAcess[playerId].BodyCalories.Value -= _caloriesToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.CaloriesConsumeMultiplier / mSpeed;
+            statsEasyAcess[playerId].BodyWater.Value -= waterToConsume[playerId] * ExtendedSurvivalSettings.Instance.MetabolismSettings.WaterConsumeMultiplier / mSpeed;
+            statsEasyAcess[playerId].BodyProtein.Value -= _proteinToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.ProteinConsumeMultiplier / mSpeed;
+            statsEasyAcess[playerId].BodyCarbohydrate.Value -= _carbohydrateToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.CarbohydrateConsumeMultiplier / mSpeed;
+            statsEasyAcess[playerId].BodyLipids.Value -= _lipidsToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.LipidsConsumeMultiplier / mSpeed;
+            statsEasyAcess[playerId].BodyMinerals.Value -= _mineralsToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.MineralsConsumeMultiplier / mSpeed;
+            statsEasyAcess[playerId].BodyVitamins.Value -= _vitaminsToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.VitaminsConsumeMultiplier / mSpeed;
         }
 
         private static float GetCurrentHungerAmmount(float CaloriesAmmount, float CurrentStomachVolume)
@@ -2149,14 +2164,16 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        private static float DoCheckBodyWeight(long playerId)
+        private static float DoCheckBodyWeight(long playerId, float lastCaloriesChange)
         {
             float bodyChance = 0;
-            if (statsEasyAcess[playerId].BodyCalories.Value < PlayerBodyConstants.CaloriesReserveSize.X)
+            if (statsEasyAcess[playerId].BodyCalories.Value < PlayerBodyConstants.CaloriesReserveSize.X &&
+                lastCaloriesChange < 0) /* Esta com baixa energia e não consumiu calorias */
             {
                 bodyChance -= PlayerBodyConstants.WeightChange.X;
             }
-            else if (statsEasyAcess[playerId].BodyCalories.Value > PlayerBodyConstants.CaloriesReserveSize.Y)
+            else if (statsEasyAcess[playerId].BodyCalories.Value > PlayerBodyConstants.CaloriesReserveSize.Y &&
+                lastCaloriesChange > 0) /* Esta com alta energia e não esta gastando ela */
             {
                 bodyChance += PlayerBodyConstants.WeightChange.Y;
             }

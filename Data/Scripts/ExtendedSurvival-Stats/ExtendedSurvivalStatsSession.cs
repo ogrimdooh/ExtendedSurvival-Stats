@@ -197,9 +197,9 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        private void DoCommand_Settings(string name, string value)
+        private bool DoCommand_Settings(string name, string value)
         {
-            ExtendedSurvivalSettings.Instance.SetConfigValue(name, value);
+            return ExtendedSurvivalSettings.Instance.SetConfigValue(name, value);
         }
 
         private void DoCommand_ClearFoodVolume(string name)
