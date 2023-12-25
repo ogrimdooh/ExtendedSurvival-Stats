@@ -12,12 +12,12 @@
         {
             return "player_bodywater_desc";
         }
-
+        /*
         protected override bool IsActive()
         {
             return IsWithHelmet() && GetBodyTrackerLevel() >= 2;
         }
-
+        */
         public override string ToString() => StatsConstants.GetValidStatsDescription(StatsConstants.ValidStats.BodyWater);
 
     }

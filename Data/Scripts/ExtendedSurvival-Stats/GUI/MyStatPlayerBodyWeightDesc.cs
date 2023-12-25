@@ -15,7 +15,7 @@
 
         protected override bool IsActive()
         {
-            return IsWithHelmet() && GetBodyTrackerLevel() >= 3;
+            return false; // IsWithHelmet() && GetBodyTrackerLevel() >= 3;
         }
 
         public override string ToString() => StatsConstants.GetValidStatsDescription(StatsConstants.ValidStats.BodyWeight);

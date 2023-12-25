@@ -493,23 +493,20 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Poison:
                 case DiseaseEffects.Queasy:
                 case DiseaseEffects.Flu:
-                    return 0;
                 case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Infected:
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
-                    return 1;
                 case DiseaseEffects.Starvation:
                 case DiseaseEffects.SevereStarvation:
                 case DiseaseEffects.Dehydration:
                 case DiseaseEffects.SevereDehydration:
-                    return 2;
                 case DiseaseEffects.Obesity:
                 case DiseaseEffects.SevereObesity:
                 case DiseaseEffects.Rickets:
                 case DiseaseEffects.SevereRickets:
                 case DiseaseEffects.Hypolipidemia:
-                    return 3;
+                    return 0;
             }
             return 0;
         }
@@ -798,7 +795,6 @@ namespace ExtendedSurvival.Stats
                 case TemperatureEffects.LesserResistenceToHot:
                 case TemperatureEffects.ResistenceToHot:
                 case TemperatureEffects.GreaterResistenceToHot:
-                    return 1;
                 case TemperatureEffects.Wet:
                 case TemperatureEffects.ExposedToCold:
                 case TemperatureEffects.ExposedToFreeze:
@@ -852,7 +848,7 @@ namespace ExtendedSurvival.Stats
                 case DamageEffects.Wounded:
                 case DamageEffects.DeepWounded:
                 case DamageEffects.BrokenBones:
-                    return 1;
+                    return 0;
             }
             return 0;
         }

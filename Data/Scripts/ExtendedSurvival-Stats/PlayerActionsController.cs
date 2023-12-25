@@ -2076,52 +2076,22 @@ namespace ExtendedSurvival.Stats
 
         private static float GetCurrentHungerAmmount(float CaloriesAmmount, float CurrentStomachVolume)
         {
-            // Less than the minimum
-            if (CaloriesAmmount < PlayerBodyConstants.CaloriesReserveSize.X)
-            {
-                if (CurrentStomachVolume >= PlayerBodyConstants.StomachSize.Z)
-                    return 1.0f;
-                return CurrentStomachVolume / PlayerBodyConstants.StomachSize.Z;
-            }
-            // Greater than the maximum
-            else if (CaloriesAmmount > PlayerBodyConstants.CaloriesReserveSize.Y)
-            {
-                if (CurrentStomachVolume >= PlayerBodyConstants.StomachSize.X)
-                    return 1.0f;
-                return CurrentStomachVolume / PlayerBodyConstants.StomachSize.X;
-            }
-            // In average
-            else
-            {
-                if (CurrentStomachVolume >= PlayerBodyConstants.StomachSize.Y)
-                    return 1.0f;
-                return CurrentStomachVolume / PlayerBodyConstants.StomachSize.Y;
-            }
+            var cal = Math.Max(Math.Min(CaloriesAmmount, PlayerBodyConstants.CAL_LIMIT_MAX), PlayerBodyConstants.CAL_LIMIT_MIN);
+            var target = PlayerBodyConstants.BodyCalorieStats.FirstOrDefault(x => cal >= x.From && cal < x.To);
+            if (CurrentStomachVolume >= target.TargetStomachSize)
+                return 1.0f;
+            var finalValue = CurrentStomachVolume / target.TargetStomachSize;
+            return target.MinToReturn > 0 ? Math.Max(finalValue, target.MinToReturn) : finalValue;
         }
 
         private static float GetCurrentThirstAmmount(float WaterAmmount, float CurrentStomachLiquid)
         {
-            // Is Dehydrating
-            if (WaterAmmount < PlayerBodyConstants.WaterReserveSize.Y)
-            {
-                if (CurrentStomachLiquid >= PlayerBodyConstants.WaterReserveSize.W)
-                    return 1.0f;
-                return CurrentStomachLiquid / PlayerBodyConstants.WaterReserveSize.W;
-            }
-            // Is Thirsty
-            else if (WaterAmmount < PlayerBodyConstants.WaterReserveSize.Z)
-            {
-                if (CurrentStomachLiquid >= PlayerBodyConstants.WaterReserveSize.Z)
-                    return 1.0f;
-                return CurrentStomachLiquid / PlayerBodyConstants.WaterReserveSize.Z;
-            }
-            // In average
-            else
-            {
-                if (CurrentStomachLiquid >= PlayerBodyConstants.WaterReserveSize.Y)
-                    return 1.0f;
-                return CurrentStomachLiquid / PlayerBodyConstants.StomachSize.Y;
-            }
+            var water = Math.Max(Math.Min(WaterAmmount, PlayerBodyConstants.WATER_RESERVE_DEAD), PlayerBodyConstants.WATER_RESERVE_FULL);
+            var target = PlayerBodyConstants.BodyWaterStats.FirstOrDefault(x => water >= x.From && water < x.To);
+            if (CurrentStomachLiquid >= target.TargetStomachSize)
+                return 1.0f;
+            var finalValue = CurrentStomachLiquid / target.TargetStomachSize;
+            return target.MinToReturn > 0 ? Math.Max(finalValue, target.MinToReturn) : finalValue;
         }
 
         private static float GetCurrentBodyEnergy(float CaloriesAmmount)

@@ -12,12 +12,12 @@
         {
             return "player_bodycalories";
         }
-
+        /*
         protected override bool IsActive()
         {
             return IsWithHelmet() && GetBodyTrackerLevel() >= 2;
         }
-
+        */
         public override string ToString() => Stat != null ? Stat.Value.ToString("#0.0") : "-";
 
     }

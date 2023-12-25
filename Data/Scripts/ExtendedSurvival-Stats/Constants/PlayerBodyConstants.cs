@@ -6,10 +6,129 @@ namespace ExtendedSurvival.Stats
     public static class PlayerBodyConstants
     {
 
+        public struct BodyStomachComparer
+        {
+
+            public float From { get; set; }
+            public float To { get; set; }
+            public float TargetStomachSize { get; set; }
+            public float MinToReturn { get; set; }
+
+        }
+
+        public const float CAL_RESERVER_MIN = 0f;
+        public const float CAL_RESERVER_MAX = 2000f;
+
+        public const float CAL_LIMIT_MIN = -5000f;
+        public const float CAL_LIMIT_MAX = 5000f;
+
+        public const float STOMACH_SIZE_NOHUNGRY = 0.3f;
+        public const float STOMACH_SIZE_SATISFIED = 0.6f;
+        public const float STOMACH_SIZE_FEELINGSICK = 0.9f;
+        public const float STOMACH_SIZE_VOMITS = 1.2f;
+
+        /// <summary>
+        /// X: Start to lose weight, Y: Starts to gain weight
+        /// </summary>
+        public static readonly SerializableVector2 CaloriesReserveSize = new Vector2(CAL_RESERVER_MIN, CAL_RESERVER_MAX);
+
+        /// <summary>
+        /// X: Min, Y: Max
+        /// </summary>
+        public static readonly SerializableVector2 CaloriesLimit = new Vector2(CAL_LIMIT_MIN, CAL_LIMIT_MAX);
+
         /// <summary>
         /// X: Sem fome, Y: Satisfeito, Z: Passando mal, W: Vomita
         /// </summary>
-        public static readonly Vector4 StomachSize = new Vector4(0.3f, 0.6f, 0.9f, 1.2f);
+        public static readonly Vector4 StomachSize = new Vector4(STOMACH_SIZE_NOHUNGRY, STOMACH_SIZE_SATISFIED, STOMACH_SIZE_FEELINGSICK, STOMACH_SIZE_VOMITS);
+
+        public static readonly BodyStomachComparer[] BodyCalorieStats = new BodyStomachComparer[]
+        {
+            new BodyStomachComparer()
+            {
+                From = CAL_LIMIT_MIN,
+                To = CAL_RESERVER_MIN,
+                TargetStomachSize = STOMACH_SIZE_FEELINGSICK,
+                MinToReturn = 0
+            },
+            new BodyStomachComparer()
+            {
+                From = CAL_RESERVER_MIN,
+                To = 400f,
+                TargetStomachSize = STOMACH_SIZE_SATISFIED,
+                MinToReturn = 0.15f
+            },
+            new BodyStomachComparer()
+            {
+                From = 400f,
+                To = 800f,
+                TargetStomachSize = STOMACH_SIZE_SATISFIED,
+                MinToReturn = 0.3f
+            },
+            new BodyStomachComparer()
+            {
+                From = 800f,
+                To = 1200f,
+                TargetStomachSize = STOMACH_SIZE_SATISFIED,
+                MinToReturn = 0.45f
+            },
+            new BodyStomachComparer()
+            {
+                From = 1200f,
+                To = 1600f,
+                TargetStomachSize = STOMACH_SIZE_SATISFIED,
+                MinToReturn = 0.6f
+            },
+            new BodyStomachComparer()
+            {
+                From = 1600f,
+                To = CAL_RESERVER_MAX,
+                TargetStomachSize = STOMACH_SIZE_SATISFIED,
+                MinToReturn = 0.75f
+            },
+            new BodyStomachComparer
+            {
+                From = CAL_RESERVER_MAX,
+                To = CAL_LIMIT_MAX + 1,
+                TargetStomachSize = STOMACH_SIZE_NOHUNGRY,
+                MinToReturn = 0.9f
+            }
+        };
+
+        public const float WATER_RESERVE_DEAD = 0.0f;
+        public const float WATER_RESERVE_DEHYDRATING = 0.5f;
+        public const float WATER_RESERVE_THIRSTY = 1.0f;
+        public const float WATER_RESERVE_FULL = 2.0f;
+
+        /// <summary>
+        /// X: Dead, Y: Dehydrating, Z: Thirsty, W: Full
+        /// </summary>
+        public static readonly Vector4 WaterReserveSize = new Vector4(WATER_RESERVE_DEAD, WATER_RESERVE_DEHYDRATING, WATER_RESERVE_THIRSTY, WATER_RESERVE_FULL);
+
+        public static readonly BodyStomachComparer[] BodyWaterStats = new BodyStomachComparer[]
+        {
+            new BodyStomachComparer()
+            {
+                From = WATER_RESERVE_DEAD,
+                To = WATER_RESERVE_DEHYDRATING,
+                TargetStomachSize = STOMACH_SIZE_FEELINGSICK,
+                MinToReturn = 0
+            },
+            new BodyStomachComparer()
+            {
+                From = WATER_RESERVE_DEHYDRATING,
+                To = WATER_RESERVE_THIRSTY,
+                TargetStomachSize = STOMACH_SIZE_SATISFIED,
+                MinToReturn = 0.25f
+            },
+            new BodyStomachComparer()
+            {
+                From = WATER_RESERVE_THIRSTY,
+                To = WATER_RESERVE_FULL + 1,
+                TargetStomachSize = STOMACH_SIZE_NOHUNGRY,
+                MinToReturn = 0.5f
+            }
+        };
 
         /// <summary>
         /// X: Já pode fazer, Y: Precisa fazer, Z: Passando mal, W: Faz na roupa
@@ -20,21 +139,6 @@ namespace ExtendedSurvival.Stats
         /// X: Já pode fazer, Y: Precisa fazer, Z: Passando mal, W: Faz na roupa
         /// </summary>
         public static readonly Vector4 BladderSize = new Vector4(0.15f, 0.3f, 0.4f, 0.5f);
-
-        /// <summary>
-        /// X: Dead, Y: Dehydrating, Z: Thirsty, W: Full
-        /// </summary>
-        public static readonly Vector4 WaterReserveSize = new Vector4(0.0f, 0.5f, 1.0f, 2.0f);
-
-        /// <summary>
-        /// X: Start to lose weight, Y: Starts to gain weight
-        /// </summary>
-        public static readonly SerializableVector2 CaloriesReserveSize = new Vector2(0.0f, 2000.0f);
-
-        /// <summary>
-        /// X: Min, Y: Max
-        /// </summary>
-        public static readonly SerializableVector2 CaloriesLimit = new Vector2(-5000.0f, 5000.0f);
 
         /// <summary>
         /// X: Min, Y: Max
