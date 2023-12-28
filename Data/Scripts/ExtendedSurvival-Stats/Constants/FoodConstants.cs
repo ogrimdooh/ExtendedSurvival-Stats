@@ -304,8 +304,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition APPLE_DEFINITION = new FoodDefinition()
         {
             Id = APPLE_ID,
-            Solid = 0.03f,
-            Liquid = 0.120f,
+            Solid = 0.09f,
+            Liquid = 0.06f,
             Protein = 0.36f,
             Carbohydrate = 19.06f,
             Lipids = 0.24f,
@@ -347,8 +347,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition BROCCOLI_DEFINITION = new FoodDefinition()
         {
             Id = BROCCOLI_ID,
-            Solid = 0.08f,
-            Liquid = 0.320f,
+            Solid = 0.22f,
+            Liquid = 0.08f,
             Protein = 11.2f,
             Carbohydrate = 28f,
             Lipids = 1.6f,
@@ -384,8 +384,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition BEETROOT_DEFINITION = new FoodDefinition()
         {
             Id = BEETROOT_ID,
-            Solid = 0.015f,
-            Liquid = 0.105f,
+            Solid = 0.1f,
+            Liquid = 0.05f,
             Protein = 1.92f,
             Carbohydrate = 11.472f,
             Lipids = 0.204f,
@@ -421,8 +421,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition CAROOT_DEFINITION = new FoodDefinition()
         {
             Id = CAROOT_ID,
-            Solid = 0.015f,
-            Liquid = 0.105f,
+            Solid = 0.1f,
+            Liquid = 0.05f,
             Protein = 1.116f,
             Carbohydrate = 11.52f,
             Lipids = 0.288f,
@@ -458,8 +458,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition SHIITAKE_DEFINITION = new FoodDefinition()
         {
             Id = SHIITAKE_ID,
-            Solid = 0.003f,
-            Liquid = 0.027f,
+            Solid = 0.02f,
+            Liquid = 0.01f,
             Protein = 0.66f,
             Carbohydrate = 2.04f,
             Lipids = 0.15f,
@@ -495,8 +495,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition CHAMPIGNONS_DEFINITION = new FoodDefinition()
         {
             Id = CHAMPIGNONS_ID,
-            Solid = 0.004f,
-            Liquid = 0.016f,
+            Solid = 0.02f,
+            Liquid = 0.01f,
             Protein = 0.618f,
             Carbohydrate = 0.652f,
             Lipids = 0.048f,
@@ -532,8 +532,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition AMANITAMUSCARIA_DEFINITION = new FoodDefinition()
         {
             Id = AMANITAMUSCARIA_ID,
-            Solid = 0.004f,
-            Liquid = 0.016f,
+            Solid = 0.02f,
+            Liquid = 0.01f,
             Protein = 0.218f,
             Carbohydrate = 0.352f,
             Lipids = 0.045f,
@@ -575,8 +575,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition TOMATO_DEFINITION = new FoodDefinition()
         {
             Id = TOMATO_ID,
-            Solid = 0.05f,
-            Liquid = 0.104f,
+            Solid = 0.07f,
+            Liquid = 0.08f,
             Protein = 1.08f,
             Carbohydrate = 4.29f,
             Lipids = 0.24f,
@@ -618,8 +618,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition CEREAL_DEFINITION = new FoodDefinition()
         {
             Id = CEREAL_ID,
-            Solid = 0.83f,
-            Liquid = 0.17f,
+            Solid = 0.9f,
+            Liquid = 0.1f,
             Protein = 150.0f,
             Carbohydrate = 575.0f,
             Lipids = 75.0f,
@@ -640,8 +640,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition WHEATSACK_DEFINITION = new FoodDefinition()
         {
             Id = WHEATSACK_ID,
-            Solid = 0.83f,
-            Liquid = 0.17f,
+            Solid = 0.9f,
+            Liquid = 0.1f,
             Protein = 137.4f,
             Carbohydrate = 752.0f,
             Lipids = 21.0f,
@@ -662,8 +662,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition COFFEESACK_DEFINITION = new FoodDefinition()
         {
             Id = COFFEESACK_ID,
-            Solid = 0.8f,
-            Liquid = 0.2f,
+            Solid = 0.9f,
+            Liquid = 0.1f,
             Protein = 1.0f,
             Carbohydrate = 0.0f,
             Lipids = 0.0f,
@@ -694,8 +694,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition ORGANIC_DEFINITION = new FoodDefinition()
         {
             Id = ItensConstants.SPOILED_MATERIAL_ID,
-            Solid = 0.375f,
-            Liquid = 0.125f,
+            Solid = 0.7f,
+            Liquid = 0.3f,
             Protein = 6.25f,
             Carbohydrate = 27.5f,
             Lipids = 3.75f,
@@ -710,7 +710,7 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition CARBON_DEFINITION = new FoodDefinition()
         {
             Id = ItensConstants.CARBON_INGOT_ID,
-            Solid = 0.5f,
+            Solid = 1.0f,
             Liquid = 0f,
             Protein = 12.5f,
             Carbohydrate = 13.75f,
@@ -726,7 +726,7 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition MILK_DEFINITION = new FoodDefinition()
         {
             Id = MILK_ID,
-            Solid = 0.05f,
+            Solid = 0.15f,
             Liquid = 0.35f,
             Protein = 12.8f,
             Carbohydrate = 19.2f,
@@ -766,8 +766,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition MEAT_DEFINITION = new FoodDefinition()
         {
             Id = MEAT_ID,
-            Solid = 0.025f,
-            Liquid = 0.075f,
+            Solid = 0.075f,
+            Liquid = 0.025f,
             Protein = 26.0f,
             Carbohydrate = 0.0f,
             Lipids = 15.0f,
@@ -803,8 +803,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition ALIENMEAT_DEFINITION = new FoodDefinition()
         {
             Id = ALIEN_MEAT_ID,
-            Solid = 0.025f,
-            Liquid = 0.075f,
+            Solid = 0.075f,
+            Liquid = 0.025f,
             Protein = 28.0f,
             Carbohydrate = 0.0f,
             Lipids = 16.0f,
@@ -840,8 +840,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition CHICKENMEAT_DEFINITION = new FoodDefinition()
         {
             Id = CHICKENMEAT_ID,
-            Solid = 0.04f,
-            Liquid = 0.06f,
+            Solid = 0.075f,
+            Liquid = 0.025f,
             Protein = 27.0f,
             Carbohydrate = 0.0f,
             Lipids = 14.0f,
@@ -877,8 +877,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition BACON_DEFINITION = new FoodDefinition()
         {
             Id = BACON_ID,
-            Solid = 0.03f,
-            Liquid = 0.07f,
+            Solid = 0.075f,
+            Liquid = 0.025f,
             Protein = 37.0f,
             Carbohydrate = 1.4f,
             Lipids = 42.0f,
@@ -914,8 +914,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition NOBLE_MEAT_DEFINITION = new FoodDefinition()
         {
             Id = NOBLE_MEAT_ID,
-            Solid = 0.045f,
-            Liquid = 0.055f,
+            Solid = 0.07f,
+            Liquid = 0.03f,
             Protein = 52.0f,
             Carbohydrate = 0.0f,
             Lipids = 30.0f,
@@ -951,8 +951,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition ALIEN_NOBLE_MEAT_DEFINITION = new FoodDefinition()
         {
             Id = ALIEN_NOBLE_MEAT_ID,
-            Solid = 0.045f,
-            Liquid = 0.055f,
+            Solid = 0.07f,
+            Liquid = 0.03f,
             Protein = 56.0f,
             Carbohydrate = 0.0f,
             Lipids = 32.0f,
@@ -988,8 +988,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition EGG_DEFINITION = new FoodDefinition()
         {
             Id = EGG_ID,
-            Solid = 0.010f,
-            Liquid = 0.050f,
+            Solid = 0.02f,
+            Liquid = 0.03f,
             Protein = 7.8f,
             Carbohydrate = 0.66f,
             Lipids = 6.6f,
@@ -1025,8 +1025,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition ALIEN_EGG_DEFINITION = new FoodDefinition()
         {
             Id = ALIEN_EGG_ID,
-            Solid = 0.015f,
-            Liquid = 0.085f,
+            Solid = 0.02f,
+            Liquid = 0.03f,
             Protein = 13.0f,
             Carbohydrate = 1.1f,
             Lipids = 11.0f,
@@ -1062,8 +1062,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition SHRIMPMEAT_DEFINITION = new FoodDefinition()
         {
             Id = SHRIMPMEAT_ID,
-            Solid = 0.002f,
-            Liquid = 0.008f,
+            Solid = 0.006f,
+            Liquid = 0.004f,
             Protein = 2.4f,
             Carbohydrate = 0.02f,
             Lipids = 0.03f,
@@ -1099,8 +1099,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition FISHMEAT_DEFINITION = new FoodDefinition()
         {
             Id = FISHMEAT_ID,
-            Solid = 0.02f,
-            Liquid = 0.08f,
+            Solid = 0.06f,
+            Liquid = 0.04f,
             Protein = 22.0f,
             Carbohydrate = 0.0f,
             Lipids = 12.0f,
@@ -1136,8 +1136,8 @@ namespace ExtendedSurvival.Stats
         public static readonly FoodDefinition NOBLEFISHMEAT_DEFINITION = new FoodDefinition()
         {
             Id = NOBLEFISHMEAT_ID,
-            Solid = 0.02f,
-            Liquid = 0.08f,
+            Solid = 0.05f,
+            Liquid = 0.05f,
             Protein = 44.0f,
             Carbohydrate = 0.0f,
             Lipids = 24.0f,
@@ -1279,7 +1279,7 @@ namespace ExtendedSurvival.Stats
                 new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ICE_ID,
-                    Ammount = 0.1f
+                    Ammount = 0.125f
                 }
             },
             ProductionTime = 1.28f,
@@ -1320,7 +1320,7 @@ namespace ExtendedSurvival.Stats
                 new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ICE_ID,
-                    Ammount = 0.2f
+                    Ammount = 0.25f
                 }
             },
             ProductionTime = 2.56f,
@@ -1361,7 +1361,7 @@ namespace ExtendedSurvival.Stats
                 new FullRecipeDefinition.RecipeItem()
                 {
                     Id = ItensConstants.ICE_ID,
-                    Ammount = 0.4f
+                    Ammount = 0.5f
                 }
             },
             ProductionTime = 5.12f,
