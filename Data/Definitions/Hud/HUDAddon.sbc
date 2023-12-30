@@ -3805,9 +3805,9 @@
             </BlinkCondition>
             <Blink>
               <ColorMask>
-                <X>1</X>
-                <Y>0.75</Y>
-                <Z>0.75</Z>
+                <X>0.39</X>
+                <Y>1.0</Y>
+                <Z>0.78</Z>
                 <W>1</W>
               </ColorMask>
             </Blink>

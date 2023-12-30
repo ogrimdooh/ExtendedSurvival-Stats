@@ -118,8 +118,6 @@ namespace ExtendedSurvival.Stats
                 MyAPIGateway.Session.SessionSettings.AutoHealing = false; /* Remove auto healing to control at playerentity */
                 MyAPIGateway.Session.SessionSettings.WeatherSystem = true; /* multiple systens use weather */
 
-                ForceWolfAndSpiders();
-
                 MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(NETWORK_ID_DEFINITIONS, ClientDefinitionsUpdateServerMsgHandler);
 
             }
@@ -769,6 +767,17 @@ namespace ExtendedSurvival.Stats
                             },
                             int.MaxValue
                         );
+                        // Check after player consume item
+                        AdvancedStatsAndEffectsAPI.AddAfterPlayerConsume(
+                            (playerId, character, statComponent, itemId) =>
+                            {
+                                if (playerId != 0 && character.IsValidPlayer())
+                                {
+                                    PlayerActionsController.DoProcessItemConsume(playerId, statComponent, new UniqueEntityId(itemId));
+                                }
+                            },
+                            int.MaxValue
+                        );
                     }
                 });
                 APUCoreAPI = new AdvancedPlayerUICoreAPI(() =>
@@ -1143,8 +1152,11 @@ namespace ExtendedSurvival.Stats
         {
             try
             {
-                MyAPIGateway.Session.SessionSettings.EnableSpiders = true;
-                MyAPIGateway.Session.SessionSettings.EnableWolfs = true;
+                if (ExtendedSurvivalSettings.Instance.ForceCreatureSpawn)
+                {
+                    MyAPIGateway.Session.SessionSettings.EnableSpiders = true;
+                    MyAPIGateway.Session.SessionSettings.EnableWolfs = true;
+                }
             }
             catch (Exception ex)
             {

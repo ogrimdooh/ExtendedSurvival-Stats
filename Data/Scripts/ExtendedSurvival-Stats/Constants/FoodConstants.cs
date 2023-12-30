@@ -367,7 +367,7 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
-                { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
+                { StatsConstants.DiseaseEffects.Dysentery, 0.05f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -404,7 +404,7 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
-                { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
+                { StatsConstants.DiseaseEffects.Dysentery, 0.05f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -441,7 +441,7 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(10000, 30000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
-                { StatsConstants.DiseaseEffects.Dysentery, 0.025f }
+                { StatsConstants.DiseaseEffects.Dysentery, 0.05f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -1045,7 +1045,7 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
-                { StatsConstants.DiseaseEffects.Dysentery, 0.35f }
+                { StatsConstants.DiseaseEffects.Dysentery, 0.25f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -2284,7 +2284,7 @@ namespace ExtendedSurvival.Stats
                 Ammount = 1
             },
             RecipeName = "Pasta_Construction",
-            Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
+            Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
             Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
                 new FullRecipeDefinition.RecipeItem()
@@ -2311,7 +2311,7 @@ namespace ExtendedSurvival.Stats
                 Ammount = 1
             },
             RecipeName = "AlienPasta_Construction",
-            Preparation = FoodRecipeDefinition.RecipePreparationType.Mixing,
+            Preparation = FoodRecipeDefinition.RecipePreparationType.Cooking,
             Ingredients = new FullRecipeDefinition.RecipeItem[]
             {
                 new FullRecipeDefinition.RecipeItem()

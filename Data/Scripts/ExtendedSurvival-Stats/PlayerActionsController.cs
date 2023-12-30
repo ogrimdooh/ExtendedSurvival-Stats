@@ -232,7 +232,7 @@ namespace ExtendedSurvival.Stats
 
         public static void DoVomit(long playerId)
         {
-            AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DiseaseEffects.Queasy.ToString(), 0, true);
+            AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DiseaseEffects.Queasy.ToString(), 1, false);
             DoEmptyStomach(playerId);
         }
 
@@ -822,7 +822,8 @@ namespace ExtendedSurvival.Stats
         {
             if (statsEasyAcess[playerId].WoundedTime.Value >= statsEasyAcess[playerId].WoundedTime.MaxValue)
             {
-                AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DiseaseEffects.Infected.ToString(), 0, true);
+                AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DiseaseEffects.Infected.ToString(), 1, false);
+                statsEasyAcess[playerId].WoundedTime.Value = 0;
             }
         }
 
@@ -1450,6 +1451,40 @@ namespace ExtendedSurvival.Stats
                 statsEasyAcess[playerId].StatComponent = statComponent;
         }
 
+        public static void DoProcessItemConsume(long playerId, MyCharacterStatComponent statComponent, UniqueEntityId itemId)
+        {
+            if (FoodConstants.FOOD_DEFINITIONS.ContainsKey(itemId))
+            {
+                RefreshPlayerStatComponent(playerId, statComponent);
+                var statControl = GetStatsEasyAcess(playerId);
+                bool hasVomit = false;
+                if (statControl.CurrentDiseaseEffects.IsFlagSet(StatsConstants.DiseaseEffects.Queasy))
+                {
+                    var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Queasy.ToString());
+                    var chanceToVomit = stack * StatsConstants.CHANCE_TO_VOMIT;
+                    if (CheckChance(chanceToVomit))
+                    {
+                        DoVomit(playerId);
+                        hasVomit = true;
+                    }
+                }
+                if (statControl.CurrentDiseaseEffects.IsFlagSet(StatsConstants.DiseaseEffects.Dysentery))
+                {
+                    var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Dysentery.ToString());
+                    var chanceToVomit = stack * StatsConstants.CHANCE_TO_VOMIT / 2;
+                    var chanceToPoop = stack * StatsConstants.CHANCE_TO_POOP;
+                    if (!hasVomit && CheckChance(chanceToVomit))
+                    {
+                        DoVomit(playerId);
+                    }
+                    if (CheckChance(chanceToPoop))
+                    {
+                        DoShitYourself(playerId);
+                    }
+                }
+            }
+        }
+
         public static void DoPlayerCycle(long playerId, long spendTime, MyCharacterStatComponent statComponent)
         {
             var staminaSpended = StaminaController.GetSpendedStamina(playerId);
@@ -1612,7 +1647,8 @@ namespace ExtendedSurvival.Stats
                     // Disease Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Infected))
                     {
-                        baseValue -= 0.5f;
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Infected.ToString());
+                        baseValue -= 0.25f * stack;
                     }
 
                     break;
@@ -1633,6 +1669,38 @@ namespace ExtendedSurvival.Stats
                     else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones))
                     {
                         baseValue -= 0.8f;
+                    }
+                    // Disease Effects
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Infected))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Infected.ToString());
+                        baseValue -= 0.05f * stack;
+                    }
+
+                    break;
+                case HealthController.HealthValueModifier.MaxHealth:
+                    // Damage Effects
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.Contusion))
+                    {
+                        baseValue -= 0.15f;
+                    }
+                    else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.Wounded))
+                    {
+                        baseValue -= 0.3f;
+                    }
+                    else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded))
+                    {
+                        baseValue -= 0.45f;
+                    }
+                    else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones))
+                    {
+                        baseValue -= 0.6f;
+                    }
+                    // Disease Effects
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Infected))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Infected.ToString());
+                        baseValue -= 0.05f * stack;
                     }
 
                     break;
@@ -1711,11 +1779,13 @@ namespace ExtendedSurvival.Stats
                             // Disease Effects
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Queasy))
                             {
-                                baseValue += 0.15f;
+                                var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Queasy.ToString());
+                                baseValue += 0.15f * stack;
                             }
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dysentery))
                             {
-                                baseValue += 0.3f;
+                                var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Dysentery.ToString());
+                                baseValue += 0.3f * stack;
                             }
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
                             {
@@ -1806,7 +1876,8 @@ namespace ExtendedSurvival.Stats
                             }
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Infected))
                             {
-                                baseValue -= 0.25f;
+                                var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Infected.ToString());
+                                baseValue -= 0.15f * stack;
                             }
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Obesity))
                             {
@@ -1875,11 +1946,13 @@ namespace ExtendedSurvival.Stats
                             // Disease Effects
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Queasy))
                             {
-                                baseValue += 0.25f;
+                                var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Queasy.ToString());
+                                baseValue += 0.25f * stack;
                             }
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dysentery))
                             {
-                                baseValue += 0.5f;
+                                var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Dysentery.ToString());
+                                baseValue += 0.5f * stack;
                             }
                             if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Hypolipidemia))
                             {
@@ -1938,6 +2011,16 @@ namespace ExtendedSurvival.Stats
                         baseValue += 0.25f;
                     }
                     // Disease Effects
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Queasy))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Queasy.ToString());
+                        baseValue += 0.075f * stack;
+                    }
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dysentery))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Dysentery.ToString());
+                        baseValue += 0.075f * stack;
+                    }
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dehydration))
                     {
                         baseValue += 0.15f;
@@ -1967,6 +2050,16 @@ namespace ExtendedSurvival.Stats
                         baseValue += 0.25f;
                     }
                     // Disease Effects
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Queasy))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Queasy.ToString());
+                        baseValue += 0.075f * stack;
+                    }
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dysentery))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Dysentery.ToString());
+                        baseValue += 0.075f * stack;
+                    }
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
                     {
                         baseValue += 0.15f;
@@ -2016,6 +2109,16 @@ namespace ExtendedSurvival.Stats
                         baseValue += 0.25f;
                     }
                     // Disease Effects
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Queasy))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Queasy.ToString());
+                        baseValue += 0.075f * stack;
+                    }
+                    if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Dysentery))
+                    {
+                        var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Dysentery.ToString());
+                        baseValue += 0.075f * stack;
+                    }
                     if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Starvation))
                     {
                         baseValue += 0.16f;
@@ -2158,15 +2261,21 @@ namespace ExtendedSurvival.Stats
             var maxDamage = (StatsConstants.DamageEffects)StatsConstants.GetMaxSetFlagValue(statsEasyAcess[playerId].CurrentDamageEffects);
             var finalRegen = StatsConstants.BASE_HEALTH_REGEN_FACTOR;
             var maxRegen = 1f;
+            var maxValue = statComponent.Health.MaxValue;
             if (maxDamage != StatsConstants.DamageEffects.None)
             {
                 finalRegen *= NegativeStatsMultiplier(playerId, HealthController.HealthValueModifier.RegenerationFactor);
                 maxRegen = NegativeStatsMultiplier(playerId, HealthController.HealthValueModifier.MaximumRegenerationHealth);
+                maxValue *= NegativeStatsMultiplier(playerId, HealthController.HealthValueModifier.MaxHealth);
             }
             var currentStatusValue = statComponent.Health.Value / statComponent.Health.MaxValue;
             if (currentStatusValue < maxRegen)
             {
                 statComponent.Health.Increase(finalRegen, null);
+            }
+            if (statComponent.Health.Value > maxValue)
+            {
+                statComponent.Health.Value = maxValue;
             }
         }
 

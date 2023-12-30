@@ -7,7 +7,8 @@
         {
 
             RegenerationFactor = 0,
-            MaximumRegenerationHealth = 1
+            MaximumRegenerationHealth = 1,
+            MaxHealth = 2
 
         }
 

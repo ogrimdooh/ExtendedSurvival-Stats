@@ -14,7 +14,7 @@ namespace ExtendedSurvival.Stats
                 "HotThermalFluid",
                 "EnergyShield", 
                 "IntoxicationTime",
-                "BodyProtein",
+                "WoundedTime",
                 "BodyCarbohydrate",
                 "BodyLipids",
                 "BodyVitamins",
@@ -41,6 +41,7 @@ namespace ExtendedSurvival.Stats
                         case 3:
                             return false; // IsWithHelmet() && Stats[index] != null && Stats[index].Value > 0 && GetBodyTrackerLevel() >= 3;
                         case 4:
+                            return Stats[index] != null && Stats[index].Value > 0;
                         case 5:
                         case 6:
                         case 7:

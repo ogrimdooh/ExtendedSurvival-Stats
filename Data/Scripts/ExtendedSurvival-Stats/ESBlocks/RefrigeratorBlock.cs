@@ -119,7 +119,10 @@ namespace ExtendedSurvival.Stats
                     };
                     foreach (var item in FoodConstants.FOOD_DEFINITIONS.Keys)
                     {
-                        definition.InputConstraint.Add(item.DefinitionId);
+                        if (FoodConstants.FOOD_DEFINITIONS[item].NeedConservation)
+                        {
+                            definition.InputConstraint.Add(item.DefinitionId);
+                        }
                     }
                     foreach (var item in LivestockConstants.DEAD_ANIMALS_IDS)
                     {

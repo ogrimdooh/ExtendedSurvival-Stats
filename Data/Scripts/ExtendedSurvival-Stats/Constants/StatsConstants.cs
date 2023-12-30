@@ -27,6 +27,9 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public const float CHANCE_TO_VOMIT = 0.1f;
+        public const float CHANCE_TO_POOP = 0.05f;
+
         public const int POISON_DAMAGE = 5;
         public const int TEMPERATURE_DAMAGE = 1;
 
@@ -633,14 +636,40 @@ namespace ExtendedSurvival.Stats
         
         public static bool CanDiseaseEffectStack(DiseaseEffects effect)
         {
-            return effect == DiseaseEffects.Poison;
+            switch (effect)
+            {
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Poison:
+                case DiseaseEffects.Infected:
+                case DiseaseEffects.Queasy:
+                    return true;
+                case DiseaseEffects.None:
+                case DiseaseEffects.Pneumonia:
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
+                case DiseaseEffects.Starvation:
+                case DiseaseEffects.SevereStarvation:
+                case DiseaseEffects.Dehydration:
+                case DiseaseEffects.SevereDehydration:
+                case DiseaseEffects.Obesity:
+                case DiseaseEffects.SevereObesity:
+                case DiseaseEffects.Rickets:
+                case DiseaseEffects.SevereRickets:
+                case DiseaseEffects.Hypolipidemia:
+                case DiseaseEffects.Flu:
+                default:
+                    return false;
+            }
         }
 
         public static byte GetDiseaseEffectMaxStack(DiseaseEffects effect)
         {
             switch (effect)
             {
+                case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Poison:
+                case DiseaseEffects.Infected:
+                case DiseaseEffects.Queasy:
                     return 5;
                 default:
                     return 0;
@@ -670,16 +699,17 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case DiseaseEffects.Poison:
-                    return 30 * 1000; /* 30 segundos */
+                    return 60 * 1000; /* 60 segundos */
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
+                    return 30 * 60 * 1000; /* 30 minutos */
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Queasy:
-                    return 5 * 60 * 1000; /* 5 minutos */
+                    return 60 * 60 * 1000; /* 60 minutos */
                 case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Flu:
                 case DiseaseEffects.Infected:
-                    return 10 * 60 * 1000; /* 10 minutos */
+                    return 120 * 60 * 1000; /* 120 minutos */
                 default:
                     return 0;
             }
@@ -689,10 +719,8 @@ namespace ExtendedSurvival.Stats
         {
             switch (effect)
             {
-                case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Flu:
-                case DiseaseEffects.Queasy:
-                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Infected:
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
@@ -707,6 +735,8 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case DiseaseEffects.Poison:
+                case DiseaseEffects.Queasy:
+                case DiseaseEffects.Dysentery:
                     return 1;
                 default:
                     return 0;
