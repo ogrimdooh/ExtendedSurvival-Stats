@@ -2516,6 +2516,14 @@ namespace ExtendedSurvival.Stats
 				"Чрезмерно усталый"
 			);
 			AddEntry(
+				LanguageEntries.SURVIVALEFFECTS_STOMACHGROWLING_NAME,
+				"завершение пищеварения"
+			);
+			AddEntry(
+				LanguageEntries.SURVIVALEFFECTS_EMPTYSTOMACH_NAME,
+				"Пустой желудок"
+			);
+			AddEntry(
 				LanguageEntries.FEELING_LEVEL0_NAME,
 				"Я чувствую себя хорошо и здорово."
 			);
@@ -2742,6 +2750,14 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.ENERGYSHIELD_NAME,
 				"Энергетический щит"
+			);
+			AddEntry(
+				LanguageEntries.BODYMUSCLESWEIGHT_NAME,
+				"Мышечный вес"
+			);
+			AddEntry(
+				LanguageEntries.BODYFATWEIGHT_NAME,
+				"Жирный вес"
 			);
 			#endregion
 			#region Weather

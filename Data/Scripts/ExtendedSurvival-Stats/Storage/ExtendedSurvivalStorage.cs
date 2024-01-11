@@ -11,8 +11,11 @@ namespace ExtendedSurvival.Stats
     public class ExtendedSurvivalStorage : BaseSettings
     {
 
+        private const bool USE_JSON_TO_SAVE = false;
+
         private const int CURRENT_VERSION = 1;
         private const string FILE_NAME = "ExtendedSurvival.Stats.Storage.xml";
+        private const string JSON_FILE_NAME = "ExtendedSurvival.Stats.Storage.json";
 
         private static ExtendedSurvivalStorage _instance;
         public static ExtendedSurvivalStorage Instance
@@ -39,7 +42,9 @@ namespace ExtendedSurvival.Stats
 
         public static ExtendedSurvivalStorage Load()
         {
-            _instance = Load(FILE_NAME, CURRENT_VERSION, Validate, () => { return new ExtendedSurvivalStorage(); }, Upgrade);
+            _instance = Load(JSON_FILE_NAME, CURRENT_VERSION, Validate, () => { return new ExtendedSurvivalStorage(); }, Upgrade, true, false);
+            if (_instance == null)
+                _instance = Load(FILE_NAME, CURRENT_VERSION, Validate, () => { return new ExtendedSurvivalStorage(); }, Upgrade);
             return _instance;
         }
 
@@ -47,7 +52,7 @@ namespace ExtendedSurvival.Stats
         {
             try
             {
-                Save(Instance, FILE_NAME, true);
+                Save<ExtendedSurvivalStorage>(Instance, USE_JSON_TO_SAVE ? JSON_FILE_NAME : FILE_NAME, true, USE_JSON_TO_SAVE);
             }
             catch (Exception ex)
             {

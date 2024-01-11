@@ -27,6 +27,11 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        static StatsConstants()
+        {
+            HelpController.AddLoadAction(BuildHelpTopics);
+        }
+
         public const float CHANCE_TO_VOMIT = 0.1f;
         public const float CHANCE_TO_POOP = 0.05f;
 
@@ -211,7 +216,9 @@ namespace ExtendedSurvival.Stats
             FullBladder = 1 << 11,
             BladderBurst = 1 << 12,
             Tired = 1 << 13,
-            ExtremelyTired = 1 << 14
+            ExtremelyTired = 1 << 14,
+            StomachGrowling = 1 << 15,
+            EmptyStomach = 1 << 16
 
         }
 
@@ -538,6 +545,74 @@ namespace ExtendedSurvival.Stats
             return "";
         }
 
+        public static string GetValidStatsHelpInfo(ValidStats stat)
+        {
+            switch (stat)
+            {
+                case ValidStats.Hunger:
+                    return LanguageProvider.GetEntry(LanguageEntries.HUNGER_DESCRIPTION);
+                case ValidStats.Thirst:
+                    return LanguageProvider.GetEntry(LanguageEntries.THIRST_DESCRIPTION);
+                case ValidStats.Stamina:
+                    return LanguageProvider.GetEntry(LanguageEntries.STAMINA_DESCRIPTION);
+                case ValidStats.Fatigue:
+                    return LanguageProvider.GetEntry(LanguageEntries.FATIGUE_DESCRIPTION);
+                case ValidStats.WoundedTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.WOUNDEDTIME_DESCRIPTION);
+                case ValidStats.BodyEnergy:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYENERGY_DESCRIPTION);
+                case ValidStats.BodyWater:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYWATER_DESCRIPTION);
+                case ValidStats.BodyPerformance:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYPERFORMANCE_DESCRIPTION);
+                case ValidStats.BodyImmune:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYIMMUNE_DESCRIPTION);
+                case ValidStats.Stomach:
+                    return LanguageProvider.GetEntry(LanguageEntries.STOMACH_DESCRIPTION);
+                case ValidStats.Intestine:
+                    return LanguageProvider.GetEntry(LanguageEntries.INTESTINE_DESCRIPTION);
+                case ValidStats.Bladder:
+                    return LanguageProvider.GetEntry(LanguageEntries.BLADDER_DESCRIPTION);
+                case ValidStats.BodyWeight:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYWEIGHT_DESCRIPTION);
+                case ValidStats.BodyMuscles:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYMUSCLES_DESCRIPTION);
+                case ValidStats.BodyFat:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYFAT_DESCRIPTION);
+                case ValidStats.BodyMusclesWeight:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYMUSCLESWEIGHT_DESCRIPTION);
+                case ValidStats.BodyFatWeight:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYFATWEIGHT_DESCRIPTION);
+                case ValidStats.FoodDetector:
+                    return LanguageProvider.GetEntry(LanguageEntries.FOODDETECTOR_DESCRIPTION);
+                case ValidStats.MedicalDetector:
+                    return LanguageProvider.GetEntry(LanguageEntries.MEDICALDETECTOR_DESCRIPTION);
+                case ValidStats.BodyCalories:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYCALORIES_DESCRIPTION);
+                case ValidStats.BodyProtein:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYPROTEIN_DESCRIPTION);
+                case ValidStats.BodyCarbohydrate:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYCARBOHYDRATE_DESCRIPTION);
+                case ValidStats.BodyLipids:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYLIPIDS_DESCRIPTION);
+                case ValidStats.BodyMinerals:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYMINERALS_DESCRIPTION);
+                case ValidStats.BodyVitamins:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYVITAMINS_DESCRIPTION);
+                case ValidStats.IntoxicationTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.INTOXICATIONTIME_DESCRIPTION);
+                case ValidStats.RadiationTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.RADIATIONTIME_DESCRIPTION);
+                case ValidStats.HotThermalFluid:
+                    return LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALFLUID_DESCRIPTION);
+                case ValidStats.ColdThermalFluid:
+                    return LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALFLUID_DESCRIPTION);
+                case ValidStats.EnergyShield:
+                    return LanguageProvider.GetEntry(LanguageEntries.ENERGYSHIELD_DESCRIPTION);
+            }
+            return "";
+        }
+
         public static string GetValidStatsDescription(ValidStats stat)
         {
             switch (stat)
@@ -572,12 +647,36 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.BODYMUSCLES_NAME);
                 case ValidStats.BodyFat:
                     return LanguageProvider.GetEntry(LanguageEntries.BODYFAT_NAME);
+                case ValidStats.BodyMusclesWeight:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYMUSCLESWEIGHT_NAME);
+                case ValidStats.BodyFatWeight:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYFATWEIGHT_NAME);
                 case ValidStats.FoodDetector:
                     return LanguageProvider.GetEntry(LanguageEntries.FOODDETECTOR_NAME);
                 case ValidStats.MedicalDetector:
                     return LanguageProvider.GetEntry(LanguageEntries.MEDICALDETECTOR_NAME);
                 case ValidStats.BodyCalories:
                     return LanguageProvider.GetEntry(LanguageEntries.BODYCALORIES_NAME);
+                case ValidStats.BodyProtein:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYPROTEIN_NAME);
+                case ValidStats.BodyCarbohydrate:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYCARBOHYDRATE_NAME);
+                case ValidStats.BodyLipids:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYLIPIDS_NAME);
+                case ValidStats.BodyMinerals:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYMINERALS_NAME);
+                case ValidStats.BodyVitamins:
+                    return LanguageProvider.GetEntry(LanguageEntries.BODYVITAMINS_NAME);
+                case ValidStats.IntoxicationTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.INTOXICATIONTIME_NAME);
+                case ValidStats.RadiationTime:
+                    return LanguageProvider.GetEntry(LanguageEntries.RADIATIONTIME_NAME);
+                case ValidStats.HotThermalFluid:
+                    return LanguageProvider.GetEntry(LanguageEntries.HOTTHERMALFLUID_NAME);
+                case ValidStats.ColdThermalFluid:
+                    return LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALFLUID_NAME);
+                case ValidStats.EnergyShield:
+                    return LanguageProvider.GetEntry(LanguageEntries.ENERGYSHIELD_NAME);
             }
             return "";
         }
@@ -899,6 +998,34 @@ namespace ExtendedSurvival.Stats
             return 0;
         }
 
+        public static int GetSurvivalEffectMaxInverseTime(SurvivalEffects effect)
+        {
+            if (effect == SurvivalEffects.EmptyStomach)
+                return 5 * 60 * 1000;
+            return 0;
+        }
+
+        public static bool GetSurvivalEffectIsInverseTime(SurvivalEffects effect)
+        {
+            if (effect == SurvivalEffects.EmptyStomach)
+                return true;
+            return false;
+        }
+
+        public static bool GetSurvivalEffectCanStack(SurvivalEffects effect)
+        {
+            if (effect == SurvivalEffects.EmptyStomach)
+                return true;
+            return false;
+        }
+
+        public static byte GetSurvivalEffectMaxStacks(SurvivalEffects effect)
+        {
+            if (effect == SurvivalEffects.EmptyStomach)
+                return 5;
+            return 0;
+        }
+
         public static string GetSurvivalEffectDescription(SurvivalEffects effect)
         {
             switch (effect)
@@ -931,6 +1058,10 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_TIRED_NAME);
                 case SurvivalEffects.ExtremelyTired:
                     return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_EXTREMELYTIRED_NAME);
+                case SurvivalEffects.StomachGrowling:
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_STOMACHGROWLING_NAME);
+                case SurvivalEffects.EmptyStomach:
+                    return LanguageProvider.GetEntry(LanguageEntries.SURVIVALEFFECTS_EMPTYSTOMACH_NAME);
             }
             return "";
         }
@@ -953,6 +1084,8 @@ namespace ExtendedSurvival.Stats
                 case SurvivalEffects.BladderBurst:
                 case SurvivalEffects.Tired:
                 case SurvivalEffects.ExtremelyTired:
+                case SurvivalEffects.StomachGrowling:
+                case SurvivalEffects.EmptyStomach:
                     return 0;
             }
             return 0;
@@ -969,6 +1102,7 @@ namespace ExtendedSurvival.Stats
                 case SurvivalEffects.FullBladder:
                 case SurvivalEffects.FullGut:
                 case SurvivalEffects.FullStomach:
+                case SurvivalEffects.StomachGrowling:
                     return 1;
                 case SurvivalEffects.Famished:
                 case SurvivalEffects.Dehydrating:
@@ -977,6 +1111,7 @@ namespace ExtendedSurvival.Stats
                 case SurvivalEffects.BladderBurst:
                 case SurvivalEffects.GutBurst:
                 case SurvivalEffects.StomachBursting:
+                case SurvivalEffects.EmptyStomach:
                     return 2;
             }
             return 0;
@@ -1016,6 +1151,55 @@ namespace ExtendedSurvival.Stats
             int value = (int)Convert.ChangeType(flags, typeof(int));
             IEnumerable<int> setValues = Enum.GetValues(flags.GetType()).Cast<int>().Where(f => (f & value) == f);
             return setValues.Any() ? setValues.Max() : 0;
+        }
+
+        public static readonly string BASE_TOPIC_ID = HelpController.BASE_TOPIC_TYPE + "." + HelpController.HELP_SYSTEM_TOPIC_SUBTYPE;
+        public static readonly string HELP_TOPIC_PLAYERSTATS = "PlayerStats";
+        public static readonly string HELP_TOPIC_ATTRIBUTES = "Attributes";
+
+        public static void BuildHelpTopics()
+        {
+            /* Added Start System Page */
+            var playerStatsId = new UniqueNameId(BASE_TOPIC_ID, HELP_TOPIC_PLAYERSTATS);
+            HelpController.AddEntry(
+                HelpController.HelpSystemTopicId,
+                playerStatsId,
+                LanguageProvider.GetEntry(LanguageEntries.HELP_TOPIC_PLAYERSTATS_TITLE),
+                1
+            );
+            HelpController.AddPage(
+                HelpController.HelpSystemTopicId,
+                playerStatsId,
+                LanguageProvider.GetEntry(LanguageEntries.HELP_TOPIC_PLAYERSTATS_DESCRIPTION)
+            );
+            /* Added Attribute Entry */
+            var attributesId = new UniqueNameId(BASE_TOPIC_ID, HELP_TOPIC_ATTRIBUTES);
+            HelpController.AddEntry(
+                HelpController.HelpSystemTopicId,
+                attributesId,
+                LanguageProvider.GetEntry(LanguageEntries.HELP_TOPIC_ATTRIBUTES_TITLE),
+                2
+            );
+            HelpController.AddPage(
+                HelpController.HelpSystemTopicId,
+                attributesId,
+                LanguageProvider.GetEntry(LanguageEntries.HELP_TOPIC_ATTRIBUTES_DESCRIPTION)
+            );
+            foreach (ValidStats item in Enum.GetValues(typeof(ValidStats)).Cast<ValidStats>())
+            {
+                var itemId = new UniqueNameId(BASE_TOPIC_ID + "." + HELP_TOPIC_ATTRIBUTES, item.ToString());
+                HelpController.AddEntry(
+                    HelpController.HelpSystemTopicId,
+                    itemId,
+                    GetValidStatsDescription(item),
+                    3
+                );
+                HelpController.AddPage(
+                    HelpController.HelpSystemTopicId,
+                    itemId,
+                    GetValidStatsHelpInfo(item)
+                );
+            }
         }
 
     }

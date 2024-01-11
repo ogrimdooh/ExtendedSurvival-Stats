@@ -900,14 +900,14 @@ namespace ExtendedSurvival.Stats
         private static void CheckStomach(long playerId)
         {
             var percent = statsEasyAcess[playerId].Stomach.Value / statsEasyAcess[playerId].Stomach.MaxValue;
-            var needToCheckStarvation = true;
+            var needToCheckStomach = true;
             if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.StomachBursting))
             {
                 if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullStomach))
                 {
                     if (percent >= 0.9f)
                     {
-                        needToCheckStarvation = false;
+                        needToCheckStomach = false;
                         AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.SurvivalEffects.FullStomach.ToString(), 0, true);
                         AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.SurvivalEffects.StomachBursting.ToString(), 0, true);
                     }
@@ -915,20 +915,21 @@ namespace ExtendedSurvival.Stats
             }
             else
             {
-                needToCheckStarvation = false;
+                needToCheckStomach = false;
                 if (percent < 0.9f)
                 {
                     AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.SurvivalEffects.StomachBursting.ToString(), 0, true);
-                    needToCheckStarvation = true;
+                    needToCheckStomach = true;
                 }
             }
-            if (needToCheckStarvation)
+            if (needToCheckStomach)
             {
                 if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.FullStomach))
                 {
                     if (percent >= 0.75f)
                     {
                         AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.SurvivalEffects.FullStomach.ToString(), 0, true);
+                        needToCheckStomach = false;
                     }
                 }
                 else
@@ -936,6 +937,57 @@ namespace ExtendedSurvival.Stats
                     if (percent < 0.75f)
                     {
                         AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.SurvivalEffects.FullStomach.ToString(), 0, true);
+                        needToCheckStomach = true;
+                    }
+                }
+                if (needToCheckStomach)
+                {
+                    if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.EmptyStomach))
+                    {
+                        if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.StomachGrowling))
+                        {
+                            if (percent <= 0.05f)
+                            {
+                                needToCheckStomach = false;
+                                AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.SurvivalEffects.StomachGrowling.ToString(), 0, true);
+                                AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.SurvivalEffects.EmptyStomach.ToString(), 1, false);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        needToCheckStomach = false;
+                        if (percent > 0.05f)
+                        {
+                            AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.SurvivalEffects.EmptyStomach.ToString(), 0, true);
+                            needToCheckStomach = true;
+                        }
+                        else
+                        {
+                            var emptyStomach = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.SurvivalEffects.EmptyStomach.ToString());
+                            if (emptyStomach >= StatsConstants.GetSurvivalEffectMaxInverseTime(StatsConstants.SurvivalEffects.EmptyStomach))
+                            {
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, StatsConstants.SurvivalEffects.EmptyStomach.ToString(), 0);
+                                AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.SurvivalEffects.EmptyStomach.ToString(), 1, false);
+                            }
+                        }
+                    }
+                    if (needToCheckStomach)
+                    {
+                        if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentSurvivalEffects, StatsConstants.SurvivalEffects.StomachGrowling))
+                        {
+                            if (percent <= 0.15f)
+                            {
+                                AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.SurvivalEffects.StomachGrowling.ToString(), 0, true);
+                            }
+                        }
+                        else
+                        {
+                            if (percent > 0.15f)
+                            {
+                                AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.SurvivalEffects.StomachGrowling.ToString(), 0, true);
+                            }
+                        }
                     }
                 }
             }
@@ -2177,24 +2229,41 @@ namespace ExtendedSurvival.Stats
             statsEasyAcess[playerId].BodyVitamins.Value -= _vitaminsToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.VitaminsConsumeMultiplier / mSpeed;
         }
 
-        private static float GetCurrentHungerAmmount(float CaloriesAmmount, float CurrentStomachVolume)
+        private static float GetTargetStomachSize(long playerId, float baseValue, ref float baseMinToReturn, float maxValue = 1f)
+        {
+            var stack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.SurvivalEffects.EmptyStomach.ToString());
+            if (stack > 0)
+            {
+                var increase = (maxValue - baseValue) / StatsConstants.GetSurvivalEffectMaxStacks(StatsConstants.SurvivalEffects.EmptyStomach);
+                var increaseMinToReturn = baseMinToReturn / StatsConstants.GetSurvivalEffectMaxStacks(StatsConstants.SurvivalEffects.EmptyStomach);
+                baseMinToReturn -= increaseMinToReturn * stack;
+                return baseValue + (increase * stack);
+            }
+            return baseValue;
+        }
+
+        private static float GetCurrentHungerAmmount(long playerId, float CaloriesAmmount, float CurrentStomachVolume)
         {
             var cal = Math.Max(Math.Min(CaloriesAmmount, PlayerBodyConstants.CAL_LIMIT_MAX), PlayerBodyConstants.CAL_LIMIT_MIN);
             var target = PlayerBodyConstants.BodyCalorieStats.FirstOrDefault(x => cal >= x.From && cal < x.To);
-            if (CurrentStomachVolume >= target.TargetStomachSize)
+            var minToReturn = target.MinToReturn;
+            var targetStomachSize = GetTargetStomachSize(playerId, target.TargetStomachSize, ref minToReturn);
+            if (CurrentStomachVolume >= targetStomachSize)
                 return 1.0f;
-            var finalValue = CurrentStomachVolume / target.TargetStomachSize;
-            return target.MinToReturn > 0 ? Math.Max(finalValue, target.MinToReturn) : finalValue;
+            var finalValue = CurrentStomachVolume / targetStomachSize;
+            return minToReturn > 0 ? Math.Max(finalValue, minToReturn) : finalValue;
         }
 
-        private static float GetCurrentThirstAmmount(float WaterAmmount, float CurrentStomachLiquid)
+        private static float GetCurrentThirstAmmount(long playerId, float WaterAmmount, float CurrentStomachLiquid)
         {
             var water = Math.Max(Math.Min(WaterAmmount, PlayerBodyConstants.WATER_RESERVE_DEAD), PlayerBodyConstants.WATER_RESERVE_FULL);
             var target = PlayerBodyConstants.BodyWaterStats.FirstOrDefault(x => water >= x.From && water < x.To);
-            if (CurrentStomachLiquid >= target.TargetStomachSize)
+            var minToReturn = target.MinToReturn;
+            var targetStomachSize = GetTargetStomachSize(playerId, target.TargetStomachSize, ref minToReturn, 0.75f);
+            if (CurrentStomachLiquid >= targetStomachSize)
                 return 1.0f;
-            var finalValue = CurrentStomachLiquid / target.TargetStomachSize;
-            return target.MinToReturn > 0 ? Math.Max(finalValue, target.MinToReturn) : finalValue;
+            var finalValue = CurrentStomachLiquid / targetStomachSize;
+            return minToReturn > 0 ? Math.Max(finalValue, minToReturn) : finalValue;
         }
 
         private static float GetCurrentBodyEnergy(float CaloriesAmmount)
@@ -2211,8 +2280,8 @@ namespace ExtendedSurvival.Stats
             var solid = AdvancedStatsAndEffectsAPI.GetRemainOverTimeConsumable(playerId, StatsConstants.VirtualStats.Solid.ToString());
             var liquid = AdvancedStatsAndEffectsAPI.GetRemainOverTimeConsumable(playerId, StatsConstants.VirtualStats.Liquid.ToString());
             statsEasyAcess[playerId].Stomach.Value = solid + liquid;
-            statsEasyAcess[playerId].Hunger.Value = GetCurrentHungerAmmount(statsEasyAcess[playerId].BodyCalories.Value, statsEasyAcess[playerId].Stomach.Value) * statsEasyAcess[playerId].Hunger.MaxValue;
-            statsEasyAcess[playerId].Thirst.Value = GetCurrentThirstAmmount(statsEasyAcess[playerId].BodyWater.Value, liquid) * statsEasyAcess[playerId].Thirst.MaxValue;
+            statsEasyAcess[playerId].Hunger.Value = GetCurrentHungerAmmount(playerId, statsEasyAcess[playerId].BodyCalories.Value, statsEasyAcess[playerId].Stomach.Value) * statsEasyAcess[playerId].Hunger.MaxValue;
+            statsEasyAcess[playerId].Thirst.Value = GetCurrentThirstAmmount(playerId, statsEasyAcess[playerId].BodyWater.Value, liquid) * statsEasyAcess[playerId].Thirst.MaxValue;
             statsEasyAcess[playerId].BodyEnergy.Value = GetCurrentBodyEnergy(statsEasyAcess[playerId].BodyCalories.Value) * statsEasyAcess[playerId].BodyEnergy.MaxValue;
         }
 

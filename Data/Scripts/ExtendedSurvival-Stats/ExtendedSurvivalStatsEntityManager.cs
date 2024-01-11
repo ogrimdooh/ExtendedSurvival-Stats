@@ -31,7 +31,7 @@ namespace ExtendedSurvival.Stats
         {
             if (MyAPIGateway.Session.IsServer)
             {
-                MyVisualScriptLogicProvider.PlayerHealthRecharging = (playerId, blockType, value) => {
+                MyVisualScriptLogicProvider.PlayerHealthRecharging += (playerId, blockType, value) => {
                     var playerList = new List<IMyPlayer>();
                     MyAPIGateway.Players.GetPlayers(playerList, (player) => { return player.IdentityId == playerId; });
                     if (playerList.Any())

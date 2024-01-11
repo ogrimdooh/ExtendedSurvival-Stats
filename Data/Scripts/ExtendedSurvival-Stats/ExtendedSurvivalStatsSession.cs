@@ -86,14 +86,11 @@ namespace ExtendedSurvival.Stats
 
             if (!IsDedicated)
             {
-                MyAPIGateway.Utilities.MessageEntered += OnMessageEntered;
                 MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(NETWORK_ID_STATSSYSTEM, ClientUpdateMsgHandler);
             }
 
             if (IsServer)
             {
-
-                MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(NETWORK_ID_COMMANDS, CommandsMsgHandler);
 
                 MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(int.MaxValue, (object entity, ref MyDamageInformation damage) =>
                 {
@@ -135,17 +132,6 @@ namespace ExtendedSurvival.Stats
             }
 
         }
-
-        private const string SETTINGS_COMMAND = "settings";
-        private const string SETTINGS_COMMAND_FOOD_CLEAR_VOLUME = "food.clearvolume";
-        private const string SETTINGS_COMMAND_FOOD_SET_VOLUME = "food.setvolume";
-
-        private static readonly Dictionary<string, KeyValuePair<int, bool>> VALID_COMMANDS = new Dictionary<string, KeyValuePair<int, bool>>()
-        {
-            { SETTINGS_COMMAND, new KeyValuePair<int, bool>(3, false) },
-            { SETTINGS_COMMAND_FOOD_CLEAR_VOLUME, new KeyValuePair<int, bool>(2, false) },
-            { SETTINGS_COMMAND_FOOD_SET_VOLUME, new KeyValuePair<int, bool>(3, false) }
-        };
 
         private void ClientUpdateMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
         {
@@ -193,100 +179,6 @@ namespace ExtendedSurvival.Stats
                 ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
 
-        }
-
-        private bool DoCommand_Settings(string name, string value)
-        {
-            return ExtendedSurvivalSettings.Instance.SetConfigValue(name, value);
-        }
-
-        private void DoCommand_ClearFoodVolume(string name)
-        {
-            var key = FoodConstants.FOOD_DEFINITIONS.Keys.FirstOrDefault(x => x.subtypeId.String.ToLower() == name.ToLower());
-            if (key != null)
-            {
-                ExtendedSurvivalSettings.Instance.ClearFoodVolume(key);
-            }
-        }
-
-        private void DoCommand_SetFoodVolume(string name, string value)
-        {
-            var key = FoodConstants.FOOD_DEFINITIONS.Keys.FirstOrDefault(x => x.subtypeId.String.ToLower() == name.ToLower());
-            if (key != null)
-            {
-                float multiplier;
-                if (float.TryParse(value, out multiplier))
-                {
-                    ExtendedSurvivalSettings.Instance.SetFoodVolume(key, multiplier);
-                }                
-            }
-        }
-
-        private void CommandsMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
-        {
-            try
-            {
-                var message = Encoding.Unicode.GetString(data);
-                var mCommandData = MyAPIGateway.Utilities.SerializeFromXML<Command>(message);
-                if (MyAPIGateway.Session.IsUserAdmin(steamId))
-                {
-                    if (VALID_COMMANDS.ContainsKey(mCommandData.content[0]))
-                    {
-                        if ((!VALID_COMMANDS[mCommandData.content[0]].Value && mCommandData.content.Length == VALID_COMMANDS[mCommandData.content[0]].Key) ||
-                            (VALID_COMMANDS[mCommandData.content[0]].Value && mCommandData.content.Length >= VALID_COMMANDS[mCommandData.content[0]].Key))
-                        {
-                            switch (mCommandData.content[0])
-                            {
-                                case SETTINGS_COMMAND:
-                                    DoCommand_Settings(
-                                        mCommandData.content[1], 
-                                        mCommandData.content[2]
-                                    );
-                                    break;
-                                case SETTINGS_COMMAND_FOOD_CLEAR_VOLUME:
-                                    DoCommand_ClearFoodVolume(
-                                        mCommandData.content[1]
-                                    );
-                                    break;
-                                case SETTINGS_COMMAND_FOOD_SET_VOLUME:
-                                    DoCommand_SetFoodVolume(
-                                        mCommandData.content[1],
-                                        mCommandData.content[2]
-                                    );
-                                    break;
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
-            }
-        }
-
-        private void OnMessageEntered(string messageText, ref bool sendToOthers)
-        {
-            sendToOthers = true;
-            if (!messageText.StartsWith("/")) return;
-            var words = messageText.Trim().ToLower().Replace("/", "").Split(' ');
-            if (words.Length > 0)
-            {
-                if (VALID_COMMANDS.ContainsKey(words[0]))
-                {
-                    if ((!VALID_COMMANDS[words[0]].Value && words.Length == VALID_COMMANDS[words[0]].Key) ||
-                        (VALID_COMMANDS[words[0]].Value && words.Length >= VALID_COMMANDS[words[0]].Key))
-                    {
-                        sendToOthers = false;
-                        Command cmd = new Command(MyAPIGateway.Multiplayer.MyId, words);
-                        string message = MyAPIGateway.Utilities.SerializeToXML<Command>(cmd);
-                        MyAPIGateway.Multiplayer.SendMessageToServer(
-                            NETWORK_ID_COMMANDS,
-                            Encoding.Unicode.GetBytes(message)
-                        );
-                    }
-                }
-            }
         }
 
         private void ClientDefinitionsUpdateServerMsgHandler(ushort netId, byte[] data, ulong steamId, bool fromServer)
@@ -534,7 +426,11 @@ namespace ExtendedSurvival.Stats
                                     Group = 1,
                                     Index = survivalStats.IndexOf(item),
                                     Id = item.ToString(),
-                                    Name = StatsConstants.GetSurvivalEffectDescription(item)
+                                    Name = StatsConstants.GetSurvivalEffectDescription(item),
+                                    IsInverseTime = StatsConstants.GetSurvivalEffectIsInverseTime(item),
+                                    MaxInverseTime = StatsConstants.GetSurvivalEffectMaxInverseTime(item),
+                                    CanStack = StatsConstants.GetSurvivalEffectCanStack(item),
+                                    MaxStacks = StatsConstants.GetSurvivalEffectMaxStacks(item)
                                 });
                             }
                         }
@@ -784,7 +680,9 @@ namespace ExtendedSurvival.Stats
                 {
                     if (AdvancedPlayerUICoreAPI.Registered)
                     {
-
+                        AdvancedPlayerUICoreAPI.RegisterGetHelpTopics("ESSTATS", HelpController.GetHelpTopics);
+                        AdvancedPlayerUICoreAPI.RegisterGetHelpTopicEntries("ESSTATS", HelpController.GetHelpTopicEntries);
+                        AdvancedPlayerUICoreAPI.RegisterGetHelpEntryPageData("ESSTATS", HelpController.GetHelpEntryPageData);
                     }
                 });
                 APECoreAPI = new AdvancedPlayerEquipCoreAPI(() =>
@@ -1136,9 +1034,6 @@ namespace ExtendedSurvival.Stats
 
                 if (!IsDedicated)
                     MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(NETWORK_ID_STATSSYSTEM, ClientUpdateMsgHandler);
-
-                if (IsServer)
-                    MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(NETWORK_ID_COMMANDS, CommandsMsgHandler);
 
             }
             catch (Exception ex)

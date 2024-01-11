@@ -134,7 +134,17 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetSurvivalEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetSurvivalEffectTrackLevel(effect))
                         {
-                            sbEffects.AppendLine(StatsConstants.GetSurvivalEffectDescription(effect));
+                            var text = StatsConstants.GetSurvivalEffectDescription(effect);
+                            if (StatsConstants.GetSurvivalEffectCanStack(effect))
+                            {
+                                text += " (" + ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatStack(effect.ToString()).ToString() + ")";
+                            }
+                            if (StatsConstants.GetSurvivalEffectIsInverseTime(effect))
+                            {
+                                var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
+                                text += " [" + TimeSpan.FromMilliseconds(timeToRemove).ToString(@"mm\:ss") + "]";
+                            }
+                            sbEffects.AppendLine(text);
                         }
                     }
                 }

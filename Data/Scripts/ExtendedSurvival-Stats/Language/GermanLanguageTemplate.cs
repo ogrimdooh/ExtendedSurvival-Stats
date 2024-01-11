@@ -2527,6 +2527,14 @@ namespace ExtendedSurvival.Stats
 				"Extrem müde"
 			);
 			AddEntry(
+				LanguageEntries.SURVIVALEFFECTS_STOMACHGROWLING_NAME,
+				"Abschluss der Verdauung"
+			);
+			AddEntry(
+				LanguageEntries.SURVIVALEFFECTS_EMPTYSTOMACH_NAME,
+				"Leerer Magen"
+			);
+			AddEntry(
 				LanguageEntries.FEELING_LEVEL0_NAME,
 				"Ich fühle mich gut und gesund."
 			);
@@ -2753,6 +2761,14 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.ENERGYSHIELD_NAME,
 				"Energieschild"
+			);
+			AddEntry(
+				LanguageEntries.BODYMUSCLESWEIGHT_NAME,
+				"Muskelgewicht"
+			);
+			AddEntry(
+				LanguageEntries.BODYFATWEIGHT_NAME,
+				"Fettgewicht"
 			);
 			#endregion
 			#region Weather

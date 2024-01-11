@@ -126,7 +126,8 @@ namespace ExtendedSurvival.Stats
             "LargeBlockBathroom",
             "LargeBlockToilet",
             "LargeBlockCryoChamber",
-            "SmallBlockCryoChamber"
+            "SmallBlockCryoChamber",
+            "LargeBlockCryoRoom"
         };
 
         public static bool IsOnValidBathroom(this IMyCharacter Entity)
@@ -157,6 +158,7 @@ namespace ExtendedSurvival.Stats
         private static readonly string[] GoodRestBlock = new string[] {
             "LargeBlockCryoChamber",
             "SmallBlockCryoChamber",
+            "LargeBlockCryoRoom",
             "LargeBlockBed"
         };
 

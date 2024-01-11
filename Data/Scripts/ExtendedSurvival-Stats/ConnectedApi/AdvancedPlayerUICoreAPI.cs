@@ -37,6 +37,10 @@ namespace ExtendedSurvival.Stats
         private static Func<string, Action<Guid>, int, bool> _RegisterMainMenuCallback;
         private static Action _LockMainMenu;
         private static Action _ReleaseMainMenu;
+        private static Action<string, IDictionary<string, string>, Action<string>, Action, Action> _ShowListPick;
+        private static Action<string, Func<IDictionary<Guid, string>>> _RegisterGetHelpTopics;
+        private static Action<string, Func<Guid, IDictionary<Guid, VRage.MyTuple<string, int, int, int>>>> _RegisterGetHelpTopicEntries;
+        private static Action<string, Func<Guid, Guid, int, VRage.MyTuple<string, string>?>> _RegisterGetHelpEntryPageData;
 
         public static void BeforeStart()
         {
@@ -49,6 +53,29 @@ namespace ExtendedSurvival.Stats
         public static bool VerifyVersion(int Version, string ModName)
         {
             return _VerifyVersion?.Invoke(Version, ModName) ?? false;
+        }
+
+        public static void RegisterGetHelpEntryPageData(string id, Func<Guid, Guid, int, VRage.MyTuple<string, string>?> callback)
+        {
+            _RegisterGetHelpEntryPageData?.Invoke(id, callback);
+        }
+
+        public static void RegisterGetHelpTopicEntries(string id, Func<Guid, IDictionary<Guid, VRage.MyTuple<string, int, int, int>>> callback)
+        {
+            _RegisterGetHelpTopicEntries?.Invoke(id, callback);
+        }
+
+        public static void RegisterGetHelpTopics(string id, Func<IDictionary<Guid, string>> callback)
+        {
+            _RegisterGetHelpTopics?.Invoke(id, callback);
+        }
+
+        /// <summary>
+        /// Show a interface to choose a item from the list
+        /// </summary>
+        public static void ShowListPick(string title, IDictionary<string, string> options, Action<string> callback, Action onShow, Action onHide)
+        {
+            _ShowListPick?.Invoke(title, options, callback, onShow, onHide);
         }
 
         /// <summary>
@@ -153,6 +180,10 @@ namespace ExtendedSurvival.Stats
                         _RegisterMainMenuCallback = (Func<string, Action<Guid>, int, bool>)ModAPIMethods["RegisterMainMenuCallback"];
                         _LockMainMenu = (Action)ModAPIMethods["LockMainMenu"];
                         _ReleaseMainMenu = (Action)ModAPIMethods["ReleaseMainMenu"];
+                        _ShowListPick = (Action<string, IDictionary<string, string>, Action<string>, Action, Action>)ModAPIMethods["ShowListPick"];
+                        _RegisterGetHelpTopics = (Action<string, Func<IDictionary<Guid, string>>>)ModAPIMethods["RegisterGetHelpTopics"];
+                        _RegisterGetHelpTopicEntries = (Action<string, Func<Guid, IDictionary<Guid, VRage.MyTuple<string, int, int, int>>>>)ModAPIMethods["RegisterGetHelpTopicEntries"];
+                        _RegisterGetHelpEntryPageData = (Action<string, Func<Guid, Guid, int, VRage.MyTuple<string, string>?>>)ModAPIMethods["RegisterGetHelpEntryPageData"];
 
                         if (m_onRegisteredAction != null)
                             m_onRegisteredAction();

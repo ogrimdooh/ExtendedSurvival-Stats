@@ -2494,6 +2494,14 @@ namespace ExtendedSurvival.Stats
 				"Extremely Tired"
 			);
 			AddEntry(
+				LanguageEntries.SURVIVALEFFECTS_STOMACHGROWLING_NAME,
+				"Finishing Digestion"
+			);
+			AddEntry(
+				LanguageEntries.SURVIVALEFFECTS_EMPTYSTOMACH_NAME,
+				"Empty Stomach"
+			);
+			AddEntry(
 				LanguageEntries.FEELING_LEVEL0_NAME,
 				"I am feeling good and healthy."
 			);
@@ -2720,7 +2728,15 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.ENERGYSHIELD_NAME,
 				"Energy Shield"
-			);		
+			);
+			AddEntry(
+				LanguageEntries.BODYMUSCLESWEIGHT_NAME,
+				"Muscle Weight"
+			);
+			AddEntry(
+				LanguageEntries.BODYFATWEIGHT_NAME,
+				"Fat Weight"
+			);
 			#endregion
 			#region Weather
 			AddEntry(
@@ -3110,6 +3126,423 @@ namespace ExtendedSurvival.Stats
 				"Combat Module"
 			);
 			#endregion
+
+
+			AddEntry(
+				LanguageEntries.SURVIVALEFFECTS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.DAMAGEEFFECTS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.DISEASEEFFECTS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.OTHEREFFECTS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.TEMPERATURETIME_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.WETTIME_DESCRIPTION,
+				""
+			);
+
+
+			AddEntry(
+				LanguageEntries.HUNGER_DESCRIPTION,
+				"Represents the player character's feeling of hunger." + Environment.NewLine +
+				"The system calculates the amount of hunger based on the amount of energy in the body " + Environment.NewLine +
+				"and volume within the stomach." + Environment.NewLine +
+				"Being hungry can have negative effects."
+			);
+			AddEntry(
+				LanguageEntries.THIRST_DESCRIPTION,
+				"Represents the player character's feeling of thirst." + Environment.NewLine +
+				"The system calculates the amount of thirst based on the amount of water in the body " + Environment.NewLine +
+				"and the volume of liquids inside the stomach." + Environment.NewLine +
+				"Being thirsty can have negative effects."
+			);
+			AddEntry(
+				LanguageEntries.STAMINA_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.FATIGUE_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.WOUNDEDTIME_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYENERGY_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYWATER_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYPERFORMANCE_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYIMMUNE_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.STOMACH_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.INTESTINE_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BLADDER_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYWEIGHT_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYMUSCLES_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYFAT_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.FOODDETECTOR_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.MEDICALDETECTOR_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYCALORIES_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.TORPOR_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYPROTEIN_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYCARBOHYDRATE_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYLIPIDS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYMINERALS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYVITAMINS_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.INTOXICATIONTIME_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.RADIATIONTIME_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.COLDTHERMALFLUID_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.HOTTHERMALFLUID_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.ENERGYSHIELD_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYMUSCLESWEIGHT_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYFATWEIGHT_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.BODYFATWEIGHT_DESCRIPTION,
+				""
+			);
+
+
+
+
+
+
+
+
+
+
+
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_SYSTEM_TITLE,
+				"Extended Survival: Stats & Effects - Systems"
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_SYSTEM_DESCRIPTION,
+				""
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_CONFIGURATION_TITLE,
+				"Extended Survival: Stats & Effects - Configurations"
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_CONFIGURATION_DESCRIPTION,
+				"Each module of the Extended Survival mod has its configuration file where values " + Environment.NewLine +
+				"can be defined that change the behavior of the modified systems.The configuration " + Environment.NewLine +
+				"file is located at:" + Environment.NewLine +
+				"" + Environment.NewLine +
+				"<SAVE>\\Storage\\ExtendedSurvival-Stats_ExtendedSurvival-Stats\\" + Environment.NewLine +
+				"ExtendedSurvival.Stats.Settings.xml" + Environment.NewLine +
+				"" + Environment.NewLine +
+				"It is recommended to always make a backup of the file when changed and changes " + Environment.NewLine +
+				"will only take effect if the server/save is unloaded."
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_COMMAND_TITLE,
+				"Extended Survival: Stats & Effects - Commands"
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_COMMAND_DESCRIPTION,
+				"Admin players can run chat commands to perform actions on the server."
+			);
+
+
+
+			AddEntry(
+				LanguageEntries.CONFIGURATIONVALUETYPE_BOOL,
+				"This configuration has a boolean value, which stores 'true' or 'false'."
+			);
+			AddEntry(
+				LanguageEntries.CONFIGURATIONVALUETYPE_INTEGER,
+				"This configuration has the integer value, which stores absolute numbers (without " + Environment.NewLine +
+				"decimal places)."
+			);
+			AddEntry(
+				LanguageEntries.CONFIGURATIONVALUETYPE_DECIMAL,
+				"This configuration has a decimal value, which stores numbers with decimal places."
+			);
+			AddEntry(
+				LanguageEntries.CONFIGURATIONVALUETYPE_VECTOR2,
+				"This configuration has the value in a numeric vector of two positions."
+			);
+			AddEntry(
+				LanguageEntries.CONFIGURATIONVALUETYPE_VECTOR3,
+				"This configuration has the value in a numeric vector of three positions."
+			);
+			AddEntry(
+				LanguageEntries.CONFIGURATIONVALUETYPE_VECTOR4,
+				"This configuration has the value in a numeric vector of four positions."
+			);
+			AddEntry(
+				LanguageEntries.CONFIGURATIONVALUETYPE_STRING,
+				"This configuration has a string value and can store any type of data."
+			);
+			AddEntry(
+				LanguageEntries.TERMS_MASS,
+				"Mass"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_VOLUME,
+				"Volume"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_RARITY,
+				"Rarity"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_CANBUY,
+				"Can buy"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_CANSELL,
+				"Can sell"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_CANORDER,
+				"Can order"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_BASEVALUE,
+				"Base value"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_TARGETFACTIONS,
+				"Target factions"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_ECONOMY_INFO,
+				"Economy information:"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_RECIPE,
+				"Recipe"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_PRODUCTIONTIME,
+				"Production Time"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_INGREDIENTS,
+				"Ingredients"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_RESULTS,
+				"Results"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_CRAFTAT,
+				"Craft at"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_REFINEAT,
+				"Refine at"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_CONSUMEAT,
+				"Consume at"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_SMALL,
+				"Small"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_LARGE,
+				"Large"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_DEFAULTVALUE,
+				"Default value"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_NEEDRESTART,
+				"Need restart to apply"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_TAKEIMMEDIATELY,
+				"Take effect immediately"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_CANUSEADMINCOMMAND,
+				"Can be change using admin command"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_DAY,
+				"Day"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_NIGHT,
+				"Night"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_COMMANDUSESAMPLE,
+				"Example of use"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_SYNTAX,
+				"Syntax"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_VALIDVOXELS,
+				"Valid voxels"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_VALIDPLANETS,
+				"Valid planets"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_VALIDOPERATIONS,
+				"Valid operations"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_CHANGEEFFECT,
+				"Change effect"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_VALIDOPTIONS,
+				"Valid options"
+			);
+			AddEntry(
+				LanguageEntries.TERMS_OPTNOTMANDATORY,
+				"Obs.: options are not mandatory, will use the default value if not informed."
+			);
+
+
+
+
+			AddEntry(
+				LanguageEntries.HELP_COMMAND_SETTINGS_DESCRIPTION,
+				"This command can change the mod's Configuration File values during the game, some " + Environment.NewLine +
+				"changes will still need a restart." + Environment.NewLine +
+				"You can check more information about in Configuration Topic."
+			);
+
+
+
+
+
+			AddEntry(
+				LanguageEntries.HELP_SETTINGS_DEBUG_DESCRIPTION,
+				"This configuration increases the mod's log level, showing more operation points " + Environment.NewLine +
+				"in the server console." + Environment.NewLine +
+				"This increase in log operations can increase the size of log files, and slow down " + Environment.NewLine +
+				"the game."
+			);
+
+
+
+
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_PLAYERSTATS_TITLE,
+				"Player Stats & Effect"
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_PLAYERSTATS_DESCRIPTION,
+				"To increase the immersion of survival, this system adds new attributes to the " + Environment.NewLine +
+				"player character. Changing these new attributes may result in fixed and " + Environment.NewLine +
+				"temporary effects added to the player during their interaction with the " + Environment.NewLine +
+				"environment and items."
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_ATTRIBUTES_TITLE,
+				"Player Attributes"
+			);
+			AddEntry(
+				LanguageEntries.HELP_TOPIC_ATTRIBUTES_DESCRIPTION,
+				"Attributes are properties added to the player character, they will be " + Environment.NewLine +
+				"controlled by the system and can have their values ​​modified by player actions " + Environment.NewLine +
+				"or interactions with the environment."
+			);
+
 		}
 
 	}

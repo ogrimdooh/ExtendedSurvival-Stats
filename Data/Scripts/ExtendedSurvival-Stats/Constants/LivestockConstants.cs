@@ -144,6 +144,8 @@ namespace ExtendedSurvival.Stats
 
         public static readonly long BASE_DEADANIMAL_SPOIL_TIME = 20 * 60 * 1000;
 
+
+
         public static readonly LivestockDefinition COWMALE_DEFINITION = new LivestockDefinition()
         {
             Id = COWMALE_ID,

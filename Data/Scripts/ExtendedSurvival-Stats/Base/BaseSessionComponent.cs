@@ -96,18 +96,6 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public void ShowMessage(string text, string font = MyFontEnum.Red, int timeToLive = 2000)
-        {
-            if (hudMsg == null)
-                hudMsg = MyAPIGateway.Utilities.CreateNotification(string.Empty);
-
-            hudMsg.Hide();
-            hudMsg.Font = font;
-            hudMsg.AliveTime = timeToLive;
-            hudMsg.Text = text;
-            hudMsg.Show();
-        }
-
     }
 
 }
