@@ -1279,6 +1279,10 @@ namespace ExtendedSurvival.Stats
 				"Can cure {0} when eat"
 			);
 			AddEntry(
+				LanguageEntries.FOODDEFINITION_REDUCEDISEASE_DESCRIPTION,
+				"Можно уменьшить {0} на {1}"
+			);
+			AddEntry(
 				LanguageEntries.FOODDEFINITION_MUSHROOMS_DESCRIPTION,
 				"Mushrooms can be multiplied by putting together" + Environment.NewLine +
 				"fertilizer and ice on farms." + Environment.NewLine +

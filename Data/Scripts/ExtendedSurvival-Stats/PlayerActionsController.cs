@@ -1667,6 +1667,46 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             }
+            if (MedicalConstants.MEDICAL_DEFINITIONS.ContainsKey(itemId))
+            {
+                RefreshPlayerStatComponent(playerId, statComponent);
+                var statControl = GetStatsEasyAcess(playerId);
+                var def = MedicalConstants.MEDICAL_DEFINITIONS[itemId];
+                if (def.ReduceDisease != null && def.ReduceDisease.Any())
+                {
+                    foreach (var disease in def.ReduceDisease.Keys)
+                    {
+                        if (statControl.CurrentDiseaseEffects.IsFlagSet(disease))
+                        {
+                            var timeToRemove = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, disease.ToString());
+                            if (timeToRemove > 0)
+                            {
+                                timeToRemove -= (long)def.ReduceDisease[disease];
+                                if (timeToRemove <= 0)
+                                    statControl.MedicalDetector.ClearEffects();
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, disease.ToString(), Math.Max(timeToRemove, 0));
+                            }
+                        }
+                    }
+                }
+                if (def.ReduceDamage != null && def.ReduceDamage.Any())
+                {
+                    foreach (var damage in def.ReduceDamage.Keys)
+                    {
+                        if (statControl.CurrentDamageEffects.IsFlagSet(damage))
+                        {
+                            var timeToRemove = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, damage.ToString());
+                            if (timeToRemove > 0)
+                            {
+                                timeToRemove -= (long)def.ReduceDamage[damage];
+                                if (timeToRemove <= 0)
+                                    statControl.MedicalDetector.ClearEffects();
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, damage.ToString(), Math.Max(timeToRemove, 0));
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public static void DoPlayerCycle(long playerId, long spendTime, MyCharacterStatComponent statComponent)

@@ -10,9 +10,11 @@ namespace ExtendedSurvival.Stats
     {
 
         public List<StatsConstants.DamageEffects> CureDamage { get; set; }
+        public Dictionary<StatsConstants.DamageEffects, float> ReduceDamage { get; set; }
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
+        public Dictionary<StatsConstants.DiseaseEffects, float> ReduceDisease { get; set; }
         public List<ConsumibleEffect> Effects { get; set; }
-        
+                
         public override string GetFullDescription()
         {
             return base.GetFullDescription() + Environment.NewLine + Environment.NewLine + GetApplicationDescription();
@@ -56,6 +58,24 @@ namespace ExtendedSurvival.Stats
                     ));
                 }
             }
+            if (ReduceDamage != null && ReduceDamage.Any())
+            {
+                values.AppendLine(" ");
+                foreach (var damage in ReduceDamage.Keys)
+                {
+                    var timeToShow = TimeSpan.FromMilliseconds(ReduceDamage[damage]);
+                    var mask = @"mm\:ss";
+                    if (timeToShow.TotalMinutes > 60)
+                    {
+                        mask = @"hh\:mm\:ss";
+                    }
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_REDUCEDISEASE_DESCRIPTION),
+                        StatsConstants.GetDamageEffectDescription(damage),
+                        timeToShow.ToString(mask)
+                    ));
+                }
+            }
             if (CureDisease != null && CureDisease.Any())
             {
                 values.AppendLine(" ");
@@ -64,6 +84,24 @@ namespace ExtendedSurvival.Stats
                     values.AppendLine(string.Format(
                         LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION), 
                         StatsConstants.GetDiseaseEffectDescription(disease)
+                    ));
+                }
+            }
+            if (ReduceDisease != null && ReduceDisease.Any())
+            {
+                values.AppendLine(" ");
+                foreach (var disease in ReduceDisease.Keys)
+                {
+                    var timeToShow = TimeSpan.FromMilliseconds(ReduceDisease[disease]);
+                    var mask = @"mm\:ss";
+                    if (timeToShow.TotalMinutes > 60)
+                    {
+                        mask = @"hh\:mm\:ss";
+                    }
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_REDUCEDISEASE_DESCRIPTION),
+                        StatsConstants.GetDiseaseEffectDescription(disease),
+                        timeToShow.ToString(mask)
                     ));
                 }
             }

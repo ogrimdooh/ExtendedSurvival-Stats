@@ -52,6 +52,11 @@ namespace ExtendedSurvival.Stats
                 StatsConstants.DamageEffects.Contusion,
                 StatsConstants.DamageEffects.Wounded
             },
+            ReduceDamage = new Dictionary<StatsConstants.DamageEffects, float>()
+            {
+                { StatsConstants.DamageEffects.DeepWounded, 7.5f * 60f * 1000f },
+                { StatsConstants.DamageEffects.BrokenBones, 3.75f * 60f * 1000f }
+            },
             Effects = new List<ConsumibleEffect>()
             {
                 new ConsumibleEffect()
@@ -102,6 +107,11 @@ namespace ExtendedSurvival.Stats
             {
                 StatsConstants.DamageEffects.Contusion,
                 StatsConstants.DamageEffects.Wounded
+            },
+            ReduceDamage = new Dictionary<StatsConstants.DamageEffects, float>()
+            {
+                { StatsConstants.DamageEffects.DeepWounded, 15f * 60f * 1000f },
+                { StatsConstants.DamageEffects.BrokenBones, 7.5f * 60f * 1000f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -158,10 +168,22 @@ namespace ExtendedSurvival.Stats
             {
                 StatsConstants.DamageEffects.Contusion
             },
+            ReduceDamage = new Dictionary<StatsConstants.DamageEffects, float>()
+            {
+                { StatsConstants.DamageEffects.Wounded, 7.5f * 60f * 1000f },
+                { StatsConstants.DamageEffects.DeepWounded, 5f * 60f * 1000f },
+                { StatsConstants.DamageEffects.BrokenBones, 2.5f * 60f * 1000f }
+            },
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Dysentery,
                 StatsConstants.DiseaseEffects.Queasy
+            },
+            ReduceDisease = new Dictionary<StatsConstants.DiseaseEffects, float>()
+            {
+                { StatsConstants.DiseaseEffects.Flu, 15f * 60f * 1000f },
+                { StatsConstants.DiseaseEffects.Pneumonia, 7.5f * 60f * 1000f },
+                { StatsConstants.DiseaseEffects.Infected, 3.75f * 60f * 1000f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -231,10 +253,22 @@ namespace ExtendedSurvival.Stats
                 StatsConstants.DamageEffects.Contusion,
                 StatsConstants.DamageEffects.Wounded
             },
+            ReduceDamage = new Dictionary<StatsConstants.DamageEffects, float>()
+            {
+                { StatsConstants.DamageEffects.DeepWounded, 5f * 60f * 1000f },
+                { StatsConstants.DamageEffects.BrokenBones, 2.5f * 60f * 1000f }
+            },
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             {
                 StatsConstants.DiseaseEffects.Poison,
                 StatsConstants.DiseaseEffects.Flu
+            },
+            ReduceDisease = new Dictionary<StatsConstants.DiseaseEffects, float>()
+            {
+                { StatsConstants.DiseaseEffects.Queasy, 40f * 60f * 1000f },
+                { StatsConstants.DiseaseEffects.Dysentery, 20f * 60f * 1000f },
+                { StatsConstants.DiseaseEffects.Pneumonia, 10f * 60f * 1000f },
+                { StatsConstants.DiseaseEffects.Infected, 5f * 60f * 1000f },
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -292,6 +326,10 @@ namespace ExtendedSurvival.Stats
                 StatsConstants.DamageEffects.Contusion,
                 StatsConstants.DamageEffects.Wounded,
                 StatsConstants.DamageEffects.DeepWounded
+            },
+            ReduceDamage = new Dictionary<StatsConstants.DamageEffects, float>()
+            {
+                { StatsConstants.DamageEffects.BrokenBones, 17.5f * 60f * 1000f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -359,11 +397,22 @@ namespace ExtendedSurvival.Stats
             {
                 StatsConstants.DamageEffects.Contusion
             },
+            ReduceDamage = new Dictionary<StatsConstants.DamageEffects, float>()
+            {
+                { StatsConstants.DamageEffects.Wounded, 20f * 60f * 1000f },
+                { StatsConstants.DamageEffects.DeepWounded, 15f * 60f * 1000f },
+                { StatsConstants.DamageEffects.BrokenBones, 10f * 60f * 1000f }
+            },
             CureDisease = new List<StatsConstants.DiseaseEffects>()
             { 
                 StatsConstants.DiseaseEffects.Infected,
                 StatsConstants.DiseaseEffects.Flu,
                 StatsConstants.DiseaseEffects.Pneumonia
+            },
+            ReduceDisease = new Dictionary<StatsConstants.DiseaseEffects, float>()
+            {
+                { StatsConstants.DiseaseEffects.Queasy, 50f * 60f * 1000f },
+                { StatsConstants.DiseaseEffects.Dysentery, 25f * 60f * 1000f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -437,6 +486,10 @@ namespace ExtendedSurvival.Stats
                 StatsConstants.DamageEffects.Contusion,
                 StatsConstants.DamageEffects.Wounded,
                 StatsConstants.DamageEffects.DeepWounded
+            },
+            ReduceDamage = new Dictionary<StatsConstants.DamageEffects, float>()
+            {
+                { StatsConstants.DamageEffects.BrokenBones, 20f * 60f * 1000f }
             },
             Effects = new List<ConsumibleEffect>()
             {

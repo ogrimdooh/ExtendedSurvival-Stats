@@ -1288,6 +1288,10 @@ namespace ExtendedSurvival.Stats
 				"Kann {0} beim Essen heilen"
 			);
 			AddEntry(
+				LanguageEntries.FOODDEFINITION_REDUCEDISEASE_DESCRIPTION,
+				"Kann {0} um {1} reduzieren"
+			);
+			AddEntry(
 				LanguageEntries.FOODDEFINITION_MUSHROOMS_DESCRIPTION,
 				"Pilze können vermehrt werden, indem man Dünger und " + Environment.NewLine +
 				"Eis auf Farmen zusammenstellt." + Environment.NewLine +
