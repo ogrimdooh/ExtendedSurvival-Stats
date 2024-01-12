@@ -142,7 +142,13 @@ namespace ExtendedSurvival.Stats
                             if (StatsConstants.GetSurvivalEffectIsInverseTime(effect))
                             {
                                 var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
-                                text += " [" + TimeSpan.FromMilliseconds(timeToRemove).ToString(@"mm\:ss") + "]";
+                                var timeToShow = TimeSpan.FromMilliseconds(timeToRemove);
+                                var mask = @"mm\:ss";
+                                if (timeToShow.TotalMinutes > 60)
+                                {
+                                    mask = @"hh\:mm\:ss";
+                                }
+                                text += " [" + timeToShow.ToString(mask) + "]";
                             }
                             sbEffects.AppendLine(text);
                         }
@@ -159,7 +165,13 @@ namespace ExtendedSurvival.Stats
                             if (StatsConstants.TEMPERATURE_EFFECTS[effect].CanSelfRemove || StatsConstants.TEMPERATURE_EFFECTS[effect].IsInverseTime)
                             {
                                 var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
-                                text += " [" + TimeSpan.FromMilliseconds(timeToRemove).ToString(@"mm\:ss") + "]";
+                                var timeToShow = TimeSpan.FromMilliseconds(timeToRemove);
+                                var mask = @"mm\:ss";
+                                if (timeToShow.TotalMinutes > 60)
+                                {
+                                    mask = @"hh\:mm\:ss";
+                                }
+                                text += " [" + timeToShow.ToString(mask) + "]";
                             }
                             sbEffects.AppendLine(text);
                         }
@@ -191,7 +203,13 @@ namespace ExtendedSurvival.Stats
                             if (StatsConstants.CanDiseaseEffectSelfRemove(effect))
                             {
                                 var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
-                                text += " [" + TimeSpan.FromMilliseconds(timeToRemove).ToString(@"mm\:ss") + "]";
+                                var timeToShow = TimeSpan.FromMilliseconds(timeToRemove);
+                                var mask = @"mm\:ss";
+                                if (timeToShow.TotalMinutes > 60)
+                                {
+                                    mask = @"hh\:mm\:ss";
+                                }
+                                text += " [" + timeToShow.ToString(mask) + "]";
                             }
                             sbEffects.AppendLine(text);
                         }

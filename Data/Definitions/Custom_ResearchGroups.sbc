@@ -15,6 +15,7 @@
       <Members>
         <BlockId Type="MyObjectBuilder_CargoContainer" Subtype="LargeBlockSmallCage" />
         <BlockId Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockSmallCage" />
+        <BlockId Type="MyObjectBuilder_CargoContainer" Subtype="LargeBlockLargeCage" />
       </Members>
     </ResearchGroup>
 

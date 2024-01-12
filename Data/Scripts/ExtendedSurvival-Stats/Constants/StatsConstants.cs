@@ -35,8 +35,8 @@ namespace ExtendedSurvival.Stats
         public const float CHANCE_TO_VOMIT = 0.1f;
         public const float CHANCE_TO_POOP = 0.05f;
 
-        public const int POISON_DAMAGE = 5;
-        public const int TEMPERATURE_DAMAGE = 1;
+        public const int POISON_DAMAGE = 4;
+        public const int TEMPERATURE_DAMAGE = 2;
 
         public static readonly Vector3 BODY_MUSCLE_MOVE_GAIN = new Vector3(0.01f, 0.03f, 0.26f);
         public const float BODY_MUSCLE_NOMOVE_DRAIN = 0.005f;
@@ -95,6 +95,14 @@ namespace ExtendedSurvival.Stats
             { DamageEffects.Wounded, 1f },
             { DamageEffects.DeepWounded, 1.25f },
             { DamageEffects.BrokenBones, 1.50f }
+        };
+
+        public static readonly Dictionary<DamageEffects, float> DAMAGE_HEALTH_START_VALUE = new Dictionary<DamageEffects, float>()
+        {
+            { DamageEffects.Contusion, 0.75f },
+            { DamageEffects.Wounded, 0.55f },
+            { DamageEffects.DeepWounded, 0.35f },
+            { DamageEffects.BrokenBones, 0.15f }
         };
 
         public const DamageEffects ON_DEATH_NO_CHANGE_IF = DamageEffects.BrokenBones;
@@ -741,11 +749,11 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Poison:
                 case DiseaseEffects.Infected:
                 case DiseaseEffects.Queasy:
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
                     return true;
                 case DiseaseEffects.None:
                 case DiseaseEffects.Pneumonia:
-                case DiseaseEffects.Hypothermia:
-                case DiseaseEffects.Hyperthermia:
                 case DiseaseEffects.Starvation:
                 case DiseaseEffects.SevereStarvation:
                 case DiseaseEffects.Dehydration:
@@ -770,6 +778,9 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Infected:
                 case DiseaseEffects.Queasy:
                     return 5;
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
+                    return 2;
                 default:
                     return 0;
             }
@@ -801,14 +812,14 @@ namespace ExtendedSurvival.Stats
                     return 60 * 1000; /* 60 segundos */
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
-                    return 30 * 60 * 1000; /* 30 minutos */
+                    return 10 * 60 * 1000; /* 10 minutos */
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Queasy:
-                    return 60 * 60 * 1000; /* 60 minutos */
+                    return 120 * 60 * 1000; /* 120 minutos */
                 case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Flu:
                 case DiseaseEffects.Infected:
-                    return 120 * 60 * 1000; /* 120 minutos */
+                    return 240 * 60 * 1000; /* 240 minutos */
                 default:
                     return 0;
             }

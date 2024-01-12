@@ -499,9 +499,9 @@ namespace ExtendedSurvival.Stats
                             StatsConstants.DiseaseEffects.Poison.ToString(),
                             (fixedStat, stack, remainTime, playerId, character, statComponent) => 
                             {
-                                if (stack > 0)
+                                if (stack > 0 && character != null && character.CanTakeDamage())
                                 {
-                                    statComponent.Health.Decrease(stack * StatsConstants.POISON_DAMAGE, playerId);
+                                    character.DoDamage(stack * StatsConstants.POISON_DAMAGE, MyDamageType.Radioactivity, true, attackerId: playerId);
                                 }
                             },
                             int.MaxValue
@@ -511,9 +511,9 @@ namespace ExtendedSurvival.Stats
                             StatsConstants.DiseaseEffects.Hypothermia.ToString(),
                             (fixedStat, stack, remainTime, playerId, character, statComponent) =>
                             {
-                                if (stack > 0)
+                                if (stack > 0 && character != null && character.CanTakeDamage())
                                 {
-                                    statComponent.Health.Decrease(stack * StatsConstants.TEMPERATURE_DAMAGE, playerId);
+                                    character.DoDamage(stack * StatsConstants.TEMPERATURE_DAMAGE, MyDamageType.Temperature, true, attackerId: playerId);
                                 }
                             },
                             int.MaxValue
@@ -523,9 +523,9 @@ namespace ExtendedSurvival.Stats
                             StatsConstants.DiseaseEffects.Hyperthermia.ToString(),
                             (fixedStat, stack, remainTime, playerId, character, statComponent) =>
                             {
-                                if (stack > 0)
+                                if (stack > 0 && character != null && character.CanTakeDamage())
                                 {
-                                    statComponent.Health.Decrease(stack * StatsConstants.TEMPERATURE_DAMAGE, playerId);
+                                    character.DoDamage(stack * StatsConstants.TEMPERATURE_DAMAGE, MyDamageType.Temperature, true, attackerId: playerId);
                                 }
                             },
                             int.MaxValue
@@ -670,6 +670,19 @@ namespace ExtendedSurvival.Stats
                                 if (playerId != 0 && character.IsValidPlayer())
                                 {
                                     PlayerActionsController.DoProcessItemConsume(playerId, statComponent, new UniqueEntityId(itemId));
+                                }
+                            },
+                            int.MaxValue
+                        );
+                        AdvancedStatsAndEffectsAPI.AddOnBeginConfigureCharacter(
+                            (playerId, character, statComponent, hasDied, storeStats) =>
+                            {
+                                if (playerId != 0 && character.IsValidPlayer())
+                                {
+                                    if (hasDied)
+                                    {
+                                        PlayerActionsController.DoProcessPlayerDeath(playerId, character, statComponent, storeStats);
+                                    }
                                 }
                             },
                             int.MaxValue
