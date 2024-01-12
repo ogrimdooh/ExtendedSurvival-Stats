@@ -445,7 +445,12 @@ namespace ExtendedSurvival.Stats
                                     Group = 2,
                                     Index = damageStats.IndexOf(item),
                                     Id = item.ToString(),
-                                    Name = StatsConstants.GetDamageEffectDescription(item)
+                                    Name = StatsConstants.GetDamageEffectDescription(item),
+                                    CanSelfRemove = StatsConstants.GetDamageEffectSelfRemove(item),
+                                    CompleteRemove = StatsConstants.IsDamageEffectCompleteRemove(item),
+                                    CanStack = StatsConstants.IsDamageEffectCanStack(item),
+                                    StacksWhenRemove = StatsConstants.GetDamageEffectStacksWhenRemove(item),
+                                    TimeToSelfRemove = StatsConstants.GetDamageEffectTimeToRemove(item)
                                 });
                             }
                         }
@@ -469,7 +474,8 @@ namespace ExtendedSurvival.Stats
                                     MaxInverseTime = StatsConstants.TEMPERATURE_EFFECTS[item].MaxInverseTime,
                                     SelfRemoveWhenMaxInverse = StatsConstants.TEMPERATURE_EFFECTS[item].SelfRemoveWhenMaxInverse,
                                     CanStack = StatsConstants.TEMPERATURE_EFFECTS[item].CanStack,
-                                    MaxStacks = StatsConstants.TEMPERATURE_EFFECTS[item].MaxStacks
+                                    MaxStacks = StatsConstants.TEMPERATURE_EFFECTS[item].MaxStacks,
+                                    IsPositive = StatsConstants.TEMPERATURE_EFFECTS[item].IsPositive
                                 });
                             }
                         }
@@ -575,7 +581,11 @@ namespace ExtendedSurvival.Stats
                         // Set before cycle update
                         AdvancedStatsAndEffectsAPI.AddBeforeCycleCallback((playerId, character, statComponent) =>
                         {
-                            if (playerId != 0 && character.IsValidPlayer())
+                            if (playerId != 0 && 
+                                character.IsValidPlayer() && 
+                                !character.IsDead && 
+                                !PlayerActionsController.PlayerHasDied(playerId) && 
+                                !PlayerActionsController.PlayerNeedWaitFullCycle(playerId))
                             {
                                 WeatherConstants.RefreshWeatherInfo(character);
                                 if (character.IsOnValidBathroom())
@@ -592,7 +602,7 @@ namespace ExtendedSurvival.Stats
                         // Set after cycle update
                         AdvancedStatsAndEffectsAPI.AddAfterCycleCallback((playerId, character, statComponent) =>
                         {
-                            if (playerId != 0 && character.IsValidPlayer())
+                            if (playerId != 0 && character.IsValidPlayer() && !character.IsDead)
                             {
                                 PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
                                 PlayerActionsController.ProcessHealth(playerId, statComponent);
@@ -610,7 +620,7 @@ namespace ExtendedSurvival.Stats
                             {
                                 if (newValue == MyCharacterMovementEnum.Jump)
                                 {
-                                    if (playerId != 0 && character.IsValidPlayer())
+                                    if (playerId != 0 && character.IsValidPlayer() && !character.IsDead)
                                     {
                                         StaminaController.ProcessJump(playerId, character);
                                     }
@@ -683,6 +693,26 @@ namespace ExtendedSurvival.Stats
                                     {
                                         PlayerActionsController.DoProcessPlayerDeath(playerId, character, statComponent, storeStats);
                                     }
+                                }
+                            },
+                            int.MaxValue
+                        );
+                        AdvancedStatsAndEffectsAPI.AddAfterRemoveFixedEffect(
+                            (playerId, character, statComponent, id, stack, max) =>
+                            {
+                                if (playerId != 0 && character.IsValidPlayer())
+                                {
+                                    PlayerActionsController.DoProcessPlayerRemoveFixedEffect(playerId, character, statComponent, id, stack, max);
+                                }
+                            },
+                            int.MaxValue
+                        );
+                        AdvancedStatsAndEffectsAPI.AddAfterCharacterDied(
+                            (playerId, character, statComponent) =>
+                            {
+                                if (playerId != 0 && character.IsValidPlayer())
+                                {
+                                    PlayerActionsController.DoProcessPlayerDied(playerId, character, statComponent);
                                 }
                             },
                             int.MaxValue

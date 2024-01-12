@@ -24,6 +24,7 @@ namespace ExtendedSurvival.Stats
             public bool IsInverseTime { get; set; }
             public int MaxInverseTime { get; set; }
             public bool SelfRemoveWhenMaxInverse { get; set; }
+            public bool IsPositive { get; set; }
 
         }
 
@@ -105,9 +106,21 @@ namespace ExtendedSurvival.Stats
             { DamageEffects.BrokenBones, 0.15f }
         };
 
-        public const DamageEffects ON_DEATH_NO_CHANGE_IF = DamageEffects.BrokenBones;
-        public const DamageEffects ON_DEATH_APPLY_DAMAGE = DamageEffects.DeepWounded;
-        public const DamageEffects ON_DEATH_REMOVE_DAMAGE = DamageEffects.Contusion | DamageEffects.Wounded;
+        public static readonly Dictionary<DamageEffects, KeyValuePair<DamageEffects, DamageEffects[]>> ON_DEATH_APPLY_DAMAGE = new Dictionary<DamageEffects, KeyValuePair<DamageEffects, DamageEffects[]>>()
+        {
+            { DamageEffects.None, new KeyValuePair<DamageEffects, DamageEffects[]>(DamageEffects.Wounded, new DamageEffects[] { }) },
+            { DamageEffects.Contusion, new KeyValuePair<DamageEffects, DamageEffects[]>(DamageEffects.Wounded, new DamageEffects[] { DamageEffects.Contusion }) },
+            { DamageEffects.Wounded, new KeyValuePair<DamageEffects, DamageEffects[]>(DamageEffects.DeepWounded, new DamageEffects[] { DamageEffects.Contusion, DamageEffects.Wounded }) },
+            { DamageEffects.DeepWounded, new KeyValuePair<DamageEffects, DamageEffects[]>(DamageEffects.BrokenBones, new DamageEffects[] { DamageEffects.Contusion, DamageEffects.Wounded, DamageEffects.DeepWounded }) },
+            { DamageEffects.BrokenBones, new KeyValuePair<DamageEffects, DamageEffects[]>(DamageEffects.BrokenBones, new DamageEffects[] { DamageEffects.Contusion, DamageEffects.Wounded, DamageEffects.DeepWounded, DamageEffects.BrokenBones }) }
+        };
+
+        public static readonly Dictionary<DamageEffects, DamageEffects> ON_SELFREMOVE_APPLY_DAMAGE = new Dictionary<DamageEffects, DamageEffects>()
+        {
+            { DamageEffects.BrokenBones, DamageEffects.DeepWounded },
+            { DamageEffects.DeepWounded, DamageEffects.Wounded },
+            { DamageEffects.Wounded, DamageEffects.Contusion }
+        };
 
         public const float BASE_WET_FACTOR_RAIN = 0.15f;
         public const float BASE_WET_FACTOR_THUNDER = 0.3f;
@@ -375,7 +388,8 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.RecoveringFromExposure),
                     CanSelfRemove = true,
                     TimeToSelfRemove = (int)(2.5f * 60 * 1000),
-                    CompleteRemove = true
+                    CompleteRemove = true,
+                    IsPositive = true
                 }
             },
             {
@@ -385,7 +399,8 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.LesserResistenceToCold),
                     CanSelfRemove = true,
                     TimeToSelfRemove = 5 * 60 * 1000,
-                    CompleteRemove = true
+                    CompleteRemove = true,
+                    IsPositive = true
                 }
             },
             {
@@ -395,7 +410,8 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.ResistenceToCold),
                     CanSelfRemove = true,
                     TimeToSelfRemove = 10 * 60 * 1000,
-                    CompleteRemove = true
+                    CompleteRemove = true,
+                    IsPositive = true
                 }
             },
             {
@@ -405,7 +421,8 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.GreaterResistenceToCold),
                     CanSelfRemove = true,
                     TimeToSelfRemove = 15 * 60 * 1000,
-                    CompleteRemove = true
+                    CompleteRemove = true,
+                    IsPositive = true
                 }
             },
             {
@@ -415,7 +432,8 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.LesserResistenceToHot),
                     CanSelfRemove = true,
                     TimeToSelfRemove = 5 * 60 * 1000,
-                    CompleteRemove = true
+                    CompleteRemove = true,
+                    IsPositive = true
                 }
             },
             {
@@ -425,7 +443,8 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.ResistenceToHot),
                     CanSelfRemove = true,
                     TimeToSelfRemove = 10 * 60 * 1000,
-                    CompleteRemove = true
+                    CompleteRemove = true,
+                    IsPositive = true
                 }
             },
             {
@@ -435,7 +454,8 @@ namespace ExtendedSurvival.Stats
                     Name = GetTemperatureEffectDescription(TemperatureEffects.GreaterResistenceToHot),
                     CanSelfRemove = true,
                     TimeToSelfRemove = 15 * 60 * 1000,
-                    CompleteRemove = true
+                    CompleteRemove = true,
+                    IsPositive = true
                 }
             }
         };
@@ -812,7 +832,7 @@ namespace ExtendedSurvival.Stats
                     return 60 * 1000; /* 60 segundos */
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
-                    return 10 * 60 * 1000; /* 10 minutos */
+                    return 150 * 1000; /* 150 segundos */
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Queasy:
                     return 120 * 60 * 1000; /* 120 minutos */
@@ -1009,6 +1029,91 @@ namespace ExtendedSurvival.Stats
             return 0;
         }
 
+        public static bool CanDamageEffectSelfRemove(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                case DamageEffects.Wounded:
+                case DamageEffects.DeepWounded:
+                case DamageEffects.BrokenBones:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public static int GetDamageEffectTimeToRemove(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                    return 30 * 60 * 1000; /* 30 minutos */
+                case DamageEffects.Wounded:
+                    return 60 * 60 * 1000; /* 60 minutos */
+                case DamageEffects.DeepWounded:
+                    return 120 * 60 * 1000; /* 120 minutos */
+                case DamageEffects.BrokenBones:
+                    return 240 * 60 * 1000; /* 240 minutos */
+                default:
+                    return 0;
+            }
+        }
+
+        public static bool GetDamageEffectSelfRemove(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                case DamageEffects.Wounded:
+                case DamageEffects.DeepWounded:
+                case DamageEffects.BrokenBones:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public static bool IsDamageEffectCompleteRemove(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                case DamageEffects.Wounded:
+                case DamageEffects.DeepWounded:
+                case DamageEffects.BrokenBones:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public static bool IsDamageEffectCanStack(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                case DamageEffects.Wounded:
+                case DamageEffects.DeepWounded:
+                case DamageEffects.BrokenBones:
+                default:
+                    return false;
+            }
+        }
+
+        public static byte GetDamageEffectStacksWhenRemove(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                case DamageEffects.Wounded:
+                case DamageEffects.DeepWounded:
+                case DamageEffects.BrokenBones:
+                default:
+                    return 0;
+            }
+        }
+
         public static int GetSurvivalEffectMaxInverseTime(SurvivalEffects effect)
         {
             if (effect == SurvivalEffects.EmptyStomach)
@@ -1162,6 +1267,20 @@ namespace ExtendedSurvival.Stats
             int value = (int)Convert.ChangeType(flags, typeof(int));
             IEnumerable<int> setValues = Enum.GetValues(flags.GetType()).Cast<int>().Where(f => (f & value) == f);
             return setValues.Any() ? setValues.Max() : 0;
+        }
+
+        public static bool IsStringInFlag<T>(string key, out T id) where T : struct
+        {
+            id = default(T);
+            foreach (T flag in Enum.GetValues(typeof(T)).Cast<T>())
+            {
+                if (key.CompareTo(flag.ToString()) == 0)
+                {
+                    id = flag;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static readonly string BASE_TOPIC_ID = HelpController.BASE_TOPIC_TYPE + "." + HelpController.HELP_SYSTEM_TOPIC_SUBTYPE;

@@ -437,6 +437,8 @@ namespace ExtendedSurvival.Stats
         }
 
         private static readonly ConcurrentDictionary<long, PlayerShieldInfo> player_shield_status = new ConcurrentDictionary<long, PlayerShieldInfo>();
+        private static readonly ConcurrentDictionary<long, bool> hasDied = new ConcurrentDictionary<long, bool>();
+        private static readonly ConcurrentDictionary<long, bool> waitFullCycle = new ConcurrentDictionary<long, bool>();
         public const long TIME_BEFORE_CAN_REGENERATE = 10000;
         public const long TIME_BETWEEN_EACH_REGENERATE = 1000;
         public class PlayerShieldInfo
@@ -798,6 +800,55 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public static bool PlayerHasDied(long playerId)
+        {
+            return hasDied.ContainsKey(playerId) && hasDied[playerId];
+        }
+
+        public static bool PlayerNeedWaitFullCycle(long playerId)
+        {
+            return waitFullCycle.ContainsKey(playerId) && waitFullCycle[playerId];
+        }
+
+        public static void DoProcessPlayerDied(long playerId, IMyCharacter character, MyCharacterStatComponent statComponent)
+        {
+            try
+            {
+                hasDied[playerId] = true;
+                waitFullCycle[playerId] = true;
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(PlayerActionsController), ex);
+            }
+        }
+
+        public static void DoProcessPlayerRemoveFixedEffect(long playerId, IMyCharacter character, MyCharacterStatComponent statComponent, string id, byte stack, bool max)
+        {
+            try
+            {
+                RefreshPlayerStatComponent(playerId, statComponent);
+                var playerStats = GetStatsEasyAcess(playerId);
+                if (playerStats == null)
+                    return;
+                StatsConstants.DamageEffects effect = StatsConstants.DamageEffects.None;
+                if (StatsConstants.IsStringInFlag(id, out effect))
+                {
+                    if (!playerStats.MedicalDetector.HasAnyEffect() && !PlayerHasDied(playerId))
+                    {
+                        if (StatsConstants.ON_SELFREMOVE_APPLY_DAMAGE.ContainsKey(effect))
+                        {
+                            AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.ON_SELFREMOVE_APPLY_DAMAGE[effect].ToString(), 0, true);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(PlayerActionsController), ex);
+            }
+        }
+
         public static void DoProcessPlayerDeath(long playerId, IMyCharacter character, MyCharacterStatComponent statComponent, Dictionary<string, float> storeStats)
         {
             try
@@ -830,15 +881,28 @@ namespace ExtendedSurvival.Stats
                 playerStats.BodyMinerals.Value = storeStats[StatsConstants.ValidStats.BodyMinerals.ToString()];
                 playerStats.BodyVitamins.Value = storeStats[StatsConstants.ValidStats.BodyVitamins.ToString()];
                 playerStats.RadiationTime.Value = storeStats[StatsConstants.ValidStats.RadiationTime.ToString()];
-                playerStats.IntoxicationTime.Value = storeStats[StatsConstants.ValidStats.IntoxicationTime.ToString()];
+                playerStats.IntoxicationTime.Value = storeStats[StatsConstants.ValidStats.IntoxicationTime.ToString()];                
+                if (playerStats.CurrentDiseaseEffects.IsFlagSet(StatsConstants.DiseaseEffects.Hyperthermia))
+                {
+                    AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DiseaseEffects.Hyperthermia.ToString(), 0, true);
+                }
+                if (playerStats.CurrentDiseaseEffects.IsFlagSet(StatsConstants.DiseaseEffects.Hypothermia))
+                {
+                    AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DiseaseEffects.Hypothermia.ToString(), 0, true);
+                }
                 if (ExtendedSurvivalSettings.Instance.HardModeEnabled)
                 {
-                    if (!StatsConstants.IsFlagSet(playerStats.CurrentDamageEffects, StatsConstants.ON_DEATH_NO_CHANGE_IF))
+                    foreach (var item in StatsConstants.ON_DEATH_APPLY_DAMAGE)
                     {
-                        var effect = playerStats.CurrentDamageEffects;
-                        effect &= ~StatsConstants.ON_DEATH_REMOVE_DAMAGE;
-                        effect |= StatsConstants.ON_DEATH_APPLY_DAMAGE;
-                        playerStats.DamageEffects.Value = (int)effect;
+                        if (playerStats.CurrentDamageEffects.IsFlagSet(item.Key) || playerStats.CurrentDamageEffects == item.Key)
+                        {
+                            foreach (var target in item.Value.Value)
+                            {
+                                AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, target.ToString(), 0, true);
+                            }
+                            AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, item.Value.Key.ToString(), 0, true);
+                            break;
+                        }
                     }
                     if (playerStats.CurrentDamageEffects != StatsConstants.DamageEffects.None)
                     {
@@ -858,6 +922,7 @@ namespace ExtendedSurvival.Stats
                     playerStats.DamageEffects.Value = (int)StatsConstants.DamageEffects.None;
                 }
                 CheckMinimalToLive(playerStats);
+                hasDied[playerId] = false;
             }
             catch (Exception ex)
             {
@@ -1488,40 +1553,44 @@ namespace ExtendedSurvival.Stats
         public static void CheckHealthDamage(long playerId, MyCharacterStatComponent statComponent, float damage)
         {
             RefreshPlayerStatComponent(playerId, statComponent);
-            var percentValue = statComponent.Health.Value / statComponent.Health.MaxValue;
             var percentDamage = damage / statComponent.Health.MaxValue;
-            if (percentDamage >= 0.6f)
+            var finalHealth = statComponent.Health.Value - damage;
+            if (finalHealth > 0 && !PlayerHasDied(playerId)) /* No effect on isntant death */
             {
-                AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.BrokenBones.ToString(), 0, true);
-                AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.DeepWounded.ToString(), 0, true);
-                AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Wounded.ToString(), 0, true);
-                AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Contusion.ToString(), 0, true);
-            }
-            else if (percentDamage >= 0.4f || percentValue <= 0.2f)
-            {
-                if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones))
+                var percentValue = finalHealth / statComponent.Health.MaxValue;
+                if (percentDamage >= 0.6f || percentValue <= 0.15f)
                 {
-                    AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.DeepWounded.ToString(), 0, true);
+                    AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.BrokenBones.ToString(), 0, true);
+                    AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.DeepWounded.ToString(), 0, true);
                     AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Wounded.ToString(), 0, true);
                     AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Contusion.ToString(), 0, true);
                 }
-            }
-            else if (percentDamage >= 0.2f || percentValue <= 0.4f)
-            {
-                if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
-                    !StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded))
+                else if (percentDamage >= 0.4f || percentValue <= 0.3f)
                 {
-                    AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.Wounded.ToString(), 0, true);
-                    AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Contusion.ToString(), 0, true);
+                    if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones))
+                    {
+                        AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.DeepWounded.ToString(), 0, true);
+                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Wounded.ToString(), 0, true);
+                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Contusion.ToString(), 0, true);
+                    }
                 }
-            }
-            else if (percentDamage >= 0.1f)
-            {
-                if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
-                    !StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded) &&
-                    !StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.Wounded))
+                else if (percentDamage >= 0.2f || percentValue <= 0.45f)
                 {
-                    AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.Contusion.ToString(), 0, true);
+                    if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
+                        !StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded))
+                    {
+                        AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.Wounded.ToString(), 0, true);
+                        AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, StatsConstants.DamageEffects.Contusion.ToString(), 0, true);
+                    }
+                }
+                else if (percentDamage >= 0.1f || percentValue <= 0.6f)
+                {
+                    if (!StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.BrokenBones) &&
+                        !StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.DeepWounded) &&
+                        !StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDamageEffects, StatsConstants.DamageEffects.Wounded))
+                    {
+                        AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DamageEffects.Contusion.ToString(), 0, true);
+                    }
                 }
             }
         }
@@ -1644,6 +1713,7 @@ namespace ExtendedSurvival.Stats
 
             }
             StaminaController.ClearSpendedStamina(playerId);
+            waitFullCycle[playerId] = false;
         }
 
         public static float ChanceToGetDisease(long playerId, StatsConstants.DiseaseEffects disease)
@@ -1705,6 +1775,9 @@ namespace ExtendedSurvival.Stats
                                 baseValue /= 2f;
                             else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereObesity))
                                 baseValue /= 4f;
+                            var hypothermiaStack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Hypothermia.ToString());
+                            if (hypothermiaStack > 0)
+                                baseValue /= hypothermiaStack + 1;
                         }
                     }
                     break;
@@ -1729,6 +1802,9 @@ namespace ExtendedSurvival.Stats
                                 baseValue /= 2f;
                             else if (StatsConstants.IsFlagSet(statsEasyAcess[playerId].CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereRickets))
                                 baseValue /= 4f;
+                            var hyperthermiaStack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Hyperthermia.ToString());
+                            if (hyperthermiaStack > 0)
+                                baseValue /= hyperthermiaStack + 1;
                         }
                     }
                     break;

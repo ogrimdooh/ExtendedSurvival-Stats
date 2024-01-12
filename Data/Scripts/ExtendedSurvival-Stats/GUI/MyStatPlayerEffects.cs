@@ -184,7 +184,19 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetDamageEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetDamageEffectTrackLevel(effect))
                         {
-                            sbEffects.AppendLine(StatsConstants.GetDamageEffectDescription(effect));
+                            var text = StatsConstants.GetDamageEffectDescription(effect);
+                            if (StatsConstants.CanDamageEffectSelfRemove(effect))
+                            {
+                                var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
+                                var timeToShow = TimeSpan.FromMilliseconds(timeToRemove);
+                                var mask = @"mm\:ss";
+                                if (timeToShow.TotalMinutes > 60)
+                                {
+                                    mask = @"hh\:mm\:ss";
+                                }
+                                text += " [" + timeToShow.ToString(mask) + "]";
+                            }
+                            sbEffects.AppendLine(text);
                         }
                     }
                 }
