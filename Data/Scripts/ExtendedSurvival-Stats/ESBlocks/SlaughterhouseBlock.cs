@@ -9,7 +9,11 @@ using VRage.Game.ModAPI;
 namespace ExtendedSurvival.Stats
 {
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Assembler), false, "BasicSlaughterhouse", "Slaughterhouse", "SlaughterhouseIndustrial")]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Assembler), false, 
+        "BasicSlaughterhouse", 
+        "Slaughterhouse", 
+        "SlaughterhouseIndustrial"
+    )]
     public class SlaughterhouseBlock : BaseAssemblerBlock 
     {
 

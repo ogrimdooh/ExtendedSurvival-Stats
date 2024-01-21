@@ -54,8 +54,6 @@ namespace ExtendedSurvival.Stats
             CurrentEntity.StartedProducing += CurrentEntity_StartedProducing;
             CurrentEntity.StoppedProducing += CurrentEntity_StoppedProducing;
             CurrentEntity.CurrentProgressChanged += CurrentEntity_CurrentProgressChanged;
-            CurrentEntity.CurrentModeChanged += Assembler_CurrentModeChanged;
-            CurrentEntity.CurrentStateChanged += Assembler_CurrentStateChanged;
             NeedsUpdate = VRage.ModAPI.MyEntityUpdateEnum.EACH_100TH_FRAME;
             base.OnInit(objectBuilder);
             CheckQueue();
@@ -119,24 +117,6 @@ namespace ExtendedSurvival.Stats
         protected virtual void CurrentEntity_CurrentProgressChanged(IMyAssembler obj)
         {
 
-        }
-
-        private void ResetAssemblerMode()
-        {
-            if (CurrentEntity.Mode != Sandbox.ModAPI.Ingame.MyAssemblerMode.Assembly)
-            {
-                CurrentEntity.Mode = Sandbox.ModAPI.Ingame.MyAssemblerMode.Assembly;
-            }
-        }
-
-        protected virtual void Assembler_CurrentStateChanged(IMyAssembler obj)
-        {
-            ResetAssemblerMode();
-        }
-
-        protected virtual void Assembler_CurrentModeChanged(IMyAssembler obj)
-        {
-            ResetAssemblerMode();
         }
 
     }
