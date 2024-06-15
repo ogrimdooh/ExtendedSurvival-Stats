@@ -2569,7 +2569,7 @@ namespace ExtendedSurvival.Stats
         {
             Id = SHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_NAME),
-            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
+            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerShieldController.TIME_BEFORE_CAN_REGENERATE / 1000),
             UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
@@ -2666,7 +2666,7 @@ namespace ExtendedSurvival.Stats
         {
             Id = ENHANCEDSHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDSHIELDGENERATOR_NAME),
-            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
+            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerShieldController.TIME_BEFORE_CAN_REGENERATE / 1000),
             UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
@@ -2773,7 +2773,7 @@ namespace ExtendedSurvival.Stats
         {
             Id = PROFICIENTSHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTSHIELDGENERATOR_NAME),
-            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
+            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerShieldController.TIME_BEFORE_CAN_REGENERATE / 1000),
             UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {
@@ -2890,7 +2890,7 @@ namespace ExtendedSurvival.Stats
         {
             Id = ELITESHIELDGENERATOR_ID,
             Name = LanguageProvider.GetEntry(LanguageEntries.ELITESHIELDGENERATOR_NAME),
-            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerActionsController.TIME_BEFORE_CAN_REGENERATE / 1000),
+            Description = string.Format(LanguageProvider.GetEntry(LanguageEntries.SHIELDGENERATOR_DESCRIPTION), PlayerShieldController.TIME_BEFORE_CAN_REGENERATE / 1000),
             UseCategory = ArmorSystemConstants.ArmorCategory.Work,
             Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
             {

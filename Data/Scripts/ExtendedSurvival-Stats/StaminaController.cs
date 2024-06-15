@@ -1,5 +1,6 @@
 ﻿using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
+using Sandbox.Game.Entities.Character;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -40,13 +41,13 @@ namespace ExtendedSurvival.Stats
 
                 staminSpendTime[playerId] -= cicleType;
 
-                PlayerActionsController.ProcessUnderwater(playerId, character, WeatherConstants.GetWeatherInfo(character).CurrentEnvironmentType);
+                PlayerUnderwaterController.ProcessUnderwater(playerId, character, WeatherConstants.GetWeatherInfo(character).CurrentEnvironmentType);
 
                 ProcessStamina(playerId, character);
 
-                PlayerActionsController.ProcessCargoMax(character);
-                PlayerActionsController.CheckHealthValue(playerId, statComponent);
-                PlayerActionsController.CheckValuesToDoDamage(playerId, character, statComponent);
+                PlayerInventoryController.ProcessCargoMax(character);
+                PlayerHealthController.CheckHealthValue(playerId, statComponent);
+                PlayerHealthController.CheckValuesToDoDamage(playerId, character, statComponent);
 
             }
 
@@ -54,7 +55,7 @@ namespace ExtendedSurvival.Stats
                 staminRegenTime[playerId] = 0;
             staminRegenTime[playerId] += updateTime;
             long cicleRegenType = 250; /* default cycle time 250ms */
-            float rechargeTime = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.LongerStaminaRechargeTime);
+            float rechargeTime = PlayerActionsController.NegativeStatsMultiplier(playerId, StaminaValueModifier.LongerStaminaRechargeTime);
             cicleRegenType = (long)((float)cicleRegenType * rechargeTime);
             if (staminRegenTime[playerId] >= cicleRegenType)
             {
@@ -92,7 +93,7 @@ namespace ExtendedSurvival.Stats
         private static float GetStaminaToDecrese(long playerId, IMyCharacter character)
         {
             var finalValue = GetBaseStaminaToDecrease(character);
-            finalValue *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, option: (int)StaminaValueModifier.HigherStaminaExpenditure);
+            finalValue *= PlayerActionsController.NegativeStatsMultiplier(playerId, StaminaValueModifier.HigherStaminaExpenditure);
             if (character.IsCharacterSprinting())
             {
                 finalValue *= GetStaminaRuningMultiplier();
@@ -110,7 +111,7 @@ namespace ExtendedSurvival.Stats
             if (access != null)
             {
                 var maxStamina = access.Stamina.MaxValue;
-                float reduction = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.MaximumStaminaReduction);
+                float reduction = PlayerActionsController.NegativeStatsMultiplier(playerId, StaminaValueModifier.MaximumStaminaReduction);
                 maxStamina *= reduction;
                 return Math.Max(maxStamina, StatsConstants.MIN_STAMINA_TO_USE);
             }
@@ -139,7 +140,7 @@ namespace ExtendedSurvival.Stats
         private static float GetStaminaToIncrease(long playerId)
         {
             var finalValue = StatsConstants.BASE_STAMINA_INCREASE_FACTOR * ExtendedSurvivalSettings.Instance.StaminaSettings.GainMultiplier;
-            float regeneration = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.StaminaRegeneration);
+            float regeneration = PlayerActionsController.NegativeStatsMultiplier(playerId, StaminaValueModifier.StaminaRegeneration);
             finalValue *= regeneration;
             return finalValue;
         }
@@ -168,7 +169,7 @@ namespace ExtendedSurvival.Stats
             if (access != null)
             {
                 var value = GetStaminaToDecrese(playerId, character) * StatsConstants.JUMP_COST_MULTIPLIER * ExtendedSurvivalSettings.Instance.StaminaSettings.JumpDrainMultiplier;
-                float expenditure = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.HigherStaminaExpenditure);
+                float expenditure = PlayerActionsController.NegativeStatsMultiplier(playerId, StaminaValueModifier.HigherStaminaExpenditure);
                 value *= expenditure;
                 AddSpendedStamina(playerId, value);
                 if (access.Stamina.Value > 0)
@@ -180,6 +181,7 @@ namespace ExtendedSurvival.Stats
                     var staminaDamage = StatsConstants.BASE_STAMINA_DAMAGE_FACTOR * ExtendedSurvivalSettings.Instance.StaminaSettings.DamageMultiplier;
                     if (staminaDamage > 0 && character.CanTakeDamage())
                         character.DoDamage(staminaDamage, MyDamageType.Environment, true);
+                    character.Physics.ClearSpeed();
                 }
                 if (access.Fatigue.Value < access.Fatigue.MaxValue)
                 {
@@ -198,7 +200,7 @@ namespace ExtendedSurvival.Stats
                 if (character.IsCharacterMoving() || character.IsCharacterUsingTool() || character.IsOnTreadmill())
                 {
                     var value = GetStaminaToDecrese(playerId, character);
-                    float expenditure = PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.Stamina, (int)StaminaValueModifier.HigherStaminaExpenditure);
+                    float expenditure = PlayerActionsController.NegativeStatsMultiplier(playerId, StaminaValueModifier.HigherStaminaExpenditure);
                     value *= expenditure;
                     AddSpendedStamina(playerId, value);
                     if (access.Stamina.Value > 0)

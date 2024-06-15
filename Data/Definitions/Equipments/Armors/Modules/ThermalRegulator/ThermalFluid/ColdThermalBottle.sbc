@@ -30,6 +30,7 @@
       <CanPlayerOrder>true</CanPlayerOrder>
       <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
       <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+      <MaxStackAmount>1</MaxStackAmount>
     </PhysicalItem>
     
   </PhysicalItems>

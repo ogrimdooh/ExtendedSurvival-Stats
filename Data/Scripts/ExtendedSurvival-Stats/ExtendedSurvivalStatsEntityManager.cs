@@ -39,7 +39,7 @@ namespace ExtendedSurvival.Stats
                         var statComp = playerList.FirstOrDefault().Character?.Components?.Get<MyEntityStatComponent>() as MyCharacterStatComponent;
                         if (statComp != null)
                         {
-                            PlayerActionsController.PlayerHealthRecharging(playerId, statComp);
+                            PlayerHealthController.PlayerHealthRecharging(playerId, statComp);
                         }
                     }
                 };

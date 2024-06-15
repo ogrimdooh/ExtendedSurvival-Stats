@@ -105,7 +105,7 @@ namespace ExtendedSurvival.Stats
                             }
                             else
                             {
-                                PlayerActionsController.DoReciveDamage(character, ref damage);
+                                PlayerHealthController.DoReciveDamage(character, ref damage);
                             }
                             damage.AttackerId = 0; /* Set Attacker to 0 */
                         }
@@ -584,14 +584,14 @@ namespace ExtendedSurvival.Stats
                             if (playerId != 0 && 
                                 character.IsValidPlayer() && 
                                 !character.IsDead && 
-                                !PlayerActionsController.PlayerHasDied(playerId) && 
-                                !PlayerActionsController.PlayerNeedWaitFullCycle(playerId))
+                                !PlayerDeathController.PlayerHasDied(playerId) && 
+                                !PlayerDeathController.PlayerNeedWaitFullCycle(playerId))
                             {
                                 WeatherConstants.RefreshWeatherInfo(character);
                                 if (character.IsOnValidBathroom())
                                 {
-                                    PlayerActionsController.DoCleanYourself(playerId);
-                                    PlayerActionsController.DoBodyNeeds(playerId, statComponent);
+                                    PlayerMetabolismController.DoCleanYourself(playerId);
+                                    PlayerMetabolismController.DoBodyNeeds(playerId, statComponent);
                                 }
                                 PlayerActionsController.ProcessEffectsTimers(playerId, character, statComponent, 1000);
                                 FatigueController.DoCycle(playerId, character, statComponent);
@@ -605,7 +605,7 @@ namespace ExtendedSurvival.Stats
                             if (playerId != 0 && character.IsValidPlayer() && !character.IsDead)
                             {
                                 PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
-                                PlayerActionsController.ProcessHealth(playerId, statComponent);
+                                PlayerHealthController.ProcessHealth(playerId, statComponent);
                             }
                         }, int.MaxValue);
                         // Set Stamina before cycle
@@ -636,11 +636,11 @@ namespace ExtendedSurvival.Stats
                                 {
                                     if (newValue < oldValue)
                                     {
-                                        PlayerActionsController.CheckHealthDamage(playerId, statComponent, oldValue - newValue);
+                                        PlayerHealthController.CheckHealthDamage(playerId, statComponent, oldValue - newValue);
                                     }
                                     else
                                     {
-                                        PlayerActionsController.CheckHealthValue(playerId, statComponent);
+                                        PlayerHealthController.CheckHealthValue(playerId, statComponent);
                                     }
                                 }
                             },
@@ -650,7 +650,7 @@ namespace ExtendedSurvival.Stats
                         AdvancedStatsAndEffectsAPI.AddAfterPlayerReset(
                             (playerId, character, statComponent) =>
                             {
-                                PlayerActionsController.DoEatStartFood(playerId);
+                                PlayerMetabolismController.DoEatStartFood(playerId);
                             },
                             int.MaxValue
                         );
@@ -660,7 +660,7 @@ namespace ExtendedSurvival.Stats
                             {
                                 if (newPod)
                                 {
-                                    PlayerActionsController.DoEatStartFood(playerId);
+                                    PlayerMetabolismController.DoEatStartFood(playerId);
                                 }
                             },
                             int.MaxValue
@@ -679,7 +679,7 @@ namespace ExtendedSurvival.Stats
                             {
                                 if (playerId != 0 && character.IsValidPlayer())
                                 {
-                                    PlayerActionsController.DoProcessItemConsume(playerId, statComponent, new UniqueEntityId(itemId));
+                                    PlayerInventoryController.DoProcessItemConsume(playerId, statComponent, new UniqueEntityId(itemId));
                                 }
                             },
                             int.MaxValue
@@ -691,7 +691,7 @@ namespace ExtendedSurvival.Stats
                                 {
                                     if (hasDied)
                                     {
-                                        PlayerActionsController.DoProcessPlayerDeath(playerId, character, statComponent, storeStats);
+                                        PlayerDeathController.DoProcessPlayerDeath(playerId, character, statComponent, storeStats);
                                     }
                                 }
                             },
@@ -712,7 +712,7 @@ namespace ExtendedSurvival.Stats
                             {
                                 if (playerId != 0 && character.IsValidPlayer())
                                 {
-                                    PlayerActionsController.DoProcessPlayerDied(playerId, character, statComponent);
+                                    PlayerDeathController.DoProcessPlayerDied(playerId, character, statComponent);
                                 }
                             },
                             int.MaxValue
