@@ -69,10 +69,37 @@ namespace ExtendedSurvival.Stats
             DoEmptyBladder(playerId);
         }
 
-        public static void DoVomit(long playerId)
+        public static void DoVomit(long playerId, PlayerStatsEasyAcess statsEasyAcess)
         {
             AdvancedStatsAndEffectsAPI.AddFixedEffect(playerId, StatsConstants.DiseaseEffects.Queasy.ToString(), 1, false);
+            statsEasyAcess.FoodEffects.Value = 0;
+            statsEasyAcess.FoodEffectsPart2.Value = 0;
             DoEmptyStomach(playerId);
+        }
+
+        public static void DoCheckMaxFoodEffects(long playerId, PlayerStatsEasyAcess statsEasyAcess, FoodDefinition food)
+        {
+            if (TotalFoodEffects(statsEasyAcess) > ExtendedSurvivalSettings.Instance.MaxActiveFoodEffects)
+            {
+                foreach (var foodEffect in food.FoodEffects.Keys)
+                {
+                    AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, foodEffect.ToString(), 1, true);
+                }
+                foreach (var foodEffect in food.FoodEffects2.Keys)
+                {
+                    AdvancedStatsAndEffectsAPI.RemoveFixedEffect(playerId, foodEffect.ToString(), 1, true);
+                }
+            }
+        }
+
+        public static int TotalFoodEffects(PlayerStatsEasyAcess statsEasyAcess)
+        {
+            int total = 0;
+            if (statsEasyAcess.CurrentFoodEffects != FoodEffectConstants.FoodEffects.None)
+                total += StatsConstants.GetFlags(statsEasyAcess.CurrentFoodEffects).Count();
+            if (statsEasyAcess.CurrentFoodEffectsPart2 != FoodEffectConstants.FoodEffectsPart2.None)
+                total += StatsConstants.GetFlags(statsEasyAcess.CurrentFoodEffectsPart2).Count();
+            return total;
         }
 
         private static void CheckStomach(long playerId, PlayerStatsEasyAcess statsEasyAcess)
@@ -371,7 +398,7 @@ namespace ExtendedSurvival.Stats
             }
             if (statsEasyAcess.Stomach.Value >= statsEasyAcess.Stomach.MaxValue)
             {
-                DoVomit(playerId);
+                DoVomit(playerId, statsEasyAcess);
             }
         }
 

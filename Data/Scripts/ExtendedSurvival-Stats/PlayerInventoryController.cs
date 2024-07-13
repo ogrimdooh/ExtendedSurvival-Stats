@@ -77,7 +77,7 @@ namespace ExtendedSurvival.Stats
                     var chanceToVomit = stack * StatsConstants.CHANCE_TO_VOMIT;
                     if (PlayerActionsController.CheckChance(chanceToVomit))
                     {
-                        PlayerMetabolismController.DoVomit(playerId);
+                        PlayerMetabolismController.DoVomit(playerId, statControl);
                         hasVomit = true;
                     }
                 }
@@ -88,12 +88,17 @@ namespace ExtendedSurvival.Stats
                     var chanceToPoop = stack * StatsConstants.CHANCE_TO_POOP;
                     if (!hasVomit && PlayerActionsController.CheckChance(chanceToVomit))
                     {
-                        PlayerMetabolismController.DoVomit(playerId);
+                        PlayerMetabolismController.DoVomit(playerId, statControl);
+                        hasVomit = true;
                     }
                     if (PlayerActionsController.CheckChance(chanceToPoop))
                     {
                         PlayerMetabolismController.DoShitYourself(playerId);
                     }
+                }
+                if (!hasVomit)
+                {
+                    PlayerMetabolismController.DoCheckMaxFoodEffects(playerId, statControl, FoodConstants.FOOD_DEFINITIONS[itemId]);
                 }
             }
             if (MedicalConstants.MEDICAL_DEFINITIONS.ContainsKey(itemId))

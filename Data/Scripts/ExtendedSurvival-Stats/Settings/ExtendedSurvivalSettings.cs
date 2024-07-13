@@ -63,6 +63,9 @@ namespace ExtendedSurvival.Stats
         public float CreatureBulletDamageReciverMultiplier { get; set; } = 5.0f;
 
         [XmlElement]
+        public int MaxActiveFoodEffects { get; set; } = 3;
+
+        [XmlElement]
         public MetabolismSettings MetabolismSettings { get; set; } = new MetabolismSettings();
 
         [XmlElement]
@@ -180,6 +183,14 @@ namespace ExtendedSurvival.Stats
                     if (float.TryParse(value, out creaturebulletdamagerecivermultiplier))
                     {
                         CreatureBulletDamageReciverMultiplier = Math.Max(0.01f, Math.Min(10, creaturebulletdamagerecivermultiplier));
+                        return true;
+                    }
+                    break;
+                case "maxactivefoodeffects":
+                    int maxactivefoodeffects;
+                    if (int.TryParse(value, out maxactivefoodeffects))
+                    {
+                        MaxActiveFoodEffects = Math.Max(1, Math.Min(10, maxactivefoodeffects));
                         return true;
                     }
                     break;
