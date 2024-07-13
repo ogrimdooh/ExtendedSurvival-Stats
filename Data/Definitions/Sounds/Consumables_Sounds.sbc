@@ -92,5 +92,77 @@
       </Waves>
     </Sound>
 
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>TakePills</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\TakePills.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>OpenBagEat</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\Food\OpenBagEat.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Bandages</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\Bandages.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>MedicalUse</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\MedicalUse.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
   </Sounds>
 </Definitions>
