@@ -41,6 +41,9 @@ namespace ExtendedSurvival.Stats
                             torporRate += armor.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.TorporBonus];
                         }
                     }
+                    damageRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.CreatureDamage);
+                    damageRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.HandWeaponDamage);
+                    torporRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.TorporBonus);
 
                     if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_LIDOCAIN_MAGZINE_ID.DefinitionId)
                     {
@@ -53,7 +56,7 @@ namespace ExtendedSurvival.Stats
                     else
                     {
                         // Animals take more damage from bulets
-                        damage.Amount *= 10 * damageRate;
+                        damage.Amount *= Math.Max(ExtendedSurvivalSettings.Instance.CreatureBulletDamageReciverMultiplier, 0.1f) * damageRate;
                     }
                     if (Torpor.Value >= Torpor.MaxValue)
                         PassOut(character);

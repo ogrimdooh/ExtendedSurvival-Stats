@@ -31,9 +31,17 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.TERMS_EMPTY_NAME,
 				"Пусто"
 			);
-			#endregion
-			#region CUBE_BLOCKS
-			AddEntry(
+            AddEntry(
+                LanguageEntries.TERMS_RESISTANCE_NAME,
+                "Cопротивление"
+            );
+            AddEntry(
+                LanguageEntries.TERMS_BONUS_NAME,
+                "Бонус"
+            );
+            #endregion
+            #region CUBE_BLOCKS
+            AddEntry(
 				LanguageEntries.CUBEBLOCK_SMALL_CAGE,
 				"Малая Клетка"
 			);
@@ -2807,6 +2815,10 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.METABOLISMVALUEMODIFIER_ENERGYCONSUMPTION_NAME,
                 "Потребление энергии"
             );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_INCREASEDFATIGUE_NAME,
+                "Повышенная усталость"
+            );
             #endregion
             #region Food Effects
             AddEntry(
@@ -3146,7 +3158,11 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME,
 				"Бонус к торпору"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.ARMOREFFECT_HANDWEAPONDAMAGE_NAME,
+                "Урон от ручного оружия"
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
 				"Одетые доспехи: {0} [{1} пустых модулей]."
 			);

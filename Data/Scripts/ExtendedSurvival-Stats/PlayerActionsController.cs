@@ -539,6 +539,47 @@ namespace ExtendedSurvival.Stats
                             Group = ValueModifierGroup.OtherEffects,
                             Key = (int)StatsConstants.OtherEffects.PeeOnClothes,
                             BaseValue = 0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RawMeat,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.EyesOpen,
+                            Negative = true,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MariosParty,
+                            Negative = true,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasEnd,
+                            Negative = true,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasProtection,
+                            Negative = true,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasBreath,
+                            Negative = true,
+                            BaseValue = 0.5f
                         }
                     }
                 }
@@ -820,6 +861,108 @@ namespace ExtendedSurvival.Stats
                             Group = ValueModifierGroup.FoodEffects,
                             Key = (int)FoodEffectConstants.FoodEffects.RawVegetable,
                             BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.StraightFromTheCow,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.ViscousAndDelicious,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.EyesOpen,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BreakingTheShell,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.PoPoPo,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Blessed,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SafeVegan,
+                            BaseValue = 0.75f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WinterIsComing,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.MouseChoice,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.ImprovedMetabolism,
+                            BaseValue = 0.75f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Sanctified,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.HooMamaMia,
+                            BaseValue = 0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WinterProtection,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.WinterBreath,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.FingerLicking,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.MesmerizingSmell,
+                            BaseValue = 0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.BestFriend,
+                            BaseValue = 0.5f
                         }
                     }
                 }
@@ -840,6 +983,140 @@ namespace ExtendedSurvival.Stats
                             Group = ValueModifierGroup.FoodEffects,
                             Key = (int)FoodEffectConstants.FoodEffects.FreshFruit,
                             BaseValue =  50f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.StraightFromTheCow,
+                            BaseValue =  50f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikePoop,
+                            BaseValue =  25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikeCharcoal,
+                            BaseValue =  25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RefreshingJuice,
+                            BaseValue =  100f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Bubbly,
+                            BaseValue =  50f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.EyesOpen,
+                            BaseValue =  75f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BreakfastOfChampions,
+                            BaseValue =  125f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.MouseChoice,
+                            BaseValue =  100f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikeButter,
+                            BaseValue =  200f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SooBig,
+                            BaseValue =  100f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.FingerLicking,
+                            BaseValue =  100f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.MesmerizingSmell,
+                            BaseValue =  100f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.BestFriend,
+                            BaseValue =  100f
+                        }
+                    }
+                }
+            },
+            {
+                StaminaController.StaminaValueModifier.IncreasedFatigue,
+                new PlayerValueModifier()
+                {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.STAMINAVALUEMODIFIER_INCREASEDFATIGUE_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.PoisonMushroom,
+                            BaseValue =  0.25f,
+                            Negative = false
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WildMushroom,
+                            BaseValue =  0.25f,
+                            Negative = true
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MariosParty,
+                            BaseValue =  0.5f,
+                            Negative = true
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasEnd,
+                            BaseValue =  0.75f,
+                            Negative = true
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasProtection,
+                            BaseValue =  0.75f,
+                            Negative = true
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasBreath,
+                            BaseValue =  0.75f,
+                            Negative = true
                         }
                     }
                 }
@@ -999,6 +1276,160 @@ namespace ExtendedSurvival.Stats
                             Key = (int)FoodEffectConstants.FoodEffects.FreshFruit,
                             Negative = true,
                             BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RawMeat,
+                            Negative = false,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.JuicyRed,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.ViscousAndDelicious,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.SeaCockroach,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.CampFeeling,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.ExplosiveJuiciness,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikeCharcoal,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RefreshingJuice,
+                            Negative = true,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Bubbly,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MariosParty,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BreakingTheShell,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MamaMia,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SafeVegan,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasEnd,
+                            Negative = true,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikeButter,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.ImprovedMetabolism,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.HooMamaMia,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WowMamaMia,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BalancedDiet,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasProtection,
+                            Negative = true,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasBreath,
+                            Negative = true,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.WinterBreath,
+                            Negative = true,
+                            BaseValue =  0.1f
                         }
                     }
                 }
@@ -1022,7 +1453,646 @@ namespace ExtendedSurvival.Stats
                             Key = (int)FoodEffectConstants.FoodEffects.RawVegetable,
                             Negative = true,
                             BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RawMeat,
+                            Negative = false,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.JuicyRed,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.GlubGlub,
+                            Negative = true,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikePoop,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MamaMia,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SafeVegan,
+                            Negative = true,
+                            BaseValue =  0.4f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WinterIsComing,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikeBeefJerky,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.HooMamaMia,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WowMamaMia,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BalancedDiet,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WinterProtection,
+                            Negative = true,
+                            BaseValue =  0.2f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.WinterBreath,
+                            Negative = true,
+                            BaseValue =  0.2f
                         }
+                    }
+                }
+            }
+        };
+
+        private static readonly Dictionary<ArmorSystemConstants.DamageType, PlayerValueModifier> ResistencesModifiers = new Dictionary<ArmorSystemConstants.DamageType, PlayerValueModifier>()
+        {
+            {
+                ArmorSystemConstants.DamageType.Creature,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_CREATURE_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Barbecue,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Sanctified,
+                            BaseValue =  0.25f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Fall,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_FALL_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Barbecue,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Blessed,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SundayFood,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.MouseChoice,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Sanctified,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WinterProtection,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.FingerLicking,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.BestFriend,
+                            BaseValue =  0.25f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Environment,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_ENVIRONMENT_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.SeaCockroach,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Blessed,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Sanctified,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WinterProtection,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.FingerLicking,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.BestFriend,
+                            BaseValue =  0.25f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Fire,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_FIRE_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.CampFeeling,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SooBig,
+                            BaseValue =  0.25f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Explosion,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_EXPLOSION_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.ExplosiveJuiciness,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BreakfastOfChampions,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MomsFood,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SundayFood,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SooBig,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BalancedDiet,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasBreath,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.WinterBreath,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.MesmerizingSmell,
+                            BaseValue =  0.25f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Bullet,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_BULLET_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.PoPoPo,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MomsFood,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SundayFood,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.SooBig,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WowMamaMia,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BalancedDiet,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.GoombasProtection,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.MesmerizingSmell,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.BestFriend,
+                            BaseValue =  0.25f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Radioactivity,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_RADIOACTIVITY_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Tool,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_TOOL_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Toxicity,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_TOXICITY_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.DamageType.Other,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.DAMAGETYPE_OTHER_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_RESISTANCE_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
+                    }
+                }
+            }
+        };
+
+        private static readonly Dictionary<ArmorSystemConstants.ArmorEffect, PlayerValueModifier> ArmorEffectsModifiers = new Dictionary<ArmorSystemConstants.ArmorEffect, PlayerValueModifier>()
+        {
+            {
+                ArmorSystemConstants.ArmorEffect.Gathering,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_GATHERING_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_BONUS_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.TastyLikeSawdust,
+                            BaseValue =  0.05f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RefreshingJuice,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.Bubbly,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BreakfastOfChampions,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.PoPoPo,
+                            BaseValue =  0.15f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffectsPart2,
+                            Key = (int)FoodEffectConstants.FoodEffectsPart2.TastyLikeBeefJerky,
+                            BaseValue =  0.5f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.ArmorEffect.HandWeaponDamage,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_HANDWEAPONDAMAGE_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_BONUS_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.BreakingTheShell,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.MamaMia,
+                            BaseValue =  0.25f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.HooMamaMia,
+                            BaseValue =  0.5f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.WowMamaMia,
+                            BaseValue =  0.5f
+                        }
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.ArmorEffect.CreatureDamage,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_CREATUREDAMAGE_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_BONUS_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.ArmorEffect.TorporBonus,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_BONUS_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.ArmorEffect.CargoLoad,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_CARGOLOAD_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_BONUS_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
+                    }
+                }
+            },
+            {
+                ArmorSystemConstants.ArmorEffect.MovementSpeed,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = $"{LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_MOVEMENTSPEED_NAME)} {LanguageProvider.GetEntry(LanguageEntries.TERMS_BONUS_NAME)}",
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+
                     }
                 }
             }
@@ -1060,6 +2130,24 @@ namespace ExtendedSurvival.Stats
             if (ValidStatsModifiers.ContainsKey(option))
             {
                 return ValidStatsModifiers[option].DoCalc(playerId);
+            }
+            return 1;
+        }
+
+        public static float StatsMultiplier(long playerId, ArmorSystemConstants.DamageType option)
+        {
+            if (ResistencesModifiers.ContainsKey(option))
+            {
+                return ResistencesModifiers[option].DoCalc(playerId);
+            }
+            return 1;
+        }
+
+        public static float StatsMultiplier(long playerId, ArmorSystemConstants.ArmorEffect option)
+        {
+            if (ArmorEffectsModifiers.ContainsKey(option))
+            {
+                return ArmorEffectsModifiers[option].DoCalc(playerId);
             }
             return 1;
         }
@@ -1141,6 +2229,36 @@ namespace ExtendedSurvival.Stats
                     });
                 }
             }
+            /* ResistencesModifiers */
+            foreach (var key in ResistencesModifiers.Keys)
+            {
+                if (ResistencesModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect))
+                {
+                    var target = ResistencesModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = ResistencesModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = ResistencesModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* ArmorEffectsModifiers */
+            foreach (var key in ArmorEffectsModifiers.Keys)
+            {
+                if (ArmorEffectsModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect))
+                {
+                    var target = ArmorEffectsModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = ArmorEffectsModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = ArmorEffectsModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
             _statMultiplierInfoByFoodEffectsCache2[foodEffect] = retorno.ToArray();
             return _statMultiplierInfoByFoodEffectsCache2[foodEffect];
         }
@@ -1207,6 +2325,36 @@ namespace ExtendedSurvival.Stats
                         Name = MetabolismModifiers[key].DisplayName,
                         Value = finalValue,
                         FormatedValue = MetabolismModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* ResistencesModifiers */
+            foreach (var key in ResistencesModifiers.Keys)
+            {
+                if (ResistencesModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect))
+                {
+                    var target = ResistencesModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = ResistencesModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = ResistencesModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* ArmorEffectsModifiers */
+            foreach (var key in ArmorEffectsModifiers.Keys)
+            {
+                if (ArmorEffectsModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect))
+                {
+                    var target = ArmorEffectsModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = ArmorEffectsModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = ArmorEffectsModifiers[key].FormatValueDelegate(finalValue)
                     });
                 }
             }

@@ -1,9 +1,11 @@
 ﻿using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
+using Sandbox.ModAPI.Weapons;
 using System;
 using VRage.Game;
 using VRage.Game.ModAPI;
+using static ExtendedSurvival.Stats.ArmorSystemConstants;
 
 namespace ExtendedSurvival.Stats
 {
@@ -54,9 +56,21 @@ namespace ExtendedSurvival.Stats
         {
             var playerId = character.GetPlayerId();
             var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
+            var damageType = ArmorSystemConstants.GetDamageType(damage.Type);
+
+            if (damage.Type == MyDamageType.Bullet && damage.AttackerId != 0)
+            {
+                IMyAutomaticRifleGun gunObj;
+                var gun = ExtendedSurvivalStatsEntityManager.Instance.GetHandheldGun(damage.AttackerId, out gunObj);
+                if (gun != null)
+                {
+                    var damageRate = 1 + PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.HandWeaponDamage);
+                    damage.Amount *= damageRate;
+                }
+            }
+
             if (armorInfo != null && armorInfo.HasArmor)
             {
-                var damageType = ArmorSystemConstants.GetDamageType(damage.Type);
                 if (armorInfo.Shield.HasShield && ExtendedSurvivalCoreAPI.Registered)
                 {
                     var stats = PlayerActionsController.GetStatsEasyAcess(playerId);
@@ -128,15 +142,24 @@ namespace ExtendedSurvival.Stats
                         }
                     }
                 }
-                if (damage.Amount > 0)
+            }
+            if (damage.Amount > 0)
+            {
+                if (damageType != ArmorSystemConstants.DamageType.None)
                 {
-                    if (damageType != ArmorSystemConstants.DamageType.None)
+                    if (armorInfo != null && armorInfo.HasArmor)
                     {
                         if (armorInfo.ArmorDefinition.Resistences.ContainsKey(damageType))
                         {
                             var amountToChange = damage.Amount * armorInfo.ArmorDefinition.Resistences[damageType];
                             damage.Amount -= amountToChange;
                         }
+                    }
+                    var naturalResistence = PlayerActionsController.StatsMultiplier(playerId, damageType);
+                    if (naturalResistence != 0)
+                    {
+                        var amountToChange = damage.Amount * naturalResistence;
+                        damage.Amount -= amountToChange;
                     }
                 }
             }

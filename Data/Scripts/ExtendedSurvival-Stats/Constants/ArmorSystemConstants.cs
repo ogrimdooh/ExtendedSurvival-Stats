@@ -53,7 +53,8 @@ namespace ExtendedSurvival.Stats
             CargoLoad = 1,
             MovementSpeed = 2,
             CreatureDamage = 3,
-            TorporBonus = 4
+            TorporBonus = 4,
+            HandWeaponDamage = 5
 
         }
 
@@ -102,6 +103,7 @@ namespace ExtendedSurvival.Stats
                 case ArmorEffect.MovementSpeed:
                 case ArmorEffect.CreatureDamage:
                 case ArmorEffect.TorporBonus:
+                case ArmorEffect.HandWeaponDamage:
                     return value.ToString("P2");
             }
             return value.ToString("#0.00");
@@ -163,6 +165,8 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_CREATUREDAMAGE_NAME);
                 case ArmorEffect.TorporBonus:
                     return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME);
+                case ArmorEffect.HandWeaponDamage:
+                    return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_HANDWEAPONDAMAGE_NAME);
             }
             return "";
         }

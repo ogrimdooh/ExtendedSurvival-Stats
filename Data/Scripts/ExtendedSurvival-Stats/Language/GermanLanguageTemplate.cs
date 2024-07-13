@@ -31,9 +31,17 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.TERMS_EMPTY_NAME,
 				"Leer"
 			);
-			#endregion
-			#region CUBE_BLOCKS
-			AddEntry(
+            AddEntry(
+                LanguageEntries.TERMS_RESISTANCE_NAME,
+                "die Beständigkeit"
+            );
+            AddEntry(
+                LanguageEntries.TERMS_BONUS_NAME,
+                "Bonus"
+            );
+            #endregion
+            #region CUBE_BLOCKS
+            AddEntry(
                 LanguageEntries.CUBEBLOCK_SMALL_CAGE,
 				"Kleiner Käfig"
 			);
@@ -2818,6 +2826,10 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.METABOLISMVALUEMODIFIER_ENERGYCONSUMPTION_NAME,
                 "Energieverbrauch"
             );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_INCREASEDFATIGUE_NAME,
+                "Erhöhte Müdigkeit"
+            );
             #endregion
             #region Food Effects
             AddEntry(
@@ -3160,7 +3172,11 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME,
 				"Erstarrungsbonus"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.ARMOREFFECT_HANDWEAPONDAMAGE_NAME,
+                "Handwaffenschaden"
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
 				"Rüstung ausgerüstet: {0} [{1} Leere Module]."
 			);

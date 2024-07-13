@@ -47,9 +47,11 @@ namespace ExtendedSurvival.Stats
         }
 
         private PlayerArmorController.PlayerEquipInfo armorInfo;
+        private long playerId;
         protected override void OnUpdateAfterSimulation100()
         {
             base.OnUpdateAfterSimulation100();
+            this.playerId = 0;
             this.armorInfo = null;
             if (CurrentEntity.IsFunctional && CurrentEntity.IsActivated)
             {
@@ -59,15 +61,15 @@ namespace ExtendedSurvival.Stats
                 if (query.Any())
                 {
                     var lista = query.Select(x => x.FatBlock as IMyCockpit).ToArray();
-                    foreach (var cockpit in lista)
+                    foreach (var cockpit in lista.Where(x => x.IsMainCockpit))
                     {
-                        var playerId = cockpit.ControllerInfo.ControllingIdentityId;
+                        playerId = cockpit.ControllerInfo.ControllingIdentityId;
                         var armorInfo = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
                         if (armorInfo != null && armorInfo.HasArmor)
                         {
                             this.armorInfo = armorInfo;
-                            break;
                         }
+                        break;
                     }
                 }
             }
@@ -81,11 +83,19 @@ namespace ExtendedSurvival.Stats
                 {
                     if (item.Content.TypeId == typeof(MyObjectBuilder_Ore))
                     {
-                        if (armorInfo != null && armorInfo.HasArmor && armorInfo.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.Gathering))
+                        if (playerId != 0)
                         {
-                            var getBonus = armorInfo.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.Gathering];
-                            var finalamount = (MyFixedPoint)(amount * getBonus);
-                            item.Amount += finalamount;
+                            float getBonus = 0;
+                            if (armorInfo != null && armorInfo.HasArmor && armorInfo.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.Gathering))
+                            {
+                                getBonus = armorInfo.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.Gathering];
+                            }
+                            getBonus += PlayerActionsController.StatsMultiplier(playerId, ArmorSystemConstants.ArmorEffect.Gathering);
+                            if (getBonus != 0)
+                            {
+                                var finalamount = (MyFixedPoint)(amount * getBonus);
+                                item.Amount += finalamount;
+                            }
                         }
                     }
                 }

@@ -21,7 +21,8 @@ namespace ExtendedSurvival.Stats
             MaximumStaminaReduction = 1,
             LongerStaminaRechargeTime = 2,
             StaminaRegeneration = 3,
-            MaximumStaminaBonus = 4
+            MaximumStaminaBonus = 4,
+            IncreasedFatigue = 5
 
         }
 
