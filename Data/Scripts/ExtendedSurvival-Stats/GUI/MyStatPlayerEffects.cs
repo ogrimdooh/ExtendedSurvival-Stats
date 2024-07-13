@@ -20,6 +20,7 @@ namespace ExtendedSurvival.Stats
         MyEntityStat TemperatureEffects;
         MyEntityStat DiseaseEffects;
         MyEntityStat OtherEffects;
+        MyEntityStat FoodEffects;
         MyEntityStatComponent StatComponent;
         private PlayerArmorController.PlayerEquipInfo ArmorInfo;
 
@@ -63,6 +64,14 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public FoodEffectConstants.FoodEffects CurrentFoodEffects
+        {
+            get
+            {
+                return FoodEffects != null ? (FoodEffectConstants.FoodEffects)((int)FoodEffects.Value) : FoodEffectConstants.FoodEffects.None;
+            }
+        }
+
         public bool IsValid
         {
             get
@@ -72,7 +81,8 @@ namespace ExtendedSurvival.Stats
                     DamageEffects != null &&
                     TemperatureEffects != null &&
                     DiseaseEffects != null &&
-                    OtherEffects != null && 
+                    OtherEffects != null &&
+                    FoodEffects != null &&
                     ExtendedSurvivalStatsSession.Static != null;
             }
         }
@@ -97,6 +107,7 @@ namespace ExtendedSurvival.Stats
             TemperatureEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup03.ToString());
             DiseaseEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup04.ToString());
             OtherEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup05.ToString());
+            FoodEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup06.ToString());
             if (IsValid)
             {
                 ArmorInfo = PlayerArmorController.GetEquipedArmor(useCache: true);
@@ -105,6 +116,7 @@ namespace ExtendedSurvival.Stats
                     TemperatureEffects.Value +
                     DiseaseEffects.Value +
                     OtherEffects.Value +
+                    FoodEffects.Value +
                     (IsWithHelmet() ? 1 + ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatUpdateHash() : 0) +
                     GetBodyTrackerLevel() +
                     WeatherConstants.CurrentWeatherInfo.GetHashCode() +
@@ -235,6 +247,29 @@ namespace ExtendedSurvival.Stats
                         if (bodyTrackLevel >= StatsConstants.GetOtherEffectTrackLevel(effect))
                         {
                             sbEffects.AppendLine(StatsConstants.GetOtherEffectDescription(effect));
+                        }
+                    }
+                }
+                if (CurrentFoodEffects != FoodEffectConstants.FoodEffects.None)
+                {
+                    foreach (var effect in StatsConstants.GetFlags(CurrentFoodEffects))
+                    {
+                        toalEffects += FoodEffectConstants.GetFoodEffectsFeelingLevel(effect);
+                        if (bodyTrackLevel >= FoodEffectConstants.GetFoodEffectsTrackLevel(effect))
+                        {
+                            var text = FoodEffectConstants.GetFoodEffectsDescription(effect);
+                            if (FoodEffectConstants.FOOD_EFFECTS[effect].CanSelfRemove || FoodEffectConstants.FOOD_EFFECTS[effect].IsInverseTime)
+                            {
+                                var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
+                                var timeToShow = TimeSpan.FromMilliseconds(timeToRemove);
+                                var mask = @"mm\:ss";
+                                if (timeToShow.TotalMinutes > 60)
+                                {
+                                    mask = @"hh\:mm\:ss";
+                                }
+                                text += " [" + timeToShow.ToString(mask) + "]";
+                            }
+                            sbEffects.AppendLine(text);
                         }
                     }
                 }

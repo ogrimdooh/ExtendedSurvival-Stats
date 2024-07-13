@@ -4,9 +4,69 @@ using System.Collections.Generic;
 using System.Linq;
 using VRage.Utils;
 using VRageMath;
+using static ExtendedSurvival.Stats.StatsConstants;
 
 namespace ExtendedSurvival.Stats
 {
+
+    public static class FoodEffectConstants
+    {
+
+        [Flags]
+        public enum FoodEffects
+        {
+
+            None = 0,
+            FreshFruit = 1 << 1
+
+        }
+
+        public static Dictionary<FoodEffects, FixedStatDataInfo> FOOD_EFFECTS = new Dictionary<FoodEffects, FixedStatDataInfo>()
+        {
+            {
+                FoodEffects.FreshFruit,
+                new FixedStatDataInfo()
+                {
+                    Name = GetFoodEffectsDescription(FoodEffects.FreshFruit),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
+            }
+        };
+
+        public static string GetFoodEffectsDescription(FoodEffects effect)
+        {
+            switch (effect)
+            {
+                case FoodEffects.FreshFruit:
+                    return LanguageProvider.GetEntry(LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME);
+            }
+            return "";
+        }
+
+        public static int GetFoodEffectsFeelingLevel(FoodEffects effect)
+        {
+            switch (effect)
+            {
+                case FoodEffects.FreshFruit:
+                    return 0;
+            }
+            return 0;
+        }
+
+        public static int GetFoodEffectsTrackLevel(FoodEffects effect)
+        {
+            switch (effect)
+            {
+                case FoodEffects.FreshFruit:
+                    return 0;
+            }
+            return 0;
+        }
+
+    }
 
     public static class StatsConstants
     {
@@ -172,7 +232,7 @@ namespace ExtendedSurvival.Stats
             StatsGroup03, /* Temperature Effects */
             StatsGroup04, /* Disease Effects */
             StatsGroup05, /* Other Effects */
-            StatsGroup06,
+            StatsGroup06, /* Food Effects */
             StatsGroup07,
             StatsGroup08,
             StatsGroup09,
@@ -212,7 +272,8 @@ namespace ExtendedSurvival.Stats
             RadiationTime,
             HotThermalFluid,
             ColdThermalFluid,
-            EnergyShield
+            EnergyShield,
+            StaminaAmount
 
         }
 
@@ -637,6 +698,8 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALFLUID_DESCRIPTION);
                 case ValidStats.EnergyShield:
                     return LanguageProvider.GetEntry(LanguageEntries.ENERGYSHIELD_DESCRIPTION);
+                case ValidStats.StaminaAmount:
+                    return LanguageProvider.GetEntry(LanguageEntries.STAMINAAMOUNT_DESCRIPTION);
             }
             return "";
         }
@@ -705,6 +768,8 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.COLDTHERMALFLUID_NAME);
                 case ValidStats.EnergyShield:
                     return LanguageProvider.GetEntry(LanguageEntries.ENERGYSHIELD_NAME);
+                case ValidStats.StaminaAmount:
+                    return LanguageProvider.GetEntry(LanguageEntries.STAMINAAMOUNT_NAME);
             }
             return "";
         }

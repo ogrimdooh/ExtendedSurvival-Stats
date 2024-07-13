@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Sounds>
+    
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>EatApple</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\Food\EatApple.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+  </Sounds>
+</Definitions>

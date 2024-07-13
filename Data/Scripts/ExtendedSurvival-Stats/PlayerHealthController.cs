@@ -21,9 +21,9 @@ namespace ExtendedSurvival.Stats
             var maxValue = statComponent.Health.MaxValue;
             if (maxDamage != StatsConstants.DamageEffects.None)
             {
-                finalRegen *= PlayerActionsController.NegativeStatsMultiplier(playerId, HealthController.HealthValueModifier.RegenerationFactor);
-                maxRegen = PlayerActionsController.NegativeStatsMultiplier(playerId, HealthController.HealthValueModifier.MaximumRegenerationHealth);
-                maxValue *= PlayerActionsController.NegativeStatsMultiplier(playerId, HealthController.HealthValueModifier.MaxHealth);
+                finalRegen *= PlayerActionsController.StatsMultiplier(playerId, HealthController.HealthValueModifier.RegenerationFactor);
+                maxRegen = PlayerActionsController.StatsMultiplier(playerId, HealthController.HealthValueModifier.MaximumRegenerationHealth);
+                maxValue *= PlayerActionsController.StatsMultiplier(playerId, HealthController.HealthValueModifier.MaxHealth);
             }
             var currentStatusValue = statComponent.Health.Value / statComponent.Health.MaxValue;
             if (currentStatusValue < maxRegen)

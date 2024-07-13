@@ -793,7 +793,7 @@
             <Inverted>false</Inverted>
           </StatStyle>
           <StatStyle xsi:type="MyObjectBuilder_TextStatVisualStyle">
-            <StatId>player_stamina</StatId>
+            <StatId>player_staminaamount</StatId>
             <OffsetPx>
               <X>42.5</X>
               <Y>55</Y>

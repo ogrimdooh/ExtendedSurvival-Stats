@@ -8,6 +8,13 @@ namespace ExtendedSurvival.Stats
     public static class PlayerMetabolismController
     {
 
+        public enum MetabolismValueModifier
+        {
+
+            WaterConsumption = 0
+
+        }
+
         public static void DoEatStartFood(long playerId)
         {
             AdvancedStatsAndEffectsAPI.DoPlayerConsume(playerId, FoodConstants.SANDWICH_ID.DefinitionId);
@@ -445,10 +452,25 @@ namespace ExtendedSurvival.Stats
             statsEasyAcess.Bladder.Value += PlayerBodyConstants.WaterToBladder / ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
         }
 
+        private static void DoWaterConsumeCicle(long playerId, float staminaSpended, PlayerStatsEasyAcess statsEasyAcess, float mSpeed)
+        {
+            waterToConsume[playerId] = PlayerBodyConstants.WaterConsumption.X;
+            if (staminaSpended > 0)
+            {
+                waterToConsume[playerId] += PlayerBodyConstants.WaterConsumption.Y * staminaSpended;
+            }
+            waterToConsume[playerId] *= PlayerActionsController.StatsMultiplier(playerId, StatsConstants.ValidStats.BodyWater);
+            var bonusFactor = PlayerActionsController.StatsMultiplier(playerId, MetabolismValueModifier.WaterConsumption);
+            if (bonusFactor != 0)
+            {
+                waterToConsume[playerId] += waterToConsume[playerId] * bonusFactor;
+            }
+            statsEasyAcess.BodyWater.Value -= waterToConsume[playerId] * ExtendedSurvivalSettings.Instance.MetabolismSettings.WaterConsumeMultiplier / mSpeed;
+        }
+
         private static void DoConsumeCicle(long playerId, float staminaSpended, PlayerStatsEasyAcess statsEasyAcess)
         {
             var _caloriesToConsume = PlayerBodyConstants.CaloriesConsumption.X;
-            waterToConsume[playerId] = PlayerBodyConstants.WaterConsumption.X;
             var _proteinToConsume = PlayerBodyConstants.ProteinConsumption.X;
             var _carbohydrateToConsume = PlayerBodyConstants.CarbohydrateConsumption.X;
             var _lipidsToConsume = PlayerBodyConstants.LipidConsumption.X;
@@ -458,28 +480,26 @@ namespace ExtendedSurvival.Stats
             {
                 staminaSpended *= ExtendedSurvivalSettings.Instance.MetabolismSettings.StaminaSpendedMultiplier;
                 _caloriesToConsume += PlayerBodyConstants.CaloriesConsumption.Y * staminaSpended;
-                waterToConsume[playerId] += PlayerBodyConstants.WaterConsumption.Y * staminaSpended;
                 _proteinToConsume += PlayerBodyConstants.ProteinConsumption.Y * staminaSpended;
                 _carbohydrateToConsume += PlayerBodyConstants.CarbohydrateConsumption.Y * staminaSpended;
                 _lipidsToConsume += PlayerBodyConstants.LipidConsumption.Y * staminaSpended;
                 _mineralsToConsume += PlayerBodyConstants.MineralsConsumption.Y * staminaSpended;
                 _vitaminsToConsume += PlayerBodyConstants.VitaminsConsumption.Y * staminaSpended;
             }
-            _caloriesToConsume *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyCalories);
-            waterToConsume[playerId] *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyWater);
-            _proteinToConsume *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyProtein);
-            _carbohydrateToConsume *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyCarbohydrate);
-            _lipidsToConsume *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyLipids);
-            _mineralsToConsume *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyMinerals);
-            _vitaminsToConsume *= PlayerActionsController.NegativeStatsMultiplier(playerId, StatsConstants.ValidStats.BodyVitamins);
+            _caloriesToConsume *= PlayerActionsController.StatsMultiplier(playerId, StatsConstants.ValidStats.BodyCalories);
+            _proteinToConsume *= PlayerActionsController.StatsMultiplier(playerId, StatsConstants.ValidStats.BodyProtein);
+            _carbohydrateToConsume *= PlayerActionsController.StatsMultiplier(playerId, StatsConstants.ValidStats.BodyCarbohydrate);
+            _lipidsToConsume *= PlayerActionsController.StatsMultiplier(playerId, StatsConstants.ValidStats.BodyLipids);
+            _mineralsToConsume *= PlayerActionsController.StatsMultiplier(playerId, StatsConstants.ValidStats.BodyMinerals);
+            _vitaminsToConsume *= PlayerActionsController.StatsMultiplier(playerId, StatsConstants.ValidStats.BodyVitamins);
             var mSpeed = ExtendedSurvivalSettings.Instance.MetabolismSpeedMultiplier;
             statsEasyAcess.BodyCalories.Value -= _caloriesToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.CaloriesConsumeMultiplier / mSpeed;
-            statsEasyAcess.BodyWater.Value -= waterToConsume[playerId] * ExtendedSurvivalSettings.Instance.MetabolismSettings.WaterConsumeMultiplier / mSpeed;
             statsEasyAcess.BodyProtein.Value -= _proteinToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.ProteinConsumeMultiplier / mSpeed;
             statsEasyAcess.BodyCarbohydrate.Value -= _carbohydrateToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.CarbohydrateConsumeMultiplier / mSpeed;
             statsEasyAcess.BodyLipids.Value -= _lipidsToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.LipidsConsumeMultiplier / mSpeed;
             statsEasyAcess.BodyMinerals.Value -= _mineralsToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.MineralsConsumeMultiplier / mSpeed;
             statsEasyAcess.BodyVitamins.Value -= _vitaminsToConsume * ExtendedSurvivalSettings.Instance.MetabolismSettings.VitaminsConsumeMultiplier / mSpeed;
+            DoWaterConsumeCicle(playerId, staminaSpended, statsEasyAcess, mSpeed);
         }
 
     }

@@ -4,7 +4,7 @@
     {
 
         Health = 0,
-        Stamina = 1,
+        StaminaAmount = 1,
         Fatigue = 2
 
     }

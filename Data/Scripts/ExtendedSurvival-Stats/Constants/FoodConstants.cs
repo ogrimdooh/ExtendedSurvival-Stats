@@ -330,9 +330,16 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Stamina,
+                    EffectTarget = FoodEffectTarget.StaminaAmount,
                     EffectType = FoodEffectType.Instant,
-                    Ammount = 5
+                    Ammount = 25
+                },
+                new ConsumibleEffect()
+                {
+                    EffectTarget = FoodEffectTarget.StaminaAmount,
+                    EffectType = FoodEffectType.OverTime,
+                    Ammount = 25,
+                    TimeToEffect = 5
                 },
                 new ConsumibleEffect()
                 {
@@ -341,6 +348,10 @@ namespace ExtendedSurvival.Stats
                     Ammount = 10,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.FreshFruit, 1 }
             }
         };
 
@@ -601,7 +612,7 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Stamina,
+                    EffectTarget = FoodEffectTarget.StaminaAmount,
                     EffectType = FoodEffectType.Instant,
                     Ammount = 5
                 },
@@ -748,7 +759,7 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Stamina,
+                    EffectTarget = FoodEffectTarget.StaminaAmount,
                     EffectType = FoodEffectType.OverTime,
                     Ammount = 25,
                     TimeToEffect = 5

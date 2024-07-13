@@ -2763,9 +2763,19 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.BODYFATWEIGHT_NAME,
 				"Жирный вес"
 			);
-			#endregion
-			#region Weather
-			AddEntry(
+            AddEntry(
+                LanguageEntries.STAMINAAMOUNT_NAME,
+                "Макс. выносливость"
+            );
+            #endregion
+            #region Food Effects
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME,
+                "Свежие фрукты"
+            );
+            #endregion
+            #region Weather
+            AddEntry(
 				LanguageEntries.WEATHEREFFECTSLEVEL_LIGHT_NAME,
 				"Легкий"
 			);

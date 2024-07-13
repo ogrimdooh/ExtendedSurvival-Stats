@@ -45,6 +45,7 @@ namespace ExtendedSurvival.Stats
         public MyEntityStat TemperatureEffects { get { return FixedStats[StatsConstants.FixedStats.StatsGroup03]; } }
         public MyEntityStat DiseaseEffects { get { return FixedStats[StatsConstants.FixedStats.StatsGroup04]; } }
         public MyEntityStat OtherEffects { get { return FixedStats[StatsConstants.FixedStats.StatsGroup05]; } }
+        public MyEntityStat FoodEffects { get { return FixedStats[StatsConstants.FixedStats.StatsGroup06]; } }
 
         public MyEntityStat FoodDetector { get { return Stats[StatsConstants.ValidStats.FoodDetector]; } }
         public MyEntityStat MedicalDetector { get { return Stats[StatsConstants.ValidStats.MedicalDetector]; } }
@@ -52,6 +53,7 @@ namespace ExtendedSurvival.Stats
         public MyEntityStat Hunger { get { return Stats[StatsConstants.ValidStats.Hunger]; } }
         public MyEntityStat Thirst { get { return Stats[StatsConstants.ValidStats.Thirst]; } }
         public MyEntityStat Stamina { get { return Stats[StatsConstants.ValidStats.Stamina]; } }
+        public MyEntityStat StaminaAmount { get { return Stats[StatsConstants.ValidStats.StaminaAmount]; } }
         public MyEntityStat Fatigue { get { return Stats[StatsConstants.ValidStats.Fatigue]; } }
 
         public MyEntityStat WoundedTime { get { return Stats[StatsConstants.ValidStats.WoundedTime]; } }
@@ -136,6 +138,18 @@ namespace ExtendedSurvival.Stats
             get
             {
                 return OtherEffects != null ? (StatsConstants.OtherEffects)((int)OtherEffects.Value) : StatsConstants.OtherEffects.None;
+            }
+            set
+            {
+                OtherEffects.Value = (int)value;
+            }
+        }
+
+        public FoodEffectConstants.FoodEffects CurrentFoodEffects
+        {
+            get
+            {
+                return OtherEffects != null ? (FoodEffectConstants.FoodEffects)((int)FoodEffects.Value) : FoodEffectConstants.FoodEffects.None;
             }
             set
             {

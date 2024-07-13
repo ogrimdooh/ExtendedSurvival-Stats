@@ -37,9 +37,25 @@ namespace ExtendedSurvival.Stats
         public Dictionary<StatsConstants.DiseaseEffects, float> DiseaseChance { get; set; } = new Dictionary<StatsConstants.DiseaseEffects, float>();
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; } = new List<StatsConstants.DiseaseEffects>();
         public Dictionary<StatsConstants.TemperatureEffects, int> TemperatureEffects { get; set; } = new Dictionary<StatsConstants.TemperatureEffects, int>();
+        public Dictionary<FoodEffectConstants.FoodEffects, int> FoodEffects { get; set; } = new Dictionary<FoodEffectConstants.FoodEffects, int>();
 
         public bool NeedConservation { get; set; } = false;
         public long StartConservationTime { get; set; } = 0;
+
+        private string GetFoodEffectTargetName(FoodEffectTarget target)
+        {
+            switch (target)
+            {
+                case FoodEffectTarget.Health:
+                    return "Health";
+                case FoodEffectTarget.StaminaAmount:
+                    return "Stamina";
+                case FoodEffectTarget.Fatigue:
+                    return "Fatigue";
+                default:
+                    return "";
+            }
+        }
 
         private string GetNutritionDescription()
         {
@@ -74,14 +90,14 @@ namespace ExtendedSurvival.Stats
                         case FoodEffectType.Instant:
                             values.AppendLine(string.Format(
                                 LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_EFFECT_INSTANT_DESCRIPTION),
-                                effect.EffectTarget.ToString(),
+                                GetFoodEffectTargetName(effect.EffectTarget),
                                 effect.Ammount.ToString("#0.00")
                             ));
                             break;
                         case FoodEffectType.OverTime:
                             values.AppendLine(string.Format(
                                 LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_EFFECT_OVERTIME_DESCRIPTION),
-                                effect.EffectTarget.ToString(),
+                                GetFoodEffectTargetName(effect.EffectTarget),
                                 effect.Ammount.ToString("#0.00"),
                                 effect.TimeToEffect.ToString("#0.0")
                             ));
@@ -90,8 +106,9 @@ namespace ExtendedSurvival.Stats
                 }
             }
             var hadDiseaseChance = DiseaseChance != null && DiseaseChance.Any();
-            var hadTemperatureEffectsToAdd = TemperatureEffects != null && TemperatureEffects.Any(x => x.Value <= 0);
-            if (hadDiseaseChance || hadTemperatureEffectsToAdd)
+            var hadTemperatureEffectsToAdd = TemperatureEffects != null && TemperatureEffects.Any(x => x.Value > 0);
+            var hadFoodEffectsToAdd = FoodEffects != null && FoodEffects.Any();
+            if (hadDiseaseChance || hadTemperatureEffectsToAdd || hadFoodEffectsToAdd)
             {
                 values.AppendLine(" ");
                 if (hadDiseaseChance)
@@ -115,6 +132,20 @@ namespace ExtendedSurvival.Stats
                                 LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
                                 (1).ToString("P1"),
                                 StatsConstants.GetTemperatureEffectDescription(temperatureEffects)
+                            ));
+                        }
+                    }
+                }
+                if (hadFoodEffectsToAdd)
+                {
+                    foreach (var foodEffects in FoodEffects.Keys)
+                    {
+                        if (FoodEffects[foodEffects] > 0)
+                        {
+                            values.AppendLine(string.Format(
+                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
+                                (1).ToString("P1"),
+                                FoodEffectConstants.GetFoodEffectsDescription(foodEffects)
                             ));
                         }
                     }
@@ -519,7 +550,20 @@ namespace ExtendedSurvival.Stats
                         MaxStacks = TemperatureEffects[effect] <= 0
                     });
                 }
-            }            
+            }
+            if (FoodEffects != null)
+            {
+                foreach (var effect in FoodEffects.Keys)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = FoodEffects[effect] > 0 ? FixedEffectInConsumableType.Add : FixedEffectInConsumableType.Remove,
+                        Target = effect.ToString(),
+                        Stacks = (byte)Math.Max(FoodEffects[effect], 0),
+                        MaxStacks = FoodEffects[effect] <= 0
+                    });
+                }
+            }
             return info;
         }
 

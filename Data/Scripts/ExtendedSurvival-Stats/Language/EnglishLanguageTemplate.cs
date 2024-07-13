@@ -2741,9 +2741,19 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.BODYFATWEIGHT_NAME,
 				"Fat Weight"
 			);
-			#endregion
-			#region Weather
-			AddEntry(
+            AddEntry(
+                LanguageEntries.STAMINAAMOUNT_NAME,
+                "Max Stamina"
+            );
+            #endregion
+            #region Food Effects
+            AddEntry(
+				LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME,
+                "Fresh Fruit"
+            );
+            #endregion
+            #region Weather
+            AddEntry(
 				LanguageEntries.WEATHEREFFECTSLEVEL_LIGHT_NAME,
 				"Light"
 			);
@@ -3292,10 +3302,10 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.BODYFATWEIGHT_DESCRIPTION,
 				""
 			);
-			AddEntry(
-				LanguageEntries.BODYFATWEIGHT_DESCRIPTION,
-				""
-			);
+            AddEntry(
+                LanguageEntries.STAMINAAMOUNT_DESCRIPTION,
+                ""
+            );
 
 
 
@@ -3307,7 +3317,7 @@ namespace ExtendedSurvival.Stats
 
 
 
-			AddEntry(
+            AddEntry(
 				LanguageEntries.HELP_TOPIC_SYSTEM_TITLE,
 				"Extended Survival: Stats & Effects - Systems"
 			);

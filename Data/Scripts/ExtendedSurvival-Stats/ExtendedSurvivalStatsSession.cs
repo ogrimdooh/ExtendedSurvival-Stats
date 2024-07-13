@@ -551,6 +551,31 @@ namespace ExtendedSurvival.Stats
                                 });
                             }
                         }
+                        // Food Effects : Group 06
+                        var foodStats = ((FoodEffectConstants.FoodEffects[])Enum.GetValues(typeof(FoodEffectConstants.FoodEffects))).ToList();
+                        foreach (FoodEffectConstants.FoodEffects item in foodStats)
+                        {
+                            if (item != FoodEffectConstants.FoodEffects.None)
+                            {
+                                AdvancedStatsAndEffectsAPI.ConfigureFixedStat(new FixedStatInfo()
+                                {
+                                    Group = 6,
+                                    Index = foodStats.IndexOf(item),
+                                    Id = item.ToString(),
+                                    Name = FoodEffectConstants.FOOD_EFFECTS[item].Name,
+                                    CanSelfRemove = FoodEffectConstants.FOOD_EFFECTS[item].CanSelfRemove,
+                                    TimeToSelfRemove = FoodEffectConstants.FOOD_EFFECTS[item].TimeToSelfRemove,
+                                    CompleteRemove = FoodEffectConstants.FOOD_EFFECTS[item].CompleteRemove,
+                                    StacksWhenRemove = FoodEffectConstants.FOOD_EFFECTS[item].StacksWhenRemove,
+                                    IsInverseTime = FoodEffectConstants.FOOD_EFFECTS[item].IsInverseTime,
+                                    MaxInverseTime = FoodEffectConstants.FOOD_EFFECTS[item].MaxInverseTime,
+                                    SelfRemoveWhenMaxInverse = FoodEffectConstants.FOOD_EFFECTS[item].SelfRemoveWhenMaxInverse,
+                                    CanStack = FoodEffectConstants.FOOD_EFFECTS[item].CanStack,
+                                    MaxStacks = FoodEffectConstants.FOOD_EFFECTS[item].MaxStacks,
+                                    IsPositive = FoodEffectConstants.FOOD_EFFECTS[item].IsPositive
+                                });
+                            }
+                        }
                         // Set foods
                         foreach (var foodId in FoodConstants.FOOD_DEFINITIONS.Keys)
                         {

@@ -100,7 +100,8 @@ namespace ExtendedSurvival.Stats
             DamageEffects = 2,
             TemperatureEffects = 3,
             DiseaseEffects = 4,
-            OtherEffects = 5
+            OtherEffects = 5,
+            FoodEffects = 6
 
         }
 
@@ -127,6 +128,8 @@ namespace ExtendedSurvival.Stats
                         return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, ((StatsConstants.DiseaseEffects)Key).ToString());
                     case ValueModifierGroup.OtherEffects:
                         return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, ((StatsConstants.OtherEffects)Key).ToString());
+                    case ValueModifierGroup.FoodEffects:
+                        return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, ((FoodEffectConstants.FoodEffects)Key).ToString());
                 }
                 return 1;
             }
@@ -162,6 +165,12 @@ namespace ExtendedSurvival.Stats
                         break;
                     case ValueModifierGroup.OtherEffects:
                         if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentOtherEffects, (StatsConstants.OtherEffects)Key))
+                        {
+                            finalValue = BaseValue;
+                        }
+                        break;
+                    case ValueModifierGroup.FoodEffects:
+                        if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentFoodEffects, (FoodEffectConstants.FoodEffects)Key))
                         {
                             finalValue = BaseValue;
                         }
@@ -762,6 +771,21 @@ namespace ExtendedSurvival.Stats
                         }
                     }
                 }
+            },
+            {
+                StaminaController.StaminaValueModifier.MaximumStaminaBonus,
+                new PlayerValueModifier()
+                {
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.FreshFruit,
+                            BaseValue =  50f
+                        }
+                    }
+                }
             }
         };
 
@@ -887,7 +911,38 @@ namespace ExtendedSurvival.Stats
             }
         };
 
-        public static float NegativeStatsMultiplier(long playerId, HealthController.HealthValueModifier option)
+        private static readonly Dictionary<PlayerMetabolismController.MetabolismValueModifier, PlayerValueModifier> MetabolismModifiers = new Dictionary<PlayerMetabolismController.MetabolismValueModifier, PlayerValueModifier>()
+        {
+            {
+                PlayerMetabolismController.MetabolismValueModifier.WaterConsumption,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.FreshFruit,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static float StatsMultiplier(long playerId, PlayerMetabolismController.MetabolismValueModifier option)
+        {
+            if (MetabolismModifiers.ContainsKey(option))
+            {
+                return MetabolismModifiers[option].DoCalc(playerId);
+            }
+            return 1;
+        }
+
+        public static float StatsMultiplier(long playerId, HealthController.HealthValueModifier option)
         {
             if (HealthModifiers.ContainsKey(option))
             {
@@ -896,7 +951,7 @@ namespace ExtendedSurvival.Stats
             return 1;
         }
 
-        public static float NegativeStatsMultiplier(long playerId, StaminaController.StaminaValueModifier option)
+        public static float StatsMultiplier(long playerId, StaminaController.StaminaValueModifier option)
         {
             if (StaminaModifiers.ContainsKey(option))
             {
@@ -905,7 +960,7 @@ namespace ExtendedSurvival.Stats
             return 1;
         }
 
-        public static float NegativeStatsMultiplier(long playerId, StatsConstants.ValidStats option)
+        public static float StatsMultiplier(long playerId, StatsConstants.ValidStats option)
         {
             if (ValidStatsModifiers.ContainsKey(option))
             {
