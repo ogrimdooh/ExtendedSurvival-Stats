@@ -2778,11 +2778,55 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.STAMINAAMOUNT_NAME,
                 "Maximale Ausdauer"
             );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_REGENERATIONFACTOR_NAME,
+                "Regenerationsfaktor"
+            );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_MAXIMUMREGENERATIONHEALTH_NAME,
+                "Maximale Regenerationsgesundheit"
+            );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_MAXHEALTH_NAME,
+                "Maximale Gesundheit"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_HIGHERSTAMINAEXPENDITURE_NAME,
+                "Höhere Ausdauerausgaben"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINAREDUCTION_NAME,
+                "Maximale Ausdauerreduzierung"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_LONGERSTAMINARECHARGETIME_NAME,
+                "Längere Wiederaufladezeit der Ausdauer"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_STAMINAREGENERATION_NAME,
+                "Ausdauerregeneration"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINABONUS_NAME,
+                "Maximaler Ausdauerbonus"
+            );
+            AddEntry(
+                LanguageEntries.METABOLISMVALUEMODIFIER_WATERCONSUMPTION_NAME,
+                "Wasserverbrauch"
+            );
+            AddEntry(
+                LanguageEntries.METABOLISMVALUEMODIFIER_ENERGYCONSUMPTION_NAME,
+                "Energieverbrauch"
+            );
             #endregion
             #region Food Effects
             AddEntry(
                 LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME,
                 "Frisches Obst"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_RAWVEGETABLE_NAME,
+                "Rohes Gemüse"
             );
             #endregion
             #region Weather

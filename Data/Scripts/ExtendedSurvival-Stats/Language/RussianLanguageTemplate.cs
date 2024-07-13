@@ -2767,11 +2767,55 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.STAMINAAMOUNT_NAME,
                 "Макс. выносливость"
             );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_REGENERATIONFACTOR_NAME,
+                "Фактор регенерации"
+            );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_MAXIMUMREGENERATIONHEALTH_NAME,
+                "Максимальное восстановление здоровья"
+            );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_MAXHEALTH_NAME,
+                "Максимальное здоровье"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_HIGHERSTAMINAEXPENDITURE_NAME,
+                "Более высокие затраты на выносливость"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINAREDUCTION_NAME,
+                "Максимальное снижение выносливости"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_LONGERSTAMINARECHARGETIME_NAME,
+                "Увеличенное время перезарядки выносливости"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_STAMINAREGENERATION_NAME,
+                "Регенерация выносливости"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINABONUS_NAME,
+                "Максимальный бонус выносливости"
+            );
+            AddEntry(
+                LanguageEntries.METABOLISMVALUEMODIFIER_WATERCONSUMPTION_NAME,
+                "Потребление воды"
+            );
+            AddEntry(
+                LanguageEntries.METABOLISMVALUEMODIFIER_ENERGYCONSUMPTION_NAME,
+                "Потребление энергии"
+            );
             #endregion
             #region Food Effects
             AddEntry(
                 LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME,
                 "Свежие фрукты"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_RAWVEGETABLE_NAME,
+                "Сырой овощ"
             );
             #endregion
             #region Weather

@@ -386,9 +386,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 10,
+                    Ammount = 25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawVegetable, 1 }
             }
         };
 
@@ -423,9 +427,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 10,
+                    Ammount = 25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawVegetable, 1 }
             }
         };
 
@@ -460,9 +468,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 10,
+                    Ammount = 25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawVegetable, 1 }
             }
         };
 

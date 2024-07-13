@@ -17,7 +17,8 @@ namespace ExtendedSurvival.Stats
         {
 
             None = 0,
-            FreshFruit = 1 << 1
+            FreshFruit = 1 << 1,
+            RawVegetable = 1 << 2
 
         }
 
@@ -33,6 +34,17 @@ namespace ExtendedSurvival.Stats
                     CompleteRemove = true,
                     IsPositive = true
                 }
+            },
+            {
+                FoodEffects.RawVegetable,
+                new FixedStatDataInfo()
+                {
+                    Name = GetFoodEffectsDescription(FoodEffects.RawVegetable),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
             }
         };
 
@@ -42,6 +54,8 @@ namespace ExtendedSurvival.Stats
             {
                 case FoodEffects.FreshFruit:
                     return LanguageProvider.GetEntry(LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME);
+                case FoodEffects.RawVegetable:
+                    return LanguageProvider.GetEntry(LanguageEntries.FOODEFFECTS_RAWVEGETABLE_NAME);
             }
             return "";
         }
@@ -51,6 +65,7 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case FoodEffects.FreshFruit:
+                case FoodEffects.RawVegetable:
                     return 0;
             }
             return 0;
@@ -61,6 +76,7 @@ namespace ExtendedSurvival.Stats
             switch (effect)
             {
                 case FoodEffects.FreshFruit:
+                case FoodEffects.RawVegetable:
                     return 0;
             }
             return 0;

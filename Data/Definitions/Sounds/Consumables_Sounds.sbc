@@ -20,5 +20,77 @@
       </Waves>
     </Sound>
 
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>EatVegetable</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\Food\EatVegetable.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Eat01</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\Food\Eat01.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Eat02</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\Food\Eat02.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Eat03</SubtypeId>
+      </Id>
+      <Category>CONSUMABLE</Category>
+      <Volume>1.0</Volume>
+      <Loopable>false</Loopable>
+      <MaxDistance>15</MaxDistance>
+      <UpdateDistance>20</UpdateDistance>
+      <ModifiableByHelmetFilters>false</ModifiableByHelmetFilters>
+      <Waves>
+        <Wave Type="D2">
+          <Start>Audio\Consumable\Food\Eat03.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
   </Sounds>
 </Definitions>

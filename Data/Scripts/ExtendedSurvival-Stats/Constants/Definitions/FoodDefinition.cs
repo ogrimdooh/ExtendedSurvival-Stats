@@ -107,8 +107,7 @@ namespace ExtendedSurvival.Stats
             }
             var hadDiseaseChance = DiseaseChance != null && DiseaseChance.Any();
             var hadTemperatureEffectsToAdd = TemperatureEffects != null && TemperatureEffects.Any(x => x.Value > 0);
-            var hadFoodEffectsToAdd = FoodEffects != null && FoodEffects.Any();
-            if (hadDiseaseChance || hadTemperatureEffectsToAdd || hadFoodEffectsToAdd)
+            if (hadDiseaseChance || hadTemperatureEffectsToAdd)
             {
                 values.AppendLine(" ");
                 if (hadDiseaseChance)
@@ -136,17 +135,27 @@ namespace ExtendedSurvival.Stats
                         }
                     }
                 }
-                if (hadFoodEffectsToAdd)
+            }
+            var hadFoodEffectsToAdd = FoodEffects != null && FoodEffects.Any();
+            if (hadFoodEffectsToAdd)
+            {
+                values.AppendLine(" ");
+                foreach (var foodEffects in FoodEffects.Keys)
                 {
-                    foreach (var foodEffects in FoodEffects.Keys)
+                    if (FoodEffects[foodEffects] > 0)
                     {
-                        if (FoodEffects[foodEffects] > 0)
+                        values.AppendLine(string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
+                            (1).ToString("P1"),
+                            FoodEffectConstants.GetFoodEffectsDescription(foodEffects)
+                        ));
+                        var extraInfo = PlayerActionsController.GetStatMultiplierInfo(foodEffects);
+                        if (extraInfo != null && extraInfo.Any())
                         {
-                            values.AppendLine(string.Format(
-                                LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
-                                (1).ToString("P1"),
-                                FoodEffectConstants.GetFoodEffectsDescription(foodEffects)
-                            ));
+                            foreach (var item in extraInfo)
+                            {
+                                values.AppendLine(string.Format("  {0}{1} {2}", item.Value > 0 ? "+" : "", item.FormatedValue, item.Name));
+                            }
                         }
                     }
                 }

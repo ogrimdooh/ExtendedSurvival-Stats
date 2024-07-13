@@ -198,7 +198,9 @@ namespace ExtendedSurvival.Stats
             public float MinValue { get; set; } = 0;
             public bool HasMaxValue { get; set; }
             public float MaxValue { get; set; }
-
+            public string DisplayName { get; set; }
+            public Func<float, string> FormatValueDelegate { get; set; }
+            
             public float DoCalc(long playerId)
             {
                 var statsEasyAcess = PlayerActionsController.GetStatsEasyAcess(playerId);
@@ -222,6 +224,11 @@ namespace ExtendedSurvival.Stats
                 HealthController.HealthValueModifier.RegenerationFactor,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.HEALTHVALUEMODIFIER_REGENERATIONFACTOR_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -267,6 +274,11 @@ namespace ExtendedSurvival.Stats
                 HealthController.HealthValueModifier.MaximumRegenerationHealth,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.HEALTHVALUEMODIFIER_MAXIMUMREGENERATIONHEALTH_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -312,6 +324,11 @@ namespace ExtendedSurvival.Stats
                 HealthController.HealthValueModifier.MaxHealth,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.HEALTHVALUEMODIFIER_MAXHEALTH_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -361,6 +378,11 @@ namespace ExtendedSurvival.Stats
                 StaminaController.StaminaValueModifier.HigherStaminaExpenditure,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.STAMINAVALUEMODIFIER_HIGHERSTAMINAEXPENDITURE_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -516,6 +538,11 @@ namespace ExtendedSurvival.Stats
                 StaminaController.StaminaValueModifier.MaximumStaminaReduction,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINAREDUCTION_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -638,6 +665,11 @@ namespace ExtendedSurvival.Stats
                 StaminaController.StaminaValueModifier.LongerStaminaRechargeTime,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.STAMINAVALUEMODIFIER_LONGERSTAMINARECHARGETIME_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -739,6 +771,11 @@ namespace ExtendedSurvival.Stats
                 StaminaController.StaminaValueModifier.StaminaRegeneration,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.STAMINAVALUEMODIFIER_STAMINAREGENERATION_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -746,28 +783,34 @@ namespace ExtendedSurvival.Stats
                             Group = ValueModifierGroup.DamageEffects,
                             Key = (int)StatsConstants.DamageEffects.Contusion,
                             Negative = true,
-                            BaseValue =  0.1f
+                            BaseValue = 0.1f
                         },
                         new PlayerValueModifierEntry()
                         {
                             Group = ValueModifierGroup.DamageEffects,
                             Key = (int)StatsConstants.DamageEffects.Wounded,
                             Negative = true,
-                            BaseValue =  0.2f
+                            BaseValue = 0.2f
                         },
                         new PlayerValueModifierEntry()
                         {
                             Group = ValueModifierGroup.DamageEffects,
                             Key = (int)StatsConstants.DamageEffects.DeepWounded,
                             Negative = true,
-                            BaseValue =  0.3f
+                            BaseValue = 0.3f
                         },
                         new PlayerValueModifierEntry()
                         {
                             Group = ValueModifierGroup.DamageEffects,
                             Key = (int)StatsConstants.DamageEffects.BrokenBones,
                             Negative = true,
-                            BaseValue =  0.4f
+                            BaseValue = 0.4f
+                        },
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RawVegetable,
+                            BaseValue = 0.25f
                         }
                     }
                 }
@@ -776,6 +819,11 @@ namespace ExtendedSurvival.Stats
                 StaminaController.StaminaValueModifier.MaximumStaminaBonus,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINABONUS_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return ((int)value).ToString();
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -795,6 +843,11 @@ namespace ExtendedSurvival.Stats
                 StatsConstants.ValidStats.BodyWater,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.BODYWATER_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -854,6 +907,11 @@ namespace ExtendedSurvival.Stats
                 StatsConstants.ValidStats.BodyCalories,
                 new PlayerValueModifier()
                 {
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.BODYCALORIES_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
@@ -919,12 +977,40 @@ namespace ExtendedSurvival.Stats
                 {
                     BaseValue = 0,
                     HasMinValue = false,
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.METABOLISMVALUEMODIFIER_WATERCONSUMPTION_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
                     Entries = new PlayerValueModifierEntry[]
                     {
                         new PlayerValueModifierEntry()
                         {
                             Group = ValueModifierGroup.FoodEffects,
                             Key = (int)FoodEffectConstants.FoodEffects.FreshFruit,
+                            Negative = true,
+                            BaseValue =  0.1f
+                        }
+                    }
+                }
+            },
+            {
+                PlayerMetabolismController.MetabolismValueModifier.EnergyConsumption,
+                new PlayerValueModifier()
+                {
+                    BaseValue = 0,
+                    HasMinValue = false,
+                    DisplayName = LanguageProvider.GetEntry(LanguageEntries.METABOLISMVALUEMODIFIER_ENERGYCONSUMPTION_NAME),
+                    FormatValueDelegate = (value) =>
+                    {
+                        return value.ToString("P1");
+                    },
+                    Entries = new PlayerValueModifierEntry[]
+                    {
+                        new PlayerValueModifierEntry()
+                        {
+                            Group = ValueModifierGroup.FoodEffects,
+                            Key = (int)FoodEffectConstants.FoodEffects.RawVegetable,
                             Negative = true,
                             BaseValue =  0.1f
                         }
@@ -967,6 +1053,86 @@ namespace ExtendedSurvival.Stats
                 return ValidStatsModifiers[option].DoCalc(playerId);
             }
             return 1;
+        }
+
+        public class StatMultiplierInfo
+        {
+
+            public string Name { get; set; }
+            public float Value { get; set; }
+            public string FormatedValue { get; set; }
+
+        }
+
+        private static ConcurrentDictionary<FoodEffectConstants.FoodEffects, StatMultiplierInfo[]> _statMultiplierInfoByFoodEffectsCache = new ConcurrentDictionary<FoodEffectConstants.FoodEffects, StatMultiplierInfo[]>();
+
+        public static StatMultiplierInfo[] GetStatMultiplierInfo(FoodEffectConstants.FoodEffects foodEffect)
+        {
+            if (_statMultiplierInfoByFoodEffectsCache.ContainsKey(foodEffect))
+                return _statMultiplierInfoByFoodEffectsCache[foodEffect];
+            var retorno = new List<StatMultiplierInfo>();
+            /* HealthModifiers */
+            foreach (var key in HealthModifiers.Keys)
+            {
+                if (HealthModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect))
+                {
+                    var target = HealthModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = HealthModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = HealthModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* StaminaModifiers */
+            foreach (var key in StaminaModifiers.Keys)
+            {
+                if (StaminaModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect))
+                {
+                    var target = StaminaModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = StaminaModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = StaminaModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* ValidStatsModifiers */
+            foreach (var key in ValidStatsModifiers.Keys)
+            {
+                if (ValidStatsModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect))
+                {
+                    var target = ValidStatsModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = ValidStatsModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = ValidStatsModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* MetabolismModifiers */
+            foreach (var key in MetabolismModifiers.Keys)
+            {
+                if (MetabolismModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect))
+                {
+                    var target = MetabolismModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffects && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = MetabolismModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = MetabolismModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            _statMultiplierInfoByFoodEffectsCache[foodEffect] = retorno.ToArray();
+            return _statMultiplierInfoByFoodEffectsCache[foodEffect];
         }
 
     }

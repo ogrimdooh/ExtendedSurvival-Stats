@@ -2745,11 +2745,55 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.STAMINAAMOUNT_NAME,
                 "Max Stamina"
             );
+            AddEntry(
+				LanguageEntries.HEALTHVALUEMODIFIER_REGENERATIONFACTOR_NAME,
+                "Regeneration Factor"
+            );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_MAXIMUMREGENERATIONHEALTH_NAME,
+                "Maximum Regeneration Health"
+            );
+            AddEntry(
+                LanguageEntries.HEALTHVALUEMODIFIER_MAXHEALTH_NAME,
+                "Max Health"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_HIGHERSTAMINAEXPENDITURE_NAME,
+                "Higher Stamina Expenditure"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINAREDUCTION_NAME,
+                "Maximum Stamina Reduction"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_LONGERSTAMINARECHARGETIME_NAME,
+                "Longer Stamina Recharge Time"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_STAMINAREGENERATION_NAME,
+                "Stamina Regeneration"
+            );
+            AddEntry(
+                LanguageEntries.STAMINAVALUEMODIFIER_MAXIMUMSTAMINABONUS_NAME,
+                "Maximum Stamina Bonus"
+            );
+            AddEntry(
+                LanguageEntries.METABOLISMVALUEMODIFIER_WATERCONSUMPTION_NAME,
+                "Water Consumption"
+            );
+            AddEntry(
+                LanguageEntries.METABOLISMVALUEMODIFIER_ENERGYCONSUMPTION_NAME,
+                "Energy Consumption"
+            );
             #endregion
             #region Food Effects
             AddEntry(
 				LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME,
                 "Fresh Fruit"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_RAWVEGETABLE_NAME,
+                "Raw Vegetable"
             );
             #endregion
             #region Weather
