@@ -2795,6 +2795,182 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.FOODEFFECTS_RAWVEGETABLE_NAME,
                 "Raw Vegetable"
             );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WILDMUSHROOM_NAME,
+                "Wild Mushroom"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_POISONMUSHROOM_NAME,
+                "Poison Mushroom"
+            );
+            AddEntry(
+				LanguageEntries.FOODEFFECTS_JUICYRED_NAME,
+                "Juicy Red"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_STRAIGHTFROMTHECOW_NAME,
+                "Straight From The Cow"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_RAWMEAT_NAME,
+                "Raw Meat"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_VISCOUSANDDELICIOUS_NAME,
+                "Viscous & Delicious"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_GLUBGLUB_NAME,
+                "Glub! Glub!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_REFRESHINGJUICE_NAME,
+                "Refreshing Juice"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BUBBLY_NAME,
+                "Bubbly!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_EYESOPEN_NAME,
+                "Eyes Open"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_MARIOSPARTY_NAME,
+                "Mario's Party"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BREAKINGTHESHELL_NAME,
+                "Breaking The Shell"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BREAKFASTOFCHAMPIONS_NAME,
+                "Breakfast Of Champions"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_POPOPO_NAME,
+                "Pó Pó Pó!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SOOBIG_NAME,
+                "Soo... Big!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BARBECUE_NAME,
+                "Barbecue"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_TASTYLIKESAWDUST_NAME,
+                "Tasty Like Sawdust"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BLESSED_NAME,
+                "Blessed"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SANCTIFIED_NAME,
+                "Sanctified"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_MAMAMIA_NAME,
+                "Mama Mia!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_HOOMAMAMIA_NAME,
+                "Hoo... Mama Mia!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WOWMAMAMIA_NAME,
+                "Wow... Mama Mia!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SAFEVEGAN_NAME,
+                "Safe Vegan"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WINTERPROTECTION_NAME,
+                "Winter Protection"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_MOMSFOOD_NAME,
+                "Mom's Food"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BALANCEDDIET_NAME,
+                "Balanced Diet"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SUNDAYFOOD_NAME,
+                "Sunday Food"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WINTERISCOMING_NAME,
+                "Winter Is Coming"
+            );
+            AddEntry(
+				LanguageEntries.FOODEFFECTSPART2_GOOMBASEND_NAME,
+                "Goomba's End"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_GOOMBASPROTECTION_NAME,
+                "Goomba's Protection"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_MOUSECHOICE_NAME,
+                "Mouse Choice"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_BESTFRIEND_NAME,
+                "Best Friend"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_SEACOCKROACH_NAME,
+                "Sea Cockroach"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_CAMPFEELING_NAME,
+                "Camp Feeling"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_EXPLOSIVEJUICINESS_NAME,
+                "Explosive Juiciness"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_GOOMBASBREATH_NAME,
+                "Goomba's Breath"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_WINTERBREATH_NAME,
+                "Winter's Breath"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_FINGERLICKING_NAME,
+                "Finger Licking"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_MESMERIZINGSMELL_NAME,
+                "Mesmerizing Smell"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKEBUTTER_NAME,
+                "Tasty Like Butter"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKEBEEFJERKY_NAME,
+                "Tasty Like Beef Jerky"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_IMPROVEDMETABOLISM_NAME,
+                "Improved Metabolism"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKEPOOP_NAME,
+                "Tasty Like Poop"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKECHARCOAL_NAME,
+                "Tasty Like Charcoal"
+            );
             #endregion
             #region Weather
             AddEntry(

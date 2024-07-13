@@ -4,85 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using VRage.Utils;
 using VRageMath;
-using static ExtendedSurvival.Stats.StatsConstants;
 
 namespace ExtendedSurvival.Stats
 {
-
-    public static class FoodEffectConstants
-    {
-
-        [Flags]
-        public enum FoodEffects
-        {
-
-            None = 0,
-            FreshFruit = 1 << 1,
-            RawVegetable = 1 << 2
-
-        }
-
-        public static Dictionary<FoodEffects, FixedStatDataInfo> FOOD_EFFECTS = new Dictionary<FoodEffects, FixedStatDataInfo>()
-        {
-            {
-                FoodEffects.FreshFruit,
-                new FixedStatDataInfo()
-                {
-                    Name = GetFoodEffectsDescription(FoodEffects.FreshFruit),
-                    CanSelfRemove = true,
-                    TimeToSelfRemove = 10 * 60 * 1000,
-                    CompleteRemove = true,
-                    IsPositive = true
-                }
-            },
-            {
-                FoodEffects.RawVegetable,
-                new FixedStatDataInfo()
-                {
-                    Name = GetFoodEffectsDescription(FoodEffects.RawVegetable),
-                    CanSelfRemove = true,
-                    TimeToSelfRemove = 10 * 60 * 1000,
-                    CompleteRemove = true,
-                    IsPositive = true
-                }
-            }
-        };
-
-        public static string GetFoodEffectsDescription(FoodEffects effect)
-        {
-            switch (effect)
-            {
-                case FoodEffects.FreshFruit:
-                    return LanguageProvider.GetEntry(LanguageEntries.FOODEFFECTS_FRESHFRUIT_NAME);
-                case FoodEffects.RawVegetable:
-                    return LanguageProvider.GetEntry(LanguageEntries.FOODEFFECTS_RAWVEGETABLE_NAME);
-            }
-            return "";
-        }
-
-        public static int GetFoodEffectsFeelingLevel(FoodEffects effect)
-        {
-            switch (effect)
-            {
-                case FoodEffects.FreshFruit:
-                case FoodEffects.RawVegetable:
-                    return 0;
-            }
-            return 0;
-        }
-
-        public static int GetFoodEffectsTrackLevel(FoodEffects effect)
-        {
-            switch (effect)
-            {
-                case FoodEffects.FreshFruit:
-                case FoodEffects.RawVegetable:
-                    return 0;
-            }
-            return 0;
-        }
-
-    }
 
     public static class StatsConstants
     {

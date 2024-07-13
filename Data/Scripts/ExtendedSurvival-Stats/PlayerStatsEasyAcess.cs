@@ -46,6 +46,7 @@ namespace ExtendedSurvival.Stats
         public MyEntityStat DiseaseEffects { get { return FixedStats[StatsConstants.FixedStats.StatsGroup04]; } }
         public MyEntityStat OtherEffects { get { return FixedStats[StatsConstants.FixedStats.StatsGroup05]; } }
         public MyEntityStat FoodEffects { get { return FixedStats[StatsConstants.FixedStats.StatsGroup06]; } }
+        public MyEntityStat FoodEffectsPart2 { get { return FixedStats[StatsConstants.FixedStats.StatsGroup07]; } }
 
         public MyEntityStat FoodDetector { get { return Stats[StatsConstants.ValidStats.FoodDetector]; } }
         public MyEntityStat MedicalDetector { get { return Stats[StatsConstants.ValidStats.MedicalDetector]; } }
@@ -150,6 +151,18 @@ namespace ExtendedSurvival.Stats
             get
             {
                 return OtherEffects != null ? (FoodEffectConstants.FoodEffects)((int)FoodEffects.Value) : FoodEffectConstants.FoodEffects.None;
+            }
+            set
+            {
+                OtherEffects.Value = (int)value;
+            }
+        }
+
+        public FoodEffectConstants.FoodEffectsPart2 CurrentFoodEffectsPart2
+        {
+            get
+            {
+                return OtherEffects != null ? (FoodEffectConstants.FoodEffectsPart2)((int)FoodEffectsPart2.Value) : FoodEffectConstants.FoodEffectsPart2.None;
             }
             set
             {

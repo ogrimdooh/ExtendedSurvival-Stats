@@ -2817,6 +2817,182 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.FOODEFFECTS_RAWVEGETABLE_NAME,
                 "Сырой овощ"
             );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WILDMUSHROOM_NAME,
+                "Дикий гриб"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_POISONMUSHROOM_NAME,
+                "Ядовитый гриб"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_JUICYRED_NAME,
+                "Сочный красный"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_STRAIGHTFROMTHECOW_NAME,
+                "прямо от коровы"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_RAWMEAT_NAME,
+                "Сырое мясо"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_VISCOUSANDDELICIOUS_NAME,
+                "Вязкий и вкусный"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_GLUBGLUB_NAME,
+                "Glub! Glub!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_REFRESHINGJUICE_NAME,
+                "Освежающий сок"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BUBBLY_NAME,
+                "игристый!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_EYESOPEN_NAME,
+                "Глаза открыты"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_MARIOSPARTY_NAME,
+                "Вечеринка Марио"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BREAKINGTHESHELL_NAME,
+                "Разрушение оболочки"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BREAKFASTOFCHAMPIONS_NAME,
+                "Завтрак Чемпионов"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_POPOPO_NAME,
+                "Pó Pó Pó!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SOOBIG_NAME,
+                "Су... Большой!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BARBECUE_NAME,
+                "Барбекю"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_TASTYLIKESAWDUST_NAME,
+                "Вкусно, как опилки"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BLESSED_NAME,
+                "Благословенный"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SANCTIFIED_NAME,
+                "Освященный"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_MAMAMIA_NAME,
+                "Mama Mia!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_HOOMAMAMIA_NAME,
+                "Hoo... Mama Mia!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WOWMAMAMIA_NAME,
+                "Wow... Mama Mia!"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SAFEVEGAN_NAME,
+                "Безопасный веган"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WINTERPROTECTION_NAME,
+                "Зимняя защита"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_MOMSFOOD_NAME,
+                "Мамина еда"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_BALANCEDDIET_NAME,
+                "Сбалансированная диета"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_SUNDAYFOOD_NAME,
+                "Воскресная еда"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTS_WINTERISCOMING_NAME,
+                "Зима близко"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_GOOMBASEND_NAME,
+                "Конец Гумбы"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_GOOMBASPROTECTION_NAME,
+                "Защита Гумбы"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_MOUSECHOICE_NAME,
+                "Выбор мыши"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_BESTFRIEND_NAME,
+                "Лучший друг"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_SEACOCKROACH_NAME,
+                "Морской таракан"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_CAMPFEELING_NAME,
+                "Лагерное чувство"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_EXPLOSIVEJUICINESS_NAME,
+                "Взрывная сочность"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_GOOMBASBREATH_NAME,
+                "Дыхание Гумбы"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_WINTERBREATH_NAME,
+                "Дыхание зимы"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_FINGERLICKING_NAME,
+                "Облизывание пальцев"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_MESMERIZINGSMELL_NAME,
+                "Завораживающий запах"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKEBUTTER_NAME,
+                "Вкусно, как масло"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKEBEEFJERKY_NAME,
+                "Вкусно, как вяленая говядина"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_IMPROVEDMETABOLISM_NAME,
+                "Улучшенный метаболизм"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKEPOOP_NAME,
+                "Вкусно, как какашки"
+            );
+            AddEntry(
+                LanguageEntries.FOODEFFECTSPART2_TASTYLIKECHARCOAL_NAME,
+                "Вкусно, как уголь"
+            );
             #endregion
             #region Weather
             AddEntry(

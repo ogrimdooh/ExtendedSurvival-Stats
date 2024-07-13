@@ -21,6 +21,7 @@ namespace ExtendedSurvival.Stats
         MyEntityStat DiseaseEffects;
         MyEntityStat OtherEffects;
         MyEntityStat FoodEffects;
+        MyEntityStat FoodEffects2;
         MyEntityStatComponent StatComponent;
         private PlayerArmorController.PlayerEquipInfo ArmorInfo;
 
@@ -72,6 +73,14 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public FoodEffectConstants.FoodEffectsPart2 CurrentFoodEffects2
+        {
+            get
+            {
+                return FoodEffects2 != null ? (FoodEffectConstants.FoodEffectsPart2)((int)FoodEffects2.Value) : FoodEffectConstants.FoodEffectsPart2.None;
+            }
+        }
+
         public bool IsValid
         {
             get
@@ -83,6 +92,7 @@ namespace ExtendedSurvival.Stats
                     DiseaseEffects != null &&
                     OtherEffects != null &&
                     FoodEffects != null &&
+                    FoodEffects2 != null &&
                     ExtendedSurvivalStatsSession.Static != null;
             }
         }
@@ -108,6 +118,7 @@ namespace ExtendedSurvival.Stats
             DiseaseEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup04.ToString());
             OtherEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup05.ToString());
             FoodEffects = GetPlayerStat(StatsConstants.FixedStats.StatsGroup06.ToString());
+            FoodEffects2 = GetPlayerStat(StatsConstants.FixedStats.StatsGroup07.ToString());
             if (IsValid)
             {
                 ArmorInfo = PlayerArmorController.GetEquipedArmor(useCache: true);
@@ -117,6 +128,7 @@ namespace ExtendedSurvival.Stats
                     DiseaseEffects.Value +
                     OtherEffects.Value +
                     FoodEffects.Value +
+                    FoodEffects2.Value +
                     (IsWithHelmet() ? 1 + ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatUpdateHash() : 0) +
                     GetBodyTrackerLevel() +
                     WeatherConstants.CurrentWeatherInfo.GetHashCode() +
@@ -259,6 +271,29 @@ namespace ExtendedSurvival.Stats
                         {
                             var text = FoodEffectConstants.GetFoodEffectsDescription(effect);
                             if (FoodEffectConstants.FOOD_EFFECTS[effect].CanSelfRemove || FoodEffectConstants.FOOD_EFFECTS[effect].IsInverseTime)
+                            {
+                                var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
+                                var timeToShow = TimeSpan.FromMilliseconds(timeToRemove);
+                                var mask = @"mm\:ss";
+                                if (timeToShow.TotalMinutes > 60)
+                                {
+                                    mask = @"hh\:mm\:ss";
+                                }
+                                text += " [" + timeToShow.ToString(mask) + "]";
+                            }
+                            sbEffects.AppendLine(text);
+                        }
+                    }
+                }
+                if (CurrentFoodEffects2 != FoodEffectConstants.FoodEffectsPart2.None)
+                {
+                    foreach (var effect in StatsConstants.GetFlags(CurrentFoodEffects2))
+                    {
+                        toalEffects += FoodEffectConstants.GetFoodEffectsFeelingLevel(effect);
+                        if (bodyTrackLevel >= FoodEffectConstants.GetFoodEffectsTrackLevel(effect))
+                        {
+                            var text = FoodEffectConstants.GetFoodEffectsDescription(effect);
+                            if (FoodEffectConstants.FOOD_EFFECTS2[effect].CanSelfRemove || FoodEffectConstants.FOOD_EFFECTS2[effect].IsInverseTime)
                             {
                                 var timeToRemove = ExtendedSurvivalStatsSession.Static.GetPlayerFixedStatRemainTime(effect.ToString());
                                 var timeToShow = TimeSpan.FromMilliseconds(timeToRemove);

@@ -101,7 +101,8 @@ namespace ExtendedSurvival.Stats
             TemperatureEffects = 3,
             DiseaseEffects = 4,
             OtherEffects = 5,
-            FoodEffects = 6
+            FoodEffects = 6,
+            FoodEffectsPart2 = 7
 
         }
 
@@ -130,6 +131,8 @@ namespace ExtendedSurvival.Stats
                         return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, ((StatsConstants.OtherEffects)Key).ToString());
                     case ValueModifierGroup.FoodEffects:
                         return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, ((FoodEffectConstants.FoodEffects)Key).ToString());
+                    case ValueModifierGroup.FoodEffectsPart2:
+                        return AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, ((FoodEffectConstants.FoodEffectsPart2)Key).ToString());
                 }
                 return 1;
             }
@@ -171,6 +174,12 @@ namespace ExtendedSurvival.Stats
                         break;
                     case ValueModifierGroup.FoodEffects:
                         if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentFoodEffects, (FoodEffectConstants.FoodEffects)Key))
+                        {
+                            finalValue = BaseValue;
+                        }
+                        break;
+                    case ValueModifierGroup.FoodEffectsPart2:
+                        if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentFoodEffectsPart2, (FoodEffectConstants.FoodEffectsPart2)Key))
                         {
                             finalValue = BaseValue;
                         }
@@ -1065,6 +1074,76 @@ namespace ExtendedSurvival.Stats
         }
 
         private static ConcurrentDictionary<FoodEffectConstants.FoodEffects, StatMultiplierInfo[]> _statMultiplierInfoByFoodEffectsCache = new ConcurrentDictionary<FoodEffectConstants.FoodEffects, StatMultiplierInfo[]>();
+        private static ConcurrentDictionary<FoodEffectConstants.FoodEffectsPart2, StatMultiplierInfo[]> _statMultiplierInfoByFoodEffectsCache2 = new ConcurrentDictionary<FoodEffectConstants.FoodEffectsPart2, StatMultiplierInfo[]>();
+
+        public static StatMultiplierInfo[] GetStatMultiplierInfo(FoodEffectConstants.FoodEffectsPart2 foodEffect)
+        {
+            if (_statMultiplierInfoByFoodEffectsCache2.ContainsKey(foodEffect))
+                return _statMultiplierInfoByFoodEffectsCache2[foodEffect];
+            var retorno = new List<StatMultiplierInfo>();
+            /* HealthModifiers */
+            foreach (var key in HealthModifiers.Keys)
+            {
+                if (HealthModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect))
+                {
+                    var target = HealthModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = HealthModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = HealthModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* StaminaModifiers */
+            foreach (var key in StaminaModifiers.Keys)
+            {
+                if (StaminaModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect))
+                {
+                    var target = StaminaModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = StaminaModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = StaminaModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* ValidStatsModifiers */
+            foreach (var key in ValidStatsModifiers.Keys)
+            {
+                if (ValidStatsModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect))
+                {
+                    var target = ValidStatsModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = ValidStatsModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = ValidStatsModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            /* MetabolismModifiers */
+            foreach (var key in MetabolismModifiers.Keys)
+            {
+                if (MetabolismModifiers[key].Entries.Any(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect))
+                {
+                    var target = MetabolismModifiers[key].Entries.FirstOrDefault(x => x.Group == ValueModifierGroup.FoodEffectsPart2 && x.Key == (int)foodEffect);
+                    var finalValue = target.BaseValue * (target.Negative ? -1 : 1);
+                    retorno.Add(new StatMultiplierInfo()
+                    {
+                        Name = MetabolismModifiers[key].DisplayName,
+                        Value = finalValue,
+                        FormatedValue = MetabolismModifiers[key].FormatValueDelegate(finalValue)
+                    });
+                }
+            }
+            _statMultiplierInfoByFoodEffectsCache2[foodEffect] = retorno.ToArray();
+            return _statMultiplierInfoByFoodEffectsCache2[foodEffect];
+        }
 
         public static StatMultiplierInfo[] GetStatMultiplierInfo(FoodEffectConstants.FoodEffects foodEffect)
         {

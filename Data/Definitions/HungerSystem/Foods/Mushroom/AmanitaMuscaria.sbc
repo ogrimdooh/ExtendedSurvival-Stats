@@ -28,6 +28,7 @@
       <MinimumOfferAmount>100</MinimumOfferAmount>
       <MaximumOfferAmount>1000</MaximumOfferAmount>
       <CanPlayerOrder>true</CanPlayerOrder>
+      <UseSound>Eat01</UseSound>
     </PhysicalItem>
 
   </PhysicalItems>

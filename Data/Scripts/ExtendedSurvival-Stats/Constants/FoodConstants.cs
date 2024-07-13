@@ -509,9 +509,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -10,
+                    Ammount = -25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.WildMushroom, 1 }
             }
         };
 
@@ -546,9 +550,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -10,
+                    Ammount = -25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.WildMushroom, 1 }
             }
         };
 
@@ -592,6 +600,10 @@ namespace ExtendedSurvival.Stats
                     Ammount = 750,
                     TimeToEffect = 30
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.PoisonMushroom, 1 }
             }
         };
 
@@ -626,15 +638,19 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.StaminaAmount,
                     EffectType = FoodEffectType.Instant,
-                    Ammount = 5
+                    Ammount = 25
                 },
                 new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 10,
+                    Ammount = 25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.JuicyRed, 1 }
             }
         };
 
@@ -773,16 +789,20 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.StaminaAmount,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 25,
+                    Ammount = 60,
                     TimeToEffect = 5
                 },
                 new ConsumibleEffect()
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = 15,
+                    Ammount = 30,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.StraightFromTheCow, 1 }
             }
         };
 
@@ -817,9 +837,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = -50,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
             }
         };
 
@@ -854,9 +878,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = -50,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
             }
         };
 
@@ -891,9 +919,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = -50,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
             }
         };
 
@@ -928,9 +960,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = -50,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
             }
         };
 
@@ -965,9 +1001,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = -50,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
             }
         };
 
@@ -1002,9 +1042,13 @@ namespace ExtendedSurvival.Stats
                 {
                     EffectTarget = FoodEffectTarget.Health,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = -50,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
             }
         };
 
@@ -1031,17 +1075,21 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
-                { StatsConstants.DiseaseEffects.Dysentery, 0.25f }
+                { StatsConstants.DiseaseEffects.Dysentery, 0.1f }
             },
             Effects = new List<ConsumibleEffect>()
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Health,
+                    EffectTarget = FoodEffectTarget.Fatigue,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = -250,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.ViscousAndDelicious, 1 }
             }
         };
 
@@ -1079,6 +1127,10 @@ namespace ExtendedSurvival.Stats
                     Ammount = -25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.ViscousAndDelicious, 1 }
             }
         };
 
@@ -1105,7 +1157,7 @@ namespace ExtendedSurvival.Stats
             AcquisitionAmount = new Vector2I(1000, 3000),
             DiseaseChance = new Dictionary<StatsConstants.DiseaseEffects, float>()
             {
-                { StatsConstants.DiseaseEffects.Dysentery, 0.75f }
+                { StatsConstants.DiseaseEffects.Dysentery, 1.0f }
             },
             Effects = new List<ConsumibleEffect>()
             {
@@ -1116,6 +1168,10 @@ namespace ExtendedSurvival.Stats
                     Ammount = -25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
             }
         };
 
@@ -1148,11 +1204,15 @@ namespace ExtendedSurvival.Stats
             {
                 new ConsumibleEffect()
                 {
-                    EffectTarget = FoodEffectTarget.Health,
+                    EffectTarget = FoodEffectTarget.StaminaAmount,
                     EffectType = FoodEffectType.OverTime,
-                    Ammount = -25,
+                    Ammount = 25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.GlubGlub, 1 }
             }
         };
 
@@ -1190,6 +1250,10 @@ namespace ExtendedSurvival.Stats
                     Ammount = -25,
                     TimeToEffect = 5
                 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.GlubGlub, 1 }
             }
         };
 
@@ -1450,6 +1514,10 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.TemperatureEffects.Overheating, -1 },
                 { StatsConstants.TemperatureEffects.ResistenceToHot, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RefreshingJuice, 1 }
             }
         };
 
@@ -1491,6 +1559,10 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.TemperatureEffects.Overheating, -1 },
                 { StatsConstants.TemperatureEffects.LesserResistenceToHot, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.Bubbly, 1 }
             }
         };
 
@@ -1538,6 +1610,10 @@ namespace ExtendedSurvival.Stats
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.Frosty, -1 },
                 { StatsConstants.TemperatureEffects.ResistenceToCold, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.EyesOpen, 1 }
             }
         };
 
@@ -1570,7 +1646,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.DOUGH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.DOUGH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.DOUGH_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.ViscousAndDelicious, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_DOUGH_DEFINITION = new FoodRecipeDefinition()
@@ -1602,7 +1682,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_DOUGH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_DOUGH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_DOUGH_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.ViscousAndDelicious, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition CAKEDOUGH_DEFINITION = new FoodRecipeDefinition()
@@ -1634,7 +1718,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.CAKEDOUGH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.CAKEDOUGH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.CAKEDOUGH_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.ViscousAndDelicious, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_CAKEDOUGH_DEFINITION = new FoodRecipeDefinition()
@@ -1666,7 +1754,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_CAKEDOUGH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_CAKEDOUGH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_CAKEDOUGH_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.ViscousAndDelicious, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_BROCCOLI_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1693,7 +1785,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAW_BROCCOLI_BOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_BROCCOLI_BOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_BROCCOLI_BOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawVegetable, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_CARROT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1720,7 +1816,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAW_CARROT_BOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_CARROT_BOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_CARROT_BOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawVegetable, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_BEETROOT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1747,7 +1847,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAW_BEETROOT_BOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_BEETROOT_BOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_BEETROOT_BOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawVegetable, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_MEAT_BOWL_RECIPE_DEFINITION = new FoodRecipeDefinition()
@@ -1774,7 +1878,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAW_MEAT_BOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_MEAT_BOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_MEAT_BOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_MEAT_BOWL_RECIPE_DEFINITION = new FoodRecipeDefinition()
@@ -1801,7 +1909,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_MEAT_BOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_MEAT_BOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_MEAT_BOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_NOBLE_MEAT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1828,7 +1940,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAW_NOBLE_MEAT_BOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_NOBLE_MEAT_BOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_NOBLE_MEAT_BOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_NOBLE_MEAT_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1855,7 +1971,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_NOBLE_MEAT_BOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_NOBLE_MEAT_BOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAW_ALIEN_NOBLE_MEAT_BOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAWFISHMEATBOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1882,7 +2002,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAWFISHMEATBOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAWFISHMEATBOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAWFISHMEATBOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.GlubGlub, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAWNOBLEFISHMEATBOWL_DEFINITION = new FoodRecipeDefinition()
@@ -1909,7 +2033,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.RAWNOBLEFISHMEATBOWL_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.RAWNOBLEFISHMEATBOWL_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.RAWNOBLEFISHMEATBOWL_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.GlubGlub, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -1936,7 +2064,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 175,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition RAW_ALIEN_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -1963,7 +2095,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 175,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.RawMeat, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROAST_CHAMPIGNON_DEFINITION = new FoodRecipeDefinition()
@@ -1985,7 +2121,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROAST_CHAMPIGNON_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROAST_CHAMPIGNON_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROAST_CHAMPIGNON_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.MariosParty, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROAST_SHIITAKE_DEFINITION = new FoodRecipeDefinition()
@@ -2007,7 +2147,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROAST_SHIITAKE_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROAST_SHIITAKE_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROAST_SHIITAKE_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.MariosParty, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition FRIED_EGG_DEFINITION = new FoodRecipeDefinition()
@@ -2029,7 +2173,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 1.28f,
             Name = LanguageProvider.GetEntry(LanguageEntries.FRIED_EGG_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.FRIED_EGG_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.FRIED_EGG_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.BreakingTheShell, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition FRIED_ALIEN_EGG_DEFINITION = new FoodRecipeDefinition()
@@ -2051,7 +2199,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 1.28f,
             Name = LanguageProvider.GetEntry(LanguageEntries.FRIED_ALIEN_EGG_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.FRIED_ALIEN_EGG_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.FRIED_ALIEN_EGG_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.BreakingTheShell, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTEDBACON_DEFINITION = new FoodRecipeDefinition()
@@ -2073,7 +2225,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDBACON_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDBACON_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDBACON_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.BreakfastOfChampions, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTEDCHICKEN_DEFINITION = new FoodRecipeDefinition()
@@ -2095,7 +2251,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDCHICKEN_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDCHICKEN_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDCHICKEN_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.PoPoPo, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTED_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -2117,7 +2277,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_SAUSAGE_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_SAUSAGE_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_SAUSAGE_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.SooBig, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTED_ALIEN_SAUSAGE_DEFINITION = new FoodRecipeDefinition()
@@ -2139,7 +2303,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_SAUSAGE_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_SAUSAGE_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_SAUSAGE_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.SooBig, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTED_MEAT_DEFINITION = new FoodRecipeDefinition()
@@ -2161,7 +2329,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_MEAT_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_MEAT_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_MEAT_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.Barbecue, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTED_ALIEN_MEAT_DEFINITION = new FoodRecipeDefinition()
@@ -2183,7 +2355,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_MEAT_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_MEAT_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTED_ALIEN_MEAT_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.Barbecue, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition CEREALBAR_DEFINITION = new FoodRecipeDefinition()
@@ -2210,7 +2386,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 8,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.TastyLikeSawdust, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition WATERBREAD_DEFINITION = new FoodRecipeDefinition()
@@ -2242,7 +2422,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 10,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.Blessed, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition BREAD_DEFINITION = new FoodRecipeDefinition()
@@ -2269,7 +2453,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.Sanctified, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_BREAD_DEFINITION = new FoodRecipeDefinition()
@@ -2296,7 +2484,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 15,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.Sanctified, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition PASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2323,7 +2515,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.PASTA_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.PASTA_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.PASTA_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.MamaMia, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_PASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2350,7 +2546,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 2.56f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_PASTA_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_PASTA_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_PASTA_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.MamaMia, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition VEGETABLEPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2382,7 +2582,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEPASTA_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEPASTA_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEPASTA_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.HooMamaMia, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition VEGETABLEALIENPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2414,7 +2618,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEALIENPASTA_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEALIENPASTA_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.VEGETABLEALIENPASTA_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.HooMamaMia, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition MEATPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2446,7 +2654,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.MEATPASTA_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.MEATPASTA_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEATPASTA_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.WowMamaMia, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIENMEATPASTA_DEFINITION = new FoodRecipeDefinition()
@@ -2478,7 +2690,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATPASTA_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATPASTA_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATPASTA_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.WowMamaMia, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition CHEESE_DEFINITION = new FoodRecipeDefinition()
@@ -2505,7 +2721,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 125,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.MouseChoice, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition SALAD_DEFINITION = new FoodRecipeDefinition()
@@ -2542,7 +2762,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.SALAD_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.SALAD_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.SALAD_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.SafeVegan, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition VEGETABLE_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2584,6 +2808,10 @@ namespace ExtendedSurvival.Stats
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.Frosty, -1 },
                 { StatsConstants.TemperatureEffects.ResistenceToCold, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.WinterIsComing, 1 }
             }
         };
 
@@ -2616,6 +2844,10 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.LesserResistenceToCold, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.MomsFood, 1 }
             }
         };
 
@@ -2648,6 +2880,10 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.LesserResistenceToCold, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.MomsFood, 1 }
             }
         };
 
@@ -2685,7 +2921,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.MEAT_VEGETABLES_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_VEGETABLES_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_VEGETABLES_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.BalancedDiet, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_VEGETABLES_DEFINITION = new FoodRecipeDefinition()
@@ -2722,7 +2962,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_VEGETABLES_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_VEGETABLES_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_VEGETABLES_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.BalancedDiet, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition MEATLOAF_DEFINITION = new FoodRecipeDefinition()
@@ -2754,7 +2998,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.MEATLOAF_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.MEATLOAF_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEATLOAF_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.SundayFood, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIENMEATLOAF_DEFINITION = new FoodRecipeDefinition()
@@ -2786,7 +3034,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATLOAF_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATLOAF_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIENMEATLOAF_DESCRIPTION),
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.SundayFood, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition MEAT_SOUP_BOWL_DEFINITION = new FoodRecipeDefinition()
@@ -2833,6 +3085,10 @@ namespace ExtendedSurvival.Stats
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.Frosty, -1 },
                 { StatsConstants.TemperatureEffects.GreaterResistenceToCold, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.WinterProtection, 1 }
             }
         };
 
@@ -2880,6 +3136,10 @@ namespace ExtendedSurvival.Stats
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.Frosty, -1 },
                 { StatsConstants.TemperatureEffects.GreaterResistenceToCold, 1 }
+            },
+            FoodEffects = new Dictionary<FoodEffectConstants.FoodEffects, int>()
+            {
+                { FoodEffectConstants.FoodEffects.WinterProtection, 1 }
             }
         };
 
@@ -2926,6 +3186,10 @@ namespace ExtendedSurvival.Stats
             {
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.LesserResistenceToCold, 1 }
+            },
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.GoombasEnd, 1 }
             }
         };
 
@@ -2968,7 +3232,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.MEAT_MUSHROOMS_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_MUSHROOMS_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.MEAT_MUSHROOMS_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.GoombasProtection, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_MEAT_MUSHROOMS_DEFINITION = new FoodRecipeDefinition()
@@ -3010,7 +3278,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_MUSHROOMS_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_MUSHROOMS_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_MEAT_MUSHROOMS_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.GoombasProtection, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition SANDWICH_DEFINITION = new FoodRecipeDefinition()
@@ -3047,7 +3319,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.SANDWICH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.SANDWICH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.SANDWICH_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.BestFriend, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_SANDWICH_DEFINITION = new FoodRecipeDefinition()
@@ -3084,7 +3360,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ALIEN_SANDWICH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_SANDWICH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ALIEN_SANDWICH_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.BestFriend, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTEDSHRIMP_DEFINITION = new FoodRecipeDefinition()
@@ -3106,7 +3386,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDSHRIMP_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDSHRIMP_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDSHRIMP_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.SeaCockroach, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTEDFISH_DEFINITION = new FoodRecipeDefinition()
@@ -3128,7 +3412,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDFISH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDFISH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDFISH_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.CampFeeling, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ROASTEDNOBLEFISH_DEFINITION = new FoodRecipeDefinition()
@@ -3150,7 +3438,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.ROASTEDNOBLEFISH_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDNOBLEFISH_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.ROASTEDNOBLEFISH_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.ExplosiveJuiciness, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition FISHMUSHROOM_DEFINITION = new FoodRecipeDefinition()
@@ -3192,7 +3484,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 10.24f,
             Name = LanguageProvider.GetEntry(LanguageEntries.FISHMUSHROOM_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.FISHMUSHROOM_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.FISHMUSHROOM_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.GoombasBreath, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition FISHSOUPBOWL_DEFINITION = new FoodRecipeDefinition()
@@ -3239,6 +3535,10 @@ namespace ExtendedSurvival.Stats
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.Frosty, -1 },
                 { StatsConstants.TemperatureEffects.GreaterResistenceToCold, 1 }
+            },
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.WinterBreath, 1 }
             }
         };
 
@@ -3291,6 +3591,10 @@ namespace ExtendedSurvival.Stats
                 { StatsConstants.TemperatureEffects.Cold, -1 },
                 { StatsConstants.TemperatureEffects.Frosty, -1 },
                 { StatsConstants.TemperatureEffects.ResistenceToCold, 1 }
+            },
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.WinterBreath, 1 }
             }
         };
 
@@ -3323,7 +3627,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 275,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.FingerLicking, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_APPLEPIE_DEFINITION = new FoodRecipeDefinition()
@@ -3355,7 +3663,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 275,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.FingerLicking, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition CHICKENPIE_DEFINITION = new FoodRecipeDefinition()
@@ -3392,7 +3704,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 250,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.MesmerizingSmell, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition ALIEN_CHICKENPIE_DEFINITION = new FoodRecipeDefinition()
@@ -3429,7 +3745,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 250,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.MesmerizingSmell, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition FATPORRIDGE_DEFINITION = new FoodRecipeDefinition()
@@ -3461,7 +3781,11 @@ namespace ExtendedSurvival.Stats
             },
             ProductionTime = 5.12f,
             Name = LanguageProvider.GetEntry(LanguageEntries.FATPORRIDGE_NAME),
-            Description = LanguageProvider.GetEntry(LanguageEntries.FATPORRIDGE_DESCRIPTION)
+            Description = LanguageProvider.GetEntry(LanguageEntries.FATPORRIDGE_DESCRIPTION),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.TastyLikeButter, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition PROTEINBAR_DEFINITION = new FoodRecipeDefinition()
@@ -3493,7 +3817,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 45,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.TastyLikeBeefJerky, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition VITAMINPILLS_DEFINITION = new FoodRecipeDefinition()
@@ -3525,7 +3853,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 475,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.ImprovedMetabolism, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition TOFU_DEFINITION = new FoodRecipeDefinition()
@@ -3552,7 +3884,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.TastyLikePoop, 1 }
+            }
         };
 
         public static readonly FoodRecipeDefinition MRE_DEFINITION = new FoodRecipeDefinition()
@@ -3584,7 +3920,11 @@ namespace ExtendedSurvival.Stats
             MinimalPricePerUnit = 50,
             OfferAmount = new Vector2I(150, 450),
             OrderAmount = new Vector2I(50, 150),
-            AcquisitionAmount = new Vector2I(100, 300)
+            AcquisitionAmount = new Vector2I(100, 300),
+            FoodEffects2 = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>()
+            {
+                { FoodEffectConstants.FoodEffectsPart2.TastyLikeCharcoal, 1 }
+            }
         };
 
         public static readonly Dictionary<UniqueEntityId, FoodRecipeDefinition> FOOD_RECIPES = new Dictionary<UniqueEntityId, FoodRecipeDefinition>()
@@ -4082,7 +4422,9 @@ namespace ExtendedSurvival.Stats
                             MinimalPricePerUnit = preparationDef.MinimalPricePerUnit,
                             CanPlayerOrder = preparationDef.CanPlayerOrder,
                             CureDisease = preparationDef.CureDisease,
-                            TemperatureEffects = preparationDef.TemperatureEffects
+                            TemperatureEffects = preparationDef.TemperatureEffects,
+                            FoodEffects = preparationDef.FoodEffects,
+                            FoodEffects2 = preparationDef.FoodEffects2
                         };
                         bool needConservation = false;
                         long maxTime = 0;

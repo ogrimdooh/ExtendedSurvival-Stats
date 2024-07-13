@@ -38,6 +38,7 @@ namespace ExtendedSurvival.Stats
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; } = new List<StatsConstants.DiseaseEffects>();
         public Dictionary<StatsConstants.TemperatureEffects, int> TemperatureEffects { get; set; } = new Dictionary<StatsConstants.TemperatureEffects, int>();
         public Dictionary<FoodEffectConstants.FoodEffects, int> FoodEffects { get; set; } = new Dictionary<FoodEffectConstants.FoodEffects, int>();
+        public Dictionary<FoodEffectConstants.FoodEffectsPart2, int> FoodEffects2 { get; set; } = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>();
 
         public bool NeedConservation { get; set; } = false;
         public long StartConservationTime { get; set; } = 0;
@@ -143,6 +144,30 @@ namespace ExtendedSurvival.Stats
                 foreach (var foodEffects in FoodEffects.Keys)
                 {
                     if (FoodEffects[foodEffects] > 0)
+                    {
+                        values.AppendLine(string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
+                            (1).ToString("P1"),
+                            FoodEffectConstants.GetFoodEffectsDescription(foodEffects)
+                        ));
+                        var extraInfo = PlayerActionsController.GetStatMultiplierInfo(foodEffects);
+                        if (extraInfo != null && extraInfo.Any())
+                        {
+                            foreach (var item in extraInfo)
+                            {
+                                values.AppendLine(string.Format("  {0}{1} {2}", item.Value > 0 ? "+" : "", item.FormatedValue, item.Name));
+                            }
+                        }
+                    }
+                }
+            }
+            var hadFoodEffectsToAdd2 = FoodEffects2 != null && FoodEffects2.Any();
+            if (hadFoodEffectsToAdd2)
+            {
+                values.AppendLine(" ");
+                foreach (var foodEffects in FoodEffects2.Keys)
+                {
+                    if (FoodEffects2[foodEffects] > 0)
                     {
                         values.AppendLine(string.Format(
                             LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
@@ -570,6 +595,19 @@ namespace ExtendedSurvival.Stats
                         Target = effect.ToString(),
                         Stacks = (byte)Math.Max(FoodEffects[effect], 0),
                         MaxStacks = FoodEffects[effect] <= 0
+                    });
+                }
+            }
+            if (FoodEffects2 != null)
+            {
+                foreach (var effect in FoodEffects2.Keys)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = FoodEffects2[effect] > 0 ? FixedEffectInConsumableType.Add : FixedEffectInConsumableType.Remove,
+                        Target = effect.ToString(),
+                        Stacks = (byte)Math.Max(FoodEffects2[effect], 0),
+                        MaxStacks = FoodEffects2[effect] <= 0
                     });
                 }
             }

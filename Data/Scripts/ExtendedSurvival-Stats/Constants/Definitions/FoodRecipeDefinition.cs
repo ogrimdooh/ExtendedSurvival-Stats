@@ -33,6 +33,8 @@ namespace ExtendedSurvival.Stats
         public bool CanPlayerOrder { get; set; } = false;
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
         public Dictionary<StatsConstants.TemperatureEffects, int> TemperatureEffects { get; set; }
+        public Dictionary<FoodEffectConstants.FoodEffects, int> FoodEffects { get; set; } = new Dictionary<FoodEffectConstants.FoodEffects, int>();
+        public Dictionary<FoodEffectConstants.FoodEffectsPart2, int> FoodEffects2 { get; set; } = new Dictionary<FoodEffectConstants.FoodEffectsPart2, int>();
 
         public string GetFullDescription()
         {
