@@ -3039,7 +3039,11 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ENVIRONMENTDETECTOR_UNDERWATER_NAME,
 				"Под водой"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.ENVIRONMENTDETECTOR_NOTPRESSURIZEDROOM_NAME,
+                "Негерметичная комната"
+            );
+            AddEntry(
 				LanguageEntries.UI_ENVIROMENT_DISPLAY,
 				"Окружающая среда: "
 			);

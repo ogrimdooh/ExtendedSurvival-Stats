@@ -3017,7 +3017,11 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ENVIRONMENTDETECTOR_UNDERWATER_NAME,
 				"Underwater"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.ENVIRONMENTDETECTOR_NOTPRESSURIZEDROOM_NAME,
+                "Not Pressurized Room"
+            );
+            AddEntry(
 				LanguageEntries.UI_ENVIROMENT_DISPLAY,
 				"Environment: "
 			);

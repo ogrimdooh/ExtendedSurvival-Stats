@@ -1,10 +1,17 @@
-﻿using Sandbox.Game.Entities.Character.Components;
+﻿using Sandbox.Definitions;
+using Sandbox.Game.Entities;
+using Sandbox.Game.Entities.Character;
+using Sandbox.Game.Entities.Character.Components;
+using Sandbox.Game.GameSystems;
 using Sandbox.ModAPI;
+using Sandbox.ModAPI.Ingame;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using VRage.Game;
+using VRage.Game.Entity;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRageMath;
@@ -55,7 +62,9 @@ namespace ExtendedSurvival.Stats
             Atmosphere = 1,
             ShipOrStation = 2,
             Space = 3,
-            Underwater = 4
+            Underwater = 4,
+            NotPressurizedRoom = 5,
+            NotPressurizedRoomInSpace = 6
 
         }
 
@@ -174,7 +183,8 @@ namespace ExtendedSurvival.Stats
             else
                 weatherInfo[entity.EntityId].WeatherEffect = WeatherEffects.None;
             var platAtRange = GetPlanetAtRange(playerPos);
-            weatherInfo[entity.EntityId].CurrentEnvironmentType = GetEnvironmentType(entity, playerPos, platAtRange);
+            float o2Level = 0;
+            weatherInfo[entity.EntityId].CurrentEnvironmentType = GetEnvironmentType(entity, playerPos, platAtRange, out o2Level);
             switch (weatherInfo[entity.EntityId].CurrentEnvironmentType)
             {
                 case EnvironmentDetector.Atmosphere:
@@ -186,6 +196,31 @@ namespace ExtendedSurvival.Stats
                     break;
                 case EnvironmentDetector.ShipOrStation:
                     weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(0.5f, PRESURIZED_TEMPERATURE);
+                    break;
+                case EnvironmentDetector.NotPressurizedRoom:
+                    if (ExtendedSurvivalCoreAPI.Registered)
+                    {
+                        var t = ExtendedSurvivalCoreAPI.GetTemperatureInPoint(platAtRange.EntityId, playerPos).Value;
+                        if (t.Y > PRESURIZED_TEMPERATURE)
+                        {
+                            weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(
+                               0.5f + t.X * (1 - o2Level),
+                               PRESURIZED_TEMPERATURE + t.Y * (1 - o2Level)
+                            );
+                        }
+                        else
+                        {
+                            weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(
+                               0.5f - t.X * (1 - o2Level),
+                               PRESURIZED_TEMPERATURE - t.Y * (1 - o2Level)
+                            );
+                        }
+                    }
+                    else
+                        weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(0.5f * o2Level, PRESURIZED_TEMPERATURE * o2Level);
+                    break;
+                case EnvironmentDetector.NotPressurizedRoomInSpace:
+                    weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(0.5f * o2Level, PRESURIZED_TEMPERATURE * o2Level);
                     break;
                 case EnvironmentDetector.None:
                 case EnvironmentDetector.Space:
@@ -245,31 +280,55 @@ namespace ExtendedSurvival.Stats
             return null;
         }
 
-        private static EnvironmentDetector GetEnvironmentType(IMyCharacter entity, Vector3D pos, PlanetInfo platAtRange)
+        private static EnvironmentDetector GetEnvironmentType(IMyCharacter entity, Vector3D pos, PlanetInfo platAtRange, out float o2Level)
         {
+            o2Level = 0;
             WeatherConstants.EnvironmentDetector currentValue;
             entity?.Components?.Get<MyCharacterOxygenComponent>()?.UpdateBeforeSimulation100();
-            var externalO2 = Math.Round(entity.EnvironmentOxygenLevel * 100, 0);
             if (entity.Physics == null || (entity.Physics != null && entity.Physics.Gravity.LengthSquared() > 0f))
             {
                 if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                {
+                    o2Level = platAtRange.Entity.GetOxygenForPosition(pos);
                     currentValue = EnvironmentDetector.Atmosphere;
+                }
                 else
                     currentValue = EnvironmentDetector.Space;
             }
             else
                 currentValue = EnvironmentDetector.Space;
-            double o2AtPos = 0;
-            if (currentValue == EnvironmentDetector.Atmosphere)
+            var o2Block = GetOxygenBlockAtCharacter(entity, out o2Level);
+            if (o2Block != null && o2Block.Room.IsAirtight)
             {
-                if (WaterModAPI.Registered && platAtRange.HasWater && WaterModAPI.IsUnderwater(pos) && (WaterModAPI.GetDepth(pos).Value * -1) > 1.5f)
-                    return EnvironmentDetector.Underwater;
-                o2AtPos = Math.Round(platAtRange.Entity.GetOxygenForPosition(pos) * 100, 0);
+                if (o2Level > 0.95f)
+                    return EnvironmentDetector.ShipOrStation;
+                else
+                    return currentValue == EnvironmentDetector.Space ? EnvironmentDetector.NotPressurizedRoomInSpace : EnvironmentDetector.NotPressurizedRoom;
             }
-            if (Math.Abs(o2AtPos < externalO2 ? o2AtPos - externalO2 : externalO2 - o2AtPos) > 1f)
-                return EnvironmentDetector.ShipOrStation;
             else
+            {
                 return currentValue;
+            }
+        }
+
+        private static IMyOxygenBlock GetOxygenBlockAtCharacter(IMyCharacter entity, out float o2AtBlock)
+        {
+            o2AtBlock = 0;
+            List<MyEntity> result = new List<MyEntity>();
+            BoundingBoxD worldAabb = entity.PositionComp.WorldAABB;
+            Vector3D center = worldAabb.Center;
+            MyGamePruningStructure.GetTopMostEntitiesInBox(ref worldAabb, result);
+            foreach (MyEntity myEntity in result)
+            {
+                var myCubeGrid = myEntity as IMyCubeGrid;
+                if (myCubeGrid != null)
+                {
+                    var block = myCubeGrid.GasSystem.GetOxygenBlock(center);
+                    o2AtBlock = block.OxygenLevel(myCubeGrid.GridSize);
+                    return block;
+                }
+            }
+            return null;
         }
 
         public static string GetEnvironmentDetectorDescription(EnvironmentDetector effect)
@@ -284,6 +343,9 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.ENVIRONMENTDETECTOR_SPACE_NAME);
                 case EnvironmentDetector.Underwater:
                     return LanguageProvider.GetEntry(LanguageEntries.ENVIRONMENTDETECTOR_UNDERWATER_NAME);
+                case EnvironmentDetector.NotPressurizedRoom:
+                case EnvironmentDetector.NotPressurizedRoomInSpace:
+                    return LanguageProvider.GetEntry(LanguageEntries.ENVIRONMENTDETECTOR_NOTPRESSURIZEDROOM_NAME);
             }
             return "";
         }
