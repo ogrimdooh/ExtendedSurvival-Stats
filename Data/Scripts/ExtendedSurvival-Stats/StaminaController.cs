@@ -120,7 +120,7 @@ namespace ExtendedSurvival.Stats
                 var maxValue = maxStamina[playerId];
                 float reduction = PlayerActionsController.StatsMultiplier(playerId, StaminaValueModifier.MaximumStaminaReduction);
                 maxValue *= reduction;
-                return Math.Max(maxValue, StatsConstants.MIN_STAMINA_TO_USE);
+                return Math.Max(maxValue, ExtendedSurvivalSettings.Instance.StaminaSettings.MinValue);
             }
             return 0;
         }

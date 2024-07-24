@@ -41,6 +41,8 @@ namespace ExtendedSurvival.Stats
                 playerStats.TemperatureEffects.Value = storeStats[StatsConstants.FixedStats.StatsGroup03.ToString()];
                 playerStats.DiseaseEffects.Value = storeStats[StatsConstants.FixedStats.StatsGroup04.ToString()];
                 playerStats.OtherEffects.Value = storeStats[StatsConstants.FixedStats.StatsGroup05.ToString()];
+                playerStats.FoodEffects.Value = storeStats[StatsConstants.FixedStats.StatsGroup06.ToString()];
+                playerStats.FoodEffectsPart2.Value = storeStats[StatsConstants.FixedStats.StatsGroup07.ToString()];
                 playerStats.WoundedTime.Value = storeStats[StatsConstants.ValidStats.WoundedTime.ToString()];
                 playerStats.Stamina.Value = storeStats[StatsConstants.ValidStats.Stamina.ToString()];
                 playerStats.Fatigue.Value = storeStats[StatsConstants.ValidStats.Fatigue.ToString()];

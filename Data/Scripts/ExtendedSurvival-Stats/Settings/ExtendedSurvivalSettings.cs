@@ -74,6 +74,9 @@ namespace ExtendedSurvival.Stats
         [XmlElement]
         public FoodSettings FoodSettings { get; set; } = new FoodSettings();
 
+        [XmlElement]
+        public DiseaseSettings DiseaseSettings { get; set; } = new DiseaseSettings();
+
         private static bool Validate(ExtendedSurvivalSettings settings)
         {
             var res = true;

@@ -12,15 +12,15 @@
                     // Temperature Effects
                     if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Cold))
                     {
-                        baseValue += 0.015f;
+                        baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Flu.GetBaseChance();
                     }
                     else if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Frosty))
                     {
-                        baseValue += 0.03f;
+                        baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Flu.GetExtremeChance();
                     }
                     if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Wet))
                     {
-                        baseValue *= 2f;
+                        baseValue *= ExtendedSurvivalSettings.Instance.DiseaseSettings.Flu.GetWetInfluence();
                     }
                     break;
                 case StatsConstants.DiseaseEffects.Pneumonia:
@@ -29,16 +29,16 @@
                     {
                         if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Cold))
                         {
-                            baseValue += 0.005f;
+                            baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Pneumonia.GetBaseChance();
                         }
                         else if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Frosty))
                         {
-                            baseValue += 0.01f;
+                            baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Pneumonia.GetExtremeChance();
                         }
                     }
                     if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Wet))
                     {
-                        baseValue *= 2f;
+                        baseValue *= ExtendedSurvivalSettings.Instance.DiseaseSettings.Pneumonia.GetWetInfluence();
                     }
                     break;
                 case StatsConstants.DiseaseEffects.Hypothermia:
@@ -47,21 +47,21 @@
                         var exposedToCold = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToCold.ToString());
                         var exposedToFreeze = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToFreeze.ToString());
                         if (exposedToCold > 0)
-                            baseValue += 0.005f;
+                            baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Hypothermia.GetBaseChance();
                         if (exposedToFreeze > 0)
-                            baseValue += 0.01f;
+                            baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Hypothermia.GetExtremeChance();
                         if (baseValue > 0)
                         {
                             if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Rickets))
-                                baseValue *= 2f;
+                                baseValue *= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hypothermia.GetRicketsInfluence();
                             else if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereRickets))
-                                baseValue *= 4f;
+                                baseValue *= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hypothermia.GetSevereRicketsInfluence();
                             if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Wet))
-                                baseValue *= 2f;
+                                baseValue *= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hypothermia.GetWetInfluence();
                             if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Obesity))
-                                baseValue /= 2f;
+                                baseValue /= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hypothermia.GetObesityInfluence();
                             else if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereObesity))
-                                baseValue /= 4f;
+                                baseValue /= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hypothermia.GetSevereObesityInfluence();
                             var hypothermiaStack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Hypothermia.ToString());
                             if (hypothermiaStack > 0)
                                 baseValue /= hypothermiaStack + 1;
@@ -74,21 +74,21 @@
                         var exposedToHot = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToHot.ToString());
                         var exposedToBoiling = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, StatsConstants.TemperatureEffects.ExposedToBoiling.ToString());
                         if (exposedToHot > 0)
-                            baseValue += 0.005f;
+                            baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Hyperthermia.GetBaseChance();
                         if (exposedToBoiling > 0)
-                            baseValue += 0.01f;
+                            baseValue += ExtendedSurvivalSettings.Instance.DiseaseSettings.Hyperthermia.GetExtremeChance();
                         if (baseValue > 0)
                         {
                             if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Obesity))
-                                baseValue *= 2f;
+                                baseValue *= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hyperthermia.GetObesityInfluence();
                             else if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereObesity))
-                                baseValue *= 4f;
+                                baseValue *= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hyperthermia.GetSevereObesityInfluence();
                             if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentTemperatureEffects, StatsConstants.TemperatureEffects.Wet))
-                                baseValue /= 2f;
+                                baseValue /= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hyperthermia.GetWetInfluence();
                             if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.Rickets))
-                                baseValue /= 2f;
+                                baseValue /= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hyperthermia.GetRicketsInfluence();
                             else if (StatsConstants.IsFlagSet(statsEasyAcess.CurrentDiseaseEffects, StatsConstants.DiseaseEffects.SevereRickets))
-                                baseValue /= 4f;
+                                baseValue /= ExtendedSurvivalSettings.Instance.DiseaseSettings.Hyperthermia.GetSevereRicketsInfluence();
                             var hyperthermiaStack = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatStack(playerId, StatsConstants.DiseaseEffects.Hyperthermia.ToString());
                             if (hyperthermiaStack > 0)
                                 baseValue /= hyperthermiaStack + 1;
@@ -136,7 +136,10 @@
             }
             CheckStarvation(playerId, statsEasyAcess);
             CheckDehydration(playerId, statsEasyAcess);
-            CheckWeight(playerId, statsEasyAcess);
+            if (ExtendedSurvivalSettings.Instance.DiseaseSettings.WeightDiseaseEnabled)
+            {
+                CheckWeight(playerId, statsEasyAcess);
+            }
         }
 
         private static void CheckStarvation(long playerId, PlayerStatsEasyAcess statsEasyAcess)

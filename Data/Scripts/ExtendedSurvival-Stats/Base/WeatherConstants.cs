@@ -283,22 +283,46 @@ namespace ExtendedSurvival.Stats
         private static EnvironmentDetector GetEnvironmentType(IMyCharacter entity, Vector3D pos, PlanetInfo platAtRange, out float o2Level)
         {
             o2Level = 0;
-            WeatherConstants.EnvironmentDetector currentValue;
+            WeatherConstants.EnvironmentDetector currentValue = EnvironmentDetector.None;
             entity?.Components?.Get<MyCharacterOxygenComponent>()?.UpdateBeforeSimulation100();
-            if (entity.Physics == null || (entity.Physics != null && entity.Physics.Gravity.LengthSquared() > 0f))
+            var cockpit = entity.Parent as MyCockpit;
+            if (cockpit != null)
             {
-                if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                if (cockpit.OxygenFillLevel > 0.95f)
                 {
-                    o2Level = platAtRange.Entity.GetOxygenForPosition(pos);
-                    currentValue = EnvironmentDetector.Atmosphere;
+                    return EnvironmentDetector.ShipOrStation;
+                }
+                else
+                {
+                    if (cockpit.CubeGrid.Physics == null || (cockpit.CubeGrid.Physics != null && cockpit.CubeGrid.Physics.Gravity.LengthSquared() > 0f))
+                    {
+                        if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                        {
+                            o2Level = platAtRange.Entity.GetOxygenForPosition(pos);
+                            currentValue = EnvironmentDetector.Atmosphere;
+                        }
+                    }
+                    else
+                        currentValue = EnvironmentDetector.Space;
+                }
+            }
+            else
+            {
+                if (entity.Physics == null || (entity.Physics != null && entity.Physics.Gravity.LengthSquared() > 0f))
+                {
+                    if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                    {
+                        o2Level = platAtRange.Entity.GetOxygenForPosition(pos);
+                        currentValue = EnvironmentDetector.Atmosphere;
+                    }
+                    else
+                        currentValue = EnvironmentDetector.Space;
                 }
                 else
                     currentValue = EnvironmentDetector.Space;
             }
-            else
-                currentValue = EnvironmentDetector.Space;
             var o2Block = GetOxygenBlockAtCharacter(entity, out o2Level);
-            if (o2Block != null && o2Block.Room.IsAirtight)
+            if (o2Block != null && o2Block.Room != null && o2Block.Room.IsAirtight)
             {
                 if (o2Level > 0.95f)
                     return EnvironmentDetector.ShipOrStation;

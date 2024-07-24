@@ -29,6 +29,9 @@ namespace ExtendedSurvival.Stats
         [XmlElement]
         public float DamageMultiplier { get; set; } = 1.0f;
 
+        [XmlElement]
+        public float MinValue { get; set; } = 15f;
+
     }
 
 }
