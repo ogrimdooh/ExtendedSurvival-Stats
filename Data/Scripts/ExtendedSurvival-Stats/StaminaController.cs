@@ -176,6 +176,11 @@ namespace ExtendedSurvival.Stats
             var access = PlayerActionsController.GetStatsEasyAcess(playerId);
             if (access != null)
             {
+                if (!maxStamina.ContainsKey(playerId))
+                    maxStamina[playerId] = 0;
+
+                RefreshMaxStamina(playerId);
+
                 var value = GetStaminaToDecrese(playerId, character) * StatsConstants.JUMP_COST_MULTIPLIER * ExtendedSurvivalSettings.Instance.StaminaSettings.JumpDrainMultiplier;
                 float expenditure = PlayerActionsController.StatsMultiplier(playerId, StaminaValueModifier.HigherStaminaExpenditure);
                 value *= expenditure;
@@ -214,7 +219,7 @@ namespace ExtendedSurvival.Stats
 
         private static void RefreshStaminaFactor(long playerId, PlayerStatsEasyAcess access)
         {
-            access.Stamina.Value = (access.StaminaAmount.Value * 100) / maxStamina[playerId];            
+            access.Stamina.Value = (access.StaminaAmount.Value * 100) / (maxStamina.ContainsKey(playerId) ? maxStamina[playerId] : 100);
         }
 
         private static void ProcessStamina(long playerId, IMyCharacter character)
