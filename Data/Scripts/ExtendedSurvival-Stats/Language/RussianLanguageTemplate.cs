@@ -257,9 +257,22 @@ namespace ExtendedSurvival.Stats
 				"Используется охлаждающим модулем для регулировки температуры тела" + Environment.NewLine +
 				"в экстремально горячих условиях."
 			);
-			#endregion
-			#region FISHING
-			AddEntry(
+            AddEntry(
+                LanguageEntries.SIMPLEHEALINGBOTTLE_NAME,
+                "Простая лечебная бутылочка"
+            );
+            AddEntry(
+                LanguageEntries.FULLSIMPLEHEALINGBOTTLE_NAME,
+                "Простая лечебная бутылочка (Полный)"
+            );
+            AddEntry(
+                LanguageEntries.SIMPLEHEALINGBOTTLE_DESCRIPTION,
+                "Используется для ускорения процесса исцеления. Для использования " + Environment.NewLine +
+                "его необходимо поместить в инвентарь криопода."
+            );
+            #endregion
+            #region FISHING
+            AddEntry(
 				LanguageEntries.FISH_NAME,
 				"Рыба"
 			);

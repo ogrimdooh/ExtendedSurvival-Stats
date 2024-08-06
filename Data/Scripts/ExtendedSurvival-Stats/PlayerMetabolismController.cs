@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
+using VRage.Game.ModAPI;
 
 namespace ExtendedSurvival.Stats
 {
@@ -342,47 +343,57 @@ namespace ExtendedSurvival.Stats
         private static ConcurrentDictionary<long, float> lastCaloriesChange = new ConcurrentDictionary<long, float>();
         private static ConcurrentDictionary<long, float> waterToConsume = new ConcurrentDictionary<long, float>();
 
-        public static void DoDigestion(long playerId, long spendTime, PlayerStatsEasyAcess statsEasyAcess)
+        public static void DoDigestion(long playerId, long spendTime, IMyCharacter character, PlayerStatsEasyAcess statsEasyAcess)
         {
             var staminaSpended = StaminaController.GetSpendedStamina(playerId);
 
-            if (!sedentaryTime.ContainsKey(playerId))
-                sedentaryTime[playerId] = 0;
-            if (staminaSpended == 0)
+            var isOnCryo = character.IsOnCryoChamber();
+
+            if (!isOnCryo)
             {
-                sedentaryTime[playerId] += spendTime;
-            }
-            else if (sedentaryTime[playerId] > 0)
-            {
-                sedentaryTime[playerId] -= spendTime * 10;
-                if (sedentaryTime[playerId] < 0)
+                if (!sedentaryTime.ContainsKey(playerId))
                     sedentaryTime[playerId] = 0;
+                if (staminaSpended == 0)
+                {
+                    sedentaryTime[playerId] += spendTime;
+                }
+                else if (sedentaryTime[playerId] > 0)
+                {
+                    sedentaryTime[playerId] -= spendTime * 10;
+                    if (sedentaryTime[playerId] < 0)
+                        sedentaryTime[playerId] = 0;
+                }
+
+                DoConsumeCicle(playerId, staminaSpended, statsEasyAcess);
+
+                var currentCaloriesValue = statsEasyAcess.BodyCalories.Value;
+                lastCaloriesChange[playerId] = !lastCaloriesValue.ContainsKey(playerId) ? 0 : currentCaloriesValue - lastCaloriesValue[playerId];
+                lastCaloriesValue[playerId] = currentCaloriesValue;
+
+                DoBladderCicle(playerId, statsEasyAcess);
+                DoCheckBodyState(playerId, statsEasyAcess);
             }
 
-            DoConsumeCicle(playerId, staminaSpended, statsEasyAcess);
-
-            var currentCaloriesValue = statsEasyAcess.BodyCalories.Value;
-            lastCaloriesChange[playerId] = !lastCaloriesValue.ContainsKey(playerId) ? 0 : currentCaloriesValue - lastCaloriesValue[playerId];
-            lastCaloriesValue[playerId] = currentCaloriesValue;
-
-            DoBladderCicle(playerId, statsEasyAcess);
-            DoCheckBodyState(playerId, statsEasyAcess);
             DoStomachCicle(playerId, statsEasyAcess);
-            float weightChange = DoCheckBodyWeight(playerId, lastCaloriesChange[playerId], statsEasyAcess);
-            if (weightChange < 0)
-            {
-                /* The body always consumes muscle first during body loss with no protein reserve and is sedentary */
 
-            }
-            if (weightChange > 0)
+            if (!isOnCryo)
             {
-                /* The body always gain fat with no stamina spend or no protein reserve */
+                float weightChange = DoCheckBodyWeight(playerId, lastCaloriesChange[playerId], statsEasyAcess);
+                if (weightChange < 0)
+                {
+                    /* The body always consumes muscle first during body loss with no protein reserve and is sedentary */
 
-            }
-            else
-            {
-                /* No body change, but transform fat into muscle with stamina spend and protein reserve */
+                }
+                if (weightChange > 0)
+                {
+                    /* The body always gain fat with no stamina spend or no protein reserve */
 
+                }
+                else
+                {
+                    /* No body change, but transform fat into muscle with stamina spend and protein reserve */
+
+                }
             }
         }
 

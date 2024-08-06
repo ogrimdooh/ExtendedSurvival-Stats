@@ -69,6 +69,8 @@
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleMedicine_Construction" />
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Bandages_Construction" />
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="PowerBandages_Construction" />
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill" />
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill2" />
 
   </BlueprintClassEntries>
 </Definitions>

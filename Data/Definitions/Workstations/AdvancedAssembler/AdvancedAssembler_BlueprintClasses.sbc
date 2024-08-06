@@ -58,6 +58,7 @@
     
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
+    <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
     
   </BlueprintClassEntries>
   

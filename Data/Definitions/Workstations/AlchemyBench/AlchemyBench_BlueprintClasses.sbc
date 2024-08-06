@@ -92,5 +92,8 @@
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="HealthBuster_Construction" />
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Medkit_Construction" />
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="VitaminPills_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill2" />
+    
   </BlueprintClassEntries>
 </Definitions>

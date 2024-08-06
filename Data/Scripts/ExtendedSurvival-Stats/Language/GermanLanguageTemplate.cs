@@ -258,9 +258,22 @@ namespace ExtendedSurvival.Stats
 				"Wird von Kühlmodulen verwendet, um die Anzugtemperatur in extrem heißen" + Environment.NewLine +
 				"Umgebungen aufrechtzuerhalten."
 			);
-			#endregion
-			#region FISHING
-			AddEntry(
+            AddEntry(
+                LanguageEntries.SIMPLEHEALINGBOTTLE_NAME,
+                "Einfache Heilflasche"
+            );
+            AddEntry(
+                LanguageEntries.FULLSIMPLEHEALINGBOTTLE_NAME,
+                "Einfache Heilflasche (Voll)"
+            );
+            AddEntry(
+                LanguageEntries.SIMPLEHEALINGBOTTLE_DESCRIPTION,
+                "Wird verwendet, um den Heilungsprozess zu beschleunigen. Um es verwenden " + Environment.NewLine +
+                "zu können, muss es im Inventar eines Kryopods platziert werden."
+            );
+            #endregion
+            #region FISHING
+            AddEntry(
                 LanguageEntries.FISH_NAME,
 				"Fisch"
 			);

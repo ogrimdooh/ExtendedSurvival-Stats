@@ -1,8 +1,15 @@
-﻿using Sandbox.Game.Components;
+﻿using Sandbox.Common.ObjectBuilders.Definitions;
+using Sandbox.Game;
+using Sandbox.Game.Components;
+using Sandbox.Game.Entities;
+using Sandbox.Game.Entities.Character;
+using Sandbox.Game.EntityComponents;
+using Sandbox.ModAPI;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using VRage.Game.Entity;
 using VRage.Game.ModAPI;
 using VRage.Utils;
 
@@ -83,14 +90,160 @@ namespace ExtendedSurvival.Stats
                 statsEasyAcess[playerId].StatComponent = statComponent;
         }
 
-        public static void DoPlayerCycle(long playerId, long spendTime, MyCharacterStatComponent statComponent)
+        public static void DoPlayerCycle(long playerId, long spendTime, IMyCharacter character, MyCharacterStatComponent statComponent)
         {
             RefreshPlayerStatComponent(playerId, statComponent);
 
-            PlayerMetabolismController.DoDigestion(playerId, spendTime, statsEasyAcess[playerId]);
+            PlayerMetabolismController.DoDigestion(playerId, spendTime, character, statsEasyAcess[playerId]);
+
+            DoCryoHealingCycle(playerId, spendTime, character, statComponent);
 
             StaminaController.ClearSpendedStamina(playerId);
             PlayerDeathController.ClearWaitFullCycle(playerId);
+        }
+
+        public const float HEALING_BOTTLE_CAPACITY = 500;
+        public const float HEALING_GAS_CICLE_BASE = 15.0f;
+        public const float HEALING_GAS_CICLE_INCREASE = 10.0f;
+        public const float HEALING_BOTTLE_EFFICIENCY = 0.25f;
+        public const float HEALING_EFFICIENCY = 25.0f;
+        public const long HEALING_MINUTES_DECAY = 5;
+
+        public static readonly StatsConstants.TemperatureEffects[] tempEffectsToUse = new StatsConstants.TemperatureEffects[]
+        {
+            StatsConstants.TemperatureEffects.Overheating,
+            StatsConstants.TemperatureEffects.OnFire,
+            StatsConstants.TemperatureEffects.Cold,
+            StatsConstants.TemperatureEffects.Frosty,
+            StatsConstants.TemperatureEffects.Wet
+        };
+
+        public static readonly StatsConstants.DiseaseEffects[] diseaseEffectsToUse = new StatsConstants.DiseaseEffects[]
+        {
+                StatsConstants.DiseaseEffects.Pneumonia,
+                StatsConstants.DiseaseEffects.Dysentery,
+                StatsConstants.DiseaseEffects.Poison,
+                StatsConstants.DiseaseEffects.Infected,
+                StatsConstants.DiseaseEffects.Hypothermia,
+                StatsConstants.DiseaseEffects.Hyperthermia,
+                StatsConstants.DiseaseEffects.Queasy,
+                StatsConstants.DiseaseEffects.Flu
+        };
+
+        private const long CryoHealingCycleTime = 5000;
+        private static ConcurrentDictionary<long, long> CryoHealingCycle = new ConcurrentDictionary<long, long>();
+        public static void DoCryoHealingCycle(long playerId, long spendTime, IMyCharacter character, MyCharacterStatComponent statComponent)
+        {
+            var isOnCryo = character.IsOnCryoChamber();
+            if (isOnCryo)
+            {
+                if (!CryoHealingCycle.ContainsKey(playerId))
+                    CryoHealingCycle[playerId] = 0;
+                CryoHealingCycle[playerId] += spendTime;
+                if (CryoHealingCycle[playerId] >= CryoHealingCycleTime)
+                {
+                    CryoHealingCycle[playerId] = 0;
+                    var cryoPod = character.Parent as IMyCryoChamber;
+                    if (cryoPod != null && PlayerNeedBurstHealing(playerId))
+                    {
+                        var hasPower = cryoPod.ResourceSink.IsPoweredByType(MyResourceDistributorComponent.ElectricityId);
+                        if (hasPower)
+                        {
+                            var cryoInventory = cryoPod.GetInventory() as IMyInventory;
+                            if (cryoInventory != null)
+                            {
+                                var baseCost = Math.Min(HEALING_GAS_CICLE_BASE + ((1 - statComponent.Health.CurrentRatio) * HEALING_GAS_CICLE_INCREASE), HEALING_GAS_CICLE_BASE);
+                                var gasLevelNeeded = (baseCost - (baseCost * HEALING_BOTTLE_EFFICIENCY)) / HEALING_BOTTLE_CAPACITY;
+                                var bottles = new List<VRage.Game.ModAPI.Ingame.MyInventoryItem>();
+                                cryoInventory.GetItems(bottles, x =>
+                                    EquipmentConstants.OPENHEALINGBOTTLE.Contains(new UniqueEntityId(x.Type)) ||
+                                    EquipmentConstants.FULLHEALINGBOTTLE.Contains(new UniqueEntityId(x.Type))
+                                );
+                                if (bottles.Any())
+                                {
+                                    var startNeeded = gasLevelNeeded;
+                                    foreach (var item in bottles.Where(x => EquipmentConstants.OPENHEALINGBOTTLE.Contains(new UniqueEntityId(x.Type))))
+                                    {
+                                        var bottle = cryoInventory.GetItemByID(item.ItemId);
+                                        var bottleContent = bottle.Content as MyObjectBuilder_GasContainerObject;
+                                        if (bottleContent.GasLevel >= gasLevelNeeded)
+                                        {
+                                            bottleContent.GasLevel -= gasLevelNeeded;
+                                            gasLevelNeeded = 0;
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            gasLevelNeeded -= bottleContent.GasLevel;
+                                            bottleContent.GasLevel = 0;
+                                        }
+                                    }
+                                    if (gasLevelNeeded > 0)
+                                    {
+                                        foreach (var item in bottles.Where(x => EquipmentConstants.FULLHEALINGBOTTLE.Contains(new UniqueEntityId(x.Type))))
+                                        {
+                                            var itemId = new UniqueEntityId(item.Type);
+                                            cryoInventory.RemoveItems(item.ItemId, 1);
+                                            cryoInventory.AddMaxItems(1f, ItensConstants.GetGasContainerBuilder(EquipmentConstants.HEALINGBOTTLEEQUIVALENCE[itemId], 1 - gasLevelNeeded));
+                                            gasLevelNeeded = 0;
+                                            break;
+                                        }
+                                    }
+                                    if (gasLevelNeeded != startNeeded)
+                                    {
+                                        foreach (StatsConstants.DamageEffects item in statsEasyAcess[playerId].CurrentDamageEffects.GetFlags())
+                                        {
+                                            var remainTime = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, item.ToString());
+                                            remainTime -= HEALING_MINUTES_DECAY * 60 * 1000;
+                                            AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, item.ToString(), Math.Max(1000, remainTime));
+                                        }
+                                        foreach (StatsConstants.TemperatureEffects item in statsEasyAcess[playerId].CurrentTemperatureEffects.GetFlags().Where(x => tempEffectsToUse.Contains(x)))
+                                        {
+                                            var remainTime = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, item.ToString());
+                                            remainTime -= HEALING_MINUTES_DECAY * 60 * 1000;
+                                            AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, item.ToString(), Math.Max(1000, remainTime));
+                                        }
+                                        foreach (StatsConstants.DiseaseEffects item in statsEasyAcess[playerId].CurrentDiseaseEffects.GetFlags().Where(x => diseaseEffectsToUse.Contains(x)))
+                                        {
+                                            var remainTime = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, item.ToString());
+                                            remainTime -= HEALING_MINUTES_DECAY * 60 * 1000;
+                                            AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, item.ToString(), Math.Max(1000, remainTime));
+                                        }
+                                        var maxRegen = PlayerActionsController.StatsMultiplier(playerId, HealthController.HealthValueModifier.MaximumRegenerationHealth);
+                                        var currentStatusValue = statComponent.Health.Value / statComponent.Health.MaxValue;
+                                        if (currentStatusValue < maxRegen)
+                                        {
+                                            var finalRegen = StatsConstants.BASE_HEALTH_REGEN_FACTOR * HEALING_EFFICIENCY;
+                                            finalRegen *= PlayerActionsController.StatsMultiplier(playerId, HealthController.HealthValueModifier.RegenerationFactor);
+                                            statComponent.Health.Increase(finalRegen, null);
+                                        }
+                                        var maxValue = statComponent.Health.MaxValue;
+                                        maxValue *= PlayerActionsController.StatsMultiplier(playerId, HealthController.HealthValueModifier.MaxHealth);
+                                        if (statComponent.Health.Value > maxValue)
+                                        {
+                                            statComponent.Health.Value = maxValue;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                CryoHealingCycle[playerId] = 0;
+            }
+        }
+
+        private static bool PlayerNeedBurstHealing(long playerId)
+        {
+            if (statsEasyAcess[playerId].StatComponent.HealthRatio != 1 ||
+                statsEasyAcess[playerId].CurrentDamageEffects != StatsConstants.DamageEffects.None ||
+                statsEasyAcess[playerId].CurrentTemperatureEffects.GetFlags().Any(x=> tempEffectsToUse.Contains(x)) ||
+                statsEasyAcess[playerId].CurrentDiseaseEffects.GetFlags().Any(x => diseaseEffectsToUse.Contains(x)))
+                return true;
+            return false;
         }
 
         public enum ValueModifierGroup

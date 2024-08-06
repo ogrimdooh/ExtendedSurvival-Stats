@@ -66,6 +66,8 @@
     
   </BlueprintClasses>
   <BlueprintClassEntries>
+
+    <Entry Class="SurvivalKit_Bottles_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
     
     <Entry Class="SurvivalKit_Alchemy_Blueprints" BlueprintSubtypeId="SmallAloeVeraExtract_Construction" />
 
@@ -75,6 +77,7 @@
     <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="Tofu_Construction" />
 
     <Entry Class="SurvivalKit_Medical_Blueprints" BlueprintSubtypeId="Bandages_Construction" />
+    <Entry Class="SurvivalKit_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill" />
 
     <Entry Class="SurvivalKit_Armors_Blueprints" BlueprintSubtypeId="BodyTracker_Construction" />
     <Entry Class="SurvivalKit_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmor_Construction" />
@@ -90,6 +93,7 @@
     <Entry Class="SurvivalKit_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
 
     <Entry Class="BasicTools" BlueprintSubtypeId="BBPistolVanila_Construction" />
+    <Entry Class="BasicTools" BlueprintSubtypeId="SimpleHealingBottle_VanilaConstruction" />
 
     <Entry Class="SurvivalKit_Tools_Blueprints" BlueprintSubtypeId="BBPistolVanila_Construction" />
 

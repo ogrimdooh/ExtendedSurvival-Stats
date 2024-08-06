@@ -104,11 +104,13 @@
 
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
+    <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
 
     <Entry Class="EliteTools" BlueprintSubtypeId="LidocainPistolVanila" />
     <Entry Class="EliteTools" BlueprintSubtypeId="PropofolPistolVanila" />
     <Entry Class="EliteTools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
     <Entry Class="EliteTools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="SimpleHealingBottle_VanilaConstruction" />
     <Entry Class="EliteTools" BlueprintSubtypeId="BBPistolVanila_Construction" />
 
     <Entry Class="EliteConsumables" BlueprintSubtypeId="LidocainDart_Construction" />

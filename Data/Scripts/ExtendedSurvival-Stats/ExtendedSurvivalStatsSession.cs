@@ -645,7 +645,7 @@ namespace ExtendedSurvival.Stats
                                 }
                                 PlayerActionsController.ProcessEffectsTimers(playerId, character, statComponent, 1000);
                                 FatigueController.DoCycle(playerId, character, statComponent);
-                                return !character.IsOnCryoChamber();
+                                //return !character.IsOnCryoChamber();
                             }
                             return true;
                         }, int.MaxValue);
@@ -654,7 +654,7 @@ namespace ExtendedSurvival.Stats
                         {
                             if (playerId != 0 && character.IsValidPlayer() && !character.IsDead)
                             {
-                                PlayerActionsController.DoPlayerCycle(playerId, 1000, statComponent);
+                                PlayerActionsController.DoPlayerCycle(playerId, 1000, character, statComponent);
                                 PlayerHealthController.ProcessHealth(playerId, statComponent);
                             }
                         }, int.MaxValue);

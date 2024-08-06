@@ -257,9 +257,22 @@ namespace ExtendedSurvival.Stats
 				"Used by cooling modules to maintain suit temperature when in" + Environment.NewLine +
 				"extremely hot environments."
 			);
-			#endregion
-			#region FISHING
-			AddEntry(
+            AddEntry(
+				LanguageEntries.SIMPLEHEALINGBOTTLE_NAME,
+                "Simple Healing Bottle"
+            );
+            AddEntry(
+                LanguageEntries.FULLSIMPLEHEALINGBOTTLE_NAME,
+                "Simple Healing Bottle (Full)"
+            );
+            AddEntry(
+                LanguageEntries.SIMPLEHEALINGBOTTLE_DESCRIPTION,
+                "Used to speed up the healing process, to be used it must be placed " + Environment.NewLine +
+                "in a cryopod's inventory."
+            );
+            #endregion
+            #region FISHING
+            AddEntry(
                 LanguageEntries.FISH_NAME,
                 "Fish"
             );

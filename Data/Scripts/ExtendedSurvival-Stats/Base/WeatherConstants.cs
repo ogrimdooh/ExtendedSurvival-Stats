@@ -1,10 +1,11 @@
 ﻿using Sandbox.Definitions;
 using Sandbox.Game.Entities;
+using Sandbox.Game.Entities.Blocks;
 using Sandbox.Game.Entities.Character;
 using Sandbox.Game.Entities.Character.Components;
+using Sandbox.Game.EntityComponents;
 using Sandbox.Game.GameSystems;
 using Sandbox.ModAPI;
-using Sandbox.ModAPI.Ingame;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -210,10 +211,17 @@ namespace ExtendedSurvival.Stats
                         }
                         else
                         {
-                            weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(
-                               0.5f - t.X * (1 - o2Level),
-                               PRESURIZED_TEMPERATURE - t.Y * (1 - o2Level)
-                            );
+                            if (t.Y < 0)
+                            {
+                                weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(0.5f * o2Level, PRESURIZED_TEMPERATURE * o2Level);
+                            }
+                            else
+                            {
+                                weatherInfo[entity.EntityId].CurrentTemperature = new Vector2(
+                                   0.5f - t.X * (1 - o2Level),
+                                   PRESURIZED_TEMPERATURE - t.Y * (1 - o2Level)
+                                );
+                            }
                         }
                     }
                     else
@@ -288,22 +296,34 @@ namespace ExtendedSurvival.Stats
             var cockpit = entity.Parent as MyCockpit;
             if (cockpit != null)
             {
-                if (cockpit.OxygenFillLevel > 0.95f)
+                var hasPower = cockpit.ResourceSink.IsPoweredByType(MyResourceDistributorComponent.ElectricityId);
+                if (hasPower && cockpit.OxygenFillLevel >= 0.7f)
                 {
                     return EnvironmentDetector.ShipOrStation;
                 }
                 else
                 {
-                    if (cockpit.CubeGrid.Physics == null || (cockpit.CubeGrid.Physics != null && cockpit.CubeGrid.Physics.Gravity.LengthSquared() > 0f))
+                    var o2Capacity = (cockpit as Sandbox.ModAPI.Ingame.IMyCockpit)?.OxygenCapacity ?? 0;
+                    if (o2Capacity > 0)
+                    {
+                        o2Level = cockpit.OxygenFillLevel;
+                        if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                        {
+                            return EnvironmentDetector.NotPressurizedRoom;
+                        }
+                        else
+                            return EnvironmentDetector.NotPressurizedRoomInSpace;
+                    }
+                    else
                     {
                         if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
                         {
                             o2Level = platAtRange.Entity.GetOxygenForPosition(pos);
                             currentValue = EnvironmentDetector.Atmosphere;
                         }
+                        else
+                            currentValue = EnvironmentDetector.Space;
                     }
-                    else
-                        currentValue = EnvironmentDetector.Space;
                 }
             }
             else
@@ -324,7 +344,7 @@ namespace ExtendedSurvival.Stats
             var o2Block = GetOxygenBlockAtCharacter(entity, out o2Level);
             if (o2Block != null && o2Block.Room != null && o2Block.Room.IsAirtight)
             {
-                if (o2Level > 0.95f)
+                if (o2Level >= 0.85f)
                     return EnvironmentDetector.ShipOrStation;
                 else
                     return currentValue == EnvironmentDetector.Space ? EnvironmentDetector.NotPressurizedRoomInSpace : EnvironmentDetector.NotPressurizedRoom;

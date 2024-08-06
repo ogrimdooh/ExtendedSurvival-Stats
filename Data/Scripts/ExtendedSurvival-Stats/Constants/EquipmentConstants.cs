@@ -118,6 +118,12 @@ namespace ExtendedSurvival.Stats
         public const string HOTTHERMALBOTTLE_SUBTYPEID = "HotThermalBottle";
         public static readonly UniqueEntityId HOTTHERMALBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), HOTTHERMALBOTTLE_SUBTYPEID);
 
+        public const string SIMPLEHEALINGBOTTLE_SUBTYPEID = "SimpleHealingBottle";
+        public static readonly UniqueEntityId SIMPLEHEALINGBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), SIMPLEHEALINGBOTTLE_SUBTYPEID);
+
+        public const string FULLSIMPLEHEALINGBOTTLE_SUBTYPEID = "FullSimpleHealingBottle";
+        public static readonly UniqueEntityId FULLSIMPLEHEALINGBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FULLSIMPLEHEALINGBOTTLE_SUBTYPEID);
+
         public static readonly EquipmentDefinition BODYTRACKER_DEFINITION = new EquipmentDefinition()
         {
             Id = BODYTRACKER_ID,
@@ -653,10 +659,138 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly GasContainersDefinition SIMPLEHEALINGBOTTLE_DEFINITION = new GasContainersDefinition()
+        {
+            Id = SIMPLEHEALINGBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SIMPLEHEALINGBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SIMPLEHEALINGBOTTLE_DESCRIPTION),
+            CanPlayerOrder = false,
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SimpleHealingBottle_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPER_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PRESSUREREGULATOR_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SimpleHealingBottle_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly GasContainersDefinition FULLSIMPLEHEALINGBOTTLE_DEFINITION = new GasContainersDefinition()
+        {
+            Id = FULLSIMPLEHEALINGBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.FULLSIMPLEHEALINGBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SIMPLEHEALINGBOTTLE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 2575,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SimpleHealingBottle_Refill",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = SIMPLEHEALINGBOTTLE_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.SMALLALOEVERAEXTRACT_ID,
+                            Ammount = 6
+                        },
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SimpleHealingBottle_Refill2",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = SIMPLEHEALINGBOTTLE_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.ALOEVERAEXTRACT_ID,
+                            Ammount = 3
+                        },
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, GasContainersDefinition> GASCONTAINERS_DEFINITIONS = new Dictionary<UniqueEntityId, GasContainersDefinition>()
         {
             { COLDTHERMALBOTTLE_ID, COLDTHERMALBOTTLE_DEFINITION },
-            { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION }
+            { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION },
+            { SIMPLEHEALINGBOTTLE_ID, SIMPLEHEALINGBOTTLE_DEFINITION },
+            { FULLSIMPLEHEALINGBOTTLE_ID, FULLSIMPLEHEALINGBOTTLE_DEFINITION }
         };
 
         public static readonly Dictionary<UniqueEntityId, EquipmentDefinition> EQUIPMENTS_DEFINITIONS = new Dictionary<UniqueEntityId, EquipmentDefinition>()
@@ -683,6 +817,21 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId[] HOTTHERMALBOTTLES = new UniqueEntityId[]
         {
             HOTTHERMALBOTTLE_ID
+        };
+
+        public static readonly UniqueEntityId[] OPENHEALINGBOTTLE = new UniqueEntityId[]
+        {
+            SIMPLEHEALINGBOTTLE_ID
+        };
+
+        public static readonly UniqueEntityId[] FULLHEALINGBOTTLE = new UniqueEntityId[]
+        {
+            FULLSIMPLEHEALINGBOTTLE_ID
+        };
+
+        public static readonly Dictionary<UniqueEntityId, UniqueEntityId> HEALINGBOTTLEEQUIVALENCE = new Dictionary<UniqueEntityId, UniqueEntityId>()
+        {
+            { FULLSIMPLEHEALINGBOTTLE_ID, SIMPLEHEALINGBOTTLE_ID }
         };
 
         public const string SCAVENGERARMOR_SUBTYPEID = "ScavengerArmor";
