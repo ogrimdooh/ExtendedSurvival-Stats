@@ -35,6 +35,24 @@ namespace ExtendedSurvival.Stats
         public const string MEDICINE_SUBTYPEID = "Medicine";
         public static readonly UniqueEntityId MEDICINE_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), MEDICINE_SUBTYPEID);
 
+        public const string SIMPLERADX_SUBTYPEID = "SimpleRadX";
+        public static readonly UniqueEntityId SIMPLERADX_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SIMPLERADX_SUBTYPEID);
+
+        public const string RADX_SUBTYPEID = "RadX";
+        public static readonly UniqueEntityId RADX_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), RADX_SUBTYPEID);
+
+        public const string ADVANCEDRADX_SUBTYPEID = "AdvancedRadX";
+        public static readonly UniqueEntityId ADVANCEDRADX_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ADVANCEDRADX_SUBTYPEID);
+
+        public const string SIMPLEDETOXIFYING_SUBTYPEID = "SimpleDetoxifying";
+        public static readonly UniqueEntityId SIMPLEDETOXIFYING_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), SIMPLEDETOXIFYING_SUBTYPEID);
+
+        public const string DETOXIFYING_SUBTYPEID = "Detoxifying";
+        public static readonly UniqueEntityId DETOXIFYING_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), DETOXIFYING_SUBTYPEID);
+
+        public const string ADVANCEDDETOXIFYING_SUBTYPEID = "AdvancedDetoxifying";
+        public static readonly UniqueEntityId ADVANCEDDETOXIFYING_ID = new UniqueEntityId(typeof(MyObjectBuilder_ConsumableItem), ADVANCEDDETOXIFYING_SUBTYPEID);
+
         public static readonly MedicalDefinition BANDAGES_DEFINITION = new MedicalDefinition()
         {
             Id = BANDAGES_ID,
@@ -620,6 +638,432 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly MedicalDefinition SIMPLERADX_DEFINITION = new MedicalDefinition()
+        {
+            Id = SIMPLERADX_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SIMPLERADX_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADX_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1500,
+            OfferAmount = new Vector2I(10000, 30000),
+            OrderAmount = new Vector2I(2500, 7500),
+            AcquisitionAmount = new Vector2I(5000, 15000),
+            Mass = 2.5f,
+            Volume = 3.0f,
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.LesserResistenceToRadioactivity, 1 }
+            },
+            ReduceTemperature = new Dictionary<StatsConstants.TemperatureEffects, float>()
+            {
+                { StatsConstants.TemperatureEffects.RadiationSick, 5f * 60f * 1000f },
+                { StatsConstants.TemperatureEffects.RadiationPoisoning, 2.5f * 60f * 1000f }
+            },
+            Effects = new List<ConsumibleEffect>()
+            {
+                new ConsumibleEffect()
+                {
+                    EffectType = FoodEffectType.OverTime,
+                    EffectTarget = FoodEffectTarget.Fatigue,
+                    TimeToEffect = 20,
+                    Ammount = 100
+                }
+            },
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SimpleRadX_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.ARNICAEXTRACT_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.AMATOXINA_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.LIDOCAINE_ID,
+                            Ammount = 1
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly MedicalDefinition RADX_DEFINITION = new MedicalDefinition()
+        {
+            Id = RADX_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.RADX_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADX_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1500,
+            OfferAmount = new Vector2I(10000, 30000),
+            OrderAmount = new Vector2I(2500, 7500),
+            AcquisitionAmount = new Vector2I(5000, 15000),
+            Mass = 3.5f,
+            Volume = 4.0f,
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.ResistenceToRadioactivity, 1 }
+            },
+            CureTemperature = new List<StatsConstants.TemperatureEffects>()
+            {
+                StatsConstants.TemperatureEffects.RadiationSick
+            },
+            ReduceTemperature = new Dictionary<StatsConstants.TemperatureEffects, float>()
+            {
+                { StatsConstants.TemperatureEffects.RadiationPoisoning, 5f * 60f * 1000f }
+            },
+            Effects = new List<ConsumibleEffect>()
+            {
+                new ConsumibleEffect()
+                {
+                    EffectType = FoodEffectType.OverTime,
+                    EffectTarget = FoodEffectTarget.Fatigue,
+                    TimeToEffect = 20,
+                    Ammount = 200
+                }
+            },
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "RadX_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.ARNICAEXTRACT_ID,
+                            Ammount = 4
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.AMATOXINA_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.POLIETILENOGLICOL_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.LIDOCAINE_ID,
+                            Ammount = 1
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly MedicalDefinition ADVANCEDRADX_DEFINITION = new MedicalDefinition()
+        {
+            Id = ADVANCEDRADX_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ADVANCEDRADX_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADX_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1500,
+            OfferAmount = new Vector2I(10000, 30000),
+            OrderAmount = new Vector2I(2500, 7500),
+            AcquisitionAmount = new Vector2I(5000, 15000),
+            Mass = 3.5f,
+            Volume = 4.0f,
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.GreaterResistenceToRadioactivity, 1 }
+            },
+            CureTemperature = new List<StatsConstants.TemperatureEffects>()
+            {
+                StatsConstants.TemperatureEffects.RadiationSick,
+                StatsConstants.TemperatureEffects.RadiationPoisoning
+            },
+            Effects = new List<ConsumibleEffect>()
+            {
+                new ConsumibleEffect()
+                {
+                    EffectType = FoodEffectType.OverTime,
+                    EffectTarget = FoodEffectTarget.Fatigue,
+                    TimeToEffect = 20,
+                    Ammount = 400
+                }
+            },
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "AdvancedRadX_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.ARNICAEXTRACT_ID,
+                            Ammount = 6
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.AMATOXINA_ID,
+                            Ammount = 3
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.POLIETILENOGLICOL_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERSULFADIAZINE_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.LIDOCAINE_ID,
+                            Ammount = 1
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly MedicalDefinition SIMPLEDETOXIFYING_DEFINITION = new MedicalDefinition()
+        {
+            Id = SIMPLEDETOXIFYING_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SIMPLEDETOXIFYING_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DETOXIFYING_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1500,
+            OfferAmount = new Vector2I(10000, 30000),
+            OrderAmount = new Vector2I(2500, 7500),
+            AcquisitionAmount = new Vector2I(5000, 15000),
+            Mass = 2.5f,
+            Volume = 3.0f,
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.LesserResistenceToToxicity, 1 }
+            },
+            ReduceTemperature = new Dictionary<StatsConstants.TemperatureEffects, float>()
+            {
+                { StatsConstants.TemperatureEffects.Intoxicated, 5f * 60f * 1000f },
+                { StatsConstants.TemperatureEffects.VeryIntoxicated, 2.5f * 60f * 1000f }
+            },
+            Effects = new List<ConsumibleEffect>()
+            {
+                new ConsumibleEffect()
+                {
+                    EffectType = FoodEffectType.OverTime,
+                    EffectTarget = FoodEffectTarget.Fatigue,
+                    TimeToEffect = 20,
+                    Ammount = 100
+                }
+            },
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "SimpleDetoxifying_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.ARNICAEXTRACT_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.MINTEXTRACT_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.CHAMOMILEEXTRACT_ID,
+                            Ammount = 1
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly MedicalDefinition DETOXIFYING_DEFINITION = new MedicalDefinition()
+        {
+            Id = DETOXIFYING_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.DETOXIFYING_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DETOXIFYING_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1500,
+            OfferAmount = new Vector2I(10000, 30000),
+            OrderAmount = new Vector2I(2500, 7500),
+            AcquisitionAmount = new Vector2I(5000, 15000),
+            Mass = 3.5f,
+            Volume = 4.0f,
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.ResistenceToToxicity, 1 }
+            },
+            CureTemperature = new List<StatsConstants.TemperatureEffects>()
+            {
+                StatsConstants.TemperatureEffects.Intoxicated
+            },
+            ReduceTemperature = new Dictionary<StatsConstants.TemperatureEffects, float>()
+            {
+                { StatsConstants.TemperatureEffects.VeryIntoxicated, 5f * 60f * 1000f }
+            },
+            Effects = new List<ConsumibleEffect>()
+            {
+                new ConsumibleEffect()
+                {
+                    EffectType = FoodEffectType.OverTime,
+                    EffectTarget = FoodEffectTarget.Fatigue,
+                    TimeToEffect = 20,
+                    Ammount = 200
+                }
+            },
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "Detoxifying_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.ARNICAEXTRACT_ID,
+                            Ammount = 4
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.MINTEXTRACT_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.POLIETILENOGLICOL_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.CHAMOMILEEXTRACT_ID,
+                            Ammount = 1
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly MedicalDefinition ADVANCEDDETOXIFYING_DEFINITION = new MedicalDefinition()
+        {
+            Id = ADVANCEDDETOXIFYING_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ADVANCEDDETOXIFYING_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.DETOXIFYING_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1500,
+            OfferAmount = new Vector2I(10000, 30000),
+            OrderAmount = new Vector2I(2500, 7500),
+            AcquisitionAmount = new Vector2I(5000, 15000),
+            Mass = 3.5f,
+            Volume = 4.0f,
+            TemperatureEffects = new Dictionary<StatsConstants.TemperatureEffects, int>()
+            {
+                { StatsConstants.TemperatureEffects.GreaterResistenceToToxicity, 1 }
+            },
+            CureTemperature = new List<StatsConstants.TemperatureEffects>()
+            {
+                StatsConstants.TemperatureEffects.Intoxicated,
+                StatsConstants.TemperatureEffects.VeryIntoxicated
+            },
+            Effects = new List<ConsumibleEffect>()
+            {
+                new ConsumibleEffect()
+                {
+                    EffectType = FoodEffectType.OverTime,
+                    EffectTarget = FoodEffectTarget.Fatigue,
+                    TimeToEffect = 20,
+                    Ammount = 400
+                }
+            },
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "AdvancedDetoxifying_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.ARNICAEXTRACT_ID,
+                            Ammount = 6
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.MINTEXTRACT_ID,
+                            Ammount = 3
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.POLIETILENOGLICOL_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERSULFADIAZINE_ID,
+                            Ammount = 1
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = QuimicalConstants.CHAMOMILEEXTRACT_ID,
+                            Ammount = 1
+                        }
+                    }
+                }
+            }
+        };
+
         public static Dictionary<UniqueEntityId, MedicalDefinition> MEDICAL_DEFINITIONS = new Dictionary<UniqueEntityId, MedicalDefinition>()
         {
             { BANDAGES_ID, BANDAGES_DEFINITION },
@@ -629,7 +1073,13 @@ namespace ExtendedSurvival.Stats
             { HEALTH_BUSTER_ID, HEALTH_BUSTER_DEFINITION },
             { HEALTHINJECTION_ID, HEALTHINJECTION_DEFINITION },
             { HEALTHPOWERINJECTION_ID, HEALTHPOWERINJECTION_DEFINITION },
-            { MEDKIT_ID, MEDKIT_DEFINITION }
+            { MEDKIT_ID, MEDKIT_DEFINITION },
+            { SIMPLEDETOXIFYING_ID, SIMPLEDETOXIFYING_DEFINITION },
+            { DETOXIFYING_ID, DETOXIFYING_DEFINITION },
+            { ADVANCEDDETOXIFYING_ID, ADVANCEDDETOXIFYING_DEFINITION },
+            { SIMPLERADX_ID, SIMPLERADX_DEFINITION },
+            { RADX_ID, RADX_DEFINITION },
+            { ADVANCEDRADX_ID, ADVANCEDRADX_DEFINITION }
         };
 
         public static void TryOverrideDefinitions()

@@ -147,6 +147,9 @@ namespace ExtendedSurvival.Stats
         {
             StringBuilder sbEffects = new StringBuilder();
             StringBuilder sbFeeling = new StringBuilder();
+            int totalPositive = 0;
+            int totalNegative = 0;
+            int notTrackedEffects = 0;
             if (IsValid)
             {
                 var bodyTrackLevel = GetBodyTrackerLevel();
@@ -155,6 +158,7 @@ namespace ExtendedSurvival.Stats
                 {
                     foreach (var effect in StatsConstants.GetFlags(CurrentSurvivalEffects))
                     {
+                        totalNegative++;
                         toalEffects += StatsConstants.GetSurvivalEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetSurvivalEffectTrackLevel(effect))
                         {
@@ -176,12 +180,24 @@ namespace ExtendedSurvival.Stats
                             }
                             sbEffects.AppendLine(text);
                         }
+                        else
+                        {
+                            notTrackedEffects++;
+                        }
                     }
                 }
                 if (CurrentTemperatureEffects != StatsConstants.TemperatureEffects.None)
                 {
                     foreach (var effect in StatsConstants.GetFlags(CurrentTemperatureEffects))
                     {
+                        if (StatsConstants.TEMPERATURE_EFFECTS[effect].IsPositive)
+                        {
+                            totalPositive++;
+                        }
+                        else
+                        {
+                            totalNegative++;
+                        }
                         toalEffects += StatsConstants.GetTemperatureEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetTemperatureEffectTrackLevel(effect))
                         {
@@ -199,12 +215,17 @@ namespace ExtendedSurvival.Stats
                             }
                             sbEffects.AppendLine(text);
                         }
+                        else
+                        {
+                            notTrackedEffects++;
+                        }
                     }
                 }
                 if (CurrentDamageEffects != StatsConstants.DamageEffects.None)
                 {
                     foreach (var effect in StatsConstants.GetFlags(CurrentDamageEffects))
                     {
+                        totalNegative++;
                         toalEffects += StatsConstants.GetDamageEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetDamageEffectTrackLevel(effect))
                         {
@@ -222,12 +243,17 @@ namespace ExtendedSurvival.Stats
                             }
                             sbEffects.AppendLine(text);
                         }
+                        else
+                        {
+                            notTrackedEffects++;
+                        }
                     }
                 }
                 if (CurrentDiseaseEffects != StatsConstants.DiseaseEffects.None)
                 {
                     foreach (var effect in StatsConstants.GetFlags(CurrentDiseaseEffects))
                     {
+                        totalNegative++;
                         toalEffects += StatsConstants.GetDiseaseEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetDiseaseEffectTrackLevel(effect))
                         {
@@ -249,16 +275,25 @@ namespace ExtendedSurvival.Stats
                             }
                             sbEffects.AppendLine(text);
                         }
+                        else
+                        {
+                            notTrackedEffects++;
+                        }
                     }
                 }
                 if (CurrentOtherEffects != StatsConstants.OtherEffects.None)
                 {
                     foreach (var effect in StatsConstants.GetFlags(CurrentOtherEffects))
                     {
+                        totalNegative++;
                         toalEffects += StatsConstants.GetOtherEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetOtherEffectTrackLevel(effect))
                         {
                             sbEffects.AppendLine(StatsConstants.GetOtherEffectDescription(effect));
+                        }
+                        else
+                        {
+                            notTrackedEffects++;
                         }
                     }
                 }
@@ -266,6 +301,14 @@ namespace ExtendedSurvival.Stats
                 {
                     foreach (var effect in StatsConstants.GetFlags(CurrentFoodEffects))
                     {
+                        if (FoodEffectConstants.FOOD_EFFECTS[effect].IsPositive)
+                        {
+                            totalPositive++;
+                        }
+                        else
+                        {
+                            totalNegative++;
+                        }
                         toalEffects += FoodEffectConstants.GetFoodEffectsFeelingLevel(effect);
                         if (bodyTrackLevel >= FoodEffectConstants.GetFoodEffectsTrackLevel(effect))
                         {
@@ -283,12 +326,24 @@ namespace ExtendedSurvival.Stats
                             }
                             sbEffects.AppendLine(text);
                         }
+                        else
+                        {
+                            notTrackedEffects++;
+                        }
                     }
                 }
                 if (CurrentFoodEffects2 != FoodEffectConstants.FoodEffectsPart2.None)
                 {
                     foreach (var effect in StatsConstants.GetFlags(CurrentFoodEffects2))
                     {
+                        if (FoodEffectConstants.FOOD_EFFECTS2[effect].IsPositive)
+                        {
+                            totalPositive++;
+                        }
+                        else
+                        {
+                            totalNegative++;
+                        }
                         toalEffects += FoodEffectConstants.GetFoodEffectsFeelingLevel(effect);
                         if (bodyTrackLevel >= FoodEffectConstants.GetFoodEffectsTrackLevel(effect))
                         {
@@ -306,7 +361,21 @@ namespace ExtendedSurvival.Stats
                             }
                             sbEffects.AppendLine(text);
                         }
+                        else
+                        {
+                            notTrackedEffects++;
+                        }
                     }
+                }
+                if (bodyTrackLevel > 0)
+                {
+                    sbFeeling.AppendLine(string.Format(LanguageProvider.GetEntry(LanguageEntries.BODYTRACKER_UI_EQUIPED), bodyTrackLevel));
+                    sbFeeling.AppendLine();
+                }
+                else
+                {
+                    sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.BODYTRACKER_UI_NOEQUIPED));
+                    sbFeeling.AppendLine();
                 }
                 if (ArmorInfo != null && ArmorInfo.HasArmor)
                 {
@@ -315,7 +384,7 @@ namespace ExtendedSurvival.Stats
                 }
                 if (WeatherConstants.CurrentWeatherInfo != null)
                 {
-                    sbFeeling.AppendLine(WeatherConstants.CurrentWeatherInfo.GetDisplayInfo(true /*bodyTrackLevel >= 1*/));
+                    sbFeeling.AppendLine(WeatherConstants.CurrentWeatherInfo.GetDisplayInfo(bodyTrackLevel));
                     sbFeeling.AppendLine();
                 }
                 var feeling = StatsConstants.GetFeelingByTotalEffects(toalEffects);
@@ -328,6 +397,27 @@ namespace ExtendedSurvival.Stats
                 {
                     sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.FEELING_INFO_NAME));
                     sbFeeling.AppendLine();
+                }
+                if (totalPositive > 0 || totalNegative > 0)
+                {
+                    sbFeeling.Append(LanguageProvider.GetEntry(LanguageEntries.TOTAL_EFFECT_UID));
+                    if (totalPositive > 0)
+                    {
+                        sbFeeling.Append(string.Format(LanguageProvider.GetEntry(LanguageEntries.TOTAL_POSITIVE_EFFECT_UID), totalPositive));
+                    }
+                    if (totalNegative > 0)
+                    {
+                        sbFeeling.Append(string.Format(LanguageProvider.GetEntry(LanguageEntries.TOTAL_NEGATIVE_EFFECT_UID), totalNegative));
+                    }
+                    if (notTrackedEffects > 0)
+                    {
+                        sbFeeling.Append(string.Format(LanguageProvider.GetEntry(LanguageEntries.TOTAL_NOTTRACKED_EFFECT_UID), notTrackedEffects));
+                    }
+                    sbFeeling.AppendLine();
+                }
+                else
+                {
+                    sbFeeling.AppendLine(LanguageProvider.GetEntry(LanguageEntries.NO_EFFECT_UID));
                 }
             }
             return IsWithHelmet() ? sbFeeling.ToString() + sbEffects.ToString() : "";

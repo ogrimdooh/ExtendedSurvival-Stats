@@ -14,6 +14,8 @@ namespace ExtendedSurvival.Stats
         public float StaminaCost { get; set; }
         public float HotResistence { get; set; }
         public float ColdResistence { get; set; }
+        public float ToxicityResistence { get; set; }
+        public float RadioactivityResistence { get; set; }
         public Dictionary<ArmorSystemConstants.DamageType, float> Resistences { get; set; }
         public Dictionary<ArmorSystemConstants.ArmorEffect, float> Effects { get; set; }
 

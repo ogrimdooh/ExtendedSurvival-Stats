@@ -82,6 +82,8 @@
     <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Propofol_Construction" />
     <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="VegetalOil_Construction" />
     <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="MineralOil_Construction" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="FullToxicityFilterBottle_Clean" />
+    <Entry Class="AlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="FullRadioactivityFilterBottle_Clean" />
 
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="HealthInjection_Construction" />
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="HealthPowerInjection_Construction" />
@@ -94,6 +96,12 @@
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="VitaminPills_Construction" />
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill" />
     <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill2" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleRadX_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="RadX_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="AdvancedRadX_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleDetoxifying_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Detoxifying_Construction" />
+    <Entry Class="AlchemyBench_Medical_Blueprints" BlueprintSubtypeId="AdvancedDetoxifying_Construction" />
     
   </BlueprintClassEntries>
 </Definitions>

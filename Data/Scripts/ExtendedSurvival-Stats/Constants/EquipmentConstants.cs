@@ -112,18 +112,6 @@ namespace ExtendedSurvival.Stats
         public const string ELITEBODYTRACKER_SUBTYPEID = "EliteBodyTracker";
         public static readonly UniqueEntityId ELITEBODYTRACKER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITEBODYTRACKER_SUBTYPEID);
 
-        public const string COLDTHERMALBOTTLE_SUBTYPEID = "ColdThermalBottle";
-        public static readonly UniqueEntityId COLDTHERMALBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), COLDTHERMALBOTTLE_SUBTYPEID);
-
-        public const string HOTTHERMALBOTTLE_SUBTYPEID = "HotThermalBottle";
-        public static readonly UniqueEntityId HOTTHERMALBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), HOTTHERMALBOTTLE_SUBTYPEID);
-
-        public const string SIMPLEHEALINGBOTTLE_SUBTYPEID = "SimpleHealingBottle";
-        public static readonly UniqueEntityId SIMPLEHEALINGBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), SIMPLEHEALINGBOTTLE_SUBTYPEID);
-
-        public const string FULLSIMPLEHEALINGBOTTLE_SUBTYPEID = "FullSimpleHealingBottle";
-        public static readonly UniqueEntityId FULLSIMPLEHEALINGBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FULLSIMPLEHEALINGBOTTLE_SUBTYPEID);
-
         public static readonly EquipmentDefinition BODYTRACKER_DEFINITION = new EquipmentDefinition()
         {
             Id = BODYTRACKER_ID,
@@ -509,6 +497,46 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly Dictionary<UniqueEntityId, EquipmentDefinition> EQUIPMENTS_DEFINITIONS = new Dictionary<UniqueEntityId, EquipmentDefinition>()
+        {
+            { BODYTRACKER_ID, BODYTRACKER_DEFINITION },
+            { ENHANCEDBODYTRACKER_ID, ENHANCEDBODYTRACKER_DEFINITION },
+            { PROFICIENTBODYTRACKER_ID, PROFICIENTBODYTRACKER_DEFINITION },
+            { ELITEBODYTRACKER_ID, ELITEBODYTRACKER_DEFINITION }
+        };
+
+        public static readonly Dictionary<UniqueEntityId, int> BODYTRACKERS = new Dictionary<UniqueEntityId, int>
+        {
+            { BODYTRACKER_ID, 1 },
+            { ENHANCEDBODYTRACKER_ID, 2 },
+            { PROFICIENTBODYTRACKER_ID, 3 },
+            { ELITEBODYTRACKER_ID, 4 }
+        };
+
+        public const string COLDTHERMALBOTTLE_SUBTYPEID = "ColdThermalBottle";
+        public static readonly UniqueEntityId COLDTHERMALBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), COLDTHERMALBOTTLE_SUBTYPEID);
+
+        public const string HOTTHERMALBOTTLE_SUBTYPEID = "HotThermalBottle";
+        public static readonly UniqueEntityId HOTTHERMALBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), HOTTHERMALBOTTLE_SUBTYPEID);
+
+        public const string SIMPLEHEALINGBOTTLE_SUBTYPEID = "SimpleHealingBottle";
+        public static readonly UniqueEntityId SIMPLEHEALINGBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), SIMPLEHEALINGBOTTLE_SUBTYPEID);
+
+        public const string FULLSIMPLEHEALINGBOTTLE_SUBTYPEID = "FullSimpleHealingBottle";
+        public static readonly UniqueEntityId FULLSIMPLEHEALINGBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FULLSIMPLEHEALINGBOTTLE_SUBTYPEID);
+
+        public const string TOXICITYFILTERBOTTLE_SUBTYPEID = "ToxicityFilterBottle";
+        public static readonly UniqueEntityId TOXICITYFILTERBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), TOXICITYFILTERBOTTLE_SUBTYPEID);
+
+        public const string FULLTOXICITYFILTERBOTTLE_SUBTYPEID = "FullToxicityFilterBottle";
+        public static readonly UniqueEntityId FULLTOXICITYFILTERBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FULLTOXICITYFILTERBOTTLE_SUBTYPEID);
+
+        public const string RADIOACTIVITYFILTERBOTTLE_SUBTYPEID = "RadioactivityFilterBottle";
+        public static readonly UniqueEntityId RADIOACTIVITYFILTERBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), RADIOACTIVITYFILTERBOTTLE_SUBTYPEID);
+
+        public const string FULLRADIOACTIVITYFILTERBOTTLE_SUBTYPEID = "FullRadioactivityFilterBottle";
+        public static readonly UniqueEntityId FULLRADIOACTIVITYFILTERBOTTLE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), FULLRADIOACTIVITYFILTERBOTTLE_SUBTYPEID);
+
         public static readonly GasContainersDefinition COLDTHERMALBOTTLE_DEFINITION = new GasContainersDefinition()
         {
             Id = COLDTHERMALBOTTLE_ID,
@@ -785,28 +813,238 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        public static readonly GasContainersDefinition TOXICITYFILTERBOTTLE_DEFINITION = new GasContainersDefinition()
+        {
+            Id = TOXICITYFILTERBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.TOXICITYFILTERBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOXICITYFILTERBOTTLE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1250,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ToxicityFilterBottle_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ZINC_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CARBON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PRESSUREREGULATOR_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ToxicityFilterBottle_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly GasContainersDefinition FULLTOXICITYFILTERBOTTLE_DEFINITION = new GasContainersDefinition()
+        {
+            Id = FULLTOXICITYFILTERBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.FULLTOXICITYFILTERBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FULLTOXICITYFILTERBOTTLE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 2575,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 5f,
+            Volume = 2.5f,
+            OtherRecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
+            {
+                new SimpleIngredientRecipeDefinition()
+                {
+                    RecipeName = "FullToxicityFilterBottle_Clean",
+                    IngredientAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Results = new SimpleIngredientRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = TOXICITYFILTERBOTTLE_ID,
+                            Ammount = 1
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SPOILED_MATERIAL_ID,
+                            Ammount = 2
+                        },
+                    }
+                }
+            }
+        };
+
+        public static readonly GasContainersDefinition RADIOACTIVITYFILTERBOTTLE_DEFINITION = new GasContainersDefinition()
+        {
+            Id = RADIOACTIVITYFILTERBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.RADIOACTIVITYFILTERBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADIOACTIVITYFILTERBOTTLE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1250,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "RadioactivityFilterBottle_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LEAD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CARBON_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PRESSUREREGULATOR_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "RadioactivityFilterBottle_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly GasContainersDefinition FULLRADIOACTIVITYFILTERBOTTLE_DEFINITION = new GasContainersDefinition()
+        {
+            Id = FULLRADIOACTIVITYFILTERBOTTLE_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 2575,
+            OfferAmount = new Vector2I(100, 300),
+            OrderAmount = new Vector2I(25, 75),
+            AcquisitionAmount = new Vector2I(50, 150),
+            Mass = 5f,
+            Volume = 2.5f,
+            OtherRecipesDefinition = new List<SimpleIngredientRecipeDefinition>()
+            {
+                new SimpleIngredientRecipeDefinition()
+                {
+                    RecipeName = "FullRadioactivityFilterBottle_Clean",
+                    IngredientAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Results = new SimpleIngredientRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = RADIOACTIVITYFILTERBOTTLE_ID,
+                            Ammount = 1
+                        },
+                        new SimpleIngredientRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SPOILED_MATERIAL_ID,
+                            Ammount = 2
+                        },
+                    }
+                }
+            }
+        };
+
         public static readonly Dictionary<UniqueEntityId, GasContainersDefinition> GASCONTAINERS_DEFINITIONS = new Dictionary<UniqueEntityId, GasContainersDefinition>()
         {
             { COLDTHERMALBOTTLE_ID, COLDTHERMALBOTTLE_DEFINITION },
             { HOTTHERMALBOTTLE_ID, HOTTHERMALBOTTLE_DEFINITION },
             { SIMPLEHEALINGBOTTLE_ID, SIMPLEHEALINGBOTTLE_DEFINITION },
-            { FULLSIMPLEHEALINGBOTTLE_ID, FULLSIMPLEHEALINGBOTTLE_DEFINITION }
-        };
-
-        public static readonly Dictionary<UniqueEntityId, EquipmentDefinition> EQUIPMENTS_DEFINITIONS = new Dictionary<UniqueEntityId, EquipmentDefinition>()
-        {
-            { BODYTRACKER_ID, BODYTRACKER_DEFINITION },
-            { ENHANCEDBODYTRACKER_ID, ENHANCEDBODYTRACKER_DEFINITION },
-            { PROFICIENTBODYTRACKER_ID, PROFICIENTBODYTRACKER_DEFINITION },
-            { ELITEBODYTRACKER_ID, ELITEBODYTRACKER_DEFINITION }
-        };
-
-        public static readonly Dictionary<UniqueEntityId, int> BODYTRACKERS = new Dictionary<UniqueEntityId, int>
-        {
-            { BODYTRACKER_ID, 1 },
-            { ENHANCEDBODYTRACKER_ID, 2 },
-            { PROFICIENTBODYTRACKER_ID, 3 },
-            { ELITEBODYTRACKER_ID, 4 }
+            { FULLSIMPLEHEALINGBOTTLE_ID, FULLSIMPLEHEALINGBOTTLE_DEFINITION },
+            { TOXICITYFILTERBOTTLE_ID, TOXICITYFILTERBOTTLE_DEFINITION },
+            { FULLTOXICITYFILTERBOTTLE_ID, FULLTOXICITYFILTERBOTTLE_DEFINITION },
+            { RADIOACTIVITYFILTERBOTTLE_ID, RADIOACTIVITYFILTERBOTTLE_DEFINITION },
+            { FULLRADIOACTIVITYFILTERBOTTLE_ID, FULLRADIOACTIVITYFILTERBOTTLE_DEFINITION }
         };
 
         public static readonly UniqueEntityId[] COLDTHERMALBOTTLES = new UniqueEntityId[]
@@ -827,6 +1065,40 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId[] FULLHEALINGBOTTLE = new UniqueEntityId[]
         {
             FULLSIMPLEHEALINGBOTTLE_ID
+        };
+        
+        public static readonly UniqueEntityId[] TOXICITYBOTTLES = new UniqueEntityId[]
+        {
+            TOXICITYFILTERBOTTLE_ID
+        };
+
+        public static readonly UniqueEntityId[] FULLTOXICITYBOTTLES = new UniqueEntityId[]
+        {
+            FULLTOXICITYFILTERBOTTLE_ID
+        };
+
+        public static readonly UniqueEntityId[] RADIOACTIVITYBOTTLES = new UniqueEntityId[]
+        {
+            RADIOACTIVITYFILTERBOTTLE_ID
+        };
+
+        public static readonly UniqueEntityId[] FULLRADIOACTIVITYBOTTLES = new UniqueEntityId[]
+        {
+            FULLRADIOACTIVITYFILTERBOTTLE_ID
+        };
+
+        public static readonly UniqueEntityId[] ALLEXPOSUREBOTTLES = new UniqueEntityId[]
+        {
+            TOXICITYFILTERBOTTLE_ID,
+            FULLTOXICITYFILTERBOTTLE_ID,
+            RADIOACTIVITYFILTERBOTTLE_ID,
+            FULLRADIOACTIVITYFILTERBOTTLE_ID
+        };
+
+        public static readonly Dictionary<UniqueEntityId, UniqueEntityId> EXPOSEBOTTLEEQUIVALENCE = new Dictionary<UniqueEntityId, UniqueEntityId>()
+        {
+            { TOXICITYFILTERBOTTLE_ID, FULLTOXICITYFILTERBOTTLE_ID },
+            { RADIOACTIVITYFILTERBOTTLE_ID, FULLRADIOACTIVITYFILTERBOTTLE_ID }
         };
 
         public static readonly Dictionary<UniqueEntityId, UniqueEntityId> HEALINGBOTTLEEQUIVALENCE = new Dictionary<UniqueEntityId, UniqueEntityId>()
@@ -1829,6 +2101,30 @@ namespace ExtendedSurvival.Stats
 
         public const string ELITESHIELDSPIKE_SUBTYPEID = "EliteShieldSpike";
         public static readonly UniqueEntityId ELITESHIELDSPIKE_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITESHIELDSPIKE_SUBTYPEID);
+
+        public const string TOXICITYFILTER_SUBTYPEID = "ToxicityFilter";
+        public static readonly UniqueEntityId TOXICITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), TOXICITYFILTER_SUBTYPEID);
+
+        public const string ENHANCEDTOXICITYFILTER_SUBTYPEID = "EnhancedToxicityFilter";
+        public static readonly UniqueEntityId ENHANCEDTOXICITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDTOXICITYFILTER_SUBTYPEID);
+
+        public const string PROFICIENTTOXICITYFILTER_SUBTYPEID = "ProficientToxicityFilter";
+        public static readonly UniqueEntityId PROFICIENTTOXICITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTTOXICITYFILTER_SUBTYPEID);
+
+        public const string ELITETOXICITYFILTER_SUBTYPEID = "EliteToxicityFilter";
+        public static readonly UniqueEntityId ELITETOXICITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITETOXICITYFILTER_SUBTYPEID);
+
+        public const string RADIOACTIVITYFILTER_SUBTYPEID = "RadioactivityFilter";
+        public static readonly UniqueEntityId RADIOACTIVITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), RADIOACTIVITYFILTER_SUBTYPEID);
+
+        public const string ENHANCEDRADIOACTIVITYFILTER_SUBTYPEID = "EnhancedRadioactivityFilter";
+        public static readonly UniqueEntityId ENHANCEDRADIOACTIVITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ENHANCEDRADIOACTIVITYFILTER_SUBTYPEID);
+
+        public const string PROFICIENTRADIOACTIVITYFILTER_SUBTYPEID = "ProficientRadioactivityFilter";
+        public static readonly UniqueEntityId PROFICIENTRADIOACTIVITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), PROFICIENTRADIOACTIVITYFILTER_SUBTYPEID);
+
+        public const string ELITERADIOACTIVITYFILTER_SUBTYPEID = "EliteRadioactivityFilter";
+        public static readonly UniqueEntityId ELITERADIOACTIVITYFILTER_ID = new UniqueEntityId(typeof(MyObjectBuilder_PhysicalObject), ELITERADIOACTIVITYFILTER_SUBTYPEID);
 
         /* Thermal Regulators */
 
@@ -4484,6 +4780,890 @@ namespace ExtendedSurvival.Stats
             }
         };
 
+        /* Toxicity Filter */
+
+        public static readonly ArmorModuleDefinition TOXICITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = TOXICITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.TOXICITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOXICITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.15f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ToxicityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ZINC_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 25
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ToxicityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ENHANCEDTOXICITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDTOXICITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDTOXICITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOXICITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedToxicityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedToxicityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition PROFICIENTTOXICITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTTOXICITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTTOXICITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOXICITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.35f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientToxicityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientToxicityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ELITETOXICITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITETOXICITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITETOXICITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.TOXICITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.45f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteToxicityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ALUMINUMMG_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteToxicityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        /* Radioactivity Filter */
+
+        public static readonly ArmorModuleDefinition RADIOACTIVITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = RADIOACTIVITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.RADIOACTIVITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADIOACTIVITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.15f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "RadioactivityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.STEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LEAD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 25
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "RadioactivityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 1.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ENHANCEDRADIOACTIVITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ENHANCEDRADIOACTIVITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ENHANCEDRADIOACTIVITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADIOACTIVITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.25f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 17500,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedRadioactivityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LEAD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COPPERWIRE_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ENHANCEDCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EnhancedRadioactivityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 2.56f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition PROFICIENTRADIOACTIVITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = PROFICIENTRADIOACTIVITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.PROFICIENTRADIOACTIVITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADIOACTIVITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.35f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 175000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientRadioactivityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TUNGSTENSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LEAD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BRASS_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVERCONNECTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PROFICIENTCHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "ProficientRadioactivityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 5.12f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
+        public static readonly ArmorModuleDefinition ELITERADIOACTIVITYFILTER_DEFINITION = new ArmorModuleDefinition()
+        {
+            Id = ELITERADIOACTIVITYFILTER_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.ELITERADIOACTIVITYFILTER_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.RADIOACTIVITYFILTER_DESCRIPTION),
+            UseCategory = ArmorSystemConstants.ArmorCategory.Work,
+            Attributes = new Dictionary<ArmorSystemConstants.ModuleAttribute, float>()
+            {
+                { ArmorSystemConstants.ModuleAttribute.Efficiency, 0.45f }
+            },
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1750000,
+            OfferAmount = new Vector2I(20, 40),
+            OrderAmount = new Vector2I(10, 20),
+            AcquisitionAmount = new Vector2I(5, 10),
+            Mass = 5f,
+            Volume = 2.5f,
+            RecipesDefinition = new List<SimpleRecipeDefinition>()
+            {
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteRadioactivityFilter_Construction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TITANIUMSTEEL_INGOT_ID,
+                            Ammount = 1.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUMIR_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.LEAD_INGOT_ID,
+                            Ammount = 1.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALTSTEEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.BERYLLIUMCOPPERWIRE_ID,
+                            Ammount = 2
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SUPERCONDUCTOR_ID,
+                            Ammount = 23
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.TRANSISTOR_ID,
+                            Ammount = 10
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.CAPACITOR_ID,
+                            Ammount = 5
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.ELITECHIP_ID,
+                            Ammount = 1
+                        }
+                    }
+                },
+                new SimpleRecipeDefinition()
+                {
+                    RecipeName = "EliteRadioactivityFilter_VanilaConstruction",
+                    ProductAmmount = 1,
+                    ProductionTime = 10.24f,
+                    Ingredients = new SimpleRecipeDefinition.RecipeItem[]
+                    {
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.IRON_INGOT_ID,
+                            Ammount = 2.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILICON_INGOT_ID,
+                            Ammount = 1.0f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.NICKEL_INGOT_ID,
+                            Ammount = 0.75f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.COBALT_INGOT_ID,
+                            Ammount = 0.5f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.PLATINUM_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.SILVER_INGOT_ID,
+                            Ammount = 0.25f
+                        },
+                        new SimpleRecipeDefinition.RecipeItem()
+                        {
+                            Id = ItensConstants.GOLD_INGOT_ID,
+                            Ammount = 0.25f
+                        }
+                    }
+                }
+            }
+        };
+
         /* Definitions Dictionary */
 
         public static readonly Dictionary<UniqueEntityId, ArmorModuleDefinition> ARMOR_MODULES_DEFINITIONS = new Dictionary<UniqueEntityId, ArmorModuleDefinition>()
@@ -4516,7 +5696,17 @@ namespace ExtendedSurvival.Stats
             { SHIELDSPIKE_ID, SHIELDSPIKE_DEFINITION },
             { ENHANCEDSHIELDSPIKE_ID, ENHANCEDSHIELDSPIKE_DEFINITION },
             { PROFICIENTSHIELDSPIKE_ID, PROFICIENTSHIELDSPIKE_DEFINITION },
-            { ELITESHIELDSPIKE_ID, ELITESHIELDSPIKE_DEFINITION }
+            { ELITESHIELDSPIKE_ID, ELITESHIELDSPIKE_DEFINITION },
+            /* Toxicity Filter */
+            { TOXICITYFILTER_ID, TOXICITYFILTER_DEFINITION },
+            { ENHANCEDTOXICITYFILTER_ID, ENHANCEDTOXICITYFILTER_DEFINITION },
+            { PROFICIENTTOXICITYFILTER_ID, PROFICIENTTOXICITYFILTER_DEFINITION },
+            { ELITETOXICITYFILTER_ID, ELITETOXICITYFILTER_DEFINITION },
+            /* Radioactivity Filter */
+            { RADIOACTIVITYFILTER_ID, RADIOACTIVITYFILTER_DEFINITION },
+            { ENHANCEDRADIOACTIVITYFILTER_ID, ENHANCEDRADIOACTIVITYFILTER_DEFINITION },
+            { PROFICIENTRADIOACTIVITYFILTER_ID, PROFICIENTRADIOACTIVITYFILTER_DEFINITION },
+            { ELITERADIOACTIVITYFILTER_ID, ELITERADIOACTIVITYFILTER_DEFINITION }
         };
 
         public static readonly UniqueEntityId[] COLDTHERMALREGULATORS_MODULES = new UniqueEntityId[] 
@@ -4546,14 +5736,24 @@ namespace ExtendedSurvival.Stats
 
         public static readonly UniqueEntityId[] SHIELDSPIKES_MODULES = new UniqueEntityId[]
         {
-            SHIELDSPIKE_ID
+            SHIELDSPIKE_ID, ENHANCEDSHIELDSPIKE_ID, PROFICIENTSHIELDSPIKE_ID, ELITESHIELDSPIKE_ID
         };
 
         public static readonly UniqueEntityId[] SHIELDEXPAND_MODULES = new UniqueEntityId[]
         {
             SHIELDCAPACITOR_ID, ENHANCEDSHIELDCAPACITOR_ID, PROFICIENTSHIELDCAPACITOR_ID, ELITESHIELDCAPACITOR_ID,
             SHIELDTRANSISTOR_ID, ENHANCEDSHIELDTRANSISTOR_ID, PROFICIENTSHIELDTRANSISTOR_ID, ELITESHIELDTRANSISTOR_ID,
-            SHIELDSPIKE_ID
+            SHIELDSPIKE_ID, ENHANCEDSHIELDSPIKE_ID, PROFICIENTSHIELDSPIKE_ID, ELITESHIELDSPIKE_ID
+        };
+
+        public static readonly UniqueEntityId[] TOXICITYFILTER_MODULES = new UniqueEntityId[]
+        {
+            TOXICITYFILTER_ID, ENHANCEDTOXICITYFILTER_ID, PROFICIENTTOXICITYFILTER_ID, ELITETOXICITYFILTER_ID
+        };
+
+        public static readonly UniqueEntityId[] RADIOACTIVITYFILTER_MODULES = new UniqueEntityId[]
+        {
+            RADIOACTIVITYFILTER_ID, ENHANCEDRADIOACTIVITYFILTER_ID, PROFICIENTRADIOACTIVITYFILTER_ID, ELITERADIOACTIVITYFILTER_ID
         };
 
         public static void TryOverrideDefinitions()

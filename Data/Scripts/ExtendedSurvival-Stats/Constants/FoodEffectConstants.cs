@@ -698,7 +698,7 @@ namespace ExtendedSurvival.Stats
 
         public static int GetFoodEffectsTrackLevel(FoodEffects effect)
         {
-            return 0;
+            return 1;
         }
 
         public static int GetFoodEffectsFeelingLevel(FoodEffectsPart2 effect)
@@ -708,7 +708,7 @@ namespace ExtendedSurvival.Stats
 
         public static int GetFoodEffectsTrackLevel(FoodEffectsPart2 effect)
         {
-            return 0;
+            return 1;
         }
 
     }

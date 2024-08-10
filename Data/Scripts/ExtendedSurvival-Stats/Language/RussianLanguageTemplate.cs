@@ -270,6 +270,40 @@ namespace ExtendedSurvival.Stats
                 "Используется для ускорения процесса исцеления. Для использования " + Environment.NewLine +
                 "его необходимо поместить в инвентарь криопода."
             );
+            AddEntry(
+                LanguageEntries.TOXICITYFILTERBOTTLE_NAME,
+                "Бутылка фильтра токсичности"
+            );
+            AddEntry(
+                LanguageEntries.TOXICITYFILTERBOTTLE_DESCRIPTION,
+                "Используется фильтрующими модулями для хранения токсичных материалов, " + Environment.NewLine +
+                "проникающих в костюм в чрезвычайно токсичных средах."
+            );
+            AddEntry(
+                LanguageEntries.FULLTOXICITYFILTERBOTTLE_NAME,
+                "Бутылка фильтра токсичности (Полный)"
+            );
+            AddEntry(
+                LanguageEntries.FULLTOXICITYFILTERBOTTLE_DESCRIPTION,
+                "Бутылку, полную токсичного материала, можно утилизировать в лабораториях."
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTERBOTTLE_NAME,
+                "Бутылка с радиоактивным фильтром"
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTERBOTTLE_DESCRIPTION,
+                "Используется фильтрующими модулями для хранения радиоактивных материалов, " + Environment.NewLine +
+                "проникающих в костюм в чрезвычайно радиоактивных средах."
+            );
+            AddEntry(
+                LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_NAME,
+                "Бутылка с радиоактивным фильтром (Полный)"
+            );
+            AddEntry(
+                LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_DESCRIPTION,
+                "Бутылку, полную радиоактивного материала, можно выбросить в лабораториях."
+            );
             #endregion
             #region FISHING
             AddEntry(
@@ -1806,9 +1840,43 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.MEDICINE_DESCRIPTION,
 				"Полезное средство от ядов и незначительных травм."
 			);
-			#endregion
-			#region ORES
-			AddEntry(
+            AddEntry(
+                LanguageEntries.SIMPLEDETOXIFYING_NAME,
+                "Простая детоксикация"
+            );
+            AddEntry(
+                LanguageEntries.DETOXIFYING_NAME,
+                "Детоксикация"
+            );
+            AddEntry(
+                LanguageEntries.ADVANCEDDETOXIFYING_NAME,
+                "Расширенная детоксикация"
+            );
+            AddEntry(
+                LanguageEntries.DETOXIFYING_DESCRIPTION,
+                "Детоксикация является профилактическим средством. Принимать перед " + Environment.NewLine +
+                "воздействием токсичных сред."
+            );
+            AddEntry(
+                LanguageEntries.SIMPLERADX_NAME,
+                "Простой Рад-Х"
+            );
+            AddEntry(
+                LanguageEntries.RADX_NAME,
+                "Рад-Х"
+            );
+            AddEntry(
+                LanguageEntries.ADVANCEDRADX_NAME,
+                "Усовершенствованный Рад-X"
+            );
+            AddEntry(
+                LanguageEntries.RADX_DESCRIPTION,
+                "Рад-Х – профилактический препарат. Принимайте Rad-X перед " + Environment.NewLine +
+                "воздействием радиационной среды."
+            );
+            #endregion
+            #region ORES
+            AddEntry(
 				LanguageEntries.BONES_NAME,
 				"Кости"
 			);
@@ -2468,7 +2536,63 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOHOT_NAME,
 				"Сильная устойчивость к жаре"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_INTOXICATED_NAME,
+                "Опьяненный"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_VERYINTOXICATED_NAME,
+                "Очень пьяный"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOTOXICITY_NAME,
+                "Подвержены токсичности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMETOXICITY_NAME,
+                "Подвержены чрезвычайной токсичности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RADIATIONSICK_NAME,
+                "Радиационный больной"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RADIATIONPOISONING_NAME,
+                "Радиационное отравление"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTORADIOACTIVITY_NAME,
+                "Подвергнутый радиоактивному воздействию"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMERADIOACTIVITY_NAME,
+                "Подвержены чрезвычайной радиоактивности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOTOXICITY_NAME,
+                "Меньшая устойчивость к токсичности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOTOXICITY_NAME,
+                "Устойчивость к токсичности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOTOXICITY_NAME,
+                "Повышенная устойчивость к токсичности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETORADIOACTIVITY_NAME,
+                "Меньшая устойчивость к радиоактивности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETORADIOACTIVITY_NAME,
+                "Устойчивость к радиоактивности"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETORADIOACTIVITY_NAME,
+                "Повышенная устойчивость к радиоактивности"
+            );
+            AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
 				"Контузия"
 			);
@@ -3064,9 +3188,25 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.UI_WEATHER_DISPLAY,
 				"Погода: "
 			);
-			#endregion
-			#region Armors
-			AddEntry(
+            AddEntry(
+                LanguageEntries.UI_EXTERNALTEMP_DISPLAY,
+                "Внешний"
+            );
+            AddEntry(
+                LanguageEntries.UI_EXTERNALEXPOSE_DISPLAY,
+                "Экспозиция: "
+            );
+            AddEntry(
+                LanguageEntries.UI_TOXIC_DISPLAY,
+                "[Токсичность: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.UI_RADIATION_DISPLAY,
+                "[Радиация: {0}]"
+            );
+            #endregion
+            #region Armors
+            AddEntry(
 				LanguageEntries.SCAVENGERARMOR_NAME,
 				"Доспехи мусорщика"
 			);
@@ -3187,9 +3327,37 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
 				"Одет щит [{0} максимальных очков]."
 			);
-			#endregion
-			# region Armor Modules
-			AddEntry(
+            AddEntry(
+                LanguageEntries.BODYTRACKER_UI_EQUIPED,
+                "Оборудован Body Tracker. [Уровень: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.BODYTRACKER_UI_NOEQUIPED,
+                "Внимание: Body Tracker не оборудован! [Отображение ограниченной информации]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_EFFECT_UID,
+                "Примененные эффекты:"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_POSITIVE_EFFECT_UID,
+                " [Позитивный: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_NEGATIVE_EFFECT_UID,
+                " [Отрицательный: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_NOTTRACKED_EFFECT_UID,
+                " [Не отслеживается: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.NO_EFFECT_UID,
+                "Эффекты не применены!"
+            );
+            #endregion
+            #region Armor Modules
+            AddEntry(
 				LanguageEntries.COLDTHERMALREGULATOR_NAME,
 				"Холодный тепловой регулятор"
 			);

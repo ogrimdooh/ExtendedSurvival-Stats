@@ -44,6 +44,10 @@
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_Construction" />
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
     <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedColdThermalRegulator_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="ToxicityFilter_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedToxicityFilter_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="RadioactivityFilter_Construction" />
+    <Entry Class="BasicAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedRadioactivityFilter_Construction" />
 
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedBodyTracker_VanilaConstruction" />
@@ -53,18 +57,26 @@
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
 
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_VanilaConstruction" />
     <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedColdThermalRegulator_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ToxicityFilter_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedToxicityFilter_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="RadioactivityFilter_VanilaConstruction" />
+    <Entry Class="BasicAssembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedRadioactivityFilter_VanilaConstruction" />
 
     <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="EnhancedColdThermalBottle_Construction" />
     <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
     <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="EnhancedHotThermalBottle_Construction" />
     <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
+    <Entry Class="BasicAssembler_Tanks_Blueprints" BlueprintSubtypeId="ToxicityFilterBottle_Construction" />
 
     <Entry Class="Tools" BlueprintSubtypeId="LidocainPistolVanila" />
     <Entry Class="Tools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
     <Entry Class="Tools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
     <Entry Class="Tools" BlueprintSubtypeId="SimpleHealingBottle_VanilaConstruction" />
+    <Entry Class="Tools" BlueprintSubtypeId="ToxicityFilterBottle_VanilaConstruction" />
     <Entry Class="Tools" BlueprintSubtypeId="BBPistolVanila_Construction" />
 
     <Entry Class="Consumables" BlueprintSubtypeId="LidocainDart_Construction" />

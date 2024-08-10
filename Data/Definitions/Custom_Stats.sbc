@@ -120,7 +120,7 @@
       <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>200</MaxValue>
+      <MaxValue>1</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <Stat xsi:type="MyObjectBuilder_EntityStatDefinition">
@@ -132,7 +132,7 @@
       <Description>#ASE#</Description>
       <MinValue>0</MinValue>
       <DefaultValue>0</DefaultValue>
-      <MaxValue>200</MaxValue>
+      <MaxValue>1</MaxValue>
       <EnabledInCreative>false</EnabledInCreative>
     </Stat>
     <!-- METABOLISM -->

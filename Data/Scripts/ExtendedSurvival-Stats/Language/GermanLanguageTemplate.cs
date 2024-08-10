@@ -271,6 +271,40 @@ namespace ExtendedSurvival.Stats
                 "Wird verwendet, um den Heilungsprozess zu beschleunigen. Um es verwenden " + Environment.NewLine +
                 "zu können, muss es im Inventar eines Kryopods platziert werden."
             );
+            AddEntry(
+                LanguageEntries.TOXICITYFILTERBOTTLE_NAME,
+                "Toxizitätsfilterflasche"
+            );
+            AddEntry(
+                LanguageEntries.TOXICITYFILTERBOTTLE_DESCRIPTION,
+                "Wird von Filtermodulen verwendet, um das giftige Material zu speichern, das " + Environment.NewLine +
+                "in extrem giftigen Umgebungen in den Anzug eindringt."
+            );
+            AddEntry(
+                LanguageEntries.FULLTOXICITYFILTERBOTTLE_NAME,
+                "Toxizitätsfilterflasche (Voll)"
+            );
+            AddEntry(
+                LanguageEntries.FULLTOXICITYFILTERBOTTLE_DESCRIPTION,
+                "Eine Flasche mit giftigem Material kann im Labor entsorgt werden."
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTERBOTTLE_NAME,
+                "Radioaktivitätsfilterflasche"
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTERBOTTLE_DESCRIPTION,
+                "Wird von Filtermodulen verwendet, um das radioaktive Material zu speichern, " + Environment.NewLine +
+                "das in extrem radioaktiven Umgebungen in den Anzug eindringt."
+            );
+            AddEntry(
+                LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_NAME,
+                "Radioaktivitätsfilterflasche (Voll)"
+            );
+            AddEntry(
+                LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_DESCRIPTION,
+                "Eine Flasche mit radioaktivem Material kann im Labor entsorgt werden."
+            );
             #endregion
             #region FISHING
             AddEntry(
@@ -1828,9 +1862,43 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.MEDICINE_DESCRIPTION,
 				"Ein nützliches Mittel gegen Gifte und kleinere Verletzungen."
 			);
-			#endregion
-			#region ORES
-			AddEntry(
+            AddEntry(
+                LanguageEntries.SIMPLEDETOXIFYING_NAME,
+                "Einfache Entgiftung"
+            );
+            AddEntry(
+                LanguageEntries.DETOXIFYING_NAME,
+                "Entgiftend"
+            );
+            AddEntry(
+                LanguageEntries.ADVANCEDDETOXIFYING_NAME,
+                "Fortgeschrittene Entgiftung"
+            );
+            AddEntry(
+                LanguageEntries.DETOXIFYING_DESCRIPTION,
+                "Entgiftung ist ein vorbeugendes Medikament. Vor der Exposition gegenüber " + Environment.NewLine +
+                "giftigen Umgebungen einnehmen."
+            );
+            AddEntry(
+                LanguageEntries.SIMPLERADX_NAME,
+                "Einfaches Rad-X"
+            );
+            AddEntry(
+                LanguageEntries.RADX_NAME,
+                "Rad-X"
+            );
+            AddEntry(
+                LanguageEntries.ADVANCEDRADX_NAME,
+                "Fortgeschrittene Rad-X"
+            );
+            AddEntry(
+                LanguageEntries.RADX_DESCRIPTION,
+                "Rad-X ist ein vorbeugendes Medikament. Nehmen Sie Rad-X ein, bevor Sie " + Environment.NewLine +
+                "Strahlungsumgebungen ausgesetzt werden."
+            );
+            #endregion
+            #region ORES
+            AddEntry(
 				LanguageEntries.BONES_NAME,
 				"Knochen"
 			);
@@ -2479,7 +2547,63 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOHOT_NAME,
 				"Höhere Hitzebeständigkeit"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_INTOXICATED_NAME,
+                "Berauscht"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_VERYINTOXICATED_NAME,
+                "Sehr betrunken"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOTOXICITY_NAME,
+                "Toxizität ausgesetzt"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMETOXICITY_NAME,
+                "Extremer Toxizität ausgesetzt"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RADIATIONSICK_NAME,
+                "Strahlenkrank"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RADIATIONPOISONING_NAME,
+                "Strahlenvergiftung"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTORADIOACTIVITY_NAME,
+                "Radioaktivität ausgesetzt"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMERADIOACTIVITY_NAME,
+                "Extremer Radioaktivität ausgesetzt"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOTOXICITY_NAME,
+                "Geringere Resistenz gegen Toxizität"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOTOXICITY_NAME,
+                "Beständigkeit gegen Toxizität"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOTOXICITY_NAME,
+                "Größere Resistenz gegen Toxizität"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETORADIOACTIVITY_NAME,
+                "Geringere Beständigkeit gegen Radioaktivität"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETORADIOACTIVITY_NAME,
+                "Beständigkeit gegen Radioaktivität"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETORADIOACTIVITY_NAME,
+                "Höhere Beständigkeit gegen Radioaktivität"
+            );
+            AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
 				"Prellung"
 			);
@@ -3075,9 +3199,25 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.UI_WEATHER_DISPLAY,
 				"Wetter: "
 			);
-			#endregion
-			#region Armors
-			AddEntry(
+            AddEntry(
+                LanguageEntries.UI_EXTERNALTEMP_DISPLAY,
+                "Extern"
+            );
+            AddEntry(
+                LanguageEntries.UI_EXTERNALEXPOSE_DISPLAY,
+                "Exposition: "
+            );
+            AddEntry(
+                LanguageEntries.UI_TOXIC_DISPLAY,
+                "[Toxizität: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.UI_RADIATION_DISPLAY,
+                "[Strahlung: {0}]"
+            );
+            #endregion
+            #region Armors
+            AddEntry(
 				LanguageEntries.SCAVENGERARMOR_NAME,
 				"Plündererrüstung"
 			);
@@ -3201,9 +3341,37 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
 				"Schild ausgerüstet [{0} Max. Punkte]."
 			);
-			#endregion
-			#region Armor Modules
-			AddEntry(
+            AddEntry(
+                LanguageEntries.BODYTRACKER_UI_EQUIPED,
+                "Bodytracker ausgestattet. [Stufe: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.BODYTRACKER_UI_NOEQUIPED,
+                "Achtung: Body Tracker nicht ausgestattet! [Eingeschränkte Informationsanzeige]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_EFFECT_UID,
+                "Angewendete Effekte:"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_POSITIVE_EFFECT_UID,
+                " [Positiv: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_NEGATIVE_EFFECT_UID,
+                " [Negativ: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_NOTTRACKED_EFFECT_UID,
+                " [Nicht verfolgt: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.NO_EFFECT_UID,
+                "Keine Effekte angewendet!"
+            );
+            #endregion
+            #region Armor Modules
+            AddEntry(
 				LanguageEntries.COLDTHERMALREGULATOR_NAME,
 				"Kalter Thermoregler"
 			);
@@ -3336,7 +3504,51 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ELITESHIELDSPIKE_NAME,
 				"Elite-Schildspitze"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.TOXICITYFILTER_NAME,
+                "Toxizitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.ENHANCEDTOXICITYFILTER_NAME,
+                "Verbesserter Toxizitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.PROFICIENTTOXICITYFILTER_NAME,
+                "Kompetenter Toxizitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.ELITETOXICITYFILTER_NAME,
+                "Elite-Toxizitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.TOXICITYFILTER_DESCRIPTION,
+                "Wird verwendet, um den Anzug in extrem giftigen Umgebungen frei von " + Environment.NewLine +
+                "giftigem Material zu halten und dieses Material dabei in einer giftigen " + Environment.NewLine +
+                "Filterflasche aufzubewahren."
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTER_NAME,
+                "Radioaktivitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.ENHANCEDRADIOACTIVITYFILTER_NAME,
+                "Verbesserter Radioaktivitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.PROFICIENTRADIOACTIVITYFILTER_NAME,
+                "Kompetenter Radioaktivitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.ELITERADIOACTIVITYFILTER_NAME,
+                "\r\nElite-Radioaktivitätsfilter"
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTER_DESCRIPTION,
+                "Wird verwendet, um den Anzug in extrem radioaktiven Umgebungen frei " + Environment.NewLine +
+                "von radioaktivem Material zu halten und dieses Material dabei in einer " + Environment.NewLine +
+                "Radioaktivitätsfilterflasche aufzubewahren."
+            );
+            AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
 				"Hinweis: Um Boni vom Rüstungsmodul zu erhalten, muss es über die " + Environment.NewLine +
 				"Ausrüstungsschnittstelle ausgerüstet werden."

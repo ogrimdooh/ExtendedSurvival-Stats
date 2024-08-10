@@ -33,6 +33,7 @@ namespace ExtendedSurvival.Stats
                 var armor = PlayerArmorController.GetEquipedArmor(playerId, useCache: true);
                 PlayerWoundedController.IncDecWoundedTimer(playerId, timePassed, statsEasyAcess[playerId]);
                 PlayerTemperatureController.IncDevTemperatureTimer(playerStats, playerId, timePassed, weatherInfo, armor);
+                PlayerExpositionController.IncDevExpositionTimer(playerStats, playerId, timePassed, weatherInfo, armor);
                 PlayerShieldController.UpdateShieldStats(playerStats, armor, playerId);
             }
 

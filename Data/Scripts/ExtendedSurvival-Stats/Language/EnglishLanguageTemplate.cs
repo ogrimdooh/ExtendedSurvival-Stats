@@ -269,7 +269,41 @@ namespace ExtendedSurvival.Stats
                 LanguageEntries.SIMPLEHEALINGBOTTLE_DESCRIPTION,
                 "Used to speed up the healing process, to be used it must be placed " + Environment.NewLine +
                 "in a cryopod's inventory."
+            ); 
+			AddEntry(
+				LanguageEntries.TOXICITYFILTERBOTTLE_NAME,
+                "Toxicity Filter Bottle"
             );
+            AddEntry(
+                LanguageEntries.TOXICITYFILTERBOTTLE_DESCRIPTION,
+                "Used by filter modules to store the toxicity material that penetrate the " + Environment.NewLine +
+                "suit when in extremely toxic environments."
+            );
+            AddEntry(
+                LanguageEntries.FULLTOXICITYFILTERBOTTLE_NAME,
+                "Toxicity Filter Bottle (Full)"
+            );
+            AddEntry(
+                LanguageEntries.FULLTOXICITYFILTERBOTTLE_DESCRIPTION,
+                "A bottle full of toxic material, can be disposed at laboratories."
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTERBOTTLE_NAME,
+                "Radioactivity Filter Bottle"
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTERBOTTLE_DESCRIPTION,
+                "Used by filter modules to store the radioactive material that penetrate " + Environment.NewLine +
+                "the suit when in extremely radioactive environments."
+            );
+            AddEntry(
+                LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_NAME,
+                "Radioactivity Filter Bottle (Full)"
+            );
+            AddEntry(
+                LanguageEntries.FULLRADIOACTIVITYFILTERBOTTLE_DESCRIPTION,
+                "A bottle full of radioactive material, can be disposed at laboratories."
+            ); 
             #endregion
             #region FISHING
             AddEntry(
@@ -1800,9 +1834,43 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.MEDICINE_DESCRIPTION,
 				"A useful remedy against poisons, and minor injuries."
 			);
-			#endregion
-			#region ORES
-			AddEntry(
+            AddEntry(
+				LanguageEntries.SIMPLEDETOXIFYING_NAME,
+                "Simple Detoxifying"
+            );
+            AddEntry(
+                LanguageEntries.DETOXIFYING_NAME,
+                "Detoxifying"
+            );
+            AddEntry(
+                LanguageEntries.ADVANCEDDETOXIFYING_NAME,
+                "Advanced Detoxifying"
+            );
+            AddEntry(
+                LanguageEntries.DETOXIFYING_DESCRIPTION,
+                "Detoxifying is a preventive medication. Take before exposure to " + Environment.NewLine +
+                "toxic environments."
+            );
+            AddEntry(
+                LanguageEntries.SIMPLERADX_NAME,
+                "Simple Rad-X"
+            );
+            AddEntry(
+                LanguageEntries.RADX_NAME,
+                "Rad-X"
+            );
+            AddEntry(
+                LanguageEntries.ADVANCEDRADX_NAME,
+                "Advanced Rad-X"
+            );
+            AddEntry(
+                LanguageEntries.RADX_DESCRIPTION,
+                "Rad-X is a preventive medication. Take Rad-X before exposure to " + Environment.NewLine +
+                "radiation environments."
+            );
+            #endregion
+            #region ORES
+            AddEntry(
 				LanguageEntries.BONES_NAME,
 				"Bones"
 			);
@@ -2446,7 +2514,63 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOHOT_NAME,
 				"Greater Resistance To Hot"
 			);
-			AddEntry(
+            AddEntry(
+				LanguageEntries.TEMPERATUREEFFECTS_INTOXICATED_NAME,
+                "Intoxicated"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_VERYINTOXICATED_NAME,
+                "Very Intoxicated"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOTOXICITY_NAME,
+                "Exposed To Toxicity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMETOXICITY_NAME,
+                "Exposed To Extreme Toxicity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RADIATIONSICK_NAME,
+                "Radiation Sick"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RADIATIONPOISONING_NAME,
+                "Radiation Poisoning"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTORADIOACTIVITY_NAME,
+                "Exposed To Radioactivity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMERADIOACTIVITY_NAME,
+                "Exposed To Extreme Radioactivity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOTOXICITY_NAME,
+                "Lesser Resistence To Toxicity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOTOXICITY_NAME,
+                "Resistence To Toxicity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOTOXICITY_NAME,
+                "Greater Resistence To Toxicity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETORADIOACTIVITY_NAME,
+                "Lesser Resistence To Radioactivity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETORADIOACTIVITY_NAME,
+                "Resistence To Radioactivity"
+            );
+            AddEntry(
+                LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETORADIOACTIVITY_NAME,
+                "Greater Resistence To Radioactivity"
+            );
+            AddEntry(
 				LanguageEntries.DAMAGEEFFECTS_CONTUSION_NAME,
 				"Contusion"
 			);
@@ -3042,9 +3166,25 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.UI_WEATHER_DISPLAY,
 				"Weather: "
 			);
-			#endregion
-			#region Armors
-			AddEntry(
+            AddEntry(
+                LanguageEntries.UI_EXTERNALTEMP_DISPLAY,
+                "External"
+            ); 
+            AddEntry(
+                LanguageEntries.UI_EXTERNALEXPOSE_DISPLAY,
+                "Exposition: "
+            );
+            AddEntry(
+                LanguageEntries.UI_TOXIC_DISPLAY,
+                "[Toxicity: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.UI_RADIATION_DISPLAY,
+                "[Radiation: {0}]"
+            );
+            #endregion
+            #region Armors
+            AddEntry(
 				LanguageEntries.SCAVENGERARMOR_NAME,
 				"Scavenger Armor"
 			);
@@ -3164,10 +3304,38 @@ namespace ExtendedSurvival.Stats
 			AddEntry(
 				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
 				"Shield Equipped [{0} Max Points]."
-			);			
-			#endregion
-			#region Armor Modules
-			AddEntry(
+			);
+            AddEntry(
+                LanguageEntries.BODYTRACKER_UI_EQUIPED,
+                "Body Tracker equipped. [Level: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.BODYTRACKER_UI_NOEQUIPED,
+                "Warning: Body Tracker not equipped! [Limited information display]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_EFFECT_UID,
+                "Effects applied:"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_POSITIVE_EFFECT_UID,
+                " [Positive: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_NEGATIVE_EFFECT_UID,
+                " [Negative: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.TOTAL_NOTTRACKED_EFFECT_UID,
+                " [Not Tracked: {0}]"
+            );
+            AddEntry(
+                LanguageEntries.NO_EFFECT_UID,
+                "No effects applied!"
+            );
+            #endregion
+            #region Armor Modules
+            AddEntry(
 				LanguageEntries.COLDTHERMALREGULATOR_NAME,
 				"Cold Thermal Regulator"
 			);
@@ -3295,7 +3463,51 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ELITESHIELDSPIKE_NAME,
 				"Elite Shield Spike"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.TOXICITYFILTER_NAME,
+                "Toxicity Filter"
+            );
+            AddEntry(
+                LanguageEntries.ENHANCEDTOXICITYFILTER_NAME,
+                "Enhanced Toxicity Filter"
+            );
+            AddEntry(
+                LanguageEntries.PROFICIENTTOXICITYFILTER_NAME,
+                "Proficient Toxicity Filter"
+            );
+            AddEntry(
+                LanguageEntries.ELITETOXICITYFILTER_NAME,
+                "Elite Toxicity Filter"
+            );
+            AddEntry(
+                LanguageEntries.TOXICITYFILTER_DESCRIPTION,
+                "Used to maintain the suit's free of toxic material when in extremely " + Environment.NewLine +
+                "toxic environments and store this material in toxic filter bottle in " + Environment.NewLine +
+                "the process."
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTER_NAME,
+                "Radioactivity Filter"
+            );
+            AddEntry(
+                LanguageEntries.ENHANCEDRADIOACTIVITYFILTER_NAME,
+                "Enhanced Radioactivity Filter"
+            );
+            AddEntry(
+                LanguageEntries.PROFICIENTRADIOACTIVITYFILTER_NAME,
+                "Proficient Radioactivity Filter"
+            );
+            AddEntry(
+                LanguageEntries.ELITERADIOACTIVITYFILTER_NAME,
+                "Elite Radioactivity Filter"
+            );
+            AddEntry(
+                LanguageEntries.RADIOACTIVITYFILTER_DESCRIPTION,
+                "Used to maintain the suit's free from radioactive material when in " + Environment.NewLine +
+                "extremely radioactive environments and store this material in " + Environment.NewLine +
+                "radioactivity filter bottle in the process."
+            );
+            AddEntry(
 				LanguageEntries.ARMORMODULE_DESCRIPTION,
 				"Note: To receive bonuses from the armor module, it must be equipped " + Environment.NewLine +
 				"through the equipment interface."

@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>FullRadioactivityFilterBottle</SubtypeId>
+      </Id>
+      <DisplayName>Radioactivity Filter Bottle (Full)</DisplayName>
+      <Icon>Textures\GUI\Icons\radioactivity_filter_fluid.dds</Icon>
+      <Size>
+        <X>0.14</X>
+        <Y>0.43</Y>
+        <Z>0.14</Z>
+      </Size>
+      <Mass>5</Mass>
+      <Volume>2.5</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+    </PhysicalItem>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+      <Id>
+        <TypeId>GasContainerObject</TypeId>
+        <SubtypeId>RadioactivityFilterBottle</SubtypeId>
+      </Id>
+      <DisplayName>Radioactivity Filter Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\radioactivity_filter_fluid.dds</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Mass>5</Mass>
+      <Volume>2.5</Volume>
+      <Model>Models\Components\HydrogenTankItem.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <StoredGasId>
+        <TypeId>GasProperties</TypeId>
+        <SubtypeId>RadioactivityFilterFluid</SubtypeId>
+      </StoredGasId>
+      <Capacity>500</Capacity>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>20</MinimumOrderAmount>
+      <MaximumOrderAmount>50</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
+      <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+      <MaxStackAmount>1</MaxStackAmount>
+    </PhysicalItem>
+    
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RadioactivityFilterBottle_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Radioactivity Filter Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\radioactivity_filter_fluid.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="7.5" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Aluminum" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Copper" />
+        <Item Amount="1" TypeId="Component" SubtypeId="PressureRegulator" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="GasContainerObject" SubtypeId="RadioactivityFilterBottle" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RadioactivityFilterBottle_VanilaConstruction</SubtypeId>
+      </Id>
+      <DisplayName>Radioactivity Filter Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\radioactivity_filter_fluid.dds</Icon>
+      <Prerequisites>
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="7.5" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Aluminum" />
+        <Item Amount="2.5" TypeId="Ingot" SubtypeId="Copper" />
+        <Item Amount="1" TypeId="Component" SubtypeId="PressureRegulator" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="GasContainerObject" SubtypeId="RadioactivityFilterBottle" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RadioactivityFilterBottle_Disassembly</SubtypeId>
+      </Id>
+      <DisplayName>Radioactivity Filter Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\radioactivity_filter_fluid.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="OxygenContainerObject" SubtypeId="RadioactivityFilterBottle" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="15" TypeId="Ore" SubtypeId="Scrap" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FullRadioactivityFilterBottle_Clean</SubtypeId>
+      </Id>
+      <DisplayName>Radioactivity Filter Bottle</DisplayName>
+      <Icon>Textures\GUI\Icons\radioactivity_filter_fluid.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="FullRadioactivityFilterBottle" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="OxygenContainerObject" SubtypeId="RadioactivityFilterBottle" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

@@ -68,8 +68,10 @@
   <BlueprintClassEntries>
 
     <Entry Class="SurvivalKit_Bottles_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
+    <Entry Class="SurvivalKit_Bottles_Blueprints" BlueprintSubtypeId="ToxicityFilterBottle_Construction" />
     
     <Entry Class="SurvivalKit_Alchemy_Blueprints" BlueprintSubtypeId="SmallAloeVeraExtract_Construction" />
+    <Entry Class="SurvivalKit_Alchemy_Blueprints" BlueprintSubtypeId="FullToxicityFilterBottle_Clean" />
 
     <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="RoastedMeat_Construction" />
     <Entry Class="SurvivalKit_Survival_Blueprints" BlueprintSubtypeId="RoastedAlienMeat_Construction" />
@@ -83,16 +85,23 @@
     <Entry Class="SurvivalKit_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmor_Construction" />
     <Entry Class="SurvivalKit_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
     <Entry Class="SurvivalKit_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
+    <Entry Class="SurvivalKit_Armors_Blueprints" BlueprintSubtypeId="ToxicityFilter_Construction" />
     
     <Entry Class="SurvivalKit_Armors_Vanilla_Blueprints" BlueprintSubtypeId="BodyTracker_VanilaConstruction" />
     <Entry Class="SurvivalKit_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmor_VanilaConstruction" />
     <Entry Class="SurvivalKit_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanilaConstruction" />
     <Entry Class="SurvivalKit_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_VanilaConstruction" />
+    <Entry Class="SurvivalKit_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ToxicityFilter_VanilaConstruction" />
 
     <Entry Class="SurvivalKit_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="SurvivalKit_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
+    <Entry Class="SurvivalKit_Tanks_Blueprints" BlueprintSubtypeId="ToxicityFilterBottle_Construction" />
+    <Entry Class="SurvivalKit_Tanks_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
 
     <Entry Class="BasicTools" BlueprintSubtypeId="BBPistolVanila_Construction" />
+    <Entry Class="BasicTools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
+    <Entry Class="BasicTools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
+    <Entry Class="BasicTools" BlueprintSubtypeId="ToxicityFilterBottle_VanilaConstruction" />
     <Entry Class="BasicTools" BlueprintSubtypeId="SimpleHealingBottle_VanilaConstruction" />
 
     <Entry Class="SurvivalKit_Tools_Blueprints" BlueprintSubtypeId="BBPistolVanila_Construction" />

@@ -18,7 +18,7 @@
                 case 4:
                     return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_UNTREATEDWOUND_NAME);
                 case 5:
-                    return LanguageProvider.GetEntry(LanguageEntries.BODYCARBOHYDRATE_NAME);
+                    return LanguageProvider.GetEntry(LanguageEntries.STATTIMERS_RADIOACTIVEEXPOSURE_NAME);
                 case 6:
                     return LanguageProvider.GetEntry(LanguageEntries.BODYLIPIDS_NAME);
                 case 7:

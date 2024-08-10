@@ -261,6 +261,7 @@ namespace ExtendedSurvival.Stats
         {
 
             None = 0,
+
             Overheating = 1 << 1, 
             OnFire = 1 << 2, 
             Cold = 1 << 3, 
@@ -276,7 +277,22 @@ namespace ExtendedSurvival.Stats
             GreaterResistenceToCold = 1 << 13,
             LesserResistenceToHot = 1 << 14,
             ResistenceToHot = 1 << 15,
-            GreaterResistenceToHot = 1 << 16
+            GreaterResistenceToHot = 1 << 16,
+
+            Intoxicated = 1 << 17,
+            VeryIntoxicated = 1 << 18,
+            ExposedToToxicity = 1 << 19,
+            ExposedToExtremeToxicity = 1 << 20,
+            RadiationSick = 1 << 21,
+            RadiationPoisoning = 1 << 22,
+            ExposedToRadioactivity = 1 << 23,
+            ExposedToExtremeRadioactivity = 1 << 24,
+            LesserResistenceToToxicity = 1 << 25,
+            ResistenceToToxicity = 1 << 26,
+            GreaterResistenceToToxicity = 1 << 27,
+            LesserResistenceToRadioactivity = 1 << 28,
+            ResistenceToRadioactivity = 1 << 29,
+            GreaterResistenceToRadioactivity = 1 << 30
 
         }
 
@@ -292,6 +308,20 @@ namespace ExtendedSurvival.Stats
             TemperatureEffects.LesserResistenceToHot,
             TemperatureEffects.ResistenceToHot,
             TemperatureEffects.GreaterResistenceToHot
+        };
+
+        public static readonly TemperatureEffects[] RADIOACTIVITY_RESISTENCES = new TemperatureEffects[]
+        {
+            TemperatureEffects.LesserResistenceToRadioactivity,
+            TemperatureEffects.ResistenceToRadioactivity,
+            TemperatureEffects.GreaterResistenceToRadioactivity
+        };
+
+        public static readonly TemperatureEffects[] TOXICITY_RESISTENCES = new TemperatureEffects[]
+        {
+            TemperatureEffects.LesserResistenceToToxicity,
+            TemperatureEffects.ResistenceToToxicity,
+            TemperatureEffects.GreaterResistenceToToxicity
         };
 
         public static Dictionary<TemperatureEffects, FixedStatDataInfo> TEMPERATURE_EFFECTS = new Dictionary<TemperatureEffects, FixedStatDataInfo>()
@@ -458,6 +488,148 @@ namespace ExtendedSurvival.Stats
                     CompleteRemove = true,
                     IsPositive = true
                 }
+            },
+            {
+                TemperatureEffects.Intoxicated,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.Intoxicated),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.VeryIntoxicated,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.VeryIntoxicated),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.RadiationSick,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.RadiationSick),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.RadiationPoisoning,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.RadiationPoisoning),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true
+                }
+            },
+            {
+                TemperatureEffects.ExposedToToxicity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToToxicity),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.ExposedToExtremeToxicity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToToxicity),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.ExposedToRadioactivity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToToxicity),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.ExposedToExtremeRadioactivity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ExposedToToxicity),
+                    IsInverseTime = true,
+                    MaxInverseTime = 5 * 60 * 1000
+                }
+            },
+            {
+                TemperatureEffects.LesserResistenceToToxicity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.LesserResistenceToToxicity),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
+            },
+            {
+                TemperatureEffects.ResistenceToToxicity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ResistenceToToxicity),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
+            },
+            {
+                TemperatureEffects.GreaterResistenceToToxicity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.GreaterResistenceToToxicity),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 15 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
+            },
+            {
+                TemperatureEffects.LesserResistenceToRadioactivity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.LesserResistenceToRadioactivity),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 5 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
+            },
+            {
+                TemperatureEffects.ResistenceToRadioactivity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.ResistenceToRadioactivity),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 10 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
+            },
+            {
+                TemperatureEffects.GreaterResistenceToRadioactivity,
+                new FixedStatDataInfo()
+                {
+                    Name = GetTemperatureEffectDescription(TemperatureEffects.GreaterResistenceToRadioactivity),
+                    CanSelfRemove = true,
+                    TimeToSelfRemove = 15 * 60 * 1000,
+                    CompleteRemove = true,
+                    IsPositive = true
+                }
             }
         };
 
@@ -531,21 +703,23 @@ namespace ExtendedSurvival.Stats
                 case DiseaseEffects.Dysentery:
                 case DiseaseEffects.Poison:
                 case DiseaseEffects.Queasy:
+                    return 1;
                 case DiseaseEffects.Flu:
                 case DiseaseEffects.Pneumonia:
                 case DiseaseEffects.Infected:
                 case DiseaseEffects.Hypothermia:
                 case DiseaseEffects.Hyperthermia:
                 case DiseaseEffects.Starvation:
-                case DiseaseEffects.SevereStarvation:
                 case DiseaseEffects.Dehydration:
-                case DiseaseEffects.SevereDehydration:
                 case DiseaseEffects.Obesity:
-                case DiseaseEffects.SevereObesity:
                 case DiseaseEffects.Rickets:
+                    return 2;
+                case DiseaseEffects.SevereStarvation:
+                case DiseaseEffects.SevereDehydration:
+                case DiseaseEffects.SevereObesity:
                 case DiseaseEffects.SevereRickets:
                 case DiseaseEffects.Hypolipidemia:
-                    return 0;
+                    return 3;
             }
             return 0;
         }
@@ -892,6 +1066,12 @@ namespace ExtendedSurvival.Stats
 
         public static int GetOtherEffectTrackLevel(OtherEffects effect)
         {
+            switch (effect)
+            {
+                case OtherEffects.PoopOnClothes:
+                case OtherEffects.PeeOnClothes:
+                    return 0;
+            }
             return 0;
         }
 
@@ -942,6 +1122,34 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOHOT_NAME);
                 case TemperatureEffects.GreaterResistenceToHot:
                     return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOHOT_NAME);
+                case TemperatureEffects.Intoxicated:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_INTOXICATED_NAME);
+                case TemperatureEffects.VeryIntoxicated:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_VERYINTOXICATED_NAME);
+                case TemperatureEffects.ExposedToToxicity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOTOXICITY_NAME);
+                case TemperatureEffects.ExposedToExtremeToxicity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMETOXICITY_NAME);
+                case TemperatureEffects.RadiationSick:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RADIATIONSICK_NAME);
+                case TemperatureEffects.RadiationPoisoning:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RADIATIONPOISONING_NAME);
+                case TemperatureEffects.ExposedToRadioactivity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTORADIOACTIVITY_NAME);
+                case TemperatureEffects.ExposedToExtremeRadioactivity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_EXPOSEDTOEXTREMERADIOACTIVITY_NAME);
+                case TemperatureEffects.LesserResistenceToToxicity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETOTOXICITY_NAME);
+                case TemperatureEffects.ResistenceToToxicity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETOTOXICITY_NAME);
+                case TemperatureEffects.GreaterResistenceToToxicity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETOTOXICITY_NAME);
+                case TemperatureEffects.LesserResistenceToRadioactivity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_LESSERRESISTENCETORADIOACTIVITY_NAME);
+                case TemperatureEffects.ResistenceToRadioactivity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_RESISTENCETORADIOACTIVITY_NAME);
+                case TemperatureEffects.GreaterResistenceToRadioactivity:
+                    return LanguageProvider.GetEntry(LanguageEntries.TEMPERATUREEFFECTS_GREATERRESISTENCETORADIOACTIVITY_NAME);
             }
             return "";
         }
@@ -965,7 +1173,23 @@ namespace ExtendedSurvival.Stats
                 case TemperatureEffects.ExposedToFreeze:
                 case TemperatureEffects.ExposedToHot:
                 case TemperatureEffects.ExposedToBoiling:
-                    return 0;
+                case TemperatureEffects.LesserResistenceToToxicity:
+                case TemperatureEffects.ResistenceToToxicity:
+                case TemperatureEffects.GreaterResistenceToToxicity:
+                case TemperatureEffects.LesserResistenceToRadioactivity:
+                case TemperatureEffects.ResistenceToRadioactivity:
+                case TemperatureEffects.GreaterResistenceToRadioactivity:
+                    return 1;
+                case TemperatureEffects.Intoxicated:
+                case TemperatureEffects.VeryIntoxicated:
+                case TemperatureEffects.ExposedToToxicity:
+                case TemperatureEffects.ExposedToExtremeToxicity:
+                    return 2;
+                case TemperatureEffects.RadiationSick:
+                case TemperatureEffects.RadiationPoisoning:
+                case TemperatureEffects.ExposedToRadioactivity:
+                case TemperatureEffects.ExposedToExtremeRadioactivity:
+                    return 3;
             }
             return 0;
         }
@@ -981,9 +1205,17 @@ namespace ExtendedSurvival.Stats
                 case TemperatureEffects.ExposedToFreeze:
                 case TemperatureEffects.ExposedToHot:
                 case TemperatureEffects.ExposedToBoiling:
+                case TemperatureEffects.Intoxicated:
+                case TemperatureEffects.ExposedToToxicity:
+                case TemperatureEffects.ExposedToExtremeToxicity:
+                case TemperatureEffects.RadiationSick:
+                case TemperatureEffects.ExposedToRadioactivity:
+                case TemperatureEffects.ExposedToExtremeRadioactivity:
                     return 1;
                 case TemperatureEffects.OnFire:
                 case TemperatureEffects.Frosty:
+                case TemperatureEffects.VeryIntoxicated:
+                case TemperatureEffects.RadiationPoisoning:
                     return 2;
             }
             return 0;
@@ -1011,9 +1243,11 @@ namespace ExtendedSurvival.Stats
             {
                 case DamageEffects.Contusion:
                 case DamageEffects.Wounded:
+                    return 1;
                 case DamageEffects.DeepWounded:
+                    return 2;
                 case DamageEffects.BrokenBones:
-                    return 0;
+                    return 3;
             }
             return 0;
         }
@@ -1207,7 +1441,7 @@ namespace ExtendedSurvival.Stats
                 case SurvivalEffects.ExtremelyTired:
                 case SurvivalEffects.StomachGrowling:
                 case SurvivalEffects.EmptyStomach:
-                    return 0;
+                    return 1;
             }
             return 0;
         }

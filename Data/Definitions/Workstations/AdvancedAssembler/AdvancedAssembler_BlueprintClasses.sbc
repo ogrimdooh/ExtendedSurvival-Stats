@@ -36,10 +36,21 @@
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientHotThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteHotThermalRegulator_Construction" />
+    
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedColdThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientColdThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteColdThermalRegulator_Construction" />
+
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ToxicityFilter_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedToxicityFilter_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientToxicityFilter_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteToxicityFilter_Construction" />
+
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="RadioactivityFilter_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedRadioactivityFilter_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ProficientRadioactivityFilter_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EliteRadioactivityFilter_Construction" />
 
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ShieldGenerator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldGenerator_Construction" />
@@ -59,6 +70,8 @@
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
     <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
+    <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="ToxicityFilterBottle_Construction" />
+    <Entry Class="AdvancedAssembler_Tanks_Blueprints" BlueprintSubtypeId="RadioactivityFilterBottle_Construction" />
     
   </BlueprintClassEntries>
   

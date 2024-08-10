@@ -45,9 +45,18 @@
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ProficientHotThermalRegulator_Construction" />
+    
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ColdThermalRegulator_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedColdThermalRegulator_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ProficientColdThermalRegulator_Construction" />
+
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ToxicityFilter_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedToxicityFilter_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ProficientToxicityFilter_Construction" />
+    
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="RadioactivityFilter_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedRadioactivityFilter_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ProficientRadioactivityFilter_Construction" />
 
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ShieldGenerator_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldGenerator_Construction" />
@@ -102,15 +111,29 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientShieldSpike_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteShieldSpike_VanilaConstruction" />
 
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ToxicityFilter_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedToxicityFilter_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientToxicityFilter_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteToxicityFilter_VanilaConstruction" />
+    
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="RadioactivityFilter_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedRadioactivityFilter_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ProficientRadioactivityFilter_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EliteRadioactivityFilter_VanilaConstruction" />
+
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="ColdThermalBottle_Construction" />
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="HotThermalBottle_Construction" />
     <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Construction" />
+    <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="ToxicityFilterBottle_Construction" />
+    <Entry Class="Assembler_Tanks_Blueprints" BlueprintSubtypeId="RadioactivityFilterBottle_Construction" />
 
     <Entry Class="EliteTools" BlueprintSubtypeId="LidocainPistolVanila" />
     <Entry Class="EliteTools" BlueprintSubtypeId="PropofolPistolVanila" />
     <Entry Class="EliteTools" BlueprintSubtypeId="ColdThermalBottle_VanilaConstruction" />
     <Entry Class="EliteTools" BlueprintSubtypeId="HotThermalBottle_VanilaConstruction" />
     <Entry Class="EliteTools" BlueprintSubtypeId="SimpleHealingBottle_VanilaConstruction" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="ToxicityFilterBottle_VanilaConstruction" />
+    <Entry Class="EliteTools" BlueprintSubtypeId="RadioactivityFilterBottle_VanilaConstruction" />
     <Entry Class="EliteTools" BlueprintSubtypeId="BBPistolVanila_Construction" />
 
     <Entry Class="EliteConsumables" BlueprintSubtypeId="LidocainDart_Construction" />

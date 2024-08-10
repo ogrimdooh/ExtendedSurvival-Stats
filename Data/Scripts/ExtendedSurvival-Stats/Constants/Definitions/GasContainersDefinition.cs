@@ -1,6 +1,6 @@
 ﻿namespace ExtendedSurvival.Stats
 {
-    public class GasContainersDefinition : SimpleFactoringDefinition<SimpleRecipeDefinition> 
+    public class GasContainersDefinition : ComplexFactoringDefinition<SimpleRecipeDefinition, SimpleIngredientRecipeDefinition> 
     {
 
     }

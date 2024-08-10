@@ -77,7 +77,10 @@ namespace ExtendedSurvival.Stats
             public WeatherEffects WeatherEffect { get; set; }
             public EnvironmentDetector CurrentEnvironmentType { get; set; }
             public Vector2 CurrentTemperature { get; set; } = new Vector2(0, 0);
-
+            public Vector2 ExternalTemperature { get; set; } = new Vector2(0, 0);
+            public float ToxicLevel { get; set; }
+            public float RadiationLevel { get; set; }
+            
             public Dictionary<string, string> GetData()
             {
                 return new Dictionary<string, string>()
@@ -87,6 +90,9 @@ namespace ExtendedSurvival.Stats
                     { "WeatherEffect", ((int)WeatherEffect).ToString() },
                     { "CurrentEnvironmentType", ((int)CurrentEnvironmentType).ToString() },
                     { "CurrentTemperature", $"{CurrentTemperature.X}:{CurrentTemperature.Y}" },
+                    { "ExternalTemperature", $"{ExternalTemperature.X}:{ExternalTemperature.Y}" },
+                    { "ToxicLevel", ToxicLevel.ToString() },
+                    { "RadiationLevel", RadiationLevel.ToString() },
                 };
             }
 
@@ -129,30 +135,78 @@ namespace ExtendedSurvival.Stats
                                 }
                             }
                             break;
+                        case "ExternalTemperature":
+                            var partsEt = data[key].Split(':');
+                            if (partsEt.Length == 2)
+                            {
+                                float currentETemperatureX;
+                                float currentETemperatureY;
+                                if (float.TryParse(partsEt[0], out currentETemperatureX) &&
+                                    float.TryParse(partsEt[1], out currentETemperatureY))
+                                {
+                                    ExternalTemperature = new Vector2(currentETemperatureX, currentETemperatureY);
+                                }
+                            }
+                            break;
+                        case "ToxicLevel":
+                            float toxicLevel;
+                            if (float.TryParse(data[key], out toxicLevel))
+                                ToxicLevel = toxicLevel;
+                            break;
+                        case "RadiationLevel":
+                            float radiationLevel;
+                            if (float.TryParse(data[key], out radiationLevel))
+                                RadiationLevel = radiationLevel;
+                            break;
                     }
                 }
             }
 
             public override int GetHashCode()
             {
-                return GetDisplayInfo(true).GetHashCode();
+                return GetDisplayInfo(4).GetHashCode();
             }
 
-            public string GetDisplayInfo(bool addTemperature)
+            public string GetDisplayInfo(int bodyTrackerLevel)
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append(LanguageProvider.GetEntry(LanguageEntries.UI_ENVIROMENT_DISPLAY));
                 sb.Append(GetEnvironmentDetectorDescription(CurrentEnvironmentType));
-                if (addTemperature)
+                if (bodyTrackerLevel >= 1)
                 {
                     sb.Append($" [{CurrentTemperature.Y.ToString("#0.00")}ºC]");
+                    if (bodyTrackerLevel >= 2 && CurrentTemperature.X != ExternalTemperature.X && CurrentTemperature.Y != ExternalTemperature.Y)
+                    {
+                        sb.Append($" {LanguageProvider.GetEntry(LanguageEntries.UI_EXTERNALTEMP_DISPLAY)} [{ExternalTemperature.Y.ToString("#0.00")}ºC]");
+                    }
+                    if (WeatherEffect != WeatherEffects.None)
+                    {
+                        sb.Append(Environment.NewLine);
+                        sb.Append(LanguageProvider.GetEntry(LanguageEntries.UI_WEATHER_DISPLAY));
+                        sb.Append(GetWeatherEffectsLevelDescription(WeatherLevel));
+                        sb.Append(" " + GetWeatherEffectsDescription(WeatherEffect));
+                    }
                 }
-                if (WeatherEffect != WeatherEffects.None)
+                bool addedToxicLevel = false;
+                if (bodyTrackerLevel >= 2 && ToxicLevel > 0)
                 {
                     sb.Append(Environment.NewLine);
-                    sb.Append(LanguageProvider.GetEntry(LanguageEntries.UI_WEATHER_DISPLAY));
-                    sb.Append(GetWeatherEffectsLevelDescription(WeatherLevel));
-                    sb.Append(" " + GetWeatherEffectsDescription(WeatherEffect));
+                    sb.Append(LanguageProvider.GetEntry(LanguageEntries.UI_EXTERNALEXPOSE_DISPLAY));
+                    sb.Append(string.Format(LanguageProvider.GetEntry(LanguageEntries.UI_TOXIC_DISPLAY), ToxicLevel.ToString("P2")));
+                    addedToxicLevel = true;
+                }
+                if (bodyTrackerLevel >= 3 && RadiationLevel > 0)
+                {
+                    if (!addedToxicLevel)
+                    {
+                        sb.Append(Environment.NewLine);
+                        sb.Append(LanguageProvider.GetEntry(LanguageEntries.UI_EXTERNALEXPOSE_DISPLAY));
+                    }
+                    else
+                    {
+                        sb.Append(" ");
+                    }
+                    sb.Append(string.Format(LanguageProvider.GetEntry(LanguageEntries.UI_RADIATION_DISPLAY), RadiationLevel.ToString("P2")));
                 }
                 return sb.ToString();
             }
@@ -185,7 +239,39 @@ namespace ExtendedSurvival.Stats
                 weatherInfo[entity.EntityId].WeatherEffect = WeatherEffects.None;
             var platAtRange = GetPlanetAtRange(playerPos);
             float o2Level = 0;
-            weatherInfo[entity.EntityId].CurrentEnvironmentType = GetEnvironmentType(entity, playerPos, platAtRange, out o2Level);
+            bool isOnPlanetAtm = false;
+            weatherInfo[entity.EntityId].CurrentEnvironmentType = GetEnvironmentType(entity, playerPos, platAtRange, out o2Level, out isOnPlanetAtm);
+            if (isOnPlanetAtm && ExtendedSurvivalCoreAPI.Registered)
+            {
+                weatherInfo[entity.EntityId].ExternalTemperature = ExtendedSurvivalCoreAPI.GetTemperatureInPoint(platAtRange.EntityId, playerPos).Value;
+                if (weatherInfo[entity.EntityId].CurrentEnvironmentType == EnvironmentDetector.Atmosphere ||
+                    weatherInfo[entity.EntityId].CurrentEnvironmentType == EnvironmentDetector.Underwater)
+                {
+                    var density = platAtRange.Entity.GetAirDensity(playerPos);
+                    weatherInfo[entity.EntityId].ToxicLevel = platAtRange.Atmosphere.ToxicLevel * density;
+                    weatherInfo[entity.EntityId].RadiationLevel = platAtRange.Atmosphere.RadiationLevel * density;
+                    if (platAtRange.HasWater && platAtRange.Water.Enabled && WaterModAPI.Registered && WaterModAPI.IsUnderwater(playerPos))
+                    {
+                        var depth = Math.Abs(WaterModAPI.GetDepth(playerPos) ?? 0) / 100;
+                        if (depth > 0)
+                        {
+                            weatherInfo[entity.EntityId].ToxicLevel += platAtRange.Water.ToxicLevel * depth;
+                            weatherInfo[entity.EntityId].RadiationLevel += platAtRange.Water.RadiationLevel * depth;
+                        }
+                    }
+                }
+                else
+                {
+                    weatherInfo[entity.EntityId].ToxicLevel = 0;
+                    weatherInfo[entity.EntityId].RadiationLevel = 0;
+                }
+            }
+            else
+            {
+                weatherInfo[entity.EntityId].ExternalTemperature = new Vector2(0, SPACE_TEMPERATURE);
+                weatherInfo[entity.EntityId].ToxicLevel = 0;
+                weatherInfo[entity.EntityId].RadiationLevel = 0;
+            }
             switch (weatherInfo[entity.EntityId].CurrentEnvironmentType)
             {
                 case EnvironmentDetector.Atmosphere:
@@ -288,9 +374,10 @@ namespace ExtendedSurvival.Stats
             return null;
         }
 
-        private static EnvironmentDetector GetEnvironmentType(IMyCharacter entity, Vector3D pos, PlanetInfo platAtRange, out float o2Level)
+        private static EnvironmentDetector GetEnvironmentType(IMyCharacter entity, Vector3D pos, PlanetInfo platAtRange, out float o2Level, out bool isOnPlanetAtm)
         {
             o2Level = 0;
+            isOnPlanetAtm = platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f;
             WeatherConstants.EnvironmentDetector currentValue = EnvironmentDetector.None;
             entity?.Components?.Get<MyCharacterOxygenComponent>()?.UpdateBeforeSimulation100();
             var cockpit = entity.Parent as MyCockpit;
@@ -307,7 +394,7 @@ namespace ExtendedSurvival.Stats
                     if (o2Capacity > 0)
                     {
                         o2Level = cockpit.OxygenFillLevel;
-                        if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                        if (isOnPlanetAtm)
                         {
                             return EnvironmentDetector.NotPressurizedRoom;
                         }
@@ -316,7 +403,7 @@ namespace ExtendedSurvival.Stats
                     }
                     else
                     {
-                        if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                        if (isOnPlanetAtm)
                         {
                             o2Level = platAtRange.Entity.GetOxygenForPosition(pos);
                             currentValue = EnvironmentDetector.Atmosphere;
@@ -330,7 +417,7 @@ namespace ExtendedSurvival.Stats
             {
                 if (entity.Physics == null || (entity.Physics != null && entity.Physics.Gravity.LengthSquared() > 0f))
                 {
-                    if (platAtRange != null && platAtRange.Entity.HasAtmosphere && platAtRange.Entity.GetAirDensity(pos) > 0f)
+                    if (isOnPlanetAtm)
                     {
                         o2Level = platAtRange.Entity.GetOxygenForPosition(pos);
                         currentValue = EnvironmentDetector.Atmosphere;
@@ -340,6 +427,13 @@ namespace ExtendedSurvival.Stats
                 }
                 else
                     currentValue = EnvironmentDetector.Space;
+            }
+            if (currentValue == EnvironmentDetector.Atmosphere && (platAtRange?.HasWater ?? false) && WaterModAPI.Registered)
+            {
+                if (WaterModAPI.IsUnderwater(pos))
+                {
+                    currentValue = EnvironmentDetector.Underwater;
+                }
             }
             var o2Block = GetOxygenBlockAtCharacter(entity, out o2Level);
             if (o2Block != null && o2Block.Room != null && o2Block.Room.IsAirtight)

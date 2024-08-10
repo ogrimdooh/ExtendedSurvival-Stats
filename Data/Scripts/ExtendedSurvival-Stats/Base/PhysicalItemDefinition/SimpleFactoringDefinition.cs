@@ -26,7 +26,7 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public IEnumerable<BaseRecipeDefinition> GetRecipesDefinition()
+        public virtual IEnumerable<BaseRecipeDefinition> GetRecipesDefinition()
         {
             return RecipesDefinition;
         }

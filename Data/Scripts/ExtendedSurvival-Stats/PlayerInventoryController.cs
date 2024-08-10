@@ -140,6 +140,23 @@ namespace ExtendedSurvival.Stats
                         }
                     }
                 }
+                if (def.ReduceTemperature != null && def.ReduceTemperature.Any())
+                {
+                    foreach (var Temperature in def.ReduceTemperature.Keys)
+                    {
+                        if (statControl.CurrentTemperatureEffects.IsFlagSet(Temperature))
+                        {
+                            var timeToRemove = AdvancedStatsAndEffectsAPI.GetPlayerFixedStatRemainTime(playerId, Temperature.ToString());
+                            if (timeToRemove > 0)
+                            {
+                                timeToRemove -= (long)def.ReduceTemperature[Temperature];
+                                if (timeToRemove <= 0)
+                                    statControl.MedicalDetector.ClearEffects();
+                                AdvancedStatsAndEffectsAPI.SetPlayerFixedStatRemainTime(playerId, Temperature.ToString(), Math.Max(timeToRemove, 0));
+                            }
+                        }
+                    }
+                }
             }
         }
 

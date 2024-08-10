@@ -9,6 +9,9 @@ namespace ExtendedSurvival.Stats
     public class MedicalDefinition : SimpleFactoringDefinition<SimpleRecipeDefinition>
     {
 
+        public Dictionary<StatsConstants.TemperatureEffects, int> TemperatureEffects { get; set; } = new Dictionary<StatsConstants.TemperatureEffects, int>();
+        public List<StatsConstants.TemperatureEffects> CureTemperature { get; set; }
+        public Dictionary<StatsConstants.TemperatureEffects, float> ReduceTemperature { get; set; }
         public List<StatsConstants.DamageEffects> CureDamage { get; set; }
         public Dictionary<StatsConstants.DamageEffects, float> ReduceDamage { get; set; }
         public List<StatsConstants.DiseaseEffects> CureDisease { get; set; }
@@ -47,6 +50,21 @@ namespace ExtendedSurvival.Stats
                     }
                 }
             }
+            var hadTemperatureEffectsToAdd = TemperatureEffects != null && TemperatureEffects.Any(x => x.Value > 0);
+            if (hadTemperatureEffectsToAdd)
+            {
+                foreach (var temperatureEffects in TemperatureEffects.Keys)
+                {
+                    if (TemperatureEffects[temperatureEffects] > 0)
+                    {
+                        values.AppendLine(string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_DISEASECHANCE_DESCRIPTION),
+                            (1).ToString("P1"),
+                            StatsConstants.GetTemperatureEffectDescription(temperatureEffects)
+                        ));
+                    }
+                }
+            }
             if (CureDamage != null && CureDamage.Any())
             {
                 values.AppendLine(" ");
@@ -55,6 +73,28 @@ namespace ExtendedSurvival.Stats
                     values.AppendLine(string.Format(
                         LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION), 
                         StatsConstants.GetDamageEffectDescription(damage)
+                    ));
+                }
+            }
+            if (CureTemperature != null && CureTemperature.Any())
+            {
+                values.AppendLine(" ");
+                foreach (var Temperature in CureTemperature)
+                {
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION),
+                        StatsConstants.GetTemperatureEffectDescription(Temperature)
+                    ));
+                }
+            }
+            if (CureDisease != null && CureDisease.Any())
+            {
+                values.AppendLine(" ");
+                foreach (var disease in CureDisease)
+                {
+                    values.AppendLine(string.Format(
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION),
+                        StatsConstants.GetDiseaseEffectDescription(disease)
                     ));
                 }
             }
@@ -76,14 +116,21 @@ namespace ExtendedSurvival.Stats
                     ));
                 }
             }
-            if (CureDisease != null && CureDisease.Any())
+            if (ReduceTemperature != null && ReduceTemperature.Any())
             {
                 values.AppendLine(" ");
-                foreach (var disease in CureDisease)
+                foreach (var Temperature in ReduceTemperature.Keys)
                 {
+                    var timeToShow = TimeSpan.FromMilliseconds(ReduceTemperature[Temperature]);
+                    var mask = @"mm\:ss";
+                    if (timeToShow.TotalMinutes > 60)
+                    {
+                        mask = @"hh\:mm\:ss";
+                    }
                     values.AppendLine(string.Format(
-                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_CUREDISEASE_DESCRIPTION), 
-                        StatsConstants.GetDiseaseEffectDescription(disease)
+                        LanguageProvider.GetEntry(LanguageEntries.FOODDEFINITION_REDUCEDISEASE_DESCRIPTION),
+                        StatsConstants.GetTemperatureEffectDescription(Temperature),
+                        timeToShow.ToString(mask)
                     ));
                 }
             }
@@ -128,6 +175,19 @@ namespace ExtendedSurvival.Stats
                     });
                 }
             }
+            if (TemperatureEffects != null)
+            {
+                foreach (var effect in TemperatureEffects.Keys)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = TemperatureEffects[effect] > 0 ? FixedEffectInConsumableType.Add : FixedEffectInConsumableType.Remove,
+                        Target = effect.ToString(),
+                        Stacks = (byte)Math.Max(TemperatureEffects[effect], 0),
+                        MaxStacks = TemperatureEffects[effect] <= 0
+                    });
+                }
+            }
             if (CureDamage != null)
             {
                 foreach (var cure in CureDamage)
@@ -143,6 +203,18 @@ namespace ExtendedSurvival.Stats
             if (CureDisease != null)
             {
                 foreach (var cure in CureDisease)
+                {
+                    info.FixedEffects.Add(new FixedEffectInConsumableInfo()
+                    {
+                        Type = FixedEffectInConsumableType.Remove,
+                        Target = cure.ToString(),
+                        MaxStacks = true
+                    });
+                }
+            }
+            if (CureTemperature != null)
+            {
+                foreach (var cure in CureTemperature)
                 {
                     info.FixedEffects.Add(new FixedEffectInConsumableInfo()
                     {

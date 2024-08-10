@@ -59,11 +59,14 @@
     <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="AlienMeatToConcentratedFat_Construction" />
     <Entry Class="BasicAlchemyBench_Concentrate_Blueprints" BlueprintSubtypeId="MeatToConcentratedFat_Construction" />
 
+    <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Amatoxina_Construction" />
+    <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="ArnicaExtract_Construction" />
     <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="SmallAloeVeraExtract_Construction" />
     <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="AloeVeraExtract_Construction" />
     <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="MintExtract_Construction" />
     <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Chamomile_Construction" />
     <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="Lidocaine_Construction" />
+    <Entry Class="BasicAlchemyBench_LiquidAlchemy_Blueprints" BlueprintSubtypeId="FullToxicityFilterBottle_Clean" />
 
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="Medicine_Construction" />
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleMedicine_Construction" />
@@ -71,6 +74,8 @@
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="PowerBandages_Construction" />
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill" />
     <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleHealingBottle_Refill2" />
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleRadX_Construction" />
+    <Entry Class="BasicAlchemyBench_Medical_Blueprints" BlueprintSubtypeId="SimpleDetoxifying_Construction" />
 
   </BlueprintClassEntries>
 </Definitions>

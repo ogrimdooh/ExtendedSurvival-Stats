@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+      <Id>
+        <TypeId>ConsumableItem</TypeId>
+        <SubtypeId>RadX</SubtypeId>
+      </Id>
+      <DisplayName>RadX</DisplayName>
+      <Icon>Textures\GUI\Icons\RadX.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.5</X>
+        <Y>0.5</Y>
+        <Z>0.5</Z>
+      </Size>
+      <Mass>2.5</Mass>
+      <Volume>3</Volume>
+      <Model>Models\Items\Medkit_Item.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <Stats>
+        <Stat Name="Health" Value ="0.025" Time="5"/>
+      </Stats>
+      <MinimalPricePerUnit>750</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <UseSound>TakePills</UseSound>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>RadX_Construction</SubtypeId>
+      </Id>
+      <DisplayName>RadX</DisplayName>
+      <Icon>Textures\GUI\Icons\RadX.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.15" TypeId="Ingot" SubtypeId="Silicon" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="SmallAloeVeraExtract" />
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="Polietilenoglicol" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="2" TypeId="PhysicalObject" SubtypeId="Flask_Small" />
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="RadX" />
+      </Results>
+      <BaseProductionTimeInSeconds>5.12</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

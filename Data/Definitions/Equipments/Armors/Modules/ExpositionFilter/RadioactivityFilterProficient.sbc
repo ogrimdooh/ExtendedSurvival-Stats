@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PhysicalItems>
+
+    <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+      <Id>
+        <TypeId>PhysicalObject</TypeId>
+        <SubtypeId>ProficientRadioactivityFilter</SubtypeId>
+      </Id>
+      <DisplayName>Proficient Radioactivity Filter</DisplayName>
+      <Icon>Textures\GUI\Icons\suit_radioactivity_filter_lv2.dds</Icon>
+      <Description></Description>
+      <Size>
+        <X>0.001</X>
+        <Y>0.001</Y>
+        <Z>0.001</Z>
+      </Size>
+      <Mass>2.25</Mass>
+      <Volume>5</Volume>
+      <Model>Models\Items\PowerKit.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MinimalPricePerUnit>50</MinimalPricePerUnit>
+      <MinimumOfferAmount>5</MinimumOfferAmount>
+      <MaximumOfferAmount>50</MaximumOfferAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+      <MaxStackAmount>1</MaxStackAmount>
+    </PhysicalItem>
+
+  </PhysicalItems>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ProficientRadioactivityFilter_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Proficient Radioactivity Filter</DisplayName>
+      <Icon>Textures\GUI\Icons\suit_radioactivity_filter_lv2.dds</Icon>
+      <Prerequisites>
+        <Item Amount="2" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="2" TypeId="Component" SubtypeId="NickelGear" />
+        <Item Amount="15" TypeId="Component" SubtypeId="CopperWire" />
+        <Item Amount="1" TypeId="Component" SubtypeId="Transistor" />
+        <Item Amount="2" TypeId="Component" SubtypeId="Capacitor" />
+        <Item Amount="1" TypeId="Component" SubtypeId="Chip" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="ProficientRadioactivityFilter" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ProficientRadioactivityFilter_VanilaConstruction</SubtypeId>
+      </Id>
+      <DisplayName>Proficient Radioactivity Filter</DisplayName>
+      <Icon>Textures\GUI\Icons\suit_radioactivity_filter_lv2.dds</Icon>
+      <Prerequisites>
+        <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="1.25" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="2.25" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1" TypeId="PhysicalObject" SubtypeId="ProficientRadioactivityFilter" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>
