@@ -143,7 +143,8 @@
     <Entry Class="EliteConsumables" BlueprintSubtypeId="PropofolPistolMagazine" />
     <Entry Class="EliteConsumables" BlueprintSubtypeId="BBBullet_Construction" />
     <Entry Class="EliteConsumables" BlueprintSubtypeId="BBPistolMagazine_Construction" />
-
+    <Entry Class="EliteConsumables" BlueprintSubtypeId="BBTurretMagazine_Construction" />
+    
   </BlueprintClassEntries>
   
 </Definitions>

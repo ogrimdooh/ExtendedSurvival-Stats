@@ -7,7 +7,7 @@
         <TypeId>AmmoMagazine</TypeId>
         <SubtypeId>BBPistolMagazine</SubtypeId>
       </Id>
-      <DisplayName>Pistol BB-6mm Magzine</DisplayName>
+      <DisplayName>Pistol BB-6mm Magazine</DisplayName>
       <Icon>Textures\GUI\Icons\pistol_magzine_bb.dds</Icon>
       <Size>
         <X>0.2</X>
@@ -35,7 +35,7 @@
         <TypeId>BlueprintDefinition</TypeId>
         <SubtypeId>BBPistolMagazine_Construction</SubtypeId>
       </Id>
-      <DisplayName>Pistol BB-6mm Magzine</DisplayName>
+      <DisplayName>Pistol BB-6mm Magazine</DisplayName>
       <Icon>Textures\GUI\Icons\pistol_magzine_bb.dds</Icon>
       <Prerequisites>
         <Item Amount="1" TypeId="PhysicalObject" SubtypeId="EmptyPistolMagazine" />

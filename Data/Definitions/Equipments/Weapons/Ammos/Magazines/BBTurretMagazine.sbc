@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AmmoMagazines>
+
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>BBTurretMagazine</SubtypeId>
+      </Id>
+      <DisplayName>BB-6mm Turret Magazine</DisplayName>
+      <Icon>Textures\GUI\Icons\bb6mm_turret_ammobox.dds</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Mass>3</Mass>
+      <Volume>1.5</Volume>
+      <Model>Models\Weapons\Ammo_Box.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>250</Capacity>
+      <AmmoDefinitionId Subtype="BBBulletCaliber" />
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+
+  </AmmoMagazines>
+  <Blueprints>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BBTurretMagazine_Construction</SubtypeId>
+      </Id>
+      <DisplayName>BB-6mm Turret Magazine</DisplayName>
+      <Icon>Textures\GUI\Icons\bb6mm_turret_ammobox.dds</Icon>
+      <Prerequisites>
+        <Item Amount="0.25" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="0.05" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="0.025" TypeId="Ingot" SubtypeId="Silicon" />
+        <Item Amount="250" TypeId="PhysicalObject" SubtypeId="BBBullet" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="BBTurretMagazine" />
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BBTurretMagazine_Disassembly</SubtypeId>
+      </Id>
+      <DisplayName>BB-6mm Turret Magazine</DisplayName>
+      <Icon>Textures\GUI\Icons\bb6mm_turret_ammobox.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="AmmoMagazine" SubtypeId="BBTurretMagazine" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.75" TypeId="Ore" SubtypeId="Scrap" />
+      </Results>
+      <BaseProductionTimeInSeconds>2.56</BaseProductionTimeInSeconds>
+    </Blueprint>
+
+  </Blueprints>
+</Definitions>

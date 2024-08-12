@@ -84,6 +84,7 @@
     <Entry Class="Consumables" BlueprintSubtypeId="LidocainPistolMagazine" />
     <Entry Class="Consumables" BlueprintSubtypeId="BBBullet_Construction" />
     <Entry Class="Consumables" BlueprintSubtypeId="BBPistolMagazine_Construction" />
+    <Entry Class="Consumables" BlueprintSubtypeId="BBTurretMagazine_Construction" />
 
   </BlueprintClassEntries>
   

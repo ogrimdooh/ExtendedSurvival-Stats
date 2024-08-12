@@ -26,6 +26,7 @@
 
     <Entry Class="BasicArmory_Magazine_Blueprints" BlueprintSubtypeId="LidocainPistolMagazine" />
     <Entry Class="BasicArmory_Magazine_Blueprints" BlueprintSubtypeId="BBPistolMagazine_Construction" />
+    <Entry Class="BasicArmory_Magazine_Blueprints" BlueprintSubtypeId="BBTurretMagazine_Construction" />
 
     <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterArmor_Construction" />
     <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterArmorLight_Construction" />

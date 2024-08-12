@@ -114,5 +114,12 @@
       </UnlockedByGroups>
     </ResearchBlock>
 
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_InteriorTurret" Subtype="BBTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>0</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+    
   </ResearchBlocks>
 </Definitions>
