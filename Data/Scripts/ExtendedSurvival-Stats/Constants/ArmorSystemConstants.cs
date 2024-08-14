@@ -28,6 +28,15 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public enum HelmetCategory
+        {
+
+            None = 0,
+            Work = 1,
+            Combat = 2
+
+        }
+
         [Flags]
         public enum DamageType
         {
@@ -54,7 +63,8 @@ namespace ExtendedSurvival.Stats
             MovementSpeed = 2,
             CreatureDamage = 3,
             TorporBonus = 4,
-            HandWeaponDamage = 5
+            HandWeaponDamage = 5,
+            ShootingAccuracy = 6
 
         }
 
@@ -68,9 +78,15 @@ namespace ExtendedSurvival.Stats
             CapacityBonus = 4,
             RechargeSpeedBonus = 5,
             EnergyConsumptionBonus = 6,
-            SpikeDamage = 7
+            SpikeDamage = 7,
+            ShootingAccuracy = 8
 
         }
+
+        public static readonly Dictionary<ArmorEffect, ModuleAttribute[]> MODULE_EQUIVALENCE = new Dictionary<ArmorEffect, ModuleAttribute[]>()
+        {
+            { ArmorEffect.ShootingAccuracy, new ModuleAttribute[] { ModuleAttribute.ShootingAccuracy } }
+        };
 
         public static readonly Dictionary<DamageType, MyStringHash[]> DAMAGE_TYPES_EQUIVALENCE = new Dictionary<DamageType, MyStringHash[]>()
         {
@@ -104,6 +120,7 @@ namespace ExtendedSurvival.Stats
                 case ArmorEffect.CreatureDamage:
                 case ArmorEffect.TorporBonus:
                 case ArmorEffect.HandWeaponDamage:
+                case ArmorEffect.ShootingAccuracy:
                     return value.ToString("P2");
             }
             return value.ToString("#0.00");
@@ -118,6 +135,7 @@ namespace ExtendedSurvival.Stats
                 case ModuleAttribute.EnergyConsumptionBonus:
                 case ModuleAttribute.CapacityBonus:
                 case ModuleAttribute.SpikeDamage:
+                case ModuleAttribute.ShootingAccuracy:
                     return value.ToString("P2");
                 case ModuleAttribute.RechargeSpeed:
                     return value.ToString("#0.00") + " P\\S";
@@ -147,6 +165,8 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_CAPACITYBONUS_NAME);
                 case ModuleAttribute.SpikeDamage:
                     return LanguageProvider.GetEntry(LanguageEntries.MODULEATTRIBUTE_SPIKEDAMAGE_NAME);
+                case ModuleAttribute.ShootingAccuracy:
+                    return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_SHOOTINGACCURACY_NAME);
             }
             return "";
         }
@@ -167,6 +187,8 @@ namespace ExtendedSurvival.Stats
                     return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_TORPORBONUS_NAME);
                 case ArmorEffect.HandWeaponDamage:
                     return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_HANDWEAPONDAMAGE_NAME);
+                case ArmorEffect.ShootingAccuracy:
+                    return LanguageProvider.GetEntry(LanguageEntries.ARMOREFFECT_SHOOTINGACCURACY_NAME);
             }
             return "";
         }
@@ -225,6 +247,18 @@ namespace ExtendedSurvival.Stats
             return "";
         }
 
+        public static string GetHelmetCategoryName(HelmetCategory type)
+        {
+            switch (type)
+            {
+                case HelmetCategory.Work:
+                    return LanguageProvider.GetEntry(LanguageEntries.ARMORCATEGORY_WORK_NAME);
+                case HelmetCategory.Combat:
+                    return LanguageProvider.GetEntry(LanguageEntries.ARMORCATEGORY_COMBAT_NAME);
+            }
+            return "";
+        }
+        
     }
 
 }

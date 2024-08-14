@@ -32,6 +32,10 @@
     <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterArmorLight_Construction" />
     <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterArmorHeavy_Construction" />
     <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterArmorExpanded_Construction" />
+    <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterHelmet_Construction" />
+    <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterHelmetLight_Construction" />
+    <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterHelmetHeavy_Construction" />
+    <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="HunterHelmetExpanded_Construction" />
 
     <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="ShieldSpike_Construction" />
     <Entry Class="BasicArmory_Armors_Blueprints" BlueprintSubtypeId="EnhancedShieldSpike_Construction" />

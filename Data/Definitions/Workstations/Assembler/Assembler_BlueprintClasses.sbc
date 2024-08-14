@@ -41,6 +41,10 @@
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorLight_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmet_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmetLight_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmetHeavy_Construction" />
+    <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmetExpanded_Construction" />
 
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
     <Entry Class="Assembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_Construction" />
@@ -76,11 +80,19 @@
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorLight_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerHelmet_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerHelmetLight_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerHelmetHeavy_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="ScavengerHelmetExpanded_VanilaConstruction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmor_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmorLight_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmorHeavy_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterArmorExpanded_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterHelmet_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterHelmetLight_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterHelmetHeavy_VanilaConstruction" />
+    <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HunterHelmetExpanded_VanilaConstruction" />
 
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="HotThermalRegulator_VanilaConstruction" />
     <Entry Class="Assembler_Armors_Vanilla_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_VanilaConstruction" />

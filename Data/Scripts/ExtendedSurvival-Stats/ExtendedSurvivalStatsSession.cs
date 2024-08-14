@@ -837,6 +837,27 @@ namespace ExtendedSurvival.Stats
                             }
                             AdvancedPlayerEquipCoreAPI.ConfigureEquipableItem(info);
                         }
+                        foreach (var key in EquipmentConstants.HELMETS_DEFINITIONS.Keys)
+                        {
+                            var info = new EquipableItemData()
+                            {
+                                Id = key.DefinitionId,
+                                TextureName = key.subtypeId.String,
+                                ItemCategory = EquipmentConstants.EquipableItemCategory.Helmet.ToString()
+                            };
+                            for (int i = 0; i < EquipmentConstants.HELMETS_DEFINITIONS[key].ModuleSlots; i++)
+                            {
+                                info.Sockets.Add(new EquipableItemSocketData()
+                                {
+                                    Order = i,
+                                    ValidCategories = EquipmentConstants.GetSlotCategories(EquipmentConstants.HELMETS_DEFINITIONS[key].Category).Select(x => new ValidCategoryData()
+                                    {
+                                        Id = x.ToString()
+                                    }).ToList()
+                                });
+                            }
+                            AdvancedPlayerEquipCoreAPI.ConfigureEquipableItem(info);
+                        }
                         /* Sockets */
                         foreach (var key in EquipmentConstants.ARMOR_MODULES_DEFINITIONS.Keys)
                         {
@@ -845,6 +866,15 @@ namespace ExtendedSurvival.Stats
                                 Id = key.DefinitionId,
                                 TextureName = key.subtypeId.String,
                                 ItemCategory = EquipmentConstants.GetUseCategory(EquipmentConstants.ARMOR_MODULES_DEFINITIONS[key].UseCategory)
+                            });
+                        }
+                        foreach (var key in EquipmentConstants.HELMET_MODULES_DEFINITIONS.Keys)
+                        {
+                            AdvancedPlayerEquipCoreAPI.ConfigureSocketItem(new SocketItemData()
+                            {
+                                Id = key.DefinitionId,
+                                TextureName = key.subtypeId.String,
+                                ItemCategory = EquipmentConstants.GetUseCategory(EquipmentConstants.HELMET_MODULES_DEFINITIONS[key].UseCategory)
                             });
                         }
                         /* Register a Callback */

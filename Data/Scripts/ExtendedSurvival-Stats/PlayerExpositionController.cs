@@ -86,7 +86,7 @@ namespace ExtendedSurvival.Stats
             if (armorInfo != null && armorInfo.HasArmor)
             {
                 baseRange = new Vector4(
-                    baseRange.X + armorInfo.ArmorDefinition.ToxicityResistence,
+                    baseRange.X + armorInfo.GetResistence(ArmorSystemConstants.DamageType.Toxicity),
                     baseRange.Y,
                     baseRange.Z,
                     baseRange.W
@@ -102,7 +102,7 @@ namespace ExtendedSurvival.Stats
             if (armorInfo != null && armorInfo.HasArmor)
             {
                 baseRange = new Vector4(
-                    baseRange.X + armorInfo.ArmorDefinition.RadioactivityResistence,
+                    baseRange.X + armorInfo.GetResistence(ArmorSystemConstants.DamageType.Radioactivity),
                     baseRange.Y,
                     baseRange.Z,
                     baseRange.W

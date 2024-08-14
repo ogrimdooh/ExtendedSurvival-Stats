@@ -3225,7 +3225,48 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.HUNTERARMOREXPANDED_NAME,
 				"Hunter's Armor [Expanded]"
 			);
-			AddEntry(
+            AddEntry(
+				LanguageEntries.SCAVENGERHELMET_NAME,
+                "Scavenger Helmet"
+            );
+            AddEntry(
+				LanguageEntries.SCAVENGERHELMETLIGHT_NAME,
+                "Scavenger Helmet [Light]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETHEAVY_NAME,
+                "Scavenger Helmet [Reinforced]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETEXPANDED_NAME,
+                "Scavenger Helmet [Expanded]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMET_DESCRIPTION,
+                "A very common helmet model for those who don't have many" + Environment.NewLine +
+                "resources and need extra protection."
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMET_NAME,
+                "Hunter's Helmet"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETLIGHT_NAME,
+                "Hunter's Helmet [Light]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETHEAVY_NAME,
+                "Hunter's Helmet [Reinforced]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETEXPANDED_NAME,
+                "Hunter's Helmet [Expanded]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMET_DESCRIPTION,
+                "A very effective helmet for experienced hunters."
+            );
+            AddEntry(
 				LanguageEntries.ARMOR_DESCRIPTION,
 				"Note: To receive armor bonuses, you need to have it equipped " + Environment.NewLine +
 				"through the equipment interface."
@@ -3298,10 +3339,18 @@ namespace ExtendedSurvival.Stats
                 "Hand Weapon Damage"
             );
             AddEntry(
+                LanguageEntries.ARMOREFFECT_SHOOTINGACCURACY_NAME,
+                "Shooting Accuracy"
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
 				"Armor Equipped: {0} [{1} Empty Modules]."
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.HELMETDESC_UI_EQUIPED,
+                "Helmet Equipped: {0} [{1} Empty Modules]."
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
 				"Shield Equipped [{0} Max Points]."
 			);
@@ -3544,9 +3593,30 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.MODULEATTRIBUTE_SPIKEDAMAGE_NAME,
 				"Spike Damage"
 			);
-			#endregion
-			#region Damage Types
-			AddEntry(
+            AddEntry(
+				LanguageEntries.AIMASSISTANT_NAME,
+                "Aim Assistant"
+            );
+            AddEntry(
+                LanguageEntries.ENHANCEDAIMASSISTANT_NAME,
+                "Enhanced Aim Assistant"
+            );
+            AddEntry(
+                LanguageEntries.PROFICIENTAIMASSISTANT_NAME,
+                "Proficient Aim Assistant"
+            );
+            AddEntry(
+                LanguageEntries.ELITEAIMASSISTANT_NAME,
+                "Elite Aim Assistant"
+            );
+            AddEntry(
+                LanguageEntries.AIMASSISTANT_DESCRIPTION,
+                "Aim assistant assists you so that the bullet's deflection angle " + Environment.NewLine +
+                "is smaller."
+            );
+            #endregion
+            #region Damage Types
+            AddEntry(
 				LanguageEntries.DAMAGETYPE_CREATURE_NAME,
 				"Creature"
 			);
@@ -3604,10 +3674,22 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORCOMBATMODULE_NAME,
 				"Combat Module"
 			);
-			#endregion
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMET_NAME,
+                "Suit Helmet"
+            );
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMETWORKMODULE_NAME,
+                "Work Module"
+            );
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMETCOMBATMODULE_NAME,
+                "Combat Module"
+            );
+            #endregion
 
 
-			AddEntry(
+            AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_DESCRIPTION,
 				""
 			);

@@ -1,12 +1,11 @@
 ﻿namespace ExtendedSurvival.Stats
 {
-
-    public class ArmorDefinition : BaseArmorPieceDefinition<ArmorSystemConstants.ArmorType, ArmorSystemConstants.ArmorCategory>
+    public class HelmetDefinition : BaseArmorPieceDefinition<ArmorSystemConstants.ArmorType, ArmorSystemConstants.HelmetCategory>
     {
-        
+
         protected override string GetCategoryName()
         {
-            return ArmorSystemConstants.GetArmorCategoryName(Category);
+            return ArmorSystemConstants.GetHelmetCategoryName(Category);
         }
 
         protected override string GetTypeName()

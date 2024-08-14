@@ -3243,7 +3243,48 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.HUNTERARMOR_NAME,
 				"Jägerrüstung"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMET_NAME,
+                "Scavenger-Helm"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETLIGHT_NAME,
+                "Scavenger-Helm [Leicht]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETHEAVY_NAME,
+                "Scavenger-Helm [Verstärkt]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETEXPANDED_NAME,
+                "Scavenger-Helm [Erweitert]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMET_DESCRIPTION,
+                "Ein sehr verbreitetes Helmmodell für diejenigen, die nicht über viele" + Environment.NewLine +
+                "Ressourcen verfügen und zusätzlichen Schutz benötigen."
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMET_NAME,
+                "Jägerhelm"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETLIGHT_NAME,
+                "Jägerhelm [Leicht]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETHEAVY_NAME,
+                "Jägerhelm [Verstärkt]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETEXPANDED_NAME,
+                "Jägerhelm [Erweitert]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMET_DESCRIPTION,
+                "Ein sehr effektiver Helm für erfahrene Jäger."
+            );
+            AddEntry(
 				LanguageEntries.HUNTERARMOR_DESCRIPTION,
 				"Eine sehr effektive Rüstung für erfahrene Jäger."
 			);
@@ -3334,10 +3375,18 @@ namespace ExtendedSurvival.Stats
                 "Handwaffenschaden"
             );
             AddEntry(
+                LanguageEntries.ARMOREFFECT_SHOOTINGACCURACY_NAME,
+                "Schussgenauigkeit"
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
 				"Rüstung ausgerüstet: {0} [{1} Leere Module]."
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.HELMETDESC_UI_EQUIPED,
+                "Helm ausgerüstet: {0} [{1} Leere Module]."
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
 				"Schild ausgerüstet [{0} Max. Punkte]."
 			);
@@ -3585,9 +3634,30 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.MODULEATTRIBUTE_SPIKEDAMAGE_NAME,
 				"Spike-Schaden"
 			);
-			#endregion
-			#region Damage Types
-			AddEntry(
+            AddEntry(
+                LanguageEntries.AIMASSISTANT_NAME,
+                "Zielassistent"
+            );
+            AddEntry(
+                LanguageEntries.ENHANCEDAIMASSISTANT_NAME,
+                "Verbesserter Zielassistent"
+            );
+            AddEntry(
+                LanguageEntries.PROFICIENTAIMASSISTANT_NAME,
+                "Kompetenter Zielassistent"
+            );
+            AddEntry(
+                LanguageEntries.ELITEAIMASSISTANT_NAME,
+                "Elite-Zielassistent"
+            );
+            AddEntry(
+                LanguageEntries.AIMASSISTANT_DESCRIPTION,
+                "Der Zielassistent unterstützt Sie dabei, den Ablenkungswinkel des " + Environment.NewLine +
+                "Geschosses zu verkleinern."
+            );
+            #endregion
+            #region Damage Types
+            AddEntry(
 				LanguageEntries.DAMAGETYPE_CREATURE_NAME,
 				"Kreatur"
 			);
@@ -3645,8 +3715,20 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORCOMBATMODULE_NAME,
 				"Kampfmodul"
 			);
-			#endregion
-		}
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMET_NAME,
+                "Anzughelm"
+            );
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMETWORKMODULE_NAME,
+                "Arbeitsmodul"
+            );
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMETCOMBATMODULE_NAME,
+                "Kampfmodul"
+            );
+            #endregion
+        }
 
 	}
 

@@ -31,6 +31,10 @@
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorLight_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorHeavy_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerArmorExpanded_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmet_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmetLight_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmetHeavy_Construction" />
+    <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="ScavengerHelmetExpanded_Construction" />
 
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="HotThermalRegulator_Construction" />
     <Entry Class="AdvancedAssembler_Armors_Blueprints" BlueprintSubtypeId="EnhancedHotThermalRegulator_Construction" />

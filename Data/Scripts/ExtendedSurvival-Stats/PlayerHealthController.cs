@@ -149,9 +149,10 @@ namespace ExtendedSurvival.Stats
                 {
                     if (armorInfo != null && armorInfo.HasArmor)
                     {
-                        if (armorInfo.ArmorDefinition.Resistences.ContainsKey(damageType))
+                        var resistence = armorInfo.GetResistence(damageType);
+                        if (resistence > 0)
                         {
-                            var amountToChange = damage.Amount * armorInfo.ArmorDefinition.Resistences[damageType];
+                            var amountToChange = damage.Amount * resistence;
                             damage.Amount -= amountToChange;
                         }
                     }

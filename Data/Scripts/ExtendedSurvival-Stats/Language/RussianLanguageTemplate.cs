@@ -3247,7 +3247,48 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.HUNTERARMOREXPANDED_NAME,
 				"Охотничьи доспехи [Увеличенные]"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMET_NAME,
+                "Шлем мусорщика"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETLIGHT_NAME,
+                "Шлем мусорщика [Легкие]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETHEAVY_NAME,
+                "Шлем мусорщика [Укрепленные]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMETEXPANDED_NAME,
+                "Шлем мусорщика [Увеличенные]"
+            );
+            AddEntry(
+                LanguageEntries.SCAVENGERHELMET_DESCRIPTION,
+                "Очень распространенная модель шлема для тех, у кого мало ресурсов и" + Environment.NewLine +
+                "нужна дополнительная защита."
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMET_NAME,
+                "Охотничий шлем"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETLIGHT_NAME,
+                "Охотничий шлем [Легкие]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETHEAVY_NAME,
+                "Охотничий шлем [Укрепленные]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMETEXPANDED_NAME,
+                "Охотничий шлем [Увеличенные]"
+            );
+            AddEntry(
+                LanguageEntries.HUNTERHELMET_DESCRIPTION,
+                "Очень эффективный шлем для опытных охотников."
+            );
+            AddEntry(
 				LanguageEntries.ARMOR_DESCRIPTION,
 				"Примечание. Чтобы получать бонусы к броне, вам необходимо экипировать " + Environment.NewLine +
 				"ее через интерфейс оборудования."
@@ -3320,10 +3361,18 @@ namespace ExtendedSurvival.Stats
                 "Урон от ручного оружия"
             );
             AddEntry(
+                LanguageEntries.ARMOREFFECT_SHOOTINGACCURACY_NAME,
+                "Точность стрельбы"
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_EQUIPED,
 				"Одетые доспехи: {0} [{1} пустых модулей]."
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.HELMETDESC_UI_EQUIPED,
+                "В шлеме установлено: {0} [{1} пустых модулей]."
+            );
+            AddEntry(
 				LanguageEntries.ARMORDESC_UI_SHIELD_EQUIPED,
 				"Одет щит [{0} максимальных очков]."
 			);
@@ -3522,9 +3571,29 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.MODULEATTRIBUTE_SPIKEDAMAGE_NAME,
 				"Урон шипом"
 			);
-			#endregion
-			#region Damage Types
-			AddEntry(
+            AddEntry(
+                LanguageEntries.AIMASSISTANT_NAME,
+                "Помощник по прицеливанию"
+            );
+            AddEntry(
+                LanguageEntries.ENHANCEDAIMASSISTANT_NAME,
+                "Улучшенный помощник по прицеливанию"
+            );
+            AddEntry(
+                LanguageEntries.PROFICIENTAIMASSISTANT_NAME,
+                "Опытный помощник по прицеливанию"
+            );
+            AddEntry(
+                LanguageEntries.ELITEAIMASSISTANT_NAME,
+                "Элитный помощник по прицеливанию"
+            );
+            AddEntry(
+                LanguageEntries.AIMASSISTANT_DESCRIPTION,
+                "Помощник прицеливания поможет вам уменьшить угол отклонения пули."
+            );
+            #endregion
+            #region Damage Types
+            AddEntry(
 				LanguageEntries.DAMAGETYPE_CREATURE_NAME,
 				"Существо"
 			);
@@ -3582,8 +3651,20 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.EQUIPABLEITEMCATEGORY_ARMORCOMBATMODULE_NAME,
 				"Боевой модуль"
 			);
-			#endregion
-		}
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMET_NAME,
+                "Костюм Шлем"
+            );
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMETWORKMODULE_NAME,
+                "Рабочий модуль"
+            );
+            AddEntry(
+                LanguageEntries.EQUIPABLEITEMCATEGORY_HELMETCOMBATMODULE_NAME,
+                "Боевой модуль"
+            );
+            #endregion
+        }
 
 	}
 

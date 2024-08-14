@@ -24,8 +24,8 @@ namespace ExtendedSurvival.Stats
             {
                 if (armor != null && armor.HasArmor)
                 {
-                    hasToxicity = armor.HasAnyModule(EquipmentConstants.TOXICITYFILTER_MODULES);
-                    hasRadioactivity = armor.HasAnyModule(EquipmentConstants.RADIOACTIVITYFILTER_MODULES);
+                    hasToxicity = armor.HasAnyHelmetModule(EquipmentConstants.TOXICITYFILTER_MODULES);
+                    hasRadioactivity = armor.HasAnyHelmetModule(EquipmentConstants.RADIOACTIVITYFILTER_MODULES);
                     if (hasToxicity || hasRadioactivity)
                     {
                         var inventory = playerStats.StatComponent.Entity.GetInventory();
@@ -86,7 +86,7 @@ namespace ExtendedSurvival.Stats
         public static bool DoFillGasToCool(float exposeValue, PlayerArmorController.PlayerEquipInfo armor, IMyInventoryItem[] bottles, params UniqueEntityId[] ids)
         {
             var needToContinue = true;
-            var module = armor.GetFirstModule(ids);
+            var module = armor.GetFirstHelmetModule(ids);
             if (module != null)
             {
                 if (exposeValue < 0)

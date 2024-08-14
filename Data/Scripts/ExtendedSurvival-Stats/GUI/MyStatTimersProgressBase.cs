@@ -39,11 +39,11 @@ namespace ExtendedSurvival.Stats
                         case 2: /* EnergyShield */
                             return Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyModule(EquipmentConstants.SHIELDGENERATORS_MODULES);
                         case 3: /* IntoxicationTime */
-                            return Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyModule(EquipmentConstants.TOXICITYFILTER_MODULES);
+                            return Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyHelmetModule(EquipmentConstants.TOXICITYFILTER_MODULES);
                         case 4: /* WoundedTime */
                             return Stats[index] != null && Stats[index].Value > 0;
                         case 5: /* RadiationTime */
-                            return Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyModule(EquipmentConstants.RADIOACTIVITYFILTER_MODULES);
+                            return Stats[index] != null && GetBodyTrackerLevel() >= 1 && armor != null && armor.HasArmor && armor.HasAnyHelmetModule(EquipmentConstants.RADIOACTIVITYFILTER_MODULES);
                         case 6:
                         case 7:
                         case 8:

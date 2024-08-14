@@ -336,6 +336,7 @@ namespace ExtendedSurvival.Stats
         private static Func<long, IMySlimBlock[]> _GetOffwaterCollectors;
         private static Func<long, List<IMySlimBlock>> _GetWaterSolidificators;
         private static Func<long, MyObjectBuilderType, string, List<IMySlimBlock>> _GetGridBlocks;
+        private static Func<long, IMySlimBlock> _FindGridBlockById;
         private static Action<Guid, Action<Guid, MyInventory, IMyEntity, TimeSpan>> _RegisterInventoryObserverUpdateCallback;
         private static Action<Guid, Action<Guid, MyInventory, MyPhysicalInventoryItem, MyFixedPoint>> _RegisterInventoryObserverAfterContentsAddedCallback;
         private static Action<Guid, Action<Guid, MyInventory, MyPhysicalInventoryItem, MyFixedPoint>> _RegisterInventoryObserverAfterContentsRemovedCallback;
@@ -690,6 +691,14 @@ namespace ExtendedSurvival.Stats
         }
 
         /// <summary>
+        /// return a list of blocks with type e/or subtype
+        /// </summary>
+        public static IMySlimBlock FindGridBlockById(long blockId)
+        {
+            return _FindGridBlockById?.Invoke(blockId);
+        }
+
+        /// <summary>
         /// return true if grid has Disassembly Computer
         /// </summary>
         public static bool HasDisassemblyComputer(long gridId)
@@ -846,6 +855,7 @@ namespace ExtendedSurvival.Stats
                         _GetOffwaterCollectors = (Func<long, IMySlimBlock[]>)ModAPIMethods["GetOffwaterCollectors"];
                         _GetWaterSolidificators = (Func<long, List<IMySlimBlock>>)ModAPIMethods["GetWaterSolidificators"];
                         _GetGridBlocks = (Func<long, MyObjectBuilderType, string, List<IMySlimBlock>>)ModAPIMethods["GetGridBlocks"];
+                        _FindGridBlockById = (Func<long, IMySlimBlock>)ModAPIMethods["FindGridBlockById"];
                         _RegisterInventoryObserverUpdateCallback = (Action<Guid, Action<Guid, MyInventory, IMyEntity, TimeSpan>>)ModAPIMethods["RegisterInventoryObserverUpdateCallback"];
                         _RegisterInventoryObserverAfterContentsAddedCallback = (Action<Guid, Action<Guid, MyInventory, MyPhysicalInventoryItem, MyFixedPoint>>)ModAPIMethods["RegisterInventoryObserverAfterContentsAddedCallback"];
                         _RegisterInventoryObserverAfterContentsRemovedCallback = (Action<Guid, Action<Guid, MyInventory, MyPhysicalInventoryItem, MyFixedPoint>>)ModAPIMethods["RegisterInventoryObserverAfterContentsRemovedCallback"];

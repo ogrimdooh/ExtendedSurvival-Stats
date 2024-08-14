@@ -86,8 +86,8 @@ namespace ExtendedSurvival.Stats
             {
                 baseRange = new Vector4(
                     baseRange.X,
-                    baseRange.Y - armorInfo.ArmorDefinition.ColdResistence,
-                    baseRange.Z + armorInfo.ArmorDefinition.HotResistence,
+                    baseRange.Y - armorInfo.GetColdResistence(),
+                    baseRange.Z + armorInfo.GetHotResistence(),
                     baseRange.W
                 );
             }
