@@ -376,6 +376,7 @@ namespace ExtendedSurvival.Stats
                                 }
                                 else
                                 {
+                                    /* TODO : Need to find a better way to do it for hand gun
                                     var character = projectile.OwnerEntity as IMyCharacter;
                                     if (character != null)
                                     {
@@ -391,7 +392,7 @@ namespace ExtendedSurvival.Stats
                                                     weaponDefinition,
                                                     ammoDefinition,
                                                     true,
-                                                    false,
+                                                    isAiming,
                                                     weaponDefinition.DeviateShotAngle * deviateMultiplier,
                                                     weaponDefinition.DeviateShotAngleAiming * deviateMultiplier,
                                                     projectile.Origin,
@@ -401,7 +402,7 @@ namespace ExtendedSurvival.Stats
                                                 );
                                             }
                                         }
-                                    }
+                                    }*/
                                 }
                             }
                         }
