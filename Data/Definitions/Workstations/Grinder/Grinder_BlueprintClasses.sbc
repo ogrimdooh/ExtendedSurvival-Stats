@@ -1,10 +1,42 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+  
+  <BlueprintClasses>
+    
+    <Class>
+      <Id>
+        <TypeId>BlueprintClassDefinition</TypeId>
+        <SubtypeId>Grinder_Seeds_Blueprints</SubtypeId>
+      </Id>
+      <DisplayName>Seeds</DisplayName>
+      <Description></Description>
+      <Icon>Textures\GUI\Icons\buttons\Grain.dds</Icon>
+      <HighlightIcon>Textures\GUI\Icons\buttons\Grain.dds</HighlightIcon>
+      <FocusIcon>Textures\GUI\Icons\buttons\GrainFocus.dds</FocusIcon>
+      <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+    </Class>
+    
+  </BlueprintClasses>
+  
   <BlueprintClassEntries>
 
     <Entry Class="Grinder_Blueprints" BlueprintSubtypeId="TreeDead_Desconstruction" />
     <Entry Class="Grinder_Blueprints" BlueprintSubtypeId="AppleTree_Desconstruction" />
+
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="AloeVeraSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="ChamomileSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="MintSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="CarrotSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="BeetrootSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="ChampignonsSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="ShiitakeSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="AmanitaMuscariaSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="ArnicaSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="ErythroxylumSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="BroccoliSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="TomatoSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="CoffeeSeeds_Construction" />
+    <Entry Class="Grinder_Seeds_Blueprints" BlueprintSubtypeId="WheatSeeds_Construction" />
 
   </BlueprintClassEntries>
   

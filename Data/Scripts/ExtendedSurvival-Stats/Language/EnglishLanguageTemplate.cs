@@ -2183,8 +2183,32 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ERYTHROXYLUM_SEEDS_DESCRIPTION,
 				"Erythroxylum seeds can be grown with fertilizer and ice on farms."
 			);
-			#region SeedDefinition
-			AddEntry(
+            AddEntry(
+				LanguageEntries.AMANITAMUSCARIA_SEEDS_NAME,
+                "Amanita Muscaria Seeds"
+            );
+            AddEntry(
+                LanguageEntries.AMANITAMUSCARIA_SEEDS_DESCRIPTION,
+                "Amanita Muscaria seeds can be grown with fertilizer and ice on farms."
+            );
+            AddEntry(
+                LanguageEntries.CHAMPIGNONS_SEEDS_NAME,
+                "Champignons Seeds"
+            );
+            AddEntry(
+                LanguageEntries.CHAMPIGNONS_SEEDS_DESCRIPTION,
+                "Champignons seeds can be grown with fertilizer and ice on farms."
+            );
+            AddEntry(
+                LanguageEntries.SHIITAKE_SEEDS_NAME,
+                "Shiitake Seeds"
+            );
+            AddEntry(
+                LanguageEntries.SHIITAKE_SEEDS_DESCRIPTION,
+                "Shiitake seeds can be grown with fertilizer and ice on farms."
+            );
+            #region SeedDefinition
+            AddEntry(
 				LanguageEntries.SEEDDEFINITION_DESCRIPTION,
 				"Need sunlight: {0}" + Environment.NewLine +
 				"Favorite Fertilizer: {1}"

@@ -28,7 +28,22 @@
   </PhysicalItems>
   <Blueprints>
 
-    
-    
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CarrotSeeds_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Carrot Seeds</DisplayName>
+      <Icon>Textures\GUI\Icons\carrot_seeds.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Carrot" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.01" TypeId="Ore" SubtypeId="CarrotSeeds" />
+      </Results>
+      <BaseProductionTimeInSeconds>0.64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
   </Blueprints>
 </Definitions>

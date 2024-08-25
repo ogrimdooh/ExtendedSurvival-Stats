@@ -42,6 +42,9 @@ namespace ExtendedSurvival.Stats
         public const string SURVIVALKIT_ALCHEMY_BLUEPRINTS = "SurvivalKit_Alchemy_Blueprints";
         public const string SURVIVALKIT_CONSUMABLES_BLUEPRINTS = "SurvivalKit_Consumables";
 
+        public const string BASICGRINDER_SEEDS_BLUEPRINTS = "BasicGrinder_Seeds_Blueprints";
+        public const string GRINDER_SEEDS_BLUEPRINTS = "Grinder_Seeds_Blueprints";
+
         public const string WOOD_SUBTYPEID = "Wood";
         public static readonly UniqueEntityId WOODLOG_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), WOOD_SUBTYPEID);
 

@@ -2123,7 +2123,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ARNICA_SEEDS_DESCRIPTION,
-				"Семена арники могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена арники могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.BEETROOT_SEEDS_NAME,
@@ -2131,7 +2132,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.BEETROOT_SEEDS_DESCRIPTION,
-				"Семена свеклы могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена свеклы могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.BROCCOLI_SEEDS_NAME,
@@ -2139,7 +2141,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.BROCCOLI_SEEDS_DESCRIPTION,
-				"Семена брокколи могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена брокколи могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.CARROT_SEEDS_NAME,
@@ -2147,7 +2150,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.CARROT_SEEDS_DESCRIPTION,
-				"Семена моркови могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена моркови могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_SEEDS_NAME,
@@ -2155,7 +2159,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.COFFEE_SEEDS_DESCRIPTION,
-				"Семена кофе могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена кофе могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.MINT_SEEDS_NAME,
@@ -2163,7 +2168,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.MINT_SEEDS_DESCRIPTION,
-				"Семена мяты могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена мяты могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.TOMATO_SEEDS_NAME,
@@ -2171,7 +2177,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.TOMATO_SEEDS_DESCRIPTION,
-				"Семена помидоров могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена помидоров могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.WHEAT_SEEDS_NAME,
@@ -2179,7 +2186,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.WHEAT_SEEDS_DESCRIPTION,
-				"Семена пшеницы могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена пшеницы могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILE_SEEDS_NAME,
@@ -2187,7 +2195,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.CHAMOMILE_SEEDS_DESCRIPTION,
-				"Семена ромашки могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена ромашки могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERA_SEEDS_NAME,
@@ -2195,7 +2204,8 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ALOEVERA_SEEDS_DESCRIPTION,
-				"Семена алоэ вера могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена алоэ вера могут быть выращены с использованием удобрений и льда " + Environment.NewLine +
+                "на фермах."
 			);
 			AddEntry(
 				LanguageEntries.ERYTHROXYLUM_SEEDS_NAME,
@@ -2203,10 +2213,38 @@ namespace ExtendedSurvival.Stats
 			);
 			AddEntry(
 				LanguageEntries.ERYTHROXYLUM_SEEDS_DESCRIPTION,
-				"Семена эритроксилума могут быть выращены с использованием удобрений и льда на фермах."
+                "Семена эритроксилума могут быть выращены с использованием удобрений и " + Environment.NewLine +
+                "льда на фермах."
 			);
-			#region Определение семян
-			AddEntry(
+            AddEntry(
+                LanguageEntries.AMANITAMUSCARIA_SEEDS_NAME,
+                "Семена мухомора мускария"
+            );
+            AddEntry(
+                LanguageEntries.AMANITAMUSCARIA_SEEDS_DESCRIPTION,
+                "Семена Amanita Muscaria можно выращивать на фермах с использованием " + Environment.NewLine +
+                "удобрений и льда."
+            );
+            AddEntry(
+                LanguageEntries.CHAMPIGNONS_SEEDS_NAME,
+                "Семена шампиньонов"
+            );
+            AddEntry(
+                LanguageEntries.CHAMPIGNONS_SEEDS_DESCRIPTION,
+                "Семена шампиньонов можно выращивать на фермах с использованием удобрений " + Environment.NewLine +
+                "и льда."
+            );
+            AddEntry(
+                LanguageEntries.SHIITAKE_SEEDS_NAME,
+                "Семена Шиитаке"
+            );
+            AddEntry(
+                LanguageEntries.SHIITAKE_SEEDS_DESCRIPTION,
+                "Семена шиитаке можно выращивать на фермах с использованием удобрений " + Environment.NewLine +
+                "и льда."
+            );
+            #region Определение семян
+            AddEntry(
 				LanguageEntries.SEEDDEFINITION_DESCRIPTION,
 				"Требуется солнечный свет: {0}" + Environment.NewLine +
 				"Любимые удобрения: {1}"

@@ -54,9 +54,13 @@ namespace ExtendedSurvival.Stats
         public const int BASE_TIME_TO_PRODUCE = 5000;
         public const float BASE_FERTILIZER_FACTOR = 0.015f;
         public const float BASE_ICE_FACTOR = 0.025f;
-        public const float BASE_SEED_FACTOR = 0.1f;
         public const float BASE_SUN_MULTIPLIER_FACTOR = 0.5f;
         public const float BASE_SUN_MULTIPLIER_SEED_FACTOR = 1.5f;
+
+        public const float BASE_HERB_SEED_FACTOR = 0.1f;
+        public const float BASE_GRAIN_SEED_FACTOR = 0.1f;
+        public const float BASE_MUSHROOM_SEED_FACTOR = 0.001f;
+        public const float BASE_VEGETABLE_SEED_FACTOR = 0.01f;
 
         public const float BASE_SPOILMULTIPLIER_WITH_TREE = 0.25f;
 
@@ -178,11 +182,11 @@ namespace ExtendedSurvival.Stats
         public static readonly Dictionary<UniqueEntityId, FarmDefinition> DEFINITIONS = new Dictionary<UniqueEntityId, FarmDefinition>()
         {
             {
-                FoodConstants.SHIITAKE_ID, new FarmDefinition()
+                SeedsAndFertilizerConstants.SHIITAKE_SEEDS_ID, new FarmDefinition()
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = 0,
+                    SeedFactor = BASE_MUSHROOM_SEED_FACTOR,
                     SunRequired = false,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.MINERALFERTILIZER_ID,
@@ -191,20 +195,20 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =FoodConstants.SHIITAKE_ID,
-                            BaseFactor = new Vector2(1, 2),
+                            BaseFactor = new Vector2(3, 12),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
-                            ChanceToGenerate = 35
+                            ChanceToGenerate = 50
                         }
                     }
                 }
             },
             {
-                FoodConstants.CHAMPIGNONS_ID, new FarmDefinition()
+                SeedsAndFertilizerConstants.CHAMPIGNONS_SEEDS_ID, new FarmDefinition()
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = 0,
+                    SeedFactor = BASE_MUSHROOM_SEED_FACTOR,
                     SunRequired = false,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.MINERALFERTILIZER_ID,
@@ -213,20 +217,20 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =FoodConstants.CHAMPIGNONS_ID,
-                            BaseFactor = new Vector2(1, 2),
+                            BaseFactor = new Vector2(3, 12),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
-                            ChanceToGenerate = 45
+                            ChanceToGenerate = 50
                         }
                     }
                 }
             },
             {
-                FoodConstants.AMANITAMUSCARIA_ID, new FarmDefinition()
+                SeedsAndFertilizerConstants.AMANITAMUSCARIA_SEEDS_ID, new FarmDefinition()
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = 0,
+                    SeedFactor = BASE_MUSHROOM_SEED_FACTOR,
                     SunRequired = false,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.MINERALFERTILIZER_ID,
@@ -235,10 +239,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =FoodConstants.AMANITAMUSCARIA_ID,
-                            BaseFactor = new Vector2(1, 2),
+                            BaseFactor = new Vector2(3, 12),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
-                            ChanceToGenerate = 25
+                            ChanceToGenerate = 50
                         }
                     }
                 }
@@ -248,7 +252,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_VEGETABLE_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.MINERALFERTILIZER_ID,
@@ -257,18 +261,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =FoodConstants.BEETROOT_ID,
-                            BaseFactor = new Vector2(2, 3),
+                            BaseFactor = new Vector2(6, 18),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.BEETROOT_SEEDS_ID,
-                            BaseFactor = new Vector2(0.25f, 0.5f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -278,7 +274,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_HERB_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -287,18 +283,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =HerbsConstants.ARNICA_ID,
-                            BaseFactor = new Vector2(2.5f, 7.5f),
+                            BaseFactor = new Vector2(0.5f, 4.0f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product = SeedsAndFertilizerConstants.ARNICA_SEEDS_ID,
-                            BaseFactor = new Vector2(0.05f, 0.25f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -308,7 +296,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_VEGETABLE_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.MINERALFERTILIZER_ID,
@@ -317,18 +305,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =FoodConstants.BROCCOLI_ID,
-                            BaseFactor = new Vector2(1, 2),
+                            BaseFactor = new Vector2(3, 12),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.BROCCOLI_SEEDS_ID,
-                            BaseFactor = new Vector2(0.15f, 0.35f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -338,7 +318,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_VEGETABLE_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.MINERALFERTILIZER_ID,
@@ -347,18 +327,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =FoodConstants.CAROOT_ID,
-                            BaseFactor = new Vector2(2, 3),
+                            BaseFactor = new Vector2(6, 18),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.CARROT_SEEDS_ID,
-                            BaseFactor = new Vector2(0.25f, 0.5f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -368,7 +340,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_GRAIN_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -377,18 +349,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product = OreConstants.COFFEE_ID,
-                            BaseFactor = new Vector2(0.5f, 4.5f),
+                            BaseFactor = new Vector2(0.5f, 4.0f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.COFFEE_SEEDS_ID,
-                            BaseFactor = new Vector2(0.15f, 0.55f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -398,7 +362,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_HERB_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -407,18 +371,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =HerbsConstants.MINT_ID,
-                            BaseFactor = new Vector2(3.75f, 6.50f),
+                            BaseFactor = new Vector2(0.5f, 4.0f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.MINT_SEEDS_ID,
-                            BaseFactor = new Vector2(0.1f, 0.5f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -428,7 +384,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_VEGETABLE_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -437,18 +393,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =FoodConstants.TOMATO_ID,
-                            BaseFactor = new Vector2(1, 2),
+                            BaseFactor = new Vector2(3, 12),
                             AllowDecimal = false,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.TOMATO_SEEDS_ID,
-                            BaseFactor = new Vector2(0.15f, 0.35f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -458,7 +406,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_GRAIN_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -467,18 +415,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product = OreConstants.WHEAT_ID,
-                            BaseFactor = new Vector2(1.25f, 7.75f),
+                            BaseFactor = new Vector2(0.5f, 4.0f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.WHEAT_SEEDS_ID,
-                            BaseFactor = new Vector2(0.2f, 0.8f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -488,7 +428,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_HERB_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -497,18 +437,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =HerbsConstants.CHAMOMILE_ID,
-                            BaseFactor = new Vector2(3.75f, 6.50f),
+                            BaseFactor = new Vector2(0.5f, 4.0f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.CHAMOMILE_SEEDS_ID,
-                            BaseFactor = new Vector2(0.1f, 0.5f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -518,7 +450,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_HERB_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -527,18 +459,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =HerbsConstants.ALOEVERA_ID,
-                            BaseFactor = new Vector2(5.75f, 12.5f),
+                            BaseFactor = new Vector2(0.5f, 4.0f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.ALOEVERA_SEEDS_ID,
-                            BaseFactor = new Vector2(0.15f, 0.45f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }
@@ -548,7 +472,7 @@ namespace ExtendedSurvival.Stats
                 {
                     FertilizerFactor = BASE_FERTILIZER_FACTOR,
                     IceFactor = BASE_ICE_FACTOR,
-                    SeedFactor = BASE_SEED_FACTOR,
+                    SeedFactor = BASE_HERB_SEED_FACTOR,
                     SunRequired = true,
                     TimeToProduceInMs = BASE_TIME_TO_PRODUCE,
                     PreferredFertilizer = SeedsAndFertilizerConstants.FERTILIZER_ID,
@@ -557,18 +481,10 @@ namespace ExtendedSurvival.Stats
                         new FarmResultDefinition()
                         {
                             Product =HerbsConstants.ERYTHROXYLUM_ID,
-                            BaseFactor = new Vector2(5.75f, 12.5f),
+                            BaseFactor = new Vector2(0.5f, 4.0f),
                             AllowDecimal = true,
                             SunMultiplierFactor = BASE_SUN_MULTIPLIER_FACTOR,
                             ChanceToGenerate = 50
-                        },
-                        new FarmResultDefinition()
-                        {
-                            Product =SeedsAndFertilizerConstants.ERYTHROXYLUM_SEEDS_ID,
-                            BaseFactor = new Vector2(0.15f, 0.45f),
-                            AllowDecimal = true,
-                            SunMultiplierFactor = BASE_SUN_MULTIPLIER_SEED_FACTOR,
-                            ChanceToGenerate = 25
                         }
                     }
                 }

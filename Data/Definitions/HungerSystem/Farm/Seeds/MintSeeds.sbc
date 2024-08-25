@@ -28,7 +28,22 @@
   </PhysicalItems>
   <Blueprints>
 
-    
-    
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>MintSeeds_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Mint Seeds</DisplayName>
+      <Icon>Textures\GUI\Icons\mint_seeds.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ore" SubtypeId="Mint" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.1" TypeId="Ore" SubtypeId="MintSeeds" />
+      </Results>
+      <BaseProductionTimeInSeconds>0.64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
   </Blueprints>
 </Definitions>

@@ -28,7 +28,22 @@
   </PhysicalItems>
   <Blueprints>
 
-    
-    
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>TomatoSeeds_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Tomato Seeds</DisplayName>
+      <Icon>Textures\GUI\Icons\tomato_seeds.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Tomato" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.01" TypeId="Ore" SubtypeId="TomatoSeeds" />
+      </Results>
+      <BaseProductionTimeInSeconds>0.64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
   </Blueprints>
 </Definitions>

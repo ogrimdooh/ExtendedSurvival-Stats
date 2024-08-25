@@ -28,7 +28,22 @@
   </PhysicalItems>
   <Blueprints>
 
-    
-    
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>WheatSeeds_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Wheat Seeds</DisplayName>
+      <Icon>Textures\GUI\Icons\wheat_seeds.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Ingot" SubtypeId="Wheat" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.1" TypeId="Ore" SubtypeId="WheatSeeds" />
+      </Results>
+      <BaseProductionTimeInSeconds>0.64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
   </Blueprints>
 </Definitions>

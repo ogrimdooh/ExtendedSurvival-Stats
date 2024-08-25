@@ -28,7 +28,22 @@
   </PhysicalItems>
   <Blueprints>
 
-    
-    
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>BroccoliSeeds_Construction</SubtypeId>
+      </Id>
+      <DisplayName>Broccoli Seeds</DisplayName>
+      <Icon>Textures\GUI\Icons\broccoli_seeds.dds</Icon>
+      <Description></Description>
+      <Prerequisites>
+        <Item Amount="1" TypeId="ConsumableItem" SubtypeId="Broccoli" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="0.01" TypeId="Ore" SubtypeId="BroccoliSeeds" />
+      </Results>
+      <BaseProductionTimeInSeconds>0.64</BaseProductionTimeInSeconds>
+    </Blueprint>
+
   </Blueprints>
 </Definitions>

@@ -126,6 +126,22 @@ namespace ExtendedSurvival.Stats
             }
         }
 
+        public static void SetUpBasicGrinder(MyAssemblerDefinition assemblerDefinition)
+        {
+            if (assemblerDefinition != null)
+            {
+                assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.BASICGRINDER_SEEDS_BLUEPRINTS));
+            }
+        }
+
+        public static void SetUpGrinder(MyAssemblerDefinition assemblerDefinition)
+        {
+            if (assemblerDefinition != null)
+            {
+                assemblerDefinition.BlueprintClasses.Add(MyDefinitionManager.Static.GetBlueprintClass(ItensConstants.GRINDER_SEEDS_BLUEPRINTS));
+            }
+        }
+
         public static void SetUpSurvivalKit(MySurvivalKitDefinition survivalKitDefinition)
         {
             if (survivalKitDefinition != null)
@@ -212,6 +228,13 @@ namespace ExtendedSurvival.Stats
                 var assemblerDefinition = (blockDefinition as MyAssemblerDefinition);
                 switch (assemblerDefinition.Id.SubtypeName)
                 {
+                    case Grinder:
+                    case GrinderIndustrial:
+                        SetUpGrinder(assemblerDefinition);
+                        break;
+                    case BasicGrinder:
+                        SetUpBasicGrinder(assemblerDefinition);
+                        break;
                     case AlchemyBench:
                     case AlchemyBenchIndustrial:
                         SetUpAlchemyBench(assemblerDefinition);

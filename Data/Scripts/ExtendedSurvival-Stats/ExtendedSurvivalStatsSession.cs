@@ -973,7 +973,7 @@ namespace ExtendedSurvival.Stats
                 DefinitionUtils.ChangeInventoryContainerType("Sheep_Bot", "SheepLoot");
                 DefinitionUtils.ChangeInventoryContainerType("Horse_Bot", "HorseLoot");
 
-                DefinitionUtils.ReplaceContainerTypeDefinition("PersonalContainerSmall", new Vector2I(2, 5), false, GetUnknownSignalLoot());
+                DefinitionUtils.ReplaceContainerTypeDefinition("PersonalContainerSmall", new Vector2I(4, 10), false, GetUnknownSignalLoot());
 
                 DefinitionUtils.ChangeStatValue("AnimalHealth", new Vector3(0, 150, 150));
                 DefinitionUtils.ChangeStatValue("Health", new Vector3(0, 250, 250));
@@ -1122,7 +1122,9 @@ namespace ExtendedSurvival.Stats
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.WHEAT_SEEDS_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.CHAMOMILE_SEEDS_ID, 0.1f),
                 DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.ALOEVERA_SEEDS_ID, 0.1f),
-                DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.ERYTHROXYLUM_SEEDS_ID, 0.1f)
+                DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.ERYTHROXYLUM_SEEDS_ID, 0.1f),
+                DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.CHAMPIGNONS_SEEDS_ID, 0.1f),
+                DefinitionUtils.GetLootItem(new Vector2(1, 5).GetMultiplier(multiplier), SeedsAndFertilizerConstants.SHIITAKE_SEEDS_ID, 0.1f)
             };
         }
 

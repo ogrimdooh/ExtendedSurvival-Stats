@@ -2216,8 +2216,33 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.ERYTHROXYLUM_SEEDS_DESCRIPTION,
 				"Erythroxylum-Samen können auf Farmen mit Dünger und Eis angebaut werden."
 			);
-			#region SeedDefinition
-			AddEntry(
+            AddEntry(
+                LanguageEntries.AMANITAMUSCARIA_SEEDS_NAME,
+                "Amanita Muscaria-Samen"
+            );
+            AddEntry(
+                LanguageEntries.AMANITAMUSCARIA_SEEDS_DESCRIPTION,
+                "Amanita Muscaria-Samen können auf Bauernhöfen mit Dünger und Eis angebaut " + Environment.NewLine +
+                "werden."
+            );
+            AddEntry(
+                LanguageEntries.CHAMPIGNONS_SEEDS_NAME,
+                "Champignonsamen"
+            );
+            AddEntry(
+                LanguageEntries.CHAMPIGNONS_SEEDS_DESCRIPTION,
+                "Champignonsamen können auf Bauernhöfen mit Dünger und Eis angebaut werden."
+            );
+            AddEntry(
+                LanguageEntries.SHIITAKE_SEEDS_NAME,
+                "Shiitake-Samen"
+            );
+            AddEntry(
+                LanguageEntries.SHIITAKE_SEEDS_DESCRIPTION,
+                "Shiitake-Samen können auf Bauernhöfen mit Dünger und Eis angebaut werden."
+            );
+            #region SeedDefinition
+            AddEntry(
 				LanguageEntries.SEEDDEFINITION_DESCRIPTION,
 				"Sonnenlicht brauchen: {0}" + Environment.NewLine +
 				"Lieblingsdünger: {1}"

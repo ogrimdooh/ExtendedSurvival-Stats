@@ -9,7 +9,16 @@ namespace ExtendedSurvival.Stats
 {
     public static class SeedsAndFertilizerConstants
     {
-        
+
+        public const string AMANITAMUSCARIA_SEEDS_SUBTYPEID = "AmanitaMuscariaSeeds";
+        public static readonly UniqueEntityId AMANITAMUSCARIA_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), AMANITAMUSCARIA_SEEDS_SUBTYPEID);
+
+        public const string CHAMPIGNONS_SEEDS_SUBTYPEID = "ChampignonsSeeds";
+        public static readonly UniqueEntityId CHAMPIGNONS_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CHAMPIGNONS_SEEDS_SUBTYPEID);
+
+        public const string SHIITAKE_SEEDS_SUBTYPEID = "ShiitakeSeeds";
+        public static readonly UniqueEntityId SHIITAKE_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), SHIITAKE_SEEDS_SUBTYPEID);
+
         public const string ARNICA_SEEDS_SUBTYPEID = "ArnicaSeeds";
         public static readonly UniqueEntityId ARNICA_SEEDS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), ARNICA_SEEDS_SUBTYPEID);
 
@@ -60,6 +69,48 @@ namespace ExtendedSurvival.Stats
 
         public const string APPLETREE_SUBTYPEID = "AppleTree";
         public static readonly UniqueEntityId APPLETREE_ID = new UniqueEntityId(typeof(MyObjectBuilder_GasContainerObject), APPLETREE_SUBTYPEID);
+
+        public static readonly SeedDefinition AMANITAMUSCARIA_SEEDS_DEFINITION = new SeedDefinition()
+        {
+            Id = AMANITAMUSCARIA_SEEDS_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.AMANITAMUSCARIA_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.AMANITAMUSCARIA_SEEDS_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 1250,
+            OfferAmount = new Vector2I(1000, 3000),
+            OrderAmount = new Vector2I(250, 750),
+            AcquisitionAmount = new Vector2I(500, 1500),
+            Mass = 1f,
+            Volume = 0.25f
+        };
+
+        public static readonly SeedDefinition CHAMPIGNONS_SEEDS_DEFINITION = new SeedDefinition()
+        {
+            Id = CHAMPIGNONS_SEEDS_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.CHAMPIGNONS_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.CHAMPIGNONS_SEEDS_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 625,
+            OfferAmount = new Vector2I(1000, 3000),
+            OrderAmount = new Vector2I(250, 750),
+            AcquisitionAmount = new Vector2I(500, 1500),
+            Mass = 1f,
+            Volume = 0.25f
+        };
+
+        public static readonly SeedDefinition SHIITAKE_SEEDS_DEFINITION = new SeedDefinition()
+        {
+            Id = SHIITAKE_SEEDS_ID,
+            Name = LanguageProvider.GetEntry(LanguageEntries.SHIITAKE_SEEDS_NAME),
+            Description = LanguageProvider.GetEntry(LanguageEntries.SHIITAKE_SEEDS_DESCRIPTION),
+            CanPlayerOrder = true,
+            MinimalPricePerUnit = 625,
+            OfferAmount = new Vector2I(1000, 3000),
+            OrderAmount = new Vector2I(250, 750),
+            AcquisitionAmount = new Vector2I(500, 1500),
+            Mass = 1f,
+            Volume = 0.25f
+        };
 
         public static readonly SeedDefinition ARNICA_SEEDS_DEFINITION = new SeedDefinition()
         {
@@ -227,7 +278,10 @@ namespace ExtendedSurvival.Stats
             { WHEAT_SEEDS_ID, WHEAT_SEEDS_DEFINITION },
             { CHAMOMILE_SEEDS_ID, CHAMOMILE_SEEDS_DEFINITION },
             { ALOEVERA_SEEDS_ID, ALOEVERA_SEEDS_DEFINITION },
-            { ERYTHROXYLUM_SEEDS_ID, ERYTHROXYLUM_SEEDS_DEFINITION }
+            { ERYTHROXYLUM_SEEDS_ID, ERYTHROXYLUM_SEEDS_DEFINITION },
+            { SHIITAKE_SEEDS_ID, SHIITAKE_SEEDS_DEFINITION },
+            { CHAMPIGNONS_SEEDS_ID, CHAMPIGNONS_SEEDS_DEFINITION },
+            { AMANITAMUSCARIA_SEEDS_ID, AMANITAMUSCARIA_SEEDS_DEFINITION }
         };
 
         public static readonly FertilizerDefinition FERTILIZER_DEFINITION = new FertilizerDefinition()
