@@ -1094,6 +1094,7 @@ namespace ExtendedSurvival.Stats
                 // BLOCKS
                 DescriptionBlocksOverride.TryOverride();
                 AssemblerOverride.TryOverride();
+                RefrigeratorOverride.TryOverride();
 
                 //HUD
                 HUDOverride.TryOverride();

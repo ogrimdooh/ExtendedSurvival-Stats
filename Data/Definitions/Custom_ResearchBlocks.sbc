@@ -17,14 +17,21 @@
     </ResearchBlock>
 
     <ResearchBlock xsi:type="ResearchBlock">
-      <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockRefrigerator" />
+      <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockLargeRefrigerator" />
+      <UnlockedByGroups>
+        <GroupSubtype>13001</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallBlockRefrigerator" />
       <UnlockedByGroups>
         <GroupSubtype>0</GroupSubtype>
       </UnlockedByGroups>
     </ResearchBlock>
 
     <ResearchBlock xsi:type="ResearchBlock">
-      <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="SmallBlockRefrigerator" />
+      <Id Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeBlockRefrigerator" />
       <UnlockedByGroups>
         <GroupSubtype>0</GroupSubtype>
       </UnlockedByGroups>

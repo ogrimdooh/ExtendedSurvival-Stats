@@ -145,6 +145,10 @@ namespace ExtendedSurvival.Stats
                 "Large Refrigerator"
             );
             AddEntry(
+                LanguageEntries.CUBEBLOCK_EXTRALARGE_REFRIGERATOR,
+                "Extra Large Refrigerator"
+            );
+            AddEntry(
                 LanguageEntries.CUBEBLOCK_REFRIGERATOR_DESCRIPTION,
                 "Refrigerator are blocks that can keep items from rotting. " +
                 "The energy cost varies based in inventory volume, " +

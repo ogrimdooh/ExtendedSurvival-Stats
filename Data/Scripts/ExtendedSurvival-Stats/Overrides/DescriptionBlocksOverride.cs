@@ -25,6 +25,7 @@ namespace ExtendedSurvival.Stats
         public static readonly UniqueEntityId FISHTRAP_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenGenerator), "FishTrap");
         public static readonly UniqueEntityId SMALL_REFRIGERATOR_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenGenerator), "SmallBlockRefrigerator");
         public static readonly UniqueEntityId LARGE_REFRIGERATOR_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenGenerator), "LargeBlockRefrigerator");
+        public static readonly UniqueEntityId EXTRALARGE_REFRIGERATOR_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenGenerator), "LargeBlockLargeRefrigerator");
         public static readonly UniqueEntityId FARM_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenFarm), "LargeBlockFarm");
         public static readonly UniqueEntityId TREE_FARM_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_OxygenFarm), "LargeBlockTreeFarm");
         public static readonly UniqueEntityId BASIC_FOOD_PROCESSOR_BLOCK = new UniqueEntityId(typeof(MyObjectBuilder_Assembler), "BasicFoodProcessor");
@@ -62,7 +63,7 @@ namespace ExtendedSurvival.Stats
                 new BlockDescriptionInfo()
                 {
                     Name = RefrigeratorBlock.SMALL_BLOCK_NAME,
-                    Description = RefrigeratorBlock.GetFullDescription(true)
+                    Description = RefrigeratorBlock.GetFullDescription(RefrigeratorBlock.RefrigeratorSize.Small)
                 }
             },
             {
@@ -70,7 +71,15 @@ namespace ExtendedSurvival.Stats
                 new BlockDescriptionInfo()
                 {
                     Name = RefrigeratorBlock.LARGE_BLOCK_NAME,
-                    Description = RefrigeratorBlock.GetFullDescription(false)
+                    Description = RefrigeratorBlock.GetFullDescription(RefrigeratorBlock.RefrigeratorSize.Large)
+                }
+            },
+            {
+                EXTRALARGE_REFRIGERATOR_BLOCK,
+                new BlockDescriptionInfo()
+                {
+                    Name = RefrigeratorBlock.EXTRALARGE_BLOCK_NAME,
+                    Description = RefrigeratorBlock.GetFullDescription(RefrigeratorBlock.RefrigeratorSize.ExtraLarge)
                 }
             },
             {

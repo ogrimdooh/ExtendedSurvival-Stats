@@ -17,6 +17,7 @@
         <string>OxygenFarm/LargeBlockTreeFarm</string>        
         <string>OxygenGenerator/SmallBlockRefrigerator</string>
         <string>OxygenGenerator/LargeBlockRefrigerator</string>
+        <string>OxygenGenerator/LargeBlockLargeRefrigerator</string>
         <string>OxygenGenerator/LargeBlockComposter</string>
         <string>OxygenGenerator/FishTrap</string>        
         <string>Assembler/BasicSlaughterhouse</string>

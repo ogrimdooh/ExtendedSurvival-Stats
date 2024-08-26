@@ -46,7 +46,7 @@ namespace ExtendedSurvival.Stats
             return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_SLAUGHTERHOUSE_DESCRIPTION);
         }
 
-        public static readonly string[] REFRIGERATOS_IDS = new string[] { "SmallBlockRefrigerator", "LargeBlockRefrigerator" };
+        public static readonly string[] REFRIGERATOS_IDS = new string[] { "SmallBlockRefrigerator", "LargeBlockRefrigerator", "LargeBlockLargeRefrigerator" };
 
         private void CheckOutputInventory()
         {

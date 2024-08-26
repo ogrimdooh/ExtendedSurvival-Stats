@@ -57,10 +57,10 @@ namespace ExtendedSurvival.Stats
         public const float BASE_SUN_MULTIPLIER_FACTOR = 0.5f;
         public const float BASE_SUN_MULTIPLIER_SEED_FACTOR = 1.5f;
 
-        public const float BASE_HERB_SEED_FACTOR = 0.1f;
-        public const float BASE_GRAIN_SEED_FACTOR = 0.1f;
-        public const float BASE_MUSHROOM_SEED_FACTOR = 0.001f;
-        public const float BASE_VEGETABLE_SEED_FACTOR = 0.01f;
+        public const float BASE_HERB_SEED_FACTOR = 0.01f;
+        public const float BASE_GRAIN_SEED_FACTOR = 0.01f;
+        public const float BASE_MUSHROOM_SEED_FACTOR = 0.01f;
+        public const float BASE_VEGETABLE_SEED_FACTOR = 0.1f;
 
         public const float BASE_SPOILMULTIPLIER_WITH_TREE = 0.25f;
 

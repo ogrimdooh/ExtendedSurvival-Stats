@@ -145,7 +145,11 @@ namespace ExtendedSurvival.Stats
 				LanguageEntries.CUBEBLOCK_LARGE_REFRIGERATOR,
 				"Большой Холодильник"
 			);
-			AddEntry(
+            AddEntry(
+                LanguageEntries.CUBEBLOCK_EXTRALARGE_REFRIGERATOR,
+                "Очень большой холодильник"
+            );
+            AddEntry(
 				LanguageEntries.CUBEBLOCK_REFRIGERATOR_DESCRIPTION,
 				"Холодильники - это блоки хранящие еду от гниения. " +
 				"Потребление энергии варьируется в зависимости от объема инвенторя, " +

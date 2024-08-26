@@ -47,7 +47,7 @@ namespace ExtendedSurvival.Stats
             return LanguageProvider.GetEntry(LanguageEntries.CUBEBLOCK_FOODPROCESSOR_DESCRIPTION);
         }
 
-        public static readonly string[] REFRIGERATOS_IDS = new string[] { "SmallBlockRefrigerator", "LargeBlockRefrigerator" };
+        public static readonly string[] REFRIGERATOS_IDS = new string[] { "SmallBlockRefrigerator", "LargeBlockRefrigerator", "LargeBlockLargeRefrigerator" };
         public static readonly string[] RISHTRAPS_IDS = new string[] { "FishTrap" };
         
         private void CheckOutputInventory()

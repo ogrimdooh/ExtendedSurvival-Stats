@@ -146,6 +146,10 @@ namespace ExtendedSurvival.Stats
 				"Großer Kühlschrank"
 			);
             AddEntry(
+                LanguageEntries.CUBEBLOCK_EXTRALARGE_REFRIGERATOR,
+                "Extra großer Kühlschrank"
+            );
+            AddEntry(
                 LanguageEntries.CUBEBLOCK_REFRIGERATOR_DESCRIPTION,
 				"Kühlschränke sind Blöcke, die verhindern können, dass Gegenstände verrotten. " +
 				"Die Energiekosten variieren je nach Bestandsvolumen, " +

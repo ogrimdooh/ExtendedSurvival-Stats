@@ -10,6 +10,11 @@ namespace ExtendedSurvival.Stats
         protected abstract ulong[] GetModId();
         protected abstract void OnSetDefinitions();
 
+        protected virtual void OnNotSetDefinitions()
+        {
+
+        }
+
         protected virtual bool IsCustomCheckOk()
         {
             return false;
@@ -25,7 +30,10 @@ namespace ExtendedSurvival.Stats
                 OnAfterSetDefinitions();
             }
             else
+            {
                 ExtendedSurvivalStatsLogging.Instance.LogInfo(GetType(), $"Override mod not found. ID=[{GetIds(ids)}]");
+                OnNotSetDefinitions();
+            }
         }
 
         private string GetIds(ulong[] ids)

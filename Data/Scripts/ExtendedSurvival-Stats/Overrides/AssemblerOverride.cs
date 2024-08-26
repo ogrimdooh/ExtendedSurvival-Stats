@@ -2,11 +2,9 @@
 using Sandbox.Definitions;
 using System;
 using System.Collections.Generic;
-using VRage.Game;
 
 namespace ExtendedSurvival.Stats
 {
-
     public sealed class AssemblerOverride : BaseIntegrationModRecipesOverride
     {
 
@@ -63,11 +61,6 @@ namespace ExtendedSurvival.Stats
         protected override List<ComponentCost> GetBlockCost(UniqueEntityId item)
         {
             return new List<ComponentCost>();
-        }
-
-        protected override bool IgnoreBlockCost(UniqueEntityId item)
-        {
-            return true;
         }
 
         protected override List<UniqueEntityId> GetBlocks()
