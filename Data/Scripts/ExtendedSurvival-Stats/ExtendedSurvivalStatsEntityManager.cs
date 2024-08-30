@@ -3,6 +3,7 @@ using Sandbox.Game;
 using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
 using Sandbox.Game.Entities.Character;
+using Sandbox.Game.GameSystems;
 using Sandbox.Game.Weapons;
 using Sandbox.Game.World;
 using Sandbox.ModAPI;
@@ -49,21 +50,7 @@ namespace ExtendedSurvival.Stats
 
         protected override void DoInit(MyObjectBuilder_SessionComponent sessionComponent)
         {
-            if (MyAPIGateway.Session.IsServer)
-            {
-                MyVisualScriptLogicProvider.PlayerHealthRecharging += (playerId, blockType, value) => {
-                    var playerList = new List<IMyPlayer>();
-                    MyAPIGateway.Players.GetPlayers(playerList, (player) => { return player.IdentityId == playerId; });
-                    if (playerList.Any())
-                    {
-                        var statComp = playerList.FirstOrDefault().Character?.Components?.Get<MyEntityStatComponent>() as MyCharacterStatComponent;
-                        if (statComp != null)
-                        {
-                            PlayerHealthController.PlayerHealthRecharging(playerId, statComp);
-                        }
-                    }
-                };
-            }
+
         }
 
         public override void BeforeStart()
@@ -216,6 +203,7 @@ namespace ExtendedSurvival.Stats
                     MyEntities.OnEntityAdd -= Entities_OnEntityAdd;
                     MyEntities.OnEntityRemove -= Entities_OnEntityRemove;
                     MyAPIGateway.Projectiles.OnProjectileAdded -= Projectiles_OnProjectileAdded;
+                    MyVisualScriptLogicProvider.PlayerHealthRecharging = null;
                 }
                 MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_ENTITYCALLS, EntityCallsMsgHandler);
                 MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(ExtendedSurvivalStatsSession.NETWORK_ID_APICALLS, ApiCallsMsgHandler);
@@ -292,6 +280,19 @@ namespace ExtendedSurvival.Stats
             MyEntities.OnEntityRemove += Entities_OnEntityRemove;
 
             MyAPIGateway.Projectiles.OnProjectileAdded += Projectiles_OnProjectileAdded;
+            MyVisualScriptLogicProvider.PlayerHealthRecharging += (playerId, blockType, value) =>
+            {
+                var playerList = new List<IMyPlayer>();
+                MyAPIGateway.Players.GetPlayers(playerList, (player) => { return player.IdentityId == playerId; });
+                if (playerList.Any())
+                {
+                    var statComp = playerList.FirstOrDefault().Character?.Components?.Get<MyEntityStatComponent>() as MyCharacterStatComponent;
+                    if (statComp != null)
+                    {
+                        PlayerHealthController.PlayerHealthRecharging(playerId, statComp);
+                    }
+                }
+            };
 
         }
 
