@@ -9,16 +9,16 @@ namespace ExtendedSurvival.Stats
     {
 
         [XmlElement]
-        public float CaloriesConsumeMultiplier { get; set; } = 1.0f;
+        public float CaloriesConsumeMultiplier { get; set; } = 5.0f;
 
         [XmlElement]
         public float WaterConsumeMultiplier { get; set; } = 1.0f;
 
         [XmlElement]
-        public float ProteinConsumeMultiplier { get; set; } = 1.0f;
+        public float ProteinConsumeMultiplier { get; set; } = 1.5f;
 
         [XmlElement]
-        public float CarbohydrateConsumeMultiplier { get; set; } = 1.0f;
+        public float CarbohydrateConsumeMultiplier { get; set; } = 1.25f;
 
         [XmlElement]
         public float LipidsConsumeMultiplier { get; set; } = 1.0f;
@@ -30,7 +30,7 @@ namespace ExtendedSurvival.Stats
         public float VitaminsConsumeMultiplier { get; set; } = 1.0f;
 
         [XmlElement]
-        public float StaminaSpendedMultiplier { get; set; } = 1.0f;
+        public float StaminaSpendedMultiplier { get; set; } = 2.5f;
 
     }
 

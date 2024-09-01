@@ -24,22 +24,6 @@ namespace ExtendedSurvival.Stats
 
         }
 
-        public struct ExternalModCustomIcon
-        {
-
-            public string Icon;
-            public bool SamePath;
-            public MyModContext CustomContext;
-
-            public ExternalModCustomIcon(string icon, bool samePath, MyModContext context = null)
-            {
-                Icon = icon;
-                SamePath = samePath;
-                CustomContext = context;
-            }
-
-        }
-
         public struct ExternalModCustomModel
         {
 
@@ -58,32 +42,6 @@ namespace ExtendedSurvival.Stats
 
         private static readonly Dictionary<string, List<SerializableDefinitionId>> BlockVariantGroups = new Dictionary<string, List<SerializableDefinitionId>>();
         private static readonly Dictionary<string, ExternalModCustomIcon> BlockVariantGroups_CustomIcon = new Dictionary<string, ExternalModCustomIcon>();
-
-        private static MyModContext esModTechContext = null;
-        public static MyModContext GetESModTechContext()
-        {
-            if (esModTechContext == null)
-            {
-                var definition = new MyDefinitionId(typeof(MyObjectBuilder_Assembler), AssemblerOverride.AdvancedAssembler);
-                var blockDefinition = DefinitionUtils.TryGetDefinition<MyCubeBlockDefinition>(definition);
-                esModTechContext = blockDefinition.Context;
-            }
-            return esModTechContext;
-        }
-
-        protected static string GetCustomIcon(MyModContext baseContext, ExternalModCustomIcon iconInfo)
-        {
-            var icon = iconInfo.Icon;
-            if (iconInfo.SamePath)
-            {
-                icon = System.IO.Path.Combine(baseContext.ModPath, icon);
-            }
-            else
-            {
-                icon = System.IO.Path.Combine(GetESModTechContext().ModPath, icon);
-            }
-            return icon;
-        }
 
         public static void ApplyAllBlockVariantGroups()
         {
@@ -413,32 +371,6 @@ namespace ExtendedSurvival.Stats
             else
                 ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"Override block no components to set. ID=[{block}]");
             OnAfterSetComponents(blockDefinition, block);
-        }
-
-        protected void SetBlueprintDisplayInfo(string name, ExternalModCustomIcon? icon, string displayName = null, string description = null)
-        {
-            var fromId = new MyDefinitionId(typeof(MyObjectBuilder_BlueprintDefinition), name);
-            var fromBp = MyDefinitionManager.Static.GetBlueprintDefinition(fromId);
-            if (fromBp != null)
-            {
-                if (!string.IsNullOrWhiteSpace(displayName))
-                {
-                    fromBp.DisplayNameEnum = null;
-                    fromBp.DisplayNameString = displayName;
-                }
-                if (!string.IsNullOrWhiteSpace(description))
-                {
-                    fromBp.DescriptionEnum = null;
-                    fromBp.DescriptionString = description;
-                }
-                if (icon.HasValue)
-                {
-                    fromBp.Icons = new string[] { GetCustomIcon(fromBp.Context, icon.Value) };
-                }
-                fromBp.Postprocess();
-            }
-            else
-                ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"Override not found {name} blue print.");
         }
 
     }

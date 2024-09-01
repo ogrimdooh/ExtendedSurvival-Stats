@@ -8,9 +8,9 @@ namespace ExtendedSurvival.Stats
 
         public FluSettings()
         {
-            BaseChance = 0.015f;
-            ExtremeChance = 0.03f;
-            WetInfluence = 2f;
+            BaseChance = 0.0025f;
+            ExtremeChance = 0.005f;
+            WetInfluence = 1.25f;
         }
 
     }

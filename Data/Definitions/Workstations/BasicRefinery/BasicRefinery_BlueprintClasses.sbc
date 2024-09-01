@@ -6,6 +6,10 @@
     <Entry Class="BasicRefinery_CommonMetals" BlueprintSubtypeId="BoneToMeal_Deconstruction" />
     <Entry Class="BasicRefinery_CommonMetals" BlueprintSubtypeId="FishBonesToMeal_Deconstruction" />
 
+    <Entry Class="BasicRefinery_CommonMetals" BlueprintSubtypeId="CarcassOreToIngot" />
+    <Entry Class="BasicRefinery_CommonMetals" BlueprintSubtypeId="CarapaceOreToIngot" />
+    <Entry Class="BasicRefinery_CommonMetals" BlueprintSubtypeId="TentacleOreToIngot" />
+
     <Entry Class="CommonMetals" BlueprintSubtypeId="BoneToMeal_Deconstruction" />
     <Entry Class="CommonMetals" BlueprintSubtypeId="FishBonesToMeal_Deconstruction" />
 

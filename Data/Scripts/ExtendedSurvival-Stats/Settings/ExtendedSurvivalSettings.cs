@@ -32,7 +32,7 @@ namespace ExtendedSurvival.Stats
             }
         };
 
-        private const int CURRENT_VERSION = 2;
+        private const int CURRENT_VERSION = 4;
         private const string FILE_NAME = "ExtendedSurvival.Stats.Settings.xml";
         private const string JSON_FILE_NAME = "ExtendedSurvival.Stats.Settings.cfg";
 
@@ -51,7 +51,7 @@ namespace ExtendedSurvival.Stats
         public bool Debug { get; set; } = false;
 
         [XmlElement]
-        public bool ForceCreatureSpawn { get; set; } = false;
+        public bool ForceCreatureSpawn { get; set; } = true;
 
         [XmlElement]
         public bool HardModeEnabled { get; set; } = false;
@@ -85,9 +85,14 @@ namespace ExtendedSurvival.Stats
 
         private static ExtendedSurvivalSettings Upgrade(ExtendedSurvivalSettings settings)
         {
-            if (settings.Version < 2)
+            if (settings.Version < 3)
             {
-                settings.MetabolismSpeedMultiplier = 4.0f;
+                settings.ForceCreatureSpawn = true;
+                settings.MetabolismSpeedMultiplier = 6;
+                settings.MetabolismSettings = new MetabolismSettings();
+                settings.StaminaSettings = new StaminaAttributeSettings();
+                settings.FoodSettings = new FoodSettings();
+                settings.DiseaseSettings = new DiseaseSettings();
             }
             return settings;
         }

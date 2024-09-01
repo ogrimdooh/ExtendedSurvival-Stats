@@ -8,9 +8,9 @@ namespace ExtendedSurvival.Stats
 
         public PneumoniaSettings()
         {
-            BaseChance = 0.005f;
-            ExtremeChance = 0.01f;
-            WetInfluence = 2f;
+            BaseChance = 0.0025f;
+            ExtremeChance = 0.005f;
+            WetInfluence = 1.25f;
         }
 
     }

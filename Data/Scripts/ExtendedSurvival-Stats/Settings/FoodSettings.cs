@@ -24,10 +24,10 @@ namespace ExtendedSurvival.Stats
         public float MineralsMultiplier { get; set; } = 1.0f;
 
         [XmlElement]
-        public float CaloriesMultiplier { get; set; } = 1.0f;
+        public float CaloriesMultiplier { get; set; } = 2.5f;
 
         [XmlElement]
-        public float DigestionTimeMultiplier { get; set; } = 1.0f;
+        public float DigestionTimeMultiplier { get; set; } = 0.5f;
 
         [XmlArray("Volumes"), XmlArrayItem("Food", typeof(EntityStorage))]
         public List<FoodVolumeSettings> Volumes { get; set; } = new List<FoodVolumeSettings>();

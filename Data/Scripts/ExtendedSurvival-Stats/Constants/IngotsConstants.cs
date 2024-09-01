@@ -10,6 +10,8 @@ namespace ExtendedSurvival.Stats
 
         public static readonly UniqueEntityId BONEMEAL_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), OreConstants.BONES_SUBTYPEID);
 
+        public static readonly UniqueEntityId CARBON_POWDER_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ingot), OreConstants.CARBON_SUBTYPEID);
+
         public static readonly IngotDefinition BONEMEAL_DEFINITION = new IngotDefinition()
         {
             Id = BONEMEAL_ID,

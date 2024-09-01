@@ -110,7 +110,49 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        protected void SetBlueprintResult(string name, bool clearBeforeAdd, params FormulaItem[] items)
+        {
+            SetBlueprintResult(name, clearBeforeAdd, 0, items);
+        }
+
+        protected void SetBlueprintResult(string name, bool clearBeforeAdd, float newTime, params FormulaItem[] items)
+        {
+            var fromId = new MyDefinitionId(typeof(MyObjectBuilder_BlueprintDefinition), name);
+            var fromBp = MyDefinitionManager.Static.GetBlueprintDefinition(fromId);
+            if (fromBp != null)
+            {
+                var newBlueprint = new List<MyBlueprintDefinitionBase.Item>();
+                if (!clearBeforeAdd)
+                {
+                    newBlueprint.AddRange(fromBp.Results);
+                }
+                foreach (var item in items)
+                {
+                    var allowFrac = FRACTIONAL_TYPES.Contains(item.Id.typeId);
+                    var newAmount = item.Ammount;
+                    if (!allowFrac)
+                        newAmount = Math.Max((int)newAmount, 1);
+                    var newItem = new MyBlueprintDefinitionBase.Item
+                    {
+                        Amount = (MyFixedPoint)newAmount,
+                        Id = item.Id.DefinitionId
+                    };
+                    newBlueprint.Add(newItem);
+                }
+                fromBp.Results = newBlueprint.ToArray();
+                if (newTime > 0)
+                    fromBp.BaseProductionTimeInSeconds = newTime;
+            }
+            else
+                ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"Override not found {name} blue print.");
+        }
+
         protected void SetBlueprintFormula(string name, bool clearBeforeAdd, params FormulaItem[] items)
+        {
+            SetBlueprintFormula(name, clearBeforeAdd, 0, items);
+        }
+
+        protected void SetBlueprintFormula(string name, bool clearBeforeAdd, float newTime, params FormulaItem[] items)
         {
             var fromId = new MyDefinitionId(typeof(MyObjectBuilder_BlueprintDefinition), name);
             var fromBp = MyDefinitionManager.Static.GetBlueprintDefinition(fromId);
@@ -135,6 +177,8 @@ namespace ExtendedSurvival.Stats
                     newBlueprint.Add(newItem);
                 }
                 fromBp.Prerequisites = newBlueprint.ToArray();
+                if (newTime > 0)
+                    fromBp.BaseProductionTimeInSeconds = newTime;
             }
             else
                 ExtendedSurvivalStatsLogging.Instance.LogWarning(GetType(), $"Override not found {name} blue print.");

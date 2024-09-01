@@ -66,5 +66,69 @@
       </Items>
     </ContainerType>
 
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>Creature3Loot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>ExplodingCreatureLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>AlienBeastLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>LavaPupLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
   </ContainerTypes>
 </Definitions>

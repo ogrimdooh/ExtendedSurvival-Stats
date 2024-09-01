@@ -39,6 +39,17 @@ namespace ExtendedSurvival.Stats
             return isUsingTechnology.Value;
         }
 
+        public const ulong MES_ALIENANIMALS_MODID = 2582239623;
+        public const ulong ALIENANIMALS_MODID = 2075243878;
+
+        private static bool? isUsingAlienAnimals = null;
+        public static bool IsUsingAlienAnimals()
+        {
+            if (!isUsingAlienAnimals.HasValue)
+                isUsingAlienAnimals = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == MES_ALIENANIMALS_MODID || x.PublishedFileId == ALIENANIMALS_MODID);
+            return isUsingAlienAnimals.Value;
+        }
+
         public EasyInventoryAPI EasyInventoryAPI;
         public HudAPIv2 TextAPI;
         public ExtendedSurvivalCoreAPI ESCoreAPI;
@@ -981,6 +992,26 @@ namespace ExtendedSurvival.Stats
                 DefinitionUtils.ChangeStatValue("WolfHealth", new Vector3(0, 250, 250));
                 DefinitionUtils.ChangeStatValue("SpiderHealth", new Vector3(0, 500, 500));
 
+                if (IsUsingAlienAnimals())
+                {
+
+                    DefinitionUtils.ReplaceContainerTypeDefinition("Creature3Loot", new Vector2I(3, 6), true, GetCreature3Loot());
+                    DefinitionUtils.ReplaceContainerTypeDefinition("ExplodingCreatureLoot", new Vector2I(2, 4), true, GetExplodingCreatureLoot());
+                    DefinitionUtils.ReplaceContainerTypeDefinition("AlienBeastLoot", new Vector2I(2, 3), true, GetAlienAnimalLoot());
+                    DefinitionUtils.ReplaceContainerTypeDefinition("LavaPupLoot", new Vector2I(2, 3), true, GetAlienAnimalLoot());
+
+                    DefinitionUtils.ChangeInventoryContainerType("Creature3", "Creature3Loot");
+                    DefinitionUtils.ChangeInventoryContainerType("ExplodingCreature", "ExplodingCreatureLoot");
+                    DefinitionUtils.ChangeInventoryContainerType("Alien_Beast", "AlienBeastLoot");
+                    DefinitionUtils.ChangeInventoryContainerType("LavaPup", "LavaPupLoot");
+
+                    DefinitionUtils.ChangeStatValue("Alien_Beast_Health", new Vector3(0, 1600, 1600));
+                    DefinitionUtils.ChangeStatValue("LavaPup_Health", new Vector3(0, 300, 300));
+                    DefinitionUtils.ChangeStatValue("Creature3_Health", new Vector3(0, 500, 500));
+                    DefinitionUtils.ChangeStatValue("ExplodingCreature_Health", new Vector3(0, 150, 150));
+
+                }
+
                 DefinitionUtils.ChangeStatValue(
                     StatsConstants.ValidStats.Bladder.ToString(), 
                     new Vector3(0, PlayerBodyConstants.BladderSize.W, 0)
@@ -1087,6 +1118,7 @@ namespace ExtendedSurvival.Stats
                 OreConstants.TryOverrideDefinitions();
                 IngotsConstants.TryOverrideDefinitions();
                 FactionTypeConstants.TryOverrideDefinitions();
+                AlienAnimalsOverride.TryOverride();
 
                 // SPAWNS
                 SpawnGroupOverride.SetDefinitions();
@@ -1141,12 +1173,55 @@ namespace ExtendedSurvival.Stats
 
         private MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] GetSpiderLoot(float multiplier = 1f)
         {
+            if (IsUsingAlienAnimals())
+            {
+                return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
+                {
+                    DefinitionUtils.GetLootItem(new Vector2(12, 24).GetMultiplier(multiplier), FoodConstants.ALIEN_MEAT_ID, 6),
+                    DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), FoodConstants.ALIEN_NOBLE_MEAT_ID, 1),
+                    DefinitionUtils.GetLootItem(new Vector2(20, 40).GetMultiplier(multiplier), OreConstants.BONES_ID, 3),
+                    DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), FoodConstants.ALIEN_EGG_ID, 2),
+                    DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), OreConstants.CARAPACE_ID, 2)
+                };
+            }
             return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
             {
                 DefinitionUtils.GetLootItem(new Vector2(12, 24).GetMultiplier(multiplier), FoodConstants.ALIEN_MEAT_ID, 6),
                 DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), FoodConstants.ALIEN_NOBLE_MEAT_ID, 1),
                 DefinitionUtils.GetLootItem(new Vector2(20, 40).GetMultiplier(multiplier), OreConstants.BONES_ID, 3),
                 DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), FoodConstants.ALIEN_EGG_ID, 2)
+            };
+        }
+
+        private MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] GetCreature3Loot(float multiplier = 1f)
+        {
+            return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
+            {
+                DefinitionUtils.GetLootItem(new Vector2(12, 24).GetMultiplier(multiplier), FoodConstants.ALIEN_MEAT_ID, 6),
+                DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), FoodConstants.ALIEN_NOBLE_MEAT_ID, 1),
+                DefinitionUtils.GetLootItem(new Vector2(20, 40).GetMultiplier(multiplier), OreConstants.BONES_ID, 3),
+                DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), OreConstants.CARCASS_ID, 2)
+            };
+        }
+
+        private MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] GetExplodingCreatureLoot(float multiplier = 1f)
+        {
+            return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
+            {
+                DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), FoodConstants.ALIEN_MEAT_ID, 4),
+                DefinitionUtils.GetLootItem(new Vector2(3, 6).GetMultiplier(multiplier), FoodConstants.ALIEN_NOBLE_MEAT_ID, 1),
+                DefinitionUtils.GetLootItem(new Vector2(10, 20).GetMultiplier(multiplier), OreConstants.BONES_ID, 2),
+                DefinitionUtils.GetLootItem(new Vector2(4, 8).GetMultiplier(multiplier), OreConstants.TENTACLE1_ID, 3)
+            };
+        }
+
+        private MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] GetAlienAnimalLoot(float multiplier = 1f)
+        {
+            return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
+            {
+                DefinitionUtils.GetLootItem(new Vector2(6, 12).GetMultiplier(multiplier), FoodConstants.ALIEN_MEAT_ID, 6),
+                DefinitionUtils.GetLootItem(new Vector2(3, 6).GetMultiplier(multiplier), FoodConstants.ALIEN_NOBLE_MEAT_ID, 1),
+                DefinitionUtils.GetLootItem(new Vector2(10, 20).GetMultiplier(multiplier), OreConstants.BONES_ID, 3)
             };
         }
 

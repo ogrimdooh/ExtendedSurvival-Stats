@@ -7,6 +7,18 @@ namespace ExtendedSurvival.Stats
     public static class OreConstants
     {
 
+        public const string CARBON_SUBTYPEID = "Carbon";
+        public static readonly UniqueEntityId CARBON_ORE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CARBON_SUBTYPEID);
+
+        public const string CARCASS_SUBTYPEID = "Carcass";
+        public static readonly UniqueEntityId CARCASS_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CARCASS_SUBTYPEID);
+
+        public const string CARAPACE_SUBTYPEID = "Carapace";
+        public static readonly UniqueEntityId CARAPACE_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), CARAPACE_SUBTYPEID);
+
+        public const string TENTACLE1_SUBTYPEID = "Tentacle1";
+        public static readonly UniqueEntityId TENTACLE1_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), TENTACLE1_SUBTYPEID);
+
         public const string BONES_SUBTYPEID = "Bones";
         public static readonly UniqueEntityId BONES_ID = new UniqueEntityId(typeof(MyObjectBuilder_Ore), BONES_SUBTYPEID);
 
