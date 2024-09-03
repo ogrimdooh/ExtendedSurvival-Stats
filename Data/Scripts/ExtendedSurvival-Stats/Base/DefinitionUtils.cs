@@ -184,14 +184,54 @@ namespace ExtendedSurvival.Stats
             }
         }
 
-        public static void ChangeInventoryContainerType(string botname, string lootname)
+        public static void ChangeCharacterDefinition(string name, float invVolume)
+        {
+            try
+            {
+                var cDef = TryGetDefinition<MyCharacterDefinition>(name);
+                if (cDef == null)
+                {
+
+                    if (cDef.InventoryDefinition != null)
+                    {
+                        cDef.InventoryDefinition.InventoryVolume = invVolume;
+                        cDef.InventoryDefinition.InventoryMass = float.MaxValue;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(DefinitionUtils), ex);
+            }
+        }
+
+        public static void ChangeBotDefinition(string botname, string lootname, int cDamage, int gDamage, int aLength, float aRadius, 
+            string factionTag = null, string behaviorSubtype = null, string targetType = null, string attackSound = null)
         {
             try
             {
                 var botDef = TryGetDefinition<MyAnimalBotDefinition>(botname);
                 if (botDef != null)
                 {
+                    if (!string.IsNullOrWhiteSpace(targetType))
+                        botDef.TargetType = targetType;
+                    if (!string.IsNullOrWhiteSpace(attackSound))
+                        botDef.AttackSound = attackSound;
+                    if (!string.IsNullOrWhiteSpace(behaviorSubtype))
+                    {
+                        botDef.BehaviorSubtype = behaviorSubtype;
+                        botDef.BotBehaviorTree = new MyDefinitionId(typeof(MyObjectBuilder_BehaviorTreeDefinition), botDef.BehaviorSubtype);
+                    }
+                    botDef.TargetGrids = gDamage > 0;
+                    botDef.GridDamage = gDamage;
+                    botDef.TargetCharacters = cDamage > 0;
+                    botDef.CharacterDamage = cDamage;
+                    botDef.AttackLength = aLength;
+                    botDef.AttackRadius = aRadius;
+                    botDef.AvailableInSurvival = true;
                     botDef.InventoryContentGenerated = true;
+                    if (!string.IsNullOrWhiteSpace(factionTag))
+                        botDef.FactionTag = factionTag;
                     botDef.InventoryContainerTypeId = new MyDefinitionId(typeof(MyObjectBuilder_ContainerTypeDefinition), MyStringHash.GetOrCompute(lootname));
                     botDef.Postprocess();
                 }

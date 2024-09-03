@@ -130,5 +130,85 @@
       </Items>
     </ContainerType>
 
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>Small_Stone_MonsterLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>Big_Stone_MonsterLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>Space_Spider_WormLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>Space_Spider_HugeWormLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
+    <ContainerType CountMin="2" CountMax="5">
+      <Id>
+        <TypeId>ContainerTypeDefinition</TypeId>
+        <SubtypeId>SmallSpiderLoot</SubtypeId>
+      </Id>
+      <Items>
+        <Item AmountMin="1" AmountMax="5">
+          <Frequency>0.1</Frequency>
+          <Id>
+            <TypeId>ConsumableItem</TypeId>
+            <SubtypeId>Meat</SubtypeId>
+          </Id>
+        </Item>
+      </Items>
+    </ContainerType>
+
   </ContainerTypes>
 </Definitions>

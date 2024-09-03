@@ -4,8 +4,10 @@ using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
 using Sandbox.Game.Entities.Character.Components;
 using Sandbox.Game.EntityComponents;
+using Sandbox.Game.World;
 using Sandbox.ModAPI;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,6 @@ using VRage.Game.Entity;
 using VRage.Game.ModAPI;
 using VRage.Utils;
 using VRageMath;
-using static VRageRender.MyBillboard;
 
 namespace ExtendedSurvival.Stats
 {
@@ -48,6 +49,67 @@ namespace ExtendedSurvival.Stats
             if (!isUsingAlienAnimals.HasValue)
                 isUsingAlienAnimals = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == MES_ALIENANIMALS_MODID || x.PublishedFileId == ALIENANIMALS_MODID);
             return isUsingAlienAnimals.Value;
+        }
+
+        public const ulong EARTHLIKE_ANIMALS_MODID = 2170447225;
+        public const ulong MES_EARTHLIKE_ANIMALS_MODID = 2555273537;
+
+        private static bool? isUsingEarthLikeAnimals = null;
+        public static bool IsUsingEarthLikeAnimals()
+        {
+            if (!isUsingEarthLikeAnimals.HasValue)
+                isUsingEarthLikeAnimals = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == EARTHLIKE_ANIMALS_MODID || x.PublishedFileId == MES_EARTHLIKE_ANIMALS_MODID);
+            return isUsingEarthLikeAnimals.Value;
+        }
+
+        public const ulong MARTIN_THE_MONSTER_MODID = 2170121678;
+
+        private static bool? isUsingMartinTheMonster = null;
+        public static bool IsUsingMartinTheMonster()
+        {
+            if (!isUsingMartinTheMonster.HasValue)
+                isUsingMartinTheMonster = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == MARTIN_THE_MONSTER_MODID);
+            return isUsingMartinTheMonster.Value;
+        }
+
+        public const ulong MARTIN_REVENGE_MODID = 2319867063;
+
+        private static bool? isUsingMartinRevenge = null;
+        public static bool IsUsingMartinRevenge()
+        {
+            if (!isUsingMartinRevenge.HasValue)
+                isUsingMartinRevenge = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == MARTIN_REVENGE_MODID);
+            return isUsingMartinRevenge.Value;
+        }
+
+        public const ulong SANDWORM_MODID = 3105413080;
+
+        private static bool? isUsingSandWorm = null;
+        public static bool IsUsingSandWorm()
+        {
+            if (!isUsingSandWorm.HasValue)
+                isUsingSandWorm = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == SANDWORM_MODID);
+            return isUsingSandWorm.Value;
+        }
+
+        public const ulong SMALLSPIDER_MODID = 2178783350;
+
+        private static bool? isUsingSmallSpider = null;
+        public static bool IsUsingSmallSpider()
+        {
+            if (!isUsingSmallSpider.HasValue)
+                isUsingSmallSpider = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == SMALLSPIDER_MODID);
+            return isUsingSmallSpider.Value;
+        }
+
+        public const ulong DESERTWOLVES_MODID = 2623580289;
+
+        private static bool? isUsingDesertWolves = null;
+        public static bool IsUsingDesertWolves()
+        {
+            if (!isUsingDesertWolves.HasValue)
+                isUsingDesertWolves = MyAPIGateway.Session.Mods.Any(x => x.PublishedFileId == DESERTWOLVES_MODID);
+            return isUsingDesertWolves.Value;
         }
 
         public EasyInventoryAPI EasyInventoryAPI;
@@ -923,9 +985,33 @@ namespace ExtendedSurvival.Stats
         {
             try
             {
-                var inventory = character.GetInventory();
-                if (inventory != null && inventory.ItemCount >= 0)
+                var inventory = character.GetInventory() as MyInventory;
+                if (inventory != null)
                 {
+                    var key = character.Definition.Id.SubtypeName;
+                    if (botLootType.ContainsKey(key))
+                    {
+                        if (inventory.ItemCount >= 0)
+                        {
+                            inventory.Clear();
+                        }
+                        var definition = new MyInventoryComponentDefinition
+                        {
+                            RemoveEntityOnEmpty = false,
+                            MultiplierEnabled = false,
+                            MaxItemCount = int.MaxValue,
+                            Mass = float.MaxValue,
+                            Volume = 50,
+                            InputConstraint = new MyInventoryConstraint($"{key.Replace("_", " ")} Body", null, false)
+                        };
+                        inventory.Init(definition);
+                        var lootDefinition = MyDefinitionManager.Static.GetContainerTypeDefinition(botLootType[key]);
+                        if (lootDefinition != null)
+                        {
+                            lootDefinition.DeselectAll();
+                            inventory.GenerateContent(lootDefinition);
+                        }
+                    }
                     Vector3D upp = character.WorldMatrix.Up;
                     Vector3D fww = character.WorldMatrix.Forward;
                     Vector3D rtt = character.WorldMatrix.Right;
@@ -961,6 +1047,8 @@ namespace ExtendedSurvival.Stats
             CheckBotLoot(obj);
         }
 
+        private static ConcurrentDictionary<string, string> botLootType = new ConcurrentDictionary<string, string>();
+
         private bool definitionsChecked = false;
         private bool definitionsCheckedToTheEnd = false;
         private bool markAsAllItensLoadedCalled = false;
@@ -972,25 +1060,42 @@ namespace ExtendedSurvival.Stats
                 definitionsChecked = true;
 
                 DefinitionUtils.ReplaceContainerTypeDefinition("WolfLoot", new Vector2I(2, 3), true, GetAnimalLoot());
+                DefinitionUtils.ReplaceContainerTypeDefinition("SpiderLoot", new Vector2I(2, 4), true, GetSpiderLoot());
                 DefinitionUtils.ReplaceContainerTypeDefinition("DeerLoot", new Vector2I(2, 3), true, GetAnimalLoot(2));
                 DefinitionUtils.ReplaceContainerTypeDefinition("CowLoot", new Vector2I(2, 3), true, GetAnimalLoot(3));
                 DefinitionUtils.ReplaceContainerTypeDefinition("SheepLoot", new Vector2I(2, 3), true, GetAnimalLoot());
                 DefinitionUtils.ReplaceContainerTypeDefinition("HorseLoot", new Vector2I(2, 3), true, GetAnimalLoot(2));
-                DefinitionUtils.ReplaceContainerTypeDefinition("SpiderLoot", new Vector2I(2, 4), true, GetSpiderLoot());
 
-                DefinitionUtils.ChangeInventoryContainerType("deer_bot", "DeerLoot");
-                DefinitionUtils.ChangeInventoryContainerType("deerbuck_bot", "DeerLoot");
-                DefinitionUtils.ChangeInventoryContainerType("Cow_Bot", "CowLoot");
-                DefinitionUtils.ChangeInventoryContainerType("Sheep_Bot", "SheepLoot");
-                DefinitionUtils.ChangeInventoryContainerType("Horse_Bot", "HorseLoot");
+                botLootType["Space_Wolf"] = "WolfLoot";
+                botLootType["Space_spider"] = "SpiderLoot";
+                botLootType["Space_spider_green"] = "SpiderLoot";
+                botLootType["Space_spider_brown"] = "SpiderLoot";
+                botLootType["Space_spider_black"] = "SpiderLoot";
+                botLootType["deer_bot"] = "DeerLoot";
+                botLootType["deerbuck_bot"] = "DeerLoot";
+                botLootType["Cow_Bot"] = "CowLoot";
+                botLootType["Sheep_Bot"] = "SheepLoot";
+                botLootType["Horse_Bot"] = "HorseLoot";
+
+                DefinitionUtils.ChangeBotDefinition("Wolf", "WolfLoot", 25, 25, 1000, 0.5f);
+                DefinitionUtils.ChangeBotDefinition("SpaceSpider", "SpiderLoot", 50, 50, 1000, 0.9f);
+                DefinitionUtils.ChangeBotDefinition("SpaceSpiderBlack", "SpiderLoot", 50, 50, 1000, 0.9f);
+                DefinitionUtils.ChangeBotDefinition("SpaceSpiderBrown", "SpiderLoot", 50, 50, 1000, 0.9f);
+                DefinitionUtils.ChangeBotDefinition("SpaceSpiderGreen", "SpiderLoot", 50, 50, 1000, 0.9f);
+
+                DefinitionUtils.ChangeBotDefinition("deer_bot", "DeerLoot", 0, 0, 0, 0);
+                DefinitionUtils.ChangeBotDefinition("deerbuck_bot", "DeerLoot", 0, 0, 0, 0);
+                DefinitionUtils.ChangeBotDefinition("Cow_Bot", "CowLoot", 0, 0, 0, 0);
+                DefinitionUtils.ChangeBotDefinition("Sheep_Bot", "SheepLoot", 0, 0, 0, 0);
+                DefinitionUtils.ChangeBotDefinition("Horse_Bot", "HorseLoot", 0, 0, 0, 0);
 
                 DefinitionUtils.ReplaceContainerTypeDefinition("PersonalContainerSmall", new Vector2I(4, 10), false, GetUnknownSignalLoot());
 
-                DefinitionUtils.ChangeStatValue("AnimalHealth", new Vector3(0, 150, 150));
+                DefinitionUtils.ChangeStatValue("AnimalHealth", new Vector3(0, 175, 175));
                 DefinitionUtils.ChangeStatValue("Health", new Vector3(0, 250, 250));
                 DefinitionUtils.ChangeStatValue("SpaceCharacterHealth", new Vector3(0, 250, 250));
-                DefinitionUtils.ChangeStatValue("WolfHealth", new Vector3(0, 250, 250));
-                DefinitionUtils.ChangeStatValue("SpiderHealth", new Vector3(0, 500, 500));
+                DefinitionUtils.ChangeStatValue("WolfHealth", new Vector3(0, 325, 325));
+                DefinitionUtils.ChangeStatValue("SpiderHealth", new Vector3(0, 700, 700));
 
                 if (IsUsingAlienAnimals())
                 {
@@ -1000,16 +1105,95 @@ namespace ExtendedSurvival.Stats
                     DefinitionUtils.ReplaceContainerTypeDefinition("AlienBeastLoot", new Vector2I(2, 3), true, GetAlienAnimalLoot());
                     DefinitionUtils.ReplaceContainerTypeDefinition("LavaPupLoot", new Vector2I(2, 3), true, GetAlienAnimalLoot());
 
-                    DefinitionUtils.ChangeInventoryContainerType("Creature3", "Creature3Loot");
-                    DefinitionUtils.ChangeInventoryContainerType("ExplodingCreature", "ExplodingCreatureLoot");
-                    DefinitionUtils.ChangeInventoryContainerType("Alien_Beast", "AlienBeastLoot");
-                    DefinitionUtils.ChangeInventoryContainerType("LavaPup", "LavaPupLoot");
+                    DefinitionUtils.ChangeBotDefinition("Alien_Beast", "AlienBeastLoot", 100, 100, 1000, 1.25f);
+                    DefinitionUtils.ChangeBotDefinition("LavaPup", "LavaPupLoot", 25, 25, 1000, 0.5f);
+                    DefinitionUtils.ChangeBotDefinition("Creature3", "Creature3Loot", 75, 75, 1000, 0.9f);
+                    DefinitionUtils.ChangeBotDefinition("ExplodingCreature", "ExplodingCreatureLoot", 50, 50, 1000, 0.9f);
 
-                    DefinitionUtils.ChangeStatValue("Alien_Beast_Health", new Vector3(0, 1600, 1600));
-                    DefinitionUtils.ChangeStatValue("LavaPup_Health", new Vector3(0, 300, 300));
-                    DefinitionUtils.ChangeStatValue("Creature3_Health", new Vector3(0, 500, 500));
-                    DefinitionUtils.ChangeStatValue("ExplodingCreature_Health", new Vector3(0, 150, 150));
+                    DefinitionUtils.ChangeStatValue("Alien_Beast_Health", new Vector3(0, 2100, 2100));
+                    DefinitionUtils.ChangeStatValue("LavaPup_Health", new Vector3(0, 325, 325));
+                    DefinitionUtils.ChangeStatValue("Creature3_Health", new Vector3(0, 700, 700));
+                    DefinitionUtils.ChangeStatValue("ExplodingCreature_Health", new Vector3(0, 175, 175));
 
+                    botLootType["Creature3"] = "AlienBeastLoot";
+                    botLootType["ExplodingCreature"] = "LavaPupLoot";
+                    botLootType["Alien_Beast"] = "Creature3Loot";
+                    botLootType["LavaPup"] = "ExplodingCreatureLoot";
+                }
+
+                if (IsUsingMartinTheMonster() || IsUsingMartinRevenge())
+                {
+                    DefinitionUtils.ReplaceContainerTypeDefinition("Small_Stone_MonsterLoot", new Vector2I(4, 8), true, GetStoneMonsterLoot());
+
+                    DefinitionUtils.ChangeBotDefinition("Stone_Monster", "Small_Stone_MonsterLoot", 100, 100, 1000, 1.25f, null, "WolfBehavior", "Wolf", "ArcStone_Attack");
+
+                    DefinitionUtils.ChangeStatValue("Stone_Monster_Health", new Vector3(0, 7500, 7500));
+
+                    DefinitionUtils.ChangeCharacterDefinition("Stone_Monster", 25);
+
+                    botLootType["Stone_Monster"] = "Small_Stone_MonsterLoot";
+                }
+
+                if (IsUsingMartinRevenge())
+                {
+                    DefinitionUtils.ReplaceContainerTypeDefinition("Big_Stone_MonsterLoot", new Vector2I(6, 12), true, GetStoneMonsterLoot(5));
+
+                    DefinitionUtils.ChangeBotDefinition("Big_Stone_Monster", "Big_Stone_MonsterLoot", 200, 200, 1000, 1.75f, null, "WolfBehavior", "Wolf", "ArcStone_Attack");
+
+                    DefinitionUtils.ChangeStatValue("Big_Stone_Monster_Health", new Vector3(0, 30000, 30000));
+
+                    DefinitionUtils.ChangeCharacterDefinition("Big_Stone_Monster", 50);
+
+                    botLootType["Big_Stone_Monster"] = "Big_Stone_MonsterLoot";
+                }
+
+                if (IsUsingSandWorm())
+                {
+                    DefinitionUtils.ReplaceContainerTypeDefinition("Space_Spider_WormLoot", new Vector2I(2, 4), true, GetSpiderLoot(0.75f));
+                    DefinitionUtils.ReplaceContainerTypeDefinition("Space_Spider_HugeWormLoot", new Vector2I(2, 4), true, GetSpiderLoot(1.5f));
+
+                    DefinitionUtils.ChangeBotDefinition("Space_spider_worm", "Space_Spider_WormLoot", 35, 35, 700, 1.5f, null, "SpiderBehavior", "Spider", "ArcWorm_Attack");
+                    DefinitionUtils.ChangeBotDefinition("Space_spider_hugeworm", "Space_Spider_HugeWormLoot", 70, 70, 1400, 1.5f, null, "SpiderBehavior", "Spider", "ArcWorm_Attack");
+
+                    DefinitionUtils.ChangeStatValue("WormHealth", new Vector3(0, 250, 250));
+                    DefinitionUtils.ChangeStatValue("HugeWormHealth", new Vector3(0, 500, 500));
+
+                    DefinitionUtils.ChangeCharacterDefinition("Space_spider_worm", 50);
+                    DefinitionUtils.ChangeCharacterDefinition("Space_spider_hugeworm", 50);
+
+                    botLootType["Space_spider_worm"] = "Space_Spider_WormLoot";
+                    botLootType["Space_spider_hugeworm"] = "Space_Spider_HugeWormLoot";
+                }
+
+                if (IsUsingSmallSpider())
+                {
+                    DefinitionUtils.ReplaceContainerTypeDefinition("SmallSpiderLoot", new Vector2I(2, 4), true, GetSpiderLoot(0.5f));
+
+                    DefinitionUtils.ChangeBotDefinition("SpaceSmallSpider", "SmallSpiderLoot", 25, 25, 700, 1.0f, null, "SpiderBehavior", "Spider");
+                    DefinitionUtils.ChangeBotDefinition("SpaceSmallSpider_Green", "SmallSpiderLoot", 25, 25, 700, 1.0f, null, "SpiderBehavior", "Spider");
+                    DefinitionUtils.ChangeBotDefinition("SpaceSmallSpider_Brown", "SmallSpiderLoot", 25, 25, 700, 1.0f, null, "SpiderBehavior", "Spider");
+                    DefinitionUtils.ChangeBotDefinition("SpaceSmallSpider_Black", "SmallSpiderLoot", 25, 25, 700, 1.0f, null, "SpiderBehavior", "Spider");
+
+                    DefinitionUtils.ChangeStatValue("SpaceSmallSpiderHealth", new Vector3(0, 350, 350));
+
+                    DefinitionUtils.ChangeCharacterDefinition("SpaceSmallSpider", 50);
+                    DefinitionUtils.ChangeCharacterDefinition("SpaceSmallSpider_Green", 50);
+                    DefinitionUtils.ChangeCharacterDefinition("SpaceSmallSpider_Brown", 50);
+                    DefinitionUtils.ChangeCharacterDefinition("SpaceSmallSpider_Black", 50);
+
+                    botLootType["SpaceSmallSpider"] = "SmallSpiderLoot";
+                    botLootType["SpaceSmallSpider_Green"] = "SmallSpiderLoot";
+                    botLootType["SpaceSmallSpider_Brown"] = "SmallSpiderLoot";
+                    botLootType["SpaceSmallSpider_Black"] = "SmallSpiderLoot";
+                }
+
+                if (IsUsingDesertWolves())
+                {
+                    DefinitionUtils.ChangeBotDefinition("DesertWolf", "WolfLoot", 40, 40, 1000, 0.5f);
+                    DefinitionUtils.ChangeBotDefinition("DesertWolfPuppy", "WolfLoot", 20, 20, 1000, 0.5f);
+
+                    botLootType["DesertWolf"] = "DesertWolf";
+                    botLootType["DesertWolfPuppy"] = "DesertWolfPuppy";
                 }
 
                 DefinitionUtils.ChangeStatValue(
@@ -1085,8 +1269,7 @@ namespace ExtendedSurvival.Stats
                     new Vector3(0, 100, PlayerBodyConstants.StartMinerals)
                 );
 
-                var creatureCharacters = new string[] { "Space_Wolf", "Space_spider", "deer_bot", "deerbuck_bot", "Cow_Bot", "Sheep_Bot", "Horse_Bot" };
-                foreach (var character in creatureCharacters)
+                foreach (var character in botLootType.Keys)
                 {
                     foreach (StatsConstants.CreatureValidStats stat in Enum.GetValues(typeof(StatsConstants.CreatureValidStats)).Cast<StatsConstants.CreatureValidStats>())
                     {
@@ -1193,6 +1376,60 @@ namespace ExtendedSurvival.Stats
             };
         }
 
+        private MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] GetStoneMonsterLoot(float multiplier = 1f)
+        {
+            var loot = new List<MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem>()
+            {
+                DefinitionUtils.GetLootItem(new Vector2(2500, 5000).GetMultiplier(multiplier), OreConstants.STONE_ID, 10)
+            };
+            foreach (var ore in OreConstants.COMMONORES)
+            {
+                if (!OreConstants.ESORES.Contains(ore) || IsUsingTechnology())
+                {
+                    loot.Add(
+                        DefinitionUtils.GetLootItem(new Vector2(1250, 2500).GetMultiplier(multiplier), ore, 5)
+                    );
+                }
+            }
+            foreach (var ore in OreConstants.UNCOMMONORES)
+            {
+                if (!OreConstants.ESORES.Contains(ore) || IsUsingTechnology())
+                {
+                    loot.Add(
+                        DefinitionUtils.GetLootItem(new Vector2(625, 1250).GetMultiplier(multiplier), ore, 2.5f)
+                    );
+                }
+            }
+            foreach (var ore in OreConstants.RAREORES)
+            {
+                if (!OreConstants.ESORES.Contains(ore) || IsUsingTechnology())
+                {
+                    loot.Add(
+                        DefinitionUtils.GetLootItem(new Vector2(312.5f, 625).GetMultiplier(multiplier), ore, 1.25f)
+                    );
+                }
+            }
+            foreach (var ore in OreConstants.EPICORES)
+            {
+                if (!OreConstants.ESORES.Contains(ore) || IsUsingTechnology())
+                {
+                    loot.Add(
+                        DefinitionUtils.GetLootItem(new Vector2(156.25f, 312.5f).GetMultiplier(multiplier), ore, 0.625f)
+                    );
+                }
+            }
+            foreach (var ore in OreConstants.LEGENDARYORES)
+            {
+                if (!OreConstants.ESORES.Contains(ore) || IsUsingTechnology())
+                {
+                    loot.Add(
+                        DefinitionUtils.GetLootItem(new Vector2(78.125f, 156.25f).GetMultiplier(multiplier), ore, 0.3125f)
+                    );
+                }
+            }
+            return loot.ToArray();
+        }
+
         private MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[] GetCreature3Loot(float multiplier = 1f)
         {
             return new MyObjectBuilder_ContainerTypeDefinition.ContainerTypeItem[]
@@ -1242,38 +1479,6 @@ namespace ExtendedSurvival.Stats
                 ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
             }
             base.UnloadData();
-        }
-
-        private static void ForceWolfAndSpiders()
-        {
-            try
-            {
-                if (ExtendedSurvivalSettings.Instance.ForceCreatureSpawn)
-                {
-                    MyAPIGateway.Session.SessionSettings.EnableSpiders = true;
-                    MyAPIGateway.Session.SessionSettings.EnableWolfs = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(typeof(ExtendedSurvivalStatsSession), ex);
-            }
-        }
-
-        protected override void DoUpdate()
-        {
-            base.DoUpdate();
-            try
-            {
-                if (IsServer)
-                {
-                    ForceWolfAndSpiders();
-                }
-            }
-            catch (Exception ex)
-            {
-                ExtendedSurvivalStatsLogging.Instance.LogError(GetType(), ex);
-            }
         }
 
         public IMyCharacter TargetCharacter { get; private set; }

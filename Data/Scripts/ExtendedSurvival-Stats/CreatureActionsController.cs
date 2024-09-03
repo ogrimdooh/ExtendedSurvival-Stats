@@ -1,5 +1,7 @@
-﻿using Sandbox.Game.Components;
+﻿using Sandbox.Game.AI;
+using Sandbox.Game.Components;
 using Sandbox.Game.Entities;
+using Sandbox.Game.Entities.Character;
 using Sandbox.ModAPI.Weapons;
 using System;
 using System.Linq;
@@ -20,47 +22,54 @@ namespace ExtendedSurvival.Stats
             MyEntityStat Torpor;
             statComponent.TryGetStat(MyStringHash.GetOrCompute(StatsConstants.CreatureValidStats.Torpor.ToString()), out Torpor);
 
-            if (Torpor != null && damage.Type == MyDamageType.Bullet && damage.AttackerId != 0)
+            if (damage.Type == MyDamageType.Wolf || damage.Type == MyDamageType.Spider)
             {
-                IMyAutomaticRifleGun gunObj;
-                var gun = ExtendedSurvivalStatsEntityManager.Instance.GetHandheldGun(damage.AttackerId, out gunObj);
-                if (gun != null)
+                damage.Amount = 0; /* Disable create damagin other creature */
+            }
+            else
+            {
+                if (Torpor != null && damage.Type == MyDamageType.Bullet && damage.AttackerId != 0)
                 {
-
-                    float torporRate = 1;
-                    float damageRate = 1;
-                    var armor = PlayerArmorController.GetEquipedArmor(gunObj.OwnerIdentityId, useCache: true); 
-                    if (armor != null && armor.HasArmor)
+                    IMyAutomaticRifleGun gunObj;
+                    var gun = ExtendedSurvivalStatsEntityManager.Instance.GetHandheldGun(damage.AttackerId, out gunObj);
+                    if (gun != null)
                     {
-                        if (armor.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.CreatureDamage))
+
+                        float torporRate = 1;
+                        float damageRate = 1;
+                        var armor = PlayerArmorController.GetEquipedArmor(gunObj.OwnerIdentityId, useCache: true);
+                        if (armor != null && armor.HasArmor)
                         {
-                            damageRate += armor.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.CreatureDamage];
+                            if (armor.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.CreatureDamage))
+                            {
+                                damageRate += armor.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.CreatureDamage];
+                            }
+                            if (armor.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.TorporBonus))
+                            {
+                                torporRate += armor.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.TorporBonus];
+                            }
                         }
-                        if (armor.ArmorDefinition.Effects.ContainsKey(ArmorSystemConstants.ArmorEffect.TorporBonus))
+                        damageRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.CreatureDamage);
+                        damageRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.HandWeaponDamage);
+                        torporRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.TorporBonus);
+
+                        if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_LIDOCAIN_MAGZINE_ID.DefinitionId)
                         {
-                            torporRate += armor.ArmorDefinition.Effects[ArmorSystemConstants.ArmorEffect.TorporBonus];
+                            Torpor.Increase(damage.Amount * TorporConstants.LIDOCAIN_MULTIPLIER * torporRate, null);
                         }
-                    }
-                    damageRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.CreatureDamage);
-                    damageRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.HandWeaponDamage);
-                    torporRate += PlayerActionsController.StatsMultiplier(gunObj.OwnerIdentityId, ArmorSystemConstants.ArmorEffect.TorporBonus);
+                        else if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_PROPOFOL_MAGZINE_ID.DefinitionId)
+                        {
+                            Torpor.Increase(damage.Amount * TorporConstants.PROPOFOL_MULTIPLIER * torporRate, null);
+                        }
+                        else
+                        {
+                            // Animals take more damage from bulets
+                            damage.Amount *= Math.Max(ExtendedSurvivalSettings.Instance.CreatureBulletDamageReciverMultiplier, 0.1f) * damageRate;
+                        }
+                        if (Torpor.Value >= Torpor.MaxValue)
+                            PassOut(character);
 
-                    if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_LIDOCAIN_MAGZINE_ID.DefinitionId)
-                    {
-                        Torpor.Increase(damage.Amount * TorporConstants.LIDOCAIN_MULTIPLIER * torporRate, null);
                     }
-                    else if (gun.CurrentAmmoMagazineId == WeaponsConstants.PISTOL_PROPOFOL_MAGZINE_ID.DefinitionId)
-                    {
-                        Torpor.Increase(damage.Amount * TorporConstants.PROPOFOL_MULTIPLIER * torporRate, null);
-                    }
-                    else
-                    {
-                        // Animals take more damage from bulets
-                        damage.Amount *= Math.Max(ExtendedSurvivalSettings.Instance.CreatureBulletDamageReciverMultiplier, 0.1f) * damageRate;
-                    }
-                    if (Torpor.Value >= Torpor.MaxValue)
-                        PassOut(character);
-
                 }
             }
         }
