@@ -2,6 +2,8 @@
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using VRage.Utils;
 
@@ -150,6 +152,7 @@ namespace ExtendedSurvival.Stats
             int totalPositive = 0;
             int totalNegative = 0;
             int notTrackedEffects = 0;
+            HashSet<string> fellingResolutions = new HashSet<string>();
             if (IsValid)
             {
                 var bodyTrackLevel = GetBodyTrackerLevel();
@@ -162,6 +165,11 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetSurvivalEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetSurvivalEffectTrackLevel(effect))
                         {
+                            var resolution = StatsConstants.GetSurvivalEffectFeelingResolution(effect);
+                            if (!string.IsNullOrWhiteSpace(resolution))
+                            {
+                                fellingResolutions.Add(resolution);
+                            }
                             var text = StatsConstants.GetSurvivalEffectDescription(effect);
                             if (StatsConstants.GetSurvivalEffectCanStack(effect))
                             {
@@ -201,6 +209,11 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetTemperatureEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetTemperatureEffectTrackLevel(effect))
                         {
+                            var resolution = StatsConstants.GetTemperatureEffectFeelingResolution(effect);
+                            if (!string.IsNullOrWhiteSpace(resolution))
+                            {
+                                fellingResolutions.Add(resolution);
+                            }
                             var text = StatsConstants.GetTemperatureEffectDescription(effect);
                             if (StatsConstants.TEMPERATURE_EFFECTS[effect].CanSelfRemove || StatsConstants.TEMPERATURE_EFFECTS[effect].IsInverseTime)
                             {
@@ -229,6 +242,11 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetDamageEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetDamageEffectTrackLevel(effect))
                         {
+                            var resolution = StatsConstants.GetDamageEffectFeelingResolution(effect);
+                            if (!string.IsNullOrWhiteSpace(resolution))
+                            {
+                                fellingResolutions.Add(resolution);
+                            }
                             var text = StatsConstants.GetDamageEffectDescription(effect);
                             if (StatsConstants.CanDamageEffectSelfRemove(effect))
                             {
@@ -257,6 +275,11 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetDiseaseEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetDiseaseEffectTrackLevel(effect))
                         {
+                            var resolution = StatsConstants.GetDiseaseEffectFeelingResolution(effect);
+                            if (!string.IsNullOrWhiteSpace(resolution))
+                            {
+                                fellingResolutions.Add(resolution);
+                            }
                             var text = StatsConstants.GetDiseaseEffectDescription(effect);
                             if (StatsConstants.CanDiseaseEffectStack(effect))
                             {
@@ -289,6 +312,11 @@ namespace ExtendedSurvival.Stats
                         toalEffects += StatsConstants.GetOtherEffectFeelingLevel(effect);
                         if (bodyTrackLevel >= StatsConstants.GetOtherEffectTrackLevel(effect))
                         {
+                            var resolution = StatsConstants.GetOtherEffectFeelingResolution(effect);
+                            if (!string.IsNullOrWhiteSpace(resolution))
+                            {
+                                fellingResolutions.Add(resolution);
+                            }
                             sbEffects.AppendLine(StatsConstants.GetOtherEffectDescription(effect));
                         }
                         else
@@ -391,6 +419,13 @@ namespace ExtendedSurvival.Stats
                 if (feeling.Length > 0)
                 {
                     sbFeeling.AppendLine(feeling);
+                    if (fellingResolutions.Any())
+                    {
+                        foreach (var f in fellingResolutions)
+                        {
+                            sbFeeling.AppendLine(f);
+                        }
+                    }
                     sbFeeling.AppendLine();
                 }
                 if (sbEffects.Length > 0)

@@ -3757,8 +3757,88 @@ namespace ExtendedSurvival.Stats
                 "Kampfmodul"
             );
             #endregion
+
+
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE,
+                "Ich sollte {0} verwenden, um {1} zu heilen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STARVATION,
+                "Ich sollte etwas essen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_DEHYDRATION,
+                "Ich sollte etwas trinken."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_OBESITY,
+                "Ich sollte ein paar Übungen machen und mich besser ernähren."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_RICKETS,
+                "Ich sollte mich entspannen und kalorienreiche Lebensmittel essen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_HYPOLIPIDEMIA,
+                "Ich sollte Sport treiben und mich proteinreich ernähren."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_PEEANDPOOPONCLOTHES,
+                "Ich sollte in die Kryotherapie gehen, um mich zu reinigen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOHOT,
+                "Ich sollte meine Rüstung mit einem heißen Thermoregler ausstatten."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOCOLD,
+                "Ich sollte meine Rüstung mit einem Kälteregler ausstatten."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_WET,
+                "Ich sollte eine unter Druck stehende Umgebung betreten."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOTOXICITY,
+                "Ich sollte meine Rüstung mit einem Toxizitätsfilter ausstatten."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTORADIOACTIVITY,
+                "Ich sollte meine Rüstung mit einem Radioaktivitätsfilter ausstatten."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_SUFFOCATION,
+                "Ich sollte nach einer Sauerstoffquelle suchen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_TIRED,
+                "Ich sollte mich im Kryo oder im Bett etwas ausruhen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_FULLBLADDERORGUT,
+                "Ich sollte mich im Kryo oder auf der Toilette erleichtern."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_FULLSTOMACH,
+                "Ich sollte eine Weile mit dem Essen aufhören und auf die Verdauung warten."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STOMACHBURSTING,
+                "Ich sollte aufhören zu essen, damit ich mich nicht übergeben muss."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STOMACHGROWLING,
+                "Ich sollte meinen Magen nicht leer werden lassen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EMPTYSTOMACH,
+                "Ich sollte nicht so lange ohne etwas im Magen auskommen."
+            );
+
+
         }
 
-	}
+    }
 
 }

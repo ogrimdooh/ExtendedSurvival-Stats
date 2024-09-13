@@ -668,6 +668,56 @@ namespace ExtendedSurvival.Stats
 
         }
 
+        public static string GetDiseaseEffectFeelingResolution(DiseaseEffects effect)
+        {
+            switch (effect)
+            {
+                case DiseaseEffects.Dysentery:
+                case DiseaseEffects.Poison:
+                case DiseaseEffects.Queasy:
+                case DiseaseEffects.Flu:
+                case DiseaseEffects.Infected:
+                case DiseaseEffects.Pneumonia:
+                    var k = MedicalConstants.GetFirstCanCure(effect);
+                    if (k != null)
+                    {
+                        return string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE),
+                            MedicalConstants.MEDICAL_DEFINITIONS[k].Name,
+                            GetDiseaseEffectDescription(effect)
+                        );
+                    }
+                    break;
+                case DiseaseEffects.Hypothermia:
+                case DiseaseEffects.Hyperthermia:
+                    var k2 = FoodConstants.GetFirstCanCure(effect);
+                    if (k2 != null)
+                    {
+                        return string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE),
+                            FoodConstants.FOOD_DEFINITIONS[k2].Name,
+                            GetDiseaseEffectDescription(effect)
+                        );
+                    }
+                    break;
+                case DiseaseEffects.Starvation:
+                case DiseaseEffects.SevereStarvation:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_STARVATION);
+                case DiseaseEffects.Dehydration:
+                case DiseaseEffects.SevereDehydration:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_DEHYDRATION);
+                case DiseaseEffects.Obesity:
+                case DiseaseEffects.SevereObesity:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_OBESITY);
+                case DiseaseEffects.Rickets:
+                case DiseaseEffects.SevereRickets:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_RICKETS);
+                case DiseaseEffects.Hypolipidemia:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_HYPOLIPIDEMIA);
+            }
+            return "";
+        }
+
         public static int GetDiseaseEffectFeelingLevel(DiseaseEffects effect)
         {
             switch (effect)
@@ -1075,6 +1125,17 @@ namespace ExtendedSurvival.Stats
             return 0;
         }
 
+        public static string GetOtherEffectFeelingResolution(OtherEffects effect)
+        {
+            switch (effect)
+            {
+                case OtherEffects.PoopOnClothes:
+                case OtherEffects.PeeOnClothes:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_PEEANDPOOPONCLOTHES);
+            }
+            return "";
+        }
+
         public static int GetOtherEffectFeelingLevel(OtherEffects effect)
         {
             switch (effect)
@@ -1194,6 +1255,56 @@ namespace ExtendedSurvival.Stats
             return 0;
         }
 
+        public static string GetTemperatureEffectFeelingResolution(TemperatureEffects effect)
+        {
+            switch (effect)
+            {
+                case TemperatureEffects.ExposedToHot:
+                case TemperatureEffects.ExposedToBoiling:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOHOT);
+                case TemperatureEffects.ExposedToCold:
+                case TemperatureEffects.ExposedToFreeze:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOCOLD);
+                case TemperatureEffects.Overheating:
+                case TemperatureEffects.OnFire:
+                case TemperatureEffects.Cold:
+                case TemperatureEffects.Frosty:
+                    var k2 = FoodConstants.GetFirstCanCure(effect);
+                    if (k2 != null)
+                    {
+                        return string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE),
+                            FoodConstants.FOOD_DEFINITIONS[k2].Name,
+                            GetTemperatureEffectDescription(effect)
+                        );
+                    }
+                    break;
+                case TemperatureEffects.Wet:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_WET);
+                case TemperatureEffects.ExposedToToxicity:
+                case TemperatureEffects.ExposedToExtremeToxicity:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOTOXICITY);
+                case TemperatureEffects.ExposedToRadioactivity:
+                case TemperatureEffects.ExposedToExtremeRadioactivity:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_EXPOSEDTORADIOACTIVITY);
+                case TemperatureEffects.RadiationSick:
+                case TemperatureEffects.RadiationPoisoning:
+                case TemperatureEffects.Intoxicated:
+                case TemperatureEffects.VeryIntoxicated:
+                    var k = MedicalConstants.GetFirstCanCure(effect);
+                    if (k != null)
+                    {
+                        return string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE),
+                            MedicalConstants.MEDICAL_DEFINITIONS[k].Name,
+                            GetTemperatureEffectDescription(effect)
+                        );
+                    }
+                    break;
+            }
+            return "";
+        }
+
         public static int GetTemperatureEffectFeelingLevel(TemperatureEffects effect)
         {
             switch (effect)
@@ -1250,6 +1361,28 @@ namespace ExtendedSurvival.Stats
                     return 3;
             }
             return 0;
+        }
+
+        public static string GetDamageEffectFeelingResolution(DamageEffects effect)
+        {
+            switch (effect)
+            {
+                case DamageEffects.Contusion:
+                case DamageEffects.Wounded:
+                case DamageEffects.DeepWounded:
+                case DamageEffects.BrokenBones:
+                    var k = MedicalConstants.GetFirstCanCure(effect);
+                    if (k != null)
+                    {
+                        return string.Format(
+                            LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE),
+                            MedicalConstants.MEDICAL_DEFINITIONS[k].Name,
+                            GetDamageEffectDescription(effect)
+                        );
+                    }
+                    break;
+            }
+            return "";
         }
 
         public static int GetDamageEffectFeelingLevel(DamageEffects effect)
@@ -1444,6 +1577,39 @@ namespace ExtendedSurvival.Stats
                     return 1;
             }
             return 0;
+        }
+
+        public static string GetSurvivalEffectFeelingResolution(SurvivalEffects effect)
+        {
+            switch (effect)
+            {
+                case SurvivalEffects.Hungry:
+                case SurvivalEffects.Famished:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_STARVATION);
+                case SurvivalEffects.Thirsty:
+                case SurvivalEffects.Dehydrating:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_DEHYDRATION);
+                case SurvivalEffects.Disoriented:
+                case SurvivalEffects.Suffocation:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_SUFFOCATION);
+                case SurvivalEffects.Tired:
+                case SurvivalEffects.ExtremelyTired:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_TIRED);
+                case SurvivalEffects.FullBladder:
+                case SurvivalEffects.BladderBurst:
+                case SurvivalEffects.FullGut:
+                case SurvivalEffects.GutBurst:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_FULLBLADDERORGUT);
+                case SurvivalEffects.FullStomach:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_FULLSTOMACH);
+                case SurvivalEffects.StomachBursting:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_STOMACHBURSTING);
+                case SurvivalEffects.StomachGrowling:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_STOMACHGROWLING);
+                case SurvivalEffects.EmptyStomach:
+                    return LanguageProvider.GetEntry(LanguageEntries.FEELINGRESOLUTION_EMPTYSTOMACH);
+            }
+            return "";
         }
 
         public static int GetSurvivalEffectFeelingLevel(SurvivalEffects effect)

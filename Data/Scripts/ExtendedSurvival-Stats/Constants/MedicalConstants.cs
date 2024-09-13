@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using VRage.Game;
 using VRageMath;
+using static ExtendedSurvival.Stats.StatsConstants;
 
 namespace ExtendedSurvival.Stats
 {
@@ -1081,6 +1082,21 @@ namespace ExtendedSurvival.Stats
             { RADX_ID, RADX_DEFINITION },
             { ADVANCEDRADX_ID, ADVANCEDRADX_DEFINITION }
         };
+
+        public static UniqueEntityId GetFirstCanCure(DiseaseEffects disease)
+        {
+            return MEDICAL_DEFINITIONS.Values.FirstOrDefault(x => x.CureDisease?.Contains(disease) ?? false)?.Id;
+        }
+
+        public static UniqueEntityId GetFirstCanCure(DamageEffects damage)
+        {
+            return MEDICAL_DEFINITIONS.Values.FirstOrDefault(x => x.CureDamage?.Contains(damage) ?? false)?.Id;
+        }
+
+        public static UniqueEntityId GetFirstCanCure(TemperatureEffects temperature)
+        {
+            return MEDICAL_DEFINITIONS.Values.FirstOrDefault(x => x.TemperatureEffects?.ContainsKey(temperature) ?? false)?.Id;
+        }
 
         public static void TryOverrideDefinitions()
         {

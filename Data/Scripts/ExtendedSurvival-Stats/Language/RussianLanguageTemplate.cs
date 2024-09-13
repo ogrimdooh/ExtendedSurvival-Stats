@@ -3706,8 +3706,87 @@ namespace ExtendedSurvival.Stats
                 "Боевой модуль"
             );
             #endregion
+
+
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE,
+                "Мне следует использовать {0}, чтобы вылечить {1}."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STARVATION,
+                "Мне следует что-нибудь съесть."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_DEHYDRATION,
+                "Мне следует что-нибудь выпить."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_OBESITY,
+                "Мне следует заняться спортом и лучше питаться."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_RICKETS,
+                "Мне следует расслабиться и есть калорийную пищу."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_HYPOLIPIDEMIA,
+                "Мне следует заниматься спортом и соблюдать диету с высоким содержанием белка."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_PEEANDPOOPONCLOTHES,
+                "Мне нужно пойти на крио, чтобы очиститься."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOHOT,
+                "Мне следует оснастить свою броню горячим терморегулятором."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOCOLD,
+                "Мне следует оснастить свою броню холодным терморегулятором."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_WET,
+                "Я должен был войти в среду под давлением."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOTOXICITY,
+                "Мне следует оборудовать свою броню фильтром токсичности."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTORADIOACTIVITY,
+                "Мне следует оборудовать свою броню радиоактивным фильтром."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_SUFFOCATION,
+                "Мне нужно искать источник кислорода."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_TIRED,
+                "Мне нужно немного отдохнуть в криокамере или в постели."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_FULLBLADDERORGUT,
+                "Мне следует справить нужду в криокамере или в ванной."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_FULLSTOMACH,
+                "Мне следует на время перестать есть и дождаться пищеварения."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STOMACHBURSTING,
+                "Мне нужно перестать есть, чтобы меня не стошнило."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STOMACHGROWLING,
+                "Я не должен позволять желудку опустошаться."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EMPTYSTOMACH,
+                "Я не должен так долго оставаться без чего-то в желудке."
+            );
+
         }
 
-	}
+    }
 
 }

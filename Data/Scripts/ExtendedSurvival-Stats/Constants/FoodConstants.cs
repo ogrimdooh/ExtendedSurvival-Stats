@@ -5,6 +5,7 @@ using System.Linq;
 using VRage;
 using VRage.Game;
 using VRageMath;
+using static ExtendedSurvival.Stats.StatsConstants;
 
 namespace ExtendedSurvival.Stats
 {
@@ -4374,6 +4375,16 @@ namespace ExtendedSurvival.Stats
                 }
             }
         };
+
+        public static UniqueEntityId GetFirstCanCure(DiseaseEffects disease)
+        {
+            return FOOD_DEFINITIONS.Values.FirstOrDefault(x => x.CureDisease?.Contains(disease) ?? false)?.Id;
+        }
+
+        public static UniqueEntityId GetFirstCanCure(TemperatureEffects temperature)
+        {
+            return FOOD_DEFINITIONS.Values.FirstOrDefault(x => x.TemperatureEffects?.ContainsKey(temperature) ?? false)?.Id;
+        }
 
         public static void TryOverrideDefinitions()
         {

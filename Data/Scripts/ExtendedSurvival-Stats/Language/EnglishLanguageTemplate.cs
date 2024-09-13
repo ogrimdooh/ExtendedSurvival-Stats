@@ -3716,6 +3716,83 @@ namespace ExtendedSurvival.Stats
             );
             #endregion
 
+            AddEntry(
+				LanguageEntries.FEELINGRESOLUTION_USE_TO_CURE,
+				"I should use {0} to cure {1}."
+			);
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STARVATION,
+                "I should eat something."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_DEHYDRATION,
+                "I should drink something."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_OBESITY,
+                "I should do some exercises and eat better."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_RICKETS,
+                "I should relax and eat high-calorie foods."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_HYPOLIPIDEMIA,
+                "I should exercise and eat a high protein diet."
+            );
+            AddEntry(
+				LanguageEntries.FEELINGRESOLUTION_PEEANDPOOPONCLOTHES,
+				"I should go into cryo to clean myself up."
+			);
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOHOT,
+                "I should equip a hot thermal regulator on my armor."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOCOLD,
+                "I should equip a cold thermal regulator on my armor."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_WET,
+                "I was supposed to enter a pressurized environment."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTOTOXICITY,
+                "I should equip a toxicity filter on my armor."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EXPOSEDTORADIOACTIVITY,
+                "I should equip a radioactivity filter on my armor."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_SUFFOCATION,
+                "I should look for a source of oxygen."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_TIRED,
+                "I should get some rest in cryo or bed."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_FULLBLADDERORGUT,
+                "I should relieve myself in cryo or in a bathroom."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_FULLSTOMACH,
+                "I should stop eating for a while and wait for digestion."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STOMACHBURSTING,
+                "I should stop eating so I don't vomit."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_STOMACHGROWLING,
+                "I shouldn't let my stomach get empty."
+            );
+            AddEntry(
+                LanguageEntries.FEELINGRESOLUTION_EMPTYSTOMACH,
+                "I shouldn't go this long without something in my stomach."
+            );
+
 
             AddEntry(
 				LanguageEntries.SURVIVALEFFECTS_DESCRIPTION,
