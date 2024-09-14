@@ -412,7 +412,7 @@ namespace ExtendedSurvival.Stats
                 }
                 if (WeatherConstants.CurrentWeatherInfo != null)
                 {
-                    sbFeeling.AppendLine(WeatherConstants.CurrentWeatherInfo.GetDisplayInfo(bodyTrackLevel));
+                    sbFeeling.AppendLine(WeatherConstants.CurrentWeatherInfo.GetDisplayInfo(bodyTrackLevel, ArmorInfo));
                     sbFeeling.AppendLine();
                 }
                 var feeling = StatsConstants.GetFeelingByTotalEffects(toalEffects);

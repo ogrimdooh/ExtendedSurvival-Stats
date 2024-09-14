@@ -3197,7 +3197,11 @@ namespace ExtendedSurvival.Stats
             AddEntry(
                 LanguageEntries.UI_EXTERNALTEMP_DISPLAY,
                 "External"
-            ); 
+            );
+            AddEntry(
+                LanguageEntries.UI_SAFETEMPERATURE_DISPLAY,
+                "Safe"
+            );
             AddEntry(
                 LanguageEntries.UI_EXTERNALEXPOSE_DISPLAY,
                 "Exposition: "

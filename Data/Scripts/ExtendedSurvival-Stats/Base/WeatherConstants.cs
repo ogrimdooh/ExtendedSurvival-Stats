@@ -164,10 +164,10 @@ namespace ExtendedSurvival.Stats
 
             public override int GetHashCode()
             {
-                return GetDisplayInfo(4).GetHashCode();
+                return GetDisplayInfo(4, null).GetHashCode();
             }
 
-            public string GetDisplayInfo(int bodyTrackerLevel)
+            public string GetDisplayInfo(int bodyTrackerLevel, PlayerArmorController.PlayerEquipInfo armorinfo)
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append(LanguageProvider.GetEntry(LanguageEntries.UI_ENVIROMENT_DISPLAY));
@@ -175,9 +175,22 @@ namespace ExtendedSurvival.Stats
                 if (bodyTrackerLevel >= 1)
                 {
                     sb.Append($" [{CurrentTemperature.Y.ToString("#0.00")}ºC]");
-                    if (bodyTrackerLevel >= 2 && CurrentTemperature.X != ExternalTemperature.X && CurrentTemperature.Y != ExternalTemperature.Y)
+                    if (bodyTrackerLevel >= 3 && CurrentTemperature.Y != ExternalTemperature.Y)
                     {
                         sb.Append($" {LanguageProvider.GetEntry(LanguageEntries.UI_EXTERNALTEMP_DISPLAY)} [{ExternalTemperature.Y.ToString("#0.00")}ºC]");
+                    }
+                    float coldReistence = 0;
+                    float hotReistence = 0;
+                    if (armorinfo != null && (armorinfo.HasArmor || armorinfo.HasHelmet))
+                    {
+                        coldReistence = armorinfo.GetColdResistence();
+                        hotReistence = armorinfo.GetHotResistence();
+                    }
+                    if (bodyTrackerLevel >= 2 && CurrentEnvironmentType != EnvironmentDetector.ShipOrStation)
+                    {
+                        var minTemp = PlayerTemperatureController.TEMPERATURE_RANGE.X - coldReistence;
+                        var maxTemp = PlayerTemperatureController.TEMPERATURE_RANGE.Y + hotReistence;
+                        sb.Append($" {LanguageProvider.GetEntry(LanguageEntries.UI_SAFETEMPERATURE_DISPLAY)} [{minTemp.ToString("#0.00")}ºC - {maxTemp.ToString("#0.00")}ºC]");
                     }
                     if (WeatherEffect != WeatherEffects.None)
                     {

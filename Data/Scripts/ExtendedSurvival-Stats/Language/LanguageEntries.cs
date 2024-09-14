@@ -868,6 +868,7 @@
         public const string UI_ENVIROMENT_DISPLAY = "UI_ENVIROMENT_DISPLAY";
         public const string UI_WEATHER_DISPLAY = "UI_WEATHER_DISPLAY";
         public const string UI_EXTERNALTEMP_DISPLAY = "UI_EXTERNALTEMP_DISPLAY";
+        public const string UI_SAFETEMPERATURE_DISPLAY = "UI_SAFETEMPERATURE_DISPLAY";
         public const string UI_TOXIC_DISPLAY = "UI_TOXIC_DISPLAY";
         public const string UI_RADIATION_DISPLAY = "UI_RADIATION_DISPLAY";
         public const string UI_EXTERNALEXPOSE_DISPLAY = "UI_EXTERNALEXPOSE_DISPLAY";
