@@ -783,7 +783,7 @@ namespace ExtendedSurvival.Stats
                             {
                                 if (newPod)
                                 {
-                                    PlayerMetabolismController.DoEatStartFood(playerId);
+                                    AdvancedStatsAndEffectsAPI.DoResetCharacterStats(playerId);
                                 }
                             },
                             int.MaxValue
